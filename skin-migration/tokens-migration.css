@@ -1,0 +1,33 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Load AFTER the legacy style.css and AFTER design-tokens/tokens.css.
+ * Do not activate without an explicit migration instruction.
+ */
+
+:root {
+  --color-parchment: var(--milreu-paper);
+  --color-parchment-dark: var(--milreu-paper-deep);
+  --color-parchment-mid: color-mix(in srgb, var(--milreu-paper), var(--milreu-paper-deep) 55%);
+
+  /* Deliberately NOT mapped to brick: legacy terracotta covers large areas. */
+  --color-terracotta: var(--milreu-sepia);
+  --color-terracotta-dark: var(--milreu-ink-soft);
+  --color-terracotta-light: var(--milreu-stone);
+
+  --color-olive: var(--milreu-patina);
+  --color-olive-light: color-mix(in srgb, var(--milreu-patina), var(--milreu-paper) 35%);
+  --color-olive-dark: color-mix(in srgb, var(--milreu-patina), var(--milreu-ink) 30%);
+
+  --color-sand: var(--milreu-stone);
+  --color-sand-light: var(--milreu-paper-deep);
+
+  --color-charcoal: var(--milreu-ink);
+  --color-charcoal-mid: var(--milreu-ink-soft);
+  --color-charcoal-light: var(--milreu-ink-soft);
+  --color-white: var(--milreu-paper);
+
+  --font-display: var(--ds-font-display);
+  --font-body: var(--ds-font-body);
+  --font-accent: var(--ds-font-display);
+}

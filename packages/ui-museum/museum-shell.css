@@ -1,0 +1,73 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Museum shell scaffold — no real collection content included.
+ */
+
+.ds-museum-shell {
+  position: relative;
+  min-height: min(52rem, 100vh);
+  overflow: hidden;
+  color: var(--ds-text-inverse);
+  background: var(--ds-surface-inverse);
+  font-family: var(--ds-font-body);
+}
+
+.ds-museum-shell__media {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: color-mix(in srgb, var(--ds-text-inverse), transparent 25%);
+  background:
+    linear-gradient(to top, rgb(42 38 34 / 0.88), transparent 55%),
+    radial-gradient(circle at 65% 35%, rgb(167 155 136 / 0.28), transparent 40%),
+    var(--ds-surface-inverse);
+  font: 600 var(--ds-text-sm)/1.4 var(--ds-font-utility);
+}
+
+.ds-museum-shell__topbar,
+.ds-museum-shell__controls,
+.ds-museum-shell__caption {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+}
+
+.ds-museum-shell__topbar {
+  inset: var(--ds-space-4) var(--ds-space-4) auto;
+  justify-content: space-between;
+}
+
+.ds-museum-shell__caption {
+  inset: auto auto var(--ds-space-6) max(var(--ds-space-4), 6vw);
+  display: block;
+  max-width: min(42rem, calc(100% - 8rem));
+}
+
+.ds-museum-shell__caption h2 {
+  margin: 0 0 var(--ds-space-2);
+  font: 600 var(--ds-text-3xl)/1.04 var(--ds-font-display);
+}
+
+.ds-museum-shell__caption p {
+  margin: 0;
+  font: var(--ds-text-lg)/1.5 var(--ds-font-body);
+}
+
+.ds-museum-shell__controls {
+  inset: auto var(--ds-space-4) var(--ds-space-4) auto;
+}
+
+.ds-museum-shell .ds-button {
+  color: var(--ds-text-inverse);
+  border-color: color-mix(in srgb, var(--ds-text-inverse), transparent 35%);
+  background: rgb(42 38 34 / 0.35);
+}
+
+.ds-museum-shell .ds-button:hover {
+  color: var(--ds-text-primary);
+  background: var(--ds-surface-primary);
+}

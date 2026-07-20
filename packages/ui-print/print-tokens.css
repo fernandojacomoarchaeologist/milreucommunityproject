@@ -1,0 +1,34 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Initial print foundations; not a print-ready panel template.
+ */
+
+:root {
+  --ds-print-panel-width: 1000mm;
+  --ds-print-panel-height: 800mm;
+  --ds-print-bleed: 5mm;
+  --ds-print-safe-area: 25mm;
+  --ds-print-body-size: 34pt;
+  --ds-print-caption-size: 22pt;
+  --ds-print-metadata-size: 18pt;
+  --ds-print-institutional-rule: 4mm;
+}
+
+.ds-print-frame {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--ds-print-panel-width);
+  height: var(--ds-print-panel-height);
+  padding: var(--ds-print-safe-area);
+  color: var(--ds-text-primary);
+  background: var(--ds-surface-primary);
+}
+
+.ds-print-frame::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--ds-print-safe-area) var(--ds-print-safe-area);
+  height: var(--ds-print-institutional-rule);
+  background: var(--ds-institutional-frame);
+}

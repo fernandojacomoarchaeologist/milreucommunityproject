@@ -1,0 +1,207 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * UI Core version: 0.1.0
+ */
+
+.ds-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.ds-focusable:focus-visible,
+.ds-button:focus-visible,
+.ds-lang-toggle button:focus-visible,
+.ds-figure-card a:focus-visible {
+  outline: var(--ds-focus-width) solid var(--ds-focus);
+  outline-offset: 3px;
+}
+
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  min-height: 2.75rem;
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border: var(--ds-border-width) solid var(--ds-text-primary);
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-text-primary);
+  background: transparent;
+  font: 600 var(--ds-text-sm)/1 var(--ds-font-utility);
+  cursor: pointer;
+  transition: background var(--ds-duration-fast) var(--ds-ease-standard), color var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+.ds-button:hover {
+  color: var(--ds-text-inverse);
+  background: var(--ds-text-primary);
+}
+
+.ds-status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.625rem;
+  padding: 0 var(--ds-space-2);
+  border: 1px solid var(--ds-border-muted);
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-metadata);
+  background: var(--ds-surface-primary);
+  font: 600 var(--ds-text-xs)/1 var(--ds-font-utility);
+  letter-spacing: 0.02em;
+}
+
+.ds-confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  color: var(--ds-text-secondary);
+  font: 600 var(--ds-text-xs)/1.2 var(--ds-font-utility);
+}
+
+.ds-confidence__dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: inset 0 0 0 2px var(--ds-surface-primary);
+}
+
+.ds-confidence--confirmed { color: var(--ds-certainty-confirmed); }
+.ds-confidence--probable { color: var(--ds-certainty-probable); }
+.ds-confidence--hypothesis { color: var(--ds-certainty-hypothesis); }
+
+.ds-provenance-note {
+  padding: var(--ds-space-4);
+  border-left: 3px solid var(--ds-border-muted);
+  background: var(--ds-surface-secondary);
+}
+
+.ds-provenance-note__eyebrow {
+  margin: 0 0 var(--ds-space-2);
+  color: var(--ds-metadata);
+  font: 700 var(--ds-text-xs)/1.2 var(--ds-font-utility);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ds-provenance-note__text {
+  margin: 0;
+  color: var(--ds-text-secondary);
+  font: var(--ds-text-sm)/1.55 var(--ds-font-body);
+}
+
+.ds-figure-card {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--ds-border-muted), transparent 35%);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-surface-primary);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.ds-figure-card__media {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--ds-text-secondary);
+  background:
+    linear-gradient(135deg, transparent 0 47%, color-mix(in srgb, var(--ds-border-muted), transparent 65%) 48% 52%, transparent 53%),
+    var(--ds-surface-secondary);
+  font: 600 var(--ds-text-sm)/1.3 var(--ds-font-utility);
+}
+
+.ds-figure-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ds-figure-card__body { padding: var(--ds-space-5); }
+
+.ds-figure-card__id {
+  display: block;
+  margin-bottom: var(--ds-space-2);
+  color: var(--ds-metadata);
+  font: 700 var(--ds-text-xs)/1.2 var(--ds-font-utility);
+  letter-spacing: 0.08em;
+}
+
+.ds-figure-card__title {
+  margin: 0 0 var(--ds-space-3);
+  color: var(--ds-text-primary);
+  font: 600 var(--ds-text-xl)/1.1 var(--ds-font-display);
+}
+
+.ds-figure-card__text {
+  margin: 0;
+  color: var(--ds-text-secondary);
+  font: var(--ds-text-md)/1.6 var(--ds-font-body);
+}
+
+.ds-rights-notice {
+  display: grid;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-5);
+  border: 1px solid var(--ds-border-muted);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-surface-secondary);
+}
+
+.ds-rights-notice__title {
+  margin: 0;
+  color: var(--ds-text-primary);
+  font: 650 var(--ds-text-lg)/1.2 var(--ds-font-display);
+}
+
+.ds-rights-notice__text {
+  margin: 0;
+  color: var(--ds-text-secondary);
+  font: var(--ds-text-sm)/1.55 var(--ds-font-body);
+}
+
+.ds-lang-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--ds-border-muted);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface-secondary);
+}
+
+.ds-lang-toggle button {
+  min-width: 2.75rem;
+  min-height: 2.25rem;
+  padding: 0 var(--ds-space-2);
+  border: 0;
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-text-secondary);
+  background: transparent;
+  font: 700 var(--ds-text-xs)/1 var(--ds-font-utility);
+  cursor: pointer;
+}
+
+.ds-lang-toggle button[aria-pressed="true"] {
+  color: var(--ds-text-inverse);
+  background: var(--ds-text-primary);
+}
+
+.ds-standard-footer {
+  position: relative;
+  padding: var(--ds-space-6) var(--ds-space-4);
+  border-top: 4px solid var(--ds-institutional-frame);
+  color: var(--ds-text-secondary);
+  background: var(--ds-surface-secondary);
+  font: var(--ds-text-sm)/1.5 var(--ds-font-utility);
+}
+
+.ds-standard-footer a { color: inherit; }

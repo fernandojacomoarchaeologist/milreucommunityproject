@@ -91,6 +91,22 @@ A identidade visual preliminar do ZIP antigo não é autoritativa. O design syst
 
 Não implementar o design system antes do pacote específico.
 
+### 9.1 Sistema de design — integrado pelo Pacote 02
+
+A fonte de verdade visual está distribuída entre:
+
+- `docs/design/` para intenção e regras;
+- `packages/design-tokens/tokens.json` para valores estruturados;
+- `packages/design-tokens/tokens.css` para Web;
+- `docs/design/COMPONENT_REGISTRY.md` para estado dos componentes;
+- `apps/design-guide/` para referência visual viva.
+
+Antes de alterar tokens ou componentes, executar a skill `design-system-change`.
+
+O sistema possui uma identidade e dois modos de composição: Portal e Museu. O tijolo é restrito à moldura institucional, créditos, QR e pequenos sinais; nunca deve dominar cabeçalhos ou superfícies.
+
+Não criar logótipo, textura, ícone ou reprodução do livro por inferência. Não incluir ficheiros de fontes. Novos componentes exigem `component-intake` e registo.
+
 ## 10. Copyright
 
 Todos os novos MDs e ficheiros de código devem conter:

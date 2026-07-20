@@ -1,0 +1,53 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Portal shell scaffold — not a final portal implementation.
+ */
+
+.ds-portal {
+  min-height: 100%;
+  color: var(--ds-text-primary);
+  background: var(--ds-surface-primary);
+  font-family: var(--ds-font-body);
+}
+
+.ds-portal__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-5);
+  padding: var(--ds-space-4) max(var(--ds-space-4), calc((100vw - var(--ds-content-wide)) / 2));
+  border-bottom: 1px solid var(--ds-border-muted);
+  background: color-mix(in srgb, var(--ds-surface-primary), transparent 6%);
+  backdrop-filter: blur(12px);
+}
+
+.ds-portal__brand {
+  color: var(--ds-text-primary);
+  font: 650 var(--ds-text-xl)/1 var(--ds-font-display);
+  text-decoration: none;
+}
+
+.ds-portal__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-4);
+  font: 600 var(--ds-text-sm)/1.2 var(--ds-font-utility);
+}
+
+.ds-portal__nav a { color: var(--ds-text-secondary); }
+.ds-portal__nav a[aria-current="page"] { color: var(--ds-accent-community); }
+
+.ds-portal__main {
+  width: min(calc(100% - 2 * var(--ds-space-4)), var(--ds-content-wide));
+  margin-inline: auto;
+  padding-block: var(--ds-space-8);
+}
+
+@media (max-width: 48rem) {
+  .ds-portal__header { align-items: flex-start; flex-direction: column; }
+  .ds-portal__nav { gap: var(--ds-space-3); }
+}

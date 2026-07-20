@@ -1,0 +1,99 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Direitos e condições de reutilização: consultar RIGHTS.md.
+ * Design System version: 0.1.0
+ */
+
+:root {
+  /* Authoritative colour primitives */
+  --milreu-paper: #F2ECE0;
+  --milreu-paper-deep: #E7DFCF;
+  --milreu-ink: #2A2622;
+  --milreu-ink-soft: #5B534A;
+  --milreu-sepia: #8A6A4A;
+  --milreu-stone: #A79B88;
+  --milreu-silver: #6C6C6C;
+  --milreu-patina: #5E7267;
+  --milreu-brick: #A83227;
+  --milreu-brick-deep: #7E251C;
+
+  /* Semantic colours */
+  --ds-surface-primary: var(--milreu-paper);
+  --ds-surface-secondary: var(--milreu-paper-deep);
+  --ds-surface-inverse: var(--milreu-ink);
+  --ds-text-primary: var(--milreu-ink);
+  --ds-text-secondary: var(--milreu-ink-soft);
+  --ds-text-inverse: var(--milreu-paper);
+  --ds-accent-community: var(--milreu-patina);
+  --ds-accent-memory: var(--milreu-sepia);
+  --ds-border-muted: var(--milreu-stone);
+  --ds-metadata: var(--milreu-silver);
+  --ds-institutional-frame: var(--milreu-brick);
+  --ds-institutional-frame-strong: var(--milreu-brick-deep);
+  --ds-certainty-confirmed: var(--milreu-patina);
+  --ds-certainty-probable: var(--milreu-sepia);
+  --ds-certainty-hypothesis: var(--milreu-stone);
+  --ds-focus: var(--milreu-brick-deep);
+
+  /* Type families */
+  --ds-font-display: "Fraunces", Georgia, serif;
+  --ds-font-body: "Spectral", Georgia, serif;
+  --ds-font-body-screen-alt: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --ds-font-utility: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  /* Fluid type scale */
+  --ds-text-xs: 0.75rem;
+  --ds-text-sm: 0.875rem;
+  --ds-text-md: 1rem;
+  --ds-text-lg: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+  --ds-text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --ds-text-2xl: clamp(1.625rem, 1.25rem + 1.2vw, 2.25rem);
+  --ds-text-3xl: clamp(2.125rem, 1.5rem + 2vw, 3.5rem);
+  --ds-text-display: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* Engineering spacing defaults */
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+
+  /* Shape */
+  --ds-radius-sm: 0.125rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 1rem;
+  --ds-radius-pill: 999px;
+
+  /* Elevation */
+  --ds-shadow-soft: 0 0.5rem 1.5rem rgb(42 38 34 / 0.10);
+  --ds-shadow-overlay: 0 1rem 3rem rgb(42 38 34 / 0.22);
+
+  /* Layout */
+  --ds-content-reading: 44rem;
+  --ds-content-wide: 80rem;
+  --ds-border-width: 1px;
+  --ds-focus-width: 3px;
+
+  /* Motion */
+  --ds-duration-fast: 150ms;
+  --ds-duration-base: 240ms;
+  --ds-duration-immersive: 380ms;
+  --ds-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-body-font="archivo"] {
+  --ds-font-body: var(--ds-font-body-screen-alt);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ds-duration-fast: 1ms;
+    --ds-duration-base: 1ms;
+    --ds-duration-immersive: 1ms;
+  }
+}

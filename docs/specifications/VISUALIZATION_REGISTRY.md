@@ -49,3 +49,15 @@ Nenhuma página, gráfico, mapa, componente visual complexo, painel físico ou e
 ## Observação sobre o protótipo
 
 Visualizações existentes no site preliminar constituem referências funcionais a auditar. Não recebem automaticamente estado `approved` neste registo.
+
+## Acréscimo do Pacote 02 — sistema de design
+
+| ID | Visualização | Produto | Estado | Spec | Observação |
+|---|---|---|---|---|---|
+| VIS-DS-001 | Guia vivo do sistema de design | Guia | Foundation approved | `SPEC-DS-001-DESIGN-GUIDE.md` | Pode ser integrado e testado |
+| VIS-DS-002 | Shell do Portal | Portal | Draft scaffold | `SPEC-DS-002-PORTAL-SHELL.md` | Não representa páginas finais |
+| VIS-DS-003 | Shell imersivo do Museu | Museu | Draft scaffold | `SPEC-DS-003-MUSEUM-SHELL.md` | Sem conteúdo real, mapa ou timeline |
+
+A aprovação do scaffold não aprova automaticamente homepage, galeria, mapa, timeline, visualizador documental, dashboard, editor ou app.
+
+**Pendência de reconciliação:** este bloco usa colunas, prefixos de ID e vocabulário de estados diferentes do registo inicial acima. `VIS-DS-001` e `VIEW-DESIGN-GUIDE` poderão designar a mesma visualização. Por decidir num pacote futuro.
