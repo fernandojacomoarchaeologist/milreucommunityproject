@@ -1,0 +1,30 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "rights": [
+    "cleared",
+    "community-authorised",
+    "public-domain",
+    "licensed",
+    "permission-recorded",
+    "pending-review",
+    "contested",
+    "withdrawn",
+    "unknown",
+    "not-assessed"
+  ],
+  "consent": [
+    "explicit-written",
+    "explicit-recorded",
+    "community-process-documented",
+    "provided-for-project",
+    "historical-material",
+    "not-required",
+    "pending-review",
+    "contested",
+    "withdrawn",
+    "unknown",
+    "not-assessed"
+  ]
+}

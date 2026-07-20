@@ -85,6 +85,16 @@ Distinguir sempre:
 
 Não tratar dados em construção como definitivos.
 
+### 8.1 Modelo de dados do Museu — integrado pelo Pacote 03
+
+- Os registos do Museu seguem `data/schemas/museum-memory.schema.json`.
+- O idioma de origem é `pt-PT`; `en`, `es` e `fr` devem existir estruturalmente e podem permanecer `null`.
+- Não existe nível de certeza `mixed`.
+- Direitos, consentimento e publicação são dimensões separadas.
+- Não migrar ou publicar registos sem validação e revisão explícitas.
+- Templates e exemplos não são dados publicáveis.
+- Alterações materiais exigem revisão e release.
+
 ## 9. Design
 
 A identidade visual preliminar do ZIP antigo não é autoritativa. O design system futuro deverá partir das referências visuais do livro de Hauschild e Teichner e das decisões já documentadas sobre as duas vozes: comunidade como superfície e instituição como moldura.

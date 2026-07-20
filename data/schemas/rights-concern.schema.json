@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rights-concern.schema.json",
+  "title": "Milreu Rights, Consent or Correction Concern",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "type": "object",
+  "properties": {
+    "_copyright": {
+      "const": "© 2026 Fernando Rodrigues de Jácomo"
+    },
+    "_project": {
+      "const": "Projeto Comunitário de Milreu"
+    },
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^CONCERN-[A-Z0-9-]+$"
+    },
+    "targetRecordId": {
+      "type": "string",
+      "pattern": "^MM\\d{6}$"
+    },
+    "concernType": {
+      "enum": [
+        "correction",
+        "identification",
+        "rights-claim",
+        "consent-withdrawal",
+        "removal-request",
+        "attribution-request",
+        "privacy-concern",
+        "other"
+      ]
+    },
+    "status": {
+      "enum": [
+        "received",
+        "triage",
+        "evidence-requested",
+        "under-review",
+        "resolved",
+        "rejected",
+        "withdrawn"
+      ]
+    },
+    "requesterReference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "privacyClassification": {
+      "const": "private"
+    },
+    "publicSummary": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "detailsPrivate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "receivedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "resolvedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "resolution": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "audit": {
+      "$ref": "common.schema.json#/$defs/audit"
+    }
+  },
+  "required": [
+    "_copyright",
+    "_project",
+    "schemaVersion",
+    "id",
+    "targetRecordId",
+    "concernType",
+    "status",
+    "requesterReference",
+    "privacyClassification",
+    "publicSummary",
+    "detailsPrivate",
+    "receivedAt",
+    "resolvedAt",
+    "resolution",
+    "evidenceRefs",
+    "audit"
+  ],
+  "additionalProperties": false
+}

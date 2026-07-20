@@ -8,3 +8,7 @@
 
 Se um pack vier truncado pelo chat, o `set -euo pipefail` e o heredoc por
 fechar fazem-no rebentar antes de escrever lixo. Pedir reenvio desse pack.
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

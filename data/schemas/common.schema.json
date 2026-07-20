@@ -1,0 +1,896 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "title": "Milreu Museum Common Definitions",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "$defs": {
+    "localizedString": {
+      "type": "object",
+      "properties": {
+        "pt-PT": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "en": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "es": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fr": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "pt-PT",
+        "en",
+        "es",
+        "fr"
+      ],
+      "additionalProperties": false
+    },
+    "localisationStatus": {
+      "type": "object",
+      "properties": {
+        "pt-PT": {
+          "enum": [
+            "source",
+            "missing",
+            "machine-draft",
+            "draft",
+            "reviewed",
+            "approved",
+            "not-required"
+          ]
+        },
+        "en": {
+          "enum": [
+            "source",
+            "missing",
+            "machine-draft",
+            "draft",
+            "reviewed",
+            "approved",
+            "not-required"
+          ]
+        },
+        "es": {
+          "enum": [
+            "source",
+            "missing",
+            "machine-draft",
+            "draft",
+            "reviewed",
+            "approved",
+            "not-required"
+          ]
+        },
+        "fr": {
+          "enum": [
+            "source",
+            "missing",
+            "machine-draft",
+            "draft",
+            "reviewed",
+            "approved",
+            "not-required"
+          ]
+        }
+      },
+      "required": [
+        "pt-PT",
+        "en",
+        "es",
+        "fr"
+      ],
+      "additionalProperties": false
+    },
+    "certainty": {
+      "enum": [
+        "certain",
+        "probable",
+        "hypothesis",
+        "unknown",
+        "not-assessed"
+      ]
+    },
+    "dateRange": {
+      "type": "object",
+      "properties": {
+        "display": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "normalizedStart": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+        },
+        "normalizedEnd": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$"
+        },
+        "precision": {
+          "enum": [
+            "day",
+            "month",
+            "year",
+            "decade",
+            "century",
+            "range",
+            "unknown"
+          ]
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "display",
+        "normalizedStart",
+        "normalizedEnd",
+        "precision",
+        "certainty",
+        "sourceRefs"
+      ],
+      "additionalProperties": false
+    },
+    "placeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publicLabel": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "specificLabel": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "precision": {
+          "enum": [
+            "exact",
+            "approximate",
+            "area",
+            "route",
+            "withheld",
+            "unknown"
+          ]
+        },
+        "coordinates": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "longitude": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "latitude",
+                "longitude"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "sensitivity": {
+          "enum": [
+            "public",
+            "low",
+            "restricted",
+            "sensitive"
+          ]
+        },
+        "publicationAllowed": {
+          "type": "boolean"
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "publicLabel",
+        "specificLabel",
+        "precision",
+        "coordinates",
+        "sensitivity",
+        "publicationAllowed",
+        "certainty",
+        "sourceRefs"
+      ],
+      "additionalProperties": false
+    },
+    "personReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publicLabel": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "identificationStatus": {
+          "enum": [
+            "identified",
+            "probable",
+            "partial",
+            "unidentified",
+            "withheld"
+          ]
+        },
+        "publicDisplayAllowed": {
+          "type": "boolean"
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "publicLabel",
+        "identificationStatus",
+        "publicDisplayAllowed",
+        "certainty",
+        "sourceRefs"
+      ],
+      "additionalProperties": false
+    },
+    "digitalIntervention": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "crop",
+            "rotation",
+            "tone-correction",
+            "dust-removal",
+            "repair",
+            "restoration",
+            "colourisation",
+            "reconstruction",
+            "ai-assisted-enhancement",
+            "format-conversion",
+            "resizing",
+            "other"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "tool": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "performedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "sourceAssetId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "promptReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "humanReviewStatus": {
+          "enum": [
+            "not-reviewed",
+            "reviewed",
+            "approved",
+            "rejected"
+          ]
+        },
+        "substantiveChange": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "description",
+        "tool",
+        "performedAt",
+        "sourceAssetId",
+        "promptReference",
+        "humanReviewStatus",
+        "substantiveChange"
+      ],
+      "additionalProperties": false
+    },
+    "mediaAsset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "original-private",
+            "preservation-master",
+            "public-derivative",
+            "thumbnail",
+            "print-derivative",
+            "audio",
+            "video",
+            "transcript",
+            "other"
+          ]
+        },
+        "fileName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "storage": {
+          "enum": [
+            "git-public",
+            "external-public",
+            "drive-private",
+            "osf-private",
+            "osf-public",
+            "legacy-site",
+            "not-assigned"
+          ]
+        },
+        "mimeType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "checksum": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "credit": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "publicationAllowed": {
+          "type": "boolean"
+        },
+        "rightsStatus": {
+          "enum": [
+            "cleared",
+            "community-authorised",
+            "public-domain",
+            "licensed",
+            "permission-recorded",
+            "pending-review",
+            "contested",
+            "withdrawn",
+            "unknown",
+            "not-assessed"
+          ]
+        },
+        "digitalInterventions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/digitalIntervention"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "fileName",
+        "storage",
+        "mimeType",
+        "checksum",
+        "credit",
+        "publicationAllowed",
+        "rightsStatus",
+        "digitalInterventions"
+      ],
+      "additionalProperties": false
+    },
+    "sourceReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "archive-record",
+            "publication",
+            "physical-photograph",
+            "oral-testimony",
+            "community-meeting",
+            "form-response",
+            "institutional-page",
+            "social-media",
+            "field-observation",
+            "museum-catalogue",
+            "project-documentation",
+            "other"
+          ]
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access": {
+          "enum": [
+            "public",
+            "public-metadata",
+            "restricted",
+            "private",
+            "unknown"
+          ]
+        },
+        "supports": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        },
+        "rightsReviewStatus": {
+          "enum": [
+            "not-required",
+            "pending-review",
+            "reviewed",
+            "restricted",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "citation",
+        "locator",
+        "access",
+        "supports",
+        "certainty",
+        "rightsReviewStatus"
+      ],
+      "additionalProperties": false
+    },
+    "provenanceEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "eventType": {
+          "enum": [
+            "provided",
+            "acquired",
+            "digitised",
+            "catalogued",
+            "identified",
+            "validated",
+            "restored",
+            "translated",
+            "rights-reviewed",
+            "published",
+            "unpublished",
+            "withdrawn",
+            "other"
+          ]
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "agentReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        }
+      },
+      "required": [
+        "id",
+        "eventType",
+        "date",
+        "agentReference",
+        "description",
+        "sourceRefs",
+        "certainty"
+      ],
+      "additionalProperties": false
+    },
+    "relation": {
+      "type": "object",
+      "properties": {
+        "relationType": {
+          "enum": [
+            "related-to",
+            "same-event-as",
+            "same-place-as",
+            "depicts",
+            "mentions",
+            "documents",
+            "derived-from",
+            "part-of-series",
+            "contrasts-with",
+            "supports",
+            "other"
+          ]
+        },
+        "targetType": {
+          "enum": [
+            "memory",
+            "person",
+            "place",
+            "event",
+            "study",
+            "artefact",
+            "initiative",
+            "exhibition",
+            "source",
+            "other"
+          ]
+        },
+        "targetId": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "outgoing",
+            "incoming",
+            "bidirectional"
+          ]
+        },
+        "certainty": {
+          "$ref": "#/$defs/certainty"
+        },
+        "notes": {
+          "$ref": "#/$defs/localizedString"
+        }
+      },
+      "required": [
+        "relationType",
+        "targetType",
+        "targetId",
+        "direction",
+        "certainty",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "rightsConsent": {
+      "type": "object",
+      "properties": {
+        "rightsStatus": {
+          "enum": [
+            "cleared",
+            "community-authorised",
+            "public-domain",
+            "licensed",
+            "permission-recorded",
+            "pending-review",
+            "contested",
+            "withdrawn",
+            "unknown",
+            "not-assessed"
+          ]
+        },
+        "consentStatus": {
+          "enum": [
+            "explicit-written",
+            "explicit-recorded",
+            "community-process-documented",
+            "provided-for-project",
+            "historical-material",
+            "not-required",
+            "pending-review",
+            "contested",
+            "withdrawn",
+            "unknown",
+            "not-assessed"
+          ]
+        },
+        "publicationBasis": {
+          "enum": [
+            "explicit-permission",
+            "community-process",
+            "open-licence",
+            "public-domain",
+            "institutional-terms",
+            "historical-documentation",
+            "pending-review",
+            "unknown",
+            "not-assessed"
+          ]
+        },
+        "concernStatus": {
+          "enum": [
+            "none-reported",
+            "active",
+            "under-review",
+            "resolved",
+            "withdrawn"
+          ]
+        },
+        "withdrawalAvailable": {
+          "type": "boolean"
+        },
+        "publicNoticeRequired": {
+          "type": "boolean"
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "$ref": "#/$defs/localizedString"
+        }
+      },
+      "required": [
+        "rightsStatus",
+        "consentStatus",
+        "publicationBasis",
+        "concernStatus",
+        "withdrawalAvailable",
+        "publicNoticeRequired",
+        "evidenceRefs",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "communityVoice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "publicName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "anonymous": {
+          "type": "boolean"
+        },
+        "relationToMilreu": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "$ref": "#/$defs/localizedString"
+        },
+        "language": {
+          "enum": [
+            "pt-PT",
+            "en",
+            "es",
+            "fr"
+          ]
+        },
+        "sourceChannel": {
+          "enum": [
+            "meeting",
+            "whatsapp",
+            "form",
+            "email",
+            "interview",
+            "in-person",
+            "other"
+          ]
+        },
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1800,
+          "maximum": 2100
+        },
+        "consentStatus": {
+          "enum": [
+            "explicit-written",
+            "explicit-recorded",
+            "community-process-documented",
+            "provided-for-project",
+            "pending-review",
+            "contested",
+            "withdrawn",
+            "unknown"
+          ]
+        },
+        "publicationStatus": {
+          "enum": [
+            "not-assessed",
+            "review-required",
+            "approved",
+            "published",
+            "blocked",
+            "unpublished",
+            "withdrawn"
+          ]
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "contactReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "publicName",
+        "anonymous",
+        "relationToMilreu",
+        "text",
+        "language",
+        "sourceChannel",
+        "year",
+        "consentStatus",
+        "publicationStatus",
+        "sourceRefs",
+        "contactReference"
+      ],
+      "additionalProperties": false
+    },
+    "audit": {
+      "type": "object",
+      "properties": {
+        "recordVersion": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "createdByReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "updatedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "updatedByReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceSystem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "previousVersionReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "changeReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "recordVersion",
+        "createdAt",
+        "createdByReference",
+        "updatedAt",
+        "updatedByReference",
+        "sourceSystem",
+        "previousVersionReference",
+        "changeReason"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

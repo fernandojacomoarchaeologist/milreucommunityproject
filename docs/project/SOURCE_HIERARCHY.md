@@ -23,6 +23,21 @@ Evitar que protótipos, documentos antigos ou conteúdo de exemplo sejam tratado
 6. **Versão preliminar do site e respetivos dados**, apenas como material a auditar e migrar.
 7. **Conteúdo de exemplo**, nunca convertido automaticamente em conteúdo real.
 
+## Hierarquia de fontes para dados do Museu — integrada pelo Pacote 03
+
+Para dados do Museu:
+
+1. documento original ou registo institucional verificável;
+2. documentação do projeto e inventário validado;
+3. testemunho identificado e contextualizado;
+4. decisão ou comentário comunitário documentado;
+5. publicação secundária;
+6. página ou rede social com proveniência identificável;
+7. interpretação visual do investigador, sempre marcada;
+8. hipótese, nunca apresentada como facto.
+
+A posição na hierarquia não elimina a necessidade de avaliar pertinência, data, contexto e direitos.
+
 ## Fontes de contexto inicial
 
 O arranque da estrutura considera:

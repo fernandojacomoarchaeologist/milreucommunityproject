@@ -9,3 +9,8 @@ descartar.
 | P001-bootstrap | — | main | Estrutura do repositório |
 | P002 | 2026-07-18 | main | Integra Pacote 01 v0.1.0 - fundação, governação e escopo |
 | P003 | 2026-07-20 | main | Integra Pacote 02 v0.1.0 - sistema de design e guia vivo |
+| P004 | 2026-07-20 | pack/pacote-03-modelo-dados | Integra Pacote 03 v0.1.0 - modelo de dados do Museu |
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

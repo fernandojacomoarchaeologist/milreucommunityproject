@@ -30,3 +30,7 @@ marcada como tal e listar o que falta.
 ## Aviso: repositório público
 Não commitar transcrições identificáveis, contactos ou imagens com direitos
 por validar sem decisão expressa. Ver `assets/DIREITOS.md`.
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

@@ -1,0 +1,32 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "schemas": [
+    {
+      "id": "common.schema.json",
+      "path": "data/schemas/common.schema.json",
+      "status": "initial"
+    },
+    {
+      "id": "museum-memory.schema.json",
+      "path": "data/schemas/museum-memory.schema.json",
+      "status": "initial"
+    },
+    {
+      "id": "community-contribution.schema.json",
+      "path": "data/schemas/community-contribution.schema.json",
+      "status": "initial"
+    },
+    {
+      "id": "rights-concern.schema.json",
+      "path": "data/schemas/rights-concern.schema.json",
+      "status": "initial-private"
+    },
+    {
+      "id": "collection-manifest.schema.json",
+      "path": "data/schemas/collection-manifest.schema.json",
+      "status": "initial"
+    }
+  ]
+}

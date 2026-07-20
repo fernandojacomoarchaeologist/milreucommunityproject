@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "community-contribution.schema.json",
+  "title": "Milreu Community Contribution",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "type": "object",
+  "properties": {
+    "_copyright": {
+      "const": "© 2026 Fernando Rodrigues de Jácomo"
+    },
+    "_project": {
+      "const": "Projeto Comunitário de Milreu"
+    },
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^CONTRIB-[A-Z0-9-]+$"
+    },
+    "memoryId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^MM\\d{6}$"
+    },
+    "contributionType": {
+      "enum": [
+        "narrative",
+        "identification",
+        "correction",
+        "contextual-information",
+        "rights-information",
+        "translation",
+        "other"
+      ]
+    },
+    "content": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "submittedLanguage": {
+      "enum": [
+        "pt-PT",
+        "en",
+        "es",
+        "fr"
+      ]
+    },
+    "contributor": {
+      "type": "object",
+      "properties": {
+        "publicDisplayName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "anonymous": {
+          "type": "boolean"
+        },
+        "relationToMilreu": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contactReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "privacyClassification": {
+          "enum": [
+            "public",
+            "restricted",
+            "private"
+          ]
+        }
+      },
+      "required": [
+        "publicDisplayName",
+        "anonymous",
+        "relationToMilreu",
+        "contactReference",
+        "privacyClassification"
+      ],
+      "additionalProperties": false
+    },
+    "sourceChannel": {
+      "enum": [
+        "meeting",
+        "whatsapp",
+        "form",
+        "email",
+        "interview",
+        "in-person",
+        "other"
+      ]
+    },
+    "submittedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "consentStatus": {
+      "enum": [
+        "explicit-written",
+        "explicit-recorded",
+        "community-process-documented",
+        "provided-for-project",
+        "pending-review",
+        "contested",
+        "withdrawn",
+        "unknown"
+      ]
+    },
+    "publicationStatus": {
+      "enum": [
+        "not-assessed",
+        "review-required",
+        "approved",
+        "published",
+        "blocked",
+        "unpublished",
+        "withdrawn"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "not-reviewed",
+            "in-review",
+            "changes-requested",
+            "approved",
+            "rejected"
+          ]
+        },
+        "reviewerReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reviewedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "reviewerReference",
+        "reviewedAt",
+        "notes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "_copyright",
+    "_project",
+    "schemaVersion",
+    "id",
+    "memoryId",
+    "contributionType",
+    "content",
+    "submittedLanguage",
+    "contributor",
+    "sourceChannel",
+    "submittedAt",
+    "consentStatus",
+    "publicationStatus",
+    "review"
+  ],
+  "additionalProperties": false
+}
