@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "museum-memory.schema.json",
+  "title": "Milreu Museum Memory Record",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "type": "object",
+  "properties": {
+    "_copyright": {
+      "const": "© 2026 Fernando Rodrigues de Jácomo"
+    },
+    "_project": {
+      "const": "Projeto Comunitário de Milreu"
+    },
+    "_rights": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "recordType": {
+      "const": "museum-memory"
+    },
+    "initiativeId": {
+      "const": "museum-of-memories"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^MM\\d{6}$"
+    },
+    "recordStatus": {
+      "enum": [
+        "draft",
+        "preliminary",
+        "in-review",
+        "reviewed",
+        "approved",
+        "deprecated",
+        "withdrawn"
+      ]
+    },
+    "publicationStatus": {
+      "enum": [
+        "not-assessed",
+        "review-required",
+        "approved",
+        "published",
+        "blocked",
+        "unpublished",
+        "withdrawn"
+      ]
+    },
+    "dataState": {
+      "enum": [
+        "sample",
+        "preliminary",
+        "reviewed",
+        "published",
+        "contested",
+        "withdrawn"
+      ]
+    },
+    "localisationStatus": {
+      "$ref": "common.schema.json#/$defs/localisationStatus"
+    },
+    "title": {
+      "$ref": "common.schema.json#/$defs/localizedString"
+    },
+    "narratives": {
+      "type": "object",
+      "properties": {
+        "shortDescription": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "objectiveDescription": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "communityNarrative": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "historicalContext": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "institutionalContext": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        }
+      },
+      "required": [
+        "shortDescription",
+        "objectiveDescription",
+        "communityNarrative",
+        "historicalContext",
+        "institutionalContext"
+      ],
+      "additionalProperties": false
+    },
+    "date": {
+      "$ref": "common.schema.json#/$defs/dateRange"
+    },
+    "places": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/placeReference"
+      }
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/personReference"
+      }
+    },
+    "classification": {
+      "type": "object",
+      "properties": {
+        "primaryType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "secondaryTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "periodLabel": {
+          "$ref": "common.schema.json#/$defs/localizedString"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "primaryType",
+        "secondaryTypes",
+        "periodLabel",
+        "tags"
+      ],
+      "additionalProperties": false
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/mediaAsset"
+      }
+    },
+    "rightsAndConsent": {
+      "$ref": "common.schema.json#/$defs/rightsConsent"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/sourceReference"
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/provenanceEvent"
+      }
+    },
+    "communityVoices": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/communityVoice"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/relation"
+      }
+    },
+    "audit": {
+      "$ref": "common.schema.json#/$defs/audit"
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "_copyright",
+    "_project",
+    "_rights",
+    "schemaVersion",
+    "recordType",
+    "initiativeId",
+    "id",
+    "recordStatus",
+    "publicationStatus",
+    "dataState",
+    "localisationStatus",
+    "title",
+    "narratives",
+    "date",
+    "places",
+    "people",
+    "classification",
+    "media",
+    "rightsAndConsent",
+    "sources",
+    "provenance",
+    "communityVoices",
+    "relations",
+    "audit",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

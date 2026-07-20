@@ -1,0 +1,115 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM000000",
+  "recordStatus": "draft",
+  "publicationStatus": "not-assessed",
+  "dataState": "sample",
+  "localisationStatus": {
+    "pt-PT": "missing",
+    "en": "missing",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": null,
+    "en": null,
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "not-assessed",
+    "sourceRefs": []
+  },
+  "places": [],
+  "people": [],
+  "classification": {
+    "primaryType": null,
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": []
+  },
+  "media": [],
+  "rightsAndConsent": {
+    "rightsStatus": "not-assessed",
+    "consentStatus": "not-assessed",
+    "publicationBasis": "not-assessed",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [],
+    "notes": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [],
+  "provenance": [],
+  "communityVoices": [],
+  "relations": [],
+  "audit": {
+    "recordVersion": "0.0.0-template",
+    "createdAt": null,
+    "createdByReference": null,
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "template",
+    "previousVersionReference": null,
+    "changeReason": "Template only — not a real record."
+  },
+  "extensions": {
+    "template": true
+  }
+}

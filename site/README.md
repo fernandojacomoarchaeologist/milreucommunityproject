@@ -20,3 +20,7 @@ estiverem disponíveis.
 - [ ] exhibitions.js
 - [ ] drive-integration.js
 - [ ] README.md original do site
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

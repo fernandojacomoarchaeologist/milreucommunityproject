@@ -1,125 +1,98 @@
 ---
-title: "Manifesto de ficheiros — Pacote 02"
+title: "Manifesto — Pacote 03"
 version: "0.1.0"
 status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md na raiz do repositório"
+initiative: "Museu de Memórias de Milreu"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
-# Manifesto de ficheiros
+
+# Manifesto do Pacote 03
 
 ## Identificação
 
-- **Pacote:** 02 — Sistema de Design e Guia Vivo
-- **Versão:** 0.1.0
-- **Tipo de release:** fundação visual e técnica
-- **Dependência:** Pacote 01
-- **Ação esperada:** criar, comparar ou fundir conforme caminho
-- **Altera o protótipo:** não
-- **Ativa migração visual:** não
-- **Inclui conteúdo real do acervo:** não
-
-## Ficheiros a registar
-
-### Raiz do pacote
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `README.md` | Registar | Escopo e instalação |
-| `PACKAGE_MANIFEST.md` | Registar | Inventário do pacote |
-| `PROMPT_CLAUDE.md` | Registar | Prompt de integração |
-| `INTEGRATION_CHECKLIST.md` | Registar | Checklist operacional |
-| `releases/PACKAGE_02_v0.1.0.md` | Criar | Release do pacote |
-
-### Documentação de design
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `docs/design/DESIGN_SYSTEM_SCOPE.md` | Criar | Limites do sistema |
-| `docs/design/DESIGN_PRINCIPLES.md` | Criar | Princípios transversais |
-| `docs/design/TWO_VOICES.md` | Criar | Comunidade e instituição |
-| `docs/design/HAUSCHILD_TEICHNER_VISUAL_REFERENCE.md` | Criar | Referência e limites de interpretação |
-| `docs/design/COLOR_SYSTEM.md` | Criar | Paleta e usos |
-| `docs/design/TYPOGRAPHY.md` | Criar | Famílias e escala |
-| `docs/design/SPACING_GRID_LAYOUT.md` | Criar | Defaults técnicos de layout |
-| `docs/design/IMAGERY_TEXTURE_PHOTOGRAPHY.md` | Criar | Tratamento de imagem |
-| `docs/design/LOGO_AND_MARKS.md` | Criar | Estado e regras temporárias da marca |
-| `docs/design/MOTION_INTERACTION.md` | Criar | Movimento e interação |
-| `docs/design/ACCESSIBILITY.md` | Criar | Requisitos de acessibilidade |
-| `docs/design/PORTAL_AND_MUSEUM_MODES.md` | Criar | Dois modos de experiência |
-| `docs/design/PRINT_DIGITAL_PARITY.md` | Criar | Continuidade físico-digital |
-| `docs/design/DESIGN_GOVERNANCE.md` | Criar | Estados e versionamento |
-| `docs/design/COMPONENT_REGISTRY.md` | Criar | Registo de componentes |
-| `docs/design/PENDING_DECISIONS.md` | Criar | Decisões futuras |
-
-### Specs
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `docs/specifications/SPEC-DS-001-DESIGN-GUIDE.md` | Criar | Guia vivo |
-| `docs/specifications/SPEC-DS-002-PORTAL-SHELL.md` | Criar | Scaffold do Portal |
-| `docs/specifications/SPEC-DS-003-MUSEUM-SHELL.md` | Criar | Scaffold do Museu |
-
-### Tokens e componentes
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `packages/design-tokens/README.md` | Criar | Uso dos tokens |
-| `packages/design-tokens/tokens.css` | Criar | Tokens Web |
-| `packages/design-tokens/tokens.json` | Criar | Fonte estruturada |
-| `packages/design-tokens/platforms/javascript/tokens.js` | Criar | Projeção JavaScript |
-| `packages/design-tokens/platforms/flutter/milreu_tokens.dart` | Criar | Projeção Flutter inicial |
-| `packages/ui-core/README.md` | Criar | Uso dos componentes |
-| `packages/ui-core/components.css` | Criar | Componentes CSS |
-| `packages/ui-core/components.vanilla.js` | Criar | Componentes Vanilla |
-| `packages/ui-core/components.react.jsx` | Criar | Adaptador React opcional |
-| `packages/ui-portal/portal-shell.css` | Criar | Shell do Portal |
-| `packages/ui-museum/museum-shell.css` | Criar | Shell do Museu |
-| `packages/ui-print/print-tokens.css` | Criar | Fundamentos de impressão |
-
-### Guia vivo
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `apps/design-guide/README.md` | Criar | Execução local |
-| `apps/design-guide/index.html` | Criar | Guia navegável |
-| `apps/design-guide/guide.css` | Criar | Composição do guia |
-| `apps/design-guide/guide.js` | Criar | Idiomas, demos e fonte |
-
-### Migração
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `skin-migration/README.md` | Criar | Regras de ativação |
-| `skin-migration/TOKEN_MAP.md` | Criar | Mapa de aliases |
-| `skin-migration/LEGACY_USAGE_AUDIT.md` | Criar | Auditoria inicial |
-| `skin-migration/MIGRATION_PLAN.md` | Criar | Sequência segura |
-| `skin-migration/tokens-migration.css` | Criar, não ativar | Compatibilidade opt-in |
-
-### Claude e validação
-
-| Caminho | Ação | Finalidade |
-|---|---|---|
-| `.claude/rules/design-system.md` | Criar | Regra visual |
-| `.claude/skills/design-system-change/SKILL.md` | Criar | Alterações controladas |
-| `.claude/skills/component-intake/SKILL.md` | Criar | Entrada de componentes |
-| `.claude/skills/design-guide-release/SKILL.md` | Criar | Release do guia |
-| `scripts/validate-design-system.mjs` | Criar | Validação local |
-
-### Conteúdos a fundir
-
-| Caminho do pacote | Destino | Ação |
-|---|---|---|
-| `integration/CLAUDE_APPEND.md` | `CLAUDE.md` | Fundir semanticamente |
-| `integration/VISUALIZATION_REGISTRY_APPEND.md` | `docs/specifications/VISUALIZATION_REGISTRY.md` | Acrescentar entradas sem substituir |
+- pacote: `pacote-03-modelo-dados-museu-v0.1.0`;
+- versão: `0.1.0`;
+- data: `2026-07-20`;
+- dependências: Pacote 01 e Pacote 02;
+- próximo pacote previsto: auditoria e migração da versão preliminar.
 
 ## Regras de integração
 
-- não apagar ou sobrescrever materiais do agente anterior;
-- não alterar o protótipo;
-- não ativar a skin de migração;
-- não criar logótipo ou assets;
-- não publicar o guia sem definir rota e revisão;
-- não transformar scaffolds em produtos finais;
-- executar o validador;
-- registar conflitos e pendências no relatório final.
+1. Comparar antes de substituir.
+2. Não migrar registos durante esta integração.
+3. Não alterar estados para aprovado ou publicado.
+4. Não executar alterações visuais.
+5. Não criar infraestrutura de persistência.
+6. Executar os validadores após integrar.
+
+## Ficheiros
+
+| Caminho | Ação esperada |
+|---|---|
+| `.claude/rules/museum-data-integrity.md` | Criar ou fundir regra contextual |
+| `.claude/rules/museum-localisation.md` | Criar ou fundir regra contextual |
+| `.claude/rules/museum-revisions.md` | Criar ou fundir regra contextual |
+| `.claude/rules/museum-rights-consent.md` | Criar ou fundir regra contextual |
+| `.claude/skills/catalog-memory/SKILL.md` | Criar ou fundir skill |
+| `.claude/skills/manage-memory-revision/SKILL.md` | Criar ou fundir skill |
+| `.claude/skills/map-legacy-memory-record/SKILL.md` | Criar ou fundir skill |
+| `.claude/skills/record-rights-consent/SKILL.md` | Criar ou fundir skill |
+| `.claude/skills/translate-memory-record/SKILL.md` | Criar ou fundir skill |
+| `.claude/skills/validate-memory-record/SKILL.md` | Criar ou fundir skill |
+| `INTEGRATION_CHECKLIST.md` | Criar na raiz do pacote |
+| `PROMPT_CLAUDE.md` | Criar na raiz do pacote |
+| `README.md` | Criar na raiz do pacote |
+| `data/examples/MM202601.preliminary.example.json` | Criar exemplo preliminar; não publicar |
+| `data/examples/README.md` | Criar exemplo preliminar; não publicar |
+| `data/schemas/collection-manifest.schema.json` | Criar schema ou comparar versão existente |
+| `data/schemas/common.schema.json` | Criar schema ou comparar versão existente |
+| `data/schemas/community-contribution.schema.json` | Criar schema ou comparar versão existente |
+| `data/schemas/museum-memory.schema.json` | Criar schema ou comparar versão existente |
+| `data/schemas/rights-concern.schema.json` | Criar schema ou comparar versão existente |
+| `data/schemas/schema-registry.json` | Criar schema ou comparar versão existente |
+| `data/templates/collection-manifest.template.json` | Criar template; não publicar |
+| `data/templates/community-contribution.template.json` | Criar template; não publicar |
+| `data/templates/museum-memory.template.json` | Criar template; não publicar |
+| `data/templates/rights-concern.template.json` | Criar template; não publicar |
+| `data/vocabularies/certainty-levels.json` | Criar vocabulário inicial |
+| `data/vocabularies/languages.json` | Criar vocabulário inicial |
+| `data/vocabularies/provenance-event-types.json` | Criar vocabulário inicial |
+| `data/vocabularies/publication-statuses.json` | Criar vocabulário inicial |
+| `data/vocabularies/record-statuses.json` | Criar vocabulário inicial |
+| `data/vocabularies/relation-types.json` | Criar vocabulário inicial |
+| `data/vocabularies/rights-consent-statuses.json` | Criar vocabulário inicial |
+| `docs/data-model/DATA_DICTIONARY.md` | Criar ou fundir documentação |
+| `docs/data-model/DATES_PLACES_AND_CERTAINTY.md` | Criar ou fundir documentação |
+| `docs/data-model/DOMAIN_MODEL.md` | Criar ou fundir documentação |
+| `docs/data-model/IDENTIFIERS_AND_REFERENCES.md` | Criar ou fundir documentação |
+| `docs/data-model/LEGACY_FIELD_CROSSWALK.md` | Criar ou fundir documentação |
+| `docs/data-model/LOCALISATION_MODEL.md` | Criar ou fundir documentação |
+| `docs/data-model/MEDIA_AND_DIGITAL_INTERVENTIONS.md` | Criar ou fundir documentação |
+| `docs/data-model/MIGRATION_BOUNDARIES.md` | Criar ou fundir documentação |
+| `docs/data-model/NARRATIVE_LAYERS.md` | Criar ou fundir documentação |
+| `docs/data-model/PENDING_DECISIONS.md` | Criar ou fundir documentação |
+| `docs/data-model/PEOPLE_AND_COMMUNITY_VOICES.md` | Criar ou fundir documentação |
+| `docs/data-model/PROVENANCE_AND_SOURCES.md` | Criar ou fundir documentação |
+| `docs/data-model/PUBLICATION_GATES.md` | Criar ou fundir documentação |
+| `docs/data-model/README.md` | Criar ou fundir documentação |
+| `docs/data-model/RECORD_LIFECYCLE.md` | Criar ou fundir documentação |
+| `docs/data-model/RELATIONSHIPS.md` | Criar ou fundir documentação |
+| `docs/data-model/REVISION_AND_AUDIT_TRAIL.md` | Criar ou fundir documentação |
+| `docs/data-model/RIGHTS_CONSENT_AND_CONCERNS.md` | Criar ou fundir documentação |
+| `docs/data-model/SCHEMA_REGISTRY.md` | Criar ou fundir documentação |
+| `docs/specifications/SPEC-DATA-001-MUSEUM-MEMORY-RECORD.md` | Criar ou fundir documentação |
+| `docs/specifications/SPEC-DATA-002-RIGHTS-CONSENT-PUBLICATION.md` | Criar ou fundir documentação |
+| `docs/specifications/SPEC-DATA-003-MULTILINGUAL-CONTENT.md` | Criar ou fundir documentação |
+| `docs/specifications/SPEC-DATA-004-REVISION-AND-AUDIT.md` | Criar ou fundir documentação |
+| `integration/CLAUDE_APPEND.md` | Aplicar apenas após comparação |
+| `integration/SOURCE_HIERARCHY_APPEND.md` | Aplicar apenas após comparação |
+| `releases/PACKAGE_03_v0.1.0.md` | Registar release |
+| `scripts/validate-data-model.mjs` | Criar e executar validação |
+| `tests/README.md` | Criar e executar validação |
+| `tests/data-model.test.mjs` | Criar e executar validação |
+
+## Resultado esperado
+
+O repositório passa a possuir um modelo de dados documentado e verificável, preparado para a migração controlada dos registos no pacote seguinte.

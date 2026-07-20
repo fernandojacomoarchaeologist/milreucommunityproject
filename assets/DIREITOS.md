@@ -9,3 +9,7 @@ na dúvida, não commitar o ficheiro.
 | Ficheiro | Origem | Estado | Nota |
 |---|---|---|---|
 | _(por preencher com dados reais)_ | | | |
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

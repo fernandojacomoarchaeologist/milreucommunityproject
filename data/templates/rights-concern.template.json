@@ -1,0 +1,32 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "schemaVersion": "0.1.0",
+  "id": "CONCERN-TEMPLATE",
+  "targetRecordId": "MM000000",
+  "concernType": "other",
+  "status": "received",
+  "requesterReference": null,
+  "privacyClassification": "private",
+  "publicSummary": {
+    "pt-PT": null,
+    "en": null,
+    "es": null,
+    "fr": null
+  },
+  "detailsPrivate": null,
+  "receivedAt": null,
+  "resolvedAt": null,
+  "resolution": null,
+  "evidenceRefs": [],
+  "audit": {
+    "recordVersion": "0.0.0-template",
+    "createdAt": null,
+    "createdByReference": null,
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "template",
+    "previousVersionReference": null,
+    "changeReason": "Template only."
+  }
+}

@@ -7,3 +7,7 @@ descartar.
 | Pack | Data | Branch | Descrição |
 |---|---|---|---|
 | P001-bootstrap | — | main | Estrutura do repositório |
+
+---
+
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "collection-manifest.schema.json",
+  "title": "Milreu Museum Collection Manifest",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "type": "object",
+  "properties": {
+    "_copyright": {
+      "const": "© 2026 Fernando Rodrigues de Jácomo"
+    },
+    "_project": {
+      "const": "Projeto Comunitário de Milreu"
+    },
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "collectionId": {
+      "const": "museum-of-memories"
+    },
+    "releaseVersion": {
+      "type": "string"
+    },
+    "generatedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "releaseStatus": {
+      "enum": [
+        "draft",
+        "review",
+        "approved",
+        "published",
+        "withdrawn"
+      ]
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^MM\\d{6}$"
+          },
+          "path": {
+            "type": "string"
+          },
+          "recordStatus": {
+            "enum": [
+              "draft",
+              "preliminary",
+              "in-review",
+              "reviewed",
+              "approved",
+              "deprecated",
+              "withdrawn"
+            ]
+          },
+          "publicationStatus": {
+            "enum": [
+              "not-assessed",
+              "review-required",
+              "approved",
+              "published",
+              "blocked",
+              "unpublished",
+              "withdrawn"
+            ]
+          },
+          "checksum": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "recordStatus",
+          "publicationStatus",
+          "checksum"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "_copyright",
+    "_project",
+    "schemaVersion",
+    "collectionId",
+    "releaseVersion",
+    "generatedAt",
+    "releaseStatus",
+    "records"
+  ],
+  "additionalProperties": false
+}
