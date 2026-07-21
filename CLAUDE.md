@@ -95,6 +95,14 @@ Não tratar dados em construção como definitivos.
 - Templates e exemplos não são dados publicáveis.
 - Alterações materiais exigem revisão e release.
 
+### 8.2 Migração da versão preliminar — integrada pelo Pacote 04
+
+- A versão preliminar é fonte de proveniência, não fonte autoritativa final.
+- `data/migration/records/` contém conversões preliminares.
+- Nenhum desses registos pode ser publicado automaticamente.
+- Antes de repetir a migração, comparar o fingerprint do legado.
+- Alterações editoriais devem gerar revisões, não sobrescrever o snapshot.
+
 ## 9. Design
 
 A identidade visual preliminar do ZIP antigo não é autoritativa. O design system futuro deverá partir das referências visuais do livro de Hauschild e Teichner e das decisões já documentadas sobre as duas vozes: comunidade como superfície e instituição como moldura.

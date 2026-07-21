@@ -1,0 +1,428 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202619",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Tomando notas dos achados",
+    "en": "Taking notes on the finds",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia da coleção de Maria de Lurdes Mendes Martins, associada ao trabalho nas escavações de Milreu. Ao centro é possível identificar, aparentemente, Dona Celeste Pimenta a tomar notas. Ao fundo há um calendário da Caixa de Crédito Agrícola que aparenta ser de 1987, dado que janeiro de 1987 iniciou numa quinta-feira. O verso da fotografia indica revelação Kodak em junho de 1987. A imagem foi digitalizada em scanner HP 2700 series a 1200 dpi, com cópia corrigida por IA para exposição. A correção por IA distorceu parcialmente dados do calendário, tendo sido aplicado blur para evitar interpretações indevidas.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia evidencia tarefas de registo e documentação associadas ao trabalho nas campanhas arqueológicas.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A imagem permite observar práticas de organização e anotação de achados, bem como indícios materiais de datação por calendário e carimbo de revelação.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Provavelmente entre janeiro e junho de 1987",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1987-01",
+    "normalizedEnd": "1987-06",
+    "precision": "range",
+    "certainty": "probable",
+    "sourceRefs": [
+      "SRC-MM202619-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Local não confirmado; possivelmente contexto de trabalho associado ao sítio arqueológico",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "approximate",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "hypothesis",
+      "sourceRefs": [
+        "SRC-MM202619-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Possivelmente Dona Celeste Pimenta.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "probable",
+      "publicDisplayAllowed": false,
+      "certainty": "probable",
+      "sourceRefs": [
+        "SRC-MM202619-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "trabalho arqueológico",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Celeste Pimenta",
+      "notas",
+      "achados",
+      "Kodak",
+      "1987",
+      "Caixa de Crédito Agrícola",
+      "Partilha Alternativa"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202619-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202619.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "credit": {
+        "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": [
+        {
+          "type": "ai-assisted-enhancement",
+          "description": {
+            "pt-PT": "O registo legado declara uma correção de imagem assistida por inteligência artificial. Os detalhes do processo e o ficheiro de origem devem ser verificados.",
+            "en": null,
+            "es": null,
+            "fr": null
+          },
+          "tool": null,
+          "performedAt": null,
+          "sourceAssetId": null,
+          "promptReference": null,
+          "humanReviewStatus": "not-reviewed",
+          "substantiveChange": true
+        },
+        {
+          "type": "other",
+          "description": {
+            "pt-PT": "O registo legado declara aplicação de desfocagem para reduzir interpretações indevidas de dados distorcidos.",
+            "en": null,
+            "es": null,
+            "fr": null
+          },
+          "tool": null,
+          "performedAt": null,
+          "sourceAssetId": null,
+          "promptReference": null,
+          "humanReviewStatus": "not-reviewed",
+          "substantiveChange": true
+        }
+      ]
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202619-LEGACY",
+      "SRC-MM202619-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202619-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202619.",
+      "locator": "data/museum-items.js#MM202619",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202619-ORIGIN",
+      "type": "social-media",
+      "citation": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202619-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202619-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202613",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202614",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202615",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202616",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202618",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202620",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202621",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202622",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202619",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": true,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202619",
+      "filename": "MM202619.jpg",
+      "title": "Tomando notas dos achados",
+      "titleEn": "Taking notes on the finds",
+      "descriptionShort": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+      "descriptionLong": "Fotografia da coleção de Maria de Lurdes Mendes Martins, associada ao trabalho nas escavações de Milreu. Ao centro é possível identificar, aparentemente, Dona Celeste Pimenta a tomar notas. Ao fundo há um calendário da Caixa de Crédito Agrícola que aparenta ser de 1987, dado que janeiro de 1987 iniciou numa quinta-feira. O verso da fotografia indica revelação Kodak em junho de 1987. A imagem foi digitalizada em scanner HP 2700 series a 1200 dpi, com cópia corrigida por IA para exposição. A correção por IA distorceu parcialmente dados do calendário, tendo sido aplicado blur para evitar interpretações indevidas.",
+      "year": "1987",
+      "dateApprox": "Provavelmente entre janeiro e junho de 1987",
+      "period": "Século XX",
+      "locationSpecific": "Local não confirmado; possivelmente contexto de trabalho associado ao sítio arqueológico",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Possivelmente Dona Celeste Pimenta.",
+      "memoryType": "trabalho arqueológico",
+      "memoryText": "A fotografia evidencia tarefas de registo e documentação associadas ao trabalho nas campanhas arqueológicas.",
+      "historicalContext": "A imagem permite observar práticas de organização e anotação de achados, bem como indícios materiais de datação por calendário e carimbo de revelação.",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "rights": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "Celeste Pimenta",
+        "notas",
+        "achados",
+        "Kodak",
+        "1987",
+        "Caixa de Crédito Agrícola",
+        "Partilha Alternativa"
+      ],
+      "relatedIds": [
+        "MM202613",
+        "MM202614",
+        "MM202615",
+        "MM202616",
+        "MM202618",
+        "MM202620",
+        "MM202621",
+        "MM202622"
+      ],
+      "communityVoices": []
+    }
+  }
+}

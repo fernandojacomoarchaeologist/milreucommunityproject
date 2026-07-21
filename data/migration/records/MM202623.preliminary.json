@@ -1,0 +1,403 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202623",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Trabalhadores das ruínas",
+    "en": "Workers of the ruins",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia pertencente ao conjunto de imagens das campanhas arqueológicas realizadas em Milreu e providenciadas por Celeste Pimenta e Branca Pimenta. O registo documenta trabalhadores das ruínas em contexto de trabalho arqueológico ou de apoio às campanhas.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem integra a memória comunitária das campanhas arqueológicas e da participação local no trabalho realizado em Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "O conjunto de fotografias das décadas de 1970 e 1980 é importante para documentar a presença de trabalhadores locais nas campanhas do Instituto Arqueológico Alemão.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "ca. anos 1970-1980",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1970",
+    "normalizedEnd": "1989",
+    "precision": "range",
+    "certainty": "probable",
+    "sourceRefs": [
+      "SRC-MM202623-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202623-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Trabalhadores não identificados.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202623-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "trabalho arqueológico",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "trabalhadores",
+      "escavações",
+      "Instituto Arqueológico Alemão"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202623-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202623.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "credit": {
+        "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202623-LEGACY",
+      "SRC-MM202623-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202623-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202623.",
+      "locator": "data/museum-items.js#MM202623",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202623-ORIGIN",
+      "type": "physical-photograph",
+      "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "locator": null,
+      "access": "restricted",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202623-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202623-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202613",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202614",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202615",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202616",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202618",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202619",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202620",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202621",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202622",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202623",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202623",
+      "filename": "MM202623.jpg",
+      "title": "Trabalhadores das ruínas",
+      "titleEn": "Workers of the ruins",
+      "descriptionShort": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+      "descriptionLong": "Fotografia pertencente ao conjunto de imagens das campanhas arqueológicas realizadas em Milreu e providenciadas por Celeste Pimenta e Branca Pimenta. O registo documenta trabalhadores das ruínas em contexto de trabalho arqueológico ou de apoio às campanhas.",
+      "year": "1970",
+      "dateApprox": "ca. anos 1970-1980",
+      "period": "Século XX",
+      "locationSpecific": "Ruínas Romanas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Trabalhadores não identificados.",
+      "memoryType": "trabalho arqueológico",
+      "memoryText": "A imagem integra a memória comunitária das campanhas arqueológicas e da participação local no trabalho realizado em Milreu.",
+      "historicalContext": "O conjunto de fotografias das décadas de 1970 e 1980 é importante para documentar a presença de trabalhadores locais nas campanhas do Instituto Arqueológico Alemão.",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "rights": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "trabalhadores",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "relatedIds": [
+        "MM202613",
+        "MM202614",
+        "MM202615",
+        "MM202616",
+        "MM202618",
+        "MM202619",
+        "MM202620",
+        "MM202621",
+        "MM202622"
+      ],
+      "communityVoices": []
+    }
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202602",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Memórias de juventude — Estoi, década de 1950",
+    "en": "Youth memories — Estoi, 1950s",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia de um grupo de cinco jovens raparigas, possivelmente captada durante um passeio às Ruínas de Milreu por volta da década de 1950. A imagem foi indicada pela população como referência de memória local e mostra as jovens sentadas junto ao lado sul do edifício de cultos. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem simboliza a passagem do tempo e a importância das fotografias familiares e comunitárias na construção da memória coletiva de Estoi.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "Durante os anos 1950, passeios locais, escolares ou de grupos de amigas eram frequentemente registados em fotografia. Milreu surgia como espaço de visita, convívio e contacto quotidiano com o património.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "ca. 1950s",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1950",
+    "normalizedEnd": "1959",
+    "precision": "decade",
+    "certainty": "probable",
+    "sourceRefs": [
+      "SRC-MM202602-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Lado sul do edifício de cultos de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202602-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Identificações possíveis, não confirmadas: Salomé, Alexandra Barra, Fernanda Janeira e Luísa, casada com Virgílio Salmora.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "probable",
+      "publicDisplayAllowed": false,
+      "certainty": "probable",
+      "sourceRefs": [
+        "SRC-MM202602-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "juventude",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Estoi",
+      "juventude",
+      "edifício de cultos",
+      "anos 1950",
+      "memória comunitária"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202602-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202602.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "credit": {
+        "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202602-LEGACY",
+      "SRC-MM202602-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202602-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202602.",
+      "locator": "data/museum-items.js#MM202602",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202602-ORIGIN",
+      "type": "social-media",
+      "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202602-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202602-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202605",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202608",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202609",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202602",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202602",
+      "filename": "MM202602.jpg",
+      "title": "Memórias de juventude — Estoi, década de 1950",
+      "titleEn": "Youth memories — Estoi, 1950s",
+      "descriptionShort": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+      "descriptionLong": "Fotografia de um grupo de cinco jovens raparigas, possivelmente captada durante um passeio às Ruínas de Milreu por volta da década de 1950. A imagem foi indicada pela população como referência de memória local e mostra as jovens sentadas junto ao lado sul do edifício de cultos. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "year": "1950",
+      "dateApprox": "ca. 1950s",
+      "period": "Século XX",
+      "locationSpecific": "Lado sul do edifício de cultos de Milreu",
+      "locationPublic": "Ruínas Romanas de Milreu, Estoi, Faro",
+      "peoplePublic": "Identificações possíveis, não confirmadas: Salomé, Alexandra Barra, Fernanda Janeira e Luísa, casada com Virgílio Salmora.",
+      "memoryType": "juventude",
+      "memoryText": "A imagem simboliza a passagem do tempo e a importância das fotografias familiares e comunitárias na construção da memória coletiva de Estoi.",
+      "historicalContext": "Durante os anos 1950, passeios locais, escolares ou de grupos de amigas eram frequentemente registados em fotografia. Milreu surgia como espaço de visita, convívio e contacto quotidiano com o património.",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "rights": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "Estoi",
+        "juventude",
+        "edifício de cultos",
+        "anos 1950",
+        "memória comunitária"
+      ],
+      "relatedIds": [
+        "MM202605",
+        "MM202608",
+        "MM202609"
+      ],
+      "communityVoices": []
+    }
+  }
+}

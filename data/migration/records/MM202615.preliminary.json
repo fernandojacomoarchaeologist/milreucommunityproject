@@ -1,0 +1,451 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202615",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Os escavadores ao almoço",
+    "en": "The excavators at lunch",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia de escavadores ao almoço durante as campanhas arqueológicas de Milreu associadas ao Instituto Arqueológico Alemão. A imagem pertence à coleção de Maria de Lurdes Mendes Martins e foi providenciada por Celeste Pimenta e Branca Pimenta. A fotografia apresenta dez indivíduos, não identificados com segurança. No extremo direito, é possível que esteja o professor Theodor Hauschild, mas esta identificação permanece hipotética. A fotografia tem formato retrato, dimensões aproximadas de 10,1 x 14,9 cm e indicação Kodak no verso.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem regista a dimensão quotidiana e social das campanhas arqueológicas, incluindo momentos de pausa, refeição e convivência entre trabalhadores e equipa técnica.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "As campanhas arqueológicas de Milreu envolveram não apenas atividades técnicas, mas também relações de trabalho e sociabilidade entre investigadores e população local.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "ca. anos 1970-1980",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1970",
+    "normalizedEnd": "1989",
+    "precision": "range",
+    "certainty": "probable",
+    "sourceRefs": [
+      "SRC-MM202615-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Sítio arqueológico de Milreu, local exato não identificado",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "approximate",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202615-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Dez indivíduos não identificados; possível presença de Theodor Hauschild.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202615-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "trabalho e convívio",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "escavações",
+      "almoço",
+      "trabalhadores",
+      "Theodor Hauschild",
+      "Kodak",
+      "Instituto Arqueológico Alemão"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202615-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202615.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "credit": {
+        "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202615-LEGACY",
+      "SRC-MM202615-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202615-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202615.",
+      "locator": "data/museum-items.js#MM202615",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202615-ORIGIN",
+      "type": "physical-photograph",
+      "citation": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "locator": null,
+      "access": "restricted",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202615-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202615-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202613",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202614",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202616",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202617",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202618",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202619",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202620",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202621",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202622",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202627",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202628",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202629",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202615",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202615",
+      "filename": "MM202615.jpg",
+      "title": "Os escavadores ao almoço",
+      "titleEn": "The excavators at lunch",
+      "descriptionShort": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+      "descriptionLong": "Fotografia de escavadores ao almoço durante as campanhas arqueológicas de Milreu associadas ao Instituto Arqueológico Alemão. A imagem pertence à coleção de Maria de Lurdes Mendes Martins e foi providenciada por Celeste Pimenta e Branca Pimenta. A fotografia apresenta dez indivíduos, não identificados com segurança. No extremo direito, é possível que esteja o professor Theodor Hauschild, mas esta identificação permanece hipotética. A fotografia tem formato retrato, dimensões aproximadas de 10,1 x 14,9 cm e indicação Kodak no verso.",
+      "year": "1970",
+      "dateApprox": "ca. anos 1970-1980",
+      "period": "Século XX",
+      "locationSpecific": "Sítio arqueológico de Milreu, local exato não identificado",
+      "locationPublic": "Ruínas Romanas de Milreu, Estoi, Faro",
+      "peoplePublic": "Dez indivíduos não identificados; possível presença de Theodor Hauschild.",
+      "memoryType": "trabalho e convívio",
+      "memoryText": "A imagem regista a dimensão quotidiana e social das campanhas arqueológicas, incluindo momentos de pausa, refeição e convivência entre trabalhadores e equipa técnica.",
+      "historicalContext": "As campanhas arqueológicas de Milreu envolveram não apenas atividades técnicas, mas também relações de trabalho e sociabilidade entre investigadores e população local.",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "rights": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "escavações",
+        "almoço",
+        "trabalhadores",
+        "Theodor Hauschild",
+        "Kodak",
+        "Instituto Arqueológico Alemão"
+      ],
+      "relatedIds": [
+        "MM202613",
+        "MM202614",
+        "MM202616",
+        "MM202617",
+        "MM202618",
+        "MM202619",
+        "MM202620",
+        "MM202621",
+        "MM202622",
+        "MM202627",
+        "MM202628",
+        "MM202629"
+      ],
+      "communityVoices": []
+    }
+  }
+}

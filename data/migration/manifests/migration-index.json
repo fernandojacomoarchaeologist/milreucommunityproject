@@ -1,0 +1,595 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+  "recordCount": 31,
+  "records": [
+    {
+      "id": "MM202601",
+      "legacyFile": "MM202601.jpg",
+      "recordFile": "records/MM202601.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202602",
+      "legacyFile": "MM202602.jpg",
+      "recordFile": "records/MM202602.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202603",
+      "legacyFile": "MM202603.jpg",
+      "recordFile": "records/MM202603.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202604",
+      "legacyFile": "MM202604.jpg",
+      "recordFile": "records/MM202604.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "unknown",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202605",
+      "legacyFile": "MM202605.jpg",
+      "recordFile": "records/MM202605.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202606",
+      "legacyFile": "MM202606.jpg",
+      "recordFile": "records/MM202606.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202607",
+      "legacyFile": "MM202607.jpg",
+      "recordFile": "records/MM202607.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202608",
+      "legacyFile": "MM202608.jpg",
+      "recordFile": "records/MM202608.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202609",
+      "legacyFile": "MM202609.jpg",
+      "recordFile": "records/MM202609.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "unknown",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202610",
+      "legacyFile": "MM202610.jpg",
+      "recordFile": "records/MM202610.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "unknown",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202611",
+      "legacyFile": "MM202611.jpg",
+      "recordFile": "records/MM202611.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "unknown",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202612",
+      "legacyFile": "MM202612.jpg",
+      "recordFile": "records/MM202612.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202613",
+      "legacyFile": "MM202613.jpg",
+      "recordFile": "records/MM202613.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202614",
+      "legacyFile": "MM202614.jpg",
+      "recordFile": "records/MM202614.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202615",
+      "legacyFile": "MM202615.jpg",
+      "recordFile": "records/MM202615.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202616",
+      "legacyFile": "MM202616.jpg",
+      "recordFile": "records/MM202616.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202617",
+      "legacyFile": "MM202617.jpg",
+      "recordFile": "records/MM202617.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "blocked",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "unknown",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202618",
+      "legacyFile": "MM202618.jpg",
+      "recordFile": "records/MM202618.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202619",
+      "legacyFile": "MM202619.jpg",
+      "recordFile": "records/MM202619.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202620",
+      "legacyFile": "MM202620.jpg",
+      "recordFile": "records/MM202620.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202621",
+      "legacyFile": "MM202621.jpg",
+      "recordFile": "records/MM202621.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202622",
+      "legacyFile": "MM202622.jpg",
+      "recordFile": "records/MM202622.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202623",
+      "legacyFile": "MM202623.jpg",
+      "recordFile": "records/MM202623.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202624",
+      "legacyFile": "MM202624.jpg",
+      "recordFile": "records/MM202624.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202625",
+      "legacyFile": "MM202625.jpg",
+      "recordFile": "records/MM202625.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202626",
+      "legacyFile": "MM202626.jpg",
+      "recordFile": "records/MM202626.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "probable",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202627",
+      "legacyFile": "MM202627.jpg",
+      "recordFile": "records/MM202627.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202628",
+      "legacyFile": "MM202628.jpg",
+      "recordFile": "records/MM202628.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202629",
+      "legacyFile": "MM202629.jpg",
+      "recordFile": "records/MM202629.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202630",
+      "legacyFile": "MM202630.jpg",
+      "recordFile": "records/MM202630.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "hypothesis",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    },
+    {
+      "id": "MM202631",
+      "legacyFile": "MM202631.jpg",
+      "recordFile": "records/MM202631.preliminary.json",
+      "recordStatus": "preliminary",
+      "publicationStatus": "review-required",
+      "rightsStatus": "pending-review",
+      "dateCertainty": "not-assessed",
+      "englishTitleStatus": "draft",
+      "reviewFlags": [
+        "narrativeLayerReviewRequired",
+        "rightsReviewRequired",
+        "personIdentificationReviewRequired",
+        "placeReviewRequired",
+        "dateReviewRequired",
+        "translationReviewRequired",
+        "sourceCitationReviewRequired"
+      ]
+    }
+  ]
+}

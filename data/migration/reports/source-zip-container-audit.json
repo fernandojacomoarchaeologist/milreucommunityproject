@@ -1,0 +1,26 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "sourceArchiveName": "museu-memorias-milreu-GITHUB.zip",
+  "sourceArchiveSha256": "sha256:aa09c91b0bebc1144c70c72763c39de310da586ea6a11f37a7d0c9292b22e766",
+  "archiveEntryCount": 112,
+  "fileEntryCount": 106,
+  "directoryEntryCount": 6,
+  "macosMetadataFileCount": 56,
+  "dsStoreCount": 3,
+  "logicalFileCount": 47,
+  "macosMetadataExamples": [
+    "__MACOSX/._museu-memorias-milreu-GITHUB",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._exhibitions.js",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._index.html",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._.DS_Store",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._404.html",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._config.js",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._README.md",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._main.js",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._.nojekyll",
+    "__MACOSX/museu-memorias-milreu-GITHUB/._style.css"
+  ],
+  "note": "Os conteúdos __MACOSX e .DS_Store são metadados do recipiente ZIP e não fazem parte do produto lógico."
+}

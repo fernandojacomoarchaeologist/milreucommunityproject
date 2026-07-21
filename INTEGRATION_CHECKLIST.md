@@ -1,5 +1,5 @@
 ---
-title: "Checklist de integração — Pacote 03"
+title: "Checklist de integração — Pacote 04"
 version: "0.1.0"
 status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
@@ -8,45 +8,27 @@ initiative: "Museu de Memórias de Milreu"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração
+# Checklist
 
-## Dependências
+## Antes
 
-- [ ] Pacote 01 integrado ou decisões equivalentes confirmadas.
-- [ ] Pacote 02 integrado ou sistema de design preservado sem conflito.
-- [ ] `RIGHTS.md` e `COPYRIGHT.md` existentes no repositório principal.
+- [ ] Pacotes 01, 02 e 03 confirmados.
+- [ ] ZIP ou diretório legado localizado.
+- [ ] Fingerprint de `museum-items.js` comparado.
+- [ ] Conflitos de caminhos analisados.
 
-## Pré-integração
+## Durante
 
-- [ ] Comparar caminhos existentes.
-- [ ] Verificar se já existe `docs/data-model/`.
-- [ ] Verificar se já existe `data/schemas/`.
-- [ ] Verificar se o repositório usa outra versão de JSON Schema.
-- [ ] Confirmar que nenhum schema existente será substituído silenciosamente.
+- [ ] Snapshot preservado.
+- [ ] 31 JSON integrados em caminho não público.
+- [ ] Regras e skills fundidas sem sobrescrever versões superiores.
+- [ ] Nenhuma ligação da UI aos novos dados.
+- [ ] Nenhum estado promovido.
 
-## Integração
+## Depois
 
-- [ ] Criar ou fundir documentação do modelo de dados.
-- [ ] Criar ou fundir schemas.
-- [ ] Criar vocabulários controlados.
-- [ ] Criar templates sem os tratar como dados reais.
-- [ ] Manter o exemplo `MM202601` como preliminar.
-- [ ] Integrar rules e skills.
-- [ ] Aplicar os apêndices de integração apenas após comparação.
-
-## Validação
-
-- [ ] Executar `node scripts/validate-data-model.mjs`.
-- [ ] Executar `node tests/data-model.test.mjs`.
-- [ ] Confirmar que os quatro idiomas existem nos objetos localizados.
-- [ ] Confirmar ausência do nível de certeza `mixed`.
-- [ ] Confirmar presença de direitos, consentimento e estado de publicação.
-- [ ] Confirmar que nenhuma coordenada sensível foi introduzida.
-
-## Pós-integração
-
-- [ ] Registar `releases/PACKAGE_03_v0.1.0.md`.
-- [ ] Documentar conflitos.
-- [ ] Documentar pendências.
-- [ ] Confirmar que o protótipo não foi alterado.
-- [ ] Confirmar que os 31 registos não foram migrados.
+- [ ] `node scripts/validate-package-04.mjs` executado.
+- [ ] `node tests/migration.test.mjs` executado.
+- [ ] Registos validados com o schema do Pacote 03.
+- [ ] Release registado.
+- [ ] Protótipo confirmado sem alterações.

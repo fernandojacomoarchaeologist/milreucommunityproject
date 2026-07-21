@@ -1,0 +1,278 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202604",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Figura popular de Estoi — Ti’ Jacinto",
+    "en": "A popular figure from Estoi — Ti’ Jacinto",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Retrato de Ti’ Jacinto, figura conhecida da comunidade local de Estoi. Segundo testemunhos, desempenhou funções como capataz e esteve ligado à manutenção de espaços públicos, como o jardim da Praça Ossonoba. Também há referências à sua ligação às Ruínas de Milreu e ao seu papel como cobrador na praça, onde interagia com vendedores, comerciantes e moradores.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia evoca memórias afetivas da comunidade, com testemunhos como “Quem não se lembra do Ti’ Jacinto!”, “Bons tempos!”, “Muitas saudades” e “Lembro-me bem dele”.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A imagem representa a importância das figuras locais na vida quotidiana da vila de Estoi e na memória social associada aos espaços públicos e às Ruínas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Data não determinada",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "sourceRefs": [
+      "SRC-MM202604-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Estoi",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202604-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Ti’ Jacinto; Tia Gertrudes referida em testemunhos.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "partial",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202604-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "figura comunitária",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Estoi",
+      "Ti’ Jacinto",
+      "memória comunitária",
+      "figura popular"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202604-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202604.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "credit": {
+        "pt-PT": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202604-LEGACY",
+      "SRC-MM202604-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202604-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202604.",
+      "locator": "data/museum-items.js#MM202604",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202604-ORIGIN",
+      "type": "social-media",
+      "citation": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202604-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202604-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202604",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "dateApprox",
+      "relatedIds",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": true,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202604",
+      "filename": "MM202604.jpg",
+      "title": "Figura popular de Estoi — Ti’ Jacinto",
+      "titleEn": "A popular figure from Estoi — Ti’ Jacinto",
+      "descriptionShort": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+      "descriptionLong": "Retrato de Ti’ Jacinto, figura conhecida da comunidade local de Estoi. Segundo testemunhos, desempenhou funções como capataz e esteve ligado à manutenção de espaços públicos, como o jardim da Praça Ossonoba. Também há referências à sua ligação às Ruínas de Milreu e ao seu papel como cobrador na praça, onde interagia com vendedores, comerciantes e moradores.",
+      "year": "",
+      "dateApprox": "",
+      "period": "Século XX",
+      "locationSpecific": "Estoi",
+      "locationPublic": "Estoi, Faro",
+      "peoplePublic": "Ti’ Jacinto; Tia Gertrudes referida em testemunhos.",
+      "memoryType": "figura comunitária",
+      "memoryText": "A fotografia evoca memórias afetivas da comunidade, com testemunhos como “Quem não se lembra do Ti’ Jacinto!”, “Bons tempos!”, “Muitas saudades” e “Lembro-me bem dele”.",
+      "historicalContext": "A imagem representa a importância das figuras locais na vida quotidiana da vila de Estoi e na memória social associada aos espaços públicos e às Ruínas de Milreu.",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "rights": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "tags": [
+        "Estoi",
+        "Ti’ Jacinto",
+        "memória comunitária",
+        "figura popular"
+      ],
+      "relatedIds": [],
+      "communityVoices": []
+    }
+  }
+}

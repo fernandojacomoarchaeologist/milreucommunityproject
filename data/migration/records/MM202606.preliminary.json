@@ -1,0 +1,266 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202606",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Escavações arqueológicas nas Ruínas de Milreu",
+    "en": "Archaeological excavations at the Ruins of Milreu",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu no final do século XIX, nomeadamente às intervenções conduzidas pelo Cónego Pereira Boto em 1897. O registo remete para uma fase pioneira da arqueologia em Portugal, marcada pela continuidade dos trabalhos iniciados por Estácio da Veiga em 1877.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "Milreu é conhecido nas fontes desde o século XVI. As escavações sistemáticas de Estácio da Veiga, em 1877, e os trabalhos de Pereira Boto, em 1897, contribuíram para a identificação e valorização científica do sítio.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "1897",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1897",
+    "normalizedEnd": "1897",
+    "precision": "year",
+    "certainty": "not-assessed",
+    "sourceRefs": [
+      "SRC-MM202606-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202606-LEGACY"
+      ]
+    }
+  ],
+  "people": [],
+  "classification": {
+    "primaryType": "escavações",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XIX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "escavações",
+      "século XIX",
+      "Estácio da Veiga",
+      "Pereira Boto",
+      "arqueologia"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202606-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202606.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "credit": {
+        "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202606-LEGACY",
+      "SRC-MM202606-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202606-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202606.",
+      "locator": "data/museum-items.js#MM202606",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202606-ORIGIN",
+      "type": "social-media",
+      "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202606-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202606-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202606",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "peoplePublic",
+      "memoryText",
+      "relatedIds",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": false,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202606",
+      "filename": "MM202606.jpg",
+      "title": "Escavações arqueológicas nas Ruínas de Milreu",
+      "titleEn": "Archaeological excavations at the Ruins of Milreu",
+      "descriptionShort": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+      "descriptionLong": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu no final do século XIX, nomeadamente às intervenções conduzidas pelo Cónego Pereira Boto em 1897. O registo remete para uma fase pioneira da arqueologia em Portugal, marcada pela continuidade dos trabalhos iniciados por Estácio da Veiga em 1877.",
+      "year": "1897",
+      "dateApprox": "1897",
+      "period": "Século XIX",
+      "locationSpecific": "Ruínas Romanas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "",
+      "memoryType": "escavações",
+      "memoryText": "",
+      "historicalContext": "Milreu é conhecido nas fontes desde o século XVI. As escavações sistemáticas de Estácio da Veiga, em 1877, e os trabalhos de Pereira Boto, em 1897, contribuíram para a identificação e valorização científica do sítio.",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "rights": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "escavações",
+        "século XIX",
+        "Estácio da Veiga",
+        "Pereira Boto",
+        "arqueologia"
+      ],
+      "relatedIds": [],
+      "communityVoices": []
+    }
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202617",
+  "recordStatus": "preliminary",
+  "publicationStatus": "blocked",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Versão restaurada com inteligência artificial",
+    "en": "AI-restored version",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Versão restaurada com inteligência artificial, produzida no Gemini, a partir de fotografia do professor Theodor Hauschild e sua equipa de escavadores em Milreu durante campanhas associadas ao Instituto Arqueológico Alemão. A imagem foi produzida como simulação para efeitos de identificação dos indivíduos. Embora tenha sido incluída na votação, foi removida da exposição por se tratar de imagem tratada com IA.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem tem valor como ferramenta auxiliar de identificação, mas não como documento fotográfico original.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A utilização de IA para restauro e identificação deve ser claramente diferenciada da fotografia original, sobretudo em contexto museológico e documental.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Imagem derivada contemporânea de fotografia histórica",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "sourceRefs": [
+      "SRC-MM202617-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Derivada de fotografia das Ruínas Romanas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202617-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Possível Theodor Hauschild e equipa de escavadores; identificação dependente da fotografia original.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "partial",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202617-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "imagem derivada",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XXI",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "IA",
+      "restauro",
+      "Theodor Hauschild",
+      "escavações",
+      "imagem derivada"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202617-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202617.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "credit": {
+        "pt-PT": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": [
+        {
+          "type": "ai-assisted-enhancement",
+          "description": {
+            "pt-PT": "O registo legado declara uma versão restaurada com inteligência artificial, produzida no Gemini, para simulação e identificação. Exige revisão humana e não deve ser apresentado como documento original.",
+            "en": null,
+            "es": null,
+            "fr": null
+          },
+          "tool": "Gemini",
+          "performedAt": null,
+          "sourceAssetId": null,
+          "promptReference": null,
+          "humanReviewStatus": "not-reviewed",
+          "substantiveChange": true
+        }
+      ]
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202617-LEGACY",
+      "SRC-MM202617-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso restrito. Imagem derivada por IA; não recomendada para exposição como documento original.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202617-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202617.",
+      "locator": "data/museum-items.js#MM202617",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202617-ORIGIN",
+      "type": "project-documentation",
+      "citation": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+      "locator": null,
+      "access": "restricted",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202617-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202617-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202613",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202614",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202616",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202617",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": true,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202617",
+      "filename": "MM202617.jpg",
+      "title": "Versão restaurada com inteligência artificial",
+      "titleEn": "AI-restored version",
+      "descriptionShort": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+      "descriptionLong": "Versão restaurada com inteligência artificial, produzida no Gemini, a partir de fotografia do professor Theodor Hauschild e sua equipa de escavadores em Milreu durante campanhas associadas ao Instituto Arqueológico Alemão. A imagem foi produzida como simulação para efeitos de identificação dos indivíduos. Embora tenha sido incluída na votação, foi removida da exposição por se tratar de imagem tratada com IA.",
+      "year": "",
+      "dateApprox": "Imagem derivada contemporânea de fotografia histórica",
+      "period": "Século XXI",
+      "locationSpecific": "Derivada de fotografia das Ruínas Romanas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Possível Theodor Hauschild e equipa de escavadores; identificação dependente da fotografia original.",
+      "memoryType": "imagem derivada",
+      "memoryText": "A imagem tem valor como ferramenta auxiliar de identificação, mas não como documento fotográfico original.",
+      "historicalContext": "A utilização de IA para restauro e identificação deve ser claramente diferenciada da fotografia original, sobretudo em contexto museológico e documental.",
+      "credit": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+      "rights": "Uso restrito. Imagem derivada por IA; não recomendada para exposição como documento original.",
+      "tags": [
+        "Milreu",
+        "IA",
+        "restauro",
+        "Theodor Hauschild",
+        "escavações",
+        "imagem derivada"
+      ],
+      "relatedIds": [
+        "MM202613",
+        "MM202614",
+        "MM202616"
+      ],
+      "communityVoices": []
+    }
+  }
+}

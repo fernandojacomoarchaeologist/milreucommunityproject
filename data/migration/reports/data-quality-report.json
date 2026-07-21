@@ -1,0 +1,113 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "recordCount": 31,
+  "fieldStats": {
+    "id": {
+      "missing": 0,
+      "blank": 0
+    },
+    "filename": {
+      "missing": 0,
+      "blank": 0
+    },
+    "title": {
+      "missing": 0,
+      "blank": 0
+    },
+    "titleEn": {
+      "missing": 0,
+      "blank": 0
+    },
+    "descriptionShort": {
+      "missing": 0,
+      "blank": 0
+    },
+    "descriptionLong": {
+      "missing": 0,
+      "blank": 0
+    },
+    "year": {
+      "missing": 0,
+      "blank": 6
+    },
+    "dateApprox": {
+      "missing": 0,
+      "blank": 3
+    },
+    "period": {
+      "missing": 0,
+      "blank": 1
+    },
+    "locationSpecific": {
+      "missing": 0,
+      "blank": 0
+    },
+    "locationPublic": {
+      "missing": 0,
+      "blank": 0
+    },
+    "peoplePublic": {
+      "missing": 0,
+      "blank": 3
+    },
+    "memoryType": {
+      "missing": 0,
+      "blank": 0
+    },
+    "memoryText": {
+      "missing": 0,
+      "blank": 2
+    },
+    "historicalContext": {
+      "missing": 0,
+      "blank": 0
+    },
+    "credit": {
+      "missing": 0,
+      "blank": 0
+    },
+    "rights": {
+      "missing": 0,
+      "blank": 0
+    },
+    "tags": {
+      "missing": 0,
+      "blank": 0
+    },
+    "relatedIds": {
+      "missing": 0,
+      "blank": 3
+    },
+    "communityVoices": {
+      "missing": 0,
+      "blank": 31
+    }
+  },
+  "memoryTypes": {
+    "festa": 2,
+    "juventude": 1,
+    "escavações": 6,
+    "figura comunitária": 1,
+    "visita": 1,
+    "memória comunitária": 2,
+    "literatura": 1,
+    "habitação": 1,
+    "história oral": 1,
+    "trabalho e convívio": 4,
+    "imagem derivada": 1,
+    "trabalho arqueológico": 8,
+    "trabalho e quotidiano": 2
+  },
+  "recordsWithCommunityVoices": [],
+  "recordsWithDigitalIntervention": [
+    "MM202617",
+    "MM202618",
+    "MM202619",
+    "MM202631"
+  ],
+  "blockedRecords": [
+    "MM202617"
+  ]
+}

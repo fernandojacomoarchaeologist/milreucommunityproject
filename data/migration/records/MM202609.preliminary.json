@@ -1,0 +1,307 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202609",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Pessoas em frente ao edifício de cultos",
+    "en": "People in front of the cult building",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Registo de pessoas em frente ao edifício de cultos das Ruínas Romanas de Milreu. O ano da fotografia é desconhecido. A descrição foi divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A imagem integra o conjunto de registos comunitários em torno do edifício de cultos de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Ano desconhecido",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "sourceRefs": [
+      "SRC-MM202609-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Edifício de cultos de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202609-LEGACY"
+      ]
+    }
+  ],
+  "people": [],
+  "classification": {
+    "primaryType": "memória comunitária",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "edifício de cultos",
+      "Estoi",
+      "memória comunitária"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202609-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202609.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "credit": {
+        "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202609-LEGACY",
+      "SRC-MM202609-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202609-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202609.",
+      "locator": "data/museum-items.js#MM202609",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202609-ORIGIN",
+      "type": "social-media",
+      "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202609-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202609-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202602",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202605",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202608",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202609",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "period",
+      "peoplePublic",
+      "memoryText",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": false,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202609",
+      "filename": "MM202609.jpg",
+      "title": "Pessoas em frente ao edifício de cultos",
+      "titleEn": "People in front of the cult building",
+      "descriptionShort": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+      "descriptionLong": "Registo de pessoas em frente ao edifício de cultos das Ruínas Romanas de Milreu. O ano da fotografia é desconhecido. A descrição foi divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "year": "",
+      "dateApprox": "Ano desconhecido",
+      "period": "",
+      "locationSpecific": "Edifício de cultos de Milreu",
+      "locationPublic": "Ruínas Romanas de Milreu, Estoi, Faro",
+      "peoplePublic": "",
+      "memoryType": "memória comunitária",
+      "memoryText": "",
+      "historicalContext": "A imagem integra o conjunto de registos comunitários em torno do edifício de cultos de Milreu.",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "rights": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "edifício de cultos",
+        "Estoi",
+        "memória comunitária"
+      ],
+      "relatedIds": [
+        "MM202602",
+        "MM202605",
+        "MM202608"
+      ],
+      "communityVoices": []
+    }
+  }
+}

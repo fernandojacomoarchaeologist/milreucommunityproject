@@ -1,0 +1,295 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202611",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Natalina Crispim na Casa Rural de Milreu",
+    "en": "Natalina Crispim at the Rural House of Milreu",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo. Não há informações detalhadas sobre o contexto da imagem, pois foi retirada de arquivo digital. Em contacto com Dona Natalina, a mesma não se recordava com precisão do contexto da fotografia, mas sabia que era nas proximidades da Casa Rural.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem liga a memória pessoal de Natalina Crispim à ocupação e vivência da Casa Rural de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A Casa Rural de Milreu permaneceu associada à vida quotidiana local e à ocupação do espaço arqueológico até ao século XX.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Data não determinada",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "sourceRefs": [
+      "SRC-MM202611-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Casa Rural de Milreu, subida do Monte Figo",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202611-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Natalina Crispim.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "partial",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202611-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "habitação",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Casa Rural",
+      "Natalina Crispim",
+      "Monte Figo",
+      "memória familiar"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202611-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202611.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "credit": {
+        "pt-PT": "Arquivo digital associado à memória de Natalina Crispim.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "historical-material",
+    "publicationBasis": "institutional-terms",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202611-LEGACY",
+      "SRC-MM202611-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização e validação de direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202611-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202611.",
+      "locator": "data/museum-items.js#MM202611",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202611-ORIGIN",
+      "type": "archive-record",
+      "citation": "Arquivo digital associado à memória de Natalina Crispim.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202611-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202611-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202612",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202611",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "dateApprox",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202611",
+      "filename": "MM202611.jpg",
+      "title": "Natalina Crispim na Casa Rural de Milreu",
+      "titleEn": "Natalina Crispim at the Rural House of Milreu",
+      "descriptionShort": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+      "descriptionLong": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo. Não há informações detalhadas sobre o contexto da imagem, pois foi retirada de arquivo digital. Em contacto com Dona Natalina, a mesma não se recordava com precisão do contexto da fotografia, mas sabia que era nas proximidades da Casa Rural.",
+      "year": "",
+      "dateApprox": "",
+      "period": "Século XX",
+      "locationSpecific": "Casa Rural de Milreu, subida do Monte Figo",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Natalina Crispim.",
+      "memoryType": "habitação",
+      "memoryText": "A imagem liga a memória pessoal de Natalina Crispim à ocupação e vivência da Casa Rural de Milreu.",
+      "historicalContext": "A Casa Rural de Milreu permaneceu associada à vida quotidiana local e à ocupação do espaço arqueológico até ao século XX.",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "rights": "Uso dependente de autorização e validação de direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "Casa Rural",
+        "Natalina Crispim",
+        "Monte Figo",
+        "memória familiar"
+      ],
+      "relatedIds": [
+        "MM202612"
+      ],
+      "communityVoices": []
+    }
+  }
+}

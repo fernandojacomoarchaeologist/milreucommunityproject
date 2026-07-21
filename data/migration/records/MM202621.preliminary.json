@@ -1,0 +1,395 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202621",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Lavando cacos",
+    "en": "Washing sherds",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia associada às campanhas arqueológicas de Milreu conduzidas pelo Instituto Arqueológico Alemão. A descrição “Lavando cacos” veio de publicação da página Partilha Alternativa. A imagem mostra dois indivíduos no quadrante superior direito a manipular materiais junto a uma carriola e um balde. Um dos indivíduos aparenta ser Dona Alzira Parente; o outro não foi identificado. A fotografia foi revelada pela Kodak em dezembro de 1984, segundo carimbo apagado no verso, e apresenta brilho espelhado, pontas arredondadas, dimensão de 10 x 15 cm e bom estado de conservação, embora com efeitos do tempo.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia documenta uma tarefa essencial do trabalho arqueológico: a lavagem e preparação de fragmentos ou materiais recolhidos.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A lavagem de cacos é parte do processamento de materiais arqueológicos e revela a dimensão técnica e manual das campanhas de escavação.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "hypothesis",
+    "sourceRefs": [
+      "SRC-MM202621-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu, local exato não identificado",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "approximate",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202621-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Possivelmente Dona Alzira Parente; outro indivíduo não identificado.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "probable",
+      "publicDisplayAllowed": false,
+      "certainty": "probable",
+      "sourceRefs": [
+        "SRC-MM202621-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "trabalho arqueológico",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "lavando cacos",
+      "Alzira Parente",
+      "Kodak",
+      "1984",
+      "Partilha Alternativa",
+      "escavações"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202621-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202621.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "credit": {
+        "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202621-LEGACY",
+      "SRC-MM202621-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202621-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202621.",
+      "locator": "data/museum-items.js#MM202621",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202621-ORIGIN",
+      "type": "social-media",
+      "citation": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202621-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202621-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202613",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202614",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202615",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202616",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202618",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202619",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202620",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202622",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202621",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202621",
+      "filename": "MM202621.jpg",
+      "title": "Lavando cacos",
+      "titleEn": "Washing sherds",
+      "descriptionShort": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+      "descriptionLong": "Fotografia associada às campanhas arqueológicas de Milreu conduzidas pelo Instituto Arqueológico Alemão. A descrição “Lavando cacos” veio de publicação da página Partilha Alternativa. A imagem mostra dois indivíduos no quadrante superior direito a manipular materiais junto a uma carriola e um balde. Um dos indivíduos aparenta ser Dona Alzira Parente; o outro não foi identificado. A fotografia foi revelada pela Kodak em dezembro de 1984, segundo carimbo apagado no verso, e apresenta brilho espelhado, pontas arredondadas, dimensão de 10 x 15 cm e bom estado de conservação, embora com efeitos do tempo.",
+      "year": "1984",
+      "dateApprox": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "period": "Século XX",
+      "locationSpecific": "Ruínas Romanas de Milreu, local exato não identificado",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Possivelmente Dona Alzira Parente; outro indivíduo não identificado.",
+      "memoryType": "trabalho arqueológico",
+      "memoryText": "A fotografia documenta uma tarefa essencial do trabalho arqueológico: a lavagem e preparação de fragmentos ou materiais recolhidos.",
+      "historicalContext": "A lavagem de cacos é parte do processamento de materiais arqueológicos e revela a dimensão técnica e manual das campanhas de escavação.",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "rights": "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "lavando cacos",
+        "Alzira Parente",
+        "Kodak",
+        "1984",
+        "Partilha Alternativa",
+        "escavações"
+      ],
+      "relatedIds": [
+        "MM202613",
+        "MM202614",
+        "MM202615",
+        "MM202616",
+        "MM202618",
+        "MM202619",
+        "MM202620",
+        "MM202622"
+      ],
+      "communityVoices": []
+    }
+  }
+}
