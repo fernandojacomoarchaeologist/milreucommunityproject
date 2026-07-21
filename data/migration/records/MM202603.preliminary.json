@@ -1,0 +1,295 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202603",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Achados romanos de Milreu",
+    "en": "Roman finds from Milreu",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu, em Estoi, durante a década de 1960, quando foram encontrados importantes bustos de época romana, identificados como Agripina, a Jovem, e o imperador Adriano. A imagem mostra três homens não identificados ostentando os achados. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A descoberta dos bustos permaneceu na memória local como um dos momentos mais emblemáticos da investigação arqueológica em Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "As escavações dos anos 1960, conduzidas por equipa internacional ligada ao Instituto Arqueológico Alemão e a Theodor Hauschild, marcaram uma fase decisiva da valorização científica de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "1966-1967",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1966",
+    "normalizedEnd": "1967",
+    "precision": "range",
+    "certainty": "not-assessed",
+    "sourceRefs": [
+      "SRC-MM202603-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202603-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Três homens não identificados. Os bustos representados são associados a Agripina, a Jovem, e Adriano.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202603-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "escavações",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "escavações",
+      "bustos romanos",
+      "Agripina",
+      "Adriano",
+      "Instituto Arqueológico Alemão"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202603-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202603.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "credit": {
+        "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202603-LEGACY",
+      "SRC-MM202603-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202603-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202603.",
+      "locator": "data/museum-items.js#MM202603",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202603-ORIGIN",
+      "type": "social-media",
+      "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202603-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202603-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202607",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202603",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202603",
+      "filename": "MM202603.jpg",
+      "title": "Achados romanos de Milreu",
+      "titleEn": "Roman finds from Milreu",
+      "descriptionShort": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+      "descriptionLong": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu, em Estoi, durante a década de 1960, quando foram encontrados importantes bustos de época romana, identificados como Agripina, a Jovem, e o imperador Adriano. A imagem mostra três homens não identificados ostentando os achados. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "year": "1966",
+      "dateApprox": "1966-1967",
+      "period": "Século XX",
+      "locationSpecific": "Ruínas Romanas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Três homens não identificados. Os bustos representados são associados a Agripina, a Jovem, e Adriano.",
+      "memoryType": "escavações",
+      "memoryText": "A descoberta dos bustos permaneceu na memória local como um dos momentos mais emblemáticos da investigação arqueológica em Milreu.",
+      "historicalContext": "As escavações dos anos 1960, conduzidas por equipa internacional ligada ao Instituto Arqueológico Alemão e a Theodor Hauschild, marcaram uma fase decisiva da valorização científica de Milreu.",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "rights": "Uso dependente de validação de autoria, autorização e direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "escavações",
+        "bustos romanos",
+        "Agripina",
+        "Adriano",
+        "Instituto Arqueológico Alemão"
+      ],
+      "relatedIds": [
+        "MM202607"
+      ],
+      "communityVoices": []
+    }
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202605",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Visita de jornalistas ingleses a Milreu",
+    "en": "Visit of English journalists to Milreu",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia de uma visita de jornalistas ingleses às Ruínas de Milreu, datada de 1913. A imagem foi publicada na revista Ilustração Portuguesa, 2.ª série, n.º 368, de 10 de março de 1913, e pode ser consultada na Hemeroteca Digital. A fotografia parece ter sido tirada no interior do edifício de cultos. Alguns detalhes arquitetónicos visíveis, hoje desaparecidos ou alterados, evidenciam transformações do sítio ao longo do tempo.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem documenta uma das primeiras ações de promoção internacional do Algarve e de valorização pública de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A visita de jornalistas ingleses em 1913 evidencia o interesse estrangeiro pelo património histórico do Algarve no início do século XX.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "1913",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1913",
+    "normalizedEnd": "1913",
+    "precision": "year",
+    "certainty": "not-assessed",
+    "sourceRefs": [
+      "SRC-MM202605-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Ruínas Romanas de Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Possivelmente interior do edifício de cultos de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "approximate",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "hypothesis",
+      "sourceRefs": [
+        "SRC-MM202605-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Grupo de jornalistas ingleses não identificados individualmente.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202605-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "visita",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "jornalistas ingleses",
+      "1913",
+      "Ilustração Portuguesa",
+      "Hemeroteca Digital",
+      "edifício de cultos"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202605-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202605.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "credit": {
+        "pt-PT": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "historical-material",
+    "publicationBasis": "institutional-terms",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202605-LEGACY",
+      "SRC-MM202605-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente das condições da Hemeroteca Digital e da publicação original.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202605-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202605.",
+      "locator": "data/museum-items.js#MM202605",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202605-ORIGIN",
+      "type": "publication",
+      "citation": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202605-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202605-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202602",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202608",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    },
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202609",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202605",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202605",
+      "filename": "MM202605.jpg",
+      "title": "Visita de jornalistas ingleses a Milreu",
+      "titleEn": "Visit of English journalists to Milreu",
+      "descriptionShort": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+      "descriptionLong": "Fotografia de uma visita de jornalistas ingleses às Ruínas de Milreu, datada de 1913. A imagem foi publicada na revista Ilustração Portuguesa, 2.ª série, n.º 368, de 10 de março de 1913, e pode ser consultada na Hemeroteca Digital. A fotografia parece ter sido tirada no interior do edifício de cultos. Alguns detalhes arquitetónicos visíveis, hoje desaparecidos ou alterados, evidenciam transformações do sítio ao longo do tempo.",
+      "year": "1913",
+      "dateApprox": "1913",
+      "period": "Século XX",
+      "locationSpecific": "Possivelmente interior do edifício de cultos de Milreu",
+      "locationPublic": "Ruínas Romanas de Milreu, Estoi, Faro",
+      "peoplePublic": "Grupo de jornalistas ingleses não identificados individualmente.",
+      "memoryType": "visita",
+      "memoryText": "A imagem documenta uma das primeiras ações de promoção internacional do Algarve e de valorização pública de Milreu.",
+      "historicalContext": "A visita de jornalistas ingleses em 1913 evidencia o interesse estrangeiro pelo património histórico do Algarve no início do século XX.",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "rights": "Uso dependente das condições da Hemeroteca Digital e da publicação original.",
+      "tags": [
+        "Milreu",
+        "jornalistas ingleses",
+        "1913",
+        "Ilustração Portuguesa",
+        "Hemeroteca Digital",
+        "edifício de cultos"
+      ],
+      "relatedIds": [
+        "MM202602",
+        "MM202608",
+        "MM202609"
+      ],
+      "communityVoices": []
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "rightsGroups": {
+    "Fonte arquivística pública. Direitos e restrições de reprodução conforme registo da Torre do Tombo.": 1,
+    "Uso dependente de validação de autoria, autorização e direitos de imagem.": 7,
+    "Uso dependente das condições da Hemeroteca Digital e da publicação original.": 1,
+    "Uso dependente de autorização do detentor da coleção e validação dos direitos de imagem.": 1,
+    "Uso dependente de autorização e validação de direitos de imagem.": 1,
+    "Uso dependente de autorização da Partilha Alternativa e dos envolvidos.": 1,
+    "Uso dependente de autorização dos detentores da fotografia e validação dos direitos de imagem.": 17,
+    "Uso restrito. Imagem derivada por IA; não recomendada para exposição como documento original.": 1,
+    "Uso sujeito às condições de publicação e autorização de Património Cultural I.P.": 1
+  },
+  "allRecordsRequireRightsReview": true,
+  "allMediaPublicationAllowed": false,
+  "recordsWithExplicitRestriction": [
+    "MM202617"
+  ],
+  "note": "Nenhum texto legado de direitos foi convertido em autorização confirmada."
+}

@@ -1,0 +1,98 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "products": [
+    "single-page museum prototype"
+  ],
+  "features": [
+    {
+      "id": "B-01/B-12",
+      "name": "Base gallery, search, modal, configuration, Drive and contact",
+      "status": "legacy-active"
+    },
+    {
+      "id": "F-01",
+      "name": "Community voices",
+      "status": "implemented-empty-data"
+    },
+    {
+      "id": "F-02",
+      "name": "Interactive timeline",
+      "status": "implemented"
+    },
+    {
+      "id": "F-03",
+      "name": "Fullscreen immersive mode",
+      "status": "implemented"
+    },
+    {
+      "id": "F-04",
+      "name": "Print and share memory card",
+      "status": "implemented"
+    },
+    {
+      "id": "F-05",
+      "name": "Guided contribution form",
+      "status": "mailto-only"
+    },
+    {
+      "id": "F-06",
+      "name": "Keyboard and swipe navigation",
+      "status": "implemented"
+    },
+    {
+      "id": "F-07",
+      "name": "Random memory",
+      "status": "implemented"
+    },
+    {
+      "id": "F-08",
+      "name": "Bookmarks",
+      "status": "localStorage-only"
+    },
+    {
+      "id": "F-09",
+      "name": "Contextual glossary",
+      "status": "implemented"
+    },
+    {
+      "id": "F-10",
+      "name": "Activity and growth indicators",
+      "status": "client-derived"
+    },
+    {
+      "id": "F-11",
+      "name": "Itinerant exhibition calendar",
+      "status": "contains-prototype-data"
+    },
+    {
+      "id": "MAP",
+      "name": "Narrative map",
+      "status": "placeholder"
+    }
+  ],
+  "localStorageKeys": [
+    "mmm-viewmode",
+    "mmm-bookmarks",
+    "mmm-rating:<id>",
+    "mmm-seen"
+  ],
+  "externalDependencies": [
+    "Google Fonts",
+    "optional Google Drive API",
+    "Google Maps links",
+    "mailto client"
+  ],
+  "persistence": {
+    "museumRecords": "JavaScript file or public Drive TXT",
+    "contributions": "email client only",
+    "preferences": "browser localStorage",
+    "exhibitions": "JSON/TXT/inline fallback"
+  },
+  "knownCoupling": [
+    "main.js combines presentation, state, forms, rating, navigation and data access",
+    "style.css is monolithic",
+    "index.html combines portal, museum, exhibition, participation and policy content"
+  ]
+}

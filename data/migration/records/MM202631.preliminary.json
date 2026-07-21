@@ -1,0 +1,324 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202631",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Cortejo da Festa da Pinha em frente às Ruínas de Milreu",
+    "en": "Festa da Pinha procession in front of the Ruins of Milreu",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, em 2024. A imagem foi adaptada para redes sociais em formato de publicação para Instagram, tendo alguns elementos aparentemente cortados, como parte da cabeça do cavalo. Os indivíduos da imagem não foram identificados. Foi realizada correção de imagem com IA conforme prompt descrito na observação da catalogação.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia mostra a continuidade contemporânea da Festa da Pinha e a sua relação visual e simbólica com as Ruínas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A imagem estabelece uma ligação entre o registo histórico da Festa da Pinha de 1909 e a permanência da tradição no século XXI.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "2024",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "2024",
+    "normalizedEnd": "2024",
+    "precision": "year",
+    "certainty": "not-assessed",
+    "sourceRefs": [
+      "SRC-MM202631-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Frente das Ruínas Romanas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202631-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Indivíduos não identificados.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202631-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "festa",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XXI",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Festa da Pinha",
+      "Património Cultural I.P.",
+      "2024",
+      "Estoi"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202631-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202631.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "credit": {
+        "pt-PT": "Publicação em redes sociais por Património Cultural I.P.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": [
+        {
+          "type": "ai-assisted-enhancement",
+          "description": {
+            "pt-PT": "O registo legado declara uma correção de imagem assistida por inteligência artificial. Os detalhes do processo e o ficheiro de origem devem ser verificados.",
+            "en": null,
+            "es": null,
+            "fr": null
+          },
+          "tool": null,
+          "performedAt": null,
+          "sourceAssetId": null,
+          "promptReference": null,
+          "humanReviewStatus": "not-reviewed",
+          "substantiveChange": true
+        },
+        {
+          "type": "crop",
+          "description": {
+            "pt-PT": "O registo legado indica adaptação da imagem para publicação em redes sociais, com possível corte de elementos.",
+            "en": null,
+            "es": null,
+            "fr": null
+          },
+          "tool": null,
+          "performedAt": null,
+          "sourceAssetId": null,
+          "promptReference": null,
+          "humanReviewStatus": "not-reviewed",
+          "substantiveChange": true
+        }
+      ]
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202631-LEGACY",
+      "SRC-MM202631-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso sujeito às condições de publicação e autorização de Património Cultural I.P.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202631-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202631.",
+      "locator": "data/museum-items.js#MM202631",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202631-ORIGIN",
+      "type": "social-media",
+      "citation": "Publicação em redes sociais por Património Cultural I.P.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202631-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202631-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202601",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202631",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": true,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202631",
+      "filename": "MM202631.jpg",
+      "title": "Cortejo da Festa da Pinha em frente às Ruínas de Milreu",
+      "titleEn": "Festa da Pinha procession in front of the Ruins of Milreu",
+      "descriptionShort": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+      "descriptionLong": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, em 2024. A imagem foi adaptada para redes sociais em formato de publicação para Instagram, tendo alguns elementos aparentemente cortados, como parte da cabeça do cavalo. Os indivíduos da imagem não foram identificados. Foi realizada correção de imagem com IA conforme prompt descrito na observação da catalogação.",
+      "year": "2024",
+      "dateApprox": "2024",
+      "period": "Século XXI",
+      "locationSpecific": "Frente das Ruínas Romanas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Indivíduos não identificados.",
+      "memoryType": "festa",
+      "memoryText": "A fotografia mostra a continuidade contemporânea da Festa da Pinha e a sua relação visual e simbólica com as Ruínas de Milreu.",
+      "historicalContext": "A imagem estabelece uma ligação entre o registo histórico da Festa da Pinha de 1909 e a permanência da tradição no século XXI.",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "rights": "Uso sujeito às condições de publicação e autorização de Património Cultural I.P.",
+      "tags": [
+        "Milreu",
+        "Festa da Pinha",
+        "Património Cultural I.P.",
+        "2024",
+        "Estoi"
+      ],
+      "relatedIds": [
+        "MM202601"
+      ],
+      "communityVoices": []
+    }
+  }
+}

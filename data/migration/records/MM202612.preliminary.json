@@ -1,0 +1,298 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202612",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Rosário Félix desenha as memórias de Natalina Crispim",
+    "en": "Rosário Félix draws Natalina Crispim’s memories",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia de Rosário Félix a desenhar as memórias de Natalina Crispim. A imagem está associada à Partilha Alternativa e ao documentário Memórias Vivas da Casa Rural. A hipótese é que a fotografia tenha sido tirada próximo da produção do documentário. A imagem reflete a memória da Casa Rural e encontrava-se, no momento da catalogação, na página de Facebook da Partilha Alternativa.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A imagem documenta um processo de mediação artística da memória oral de Natalina Crispim sobre a Casa Rural de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A Partilha Alternativa contribuiu para a valorização de memórias locais ligadas à Casa Rural através de produção documental e artística.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Possivelmente próxima da produção do documentário Memórias Vivas da Casa Rural",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "hypothesis",
+    "sourceRefs": [
+      "SRC-MM202612-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Contexto documental da Casa Rural de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202612-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Rosário Félix; Natalina Crispim.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "partial",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202612-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "história oral",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XXI",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Casa Rural",
+      "Natalina Crispim",
+      "Rosário Félix",
+      "Partilha Alternativa",
+      "história oral",
+      "Memórias Vivas da Casa Rural"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202612-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202612.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "credit": {
+        "pt-PT": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "pending-review",
+    "publicationBasis": "pending-review",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202612-LEGACY",
+      "SRC-MM202612-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização da Partilha Alternativa e dos envolvidos.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202612-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202612.",
+      "locator": "data/museum-items.js#MM202612",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202612-ORIGIN",
+      "type": "social-media",
+      "citation": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202612-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202612-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202611",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202612",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202612",
+      "filename": "MM202612.jpg",
+      "title": "Rosário Félix desenha as memórias de Natalina Crispim",
+      "titleEn": "Rosário Félix draws Natalina Crispim’s memories",
+      "descriptionShort": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+      "descriptionLong": "Fotografia de Rosário Félix a desenhar as memórias de Natalina Crispim. A imagem está associada à Partilha Alternativa e ao documentário Memórias Vivas da Casa Rural. A hipótese é que a fotografia tenha sido tirada próximo da produção do documentário. A imagem reflete a memória da Casa Rural e encontrava-se, no momento da catalogação, na página de Facebook da Partilha Alternativa.",
+      "year": "",
+      "dateApprox": "Possivelmente próxima da produção do documentário Memórias Vivas da Casa Rural",
+      "period": "Século XXI",
+      "locationSpecific": "Contexto documental da Casa Rural de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Rosário Félix; Natalina Crispim.",
+      "memoryType": "história oral",
+      "memoryText": "A imagem documenta um processo de mediação artística da memória oral de Natalina Crispim sobre a Casa Rural de Milreu.",
+      "historicalContext": "A Partilha Alternativa contribuiu para a valorização de memórias locais ligadas à Casa Rural através de produção documental e artística.",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "rights": "Uso dependente de autorização da Partilha Alternativa e dos envolvidos.",
+      "tags": [
+        "Milreu",
+        "Casa Rural",
+        "Natalina Crispim",
+        "Rosário Félix",
+        "Partilha Alternativa",
+        "história oral",
+        "Memórias Vivas da Casa Rural"
+      ],
+      "relatedIds": [
+        "MM202611"
+      ],
+      "communityVoices": []
+    }
+  }
+}

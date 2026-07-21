@@ -1,0 +1,157 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "missingTargets": [],
+  "asymmetricRelations": [
+    {
+      "source": "MM202613",
+      "target": "MM202627"
+    },
+    {
+      "source": "MM202613",
+      "target": "MM202629"
+    },
+    {
+      "source": "MM202614",
+      "target": "MM202627"
+    },
+    {
+      "source": "MM202614",
+      "target": "MM202629"
+    },
+    {
+      "source": "MM202615",
+      "target": "MM202617"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202615"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202616"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202618"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202619"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202620"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202621"
+    },
+    {
+      "source": "MM202623",
+      "target": "MM202622"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202615"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202616"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202618"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202619"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202620"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202621"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202622"
+    },
+    {
+      "source": "MM202624",
+      "target": "MM202623"
+    },
+    {
+      "source": "MM202625",
+      "target": "MM202602"
+    },
+    {
+      "source": "MM202625",
+      "target": "MM202605"
+    },
+    {
+      "source": "MM202625",
+      "target": "MM202608"
+    },
+    {
+      "source": "MM202625",
+      "target": "MM202609"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202615"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202616"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202618"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202619"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202620"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202621"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202622"
+    },
+    {
+      "source": "MM202626",
+      "target": "MM202623"
+    },
+    {
+      "source": "MM202630",
+      "target": "MM202615"
+    },
+    {
+      "source": "MM202630",
+      "target": "MM202616"
+    },
+    {
+      "source": "MM202630",
+      "target": "MM202627"
+    },
+    {
+      "source": "MM202630",
+      "target": "MM202628"
+    },
+    {
+      "source": "MM202630",
+      "target": "MM202629"
+    }
+  ],
+  "note": "As relações foram preservadas sem correção automática."
+}

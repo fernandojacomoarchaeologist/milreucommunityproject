@@ -10,6 +10,7 @@ descartar.
 | P002 | 2026-07-18 | main | Integra Pacote 01 v0.1.0 - fundação, governação e escopo |
 | P003 | 2026-07-20 | main | Integra Pacote 02 v0.1.0 - sistema de design e guia vivo |
 | P004 | 2026-07-20 | pack/pacote-03-modelo-dados | Integra Pacote 03 v0.1.0 - modelo de dados do Museu |
+| P005 | 2026-07-20 | pack/pacote-04-migracao | Integra Pacote 04 v0.1.0 - auditoria e migração da versão preliminar |
 
 ---
 

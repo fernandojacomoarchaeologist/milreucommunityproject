@@ -1,0 +1,497 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "sourceRoot": "museu-memorias-milreu-GITHUB",
+  "logicalFileCount": 47,
+  "ignoredCount": 3,
+  "ignored": [
+    ".DS_Store",
+    "assets/.DS_Store",
+    "assets/images/.DS_Store"
+  ],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "sizeBytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "extension": null,
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "404.html",
+      "sizeBytes": 707,
+      "sha256": "sha256:f7d79e3a6f079151b77716afae8147fd3a3cb3b2b307b130e1bfbfe96c9cd01e",
+      "extension": ".html",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "README.md",
+      "sizeBytes": 6401,
+      "sha256": "sha256:a0834575f2fe30e21b0edc77a14ae67de6c327a0ecfa3193a5e1a62726429313",
+      "extension": ".md",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202601.jpg",
+      "sizeBytes": 939534,
+      "sha256": "sha256:1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2414,
+      "height": 1728,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202602.jpg",
+      "sizeBytes": 1797396,
+      "sha256": "sha256:7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2048,
+      "height": 2048,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202603.jpg",
+      "sizeBytes": 1306511,
+      "sha256": "sha256:3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2384,
+      "height": 1792,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202604.jpg",
+      "sizeBytes": 725608,
+      "sha256": "sha256:75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2612,
+      "height": 1632,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202605.jpg",
+      "sizeBytes": 1278431,
+      "sha256": "sha256:4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2400,
+      "height": 1792,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202606.jpg",
+      "sizeBytes": 1682886,
+      "sha256": "sha256:d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2550,
+      "height": 1664,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202607.jpg",
+      "sizeBytes": 1121284,
+      "sha256": "sha256:959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2416,
+      "height": 1760,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202608.jpg",
+      "sizeBytes": 1712309,
+      "sha256": "sha256:99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2680,
+      "height": 1600,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202609.jpg",
+      "sizeBytes": 901525,
+      "sha256": "sha256:74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2052,
+      "height": 2048,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202610.jpg",
+      "sizeBytes": 1172248,
+      "sha256": "sha256:ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1792,
+      "height": 2398,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202611.jpg",
+      "sizeBytes": 999468,
+      "sha256": "sha256:2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1536,
+      "height": 2730,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202612.jpeg",
+      "sizeBytes": 146639,
+      "sha256": "sha256:c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "extension": ".jpeg",
+      "detectedMime": "image/jpeg",
+      "width": 1440,
+      "height": 810,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202612.jpg",
+      "sizeBytes": 146639,
+      "sha256": "sha256:c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1440,
+      "height": 810,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202613.jpg",
+      "sizeBytes": 1424062,
+      "sha256": "sha256:cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2626,
+      "height": 1600,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202614.jpg",
+      "sizeBytes": 1334683,
+      "sha256": "sha256:ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2340,
+      "height": 1824,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202615.jpg",
+      "sizeBytes": 1031005,
+      "sha256": "sha256:9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2338,
+      "height": 1824,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202616.jpg",
+      "sizeBytes": 907306,
+      "sha256": "sha256:1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2438,
+      "height": 1728,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202617.jpg",
+      "sizeBytes": 1693665,
+      "sha256": "sha256:c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2340,
+      "height": 1824,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202618.jpg",
+      "sizeBytes": 1122988,
+      "sha256": "sha256:b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1616,
+      "height": 2624,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202619.jpg",
+      "sizeBytes": 267472,
+      "sha256": "sha256:a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 808,
+      "height": 1312,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202620.jpg",
+      "sizeBytes": 905088,
+      "sha256": "sha256:11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2784,
+      "height": 1536,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202621.jpg",
+      "sizeBytes": 789660,
+      "sha256": "sha256:1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2432,
+      "height": 1750,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202622.jpg",
+      "sizeBytes": 775903,
+      "sha256": "sha256:71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2472,
+      "height": 1728,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202623.jpg",
+      "sizeBytes": 1097970,
+      "sha256": "sha256:8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2272,
+      "height": 1872,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202624.jpg",
+      "sizeBytes": 807209,
+      "sha256": "sha256:afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1630,
+      "height": 2624,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202625.jpg",
+      "sizeBytes": 900704,
+      "sha256": "sha256:028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2564,
+      "height": 1632,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202626.jpg",
+      "sizeBytes": 1013731,
+      "sha256": "sha256:13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2270,
+      "height": 1856,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202627.jpg",
+      "sizeBytes": 718616,
+      "sha256": "sha256:8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2464,
+      "height": 1728,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202628.jpg",
+      "sizeBytes": 794707,
+      "sha256": "sha256:35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2240,
+      "height": 1918,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202629.jpg",
+      "sizeBytes": 826832,
+      "sha256": "sha256:9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2184,
+      "height": 1952,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202630.jpg",
+      "sizeBytes": 768968,
+      "sha256": "sha256:1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 1600,
+      "height": 2668,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/MM202631.jpg",
+      "sizeBytes": 897363,
+      "sha256": "sha256:7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "extension": ".jpg",
+      "detectedMime": "image/jpeg",
+      "width": 2730,
+      "height": 1536,
+      "extensionMismatch": false
+    },
+    {
+      "path": "assets/images/milreu_mosaic_hero.png",
+      "sizeBytes": 646512,
+      "sha256": "sha256:cd56b7b5d6b30b7da7eb3113022bbab12a1e810db311424d919b94a0d0ade83a",
+      "extension": ".png",
+      "detectedMime": "image/jpeg",
+      "width": 3281,
+      "height": 1874,
+      "extensionMismatch": true
+    },
+    {
+      "path": "assets/logo/Logo_Projeto_Milreu.jpeg",
+      "sizeBytes": 65665,
+      "sha256": "sha256:f449e4c8e3cc5e1115e8c3fd31a56da6872f5f9e5b11b7f5d8e6919581cbd765",
+      "extension": ".jpeg",
+      "detectedMime": "image/jpeg",
+      "width": 1024,
+      "height": 559,
+      "extensionMismatch": false
+    },
+    {
+      "path": "config.js",
+      "sizeBytes": 4261,
+      "sha256": "sha256:5e467332e4c6945812658341516e62aa6a2c24faddbd8bebb2042c897067e36a",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "data/glossary.js",
+      "sizeBytes": 6940,
+      "sha256": "sha256:849f8eb454b398b78b41e78259f97b0f0f9fb4ced51df8f364fdfc71b10098cf",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "data/itinerant-exhibitions.json",
+      "sizeBytes": 2420,
+      "sha256": "sha256:88c852d6662a1cf3846fb005440875f82d963f276aa2726b8fd108d208a9c44c",
+      "extension": ".json",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "data/itinerant-exhibitions.txt",
+      "sizeBytes": 1674,
+      "sha256": "sha256:27fad90ce6bd3b873675943b2ce4a3ff249d508bd77592601337c88cf68bd5fb",
+      "extension": ".txt",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "data/museum-items.js",
+      "sizeBytes": 58609,
+      "sha256": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "drive-integration.js",
+      "sizeBytes": 10041,
+      "sha256": "sha256:ab799da107f065a74f302149c169f1e5157af13c69945e392ac80f5173543c1d",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "exhibitions.js",
+      "sizeBytes": 17820,
+      "sha256": "sha256:98947f2630fd5e9bcf3f0413c6ec7b9a24b5e7c9f12c3f36744c7b55e9879fd8",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "index.html",
+      "sizeBytes": 26833,
+      "sha256": "sha256:108fa5e810ca32eb528d8b16a7a77cf2db12f1fed7f25582a33e588c2228fc7a",
+      "extension": ".html",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "main.js",
+      "sizeBytes": 83810,
+      "sha256": "sha256:d8bb9e90dadc7136b98e19c2f5bdc3d55dcec1cb075d67566dd05f38312433f8",
+      "extension": ".js",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    },
+    {
+      "path": "style.css",
+      "sizeBytes": 88923,
+      "sha256": "sha256:4673dbfcd9d8779b3ac8160bdc3375dc24f09a53d00c0ab496c2cfef0626a903",
+      "extension": ".css",
+      "detectedMime": null,
+      "width": null,
+      "height": null,
+      "extensionMismatch": false
+    }
+  ],
+  "duplicates": [
+    {
+      "sha256": "sha256:c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "paths": [
+        "assets/images/MM202612.jpeg",
+        "assets/images/MM202612.jpg"
+      ]
+    }
+  ],
+  "extensionMismatches": [
+    "assets/images/milreu_mosaic_hero.png"
+  ]
+}

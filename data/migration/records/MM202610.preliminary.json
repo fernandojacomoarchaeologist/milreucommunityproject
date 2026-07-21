@@ -1,0 +1,282 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202610",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Poesia nas ruínas",
+    "en": "Poetry in the ruins",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia pertencente ao espólio do poeta Emiliano da Costa, nascido em Tavira e radicado em Estoi como médico. A pessoa retratada poderá ser o Dr. Magalhães, professor do ensino secundário que coligiu a poesia de António Aleixo, ou o fotógrafo e ator amador Hélder Azevedo, de Faro. A fotografia pertence à coleção de José António Paula Brito.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia associa Milreu à memória literária, poética e cultural de Estoi e do Algarve.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "Emiliano da Costa foi uma figura cultural ligada a Estoi. A eventual relação com António Aleixo e com agentes culturais regionais amplia o valor documental da imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "Data não determinada",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": null,
+    "normalizedEnd": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "sourceRefs": [
+      "SRC-MM202610-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Ruínas de Milreu",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202610-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Possivelmente Dr. Magalhães ou Hélder Azevedo; identificação não confirmada.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "probable",
+      "publicDisplayAllowed": false,
+      "certainty": "probable",
+      "sourceRefs": [
+        "SRC-MM202610-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "literatura",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Milreu",
+      "Estoi",
+      "Emiliano da Costa",
+      "António Aleixo",
+      "poesia",
+      "José António Paula Brito"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202610-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202610.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "credit": {
+        "pt-PT": "Coleção de José António Paula Brito.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "provided-for-project",
+    "publicationBasis": "community-process",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202610-LEGACY",
+      "SRC-MM202610-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Uso dependente de autorização do detentor da coleção e validação dos direitos de imagem.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202610-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202610.",
+      "locator": "data/museum-items.js#MM202610",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202610-ORIGIN",
+      "type": "physical-photograph",
+      "citation": "Coleção de José António Paula Brito.",
+      "locator": null,
+      "access": "restricted",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202610-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202610-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202610",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "year",
+      "dateApprox",
+      "relatedIds",
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202610",
+      "filename": "MM202610.jpg",
+      "title": "Poesia nas ruínas",
+      "titleEn": "Poetry in the ruins",
+      "descriptionShort": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+      "descriptionLong": "Fotografia pertencente ao espólio do poeta Emiliano da Costa, nascido em Tavira e radicado em Estoi como médico. A pessoa retratada poderá ser o Dr. Magalhães, professor do ensino secundário que coligiu a poesia de António Aleixo, ou o fotógrafo e ator amador Hélder Azevedo, de Faro. A fotografia pertence à coleção de José António Paula Brito.",
+      "year": "",
+      "dateApprox": "",
+      "period": "Século XX",
+      "locationSpecific": "Ruínas de Milreu",
+      "locationPublic": "Milreu, Estoi, Faro",
+      "peoplePublic": "Possivelmente Dr. Magalhães ou Hélder Azevedo; identificação não confirmada.",
+      "memoryType": "literatura",
+      "memoryText": "A fotografia associa Milreu à memória literária, poética e cultural de Estoi e do Algarve.",
+      "historicalContext": "Emiliano da Costa foi uma figura cultural ligada a Estoi. A eventual relação com António Aleixo e com agentes culturais regionais amplia o valor documental da imagem.",
+      "credit": "Coleção de José António Paula Brito.",
+      "rights": "Uso dependente de autorização do detentor da coleção e validação dos direitos de imagem.",
+      "tags": [
+        "Milreu",
+        "Estoi",
+        "Emiliano da Costa",
+        "António Aleixo",
+        "poesia",
+        "José António Paula Brito"
+      ],
+      "relatedIds": [],
+      "communityVoices": []
+    }
+  }
+}

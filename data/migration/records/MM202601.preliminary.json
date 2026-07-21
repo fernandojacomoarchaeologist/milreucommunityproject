@@ -1,0 +1,297 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md; os direitos do conteúdo permanecem sujeitos às fontes e aos respetivos titulares.",
+  "schemaVersion": "0.1.0",
+  "recordType": "museum-memory",
+  "initiativeId": "museum-of-memories",
+  "id": "MM202601",
+  "recordStatus": "preliminary",
+  "publicationStatus": "review-required",
+  "dataState": "preliminary",
+  "localisationStatus": {
+    "pt-PT": "source",
+    "en": "draft",
+    "es": "missing",
+    "fr": "missing"
+  },
+  "title": {
+    "pt-PT": "Um aspecto do cortejo da Festa da Pinha, em Estoi",
+    "en": "An aspect of the Festa da Pinha procession in Estoi",
+    "es": null,
+    "fr": null
+  },
+  "narratives": {
+    "shortDescription": {
+      "pt-PT": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "objectiveDescription": {
+      "pt-PT": "Fotografia que documenta um aspeto do cortejo da Festa da Pinha, em Estoi, datada de 2 de maio de 1909. A imagem mostra o cortejo a passar em frente à Casa Rural de Milreu, com elementos festivos, cavalo ornamentado e participantes com trajes especiais. A fotografia pertence ao acervo do Arquivo Nacional da Torre do Tombo, no fundo Foto Artística Samorrinha, com autoria de José Viegas Samorrinha. A leitura comunitária indica que o cortejo passa em frente às ruínas, sendo possível observar a paisagem característica do Monte Malhão e a Casa Rural.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "communityNarrative": {
+      "pt-PT": "A fotografia é relevante para a memória comunitária de Estoi por documentar uma das tradições locais mais antigas, a Festa da Pinha, associando a celebração popular ao espaço das Ruínas de Milreu e da Casa Rural.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "historicalContext": {
+      "pt-PT": "A Festa da Pinha é uma celebração tradicional de Estoi documentada desde o início do século XX. Este registo é um documento visual raro sobre a relação entre a comunidade, a festa e a paisagem envolvente das Ruínas de Milreu.",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "institutionalContext": {
+      "pt-PT": null,
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "date": {
+    "display": {
+      "pt-PT": "1909-05-02",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "normalizedStart": "1909-05-02",
+    "normalizedEnd": "1909-05-02",
+    "precision": "day",
+    "certainty": "not-assessed",
+    "sourceRefs": [
+      "SRC-MM202601-LEGACY"
+    ]
+  },
+  "places": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "specificLabel": {
+        "pt-PT": "Casa Rural de Milreu, percurso do cortejo da Festa da Pinha",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "precision": "area",
+      "coordinates": null,
+      "sensitivity": "public",
+      "publicationAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202601-LEGACY"
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": null,
+      "publicLabel": {
+        "pt-PT": "Não é possível identificar as pessoas retratadas.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "identificationStatus": "unidentified",
+      "publicDisplayAllowed": false,
+      "certainty": "not-assessed",
+      "sourceRefs": [
+        "SRC-MM202601-LEGACY"
+      ]
+    }
+  ],
+  "classification": {
+    "primaryType": "festa",
+    "secondaryTypes": [],
+    "periodLabel": {
+      "pt-PT": "Século XX",
+      "en": null,
+      "es": null,
+      "fr": null
+    },
+    "tags": [
+      "Festa da Pinha",
+      "Estoi",
+      "Casa Rural",
+      "Milreu",
+      "Torre do Tombo",
+      "José Viegas Samorrinha",
+      "1909"
+    ]
+  },
+  "media": [
+    {
+      "id": "ASSET-MM202601-LEGACY",
+      "role": "public-derivative",
+      "fileName": "MM202601.jpg",
+      "storage": "legacy-site",
+      "mimeType": "image/jpeg",
+      "checksum": "sha256:1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "credit": {
+        "pt-PT": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "publicationAllowed": false,
+      "rightsStatus": "pending-review",
+      "digitalInterventions": []
+    }
+  ],
+  "rightsAndConsent": {
+    "rightsStatus": "pending-review",
+    "consentStatus": "historical-material",
+    "publicationBasis": "institutional-terms",
+    "concernStatus": "none-reported",
+    "withdrawalAvailable": true,
+    "publicNoticeRequired": true,
+    "evidenceRefs": [
+      "SRC-MM202601-LEGACY",
+      "SRC-MM202601-ORIGIN"
+    ],
+    "notes": {
+      "pt-PT": "Fonte arquivística pública. Direitos e restrições de reprodução conforme registo da Torre do Tombo.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
+  },
+  "sources": [
+    {
+      "id": "SRC-MM202601-LEGACY",
+      "type": "project-documentation",
+      "citation": "Registo legado do Museu de Memórias de Milreu: MM202601.",
+      "locator": "data/museum-items.js#MM202601",
+      "access": "restricted",
+      "supports": [
+        "title",
+        "narratives",
+        "date",
+        "places",
+        "people",
+        "classification",
+        "relations"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    },
+    {
+      "id": "SRC-MM202601-ORIGIN",
+      "type": "archive-record",
+      "citation": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "locator": null,
+      "access": "public-metadata",
+      "supports": [
+        "credit",
+        "media",
+        "rights"
+      ],
+      "certainty": "not-assessed",
+      "rightsReviewStatus": "pending-review"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "PROV-MM202601-MIGRATION-01",
+      "eventType": "catalogued",
+      "date": "2026-07-20",
+      "agentReference": "PACKAGE-04-MIGRATION",
+      "description": {
+        "pt-PT": "Conversão mecânica e conservadora do registo legado para o schema 0.1.0. O conteúdo permanece preliminar e exige revisão humana.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "sourceRefs": [
+        "SRC-MM202601-LEGACY"
+      ],
+      "certainty": "certain"
+    }
+  ],
+  "communityVoices": [],
+  "relations": [
+    {
+      "relationType": "related-to",
+      "targetType": "memory",
+      "targetId": "MM202631",
+      "direction": "bidirectional",
+      "certainty": "not-assessed",
+      "notes": {
+        "pt-PT": "Relação preservada a partir do campo relatedIds do registo legado; a reciprocidade e o tipo de relação exigem revisão.",
+        "en": null,
+        "es": null,
+        "fr": null
+      }
+    }
+  ],
+  "audit": {
+    "recordVersion": "0.1.0-migrated-preliminary",
+    "createdAt": "2026-07-20T00:00:00Z",
+    "createdByReference": "PACKAGE-04-MIGRATION",
+    "updatedAt": null,
+    "updatedByReference": null,
+    "sourceSystem": "museum-v1:data/museum-items.js",
+    "previousVersionReference": "legacy:MM202601",
+    "changeReason": "Migração preliminar, reversível e sem alteração do estado de publicação."
+  },
+  "extensions": {
+    "migrationBatch": "PACKAGE-04-v0.1.0",
+    "sourceFingerprint": "sha256:12fe24c5bc7d29327ca61cf9b1686822d16f0ec118ae457f9cdaa035d4aa98f1",
+    "legacyFieldsPreserved": true,
+    "legacyBlankFields": [
+      "communityVoices"
+    ],
+    "narrativeLayerReviewRequired": true,
+    "rightsReviewRequired": true,
+    "personIdentificationReviewRequired": true,
+    "placeReviewRequired": true,
+    "dateReviewRequired": true,
+    "translationReviewRequired": true,
+    "sourceCitationReviewRequired": true,
+    "containsQuotedCommunityMaterial": false,
+    "explicitDigitalInterventionMentioned": false,
+    "imageFoundInLegacySite": true,
+    "legacy": {
+      "id": "MM202601",
+      "filename": "MM202601.jpg",
+      "title": "Um aspecto do cortejo da Festa da Pinha, em Estoi",
+      "titleEn": "An aspect of the Festa da Pinha procession in Estoi",
+      "descriptionShort": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+      "descriptionLong": "Fotografia que documenta um aspeto do cortejo da Festa da Pinha, em Estoi, datada de 2 de maio de 1909. A imagem mostra o cortejo a passar em frente à Casa Rural de Milreu, com elementos festivos, cavalo ornamentado e participantes com trajes especiais. A fotografia pertence ao acervo do Arquivo Nacional da Torre do Tombo, no fundo Foto Artística Samorrinha, com autoria de José Viegas Samorrinha. A leitura comunitária indica que o cortejo passa em frente às ruínas, sendo possível observar a paisagem característica do Monte Malhão e a Casa Rural.",
+      "year": "1909",
+      "dateApprox": "1909-05-02",
+      "period": "Século XX",
+      "locationSpecific": "Casa Rural de Milreu, percurso do cortejo da Festa da Pinha",
+      "locationPublic": "Estoi, Faro",
+      "peoplePublic": "Não é possível identificar as pessoas retratadas.",
+      "memoryType": "festa",
+      "memoryText": "A fotografia é relevante para a memória comunitária de Estoi por documentar uma das tradições locais mais antigas, a Festa da Pinha, associando a celebração popular ao espaço das Ruínas de Milreu e da Casa Rural.",
+      "historicalContext": "A Festa da Pinha é uma celebração tradicional de Estoi documentada desde o início do século XX. Este registo é um documento visual raro sobre a relação entre a comunidade, a festa e a paisagem envolvente das Ruínas de Milreu.",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "rights": "Fonte arquivística pública. Direitos e restrições de reprodução conforme registo da Torre do Tombo.",
+      "tags": [
+        "Festa da Pinha",
+        "Estoi",
+        "Casa Rural",
+        "Milreu",
+        "Torre do Tombo",
+        "José Viegas Samorrinha",
+        "1909"
+      ],
+      "relatedIds": [
+        "MM202631"
+      ],
+      "communityVoices": []
+    }
+  }
+}

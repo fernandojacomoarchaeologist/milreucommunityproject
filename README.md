@@ -1,5 +1,5 @@
 ---
-title: "Pacote 03 — Modelo de Dados do Museu"
+title: "Pacote 04 — Auditoria e Migração da Versão Preliminar"
 version: "0.1.0"
 status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
@@ -8,52 +8,42 @@ initiative: "Museu de Memórias de Milreu"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 03 — Modelo de Dados do Museu
+# Pacote 04 — Auditoria e Migração da Versão Preliminar
 
-Este pacote define o modelo de dados inicial do **Museu de Memórias de Milreu**. Ele transforma as decisões metodológicas e editoriais dos Pacotes 01 e 02 em estruturas verificáveis para memórias, narrativas, pessoas, fontes, proveniência, datas, locais, media, direitos, consentimento, traduções, relações e revisões.
-
-## Objetivo
-
-Criar uma fonte de verdade para os dados do Museu antes da migração dos 31 registos atualmente presentes na versão preliminar.
+Este pacote cria um retrato verificável da versão preliminar do Museu de Memórias e converte, de forma conservadora e reversível, os **31 registos `MM202601`–`MM202631`** para o modelo definido no Pacote 03.
 
 ## Entregas principais
 
-- modelo de domínio documentado;
-- dicionário de dados;
-- schemas JSON Schema 2020-12;
-- vocabulários controlados iniciais;
-- templates de registo;
-- exemplo real e preliminar de mapeamento do item `MM202601`;
-- regras de integridade e publicação;
-- skills para catalogação, validação, revisão, tradução e direitos;
-- specs do domínio de dados;
-- script de validação sem dependências externas;
-- testes básicos;
-- prompt de integração e release.
+- inventário técnico do protótipo;
+- snapshot integral de `data/museum-items.js`;
+- 31 registos JSON preliminares;
+- preservação dos campos legados em `extensions.legacy`;
+- auditorias de dados, relações, idiomas, direitos, ativos e funcionalidades;
+- fila de revisão manual;
+- scripts reproduzíveis de inventário, migração e validação;
+- regras, skills e specs para controlar a integração;
+- prompt, checklist, manifesto e release.
 
-## Limites deste pacote
+## Estado seguro
 
-Este pacote não:
+- nenhum registo foi marcado como aprovado ou publicado;
+- os 31 ativos de media permanecem com `publicationAllowed: false`;
+- os direitos permanecem `pending-review`;
+- `MM202617`, uma imagem derivada por IA e explicitamente restrita no legado, foi marcada como `blocked`;
+- nenhuma tradução foi produzida automaticamente;
+- o site preliminar não foi modificado.
 
-- migra automaticamente os 31 registos de `museum-items.js`;
-- altera HTML, CSS, JavaScript ou imagens do protótipo;
-- cria uma base de dados;
-- configura Supabase, autenticação ou persistência;
-- publica novos conteúdos;
-- resolve direitos ou consentimentos por inferência;
-- traduz os conteúdos existentes;
-- cria páginas, mapas ou componentes visuais.
+## Dependências
 
-## Instalação
+- Pacote 01 — Fundação, Governação e Escopo;
+- Pacote 02 — Sistema de Design e Guia Vivo;
+- Pacote 03 — Modelo de Dados do Museu.
 
-1. Integrar primeiro os Pacotes 01 e 02, ou confirmar que as respetivas decisões já existem no repositório.
-2. Descompactar este pacote na raiz do repositório.
-3. Executar o conteúdo de `PROMPT_CLAUDE.md` no Claude.
-4. Não substituir schemas ou documentação já existentes sem comparação semântica.
-5. Executar `node scripts/validate-data-model.mjs`.
-6. Executar `node tests/data-model.test.mjs`.
-7. Registar o release `releases/PACKAGE_03_v0.1.0.md`.
+## Validação
 
-## Estado das decisões
+```bash
+node scripts/validate-package-04.mjs
+node tests/migration.test.mjs
+```
 
-Não existem pendências bloqueantes para este release. Questões que dependem de infraestrutura futura, autoridades de vocabulário ou decisões editoriais posteriores foram registadas em `docs/data-model/PENDING_DECISIONS.md`.
+Após integrar com o Pacote 03, validar também os registos contra `data/schemas/museum-memory.schema.json`.
