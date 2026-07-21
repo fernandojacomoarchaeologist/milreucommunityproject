@@ -1,49 +1,41 @@
 ---
-title: "Checklist de integração — Pacote 05B"
-version: "0.2.0"
-status: "ready-for-use"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md na raiz do repositório"
+rights: "Consultar RIGHTS.md"
 ---
-# Checklist de integração — Pacote 05B
+
+# Checklist de integração — Pacote 05C
 
 ## Antes
 
-- [ ] Pacotes 01, 02 e 05A estão integrados.
-- [ ] `RIGHTS.md` existe na raiz.
-- [ ] O PDF do Pacote 05A permanece privado e fora do build público.
-- [ ] Alterações locais nos tokens do Pacote 02 foram inventariadas.
+- [ ] Confirmar Pacotes 01, 02, 05A e 05B integrados.
+- [ ] Confirmar existência de `packages/design-tokens/v0.2/tokens.css`.
+- [ ] Criar branch de integração.
+- [ ] Verificar alterações locais em `apps/design-guide/`.
+- [ ] Preservar a implementação 0.1.0 no histórico Git; não criar cópia paralela permanente.
 
-## Integração
+## Durante
 
-- [ ] Copiar `docs/design/foundations/`.
-- [ ] Copiar ADRs e specs.
-- [ ] Copiar `packages/design-tokens/v0.2/`.
-- [ ] Copiar `apps/foundations-lab/` como ferramenta interna.
-- [ ] Fundir `.claude/rules/` e `.claude/skills/`.
-- [ ] Fundir as adendas em `integration/`.
-- [ ] Não incluir fontes binárias.
-- [ ] Não ligar o laboratório ao site público.
+- [ ] Copiar os ficheiros respeitando os caminhos do pacote.
+- [ ] Aplicar `integration/CLAUDE_APPEND.md` sem duplicação.
+- [ ] Aplicar `integration/VISUALIZATION_REGISTRY_APPEND.md`.
+- [ ] Rever o relatório `integration/PACKAGE_02_DESIGN_GUIDE_UPGRADE.md`.
+- [ ] Não copiar tokens 05B para dentro da app.
+- [ ] Não publicar o guia antes de validação manual.
 
-## Validação
+## Validar
 
-```bash
-node scripts/validate-package-05b.mjs
-node tests/token-schema.test.mjs
-node tests/contrast.test.mjs
-node tests/platform-parity.test.mjs
-```
-
-- [ ] Servir a raiz por HTTP.
-- [ ] Abrir `apps/foundations-lab/` em desktop e viewport móvel.
-- [ ] Confirmar que o vermelho não é usado como superfície padrão de leitura.
-- [ ] Confirmar que preto e vermelho usam texto branco quando exigido.
-- [ ] Confirmar que nenhum estado depende apenas de cor.
-- [ ] Confirmar o suporte aos quatro idiomas.
+- [ ] Executar `node scripts/validate-package-05c.mjs`.
+- [ ] Executar os testes na pasta `tests/`.
+- [ ] Servir o repositório por HTTP.
+- [ ] Testar pesquisa e todas as rotas.
+- [ ] Testar teclado, foco, menu mobile e redução de movimento.
+- [ ] Testar os quatro idiomas da interface.
+- [ ] Confirmar que links externos não foram adicionados indevidamente.
 
 ## Depois
 
-- [ ] Registar conflitos com tokens v0.1.
-- [ ] Produzir relatório de integração.
-- [ ] Não avançar para o Pacote 05C sem instrução explícita.
+- [ ] Registar a integração no changelog geral.
+- [ ] Manter o release do pacote no repositório.
+- [ ] Criar issues para itens `proposed` ou `draft` que dependam do 05D.
+- [ ] Não marcar o Design System como 1.0.

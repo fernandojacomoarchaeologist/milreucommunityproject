@@ -61,3 +61,14 @@ Visualizações existentes no site preliminar constituem referências funcionais
 A aprovação do scaffold não aprova automaticamente homepage, galeria, mapa, timeline, visualizador documental, dashboard, editor ou app.
 
 **Pendência de reconciliação:** este bloco usa colunas, prefixos de ID e vocabulário de estados diferentes do registo inicial acima. `VIS-DS-001` e `VIEW-DESIGN-GUIDE` poderão designar a mesma visualização. Por decidir num pacote futuro.
+
+## Acréscimo do Pacote 05C — catálogo visual
+
+### DS-VIEW-003 — Catálogo visual interativo
+
+- **Rota:** `/apps/design-guide/`
+- **Produto:** Guia do Sistema de Design
+- **Estado:** internal-preview
+- **Fonte:** Pacotes 05A, 05B e catálogo 0.3
+- **Visualizações:** fundações, identidade, experiências e governação
+- **Exclusões:** Portal público, Museu público, ativos do livro e componentes 05D não aprovados
