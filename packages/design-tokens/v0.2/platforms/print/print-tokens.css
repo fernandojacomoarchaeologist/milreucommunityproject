@@ -1,0 +1,18 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Valores CMYK definitivos exigem prova física.
+ */
+@media print {
+  :root {
+    --ml-print-paper: #ffffff;
+    --ml-print-ink: #1e1a17;
+    --ml-print-signature-red-candidate: #a83227;
+    --ml-print-body-font: "Spectral", Georgia, serif;
+    --ml-print-utility-font: "Archivo", Arial, sans-serif;
+  }
+
+  * { box-shadow: none !important; text-shadow: none !important; }
+  body { color: var(--ml-print-ink); background: var(--ml-print-paper); }
+  a { color: inherit; text-decoration: underline; }
+}

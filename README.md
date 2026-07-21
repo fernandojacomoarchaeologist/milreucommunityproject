@@ -1,70 +1,57 @@
 ---
-title: "Pacote 05A — Auditoria Visual e Fonte Primária"
-version: "0.1.0"
+title: "Pacote 05B — Fundações Visuais de Produção"
+version: "0.2.0"
 status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md na raiz do repositório e SOURCE_RIGHTS_NOTICE.md neste pacote"
+rights: "Consultar RIGHTS.md na raiz do repositório"
 ---
-# Pacote 05A — Auditoria Visual e Fonte Primária
+# Pacote 05B — Fundações Visuais de Produção
 
-Este pacote transforma o livro *Milreu: Ruínas*, de Theodor Hauschild e Felix Teichner, numa fonte primária contextual e visual controlada para o Projeto Comunitário de Milreu.
+Este pacote converte a auditoria visual do livro *Milreu: Ruínas* realizada no Pacote 05A em fundações digitais e físicas implementáveis para o Design System do Projeto Comunitário de Milreu.
 
-## Decisões confirmadas
+## Decisões autoritativas
 
-- O vermelho funciona como **assinatura, abertura, transição e fecho**.
-- O vermelho não é a superfície padrão para leitura extensa.
-- O preto pode preencher áreas de destaque, contraste, legenda ou chamada, de forma controlada.
-- As superfícies principais de leitura permanecem claras.
-- As cores observadas na digitalização não são ainda tokens finais de produção.
-- O livro é a principal referência visual do sistema e a base contextual inicial para falar do sítio de Milreu no portal.
-- O livro não substitui memórias comunitárias, dados dos inquéritos, fontes orais ou investigação posterior.
+- o vermelho é assinatura, abertura, transição e fecho;
+- o preto aquecido pode preencher destaques e áreas de forte contraste;
+- superfícies claras são o padrão para leitura extensa;
+- a cor funcional de mapas e dados permanece separada da identidade;
+- o sistema não copia páginas do livro e não reproduz defeitos da digitalização;
+- as fontes originais do livro não são identificadas por aproximação;
+- não são distribuídos ficheiros de fontes;
+- a família de destaque é **Fraunces**;
+- o corpo editorial é **Spectral**;
+- navegação, controlos e metadados usam **Archivo**;
+- todas as funções têm fallbacks seguros;
+- o corpo de leitura digital parte de 18 px, entrelinha 1,65 e largura recomendada de 68 caracteres.
 
-## Objetivos
+## Entregas
 
-1. Registar a fonte e a sua hierarquia.
-2. Mapear visualmente as 36 páginas do PDF.
-3. Identificar padrões de cor, tipografia, fotografia, cartografia, objetos e composição.
-4. Separar elementos a preservar, adaptar, consultar ou rejeitar.
-5. Documentar problemas de leitura que não devem migrar para o digital.
-6. Criar um quadro visual interno e navegável.
-7. Preparar o Pacote 05B sem fechar prematuramente fontes ou cores.
-
-## Conteúdo principal
-
-- PDF de referência, mantido em área privada do pacote;
-- 36 miniaturas derivadas para análise interna;
-- auditoria visual e contextual;
-- mapa página a página;
-- estrutura temática do livro;
-- inventário de componentes candidatos;
-- observações de cor sem conversão automática em tokens;
-- regras de adaptação digital e acessibilidade;
-- quadro visual em `apps/visual-source-board/`;
-- rules, skills, spec, testes, prompt e release.
+- tokens de produção em JSON e CSS;
+- projeções para JavaScript, Flutter e impressão;
+- sistema cromático com matriz de contraste;
+- tipografia, escala, densidade e medidas de leitura;
+- espaçamento, grelha, breakpoints, formas, bordas e elevação;
+- regras de movimento e redução de movimento;
+- direções para iconografia, fotografia, texturas, mapas e dados;
+- laboratório visual interno para inspeção das fundações;
+- ADRs, specs, rules, skills, scripts, testes e release.
 
 ## Dependências
 
-- Pacote 01 integrado;
-- Pacote 02 integrado;
-- `RIGHTS.md` disponível na raiz do repositório.
+1. Pacote 01 — Fundação, Governação e Escopo;
+2. Pacote 02 — Sistema de Design e Guia Vivo;
+3. Pacote 05A — Auditoria Visual e Fonte Primária.
+
+## Limites
+
+Este pacote não cria o catálogo visual completo, não cria o logótipo, não publica imagens do livro, não reconstrói o Portal ou o Museu e não declara componentes museológicos como finais. Essas entregas pertencem aos Pacotes 05C e 05D.
 
 ## Instalação
 
 1. Descompactar na raiz do repositório.
-2. Utilizar `PROMPT_CLAUDE.md` para a integração.
-3. Manter `sources/primary/private/` fora de qualquer build público.
-4. Executar `node scripts/validate-package-05a.mjs`.
-5. Servir o repositório localmente para abrir `apps/visual-source-board/`.
-
-## Limites
-
-Este pacote não:
-
-- define a tipografia final;
-- publica o PDF ou as imagens do livro;
-- declara equivalência cromática entre o scan e a impressão original;
-- cria o catálogo público do Design System;
-- aplica a identidade ao Portal ou ao Museu;
-- altera os 31 registos migrados;
-- cria logótipo ou marca definitiva.
+2. Ler `PROMPT_CLAUDE.md`.
+3. Integrar manualmente as adendas em `integration/`.
+4. Executar os validadores indicados no checklist.
+5. Servir a raiz do repositório por HTTP e abrir `apps/foundations-lab/`.
+6. Não remover os tokens v0.1 do Pacote 02 antes de concluir a comparação.

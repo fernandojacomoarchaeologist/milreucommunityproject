@@ -1,0 +1,80 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md na raiz do repositório",
+  "meta": {
+    "version": "0.2.0",
+    "status": "approved-for-implementation"
+  },
+  "font": {
+    "family": {
+      "display": [
+        "Fraunces",
+        "Iowan Old Style",
+        "Georgia",
+        "serif"
+      ],
+      "editorial": [
+        "Spectral",
+        "Iowan Old Style",
+        "Georgia",
+        "serif"
+      ],
+      "interface": [
+        "Archivo",
+        "Helvetica Neue",
+        "Arial",
+        "sans-serif"
+      ],
+      "mono": [
+        "ui-monospace",
+        "SFMono-Regular",
+        "Consolas",
+        "monospace"
+      ]
+    },
+    "weight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "size": {
+      "displayXl": "clamp(3.5rem, 7vw, 6rem)",
+      "displayLg": "clamp(2.75rem, 5vw, 4.5rem)",
+      "heading1": "clamp(2.25rem, 4vw, 3.5rem)",
+      "heading2": "clamp(1.75rem, 3vw, 2.5rem)",
+      "heading3": "clamp(1.375rem, 2vw, 1.75rem)",
+      "bodyLg": "1.25rem",
+      "body": "1.125rem",
+      "bodySm": "1rem",
+      "utility": "0.875rem",
+      "caption": "0.8125rem",
+      "micro": "0.75rem"
+    },
+    "lineHeight": {
+      "displayXl": 0.92,
+      "displayLg": 0.96,
+      "heading1": 1.02,
+      "heading2": 1.08,
+      "heading3": 1.16,
+      "bodyLg": 1.65,
+      "body": 1.65,
+      "bodySm": 1.55,
+      "utility": 1.4,
+      "caption": 1.45,
+      "micro": 1.35
+    },
+    "measure": {
+      "reading": "68ch",
+      "compact": "52ch",
+      "wide": "75ch"
+    },
+    "tracking": {
+      "tight": "-0.02em",
+      "normal": "0",
+      "utility": "0.04em",
+      "caps": "0.08em"
+    }
+  }
+}

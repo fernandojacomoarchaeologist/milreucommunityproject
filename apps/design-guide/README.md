@@ -44,3 +44,9 @@ http://localhost:8000/apps/design-guide/
 - sem editor de tokens;
 - sem publicação automática;
 - sem componentes finais de dados, mapa ou biblioteca.
+
+## Rota de fundações — Pacote 05B
+
+O Pacote 05C deverá incorporar as fundações v0.2 no catálogo visual e substituir páginas genéricas do guia anterior por páginas de documentação visual completas.
+
+Até lá, `apps/foundations-lab/` é ferramenta interna e não deve ser ligada ao menu público.

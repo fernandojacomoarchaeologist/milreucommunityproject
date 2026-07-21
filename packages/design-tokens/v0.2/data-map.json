@@ -1,0 +1,18 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md na raiz do repositório",
+  "meta": {
+    "version": "0.2.0",
+    "namespace": "functional-not-brand"
+  },
+  "dataMap": {
+    "background": "{color.paper.0}",
+    "water": "{color.data.blue}",
+    "vegetation": "{color.data.green}",
+    "route": "{color.data.ochre}",
+    "historical": "{color.data.mauve}",
+    "structure": "{color.data.earth}",
+    "neutral": "{color.data.neutral}"
+  }
+}
