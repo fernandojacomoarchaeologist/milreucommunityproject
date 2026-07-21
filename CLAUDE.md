@@ -145,6 +145,15 @@ Não criar logótipo, textura, ícone ou reprodução do livro por inferência. 
 - A estrutura documental pode seguir convenções comuns, mas identidade, conteúdo e código devem ser próprios de Milreu.
 - O guia permanece `internal-preview` até revisão visual do responsável.
 
+### 9.4 Componentes e padrões museológicos — integrados pelo Pacote 05D
+
+- Componentes e padrões são orientados pelos registos v0.4 (`packages/design-components/v0.4/` e `packages/design-patterns/v0.4/`).
+- Exemplos são demonstrativos e não pertencem ao acervo.
+- Não promover maturidade (`approved`) sem decisão explícita do responsável.
+- O guia consome tokens 05B; não os redefine.
+- Direitos, certeza, estado editorial e proveniência não podem ser ocultados quando aplicáveis.
+- Níveis de certeza apenas `confirmed`, `probable` e `hypothesis`; a narrativa comunitária antecede o contexto institucional.
+
 ## 10. Copyright
 
 Todos os novos MDs e ficheiros de código devem conter:

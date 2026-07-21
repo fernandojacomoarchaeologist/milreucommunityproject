@@ -4,38 +4,37 @@ project: "Projeto Comunitário de Milreu"
 rights: "Consultar RIGHTS.md"
 ---
 
-# Manifesto do Pacote 05C
+# Manifesto do Pacote 05D
 
 ## Identificação
 
-- **Nome:** Catálogo Visual Interativo
-- **Versão:** 0.3.0
+- **Nome:** Componentes e Padrões Museológicos
+- **Versão:** 0.4.0
 - **Série:** Pacote 05 — Design System
-- **Posição:** 05C de 05D
+- **Posição:** 05D de 05D
 
 ## Objetivo
 
-Criar a aplicação documental navegável do Sistema de Design de Milreu, integrando as fundações visuais de produção do Pacote 05B e preparando o catálogo para os componentes especializados do Pacote 05D.
+Concluir a infraestrutura visual do Design System antes da construção do Portal e do Museu.
 
-## Alterações previstas no repositório
+## Alterações previstas
 
-1. Atualizar `apps/design-guide/` para a versão navegável 0.3.0.
-2. Adicionar o registo estruturado em `packages/design-guide-catalog/v0.3/`.
-3. Adicionar documentação, specs, regras e skills de manutenção.
-4. Atualizar o registo de visualizações e as instruções permanentes do Claude por anexos controlados.
-5. Preservar tokens 05B como fonte única de verdade.
+1. Atualizar `apps/design-guide/` para 0.4.0.
+2. Adicionar `packages/design-components/v0.4/`.
+3. Adicionar `packages/design-patterns/v0.4/`.
+4. Adicionar `packages/design-guide-catalog/v0.4/`.
+5. Integrar documentação, specs, rules e skills.
+6. Registar handoff para o próximo pacote.
 
 ## Critérios de aceite
 
-- Todas as rotas registadas abrem sem erro.
-- Pesquisa encontra páginas por título, resumo e tags.
-- Menu funciona em desktop e mobile.
-- Interface essencial suporta `pt-PT`, `en`, `es` e `fr`.
-- O guia não incorpora binários de fontes ou imagens do livro.
-- Nenhum componente do 05D é marcado como aprovado.
-- Tokens não são duplicados ou redefinidos como nova fonte de verdade.
-- Cabeçalhos de copyright estão presentes.
-
-## Ficheiros
+- 21 IDs de componente únicos e válidos.
+- 13 IDs de padrão únicos e válidos.
+- Todos os componentes referidos pelos padrões existem.
+- Todas as novas rotas do catálogo abrem sem erro.
+- Exemplos não usam o acervo nem imagens do livro.
+- Nenhum elemento está `approved`.
+- CSS e JavaScript validam sintaticamente.
+- Direitos, certeza, estado e proveniência permanecem visíveis quando aplicáveis.
 
 A lista completa e os hashes estão em `PACKAGE_FILES.json`.

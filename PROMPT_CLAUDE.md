@@ -4,67 +4,44 @@ project: "Projeto Comunitário de Milreu"
 rights: "Consultar RIGHTS.md"
 ---
 
-# Prompt de integração — Pacote 05C
+# Prompt de integração — Pacote 05D
 
-Estás a integrar o **Pacote 05C — Catálogo Visual Interativo v0.3.0** no repositório do Projeto Comunitário de Milreu.
+Estás a integrar o **Pacote 05D — Componentes e Padrões Museológicos v0.4.0** no repositório do Projeto Comunitário de Milreu.
 
 ## Antes de alterar qualquer ficheiro
 
-1. Lê integralmente:
-   - `CLAUDE.md`;
-   - `README.md` deste pacote;
-   - `PACKAGE_MANIFEST.md`;
-   - `INTEGRATION_CHECKLIST.md`;
-   - documentação dos Pacotes 05A e 05B;
-   - `integration/PACKAGE_02_DESIGN_GUIDE_UPGRADE.md`.
-2. Verifica se existem alterações locais em `apps/design-guide/`.
-3. Confirma a existência de `packages/design-tokens/v0.2/tokens.css`.
-4. Se uma dependência estiver ausente, interrompe e pergunta ao utilizador. Não inventes tokens nem recries fundações.
+1. Lê `CLAUDE.md`, `README.md`, `PACKAGE_MANIFEST.md`, `INTEGRATION_CHECKLIST.md` e os releases 05A–05C.
+2. Confirma a existência de `packages/design-tokens/v0.2/tokens.css` e da versão 0.3.0 de `apps/design-guide/`.
+3. Verifica alterações locais. Se houver conflito relevante no guia, interrompe e pergunta.
+4. Confirma que os Pacotes 03 e 04 estão integrados ou documenta a ausência; não inventes campos ou estados.
 
 ## Objetivo
 
-Atualizar o guia preliminar do Pacote 02 para um catálogo visual navegável, pesquisável e versionado. A estrutura de documentação pode seguir convenções comuns de design systems, mas a identidade e o conteúdo devem permanecer exclusivamente associados a Milreu.
+Atualizar o catálogo para 0.4.0, integrar a biblioteca de componentes e padrões e concluir o ciclo 05 sem construir ainda o Portal ou o Museu públicos.
 
 ## Regras obrigatórias
 
-- Não copies componentes, textos, nomes ou código da referência externa Conta BOLD.
-- Não publiques imagens ou páginas do livro *Milreu: Ruínas*.
-- Não inventes decisões visuais ausentes nos Pacotes 05A e 05B.
-- Vermelho é assinatura e abertura; não é fundo contínuo de leitura.
-- Preto aquecido pode preencher destaques e exemplos controlados.
-- Superfícies extensas de leitura devem permanecer claras.
-- Não dupliques os tokens do Pacote 05B.
-- Não marques componentes futuros como `approved`.
-- Não cries o Portal, Museu, aplicação móvel ou backend.
-- Preserva o histórico do guia anterior via Git; não mantenhas duas apps concorrentes no produto final.
-- Pergunta quando uma alteração implicar remover trabalho posterior ao Pacote 02 ou quando houver conflito de rotas.
+- Não usar imagens, textos, nomes ou dados reais do acervo nos exemplos.
+- Não publicar páginas ou imagens do livro *Milreu: Ruínas*.
+- Não copiar componentes, textos ou código da referência externa Conta BOLD.
+- Consumir os tokens do Pacote 05B; não criar uma segunda fonte de verdade.
+- Preservar apenas os níveis de certeza `confirmed`, `probable` e `hypothesis`.
+- A narrativa comunitária antecede o contexto institucional.
+- Não ocultar direitos, proveniência, certeza ou estado editorial quando forem necessários.
+- Não marcar nenhum componente ou padrão como `approved` sem decisão explícita de Fernando Rodrigues de Jácomo.
+- Não criar backend, base de dados, Portal, Museu público, app Flutter ou ficheiros finais de impressão.
+- Perguntar quando faltar uma decisão que altere comportamento, direitos, publicação ou arquitetura.
 
 ## Sequência
 
-1. Compara `apps/design-guide/` existente com este pacote.
-2. Integra a nova aplicação mantendo o caminho canónico `apps/design-guide/`.
-3. Integra `packages/design-guide-catalog/v0.3/`.
-4. Integra docs, specs, rules e skills.
-5. Aplica os anexos de integração sem duplicar conteúdo.
-6. Executa os validadores e testes.
-7. Serve o projeto por HTTP e verifica manualmente:
-   - início;
-   - pesquisa;
-   - navegação lateral;
-   - menu mobile;
-   - idiomas;
-   - breadcrumbs;
-   - rotas diretas;
-   - estados de maturidade;
-   - navegação anterior/seguinte.
-8. Gera um relatório de integração com:
-   - ficheiros criados;
-   - ficheiros substituídos;
-   - conflitos encontrados;
-   - testes executados;
-   - questões em aberto;
-   - decisão de publicação.
+1. Integrar `packages/design-components/v0.4/` e `packages/design-patterns/v0.4/`.
+2. Atualizar `apps/design-guide/` preservando o shell 05C.
+3. Integrar `packages/design-guide-catalog/v0.4/`.
+4. Integrar docs, specs, rules, skills e anexos.
+5. Executar testes e validadores.
+6. Servir por HTTP e verificar manualmente: inventários, componentes, padrões, pesquisa, navegação mobile, idiomas, teclado, foco e exemplos.
+7. Produzir relatório com ficheiros criados/substituídos, conflitos, testes, pendências e decisão de publicação.
 
-## Critério de conclusão
+## Conclusão
 
-A integração termina quando o catálogo funciona localmente e todas as verificações automáticas passam. O guia permanece `internal-preview` até revisão visual de Fernando Rodrigues de Jácomo.
+A integração termina quando o guia 0.4.0 funciona localmente, os testes passam e o estado permanece `internal-preview`. O próximo trabalho deve partir para as specs e arquitetura do Portal e do Museu, consumindo este sistema.

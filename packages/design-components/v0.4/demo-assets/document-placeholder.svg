@@ -1,0 +1,8 @@
+<!-- © 2026 Fernando Rodrigues de Jácomo. Projeto Comunitário de Milreu. Conteúdo demonstrativo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="t d">
+<title id="t">Documento demonstrativo</title><desc id="d">Página abstrata utilizada para demonstrar o visualizador documental.</desc>
+<rect width="900" height="1200" fill="#E9DECF"/><rect x="80" y="65" width="740" height="1070" fill="#FFFFFF"/>
+<rect x="145" y="140" width="420" height="38" fill="#A83227"/><rect x="145" y="215" width="610" height="18" fill="#1E1A17"/>
+<g fill="#766D64"><rect x="145" y="275" width="560" height="13"/><rect x="145" y="323" width="505" height="13"/><rect x="145" y="371" width="450" height="13"/><rect x="145" y="419" width="560" height="13"/><rect x="145" y="467" width="505" height="13"/><rect x="145" y="515" width="450" height="13"/><rect x="145" y="563" width="560" height="13"/><rect x="145" y="611" width="505" height="13"/><rect x="145" y="659" width="450" height="13"/><rect x="145" y="707" width="560" height="13"/><rect x="145" y="755" width="505" height="13"/><rect x="145" y="803" width="450" height="13"/><rect x="145" y="851" width="560" height="13"/></g>
+<rect x="145" y="920" width="610" height="120" fill="#F7F1E7"/><text x="145" y="1090" font-family="Arial,sans-serif" font-size="20" fill="#1E1A17">DOCUMENTO DEMONSTRATIVO</text>
+</svg>

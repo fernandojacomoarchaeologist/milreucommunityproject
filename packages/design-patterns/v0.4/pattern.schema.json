@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/design-pattern.schema.json",
+  "title": "Milreu Design Pattern Registry",
+  "type": "object",
+  "required": [
+    "_copyright",
+    "version",
+    "patterns"
+  ],
+  "properties": {
+    "_copyright": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "status",
+          "purpose",
+          "components",
+          "flow",
+          "risks",
+          "demo"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "draft",
+              "in-review",
+              "validated",
+              "approved",
+              "deprecated"
+            ]
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "flow": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "demo": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

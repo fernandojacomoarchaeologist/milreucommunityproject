@@ -72,3 +72,7 @@ A aprovação do scaffold não aprova automaticamente homepage, galeria, mapa, t
 - **Fonte:** Pacotes 05A, 05B e catálogo 0.3
 - **Visualizações:** fundações, identidade, experiências e governação
 - **Exclusões:** Portal público, Museu público, ativos do livro e componentes 05D não aprovados
+
+## Acréscimo do Pacote 05D — componentes e padrões
+
+As rotas `components/*` e `patterns/*` do catálogo do guia são documentação **interna** (estado `internal-preview`). Não devem ser confundidas com rotas públicas do Portal ou do Museu.
