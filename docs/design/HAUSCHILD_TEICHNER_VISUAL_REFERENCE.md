@@ -53,3 +53,15 @@ Quando o projeto exigir uma identidade final ou comparação detalhada, solicita
 5. comparação entre o design system produzido no agente anterior e este pacote.
 
 A ausência desses materiais não bloqueia a integração da fundação. Bloqueia apenas a declaração de fidelidade visual final.
+
+## Atualização — Pacote 05A (auditoria da fonte primária)
+
+Este pacote complementa e atualiza semanticamente a referência acima:
+
+- a fonte visual deixou de ser apenas uma referência declarada e passou a ter auditoria página a página (ver `docs/design-source/`);
+- o PDF foi registado com hash e número de páginas em `data/design-source/source-manifest.json` (mantido privado, ver `SOURCE_RIGHTS_NOTICE.md`);
+- o livro passou a ser também fonte contextual inicial para o conteúdo arqueológico do sítio;
+- o vermelho foi confirmado como assinatura e abertura;
+- o preto foi confirmado como preenchimento de destaque controlado;
+- foram identificados componentes candidatos e problemas de acessibilidade;
+- a identificação tipográfica e os tokens finais continuam pendentes (Pacote 05B).

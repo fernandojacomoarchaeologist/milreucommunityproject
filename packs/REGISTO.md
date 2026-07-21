@@ -11,6 +11,7 @@ descartar.
 | P003 | 2026-07-20 | main | Integra Pacote 02 v0.1.0 - sistema de design e guia vivo |
 | P004 | 2026-07-20 | pack/pacote-03-modelo-dados | Integra Pacote 03 v0.1.0 - modelo de dados do Museu |
 | P005 | 2026-07-20 | pack/pacote-04-migracao | Integra Pacote 04 v0.1.0 - auditoria e migração da versão preliminar |
+| P006 | 2026-07-21 | pack/pacote-05a-auditoria-visual | Integra Pacote 05A v0.1.0 - auditoria visual e fonte primária (binários privados via .gitignore) |
 
 ---
 

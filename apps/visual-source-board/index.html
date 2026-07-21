@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Milreu — Quadro visual da fonte</title>
+  <link rel="stylesheet" href="source-board.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Projeto Comunitário de Milreu</p>
+      <h1>Quadro visual da fonte primária</h1>
+      <p>*Milreu: Ruínas* — Hauschild e Teichner</p>
+    </div>
+    <div class="signature" aria-hidden="true"></div>
+  </header>
+  <div class="notice" role="note"><strong>Uso interno.</strong> As páginas e miniaturas não estão autorizadas para publicação pública.</div>
+  <main>
+    <aside class="controls" aria-label="Filtros">
+      <label for="search">Pesquisar</label>
+      <input id="search" type="search" placeholder="mosaico, abertura, planta...">
+      <label for="decision">Decisão</label>
+      <select id="decision">
+        <option value="">Todas</option>
+        <option value="preserve">Preservar</option>
+        <option value="adapt">Adaptar</option>
+        <option value="reference-only">Apenas referência</option>
+      </select>
+      <label for="tag">Categoria</label>
+      <select id="tag"><option value="">Todas</option></select>
+      <p id="count" class="count" aria-live="polite"></p>
+      <nav>
+        <a href="../../docs/design-source/BOOK_VISUAL_AUDIT.md">Auditoria visual</a>
+        <a href="../../docs/design-source/PAGE_BY_PAGE_MAP.md">Mapa detalhado</a>
+        <a href="../../docs/design-source/DIGITAL_ADAPTATION_RULES.md">Regras digitais</a>
+      </nav>
+    </aside>
+    <section id="grid" class="grid" aria-label="Páginas analisadas"></section>
+  </main>
+  <footer>© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.</footer>
+  <script src="source-board.js"></script>
+</body>
+</html>

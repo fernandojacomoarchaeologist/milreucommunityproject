@@ -1,49 +1,70 @@
 ---
-title: "Pacote 04 — Auditoria e Migração da Versão Preliminar"
+title: "Pacote 05A — Auditoria Visual e Fonte Primária"
 version: "0.1.0"
 status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-initiative: "Museu de Memórias de Milreu"
-rights: "Consultar RIGHTS.md no repositório principal"
+rights: "Consultar RIGHTS.md na raiz do repositório e SOURCE_RIGHTS_NOTICE.md neste pacote"
 ---
+# Pacote 05A — Auditoria Visual e Fonte Primária
 
-# Pacote 04 — Auditoria e Migração da Versão Preliminar
+Este pacote transforma o livro *Milreu: Ruínas*, de Theodor Hauschild e Felix Teichner, numa fonte primária contextual e visual controlada para o Projeto Comunitário de Milreu.
 
-Este pacote cria um retrato verificável da versão preliminar do Museu de Memórias e converte, de forma conservadora e reversível, os **31 registos `MM202601`–`MM202631`** para o modelo definido no Pacote 03.
+## Decisões confirmadas
 
-## Entregas principais
+- O vermelho funciona como **assinatura, abertura, transição e fecho**.
+- O vermelho não é a superfície padrão para leitura extensa.
+- O preto pode preencher áreas de destaque, contraste, legenda ou chamada, de forma controlada.
+- As superfícies principais de leitura permanecem claras.
+- As cores observadas na digitalização não são ainda tokens finais de produção.
+- O livro é a principal referência visual do sistema e a base contextual inicial para falar do sítio de Milreu no portal.
+- O livro não substitui memórias comunitárias, dados dos inquéritos, fontes orais ou investigação posterior.
 
-- inventário técnico do protótipo;
-- snapshot integral de `data/museum-items.js`;
-- 31 registos JSON preliminares;
-- preservação dos campos legados em `extensions.legacy`;
-- auditorias de dados, relações, idiomas, direitos, ativos e funcionalidades;
-- fila de revisão manual;
-- scripts reproduzíveis de inventário, migração e validação;
-- regras, skills e specs para controlar a integração;
-- prompt, checklist, manifesto e release.
+## Objetivos
 
-## Estado seguro
+1. Registar a fonte e a sua hierarquia.
+2. Mapear visualmente as 36 páginas do PDF.
+3. Identificar padrões de cor, tipografia, fotografia, cartografia, objetos e composição.
+4. Separar elementos a preservar, adaptar, consultar ou rejeitar.
+5. Documentar problemas de leitura que não devem migrar para o digital.
+6. Criar um quadro visual interno e navegável.
+7. Preparar o Pacote 05B sem fechar prematuramente fontes ou cores.
 
-- nenhum registo foi marcado como aprovado ou publicado;
-- os 31 ativos de media permanecem com `publicationAllowed: false`;
-- os direitos permanecem `pending-review`;
-- `MM202617`, uma imagem derivada por IA e explicitamente restrita no legado, foi marcada como `blocked`;
-- nenhuma tradução foi produzida automaticamente;
-- o site preliminar não foi modificado.
+## Conteúdo principal
+
+- PDF de referência, mantido em área privada do pacote;
+- 36 miniaturas derivadas para análise interna;
+- auditoria visual e contextual;
+- mapa página a página;
+- estrutura temática do livro;
+- inventário de componentes candidatos;
+- observações de cor sem conversão automática em tokens;
+- regras de adaptação digital e acessibilidade;
+- quadro visual em `apps/visual-source-board/`;
+- rules, skills, spec, testes, prompt e release.
 
 ## Dependências
 
-- Pacote 01 — Fundação, Governação e Escopo;
-- Pacote 02 — Sistema de Design e Guia Vivo;
-- Pacote 03 — Modelo de Dados do Museu.
+- Pacote 01 integrado;
+- Pacote 02 integrado;
+- `RIGHTS.md` disponível na raiz do repositório.
 
-## Validação
+## Instalação
 
-```bash
-node scripts/validate-package-04.mjs
-node tests/migration.test.mjs
-```
+1. Descompactar na raiz do repositório.
+2. Utilizar `PROMPT_CLAUDE.md` para a integração.
+3. Manter `sources/primary/private/` fora de qualquer build público.
+4. Executar `node scripts/validate-package-05a.mjs`.
+5. Servir o repositório localmente para abrir `apps/visual-source-board/`.
 
-Após integrar com o Pacote 03, validar também os registos contra `data/schemas/museum-memory.schema.json`.
+## Limites
+
+Este pacote não:
+
+- define a tipografia final;
+- publica o PDF ou as imagens do livro;
+- declara equivalência cromática entre o scan e a impressão original;
+- cria o catálogo público do Design System;
+- aplica a identidade ao Portal ou ao Museu;
+- altera os 31 registos migrados;
+- cria logótipo ou marca definitiva.

@@ -1,88 +1,93 @@
 ---
-title: "Prompt de integração — Pacote 04"
+title: "Prompt de integração — Pacote 05A"
 version: "0.1.0"
-status: "ready-for-integration"
+status: "ready-to-use"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-initiative: "Museu de Memórias de Milreu"
-rights: "Consultar RIGHTS.md no repositório principal"
+rights: "Consultar RIGHTS.md na raiz do repositório e SOURCE_RIGHTS_NOTICE.md neste pacote"
 ---
-
 # Prompt para o Claude
 
-Utiliza o texto abaixo após adicionar este pacote ao repositório.
+Utiliza o texto abaixo depois de adicionar o pacote à raiz do repositório.
 
 ---
 
-Estou a integrar o **Pacote 04 — Auditoria e Migração da Versão Preliminar, versão 0.1.0**, no repositório do Projeto Comunitário de Milreu.
+Estou a integrar o **Pacote 05A — Auditoria Visual e Fonte Primária, versão 0.1.0**, no repositório do Projeto Comunitário de Milreu.
+
+## Objetivo
+
+Registar *Milreu: Ruínas*, de Hauschild e Teichner, como fonte visual primária e base contextual inicial para falar do sítio no portal, sem publicar o PDF, copiar o livro ou transformar o scan diretamente em identidade final.
 
 ## Antes de alterar qualquer ficheiro
 
-1. Confirma que os Pacotes 01, 02 e 03 foram integrados. A ausência do Pacote 03 é bloqueante porque os registos dependem do seu modelo e schemas.
+1. Confirma a integração dos Pacotes 01 e 02.
 2. Lê integralmente:
    - `README.md`;
    - `PACKAGE_MANIFEST.md`;
    - `INTEGRATION_CHECKLIST.md`;
-   - `releases/PACKAGE_04_v0.1.0.md`;
-   - todos os ficheiros em `docs/migration/`;
-   - as specs `SPEC-MIG-*`;
-   - as rules e skills deste pacote.
-3. Localiza a versão preliminar e calcula o fingerprint de `data/museum-items.js`.
-4. Compara o fingerprint com o registado em `data/migration/reports/migration-summary.json`.
-5. Se o fingerprint for diferente, não substituas nem regeneres automaticamente os 31 JSON. Apresenta a diferença, identifica quando a fonte mudou e pergunta se devo gerar uma nova migração.
-6. Se os caminhos já existirem, apresenta comparação semântica e plano de fusão antes de escrever.
+   - `SOURCE_RIGHTS_NOTICE.md`;
+   - `releases/PACKAGE_05A_v0.1.0.md`;
+   - todos os ficheiros em `docs/design-source/`;
+   - `docs/specifications/SPEC-DS-004-VISUAL-SOURCE-BOARD.md`;
+   - os ficheiros de `integration/`.
+3. Verifica o PDF através de `data/design-source/source-manifest.json`.
+4. Procura auditorias anteriores e compara sem sobrescrever.
+5. Confirma que `sources/primary/private/` não entra no build público.
 
-## Regras obrigatórias
+## Decisões autoritativas
 
-- Não alteres `museum-items.js`, `main.js`, `style.css`, HTML, imagens, Drive, calendário ou configuração do protótipo.
-- Não ligues a UI aos JSON migrados.
-- Não marques registos como `reviewed`, `approved` ou `published`.
-- Não alteres `publicationAllowed` para `true`.
-- Não resolvas direitos, consentimentos, nomes, datas, fontes ou localizações por inferência.
-- Não traduzas conteúdos em massa.
-- Não preenchas `communityVoices` a partir de frases entre aspas sem origem e consentimento verificáveis.
-- Mantém `MM202617` como `blocked`.
-- Mantém os campos originais em `extensions.legacy`.
-- Não corrijas as 37 relações não recíprocas automaticamente.
-- Não elimines o duplicado `MM202612` nem convertas o hero com extensão incorreta neste pacote.
-- Todos os MDs e códigos novos ou alterados devem conter o copyright do projeto.
+- O vermelho funciona como assinatura, abertura, transição e fecho.
+- O vermelho não é a superfície padrão para leitura extensa.
+- O preto pode preencher áreas de destaque, legenda, chamada ou contraste de maneira controlada.
+- As superfícies principais de leitura permanecem claras.
+- O PDF é fonte visual primária.
+- O livro é base contextual inicial para conteúdo arqueológico do sítio.
+- Estudos posteriores podem atualizar ou corrigir a publicação.
+- Memórias comunitárias pertencem a outro domínio de fonte.
 
-## Relatório de pré-integração
+## Regras
 
-Apresenta:
+- Não publiques o PDF nem as miniaturas.
+- Não cries link de download público.
+- Não assumas direitos de imagens, mapas ou desenhos.
+- Não copies páginas como templates.
+- Não identifiques as fontes originais por aparência.
+- Não convertas os hexadecimais observados em tokens finais.
+- Não cries o logótipo.
+- Não apliques a identidade ao Portal ou Museu.
+- Não reescrevas os 31 registos.
+- Não alteres o site preliminar.
+- Ao produzir conteúdo arqueológico, regista página e verifica se há investigação posterior.
+- Ao encontrar uma pendência de direitos ou decisão final, pergunta antes de agir.
 
-- dependências confirmadas;
-- fingerprint encontrado e esperado;
-- ficheiros novos;
-- conflitos de caminho;
-- divergências no legado;
-- proposta de criação ou fusão;
-- bloqueios reais;
-- perguntas apenas quando a integração segura não puder prosseguir.
+## Integração
 
-Se não houver bloqueios, integra os ficheiros conforme o manifesto e executa:
+1. Integra `docs/design-source/`, `data/design-source/`, `.claude/`, a spec, scripts e testes.
+2. Integra `apps/visual-source-board/` como ferramenta interna.
+3. Mantém o PDF em `sources/primary/private/`.
+4. Funde manualmente as três adendas de `integration/`.
+5. Executa:
 
 ```bash
-node scripts/validate-package-04.mjs
-node tests/migration.test.mjs
+node scripts/validate-package-05a.mjs
+node tests/source-audit.test.mjs
 ```
 
-Depois, valida os 31 registos com o schema `museum-memory.schema.json` do Pacote 03.
+6. Serve a raiz localmente e abre o quadro visual.
 
-## Relatório final
+## Relatório esperado
 
 Entrega:
 
-- ficheiros criados, fundidos, mantidos e rejeitados;
+- ficheiros criados e fundidos;
+- confirmação de 36 páginas e 36 miniaturas;
+- resultado do SHA-256;
 - resultado dos validadores;
-- contagem dos 31 registos;
-- confirmação de que todos permanecem preliminares;
-- confirmação de que nenhum ativo foi autorizado automaticamente;
-- confirmação de que `MM202617` permanece bloqueado;
-- confirmação de que o protótipo não foi alterado;
-- pendências da fila de revisão;
-- registo do release.
+- confirmação de que a fonte permanece privada;
+- divergências encontradas em relação ao Pacote 02;
+- pendências para o Pacote 05B;
+- perguntas objetivas apenas quando houver bloqueio real.
 
-Não avances para o Pacote 05 sem instrução explícita.
+Não avances para o Pacote 05B sem instrução explícita.
 
 ---

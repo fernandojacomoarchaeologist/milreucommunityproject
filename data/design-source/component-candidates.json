@@ -1,0 +1,127 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "status": "candidate-not-approved",
+  "components": [
+    {
+      "name": "EditorialOpening",
+      "sourcePages": [
+        1,
+        5,
+        18,
+        23,
+        26,
+        30,
+        31
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "RedSignatureBand",
+      "sourcePages": [
+        1,
+        2,
+        5,
+        36
+      ],
+      "nextPackage": "05B/05D"
+    },
+    {
+      "name": "BlackHighlightField",
+      "sourcePages": [
+        1,
+        4,
+        30
+      ],
+      "nextPackage": "05B/05D"
+    },
+    {
+      "name": "SourceFigure",
+      "sourcePages": [
+        6,
+        8,
+        12,
+        13,
+        16,
+        19
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "ArtifactCutout",
+      "sourcePages": [
+        6,
+        15,
+        22,
+        24,
+        25,
+        30
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "CircuitMarker",
+      "sourcePages": [
+        11,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        26,
+        29
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "PlanViewer",
+      "sourcePages": [
+        7,
+        10,
+        20,
+        22,
+        26,
+        27
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "EvidenceComparison",
+      "sourcePages": [
+        13,
+        19,
+        21,
+        24,
+        27,
+        28
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "HypothesisNotice",
+      "sourcePages": [
+        15,
+        27,
+        28
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "GlossaryEntry",
+      "sourcePages": [
+        32,
+        33
+      ],
+      "nextPackage": "05D"
+    },
+    {
+      "name": "BibliographyRecord",
+      "sourcePages": [
+        33,
+        34
+      ],
+      "nextPackage": "05D"
+    }
+  ]
+}
