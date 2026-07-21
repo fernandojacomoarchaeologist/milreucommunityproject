@@ -1,52 +1,39 @@
 ---
-title: "Guia vivo — execução local"
-version: "0.1.0"
-status: "beta"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md na raiz do repositório"
+rights: "Consultar RIGHTS.md"
 ---
-# Guia vivo
 
-## Execução
+# Design Guide 0.3.0
 
-O guia não exige build. Para evitar restrições de `file://`, servir a raiz do repositório localmente.
+Aplicação estática do catálogo visual do Sistema de Design de Milreu.
 
-Exemplo com Python:
+## Arquitetura
 
-```bash
-python3 -m http.server 8000
-```
+- `index.html`: shell acessível.
+- `guide.css`: layout e visualização do catálogo.
+- `guide.js`: inicialização da app.
+- `app/catalog-data.js`: páginas e navegação.
+- `app/i18n.js`: interface em quatro idiomas.
+- `app/router.js`: rotas por hash.
+- `app/renderers.js`: renderização das páginas e exemplos.
+- `app/search.js`: índice e pesquisa local.
+- `app/state.js`: preferências locais.
 
-Abrir:
+## Dependência
 
-```text
-http://localhost:8000/apps/design-guide/
-```
+`../../packages/design-tokens/v0.2/tokens.css`
 
-## Funções da versão 0.1.0
+## Estado
 
-- mapa de fundamentos;
-- paleta e tokens;
-- tipografia;
-- comparação Spectral/Archivo;
-- componentes nucleares;
-- demonstrações dos shells Portal e Museu;
-- referência inicial de impressão;
-- interface essencial em quatro idiomas;
-- indicação explícita de conteúdo demonstrativo.
+`internal-preview`. Componentes especializados serão adicionados no Pacote 05D.
 
-## Limites
+## Ferramentas relacionadas
 
-- sem logótipo definitivo;
-- sem fotografias reais;
-- sem conteúdo do acervo;
-- sem editor de tokens;
-- sem publicação automática;
-- sem componentes finais de dados, mapa ou biblioteca.
+`apps/foundations-lab/` (Pacote 05B) é ferramenta interna e não deve ser ligada ao menu público.
 
-## Rota de fundações — Pacote 05B
+## Integração (Pacote 05C)
 
-O Pacote 05C deverá incorporar as fundações v0.2 no catálogo visual e substituir páginas genéricas do guia anterior por páginas de documentação visual completas.
+Esta app substitui a implementação preliminar de `apps/design-guide/` criada no Pacote 02, mantendo o caminho canónico. O histórico do guia anterior fica preservado no Git; não manter uma app paralela.
 
-Até lá, `apps/foundations-lab/` é ferramenta interna e não deve ser ligada ao menu público.
+Os fallbacks em `guide.css` existem apenas para resiliência de visualização e não redefinem tokens: alterações de valor devem ocorrer em `packages/design-tokens/v0.2/` e ser validadas pelas skills do Pacote 05B.

@@ -136,6 +136,15 @@ Não criar logótipo, textura, ícone ou reprodução do livro por inferência. 
 - Mudanças estruturais de tokens exigem ADR ou release.
 - O laboratório de fundações (`apps/foundations-lab/`) é interno.
 
+### 9.3 Catálogo visual interativo — integrado pelo Pacote 05C
+
+- `apps/design-guide/` é a rota canónica do guia vivo.
+- `packages/design-guide-catalog/v0.3/catalog.json` é a fonte estruturada de navegação e páginas na versão 0.3.
+- Os tokens vêm de `packages/design-tokens/v0.2/`.
+- O guia deve mostrar maturidade e não transforma visibilidade em aprovação.
+- A estrutura documental pode seguir convenções comuns, mas identidade, conteúdo e código devem ser próprios de Milreu.
+- O guia permanece `internal-preview` até revisão visual do responsável.
+
 ## 10. Copyright
 
 Todos os novos MDs e ficheiros de código devem conter:

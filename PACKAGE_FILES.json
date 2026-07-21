@@ -1,74 +1,276 @@
 {
-  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
-  "_project": "Projeto Comunitário de Milreu",
-  "version": "0.2.0",
+  "package": "05C",
+  "version": "0.3.0",
   "files": [
-    ".claude/rules/production-foundations.md",
-    ".claude/skills/design-token-change/SKILL.md",
-    ".claude/skills/platform-token-export/SKILL.md",
-    ".claude/skills/visual-foundation-review/SKILL.md",
-    "INTEGRATION_CHECKLIST.md",
-    "PACKAGE_MANIFEST.md",
-    "PROMPT_CLAUDE.md",
-    "README.md",
-    "apps/foundations-lab/README.md",
-    "apps/foundations-lab/index.html",
-    "apps/foundations-lab/lab.css",
-    "apps/foundations-lab/lab.js",
-    "docs/adr/ADR-DS-005-RED-SIGNATURE.md",
-    "docs/adr/ADR-DS-006-TYPOGRAPHY-ROLES.md",
-    "docs/adr/ADR-DS-007-LIGHT-READING-SURFACES.md",
-    "docs/adr/ADR-DS-008-DATA-PALETTE-SEPARATION.md",
-    "docs/design/foundations/ACCESSIBILITY_BASELINE.md",
-    "docs/design/foundations/COLOR_SYSTEM.md",
-    "docs/design/foundations/COLOR_USAGE_MATRIX.md",
-    "docs/design/foundations/CONTRAST_REQUIREMENTS.md",
-    "docs/design/foundations/DATA_AND_MAP_COLORS.md",
-    "docs/design/foundations/ELEVATION_AND_LAYERING.md",
-    "docs/design/foundations/FONT_LOADING_POLICY.md",
-    "docs/design/foundations/FOUNDATIONS_OVERVIEW.md",
-    "docs/design/foundations/FOUNDATION_DECISIONS.md",
-    "docs/design/foundations/GRID_AND_BREAKPOINTS.md",
-    "docs/design/foundations/ICONOGRAPHY_DIRECTION.md",
-    "docs/design/foundations/MOTION_SYSTEM.md",
-    "docs/design/foundations/OPEN_FOUNDATION_QUESTIONS.md",
-    "docs/design/foundations/PHOTOGRAPHY_SYSTEM.md",
-    "docs/design/foundations/PLATFORM_PARITY.md",
-    "docs/design/foundations/PRINT_FOUNDATIONS.md",
-    "docs/design/foundations/SHAPE_BORDER_RADIUS.md",
-    "docs/design/foundations/SOURCE_TO_FOUNDATION_TRACEABILITY.md",
-    "docs/design/foundations/SPACING_SYSTEM.md",
-    "docs/design/foundations/TEXTURE_SYSTEM.md",
-    "docs/design/foundations/TEXT_DENSITY_AND_READABILITY.md",
-    "docs/design/foundations/TYPE_SCALE.md",
-    "docs/design/foundations/TYPOGRAPHY_SYSTEM.md",
-    "docs/specifications/SPEC-DS-005-FOUNDATIONS-LAB.md",
-    "docs/specifications/SPEC-DS-006-PRODUCTION-TOKENS.md",
-    "integration/CLAUDE_APPEND.md",
-    "integration/DESIGN_GUIDE_FOUNDATIONS_ROUTE.md",
-    "integration/PACKAGE_02_TOKEN_UPGRADE.md",
-    "integration/PACKAGE_05A_DECISIONS_CLOSEOUT.md",
-    "packages/design-tokens/v0.2/README.md",
-    "packages/design-tokens/v0.2/data-map.json",
-    "packages/design-tokens/v0.2/elevation.json",
-    "packages/design-tokens/v0.2/layout.json",
-    "packages/design-tokens/v0.2/motion.json",
-    "packages/design-tokens/v0.2/platforms/flutter/milreu_tokens.dart",
-    "packages/design-tokens/v0.2/platforms/javascript/tokens.js",
-    "packages/design-tokens/v0.2/platforms/print/print-tokens.css",
-    "packages/design-tokens/v0.2/primitives.json",
-    "packages/design-tokens/v0.2/semantic.json",
-    "packages/design-tokens/v0.2/shape.json",
-    "packages/design-tokens/v0.2/spacing.json",
-    "packages/design-tokens/v0.2/themes.json",
-    "packages/design-tokens/v0.2/tokens.css",
-    "packages/design-tokens/v0.2/tokens.json",
-    "packages/design-tokens/v0.2/typography.json",
-    "releases/PACKAGE_05B_v0.2.0.md",
-    "scripts/contrast-utils.mjs",
-    "scripts/validate-package-05b.mjs",
-    "tests/contrast.test.mjs",
-    "tests/platform-parity.test.mjs",
-    "tests/token-schema.test.mjs"
+    {
+      "path": ".claude/rules/catalog-maturity.md",
+      "size": 484,
+      "sha256": "28824b5ab4180215afa0ca86544335e429fedfe598f9d1e8ade8109671a9ab89"
+    },
+    {
+      "path": ".claude/rules/design-catalog.md",
+      "size": 663,
+      "sha256": "ff6a718be15a4622835ce0e7d253e4da3d6354079803f3a4a2195c2781193a67"
+    },
+    {
+      "path": ".claude/skills/add-design-guide-page/SKILL.md",
+      "size": 534,
+      "sha256": "a81daf6839ac8b5caba6f812eb8135fe8f3c45fe145a62d002eab0e21dfadfc6"
+    },
+    {
+      "path": ".claude/skills/audit-design-guide/SKILL.md",
+      "size": 426,
+      "sha256": "796e3513bc9abd14cc88e23a9ce283924f129f104b71b091a9ee38db9de94347"
+    },
+    {
+      "path": ".claude/skills/catalog-release/SKILL.md",
+      "size": 431,
+      "sha256": "b0c60b8ee45fc4f0f7b11cad885a6e101dfdd3b0097e2474f2236ea42aa904a6"
+    },
+    {
+      "path": ".claude/skills/document-foundation/SKILL.md",
+      "size": 396,
+      "sha256": "0867056231f2ceedfaa7bd116d4e3c92ffb102b8ca14cbbb92dfee27e36b08d8"
+    },
+    {
+      "path": "INTEGRATION_CHECKLIST.md",
+      "size": 1491,
+      "sha256": "00baed0a29f9c34b834891f3b153d21b360536e5093616a9ebbf86aee9e5e396"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.md",
+      "size": 1486,
+      "sha256": "9c5979f9aa0c1196dde2befebac3f008934c10ea8e396600fe5aa525d98af052"
+    },
+    {
+      "path": "PROMPT_CLAUDE.md",
+      "size": 2955,
+      "sha256": "d288a15af9587181ec0cd8ea9da993fe6c742a522e3b037a172195c243e41f03"
+    },
+    {
+      "path": "README.md",
+      "size": 2474,
+      "sha256": "ae9fa3532fa1981eabb484241a9fc794400c2937010aa17633fd344aa8b3775a"
+    },
+    {
+      "path": "apps/design-guide/README.md",
+      "size": 805,
+      "sha256": "f8663e7ebcd992b4df93a10d2ddfbede5ee2da3e85ffc40691c313b6cc6aac27"
+    },
+    {
+      "path": "apps/design-guide/app/catalog-data.js",
+      "size": 30644,
+      "sha256": "1ba7ef7cbd0b66183b171c8e86692e328b20dcde1195360ba8076db643580f92"
+    },
+    {
+      "path": "apps/design-guide/app/i18n.js",
+      "size": 5661,
+      "sha256": "10fbff47e6f00db6e7a5200eed29168a3a01a6d1b47fb86f7b93b0dc0127861e"
+    },
+    {
+      "path": "apps/design-guide/app/renderers.js",
+      "size": 9520,
+      "sha256": "64b8bdc9608ba271573618ba1d22fa156af7bd4eab810481a3bf5d9944c00562"
+    },
+    {
+      "path": "apps/design-guide/app/router.js",
+      "size": 765,
+      "sha256": "c68e51a4b7fc6fe71096c0b06023505d7a066d013c87bccf835186ecf99c061f"
+    },
+    {
+      "path": "apps/design-guide/app/search.js",
+      "size": 849,
+      "sha256": "c8a025051ba465ec1c7d24bc19a6e42cba59b5313f6f3c5d0e56464bfc3c2691"
+    },
+    {
+      "path": "apps/design-guide/app/state.js",
+      "size": 354,
+      "sha256": "e3cdff5ac70aaeec32a2ae58565347cb5c5c619ab942feb0ca43a8d3ed88743d"
+    },
+    {
+      "path": "apps/design-guide/guide.css",
+      "size": 18187,
+      "sha256": "efff6981fa87a3d777e62007efc8b741fa1f0ffbc04a563dc12d596aa33edf41"
+    },
+    {
+      "path": "apps/design-guide/guide.js",
+      "size": 5464,
+      "sha256": "59ded62f97f657f185bb64bcf1af745993c281240f0c1ef20028f83356cb2862"
+    },
+    {
+      "path": "apps/design-guide/index.html",
+      "size": 4482,
+      "sha256": "3380837aaa17503a2862e5bd570e24dae0a9f95c87b3382df6e3045e24cd1e6c"
+    },
+    {
+      "path": "docs/design/catalog/ACCESSIBILITY.md",
+      "size": 540,
+      "sha256": "c6d732f07bf316206673804589422d06ba376da37ef037b1e052f0962aa02fc3"
+    },
+    {
+      "path": "docs/design/catalog/CATALOG_ARCHITECTURE.md",
+      "size": 791,
+      "sha256": "8c8dd6a65a1572b345587bd29c191bd1bc6edfe358931cad15f580704b69ed50"
+    },
+    {
+      "path": "docs/design/catalog/CODE_EXAMPLES_POLICY.md",
+      "size": 490,
+      "sha256": "d0ecac63a9fb0eb45f8da7ae59f86da2aacbde041e701a4b27d4b7db856212ce"
+    },
+    {
+      "path": "docs/design/catalog/CONTENT_MODEL.md",
+      "size": 489,
+      "sha256": "2fdb15a18eb5d30cd1d1fd7201165441d50149355d5baaf122dd646af3c439d7"
+    },
+    {
+      "path": "docs/design/catalog/INTEGRATION_WITH_05B.md",
+      "size": 436,
+      "sha256": "2e81e39656a47e41b2702f7fcb56068b876ba3ddb6d84f2f59c56ae16ff606b8"
+    },
+    {
+      "path": "docs/design/catalog/LANGUAGE_STRATEGY.md",
+      "size": 519,
+      "sha256": "945f65b1ee8f30ea5977d39ad02ae6355fba1c6597189fd4423825731f2dbdce"
+    },
+    {
+      "path": "docs/design/catalog/MATURITY_MODEL.md",
+      "size": 549,
+      "sha256": "c4230e03141310117adc1024945bf764053f138b9d229d0d7a8810b579cfec97"
+    },
+    {
+      "path": "docs/design/catalog/NAVIGATION_MODEL.md",
+      "size": 526,
+      "sha256": "9000e6d60b635677ab55633881c829c19b02e834e48c2873864bc484cdd25d8f"
+    },
+    {
+      "path": "docs/design/catalog/OPEN_QUESTIONS.md",
+      "size": 474,
+      "sha256": "aacd8f2e6c8cd1b534c99604900688b48cd6698725bbdb7f305893a60a7db04f"
+    },
+    {
+      "path": "docs/design/catalog/PACKAGE_05D_HANDOFF.md",
+      "size": 603,
+      "sha256": "b42cb7ea41b7cac81636c3c6ea26c64055a3b92b2ec965ee29bf312ff597f057"
+    },
+    {
+      "path": "docs/design/catalog/PAGE_ANATOMY.md",
+      "size": 603,
+      "sha256": "bc3b794c2395e4442cf2b818d80e3cd7dcd998e0a9124176632430038e00a03e"
+    },
+    {
+      "path": "docs/design/catalog/RELEASE_AND_CHANGELOG.md",
+      "size": 425,
+      "sha256": "077bffcaeca8bf00f7e97679899f562d536fe13c766f0017a6cc7297d8b9a61e"
+    },
+    {
+      "path": "docs/design/catalog/RESPONSIVE_BEHAVIOR.md",
+      "size": 469,
+      "sha256": "7cce17d971cd7efd97d169279b8929328d37fd2118a325914e06e1fe034f0614"
+    },
+    {
+      "path": "docs/design/catalog/SEARCH_AND_DISCOVERY.md",
+      "size": 397,
+      "sha256": "d509e949c0cb5ae88ada65d4cff9fb234e49d68e6e657cb106314f756eeea319"
+    },
+    {
+      "path": "docs/design/catalog/SOURCE_TRACEABILITY.md",
+      "size": 432,
+      "sha256": "65e58a00791e23653c381a9a6e78c134b4bafa2d1582d9b37772632f6cf58f2b"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-007-CATALOG-SHELL.md",
+      "size": 608,
+      "sha256": "895cf365b848b2d14b48bbe4c642b00ad6eb86ce6291ef0a4052719382c128f3"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-008-CATALOG-SEARCH.md",
+      "size": 410,
+      "sha256": "45a7830b36edd968b293ef3b6604327efaf55cb2a35acdda2112a580646262a7"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-009-CATALOG-PAGE.md",
+      "size": 398,
+      "sha256": "94fdeae618b8ea74882ea199509a8a268821e75c488bb91c5ec5fe2cec44a245"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-010-MULTILINGUAL-GUIDE.md",
+      "size": 427,
+      "sha256": "e2d61567ce2b4ae98155e0f2725b9c5b08f4e8c21c996078a84b5c9f3b2e8e6f"
+    },
+    {
+      "path": "integration/CLAUDE_APPEND.md",
+      "size": 606,
+      "sha256": "9eb87823dec3cdc850c65846a4909fcd69fc47760394e211d05c6229bad1368b"
+    },
+    {
+      "path": "integration/PACKAGE_02_DESIGN_GUIDE_UPGRADE.md",
+      "size": 723,
+      "sha256": "943701fc1d8ff9b867af2820cdda5f6e102140da132ae49eb0a3018f6fb689c9"
+    },
+    {
+      "path": "integration/PACKAGE_05B_TOKEN_CONSUMPTION.md",
+      "size": 427,
+      "sha256": "3b91f0f4ba84cf4191b53c0639ca34298515190f6c34a39b22796a60c8d1c9bc"
+    },
+    {
+      "path": "integration/PACKAGE_05D_COMPONENT_HANDOFF.md",
+      "size": 472,
+      "sha256": "5e28f8434eda075908925cc8f90c09fec5048ea0b27867b118543c5a5789e81c"
+    },
+    {
+      "path": "integration/VISUALIZATION_REGISTRY_APPEND.md",
+      "size": 551,
+      "sha256": "4cf9c7b16cf93a5528c65ba174c257aa799a0c51ded080acc12b4e321e7e471d"
+    },
+    {
+      "path": "packages/design-guide-catalog/v0.3/README.md",
+      "size": 490,
+      "sha256": "04f2a778d18d9b0f2c98b366d620dfa3a850f65d05b5e198c5b35d5b33c74fb0"
+    },
+    {
+      "path": "packages/design-guide-catalog/v0.3/catalog.json",
+      "size": 30474,
+      "sha256": "facb282f2f2bc3e1004303367b9196ebf5eb91d67c1f5be08111eeed7b6cc0d3"
+    },
+    {
+      "path": "packages/design-guide-catalog/v0.3/catalog.schema.json",
+      "size": 1111,
+      "sha256": "0fc625168c2599842e888e0cb77b45419911587ae944fc4d3274531cf33ae6e0"
+    },
+    {
+      "path": "packages/design-guide-catalog/v0.3/maturity.json",
+      "size": 824,
+      "sha256": "c96d46a8caea3861b68192bb06500dd80fe108371bbc2eac1624d3f35183c76b"
+    },
+    {
+      "path": "releases/PACKAGE_05C_v0.3.0.md",
+      "size": 1190,
+      "sha256": "1a79a69171ac30f9600c57ec96a0be8f1c18475efadf96b334202abc9a0431a7"
+    },
+    {
+      "path": "scripts/validate-package-05c.mjs",
+      "size": 1574,
+      "sha256": "ffe990789e47de10d2c414854d07e4129467e68ad1255d9458fefa04c91e5868"
+    },
+    {
+      "path": "tests/accessibility-static.test.mjs",
+      "size": 517,
+      "sha256": "ee52dac8aefb0f01c4a8d1fd6f011a0254d82ea2ce56b8ac333da229616dd280"
+    },
+    {
+      "path": "tests/catalog-integrity.test.mjs",
+      "size": 718,
+      "sha256": "416c3f5dc8cd84857acedfaf2b2eb0bc6a274b302a656e7f91713948bc5ac59f"
+    },
+    {
+      "path": "tests/i18n.test.mjs",
+      "size": 546,
+      "sha256": "7e186e6eada31e26608fd6d82c4d6b277117b22d6692e028ef5dd818126aedeb"
+    },
+    {
+      "path": "tests/routes.test.mjs",
+      "size": 628,
+      "sha256": "0e929c92a206627dcc5ebfe6b86636cd70156376c80d8fda062e7acefecf688f"
+    }
   ]
 }

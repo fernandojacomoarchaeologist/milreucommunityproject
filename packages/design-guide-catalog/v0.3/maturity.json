@@ -1,0 +1,34 @@
+{
+  "states": [
+    {
+      "id": "proposed",
+      "label": "Proposto",
+      "use": "Ideia registada; não usar em produção."
+    },
+    {
+      "id": "draft",
+      "label": "Rascunho",
+      "use": "Solução exploratória; pode mudar sem migração."
+    },
+    {
+      "id": "in-review",
+      "label": "Em revisão",
+      "use": "Decisão documentada a aguardar validação."
+    },
+    {
+      "id": "validated",
+      "label": "Validado",
+      "use": "Pode orientar construção interna; aprovação final pode estar pendente."
+    },
+    {
+      "id": "approved",
+      "label": "Aprovado",
+      "use": "Autorizado para produção no âmbito definido."
+    },
+    {
+      "id": "deprecated",
+      "label": "Depreciado",
+      "use": "Não iniciar novas utilizações; seguir plano de migração."
+    }
+  ]
+}

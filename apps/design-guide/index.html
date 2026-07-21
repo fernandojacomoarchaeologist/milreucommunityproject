@@ -1,163 +1,77 @@
 <!doctype html>
-<html lang="pt-PT" data-body-font="spectral">
+<html lang="pt-PT" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Guia vivo do Sistema de Design do Projeto Comunitário de Milreu.">
-  <title>Guia do Sistema de Design — Projeto Comunitário de Milreu</title>
+  <meta name="description" content="Catálogo visual do Sistema de Design do Projeto Comunitário de Milreu.">
+  <title>Sistema de Design — Projeto Comunitário de Milreu</title>
   <!-- © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=Fraunces:opsz,wght@9..144,300..800&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../packages/design-tokens/tokens.css">
-  <link rel="stylesheet" href="../../packages/ui-core/components.css">
-  <link rel="stylesheet" href="../../packages/ui-portal/portal-shell.css">
-  <link rel="stylesheet" href="../../packages/ui-museum/museum-shell.css">
+  <link rel="stylesheet" href="../../packages/design-tokens/v0.2/tokens.css">
   <link rel="stylesheet" href="guide.css">
 </head>
 <body>
-  <a class="guide-skip" href="#main" data-i18n="skip">Saltar para o conteúdo</a>
-  <header class="guide-topbar">
-    <div>
-      <p class="guide-kicker" data-i18n="project">Projeto Comunitário de Milreu</p>
-      <h1 data-i18n="title">Guia do Sistema de Design</h1>
-    </div>
-    <div class="guide-tools">
-      <div id="language-toggle"></div>
-      <button class="ds-button" id="font-toggle" type="button" data-i18n="fontToggle">Comparar corpo: Spectral</button>
-    </div>
-  </header>
+  <a class="skip-link" href="#page-content" data-i18n="skip">Saltar para o conteúdo</a>
+  <div class="signature-line" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button mobile-only" id="nav-toggle" type="button" aria-controls="sidebar" aria-expanded="false" data-i18n-aria="openNav" title="Abrir navegação">☰</button>
+      <a class="brand" href="#/introduction/overview" aria-label="Sistema de Design de Milreu">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span><strong>Milreu</strong><small data-i18n="designSystem">Sistema de Design</small></span>
+      </a>
+      <div class="topbar-tools">
+        <button class="search-trigger" id="search-trigger" type="button" aria-haspopup="dialog">
+          <span aria-hidden="true">⌕</span><span data-i18n="search">Pesquisar</span><kbd>/</kbd>
+        </button>
+        <label class="language-select"><span class="sr-only" data-i18n="language">Idioma</span><select id="language-select" aria-label="Idioma"><option value="pt-PT">PT</option><option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option></select></label>
+      </div>
+    </header>
 
-  <div class="guide-layout">
-    <nav class="guide-nav" aria-label="Secções do guia">
-      <a href="#principles" data-i18n="navPrinciples">Princípios</a>
-      <a href="#colours" data-i18n="navColours">Cores</a>
-      <a href="#typography" data-i18n="navTypography">Tipografia</a>
-      <a href="#components" data-i18n="navComponents">Componentes</a>
-      <a href="#modes" data-i18n="navModes">Portal e Museu</a>
-      <a href="#print" data-i18n="navPrint">Impressão</a>
-      <a href="#status" data-i18n="navStatus">Estado</a>
-    </nav>
+    <aside class="sidebar" id="sidebar" aria-label="Navegação do Sistema de Design">
+      <div class="sidebar-header">
+        <p class="version-label">v0.3.0 · <span data-i18n="preview">pré-visualização interna</span></p>
+      </div>
+      <nav id="catalog-nav"></nav>
+      <div class="sidebar-footer">
+        <a href="#/governance/releases" data-i18n="releases">Releases</a>
+        <p>© 2026 Fernando Rodrigues de Jácomo</p>
+      </div>
+    </aside>
 
-    <main id="main" class="guide-main">
-      <section id="principles" class="guide-section guide-intro">
-        <p class="guide-eyebrow" data-i18n="foundation">Fundação 0.1.0</p>
-        <h2 data-i18n="introTitle">Duas vozes, uma identidade</h2>
-        <p data-i18n="introText">A comunidade ocupa a superfície; a instituição fornece moldura, proveniência e rigor.</p>
-        <div class="guide-voice-grid">
-          <article class="guide-voice guide-voice--community">
-            <h3 data-i18n="communityVoice">Voice A — Comunidade</h3>
-            <p data-i18n="communityText">Fotografia, memória, relação e participação surgem primeiro.</p>
-          </article>
-          <article class="guide-voice guide-voice--institution">
-            <h3 data-i18n="institutionVoice">Voice B — Instituição</h3>
-            <p data-i18n="institutionText">Metadados, confiança, fontes, créditos e direitos funcionam como moldura.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="colours" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="foundations">Fundações</p>
-        <h2 data-i18n="colourTitle">Sistema de cor</h2>
-        <div class="guide-swatches" aria-label="Paleta de cores">
-          <div class="guide-swatch" style="--swatch:#F2ECE0"><span>Paper</span><code>#F2ECE0</code></div>
-          <div class="guide-swatch" style="--swatch:#E7DFCF"><span>Paper Deep</span><code>#E7DFCF</code></div>
-          <div class="guide-swatch guide-swatch--dark" style="--swatch:#2A2622"><span>Ink</span><code>#2A2622</code></div>
-          <div class="guide-swatch guide-swatch--dark" style="--swatch:#5B534A"><span>Ink Soft</span><code>#5B534A</code></div>
-          <div class="guide-swatch guide-swatch--dark" style="--swatch:#8A6A4A"><span>Sepia</span><code>#8A6A4A</code></div>
-          <div class="guide-swatch" style="--swatch:#A79B88"><span>Stone</span><code>#A79B88</code></div>
-          <div class="guide-swatch guide-swatch--dark" style="--swatch:#6C6C6C"><span>Silver</span><code>#6C6C6C</code></div>
-          <div class="guide-swatch guide-swatch--dark" style="--swatch:#5E7267"><span>Patina</span><code>#5E7267</code></div>
-          <div class="guide-swatch guide-swatch--dark guide-swatch--brick" style="--swatch:#A83227"><span>Brick</span><code>#A83227</code></div>
-          <div class="guide-swatch guide-swatch--dark guide-swatch--brick" style="--swatch:#7E251C"><span>Brick Deep</span><code>#7E251C</code></div>
-        </div>
-        <p class="guide-rule" data-i18n="brickRule">Regra: se o tijolo cobre uma área relevante, a composição está errada.</p>
-      </section>
-
-      <section id="typography" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="foundations">Fundações</p>
-        <h2 data-i18n="typeTitle">Tipografia</h2>
-        <div class="guide-type-samples">
-          <article><span>Display · Fraunces</span><p class="guide-display">Entre <em>Ruínas</em> e Memórias</p></article>
-          <article><span>Body · <strong id="body-font-name">Spectral</strong></span><p class="guide-body" data-i18n="bodySample">As memórias revelam formas distintas de relação entre as pessoas e Milreu.</p></article>
-          <article><span>Utility · Archivo</span><p class="guide-utility">MM202601 · PROVENIÊNCIA · CERTA</p></article>
-        </div>
-      </section>
-
-      <section id="components" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="componentsBeta">Componentes beta</p>
-        <h2 data-i18n="componentsTitle">Elementos nucleares</h2>
-        <div class="guide-component-row" id="confidence-demo"></div>
-        <div class="guide-component-grid">
-          <div id="figure-demo"></div>
-          <div class="guide-component-stack">
-            <div id="provenance-demo"></div>
-            <div id="rights-demo"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="modes" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="patterns">Padrões</p>
-        <h2 data-i18n="modesTitle">Uma identidade, dois modos</h2>
-        <h3 data-i18n="portalMode">Modo Portal</h3>
-        <div class="ds-portal guide-demo-frame">
-          <header class="ds-portal__header">
-            <span class="ds-portal__brand" data-i18n="projectShort">Milreu</span>
-            <nav class="ds-portal__nav" aria-label="Exemplo">
-              <a href="#" aria-current="page" data-i18n="projectNav">Projeto</a>
-              <a href="#" data-i18n="museumNav">Museu</a>
-              <a href="#" data-i18n="dataNav">Dados</a>
-              <a href="#" data-i18n="libraryNav">Biblioteca</a>
-            </nav>
-          </header>
-          <div class="ds-portal__main">
-            <p class="guide-placeholder" data-i18n="portalPlaceholder">Shell demonstrativo. Nenhuma página pública foi implementada.</p>
-          </div>
-        </div>
-
-        <h3 data-i18n="museumMode">Modo Museu</h3>
-        <div class="ds-museum-shell guide-demo-frame">
-          <div class="ds-museum-shell__media" data-i18n="imagePlaceholder">Placeholder abstrato — sem fotografia real</div>
-          <div class="ds-museum-shell__topbar">
-            <button class="ds-button" type="button" data-i18n="backProject">Voltar ao Projeto</button>
-            <span class="ds-status-badge">01 / 12</span>
-          </div>
-          <div class="ds-museum-shell__caption">
-            <h2 data-i18n="memoryExample">Memória demonstrativa</h2>
-            <p data-i18n="museumPlaceholder">A fotografia ocupa a superfície; os detalhes surgem por camadas.</p>
-          </div>
-          <div class="ds-museum-shell__controls">
-            <button class="ds-button" type="button" aria-label="Anterior">←</button>
-            <button class="ds-button" type="button" data-i18n="details">Detalhes</button>
-            <button class="ds-button" type="button" aria-label="Seguinte">→</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="print" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="physical">Físico e digital</p>
-        <h2 data-i18n="printTitle">Fundação dos painéis</h2>
-        <div class="guide-print-demo">
-          <div>
-            <span class="guide-print-id">MM20XXXX · EXEMPLO</span>
-            <h3 data-i18n="printExample">Relações com Milreu</h3>
-            <p data-i18n="printText">Composição demonstrativa à escala reduzida. Não é um painel pronto para impressão.</p>
-          </div>
-          <div class="guide-print-photo" data-i18n="imagePlaceholder">Placeholder abstrato — sem fotografia real</div>
-        </div>
-      </section>
-
-      <section id="status" class="guide-section">
-        <p class="guide-eyebrow" data-i18n="governance">Governação</p>
-        <h2 data-i18n="statusTitle">Estado desta versão</h2>
-        <p data-i18n="statusText">Tokens autoritativos e componentes beta. Logótipo, auditoria visual final, templates de impressão e Flutter permanecem pendentes.</p>
-      </section>
+    <main class="main" id="main">
+      <div class="content-shell">
+        <div class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb"></div>
+        <article id="page-content" tabindex="-1"></article>
+        <nav class="page-pagination" id="page-pagination" aria-label="Navegação entre páginas"></nav>
+      </div>
+      <aside class="toc" id="toc" aria-label="Nesta página"></aside>
     </main>
   </div>
 
-  <div id="footer"></div>
-  <script src="../../packages/ui-core/components.vanilla.js"></script>
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+  <dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+    <form method="dialog" class="search-panel">
+      <div class="search-head">
+        <h2 id="search-title" data-i18n="searchCatalog">Pesquisar no catálogo</h2>
+        <button class="icon-button" value="cancel" aria-label="Fechar">×</button>
+      </div>
+      <label class="search-input-wrap"><span class="sr-only" data-i18n="search">Pesquisar</span><span aria-hidden="true">⌕</span><input id="search-input" type="search" autocomplete="off" placeholder="Pesquisar fundações, componentes e padrões…" data-i18n-placeholder="searchPlaceholder"></label>
+      <div class="search-results" id="search-results" role="listbox" aria-label="Resultados"></div>
+      <p class="search-help"><kbd>↑</kbd><kbd>↓</kbd> <span data-i18n="navigate">navegar</span> · <kbd>Enter</kbd> <span data-i18n="open">abrir</span> · <kbd>Esc</kbd> <span data-i18n="close">fechar</span></p>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app/catalog-data.js"></script>
+  <script src="app/i18n.js"></script>
+  <script src="app/state.js"></script>
+  <script src="app/search.js"></script>
+  <script src="app/router.js"></script>
+  <script src="app/renderers.js"></script>
   <script src="guide.js"></script>
 </body>
 </html>

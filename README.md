@@ -1,57 +1,72 @@
 ---
-title: "Pacote 05B — Fundações Visuais de Produção"
-version: "0.2.0"
-status: "ready-for-integration"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md na raiz do repositório"
+rights: "Consultar RIGHTS.md"
 ---
-# Pacote 05B — Fundações Visuais de Produção
 
-Este pacote converte a auditoria visual do livro *Milreu: Ruínas* realizada no Pacote 05A em fundações digitais e físicas implementáveis para o Design System do Projeto Comunitário de Milreu.
+# Pacote 05C — Catálogo Visual Interativo
 
-## Decisões autoritativas
+**Versão:** 0.3.0  
+**Estado:** pronto para integração controlada  
+**Dependências:** Pacotes 01, 02, 05A e 05B
 
-- o vermelho é assinatura, abertura, transição e fecho;
-- o preto aquecido pode preencher destaques e áreas de forte contraste;
-- superfícies claras são o padrão para leitura extensa;
-- a cor funcional de mapas e dados permanece separada da identidade;
-- o sistema não copia páginas do livro e não reproduz defeitos da digitalização;
-- as fontes originais do livro não são identificadas por aproximação;
-- não são distribuídos ficheiros de fontes;
-- a família de destaque é **Fraunces**;
-- o corpo editorial é **Spectral**;
-- navegação, controlos e metadados usam **Archivo**;
-- todas as funções têm fallbacks seguros;
-- o corpo de leitura digital parte de 18 px, entrelinha 1,65 e largura recomendada de 68 caracteres.
+## Finalidade
 
-## Entregas
+Este pacote transforma as fundações visuais do Projeto Comunitário de Milreu num **guia navegável do Sistema de Design**. A estrutura de consulta inspira-se no padrão de documentação de design systems contemporâneos — navegação lateral, pesquisa, páginas individuais, exemplos e estados — sem copiar a identidade, os componentes ou a linguagem de qualquer produto externo.
 
-- tokens de produção em JSON e CSS;
-- projeções para JavaScript, Flutter e impressão;
-- sistema cromático com matriz de contraste;
-- tipografia, escala, densidade e medidas de leitura;
-- espaçamento, grelha, breakpoints, formas, bordas e elevação;
-- regras de movimento e redução de movimento;
-- direções para iconografia, fotografia, texturas, mapas e dados;
-- laboratório visual interno para inspeção das fundações;
-- ADRs, specs, rules, skills, scripts, testes e release.
+O catálogo utiliza exclusivamente a gramática visual de Milreu já documentada:
 
-## Dependências
+- vermelho como assinatura, abertura, transição e fecho;
+- preto aquecido para destaques e preenchimentos controlados;
+- superfícies claras para leitura prolongada;
+- Fraunces, Spectral e Archivo por função;
+- rastreabilidade ao livro *Milreu: Ruínas* e às decisões dos Pacotes 05A e 05B;
+- quatro idiomas na interface do guia;
+- maturidade explícita para cada página e elemento.
 
-1. Pacote 01 — Fundação, Governação e Escopo;
-2. Pacote 02 — Sistema de Design e Guia Vivo;
-3. Pacote 05A — Auditoria Visual e Fonte Primária.
+## Entrega principal
+
+`apps/design-guide/` contém uma aplicação estática sem processo de build:
+
+- navegação lateral responsiva;
+- pesquisa por título, resumo, grupo e tags;
+- rotas por hash com URLs copiáveis;
+- breadcrumbs e navegação anterior/seguinte;
+- índice local da página;
+- exemplos visuais das fundações 05B;
+- alternância de idioma da interface;
+- estados de maturidade;
+- acessibilidade por teclado e redução de movimento;
+- estrutura preparada para receber componentes e padrões do Pacote 05D.
 
 ## Limites
 
-Este pacote não cria o catálogo visual completo, não cria o logótipo, não publica imagens do livro, não reconstrói o Portal ou o Museu e não declara componentes museológicos como finais. Essas entregas pertencem aos Pacotes 05C e 05D.
+Este pacote não:
 
-## Instalação
+- cria o Portal ou o Museu públicos;
+- define o logótipo final;
+- publica imagens do livro;
+- implementa os componentes museológicos especializados;
+- altera os 31 registos migrados;
+- inicia o desenvolvimento Flutter;
+- considera todos os elementos aprovados.
 
-1. Descompactar na raiz do repositório.
-2. Ler `PROMPT_CLAUDE.md`.
-3. Integrar manualmente as adendas em `integration/`.
-4. Executar os validadores indicados no checklist.
-5. Servir a raiz do repositório por HTTP e abrir `apps/foundations-lab/`.
-6. Não remover os tokens v0.1 do Pacote 02 antes de concluir a comparação.
+## Execução local
+
+A partir da raiz do repositório:
+
+```bash
+python3 -m http.server 8080
+```
+
+Abrir:
+
+```text
+http://localhost:8080/apps/design-guide/
+```
+
+O guia consome `packages/design-tokens/v0.2/tokens.css`, entregue no Pacote 05B.
+
+## Integração
+
+Executar o conteúdo de `PROMPT_CLAUDE.md`. O pacote substitui de forma controlada a implementação preliminar de `apps/design-guide/` do Pacote 02, preservando-a em histórico Git e sem apagar documentação anterior.
