@@ -3,3 +3,8 @@
 node_modules/
 *.log
 .env
+
+# Pacote 05A — fonte primária de terceiros: manter privada, nunca publicar no repo público.
+# Ver SOURCE_RIGHTS_NOTICE.md. Os ficheiros ficam localmente para consulta interna.
+sources/primary/private/
+apps/visual-source-board/assets/pages/

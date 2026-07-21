@@ -1,0 +1,502 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "pages": [
+    {
+      "page": 1,
+      "title": "Capa",
+      "tags": [
+        "opening",
+        "cover",
+        "red",
+        "plan",
+        "photography"
+      ],
+      "observation": "Red signature field; overlaid archaeological plan; framed ruins photograph; institutional marks.",
+      "decision": "adapt",
+      "notes": "High-impact opening; avoid using red as default reading background.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-01.webp"
+    },
+    {
+      "page": 2,
+      "title": "Guarda e folha de rosto",
+      "tags": [
+        "opening",
+        "red",
+        "map",
+        "minimal"
+      ],
+      "observation": "Red location panel and white title page; strong contrast between orientation and silence.",
+      "decision": "adapt",
+      "notes": "Use as reference for project entry and chapter transitions.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-02.webp"
+    },
+    {
+      "page": 3,
+      "title": "Folha de rosto institucional",
+      "tags": [
+        "title",
+        "minimal",
+        "white-space"
+      ],
+      "observation": "Large white field, restrained title and institutional signatures.",
+      "decision": "preserve",
+      "notes": "Reference for calm institutional pages and generous whitespace.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-03.webp"
+    },
+    {
+      "page": 4,
+      "title": "Índice",
+      "tags": [
+        "contents",
+        "mosaic",
+        "full-bleed",
+        "index"
+      ],
+      "observation": "Mosaic detail occupies the visual field; white index column creates a sharp editorial split.",
+      "decision": "adapt",
+      "notes": "Strong model for visual index and section navigation.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-04.webp"
+    },
+    {
+      "page": 5,
+      "title": "Situação",
+      "tags": [
+        "opening",
+        "red",
+        "plan",
+        "photography",
+        "text-overlay"
+      ],
+      "observation": "Red thematic spread with line plan, location photography and text over colour.",
+      "decision": "adapt",
+      "notes": "Keep red for openings; do not reproduce small low-contrast body text.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-05.webp"
+    },
+    {
+      "page": 6,
+      "title": "Introdução e enquadramento histórico",
+      "tags": [
+        "text",
+        "objects",
+        "illustration",
+        "three-column"
+      ],
+      "observation": "Three-column reading with coins, ceramic vessel and marine illustration as anchored objects.",
+      "decision": "adapt",
+      "notes": "Translate object placement into responsive editorial modules.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-06.webp"
+    },
+    {
+      "page": 7,
+      "title": "Retrospectiva historiográfica",
+      "tags": [
+        "text",
+        "plan",
+        "photography",
+        "archive"
+      ],
+      "observation": "Historical plan dominates the right page; text and aerial image support historiography.",
+      "decision": "preserve",
+      "notes": "Core reference for source-led plans and historiographical content.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-07.webp"
+    },
+    {
+      "page": 8,
+      "title": "História das pesquisas",
+      "tags": [
+        "photography",
+        "text",
+        "two-column"
+      ],
+      "observation": "Large architectural photographs above or beside text; restrained captions.",
+      "decision": "adapt",
+      "notes": "Good model for photo-led contextual pages.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-08.webp"
+    },
+    {
+      "page": 9,
+      "title": "Implantação e composição",
+      "tags": [
+        "objects",
+        "text",
+        "dense",
+        "scan-issue"
+      ],
+      "observation": "Ceramic objects and dense body text; scan/capture continuity is weaker.",
+      "decision": "reference-only",
+      "notes": "Do not infer colour or exact spacing from this scan.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-09.webp"
+    },
+    {
+      "page": 10,
+      "title": "Planta geral das ruínas",
+      "tags": [
+        "aerial",
+        "plan",
+        "map",
+        "colour-code"
+      ],
+      "observation": "Aerial photograph paired with a colour-coded site plan and legend.",
+      "decision": "adapt",
+      "notes": "Primary source for map/plan UI patterns, not for direct digital tracing without rights review.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-10.webp"
+    },
+    {
+      "page": 11,
+      "title": "Circuito de visita - abertura",
+      "tags": [
+        "full-bleed",
+        "photography",
+        "text",
+        "circuit-marker"
+      ],
+      "observation": "Full-page mosaic/ruins image and numbered circuit markers linked to text.",
+      "decision": "adapt",
+      "notes": "Strong basis for immersive museum sections and location markers.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-11.webp"
+    },
+    {
+      "page": 12,
+      "title": "Peristilo",
+      "tags": [
+        "photography",
+        "text",
+        "three-column"
+      ],
+      "observation": "Large mosaic image with dense columns and precise captioning.",
+      "decision": "adapt",
+      "notes": "Retain image/text relation; increase digital type size and line spacing.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-12.webp"
+    },
+    {
+      "page": 13,
+      "title": "Mosaicos figurativos",
+      "tags": [
+        "photography",
+        "comparison",
+        "text"
+      ],
+      "observation": "Three image sequence supports comparison between mosaic details and context.",
+      "decision": "preserve",
+      "notes": "Useful comparison pattern for memories, details and archaeological evidence.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-13.webp"
+    },
+    {
+      "page": 14,
+      "title": "Salas e pavimentos",
+      "tags": [
+        "photography",
+        "text",
+        "circuit-marker"
+      ],
+      "observation": "Vertical image, text columns and wide contextual photograph.",
+      "decision": "adapt",
+      "notes": "Potential responsive split-layout pattern.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-14.webp"
+    },
+    {
+      "page": 15,
+      "title": "Triclínio e escultura",
+      "tags": [
+        "objects",
+        "illustration",
+        "text",
+        "reconstruction"
+      ],
+      "observation": "Cut-out marble element, hypothetical reconstruction and sculpture integrated with text.",
+      "decision": "adapt",
+      "notes": "Candidate patterns for object records and hypothesis disclosure.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-15.webp"
+    },
+    {
+      "page": 16,
+      "title": "Termas",
+      "tags": [
+        "photography",
+        "text",
+        "two-page"
+      ],
+      "observation": "Large archaeological photographs paired with two-column explanatory text.",
+      "decision": "adapt",
+      "notes": "Good content rhythm; digital version must avoid long uninterrupted columns.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-16.webp"
+    },
+    {
+      "page": 17,
+      "title": "Termas e água",
+      "tags": [
+        "photography",
+        "text",
+        "circuit-marker"
+      ],
+      "observation": "Text-led spread with large contextual photograph and numbered references.",
+      "decision": "adapt",
+      "notes": "Reference for sequential archaeological interpretation.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-17.webp"
+    },
+    {
+      "page": 18,
+      "title": "Pars rustica - abertura",
+      "tags": [
+        "full-bleed",
+        "photography",
+        "text",
+        "section-opening"
+      ],
+      "observation": "Full-height dolia photograph marks section transition; text begins on facing page.",
+      "decision": "preserve",
+      "notes": "Strong opening pattern; suitable for Portal chapters and Museum transitions.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-18.webp"
+    },
+    {
+      "page": 19,
+      "title": "Lagares de vinho",
+      "tags": [
+        "photography",
+        "diagram",
+        "text"
+      ],
+      "observation": "Small contextual photographs and explanatory line diagram support the process description.",
+      "decision": "adapt",
+      "notes": "Candidate for process/evidence component.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-19.webp"
+    },
+    {
+      "page": 20,
+      "title": "Planta do lagar",
+      "tags": [
+        "plan",
+        "text",
+        "full-page-diagram"
+      ],
+      "observation": "Technical plan is given primary visual weight with scale, north and labels.",
+      "decision": "preserve",
+      "notes": "Reference for plan viewer and technical-document patterns.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-20.webp"
+    },
+    {
+      "page": 21,
+      "title": "Criadagem e necrópoles",
+      "tags": [
+        "mosaic",
+        "photography",
+        "text"
+      ],
+      "observation": "Comparative mosaic image and funerary building photograph above text.",
+      "decision": "adapt",
+      "notes": "Potential evidence comparison pattern.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-21.webp"
+    },
+    {
+      "page": 22,
+      "title": "Edifícios funerários",
+      "tags": [
+        "diagram",
+        "object",
+        "text",
+        "epigraphy"
+      ],
+      "observation": "Measured diagrams and inscription object cut-out on white.",
+      "decision": "preserve",
+      "notes": "Strong pattern for archaeological object + drawing + textual interpretation.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-22.webp"
+    },
+    {
+      "page": 23,
+      "title": "Decoração artística - abertura",
+      "tags": [
+        "full-bleed",
+        "mosaic",
+        "diagram",
+        "text",
+        "section-opening"
+      ],
+      "observation": "Mosaic fills the left page; line drawing and section title structure the right.",
+      "decision": "preserve",
+      "notes": "Key source for the visual grammar of pattern, detail and analysis.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-23.webp"
+    },
+    {
+      "page": 24,
+      "title": "Mosaicos e escultura",
+      "tags": [
+        "mosaic",
+        "comparison",
+        "object",
+        "text"
+      ],
+      "observation": "Two mosaic details compare technique while sculpture becomes a full-height focal object.",
+      "decision": "adapt",
+      "notes": "Basis for comparison and object-focus components.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-24.webp"
+    },
+    {
+      "page": 25,
+      "title": "Retratos e epigrafia",
+      "tags": [
+        "objects",
+        "text",
+        "cut-out"
+      ],
+      "observation": "Multiple sculptural cut-outs and epigraphic object on white, with captions close to objects.",
+      "decision": "preserve",
+      "notes": "Core reference for artifact and portrait displays.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-25.webp"
+    },
+    {
+      "page": 26,
+      "title": "Santuário da água - abertura",
+      "tags": [
+        "full-bleed",
+        "photography",
+        "plan",
+        "text",
+        "section-opening"
+      ],
+      "observation": "Monument image dominates; plan and text establish spatial interpretation.",
+      "decision": "preserve",
+      "notes": "Candidate chapter opener and site-feature page.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-26.webp"
+    },
+    {
+      "page": 27,
+      "title": "Santuário, mosaico e alçado",
+      "tags": [
+        "mosaic",
+        "photography",
+        "drawing",
+        "text"
+      ],
+      "observation": "Mosaic detail, site photograph and hypothetical elevation form an evidence sequence.",
+      "decision": "preserve",
+      "notes": "Excellent pattern for source triangulation and certainty labels.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-27.webp"
+    },
+    {
+      "page": 28,
+      "title": "Reconstruções hipotéticas",
+      "tags": [
+        "reconstruction",
+        "drawing",
+        "text",
+        "hypothesis"
+      ],
+      "observation": "Two architectural reconstructions with explicit hypothetical status.",
+      "decision": "adapt",
+      "notes": "Must retain visible hypothesis status in all digital uses.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-28.webp"
+    },
+    {
+      "page": 29,
+      "title": "Transformações do santuário",
+      "tags": [
+        "photography",
+        "archaeology",
+        "text"
+      ],
+      "observation": "Large sanctuary photograph and baptismal-pool image support continuity of use.",
+      "decision": "adapt",
+      "notes": "Reference for chronological reuse narratives.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-29.webp"
+    },
+    {
+      "page": 30,
+      "title": "Ocupações tardo-romana e islâmica",
+      "tags": [
+        "full-bleed",
+        "detail",
+        "text",
+        "object",
+        "section-opening"
+      ],
+      "observation": "Close-up column inscription creates a dramatic section opening; ceramic fragment anchors text.",
+      "decision": "preserve",
+      "notes": "Strong evidence-led opening; dark/black overlays may be used sparingly for callouts.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-30.webp"
+    },
+    {
+      "page": 31,
+      "title": "Casa rural - abertura",
+      "tags": [
+        "full-bleed",
+        "photography",
+        "mosaic",
+        "text",
+        "section-opening"
+      ],
+      "observation": "Large rural-house photograph and mosaic detail connect later occupation to Roman remains.",
+      "decision": "preserve",
+      "notes": "Important model for layered chronology and relations beyond excavation history.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-31.webp"
+    },
+    {
+      "page": 32,
+      "title": "Glossário - abertura",
+      "tags": [
+        "full-bleed",
+        "mosaic",
+        "glossary",
+        "text"
+      ],
+      "observation": "Mosaic detail on one page; glossary in two readable columns on white.",
+      "decision": "adapt",
+      "notes": "Basis for digital glossary, with improved type scale and search.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-32.webp"
+    },
+    {
+      "page": 33,
+      "title": "Glossário e bibliografia",
+      "tags": [
+        "glossary",
+        "bibliography",
+        "text",
+        "two-column"
+      ],
+      "observation": "Reference-heavy content in restrained typography and wide margins.",
+      "decision": "adapt",
+      "notes": "Use for knowledge-base structure, not as direct reading scale.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-33.webp"
+    },
+    {
+      "page": 34,
+      "title": "Bibliografia e centro interpretativo",
+      "tags": [
+        "bibliography",
+        "photography",
+        "text"
+      ],
+      "observation": "Bibliography closes against a large architectural photograph.",
+      "decision": "reference-only",
+      "notes": "Contextual source; current site information may be outdated.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-34.webp"
+    },
+    {
+      "page": 35,
+      "title": "Informações complementares",
+      "tags": [
+        "photography",
+        "information",
+        "text"
+      ],
+      "observation": "Large center photograph with practical information in the facing page.",
+      "decision": "reference-only",
+      "notes": "Do not reproduce contact or operational data without current verification.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-35.webp"
+    },
+    {
+      "page": 36,
+      "title": "Contracapa",
+      "tags": [
+        "back-cover",
+        "red",
+        "plan",
+        "minimal"
+      ],
+      "observation": "Red field and reduced archaeological plan form a quiet closing signature.",
+      "decision": "preserve",
+      "notes": "Strong reference for footer, closing screen and release cover.",
+      "thumbnail": "../../apps/visual-source-board/assets/pages/page-36.webp"
+    }
+  ]
+}

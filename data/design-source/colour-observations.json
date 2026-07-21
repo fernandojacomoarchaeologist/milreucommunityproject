@@ -1,0 +1,96 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "warning": "Observed scan values are approximate and must not be used as production tokens.",
+  "decisions": {
+    "red": "signature-opening-transition-closing",
+    "black": "controlled-highlight-fill-caption-contrast",
+    "readingSurface": "light"
+  },
+  "observations": [
+    {
+      "id": "scan-red-deep",
+      "approxHex": "#A52A20",
+      "pages": [
+        1,
+        2,
+        5,
+        36
+      ],
+      "confidence": "low",
+      "productionStatus": "pending-05b"
+    },
+    {
+      "id": "scan-red-bright",
+      "approxHex": "#D94A3A",
+      "pages": [
+        2,
+        5,
+        36
+      ],
+      "confidence": "low",
+      "productionStatus": "pending-05b"
+    },
+    {
+      "id": "scan-paper-warm",
+      "approxHex": "#F2F0EA",
+      "pages": [
+        3,
+        6,
+        12,
+        33
+      ],
+      "confidence": "low",
+      "productionStatus": "pending-05b"
+    },
+    {
+      "id": "scan-ink",
+      "approxHex": "#201C19",
+      "pages": [
+        3,
+        6,
+        12,
+        33
+      ],
+      "confidence": "medium",
+      "productionStatus": "pending-05b"
+    },
+    {
+      "id": "scan-earth",
+      "approxHex": "#7A563E",
+      "pages": [
+        10,
+        18,
+        23,
+        32
+      ],
+      "confidence": "low",
+      "productionStatus": "reference-only"
+    },
+    {
+      "id": "scan-stone",
+      "approxHex": "#B8A68B",
+      "pages": [
+        15,
+        24,
+        25,
+        28
+      ],
+      "confidence": "low",
+      "productionStatus": "reference-only"
+    },
+    {
+      "id": "scan-sky",
+      "approxHex": "#6B9FD0",
+      "pages": [
+        8,
+        11,
+        26,
+        31,
+        35
+      ],
+      "confidence": "low",
+      "productionStatus": "content-colour-not-brand"
+    }
+  ]
+}

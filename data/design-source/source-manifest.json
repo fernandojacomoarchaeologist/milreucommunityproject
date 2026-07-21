@@ -1,0 +1,30 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md na raiz do repositório e SOURCE_RIGHTS_NOTICE.md neste pacote",
+  "sourceId": "SOURCE-CONTEXT-VISUAL-001",
+  "title": "Milreu: Ruínas",
+  "authors": [
+    "Theodor Hauschild",
+    "Felix Teichner"
+  ],
+  "year": 2002,
+  "collection": "Roteiros da Arqueologia Portuguesa",
+  "role": [
+    "primary-visual-source",
+    "primary-contextual-starting-source"
+  ],
+  "file": "sources/primary/private/HAUSCHILD_TEICHNER_Milreu_ruinas.pdf",
+  "pageCount": 36,
+  "sha256": "61324968a0f9e534405133877b8f6cee0fad85b7d1874e0a174b6627578621ca",
+  "sizeBytes": 60002882,
+  "textLayer": false,
+  "publicAccess": false,
+  "publicationRule": "internal-reference-only-until-rights-review",
+  "scanCaveats": [
+    "not-colour-managed",
+    "spine-distortion",
+    "variable-crop",
+    "no-searchable-text"
+  ]
+}

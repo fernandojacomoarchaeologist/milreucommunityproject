@@ -1,0 +1,33 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "status": "pre-token-mapping",
+  "rule": "No scan value becomes a production token before Package 05B.",
+  "mappings": [
+    {
+      "sourceConcept": "red editorial field",
+      "semanticCandidate": "signature/opening",
+      "decision": "confirmed-role-value-pending"
+    },
+    {
+      "sourceConcept": "black ink and dark fills",
+      "semanticCandidate": "highlight/fill/ink",
+      "decision": "confirmed-role-value-pending"
+    },
+    {
+      "sourceConcept": "white paper",
+      "semanticCandidate": "reading-surface",
+      "decision": "confirmed-role-value-pending"
+    },
+    {
+      "sourceConcept": "mosaic and earth tones",
+      "semanticCandidate": "content-derived-accent",
+      "decision": "reference-only"
+    },
+    {
+      "sourceConcept": "map functional colours",
+      "semanticCandidate": "data/map palette",
+      "decision": "separate-from-brand"
+    }
+  ]
+}

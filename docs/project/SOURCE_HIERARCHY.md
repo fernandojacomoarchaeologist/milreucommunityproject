@@ -66,3 +66,12 @@ Ao associar uma afirmação a bibliografia:
 - não assumir suporte com base apenas no título;
 - indicar se a página foi verificada;
 - distinguir citação direta, paráfrase, interpretação e inferência.
+
+## Fonte visual primária — integrada pelo Pacote 05A
+
+1. *Milreu: Ruínas* é a fonte visual primária do Design System.
+2. É a fonte contextual inicial para estruturar conteúdos arqueológicos do sítio.
+3. Estudos posteriores podem atualizar, corrigir ou complementar a publicação.
+4. Memórias comunitárias permanecem num domínio de fonte independente.
+5. Dados atuais exigem fontes atuais verificadas.
+6. Toda utilização direta de imagem ou página exige revisão de direitos.

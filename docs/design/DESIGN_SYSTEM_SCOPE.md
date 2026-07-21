@@ -56,3 +56,12 @@ A diferença entre os modos deve ser produzida por composição, ritmo, densidad
 ## Critério de autoridade
 
 Cores, tipografias, duas vozes e regras do tijolo são decisões autoritativas. Espaçamento, grelha, raios, sombras e breakpoints são defaults técnicos provisórios, sujeitos a testes sem alterar o conceito central.
+
+## Decisões da fonte primária — integradas pelo Pacote 05A
+
+- Vermelho: assinatura, abertura, transição e fecho.
+- Preto: áreas de destaque, preenchimento, legenda e contraste controlado.
+- Leitura extensa: superfícies claras.
+- Não converter amostras do scan diretamente em tokens.
+- Não reproduzir a densidade tipográfica do impresso.
+- Não publicar o quadro visual como parte do guia público sem revisão de direitos.
