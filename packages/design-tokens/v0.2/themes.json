@@ -1,0 +1,22 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md na raiz do repositório",
+  "meta": {
+    "version": "0.2.0"
+  },
+  "themes": {
+    "reading": {
+      "surface": "{color.surface.reading}",
+      "text": "{color.text.primary}"
+    },
+    "signature": {
+      "surface": "{color.surface.signature}",
+      "text": "{color.text.onSignature}"
+    },
+    "inverse": {
+      "surface": "{color.surface.inverse}",
+      "text": "{color.text.inverse}"
+    }
+  }
+}

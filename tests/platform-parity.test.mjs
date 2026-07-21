@@ -1,0 +1,3 @@
+/** © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu. */
+import fs from 'node:fs';const css=fs.readFileSync('packages/design-tokens/v0.2/tokens.css','utf8');const dart=fs.readFileSync('packages/design-tokens/v0.2/platforms/flutter/milreu_tokens.dart','utf8');const js=fs.readFileSync('packages/design-tokens/v0.2/platforms/javascript/tokens.js','utf8');
+const values=['A83227','7E251C','1E1A17','FFFCF7','5E7267','8A6A4A'];for(const v of values){if(!css.toUpperCase().includes(v))throw new Error(`CSS sem ${v}`);if(!dart.toUpperCase().includes(v))throw new Error(`Flutter sem ${v}`);if(!js.toUpperCase().includes(v))throw new Error(`JS sem ${v}`)}console.log('platform-parity.test: ok');

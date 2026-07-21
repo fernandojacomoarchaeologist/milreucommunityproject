@@ -1,0 +1,62 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md na raiz do repositório",
+  "meta": {
+    "version": "0.2.0",
+    "status": "approved-for-implementation"
+  },
+  "color": {
+    "surface": {
+      "canvas": "{color.paper.50}",
+      "reading": "{color.paper.0}",
+      "muted": "{color.paper.100}",
+      "subtle": "{color.paper.200}",
+      "signature": "{color.red.500}",
+      "signatureDeep": "{color.red.700}",
+      "inverse": "{color.ink.950}",
+      "overlay": "rgba(30,26,23,0.82)"
+    },
+    "text": {
+      "primary": "{color.ink.950}",
+      "secondary": "{color.ink.600}",
+      "muted": "{color.ink.500}",
+      "inverse": "{color.paper.0}",
+      "onSignature": "{color.paper.0}",
+      "link": "{color.red.700}"
+    },
+    "border": {
+      "subtle": "{color.ink.200}",
+      "default": "{color.ink.300}",
+      "strong": "{color.ink.500}",
+      "signature": "{color.red.500}"
+    },
+    "focus": {
+      "ring": "{color.status.info}"
+    },
+    "certainty": {
+      "confirmed": "{color.patina.500}",
+      "probable": "{color.sepia.500}",
+      "hypothesis": "{color.stone.700}"
+    },
+    "status": {
+      "info": "{color.status.info}",
+      "success": "{color.status.success}",
+      "warning": "{color.status.warning}",
+      "danger": "{color.status.danger}"
+    },
+    "institutional": {
+      "frame": "{color.red.500}",
+      "frameDeep": "{color.red.700}"
+    },
+    "map": {
+      "background": "{color.paper.0}",
+      "water": "{color.data.blue}",
+      "vegetation": "{color.data.green}",
+      "route": "{color.data.ochre}",
+      "historical": "{color.data.mauve}",
+      "structure": "{color.data.earth}",
+      "neutral": "{color.data.neutral}"
+    }
+  }
+}

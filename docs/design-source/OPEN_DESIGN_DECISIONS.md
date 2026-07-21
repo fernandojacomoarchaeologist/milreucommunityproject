@@ -40,3 +40,25 @@ rights: "Consultar RIGHTS.md na raiz do repositório e SOURCE_RIGHTS_NOTICE.md n
 - fonte tipográfica original do livro;
 - cor Pantone ou CMYK do impresso;
 - uso público das páginas digitalizadas.
+
+## Fecho das decisões do 05A — pelo Pacote 05B
+
+### Decisões encerradas
+
+- vermelho de produção e variantes;
+- preto aquecido;
+- superfícies claras;
+- famílias por função;
+- escala tipográfica;
+- grelha e espaçamento;
+- formas, elevação e movimento;
+- cores funcionais de mapas;
+- tratamento de fotografia e textura.
+
+### Pendências mantidas
+
+- logótipo;
+- biblioteca final de ícones;
+- CMYK por suporte;
+- direitos de reprodução da fonte;
+- tema escuro.

@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu. -->
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Laboratório de Fundações — Milreu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../packages/design-tokens/v0.2/tokens.css">
+  <link rel="stylesheet" href="lab.css">
+</head>
+<body>
+  <header class="signature">
+    <div class="eyebrow">Ferramenta interna · Pacote 05B</div>
+    <h1>Fundações visuais de Milreu</h1>
+    <p>Vermelho como assinatura. Preto como destaque. Leitura em superfícies claras.</p>
+  </header>
+  <nav aria-label="Secções do laboratório">
+    <a href="#cores">Cores</a><a href="#tipo">Tipografia</a><a href="#espaco">Espaçamento</a><a href="#grelha">Grelha</a><a href="#movimento">Movimento</a><a href="#dados">Dados</a>
+  </nav>
+  <main>
+    <section id="cores">
+      <div class="section-heading"><span>01</span><div><h2>Cores de produção</h2><p>Três superfícies estruturais e acentos documentados.</p></div></div>
+      <div class="surface-demo">
+        <article class="reading"><span>Leitura</span><h3>Memória em primeiro plano</h3><p>O corpo editorial utiliza medida confortável, contraste elevado e ritmo de leitura aberto.</p></article>
+        <article class="red"><span>Assinatura</span><h3>Abertura e transição</h3><p>Blocos breves e reconhecíveis.</p></article>
+        <article class="black"><span>Destaque</span><h3>Contraste controlado</h3><p>Preenchimento forte, nunca por rotina.</p></article>
+      </div>
+      <div id="swatches" class="swatches" aria-live="polite"></div>
+    </section>
+    <section id="tipo">
+      <div class="section-heading"><span>02</span><div><h2>Tipografia por função</h2><p>Personalidade, leitura e interface não competem entre si.</p></div></div>
+      <div class="type-samples">
+        <article><small>Fraunces · display</small><div class="display-sample">Entre Ruínas e Memórias</div></article>
+        <article><small>Spectral · editorial</small><p class="editorial-sample">As fotografias não documentam apenas o sítio: preservam relações, encontros e maneiras de viver Milreu ao longo do tempo.</p></article>
+        <article><small>Archivo · interface</small><div class="ui-sample"><button>Explorar memória</button><span>MM202601 · revisto</span></div></article>
+      </div>
+    </section>
+    <section id="espaco">
+      <div class="section-heading"><span>03</span><div><h2>Ritmo e espaçamento</h2><p>Escala de 4 px com intervalos editoriais amplos.</p></div></div>
+      <div id="spacing" class="spacing-list"></div>
+    </section>
+    <section id="grelha">
+      <div class="section-heading"><span>04</span><div><h2>Grelha responsiva</h2><p>Quatro, oito e doze colunas; leitura sempre limitada pela medida.</p></div></div>
+      <div class="grid-demo" aria-label="Demonstração de grelha com doze colunas">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p class="measure-demo">Esta linha demonstra a largura máxima recomendada para leitura contínua. O contentor pode ser amplo, mas o texto não deve atravessar todo o ecrã.</p>
+    </section>
+    <section id="movimento">
+      <div class="section-heading"><span>05</span><div><h2>Movimento</h2><p>Orientação, não decoração.</p></div></div>
+      <button id="motionTrigger" class="motion-trigger">Testar transição editorial</button>
+      <div id="motionTarget" class="motion-target">320 ms</div>
+    </section>
+    <section id="dados">
+      <div class="section-heading"><span>06</span><div><h2>Dados e mapas</h2><p>Paleta funcional independente da assinatura.</p></div></div>
+      <div id="dataPalette" class="data-palette"></div>
+    </section>
+  </main>
+  <footer>© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.</footer>
+  <script type="module" src="lab.js"></script>
+</body>
+</html>
