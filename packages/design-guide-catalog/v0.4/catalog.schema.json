@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Milreu Design Guide Catalog v0.4",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "groups",
+    "pages"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "internal-preview",
+        "review",
+        "published"
+      ]
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "labelKey"
+        ]
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "group",
+          "slug",
+          "title",
+          "summary",
+          "status",
+          "tags",
+          "preview",
+          "sections"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "proposed",
+              "draft",
+              "in-review",
+              "validated",
+              "approved",
+              "deprecated"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "component",
+              "pattern"
+            ]
+          },
+          "registryId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$id": "https://milreu.example/schemas/design-guide-catalog-v0.4.schema.json"
+}

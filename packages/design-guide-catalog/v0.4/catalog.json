@@ -1,10 +1,4 @@
-/**
- * © 2026 Fernando Rodrigues de Jácomo.
- * Produzido no âmbito do Projeto Comunitário de Milreu.
- * Direitos: consultar RIGHTS.md.
- */
-
-window.MILREU_CATALOG = {
+{
   "version": "0.4.0",
   "status": "internal-preview",
   "groups": [
@@ -2111,4 +2105,4 @@ window.MILREU_CATALOG = {
       ]
     }
   ]
-};
+}

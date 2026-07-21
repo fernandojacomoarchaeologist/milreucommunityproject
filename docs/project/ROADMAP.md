@@ -101,3 +101,7 @@ rights: "Consultar RIGHTS.md"
 ## Regra de sequência
 
 O número dos pacotes indica a ordem recomendada, não uma obrigação absoluta. Nenhum pacote deve ser gerado quando faltar uma decisão que bloqueie o seu conteúdo. Pendências não bloqueantes devem ser registadas sem serem resolvidas por inferência.
+
+## Handoff após a série 05 — pelo Pacote 05D
+
+Com a série 05 concluída (Design System), o próximo pacote pode especificar a arquitetura e a navegação do Portal e do Museu digital. Deve consumir os tokens 05B, os componentes e padrões 05D, os schemas 03 e os dados preliminares 04, sem publicar automaticamente.

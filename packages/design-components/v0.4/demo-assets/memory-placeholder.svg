@@ -1,0 +1,9 @@
+<!-- © 2026 Fernando Rodrigues de Jácomo. Projeto Comunitário de Milreu. Conteúdo demonstrativo. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="t d">
+<title id="t">Imagem demonstrativa de memória</title><desc id="d">Composição abstrata em tons de pedra, vermelho e preto. Não representa um registo real.</desc>
+<rect width="1200" height="800" fill="#E9DECF"/><rect x="80" y="80" width="1040" height="640" fill="#FFFCF7"/>
+<path d="M80 590 L300 370 L470 480 L690 210 L1120 560 L1120 720 L80 720Z" fill="#A79B88"/>
+<path d="M80 650 L310 470 L510 610 L720 350 L1120 650 L1120 720 L80 720Z" fill="#5E7267" opacity=".75"/>
+<circle cx="260" cy="260" r="90" fill="#A83227"/><path d="M135 130h370v44H135zm0 82h280v26H135z" fill="#1E1A17" opacity=".82"/>
+<text x="90" y="765" font-family="Arial,sans-serif" font-size="22" fill="#1E1A17">DEMONSTRAÇÃO — NÃO PERTENCE AO ACERVO</text>
+</svg>

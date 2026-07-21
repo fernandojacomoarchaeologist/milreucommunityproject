@@ -1,0 +1,310 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "_rights": "Consultar RIGHTS.md",
+  "version": "0.4.0",
+  "status": "internal-preview",
+  "patterns": [
+    {
+      "id": "museum-gallery",
+      "title": "Galeria do Museu",
+      "status": "in-review",
+      "purpose": "Explorar memórias por fotografia, tema, tempo e relações.",
+      "components": [
+        "memory-card",
+        "filter-bar",
+        "empty-state",
+        "publication-status"
+      ],
+      "flow": [
+        "Abrir coleção",
+        "Aplicar filtros",
+        "Abrir uma memória",
+        "Retomar posição anterior"
+      ],
+      "risks": [
+        "Excesso de metadados nos cartões.",
+        "Publicação acidental de registos preliminares."
+      ],
+      "demo": "pattern-gallery"
+    },
+    {
+      "id": "memory-detail",
+      "title": "Detalhe de memória",
+      "status": "in-review",
+      "purpose": "Apresentar uma memória completa respeitando as duas vozes, proveniência, certeza e direitos.",
+      "components": [
+        "figure-viewer",
+        "caption-block",
+        "community-narrative",
+        "institutional-context",
+        "confidence-indicator",
+        "provenance-note",
+        "rights-notice",
+        "relationship-chip"
+      ],
+      "flow": [
+        "Fotografia e narrativa",
+        "Descrição e contexto",
+        "Proveniência e fontes",
+        "Relações",
+        "Direitos e correção"
+      ],
+      "risks": [
+        "Instituição dominar a narrativa.",
+        "Metadados críticos ficarem escondidos."
+      ],
+      "demo": "pattern-memory-detail"
+    },
+    {
+      "id": "immersive-view",
+      "title": "Visualização imersiva",
+      "status": "in-review",
+      "purpose": "Permitir contemplação em ecrã inteiro sem remover contexto e controlo.",
+      "components": [
+        "figure-viewer",
+        "caption-block",
+        "language-selector",
+        "confidence-indicator"
+      ],
+      "flow": [
+        "Entrar no modo imersivo",
+        "Navegar",
+        "Abrir detalhes",
+        "Sair e devolver foco"
+      ],
+      "risks": [
+        "Foco perdido.",
+        "Legenda ilegível sobre imagem."
+      ],
+      "demo": "pattern-immersive"
+    },
+    {
+      "id": "timeline",
+      "title": "Linha temporal",
+      "status": "draft",
+      "purpose": "Navegar por datas, intervalos e incertezas.",
+      "components": [
+        "timeline-marker",
+        "confidence-indicator",
+        "memory-card"
+      ],
+      "flow": [
+        "Selecionar período",
+        "Ler eventos",
+        "Abrir memória"
+      ],
+      "risks": [
+        "Falsa precisão.",
+        "Ordem visual diferente da ordem acessível."
+      ],
+      "demo": "pattern-timeline"
+    },
+    {
+      "id": "narrative-map",
+      "title": "Mapa de narrativas",
+      "status": "proposed",
+      "purpose": "Relacionar memórias com lugares públicos ou zonas aproximadas.",
+      "components": [
+        "map-marker",
+        "filter-bar",
+        "memory-card",
+        "rights-notice"
+      ],
+      "flow": [
+        "Ver mapa e lista",
+        "Filtrar",
+        "Selecionar narrativa",
+        "Abrir detalhe"
+      ],
+      "risks": [
+        "Exposição de localização sensível.",
+        "Mapa sem alternativa textual."
+      ],
+      "demo": "pattern-map"
+    },
+    {
+      "id": "project-page",
+      "title": "Página do Projeto Comunitário",
+      "status": "draft",
+      "purpose": "Apresentar o programa guarda-chuva e conduzir às iniciativas.",
+      "components": [
+        "action-button",
+        "language-selector",
+        "project-footer"
+      ],
+      "flow": [
+        "Compreender o projeto",
+        "Explorar iniciativas",
+        "Aceder ao Museu ou dados"
+      ],
+      "risks": [
+        "Reduzir o projeto ao Museu.",
+        "Menu institucional invadir a experiência imersiva."
+      ],
+      "demo": "pattern-project"
+    },
+    {
+      "id": "initiative-page",
+      "title": "Página de iniciativa",
+      "status": "draft",
+      "purpose": "Explicar escopo, método, estado, dados e resultados de uma iniciativa.",
+      "components": [
+        "publication-status",
+        "source-reference",
+        "rights-notice",
+        "action-button"
+      ],
+      "flow": [
+        "Definição",
+        "Método",
+        "Estado",
+        "Resultados e participação"
+      ],
+      "risks": [
+        "Misturar dados preliminares e publicados."
+      ],
+      "demo": "pattern-initiative"
+    },
+    {
+      "id": "public-data-browser",
+      "title": "Consulta de dados públicos",
+      "status": "draft",
+      "purpose": "Consultar releases anonimizadas com método e dicionário.",
+      "components": [
+        "filter-bar",
+        "data-table",
+        "source-reference",
+        "publication-status"
+      ],
+      "flow": [
+        "Escolher conjunto",
+        "Ler metodologia",
+        "Filtrar tabela",
+        "Descarregar release"
+      ],
+      "risks": [
+        "Expor dados pessoais.",
+        "Visualização sem versão do dataset."
+      ],
+      "demo": "pattern-data"
+    },
+    {
+      "id": "bibliography-viewer",
+      "title": "Biblioteca e visualizador",
+      "status": "draft",
+      "purpose": "Localizar referências, páginas relevantes e documentos autorizados.",
+      "components": [
+        "filter-bar",
+        "document-frame",
+        "source-reference",
+        "empty-state"
+      ],
+      "flow": [
+        "Pesquisar referência",
+        "Abrir metadados",
+        "Consultar documento quando permitido",
+        "Registar páginas"
+      ],
+      "risks": [
+        "Publicar PDF protegido.",
+        "Inventar páginas ou acesso."
+      ],
+      "demo": "pattern-library"
+    },
+    {
+      "id": "participation-form",
+      "title": "Contributo comunitário",
+      "status": "draft",
+      "purpose": "Receber narrativas e materiais como submissões ainda não publicadas.",
+      "components": [
+        "action-button",
+        "rights-notice",
+        "language-selector",
+        "publication-status"
+      ],
+      "flow": [
+        "Informação e consentimento",
+        "Submissão",
+        "Confirmação",
+        "Revisão posterior"
+      ],
+      "risks": [
+        "Confundir submissão com publicação.",
+        "Consentimento insuficiente."
+      ],
+      "demo": "pattern-participation"
+    },
+    {
+      "id": "rights-review",
+      "title": "Correção, direitos e remoção",
+      "status": "in-review",
+      "purpose": "Receber e acompanhar pedidos relacionados com identificação, autoria, correção ou retirada.",
+      "components": [
+        "correction-link",
+        "rights-notice",
+        "publication-status",
+        "action-button"
+      ],
+      "flow": [
+        "Abrir pedido",
+        "Selecionar motivo",
+        "Fornecer referência",
+        "Receber confirmação"
+      ],
+      "risks": [
+        "Canal pouco visível.",
+        "Prometer decisão automática."
+      ],
+      "demo": "pattern-rights"
+    },
+    {
+      "id": "physical-panel",
+      "title": "Painel e totem físico",
+      "status": "draft",
+      "purpose": "Aplicar identidade, escala, QR, certeza e direitos em suporte físico.",
+      "components": [
+        "caption-block",
+        "confidence-indicator",
+        "source-reference",
+        "project-footer"
+      ],
+      "flow": [
+        "Selecionar template",
+        "Validar conteúdo",
+        "Gerar prova",
+        "Preflight e impressão"
+      ],
+      "risks": [
+        "Texto pequeno.",
+        "QR sem destino permanente.",
+        "Imagem não autorizada."
+      ],
+      "demo": "pattern-panel"
+    },
+    {
+      "id": "flutter-projection",
+      "title": "Projeção para Flutter",
+      "status": "proposed",
+      "purpose": "Mapear componentes estáveis para a futura aplicação móvel.",
+      "components": [
+        "memory-card",
+        "figure-viewer",
+        "language-selector",
+        "timeline-marker",
+        "project-footer"
+      ],
+      "flow": [
+        "Consumir API comum",
+        "Mapear tokens",
+        "Implementar acessibilidade",
+        "Validar paridade"
+      ],
+      "risks": [
+        "Criar segunda fonte de verdade.",
+        "Iniciar antes da API e schemas estabilizados."
+      ],
+      "demo": "pattern-flutter"
+    }
+  ]
+}

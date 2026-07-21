@@ -14,6 +14,7 @@ descartar.
 | P006 | 2026-07-21 | pack/pacote-05a-auditoria-visual | Integra Pacote 05A v0.1.0 - auditoria visual e fonte primária (binários privados via .gitignore) |
 | P007 | 2026-07-21 | pack/pacote-05b-fundacoes-visuais | Integra Pacote 05B v0.2.0 - fundações visuais de produção (tokens v0.2) |
 | P008 | 2026-07-21 | pack/pacote-05c-catalogo-visual | Integra Pacote 05C v0.3.0 - catálogo visual interativo (substitui guia P02) |
+| P009 | 2026-07-21 | pack/pacote-05d-componentes | Integra Pacote 05D v0.4.0 - componentes e padrões museológicos (conclui série 05) |
 
 ---
 

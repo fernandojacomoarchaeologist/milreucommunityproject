@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/design-component.schema.json",
+  "title": "Milreu Design Component Registry",
+  "type": "object",
+  "required": [
+    "_copyright",
+    "version",
+    "components"
+  ],
+  "properties": {
+    "_copyright": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "category",
+          "status",
+          "problem",
+          "usage",
+          "variants",
+          "states",
+          "anatomy",
+          "accessibility",
+          "tokens",
+          "demo",
+          "platforms"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "draft",
+              "in-review",
+              "validated",
+              "approved",
+              "deprecated"
+            ]
+          },
+          "problem": {
+            "type": "string"
+          },
+          "usage": {
+            "type": "string"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "anatomy": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "accessibility": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tokens": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "demo": {
+            "type": "string"
+          },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

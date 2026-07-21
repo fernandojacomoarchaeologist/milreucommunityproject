@@ -169,3 +169,7 @@ h1 { max-width:18ch; margin:0; font-family:var(--ml-font-display,Georgia,serif);
   .spacing-row { grid-template-columns:3rem 1fr 3rem; gap:.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:1ms!important; transition-duration:1ms!important; } }
+
+
+/* Pacote 05D — documentação especializada */
+.inventory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}.inventory-card{padding:1.2rem;background:var(--ml-surface-reading,#fff);border:1px solid var(--ml-border-subtle,#d8cfc2);border-top:4px solid var(--ml-surface-signature,#a83227);border-radius:.4rem}.inventory-card h3{margin:.8rem 0 .4rem;font:500 1.35rem var(--ml-font-display,Georgia,serif)}.inventory-card p{font-size:.92rem}.inventory-card a{font:700 .78rem var(--ml-font-interface,Arial,sans-serif);color:var(--ml-color-red-700,#7e251c)}.doc-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.doc-columns>div{padding:1rem;background:var(--ml-surface-muted,#f7f1e7)}.doc-columns h3{margin-top:0}.page-header[data-kind="component"]{}.preview-frame .ml-pattern-demo{margin:-.25rem}.page-section code{overflow-wrap:anywhere}@media(max-width:42rem){.doc-columns{grid-template-columns:1fr}}

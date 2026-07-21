@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=Fraunces:opsz,wght@9..144,300..800&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../packages/design-tokens/v0.2/tokens.css">
+  <link rel="stylesheet" href="../../packages/design-components/v0.4/components.css">
+  <link rel="stylesheet" href="../../packages/design-patterns/v0.4/patterns.css">
   <link rel="stylesheet" href="guide.css">
 </head>
 <body>
@@ -32,7 +34,7 @@
 
     <aside class="sidebar" id="sidebar" aria-label="Navegação do Sistema de Design">
       <div class="sidebar-header">
-        <p class="version-label">v0.3.0 · <span data-i18n="preview">pré-visualização interna</span></p>
+        <p class="version-label">v0.4.0 · <span data-i18n="preview">pré-visualização interna</span></p>
       </div>
       <nav id="catalog-nav"></nav>
       <div class="sidebar-footer">
@@ -67,10 +69,14 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app/catalog-data.js"></script>
+  <script src="app/component-data.js"></script>
+  <script src="../../packages/design-components/v0.4/components.js"></script>
+  <script src="../../packages/design-patterns/v0.4/patterns.js"></script>
   <script src="app/i18n.js"></script>
   <script src="app/state.js"></script>
   <script src="app/search.js"></script>
   <script src="app/router.js"></script>
+  <script src="app/component-renderers.js"></script>
   <script src="app/renderers.js"></script>
   <script src="guide.js"></script>
 </body>
