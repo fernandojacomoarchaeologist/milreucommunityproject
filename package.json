@@ -20,7 +20,10 @@
     "snapshot:validate": "node scripts/database/validate-public-snapshot.mjs",
     "assets:private:status": "node scripts/private-assets/status.mjs",
     "assets:private:verify": "node scripts/private-assets/verify.mjs",
-    "review:gate-a:index": "node scripts/visual-review/generate-review-index.mjs"
+    "review:gate-a:index": "node scripts/visual-review/generate-review-index.mjs",
+    "architecture:validate": "node scripts/architecture/validate-architecture.mjs",
+    "architecture:test": "node --test tests/architecture/*.test.mjs",
+    "architecture:prototype:serve": "python3 -m http.server 8080 -d apps/architecture-prototype"
   },
   "devDependencies": {
     "supabase": "2.109.1"

@@ -1,0 +1,45 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Consultar RIGHTS.md no repositório principal.
+ */
+:root{
+  --red:#A83227;--black:#1E1A17;--paper:#F2ECE0;--white:#FFFEFA;
+  --line:#D7CDBD;--soft:#5B534A;
+  font-family:Archivo,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--black)}
+a{color:inherit}
+button,select{font:inherit}
+.skip-link{position:absolute;left:-9999px}.skip-link:focus{left:1rem;top:1rem;z-index:50;background:white;padding:.7rem}
+header{position:sticky;top:0;z-index:10;display:flex;gap:1rem;align-items:center;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+.portal-header{background:rgba(255,254,250,.96)}
+.museum-header{background:rgba(30,26,23,.96);color:white;border-bottom-color:#514940}
+.brand{font-weight:800;text-decoration:none}
+nav{display:flex;gap:.7rem;flex-wrap:wrap}nav a{text-decoration:none;padding:.4rem .55rem;border-radius:.3rem}
+.actions{margin-left:auto;display:flex;gap:.6rem;align-items:center}
+.hero{background:var(--red);color:white;padding:clamp(3rem,8vw,8rem) 1rem}
+.hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(2.6rem,7vw,6rem);max-width:12ch;margin:0 0 1rem}
+.hero p{max-width:56ch;font-family:Spectral,Georgia,serif;font-size:1.2rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;padding:1rem}
+.card{background:var(--white);border:1px solid var(--line);padding:1rem;min-height:150px}
+.card h2,.card h3{font-family:Fraunces,Georgia,serif}
+.museum-shell{background:var(--black);color:white;min-height:100vh}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;padding:1rem}
+.memory-card{border:0;background:#322c27;color:white;text-align:left;padding:0;cursor:pointer}
+.memory-image{aspect-ratio:4/3;background:linear-gradient(135deg,#8A6A4A,#5E7267);display:grid;place-items:center;font-size:2rem}
+.meta{padding:.8rem}
+.detail{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);min-height:calc(100vh - 66px)}
+.detail-image{background:linear-gradient(135deg,#8A6A4A,#5E7267);display:grid;place-items:center;font-size:4rem}
+.detail-copy{background:var(--white);color:var(--black);padding:2rem}
+.notice{border-left:4px solid var(--red);background:#fff5f2;padding:1rem}
+.timeline{display:flex;gap:1rem;overflow:auto;padding:2rem 1rem}.timeline a{min-width:220px;background:#322c27;padding:1rem;text-decoration:none}
+.footer{padding:2rem 1rem;background:var(--white);border-top:1px solid var(--line)}
+.prototype-label{position:fixed;right:.5rem;bottom:.5rem;background:#ffd966;color:#000;padding:.35rem .55rem;font-size:.75rem;z-index:100}
+.immersive{position:fixed;inset:0;z-index:60;background:#000;color:white;display:grid;place-items:center}
+.immersive .frame{width:min(88vw,1100px);height:min(75vh,760px);display:grid;place-items:center;background:linear-gradient(135deg,#8A6A4A,#5E7267);font-size:5rem}
+.immersive .close{position:absolute;right:1rem;top:1rem}
+.drawer{display:none}
+@media(max-width:1023px){nav{display:none}.drawer{display:block}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.detail{grid-template-columns:1fr}}
+@media(max-width:599px){.grid,.gallery{grid-template-columns:1fr}.detail-copy{padding:1.2rem}.actions select{max-width:85px}}

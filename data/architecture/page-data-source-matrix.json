@@ -1,0 +1,121 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "pages": [
+    {
+      "route": "/",
+      "sources": [
+        "project",
+        "initiatives",
+        "featuredMemories"
+      ]
+    },
+    {
+      "route": "/projeto",
+      "sources": [
+        "project",
+        "methods",
+        "timeline"
+      ]
+    },
+    {
+      "route": "/iniciativas",
+      "sources": [
+        "initiatives"
+      ]
+    },
+    {
+      "route": "/iniciativas/:slug",
+      "sources": [
+        "initiative",
+        "relatedRecords"
+      ]
+    },
+    {
+      "route": "/museu",
+      "sources": [
+        "museum",
+        "featuredMemories"
+      ]
+    },
+    {
+      "route": "/conhecimento",
+      "sources": [
+        "knowledgeIndex"
+      ]
+    },
+    {
+      "route": "/dados",
+      "sources": [
+        "datasets"
+      ]
+    },
+    {
+      "route": "/biblioteca",
+      "sources": [
+        "bibliography"
+      ]
+    },
+    {
+      "route": "/participar",
+      "sources": [
+        "participation"
+      ]
+    },
+    {
+      "route": "/sobre",
+      "sources": [
+        "project",
+        "partners"
+      ]
+    },
+    {
+      "route": "/museu/explorar",
+      "sources": [
+        "publicMemories"
+      ]
+    },
+    {
+      "route": "/museu/memorias/:id",
+      "sources": [
+        "memory",
+        "relations"
+      ]
+    },
+    {
+      "route": "/museu/imersivo/:id",
+      "sources": [
+        "memory",
+        "adjacentMemories"
+      ]
+    },
+    {
+      "route": "/museu/linha-do-tempo",
+      "sources": [
+        "timeline",
+        "publicMemories"
+      ]
+    },
+    {
+      "route": "/museu/colecoes",
+      "sources": [
+        "collections"
+      ]
+    },
+    {
+      "route": "/pesquisa",
+      "sources": [
+        "searchIndex"
+      ]
+    },
+    {
+      "route": "/404",
+      "sources": []
+    },
+    {
+      "route": "/museu/memorias/:id/indisponivel",
+      "sources": [
+        "recordStatus"
+      ]
+    }
+  ]
+}

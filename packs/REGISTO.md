@@ -16,6 +16,8 @@ descartar.
 | P008 | 2026-07-21 | pack/pacote-05c-catalogo-visual | Integra Pacote 05C v0.3.0 - catálogo visual interativo (substitui guia P02) |
 | P009 | 2026-07-21 | pack/pacote-05d-componentes | Integra Pacote 05D v0.4.0 - componentes e padrões museológicos (conclui série 05) |
 | P010 | 2026-07-21 | pack/pacote-05e-identidade | Integra Pacote 05E v0.5.0 - identidade, logótipo e iconografia (ativos draft) |
+| P011 | 2026-07-23 | pack/pacote-05f-infraestrutura | Integra Pacote 05F v0.6.0 - infraestrutura, persistência, CI e skills (Supabase POC; CI ativo) |
+| P012 | 2026-07-23 | pack/pacote-06-arquitetura | Integra Pacote 06 v0.7.0 - arquitetura do Portal e do Museu (18 rotas/specs; protótipo) |
 
 ---
 

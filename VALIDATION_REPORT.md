@@ -1,90 +1,87 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "05F"
+package: "06"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Relatório de validação
 
-- Validação Node: concluída com sucesso
-- Ficheiros JSON validados: 6
-- Ficheiros Markdown: 65
-- Segredos reais: não incluídos
-- Ligação remota: não executada
-- Escrita produtiva: não executada
-
-## Saída
+- Node: sucesso
+- Rotas: 18
+- Specs: 18
+- Fluxos: 10
+- Skills: 10
+- JSONs validados: 5
+- Dados reais no protótipo: não
+- Supabase remoto: não utilizado
+- Implementação produtiva: não realizada
 
 ```text
-Validação estrutural concluída.
-3 migrations verificadas.
+18 rotas, 18 specs e protótipo validados.
 TAP version 13
-# Subtest: ambiente local é aceite
-ok 1 - ambiente local é aceite
+# Subtest: componentes cobrem rotas
+ok 1 - componentes cobrem rotas
   ---
-  duration_ms: 0.788981
+  duration_ms: 1.379521
   type: 'test'
   ...
-# Subtest: ambiente desconhecido é bloqueado
-ok 2 - ambiente desconhecido é bloqueado
+# Subtest: dados cobrem rotas
+ok 2 - dados cobrem rotas
   ---
-  duration_ms: 0.266285
+  duration_ms: 1.184692
   type: 'test'
   ...
-# Subtest: produção sem gates é bloqueada
-ok 3 - produção sem gates é bloqueada
+# Subtest: conteúdo demonstrativo
+ok 3 - conteúdo demonstrativo
   ---
-  duration_ms: 1.067033
+  duration_ms: 0.865757
   type: 'test'
   ...
-# Subtest: produção com todos os gates passa
-ok 4 - produção com todos os gates passa
+# Subtest: quatro idiomas
+ok 4 - quatro idiomas
   ---
-  duration_ms: 0.163092
+  duration_ms: 0.206898
   type: 'test'
   ...
-# Subtest: snapshot com email é bloqueado
-ok 5 - snapshot com email é bloqueado
+# Subtest: skip link
+ok 5 - skip link
   ---
-  duration_ms: 0.225575
+  duration_ms: 0.144765
   type: 'test'
   ...
-# Subtest: POC é marcado como demonstrativo
-ok 6 - POC é marcado como demonstrativo
+# Subtest: rotas únicas
+ok 6 - rotas únicas
   ---
-  duration_ms: 0.811684
+  duration_ms: 0.964614
   type: 'test'
   ...
-# Subtest: workflow produtivo não usa gatilho push
-ok 7 - workflow produtivo não usa gatilho push
+# Subtest: Portal e Museu existem
+ok 7 - Portal e Museu existem
   ---
-  duration_ms: 0.400735
+  duration_ms: 0.241419
   type: 'test'
   ...
-1..7
-# tests 7
+# Subtest: mapa vivo fora do MVP
+ok 8 - mapa vivo fora do MVP
+  ---
+  duration_ms: 0.183863
+  type: 'test'
+  ...
+# Subtest: deep links existem
+ok 9 - deep links existem
+  ---
+  duration_ms: 0.240859
+  type: 'test'
+  ...
+1..9
+# tests 9
 # suites 0
-# pass 7
+# pass 9
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 56.707208
-{
-  "mode": "public",
-  "rootConfigured": false,
-  "assets": [
-    {
-      "item": "hauschild-teichner/original.pdf",
-      "exists": false
-    },
-    {
-      "item": "hauschild-teichner/thumbnails",
-      "exists": false
-    }
-  ]
-}
-Modo público: ausência dos binários privados é esperada.
-Pacote 05F validado.
+# duration_ms 75.910127
+Pacote 06 validado.
 ```

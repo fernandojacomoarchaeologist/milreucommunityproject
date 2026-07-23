@@ -1,0 +1,322 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.7.0",
+  "routes": [
+    {
+      "id": "SPEC-PAGE-001-HOME",
+      "product": "portal",
+      "path": "/",
+      "objective": "Orientar para projeto, Museu e conhecimento",
+      "components": [
+        "ProjectHeader",
+        "HeroOpening",
+        "InitiativeCard",
+        "MemoryPreview",
+        "StandardFooter"
+      ],
+      "sources": [
+        "project",
+        "initiatives",
+        "featuredMemories"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-002-PROJECT",
+      "product": "portal",
+      "path": "/projeto",
+      "objective": "Explicar âmbito, princípios, método e cronologia",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "Timeline",
+        "SourceReference",
+        "StandardFooter"
+      ],
+      "sources": [
+        "project",
+        "methods",
+        "timeline"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-003-INITIATIVES",
+      "product": "portal",
+      "path": "/iniciativas",
+      "objective": "Listar iniciativas",
+      "components": [
+        "ProjectHeader",
+        "FilterBar",
+        "InitiativeCard",
+        "EmptyState",
+        "StandardFooter"
+      ],
+      "sources": [
+        "initiatives"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-004-INITIATIVE-DETAIL",
+      "product": "portal",
+      "path": "/iniciativas/:slug",
+      "objective": "Apresentar uma iniciativa",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "StatusBadge",
+        "RelatedRecords",
+        "StandardFooter"
+      ],
+      "sources": [
+        "initiative",
+        "relatedRecords"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-005-MUSEUM-LANDING",
+      "product": "portal",
+      "path": "/museu",
+      "objective": "Apresentar o Museu",
+      "components": [
+        "ProjectHeader",
+        "MuseumOpening",
+        "MemoryPreview",
+        "TimelinePreview",
+        "RightsNotice",
+        "StandardFooter"
+      ],
+      "sources": [
+        "museum",
+        "featuredMemories"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-006-KNOWLEDGE",
+      "product": "portal",
+      "path": "/conhecimento",
+      "objective": "Entrada para conhecimento estruturado",
+      "components": [
+        "ProjectHeader",
+        "SearchField",
+        "KnowledgeTypeCard",
+        "SourceReference",
+        "StandardFooter"
+      ],
+      "sources": [
+        "knowledgeIndex"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-007-DATA",
+      "product": "portal",
+      "path": "/dados",
+      "objective": "Apresentar datasets",
+      "components": [
+        "ProjectHeader",
+        "DatasetCard",
+        "PublicDataTable",
+        "DownloadAction",
+        "StandardFooter"
+      ],
+      "sources": [
+        "datasets"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-008-LIBRARY",
+      "product": "portal",
+      "path": "/biblioteca",
+      "objective": "Apresentar referências",
+      "components": [
+        "ProjectHeader",
+        "FilterBar",
+        "BibliographicReference",
+        "DocumentViewerLink",
+        "StandardFooter"
+      ],
+      "sources": [
+        "bibliography"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-009-PARTICIPATE",
+      "product": "portal",
+      "path": "/participar",
+      "objective": "Explicar participação",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "RightsNotice",
+        "ContactAction",
+        "StandardFooter"
+      ],
+      "sources": [
+        "participation"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-010-ABOUT",
+      "product": "portal",
+      "path": "/sobre",
+      "objective": "Apresentar equipa e parceiros",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "PartnerList",
+        "CopyrightNotice",
+        "StandardFooter"
+      ],
+      "sources": [
+        "project",
+        "partners"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-011-MUSEUM-EXPLORE",
+      "product": "museu",
+      "path": "/museu/explorar",
+      "objective": "Explorar memórias",
+      "components": [
+        "MuseumHeader",
+        "FilterBar",
+        "MemoryCard",
+        "EmptyState",
+        "MuseumFooter"
+      ],
+      "sources": [
+        "publicMemories"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-012-MEMORY-DETAIL",
+      "product": "museu",
+      "path": "/museu/memorias/:id",
+      "objective": "Apresentar memória completa",
+      "components": [
+        "MuseumHeader",
+        "PhotoViewer",
+        "CommunityNarrative",
+        "InstitutionalContext",
+        "ProvenanceNote",
+        "RightsNotice",
+        "RelatedRecords",
+        "MuseumFooter"
+      ],
+      "sources": [
+        "memory",
+        "relations"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-013-IMMERSIVE",
+      "product": "museu",
+      "path": "/museu/imersivo/:id",
+      "objective": "Ecrã inteiro",
+      "components": [
+        "ImmersiveViewer",
+        "PreviousNext",
+        "ExitImmersive",
+        "LanguageToggle"
+      ],
+      "sources": [
+        "memory",
+        "adjacentMemories"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-014-TIMELINE",
+      "product": "museu",
+      "path": "/museu/linha-do-tempo",
+      "objective": "Explorar cronologicamente",
+      "components": [
+        "MuseumHeader",
+        "Timeline",
+        "FilterBar",
+        "MemoryPreview",
+        "MuseumFooter"
+      ],
+      "sources": [
+        "timeline",
+        "publicMemories"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-015-COLLECTIONS",
+      "product": "museu",
+      "path": "/museu/colecoes",
+      "objective": "Agrupar memórias",
+      "components": [
+        "MuseumHeader",
+        "CollectionCard",
+        "MemoryPreview",
+        "EmptyState",
+        "MuseumFooter"
+      ],
+      "sources": [
+        "collections"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-016-SEARCH",
+      "product": "portal",
+      "path": "/pesquisa",
+      "objective": "Pesquisar conteúdos",
+      "components": [
+        "ProjectHeader",
+        "SearchField",
+        "SearchResult",
+        "FilterBar",
+        "EmptyState",
+        "StandardFooter"
+      ],
+      "sources": [
+        "searchIndex"
+      ],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-017-NOT-FOUND",
+      "product": "portal",
+      "path": "/404",
+      "objective": "Orientar após rota inválida",
+      "components": [
+        "ProjectHeader",
+        "EmptyState",
+        "PrimaryAction",
+        "StandardFooter"
+      ],
+      "sources": [],
+      "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-018-UNPUBLISHED",
+      "product": "museu",
+      "path": "/museu/memorias/:id/indisponivel",
+      "objective": "Proteger registo não publicável",
+      "components": [
+        "MuseumHeader",
+        "UnavailableState",
+        "PrimaryAction",
+        "MuseumFooter"
+      ],
+      "sources": [
+        "recordStatus"
+      ],
+      "mvp": true
+    }
+  ]
+}

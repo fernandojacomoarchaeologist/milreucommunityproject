@@ -1,0 +1,187 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "pages": [
+    {
+      "route": "/",
+      "components": [
+        "ProjectHeader",
+        "HeroOpening",
+        "InitiativeCard",
+        "MemoryPreview",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/projeto",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "Timeline",
+        "SourceReference",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/iniciativas",
+      "components": [
+        "ProjectHeader",
+        "FilterBar",
+        "InitiativeCard",
+        "EmptyState",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/iniciativas/:slug",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "StatusBadge",
+        "RelatedRecords",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/museu",
+      "components": [
+        "ProjectHeader",
+        "MuseumOpening",
+        "MemoryPreview",
+        "TimelinePreview",
+        "RightsNotice",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/conhecimento",
+      "components": [
+        "ProjectHeader",
+        "SearchField",
+        "KnowledgeTypeCard",
+        "SourceReference",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/dados",
+      "components": [
+        "ProjectHeader",
+        "DatasetCard",
+        "PublicDataTable",
+        "DownloadAction",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/biblioteca",
+      "components": [
+        "ProjectHeader",
+        "FilterBar",
+        "BibliographicReference",
+        "DocumentViewerLink",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/participar",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "RightsNotice",
+        "ContactAction",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/sobre",
+      "components": [
+        "ProjectHeader",
+        "EditorialSection",
+        "PartnerList",
+        "CopyrightNotice",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/museu/explorar",
+      "components": [
+        "MuseumHeader",
+        "FilterBar",
+        "MemoryCard",
+        "EmptyState",
+        "MuseumFooter"
+      ]
+    },
+    {
+      "route": "/museu/memorias/:id",
+      "components": [
+        "MuseumHeader",
+        "PhotoViewer",
+        "CommunityNarrative",
+        "InstitutionalContext",
+        "ProvenanceNote",
+        "RightsNotice",
+        "RelatedRecords",
+        "MuseumFooter"
+      ]
+    },
+    {
+      "route": "/museu/imersivo/:id",
+      "components": [
+        "ImmersiveViewer",
+        "PreviousNext",
+        "ExitImmersive",
+        "LanguageToggle"
+      ]
+    },
+    {
+      "route": "/museu/linha-do-tempo",
+      "components": [
+        "MuseumHeader",
+        "Timeline",
+        "FilterBar",
+        "MemoryPreview",
+        "MuseumFooter"
+      ]
+    },
+    {
+      "route": "/museu/colecoes",
+      "components": [
+        "MuseumHeader",
+        "CollectionCard",
+        "MemoryPreview",
+        "EmptyState",
+        "MuseumFooter"
+      ]
+    },
+    {
+      "route": "/pesquisa",
+      "components": [
+        "ProjectHeader",
+        "SearchField",
+        "SearchResult",
+        "FilterBar",
+        "EmptyState",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/404",
+      "components": [
+        "ProjectHeader",
+        "EmptyState",
+        "PrimaryAction",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/museu/memorias/:id/indisponivel",
+      "components": [
+        "MuseumHeader",
+        "UnavailableState",
+        "PrimaryAction",
+        "MuseumFooter"
+      ]
+    }
+  ]
+}
