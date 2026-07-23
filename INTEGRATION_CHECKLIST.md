@@ -1,32 +1,38 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.2"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Checklist de integração
 
-- [ ] Carrossel com 3 destaques
-- [ ] Museu em primeiro
-- [ ] Proteus sem imagem
-- [ ] Inquérito em terceiro
-- [ ] Link SurveyMonkey
-- [ ] Autoplay
-- [ ] Anterior
-- [ ] Seguinte
-- [ ] Indicadores
-- [ ] Pausar/retomar
-- [ ] Reduced motion
-- [ ] Iniciativas em linhas separadas
-- [ ] Museu sem sumário
-- [ ] Voltar ao Museu visível
-- [ ] X visível
-- [ ] Imagem sem corte
-- [ ] Slide x1/x2/x3 preservado
-- [ ] 1280 px
-- [ ] 768 px
-- [ ] 375 px
+## MM202617
+
+- [ ] aparece na galeria;
+- [ ] aparece na pesquisa;
+- [ ] aparece no filtro de intervenções;
+- [ ] aparece na coleção de intervenções digitais;
+- [ ] abre no detalhe;
+- [ ] abre no modo imersivo;
+- [ ] mostra aviso no card;
+- [ ] mostra aviso no detalhe;
+- [ ] mostra aviso no imersivo;
+- [ ] crédito menciona IA;
+- [ ] intervenção substantiva documentada;
+- [ ] `siteStatus = review-visible`;
+- [ ] `publicReleaseEligible = false`;
+- [ ] `robots = noindex`;
+- [ ] não entra no JSON-LD;
+- [ ] não gera página estática de lançamento;
+- [ ] não gera QR;
+- [ ] totem e painel permanecem review-only.
+
+## Validação
+
+- [ ] `npm run channels:export`
+- [ ] `npm run museum:index`
+- [ ] `npm run museum:audit`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`

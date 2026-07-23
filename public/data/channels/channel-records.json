@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.11.0",
+  "version": "0.11.3",
   "notice": "Perfis físicos são candidatos técnicos. Nenhum registo foi selecionado para produção de totem ou painel.",
   "records": [
     {
@@ -9,6 +9,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -127,6 +129,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -244,6 +248,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -361,6 +367,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -476,6 +484,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -593,6 +603,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -710,6 +722,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -828,6 +842,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -944,6 +960,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1059,6 +1077,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1176,6 +1196,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1292,6 +1314,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1410,6 +1434,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1528,6 +1554,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1646,6 +1674,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1764,6 +1794,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -1881,21 +1913,24 @@
     },
     {
       "id": "MM202617",
-      "editorialStatus": "preliminary",
+      "editorialStatus": "in-review",
       "publication": {
-        "siteVisible": false,
-        "blocked": true,
-        "blockReason": "ai-substantive-intervention"
+        "siteVisible": true,
+        "blocked": false,
+        "siteStatus": "review-visible",
+        "publicReleaseEligible": false,
+        "blockReason": null,
+        "reviewNotice": "ai-substantive-intervention"
       },
       "canonicalData": {
         "title": {
-          "pt-PT": "Versão restaurada com inteligência artificial",
+          "pt-PT": "Fotografia histórica com retoque por inteligência artificial",
           "en": "AI-restored version",
           "es": null,
           "fr": null
         },
         "dateDisplay": {
-          "pt-PT": "Imagem derivada contemporânea de fotografia histórica",
+          "pt-PT": "Retoque contemporâneo por IA sobre fotografia histórica",
           "en": null,
           "es": null,
           "fr": null
@@ -1911,7 +1946,7 @@
           "imagem derivada"
         ],
         "credit": {
-          "pt-PT": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+          "pt-PT": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
@@ -1943,7 +1978,7 @@
           {
             "type": "ai-assisted-enhancement",
             "description": {
-              "pt-PT": "O registo legado declara uma versão restaurada com inteligência artificial, produzida no Gemini, para simulação e identificação. Exige revisão humana e não deve ser apresentado como documento original.",
+              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem. O resultado está visível apenas para revisão e deve ser identificado como imagem derivada.",
               "en": null,
               "es": null,
               "fr": null
@@ -1952,27 +1987,27 @@
             "performedAt": null,
             "sourceAssetId": null,
             "promptReference": null,
-            "humanReviewStatus": "not-reviewed",
+            "humanReviewStatus": "in-review",
             "substantiveChange": true
           }
         ]
       },
       "portal": {
-        "enabled": false,
+        "enabled": true,
         "route": "/museu/memorias/MM202617",
         "summary": {
-          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
         }
       },
       "museum": {
-        "enabled": false,
+        "enabled": true,
         "route": "/museu/memorias/MM202617",
         "immersiveRoute": "/museu/imersivo/MM202617",
         "introduction": {
-          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
@@ -1980,7 +2015,7 @@
       },
       "totem": {
         "enabled": false,
-        "eligibility": "blocked",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "shortText": {
           "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
@@ -1994,7 +2029,7 @@
       },
       "panel": {
         "enabled": false,
-        "eligibility": "blocked",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "editorialText": {
           "pt-PT": null,
@@ -2003,7 +2038,7 @@
           "fr": null
         },
         "technicalPreviewText": {
-          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
@@ -2018,6 +2053,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2112,7 +2149,7 @@
       },
       "totem": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "shortText": {
           "pt-PT": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
@@ -2126,7 +2163,7 @@
       },
       "panel": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "editorialText": {
           "pt-PT": null,
@@ -2150,6 +2187,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2262,7 +2301,7 @@
       },
       "totem": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "shortText": {
           "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
@@ -2276,7 +2315,7 @@
       },
       "panel": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "editorialText": {
           "pt-PT": null,
@@ -2300,6 +2339,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2418,6 +2459,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2536,6 +2579,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2654,6 +2699,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2769,6 +2816,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -2886,6 +2935,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3003,6 +3054,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3120,6 +3173,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3237,6 +3292,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3354,6 +3411,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3471,6 +3530,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3589,6 +3650,8 @@
       "publication": {
         "siteVisible": true,
         "blocked": false,
+        "siteStatus": "preview",
+        "publicReleaseEligible": true,
         "blockReason": null
       },
       "canonicalData": {
@@ -3698,7 +3761,7 @@
       },
       "totem": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "shortText": {
           "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
@@ -3712,7 +3775,7 @@
       },
       "panel": {
         "enabled": false,
-        "eligibility": "candidate",
+        "eligibility": "review-only",
         "selectionStatus": "not-selected",
         "editorialText": {
           "pt-PT": null,

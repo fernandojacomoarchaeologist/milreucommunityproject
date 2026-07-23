@@ -27,5 +27,6 @@ if (!build.includes("buildStaticRecordPages")) throw new Error("Build não gera 
 if (readiness.publicLaunch.approved) throw new Error("O pacote técnico não pode aprovar o lançamento público.");
 if (config.channels.totem.printReady || config.channels.panel.printReady) throw new Error("Previews físicos não são print-ready.");
 if (!existsSync(".github/workflows/07d-pages.yml")) throw new Error("Workflow Pages ausente.");
-if (records.filter(record => record.publication.siteVisible).length !== 30) throw new Error("Esperados 30 perfis públicos.");
+if (records.filter(record => record.publication.siteVisible).length !== 31) throw new Error("Esperados 31 perfis visíveis em revisão.");
+if (records.filter(record => record.publication.publicReleaseEligible !== false).length !== 30) throw new Error("Esperados 30 perfis elegíveis para lançamento público.");
 console.log("Pacote 07D validado.");

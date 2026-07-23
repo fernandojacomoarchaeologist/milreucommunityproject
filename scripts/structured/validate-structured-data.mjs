@@ -5,7 +5,7 @@
  */
 import { readFileSync } from "node:fs";
 const dataset = JSON.parse(readFileSync("public/data/structured/museum-dataset.jsonld","utf8"));
-const records = JSON.parse(readFileSync("public/data/memories.json","utf8")).records.filter(record => record.publication.siteVisible);
+const records = JSON.parse(readFileSync("public/data/memories.json","utf8")).records.filter(record => record.publication.siteVisible && record.publication.publicReleaseEligible !== false);
 
 if (dataset["@context"] !== "https://schema.org") throw new Error("Contexto JSON-LD inválido.");
 if (dataset["@type"] !== "Dataset") throw new Error("A exportação principal deve ser Dataset.");

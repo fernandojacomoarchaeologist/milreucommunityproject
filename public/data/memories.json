@@ -3138,13 +3138,15 @@
       "id": "MM202617",
       "schemaVersion": "0.8.0",
       "recordType": "museum-memory",
-      "editorialStatus": "preliminary",
+      "editorialStatus": "in-review",
       "publication": {
         "repositoryAllowed": true,
-        "siteVisible": false,
-        "siteStatus": "blocked",
-        "blockReason": "ai-substantive-intervention",
-        "robots": "noindex"
+        "siteVisible": true,
+        "siteStatus": "review-visible",
+        "blockReason": null,
+        "robots": "noindex",
+        "publicReleaseEligible": false,
+        "reviewNotice": "ai-substantive-intervention"
       },
       "localisationStatus": {
         "pt-PT": "source",
@@ -3153,32 +3155,32 @@
         "fr": "missing"
       },
       "title": {
-        "pt-PT": "Versão restaurada com inteligência artificial",
+        "pt-PT": "Fotografia histórica com retoque por inteligência artificial",
         "en": "AI-restored version",
         "es": null,
         "fr": null
       },
       "description": {
         "short": {
-          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
         },
         "objective": {
-          "pt-PT": "Versão restaurada com inteligência artificial, produzida no Gemini, a partir de fotografia do professor Theodor Hauschild e sua equipa de escavadores em Milreu durante campanhas associadas ao Instituto Arqueológico Alemão. A imagem foi produzida como simulação para efeitos de identificação dos indivíduos. Embora tenha sido incluída na votação, foi removida da exposição por se tratar de imagem tratada com IA.",
+          "pt-PT": "Versão de uma fotografia histórica das campanhas de Milreu que recebeu retoque substantivo com inteligência artificial, realizado no Gemini. A intervenção pode ter reconstruído ou alterado detalhes que não estavam claramente presentes no original. O registo é apresentado para revisão editorial e museológica, com indicação explícita de que se trata de uma imagem derivada.",
           "en": null,
           "es": null,
           "fr": null
         },
         "community": {
-          "pt-PT": "A imagem tem valor como ferramenta auxiliar de identificação, mas não como documento fotográfico original.",
+          "pt-PT": "A imagem pode apoiar a discussão e a identificação de pessoas, mas não deve ser utilizada isoladamente como prova documental nem apresentada como fotografia original.",
           "en": null,
           "es": null,
           "fr": null
         },
         "historicalContext": {
-          "pt-PT": "A utilização de IA para restauro e identificação deve ser claramente diferenciada da fotografia original, sobretudo em contexto museológico e documental.",
+          "pt-PT": "O uso de inteligência artificial em fotografias históricas exige transparência sobre o processo, distinção visual em relação ao original e cautela na interpretação dos detalhes reconstruídos.",
           "en": null,
           "es": null,
           "fr": null
@@ -3192,7 +3194,7 @@
       },
       "date": {
         "display": {
-          "pt-PT": "Imagem derivada contemporânea de fotografia histórica",
+          "pt-PT": "Retoque contemporâneo por IA sobre fotografia histórica",
           "en": null,
           "es": null,
           "fr": null
@@ -3246,7 +3248,7 @@
           "immersive": "public/media/museum/generated/MM202617/immersive.webp"
         },
         "credit": {
-          "pt-PT": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+          "pt-PT": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
           "en": null,
           "es": null,
           "fr": null
@@ -3255,7 +3257,7 @@
           {
             "type": "ai-assisted-enhancement",
             "description": {
-              "pt-PT": "O registo legado declara uma versão restaurada com inteligência artificial, produzida no Gemini, para simulação e identificação. Exige revisão humana e não deve ser apresentado como documento original.",
+              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem. O resultado está visível apenas para revisão e deve ser identificado como imagem derivada.",
               "en": null,
               "es": null,
               "fr": null
@@ -3264,7 +3266,7 @@
             "performedAt": null,
             "sourceAssetId": null,
             "promptReference": null,
-            "humanReviewStatus": "not-reviewed",
+            "humanReviewStatus": "in-review",
             "substantiveChange": true
           }
         ]
@@ -3276,7 +3278,7 @@
         "withdrawalAvailable": true,
         "sourceConditionsRemainApplicable": true,
         "legacyNotes": {
-          "pt-PT": "Uso restrito. Imagem derivada por IA; não recomendada para exposição como documento original.",
+          "pt-PT": "Autorizada para visualização e revisão no âmbito do projeto. Deve exibir menção clara ao retoque por IA e permanece inelegível para lançamento público definitivo, totem ou painel até decisão editorial específica.",
           "en": null,
           "es": null,
           "fr": null
@@ -3305,18 +3307,18 @@
       ],
       "channels": {
         "portal": {
-          "enabled": false,
+          "enabled": true,
           "summary": {
-            "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+            "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
             "en": null,
             "es": null,
             "fr": null
           }
         },
         "museum": {
-          "enabled": false,
+          "enabled": true,
           "introduction": {
-            "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+            "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
             "en": null,
             "es": null,
             "fr": null
@@ -6192,5 +6194,6 @@
         }
       }
     }
-  ]
+  ],
+  "version": "0.11.3"
 }

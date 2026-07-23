@@ -1,0 +1,18 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "decisionId": "ED-2026-MM202617-UNLOCK-REVIEW",
+  "recordId": "MM202617",
+  "decidedAt": "2026-07-23",
+  "decidedBy": "project-owner",
+  "decision": "unlock-for-editorial-review",
+  "conditions": [
+    "display-clear-ai-retouch-disclosure",
+    "do-not-present-as-original-photograph",
+    "keep-noindex",
+    "public-release-ineligible",
+    "totem-disabled",
+    "panel-disabled",
+    "retain-human-review-status-in-review"
+  ],
+  "reviewOutcome": null
+}

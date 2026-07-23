@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.10.0",
+  "version": "0.11.3",
   "records": [
     {
       "id": "MM202601",
@@ -853,6 +853,61 @@
         "fr": null
       },
       "searchable": "mm202616 grupo de trabalhadores com theodor hauschild grupo de trabalhadores nas campanhas de milreu, com possível presença de theodor hauschild. fotografia de grupo durante as escavações em milreu, com sandra, maria, celeste, alzira, pepe, afonso e o professor theodor hauschild indicados na descrição original. o verso da fotografia apresenta carimbo kodak de dezembro de 1984, embora a imagem possa corresponder a campanhas anteriores. a fotografia tem dimensões de 10 x 15 cm, orientação paisagem, brilho espelhado, pontas arredondadas e sinais de amarelecimento, obscurecimento e pequenos descolamentos nas bordas. a fotografia documenta trabalhadores ligados às escavações e preserva nomes associados à memória local do trabalho arqueológico em milreu. as fotografias das campanhas arqueológicas de milreu preservam a memória das pessoas locais envolvidas no trabalho de campo e na colaboração com o instituto arqueológico alemão. escavações século xx milreu, estoi, faro fotografia providenciada por celeste pimenta e branca pimenta, filhas de dona noémia cruz. milreu escavações theodor hauschild sandra maria celeste alzira pepe afonso kodak"
+    },
+    {
+      "id": "MM202617",
+      "title": {
+        "pt-PT": "Fotografia histórica com retoque por inteligência artificial",
+        "en": "AI-restored version",
+        "es": null,
+        "fr": null
+      },
+      "summary": {
+        "pt-PT": "Imagem derivada de uma fotografia histórica das escavações de Milreu, com retoque substantivo por inteligência artificial. Está visível para revisão e não deve ser confundida com o documento fotográfico original.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "primaryType": "imagem derivada",
+      "period": {
+        "pt-PT": "Século XXI",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "tags": [
+        "Milreu",
+        "IA",
+        "restauro",
+        "Theodor Hauschild",
+        "escavações",
+        "imagem derivada"
+      ],
+      "place": {
+        "pt-PT": "Milreu, Estoi, Faro",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "dateStart": null,
+      "dateDisplay": {
+        "pt-PT": "Retoque contemporâneo por IA sobre fotografia histórica",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "datePrecision": "unknown",
+      "dateKnown": false,
+      "interventions": [
+        "ai-assisted-enhancement"
+      ],
+      "credit": {
+        "pt-PT": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "searchable": "mm202617 fotografia histórica com retoque por inteligência artificial imagem derivada de uma fotografia histórica das escavações de milreu, com retoque substantivo por inteligência artificial. está visível para revisão e não deve ser confundida com o documento fotográfico original. versão de uma fotografia histórica das campanhas de milreu que recebeu retoque substantivo com inteligência artificial, realizado no gemini. a intervenção pode ter reconstruído ou alterado detalhes que não estavam claramente presentes no original. o registo é apresentado para revisão editorial e museológica, com indicação explícita de que se trata de uma imagem derivada. a imagem pode apoiar a discussão e a identificação de pessoas, mas não deve ser utilizada isoladamente como prova documental nem apresentada como fotografia original. o uso de inteligência artificial em fotografias históricas exige transparência sobre o processo, distinção visual em relação ao original e cautela na interpretação dos detalhes reconstruídos. imagem derivada século xxi milreu, estoi, faro imagem derivada de fotografia histórica, com retoque por inteligência artificial (gemini). não corresponde ao documento fotográfico original. milreu ia restauro theodor hauschild escavações imagem derivada"
     },
     {
       "id": "MM202618",

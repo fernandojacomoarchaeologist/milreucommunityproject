@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.11.0",
+  "version": "0.11.3",
   "releaseType": "technical-mvp-candidate",
   "technical": {
     "applicationExecutable": true,
@@ -9,12 +9,15 @@
     "immersiveModeProtected": true,
     "multichannelExportsImplemented": true,
     "staticRecordPagesImplemented": true,
-    "githubPagesWorkflowIncluded": true
+    "githubPagesWorkflowIncluded": true,
+    "reviewVisibleRecords": 31,
+    "publicReleaseEligibleRecords": 30
   },
   "publicLaunch": {
     "approved": false,
     "blockers": [
       "editorial-review-of-memory-records",
+      "MM202617-final-editorial-decision",
       "public-domain-or-github-pages-url",
       "final-qr-generation",
       "public-contact-channel",

@@ -378,3 +378,17 @@ background-size:3rem 3rem;overflow:hidden}
   .home-carousel__slide--active{animation:none}
   .home-carousel__media img,.proteus-empty-state{transition:none}
 }
+
+
+/* 07D.3 — divulgação obrigatória de retoque substantivo por IA */
+.ml-memory-card__media{position:relative}
+.ai-retouch-badge{position:absolute;left:.65rem;bottom:.65rem;z-index:3;padding:.35rem .55rem;color:#1e1a17;background:#f3d77b;border:1px solid #1e1a17;font-size:.65rem;font-weight:900;letter-spacing:.045em;text-transform:uppercase}
+.ai-card-notice{margin-top:.8rem;padding:.55rem .7rem;background:#fff5d6;border-left:4px solid #a83227;font-size:.72rem;font-weight:800}
+.ai-review-disclosure{margin:1.25rem 0;padding:1rem 1.1rem;background:#fff5d6;border:2px solid #a83227;color:#1e1a17}
+.ai-review-disclosure strong{display:block;font:700 1rem/1.25 var(--ml-font-interface)}
+.ai-review-disclosure p{margin:.45rem 0;font:1rem/1.55 var(--ml-font-editorial)}
+.ai-review-disclosure span{display:inline-block;padding:.25rem .45rem;color:white;background:#7e251c;font-size:.66rem;font-weight:900;text-transform:uppercase}
+.ai-review-disclosure--compact{margin:.8rem 0 0;padding:.7rem;background:#4b251f;color:white;border-color:#f3d77b}
+.ai-review-disclosure--compact p{font-size:.78rem;line-height:1.45}
+.ai-review-disclosure--compact span{background:#f3d77b;color:#1e1a17}
+.immersive-ai-badge{display:inline-block;margin-top:.2rem;padding:.2rem .4rem;color:#1e1a17;background:#f3d77b;font-size:.58rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}

@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.2"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -94,6 +94,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/review/references/07d1/museu-home-botao-sem-texto.png`
 - `docs/review/references/07d1/principios-pilares-referencia.png`
 - `docs/review/references/07d2/home-07d1-referencia.png`
+- `docs/roadmap/NEXT_STEPS_AFTER_07D3.md`
 - `exports/channels/channel-records.csv`
 - `exports/channels/panel-candidates.csv`
 - `exports/channels/qr-targets.csv`
@@ -108,6 +109,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/channels/channel-config.json`
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
+- `public/data/editorial-decisions/MM202617-unlock-review.json`
 - `public/data/home-carousel.json`
 - `public/data/media-manifest.json`
 - `public/data/memories.json`
@@ -303,6 +305,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_07C_v0.10.0.md`
 - `releases/PACKAGE_07D1_v0.11.1.md`
 - `releases/PACKAGE_07D2_v0.11.2.md`
+- `releases/PACKAGE_07D3_v0.11.3.md`
 - `releases/PACKAGE_07D_v0.11.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
@@ -325,6 +328,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/validate-07d.mjs`
 - `scripts/validate-07d1-fixes.mjs`
 - `scripts/validate-07d2-fixes.mjs`
+- `scripts/validate-07d3-mm202617.mjs`
 - `scripts/validate-immersive-07c.mjs`
 - `scripts/validate-museum-07c.mjs`
 - `scripts/validate-museum-regression.mjs`

@@ -1,13 +1,13 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07C"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Pesquisa e filtros
 
-A pesquisa abrange campos públicos:
+A pesquisa de revisão abrange os 31 registos visíveis:
 
 - título;
 - descrição;
@@ -17,7 +17,8 @@ A pesquisa abrange campos públicos:
 - período;
 - lugar;
 - tags;
-- crédito.
+- crédito;
+- intervenções digitais.
 
 Filtros:
 
@@ -27,4 +28,4 @@ Filtros:
 - intervenção digital;
 - ordenação.
 
-MM202617 é excluído do índice.
+MM202617 aparece no índice de revisão e na coleção de intervenções digitais, sempre com divulgação do retoque por IA.

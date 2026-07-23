@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.10.0",
-  "notice": "Coleções derivadas para navegação. Não constituem relações históricas novas nem substituem a revisão editorial.",
+  "version": "0.11.3",
+  "notice": "Coleções derivadas para navegação em modo de revisão. Não constituem relações históricas novas nem substituem a decisão editorial. MM202617 aparece apenas na coleção de intervenções digitais.",
   "collections": [
     {
       "slug": "escavacoes-e-trabalho-arqueologico",
@@ -151,8 +151,9 @@
       "collectionType": "derived-navigation",
       "editorialStatus": "draft",
       "factualClaim": false,
-      "memberCount": 3,
+      "memberCount": 4,
       "members": [
+        "MM202617",
         "MM202618",
         "MM202619",
         "MM202631"

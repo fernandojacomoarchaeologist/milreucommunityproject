@@ -1,40 +1,53 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.2"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 07D.2
+# Prompt de integração — Pacote 07D.3
 
-Integra este hotfix sobre o 07D.1.
+Integra este hotfix sobre o 07D.2.
 
-## Preservar
+## Decisão humana
 
-- Portal;
-- Museu;
-- 31 fotografias;
-- modo slide x1/x2/x3;
-- Fullscreen API;
-- filmstrip;
-- MM202617 bloqueado;
-- Experiência Proteus no menu.
+MM202617 deve ficar visível para revisão, com menção clara ao retoque substantivo por inteligência artificial.
 
-## Aplicar
+## Estado obrigatório
 
-1. Carregar `home-carousel.json`.
-2. Manter os três destaques na ordem:
-   - Museu;
-   - Proteus;
-   - Inquérito 2026.
-3. Manter o link externo do inquérito.
-4. Não substituir o empty state Proteus por imagem inventada.
-5. Remover o sumário estatístico da entrada do Museu.
-6. Manter Voltar ao Museu e X fixos.
-7. Garantir que a fotografia imersiva utiliza dimensões automáticas, máximos de 100% e `contain`.
-8. Manter título e descrição das iniciativas em blocos separados.
+- `siteVisible: true`;
+- `siteStatus: review-visible`;
+- `editorialStatus: in-review`;
+- `robots: noindex`;
+- `publicReleaseEligible: false`;
+- Portal e Museu ativados;
+- totem e painel desativados.
 
-## Validar
+## Divulgação obrigatória
+
+Confirmar aviso no:
+
+1. card;
+2. detalhe;
+3. modo imersivo;
+4. crédito;
+5. bloco de intervenção digital.
+
+A interface deve afirmar que:
+
+- a imagem é derivada;
+- houve retoque substantivo por IA;
+- podem existir detalhes reconstruídos ou alterados;
+- não corresponde ao documento fotográfico original;
+- ainda não está aprovada para lançamento público.
+
+## Separação de estados
+
+O índice local de revisão possui 31 registos.
+
+O dataset público, as páginas estáticas de lançamento e os QR continuam com 30 e excluem MM202617.
+
+## Integração
 
 ```bash
 npm install
@@ -47,19 +60,17 @@ npm run build
 npm run smoke
 ```
 
-## Revisão visual
+## Revisão manual
 
-Testar:
+Abrir MM202617 em:
 
-- Home nos três destaques;
-- transição automática;
-- setas, indicadores e pausa;
-- link externo;
-- Museu sem sumário;
-- imersivo horizontal e vertical;
-- Voltar ao Museu;
-- X;
-- browser fullscreen;
-- 1280, 768 e 375 px.
+- galeria;
+- lista;
+- pesquisa;
+- filtro de intervenção digital;
+- coleção de intervenções;
+- detalhe;
+- modo imersivo;
+- navegação anterior e seguinte.
 
-Não publicar automaticamente.
+Não promover `publicReleaseEligible` sem nova decisão humana.

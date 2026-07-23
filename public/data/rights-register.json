@@ -134,10 +134,12 @@
     {
       "id": "MM202617",
       "repositoryAllowed": true,
-      "siteVisible": false,
+      "siteVisible": true,
       "status": "authorized-for-project-publication",
-      "credit": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
-      "blockReason": "ai-substantive-intervention"
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "blockReason": null,
+      "siteStatus": "review-visible",
+      "publicReleaseEligible": false
     },
     {
       "id": "MM202618",

@@ -30,7 +30,7 @@ const index = records.map(record => {
 
 await writeFile("public/data/museum-index.json",JSON.stringify({
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.10.0",records:index
+  version:"0.11.3",records:index
 },null,2)+"\n");
 
 console.log(`${index.length} registos indexados.`);

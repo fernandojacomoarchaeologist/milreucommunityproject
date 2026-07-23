@@ -50,3 +50,7 @@ As capturas e a ilustração de referência fornecidas para este hotfix foram di
 ## Inquérito 2026 — Home 07D.2
 
 A imagem do Inquérito 2026 foi fornecida pelo responsável do projeto para integração no destaque da Home. Esta incorporação não altera os direitos das fotografias, texturas ou elementos que possam compor a arte original.
+
+## Decisão MM202617 — 07D.3
+
+MM202617 está autorizado a aparecer no ambiente de revisão do projeto, com identificação obrigatória do retoque substantivo por inteligência artificial. A decisão não o torna elegível para lançamento público definitivo, QR, totem ou painel.
