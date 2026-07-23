@@ -28,6 +28,6 @@ jobs:
       - run: supabase db reset
       - name: Test collaborative foundation
         run: |
-          psql postgresql://postgres:postgres@127.0.0.1:54322/postgres             -v ON_ERROR_STOP=1             -f supabase/tests/008a_collaborative_foundation.test.sql
+          psql postgresql://postgres:postgres@127.0.0.1:54322/postgres             -v ON_ERROR_STOP=1             -f supabase/collab-tests/008a_collaborative_foundation.test.sql
       - if: always()
         run: supabase stop --no-backup

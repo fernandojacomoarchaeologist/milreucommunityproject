@@ -402,7 +402,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260723080300_collaborative_context_and_admin.sql`
 - `supabase/migrations/20260723080400_collaborative_tasks_exhibitions.sql`
 - `supabase/seed.sql`
-- `supabase/tests/008a_collaborative_foundation.test.sql`
+- `supabase/collab-tests/008a_collaborative_foundation.test.sql`
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/collaborative-data-08a.test.mjs`

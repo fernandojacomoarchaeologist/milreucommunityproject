@@ -48,7 +48,7 @@ As migrations, políticas RLS, RPCs, grants e testes SQL foram validados estatic
 
 O pacote inclui:
 
-- `supabase/tests/008a_collaborative_foundation.test.sql`;
+- `supabase/collab-tests/008a_collaborative_foundation.test.sql`;
 - `.github/workflows/08a-database-tests.yml`.
 
 A integração deve executar o teste de banco local ou em staging antes de qualquer utilização remota.
