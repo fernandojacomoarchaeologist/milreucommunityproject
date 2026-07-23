@@ -25,13 +25,15 @@
     "architecture:test": "node --test tests/architecture/*.test.mjs",
     "architecture:prototype:serve": "python3 -m http.server 8080 -d apps/architecture-prototype",
     "dev": "node scripts/dev-server.mjs --root . --port 4173",
-    "validate": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/dev-server.mjs --root dist --port 4173",
     "smoke": "node scripts/smoke.mjs",
     "media:generate": "python3 scripts/media/generate_variants.py",
-    "media:import": "python3 scripts/media/import_legacy_archive.py"
+    "media:import": "python3 scripts/media/import_legacy_archive.py",
+    "validate:portal": "node scripts/validate-portal.mjs",
+    "validate:museum-regression": "node scripts/validate-museum-regression.mjs"
   },
   "devDependencies": {
     "supabase": "2.109.1"

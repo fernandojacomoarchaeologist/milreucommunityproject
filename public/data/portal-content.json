@@ -1,0 +1,243 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.9.0",
+  "editorialStatus": "preliminary",
+  "sourceLanguage": "pt-PT",
+  "project": {
+    "name": {
+      "pt-PT": "Projeto Comunitário de Milreu"
+    },
+    "subtitle": {
+      "pt-PT": "Memórias, conhecimento e participação em torno de Milreu."
+    },
+    "summary": {
+      "pt-PT": "Programa plurianual de Arqueologia Pública e Comunitária dedicado às relações entre a comunidade, Estoi, a paisagem e as Ruínas Romanas de Milreu."
+    },
+    "principles": [
+      {
+        "id": "community-first",
+        "title": {
+          "pt-PT": "A comunidade fala primeiro"
+        },
+        "description": {
+          "pt-PT": "As memórias, perceções e perguntas da comunidade abrem a interpretação. A instituição oferece contexto, enquadramento e fontes."
+        }
+      },
+      {
+        "id": "evidence",
+        "title": {
+          "pt-PT": "Conhecimento com proveniência"
+        },
+        "description": {
+          "pt-PT": "Informações, narrativas e interpretações devem indicar a sua fonte, grau de certeza, estado editorial e histórico de revisão."
+        }
+      },
+      {
+        "id": "living-project",
+        "title": {
+          "pt-PT": "Um projeto vivo"
+        },
+        "description": {
+          "pt-PT": "Conteúdos podem ser corrigidos, aprofundados, contestados ou retirados, preservando a auditoria do processo."
+        }
+      }
+    ],
+    "methodology": [
+      {
+        "period": "2024",
+        "title": {
+          "pt-PT": "Diagnóstico regional e trabalho de proximidade"
+        },
+        "description": {
+          "pt-PT": "Inquérito regional exploratório, observação local e entrevistas semiestruturadas com perfis diversificados."
+        }
+      },
+      {
+        "period": "2025–2027",
+        "title": {
+          "pt-PT": "Participação, memória e experimentação pública"
+        },
+        "description": {
+          "pt-PT": "Recolha de memórias, aprofundamentos, ações públicas, Museu de Memórias, exposição itinerante e desenvolvimento de iniciativas comunitárias."
+        }
+      },
+      {
+        "period": "2028",
+        "title": {
+          "pt-PT": "Síntese e avaliação"
+        },
+        "description": {
+          "pt-PT": "Consolidação dos resultados, avaliação das ações e sistematização da investigação doutoral."
+        }
+      }
+    ]
+  },
+  "initiatives": [
+    {
+      "slug": "museu-de-memorias",
+      "title": {
+        "pt-PT": "Museu de Memórias de Milreu"
+      },
+      "short": {
+        "pt-PT": "Arquivo visual e narrativo das relações da comunidade com Milreu."
+      },
+      "description": {
+        "pt-PT": "Experiência digital e física que aproxima fotografias, oralidade, contexto histórico, proveniência e relações entre registos."
+      },
+      "status": "em-desenvolvimento",
+      "route": "/museu",
+      "icon": "memory"
+    },
+    {
+      "slug": "milreu-proteus",
+      "title": {
+        "pt-PT": "Milreu Proteus"
+      },
+      "short": {
+        "pt-PT": "Base estruturada de dados e conhecimento do projeto."
+      },
+      "description": {
+        "pt-PT": "Camada canónica que alimentará Portal, Museu, dados públicos, buscadores, sistemas de IA, totens e futura aplicação."
+      },
+      "status": "infraestrutura-em-desenvolvimento",
+      "route": "/conhecimento",
+      "icon": "knowledge"
+    },
+    {
+      "slug": "inqueritos-e-dados",
+      "title": {
+        "pt-PT": "Inquéritos e Dados Públicos"
+      },
+      "short": {
+        "pt-PT": "Investigação sobre relações com património, arqueologia e Milreu."
+      },
+      "description": {
+        "pt-PT": "Recolha, documentação metodológica, anonimização e futuras releases de dados agregados e reutilizáveis."
+      },
+      "status": "recolha-e-revisao",
+      "route": "/conhecimento",
+      "icon": "search"
+    },
+    {
+      "slug": "exposicao-itinerante",
+      "title": {
+        "pt-PT": "Entre Ruínas e Memórias"
+      },
+      "short": {
+        "pt-PT": "Exposição itinerante baseada nas fotografias e narrativas recolhidas."
+      },
+      "description": {
+        "pt-PT": "Painéis e totens deverão utilizar a mesma estrutura de dados do Museu digital, com textos adaptados à leitura física."
+      },
+      "status": "em-producao",
+      "route": "/iniciativas/exposicao-itinerante",
+      "icon": "photograph"
+    },
+    {
+      "slug": "open-milreu",
+      "title": {
+        "pt-PT": "Open Milreu"
+      },
+      "short": {
+        "pt-PT": "Espaço futuro de encontro, discussão e partilha pública."
+      },
+      "description": {
+        "pt-PT": "Iniciativa prevista para articular comunidade, investigação, instituições e novas formas de participação."
+      },
+      "status": "planeado",
+      "route": "/iniciativas/open-milreu",
+      "icon": "community"
+    }
+  ],
+  "knowledge": {
+    "summary": {
+      "pt-PT": "Área pública para localizar informação estruturada sobre Milreu, as suas ruínas, memórias, pessoas, lugares, estudos, fontes e dados."
+    },
+    "categories": [
+      {
+        "id": "about",
+        "title": {
+          "pt-PT": "Sobre Milreu"
+        },
+        "description": {
+          "pt-PT": "Sínteses, perguntas frequentes e conceitos básicos."
+        }
+      },
+      {
+        "id": "chronology",
+        "title": {
+          "pt-PT": "Cronologia"
+        },
+        "description": {
+          "pt-PT": "Períodos arqueológicos, campanhas, acontecimentos e memórias."
+        }
+      },
+      {
+        "id": "places",
+        "title": {
+          "pt-PT": "Lugares e estruturas"
+        },
+        "description": {
+          "pt-PT": "Ruínas, Estoi, paisagem e espaços associados."
+        }
+      },
+      {
+        "id": "sources",
+        "title": {
+          "pt-PT": "Fontes e referências"
+        },
+        "description": {
+          "pt-PT": "Proveniência, bibliografia, documentos e evidências."
+        }
+      }
+    ]
+  },
+  "participation": {
+    "summary": {
+      "pt-PT": "A participação pode ocorrer por contributos de memória, presença em ações, resposta a inquéritos e pedidos de correção ou retirada."
+    },
+    "methods": [
+      {
+        "title": {
+          "pt-PT": "Partilhar uma memória"
+        },
+        "description": {
+          "pt-PT": "Fotografias, relatos e informações podem ser avaliados e integrados mediante documentação de proveniência e autorização."
+        }
+      },
+      {
+        "title": {
+          "pt-PT": "Participar nas atividades"
+        },
+        "description": {
+          "pt-PT": "Encontros, apresentações e ações públicas são oportunidades de discussão e construção conjunta."
+        }
+      },
+      {
+        "title": {
+          "pt-PT": "Corrigir ou retirar"
+        },
+        "description": {
+          "pt-PT": "Pessoas e detentores de direitos podem comunicar preocupações, correções ou pedidos de retirada."
+        }
+      }
+    ],
+    "contactStatus": "channel-pending"
+  },
+  "about": {
+    "coordination": {
+      "pt-PT": "Coordenação e investigação: Fernando Rodrigues de Jácomo, no âmbito do doutoramento em Arqueologia da Universidade do Algarve."
+    },
+    "institutionalContext": {
+      "pt-PT": "O projeto articula investigação, comunidade e entidades relacionadas com a salvaguarda, estudo e valorização de Milreu."
+    },
+    "organisations": [
+      "Universidade do Algarve",
+      "Património Cultural, I.P.",
+      "Museu Municipal de Faro",
+      "CCDR Algarve",
+      "Município de Faro",
+      "Junta de Freguesia de Estoi"
+    ]
+  }
+}

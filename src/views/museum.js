@@ -19,3 +19,15 @@ export function immersiveView(records,record,lang){if(!record?.publication.siteV
 export function unavailableView(lang){return `<div class="museum-shell">${museumHeader(lang)}<main id="main" class="unavailable"><div class="unavailable__box"><span class="eyebrow">Registo protegido</span><h1>${text(lang,"unavailable")}</h1><p>${text(lang,"unavailableText")}</p><a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"returnGallery")}</a></div></main></div>`}
 function section(title,value,kind=""){if(!value)return "";return `<section class="memory-section"><h2>${title}</h2>${kind==='community'?`<div class="ml-community-voice"><blockquote>${escapeHtml(value)}</blockquote></div>`:`<p>${escapeHtml(value)}</p>`}</section>`}
 function escapeHtml(value=""){return String(value).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+
+export function timelineView(records,lang){
+  const publicRecords=records.filter(x=>x.publication.siteVisible).sort((a,b)=>(a.date.start||"").localeCompare(b.date.start||""));
+  return `<div class="museum-shell">${museumHeader(lang,"/museu/linha-do-tempo")}
+  <main id="main" class="gallery-page">
+    <div class="gallery-intro"><div><span class="eyebrow">Entre Ruínas e Memórias</span><h1>${text(lang,"timeline")}</h1></div><div class="gallery-count">${publicRecords.length} ${text(lang,"results")}</div></div>
+    <div class="museum-timeline">
+      ${publicRecords.map(record=>`<article class="museum-timeline__item"><span>${escapeHtml(localised(record.date.display,lang).value||record.date.start||"")}</span><a href="#/museu/memorias/${record.id}">${escapeHtml(localised(record.title,lang).value)}</a><small>${record.id}</small></article>`).join("")}
+    </div>
+  </main></div>`;
+}

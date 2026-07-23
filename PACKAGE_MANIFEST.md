@@ -1,47 +1,42 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07A"
-rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
+package: "07B"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 07A
+# Manifesto do Pacote 07B
 
 ## Identificação
 
-- Pacote: 07A
-- Versão: 0.8.0
-- Finalidade: base executável e primeira fatia vertical.
-- Próximo pacote: 07B — Portal público.
+- Pacote: 07B
+- Versão: 0.9.0
+- Tipo: cumulativo e executável
+- Base: Pacote 07A
 
-## Aplicação
+## Conteúdo
 
-| Caminho | Finalidade |
-|---|---|
-| `index.html` | entrada da aplicação |
-| `src/` | código e estilos |
-| `public/data/` | snapshots públicos preliminares |
-| `public/media/` | originais autorizados e derivados |
-| `scripts/` | build, servidor, validação e pipeline |
-| `tests/` | integridade, media e aplicação |
-| `docs/` | decisões e handoff |
-| `.claude/` | rules e skills |
-
-## Números esperados
-
-- 31 registos;
-- 31 originais;
-- 4 variantes por imagem;
-- 30 registos visíveis;
-- 1 bloqueado;
-- 4 idiomas com fallback.
+- 31 originais autorizados;
+- 124 derivados WebP;
+- dados das memórias;
+- Portal público;
+- seis áreas institucionais;
+- iniciativas;
+- Milreu Proteus;
+- metodologia;
+- participação;
+- linha temporal do Museu;
+- modo imersivo protegido;
+- rules, skills, testes e validadores.
 
 ## Critérios
 
-- executável sem serviços externos;
-- build reproduzível;
-- imagens reais;
-- créditos preservados;
-- conteúdo preliminar assinalado;
-- estrutura multicanal;
-- compatibilidade com GitHub Pages.
+- aplicação local executável;
+- build estático;
+- Portal sem placeholders principais;
+- nenhum contacto fictício;
+- Museu sem regressão;
+- `MM202617` bloqueado;
+- quatro idiomas com fallback;
+- CI compatível;
+- nenhuma ligação remota.

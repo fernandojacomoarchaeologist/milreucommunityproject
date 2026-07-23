@@ -13,4 +13,4 @@ const blocked=data.records.find(x=>x.id==="MM202617");if(blocked?.publication.si
 for(const record of data.records){if(!record.rights||record.rights.status!=="authorized-for-project-publication")throw new Error(`Direitos ausentes: ${record.id}`);for(const path of [record.media.original,...Object.values(record.media.variants)])if(!existsSync(path))throw new Error(`Asset ausente: ${path}`)}
 if(existsSync("public/media/museum/originals/MM202612.jpeg"))throw new Error("Duplicado MM202612.jpeg não deve existir.");
 if(existsSync("public/media/museum/originals/milreu_mosaic_hero.png"))throw new Error("Hero legado não deve existir.");
-console.log("Validação 07A concluída: 31 imagens, 30 visíveis e 1 bloqueada.");
+console.log("Validação base 07B concluída: 31 imagens, 30 visíveis e 1 bloqueada.");
