@@ -127,7 +127,7 @@ Não criar logótipo, textura, ícone ou reprodução do livro por inferência. 
 
 ### 9.2 Fundações visuais de produção — integradas pelo Pacote 05B
 
-- Os tokens v0.2 (`packages/design-tokens/v0.2/`) são a referência de fundação após integração validada; os v0.1 permanecem para comparação.
+- Os tokens v0.2 (`packages/design-tokens/v0.2/`) são a **base canónica** da arquitetura (promovidos por decisão de 2026-07-23, ver `docs/design/visual-reviews/DECISIONS.md`); os v0.1 permanecem apenas como legado para comparação.
 - Vermelho é assinatura, não fundo de leitura extensa.
 - Preto aquecido é `ink.950`.
 - Fraunces, Spectral e Archivo têm papéis distintos.

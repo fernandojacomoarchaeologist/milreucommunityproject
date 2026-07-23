@@ -14,9 +14,9 @@ Lista de problemas identificados na revisão visual, a resolver em releases incr
 | ID | Severidade | Âmbito | Descrição | Viewport | Detetado por | Estado | Release alvo |
 |---|---|---|---|---|---|---|---|
 | VR-001 | menor | maturidade | 44 itens estão `validated` sem revisão pessoal do responsável. Decidir se `validated` é adequado antes da revisão, ou se devem recuar para `in-review`. Nenhum está `approved` (regra respeitada). | — | assistente | aberto | v0.4.3 |
-| VR-002 | cosmético | responsivo | Confirmar interativamente o toggle do drawer mobile e o comportamento em tablet (768). Layout empilha corretamente; interação por confirmar. | telemóvel/tablet | assistente | aberto | v0.4.4 |
-| VR-003 | menor | marca | Rever os derivados claro e escuro do logótipo (05E) antes de sair de `draft`. | desktop | Pacote 05F | aberto | Gate A |
-| VR-004 | menor | tokens | Confirmar a promoção dos tokens v0.2 a fonte principal antes da arquitetura (Pacote 06). | — | Pacote 05F | aberto | Gate A |
+| VR-002 | cosmético | responsivo | Toggle do drawer mobile/tablet **confirmado a funcionar** na revisão Gate A (2026-07-23): abre com overlay+backdrop, item ativo destacado. | telemóvel/tablet | assistente | resolvido | — |
+| VR-003 | menor | marca | Logótipo claro/escuro **aceite para arquitetura** no Gate A. Continua `draft`; SVG mestre e `approved` pendentes para o MVP. | desktop | Pacote 05F | resolvido (arquitetura) | Gate B |
+| VR-004 | menor | tokens | Tokens v0.2 **promovidos a base canónica** (decisão de 2026-07-23, ver DECISIONS.md). | — | Pacote 05F | resolvido | — |
 
 ## Convenções
 
