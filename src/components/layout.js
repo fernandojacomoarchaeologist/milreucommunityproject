@@ -46,7 +46,8 @@ export function portalHeader(lang, current="") {
 export function museumHeader(lang, current="") {
   const links = [
     ["/museu/explorar","explore"],
-    ["/museu/linha-do-tempo","timeline"]
+    ["/museu/linha-do-tempo","timeline"],
+    ["/museu/colecoes","collectionsLabel"]
   ];
   const nav = links.map(([path,key]) =>
     `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`

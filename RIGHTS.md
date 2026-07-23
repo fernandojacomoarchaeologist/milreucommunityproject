@@ -34,3 +34,7 @@ O PDF do livro e as miniaturas derivadas continuam privados e não fazem parte d
 ## Portal 07B
 
 Os textos institucionais permanecem preliminares e sujeitos a revisão. As fotografias do Museu mantêm a autorização previamente confirmada para publicação no âmbito do projeto.
+
+## Museu 07C
+
+As coleções e sugestões desta versão são derivações de navegação baseadas em tipos e palavras-chave. Não representam novas alegações históricas. Intervenções digitais declaradas permanecem identificadas nos registos públicos.

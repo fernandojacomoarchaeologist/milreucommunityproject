@@ -1,0 +1,162 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.10.0",
+  "notice": "Coleções derivadas para navegação. Não constituem relações históricas novas nem substituem a revisão editorial.",
+  "collections": [
+    {
+      "slug": "escavacoes-e-trabalho-arqueologico",
+      "title": {
+        "pt-PT": "Escavações e trabalho arqueológico"
+      },
+      "description": {
+        "pt-PT": "Percurso de imagens classificadas como escavações ou trabalho arqueológico."
+      },
+      "rule": {
+        "primaryTypes": [
+          "escavações",
+          "trabalho arqueológico"
+        ]
+      },
+      "icon": "archaeology",
+      "collectionType": "derived-navigation",
+      "editorialStatus": "draft",
+      "factualClaim": false,
+      "memberCount": 14,
+      "members": [
+        "MM202603",
+        "MM202606",
+        "MM202607",
+        "MM202613",
+        "MM202614",
+        "MM202616",
+        "MM202618",
+        "MM202619",
+        "MM202620",
+        "MM202621",
+        "MM202623",
+        "MM202624",
+        "MM202625",
+        "MM202626"
+      ]
+    },
+    {
+      "slug": "comunidade-e-quotidiano",
+      "title": {
+        "pt-PT": "Comunidade e quotidiano"
+      },
+      "description": {
+        "pt-PT": "Registos associados ao trabalho, convívio, habitação, juventude, visitas, oralidade e memória comunitária."
+      },
+      "rule": {
+        "primaryTypes": [
+          "trabalho e convívio",
+          "trabalho e quotidiano",
+          "memória comunitária",
+          "juventude",
+          "figura comunitária",
+          "visita",
+          "habitação",
+          "história oral"
+        ]
+      },
+      "icon": "community",
+      "collectionType": "derived-navigation",
+      "editorialStatus": "draft",
+      "factualClaim": false,
+      "memberCount": 13,
+      "members": [
+        "MM202602",
+        "MM202604",
+        "MM202605",
+        "MM202608",
+        "MM202609",
+        "MM202611",
+        "MM202612",
+        "MM202615",
+        "MM202622",
+        "MM202627",
+        "MM202628",
+        "MM202629",
+        "MM202630"
+      ]
+    },
+    {
+      "slug": "festa-da-pinha",
+      "title": {
+        "pt-PT": "Festa da Pinha"
+      },
+      "description": {
+        "pt-PT": "Registos históricos e contemporâneos relacionados com a Festa da Pinha e a sua passagem por Milreu."
+      },
+      "rule": {
+        "tagsAny": [
+          "Festa da Pinha"
+        ],
+        "primaryTypes": [
+          "festa"
+        ]
+      },
+      "icon": "memory",
+      "collectionType": "derived-navigation",
+      "editorialStatus": "draft",
+      "factualClaim": false,
+      "memberCount": 2,
+      "members": [
+        "MM202601",
+        "MM202631"
+      ]
+    },
+    {
+      "slug": "casa-rural-e-memorias",
+      "title": {
+        "pt-PT": "Casa Rural e memórias"
+      },
+      "description": {
+        "pt-PT": "Fotografias e narrativas em que a Casa Rural de Milreu surge como espaço, referência ou objeto de memória."
+      },
+      "rule": {
+        "tagsAny": [
+          "Casa Rural"
+        ]
+      },
+      "icon": "place",
+      "collectionType": "derived-navigation",
+      "editorialStatus": "draft",
+      "factualClaim": false,
+      "memberCount": 9,
+      "members": [
+        "MM202601",
+        "MM202611",
+        "MM202612",
+        "MM202613",
+        "MM202614",
+        "MM202627",
+        "MM202628",
+        "MM202629",
+        "MM202630"
+      ]
+    },
+    {
+      "slug": "intervencoes-digitais-documentadas",
+      "title": {
+        "pt-PT": "Intervenções digitais documentadas"
+      },
+      "description": {
+        "pt-PT": "Registos públicos que declaram correção, corte ou tratamento digital. A coleção existe para transparência e não valida a intervenção."
+      },
+      "rule": {
+        "hasDigitalIntervention": true
+      },
+      "icon": "information",
+      "collectionType": "derived-navigation",
+      "editorialStatus": "draft",
+      "factualClaim": false,
+      "memberCount": 3,
+      "members": [
+        "MM202618",
+        "MM202619",
+        "MM202631"
+      ]
+    }
+  ]
+}

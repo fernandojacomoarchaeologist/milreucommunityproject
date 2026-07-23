@@ -1,30 +1,40 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07B"
+package: "07C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
 
 - `.claude/rules/blocked-mm202617.md`
+- `.claude/rules/derived-navigation-transparency.md`
+- `.claude/rules/digital-intervention-disclosure.md`
 - `.claude/rules/media-pipeline.md`
+- `.claude/rules/museum-immersive-permanent.md`
 - `.claude/rules/museum-incremental-non-regression.md`
+- `.claude/rules/museum-public-index.md`
 - `.claude/rules/portal-content-no-invention.md`
 - `.claude/rules/preliminary-copy.md`
 - `.claude/rules/public-museum-images.md`
 - `.claude/rules/shared-channel-data.md`
 - `.claude/rules/static-first-runtime.md`
+- `.claude/skills/audit-museum-relations/SKILL.md`
 - `.claude/skills/build-github-pages/SKILL.md`
+- `.claude/skills/create-derived-collection/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
 - `.claude/skills/prepare-07b-handoff/SKILL.md`
 - `.claude/skills/prepare-07c-handoff/SKILL.md`
+- `.claude/skills/prepare-07d-handoff/SKILL.md`
 - `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
+- `.claude/skills/review-digital-interventions/SKILL.md`
+- `.claude/skills/review-museum-record/SKILL.md`
 - `.claude/skills/review-portal-07b/SKILL.md`
 - `.claude/skills/review-publication-status/SKILL.md`
 - `.claude/skills/review-vertical-slice/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
+- `.claude/skills/test-immersive-experience/SKILL.md`
 - `.claude/skills/update-portal-content/SKILL.md`
 - `.nojekyll`
 - `404.html`
@@ -43,6 +53,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/deployment/GITHUB_PAGES.md`
 - `docs/media/IMAGE_PIPELINE.md`
 - `docs/media/PUBLICATION_ASSET_AUDIT.md`
+- `docs/museum/COLLECTIONS_AND_DERIVED_RELATIONS.md`
+- `docs/museum/DETAIL_AND_DOCUMENTATION_SPEC.md`
+- `docs/museum/EDITORIAL_BOUNDARIES.md`
+- `docs/museum/IMMERSIVE_MODE_SPEC.md`
+- `docs/museum/MUSEUM_ACCESSIBILITY.md`
+- `docs/museum/MUSEUM_INFORMATION_ARCHITECTURE.md`
+- `docs/museum/SEARCH_AND_FILTER_SPEC.md`
+- `docs/museum/TIMELINE_SPEC.md`
 - `docs/review/PORTAL_07B_REVIEW.md`
 - `docs/review/VERTICAL_SLICE_REVIEW.md`
 - `index.html`
@@ -54,6 +72,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/brand/symbol.webp`
 - `public/data/media-manifest.json`
 - `public/data/memories.json`
+- `public/data/museum-audit.json`
+- `public/data/museum-collections.json`
+- `public/data/museum-index.json`
 - `public/data/portal-content.json`
 - `public/data/rights-register.json`
 - `public/favicon.ico`
@@ -234,12 +255,17 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/site.webmanifest`
 - `releases/PACKAGE_07A_v0.8.0.md`
 - `releases/PACKAGE_07B_v0.9.0.md`
+- `releases/PACKAGE_07C_v0.10.0.md`
 - `requirements-media.txt`
 - `scripts/build.mjs`
 - `scripts/dev-server.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
+- `scripts/museum/audit-content.mjs`
+- `scripts/museum/build-index.mjs`
 - `scripts/smoke.mjs`
+- `scripts/validate-immersive-07c.mjs`
+- `scripts/validate-museum-07c.mjs`
 - `scripts/validate-museum-regression.mjs`
 - `scripts/validate-portal.mjs`
 - `scripts/validate.mjs`
@@ -257,6 +283,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/views/portal.js`
 - `tests/app.test.mjs`
 - `tests/data.test.mjs`
+- `tests/immersive-07c.test.mjs`
 - `tests/media.test.mjs`
+- `tests/museum-07c.test.mjs`
 - `tests/museum-regression.test.mjs`
 - `tests/portal.test.mjs`
+- `tests/rights-07c.test.mjs`

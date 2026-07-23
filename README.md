@@ -1,16 +1,16 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07B"
+package: "07C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 07B — Portal Público e Evolução Incremental
+# Pacote 07C — Museu Digital Incremental
 
-**Versão:** 0.9.0  
-**Natureza:** pacote cumulativo e executável, construído sobre o 07A.
+**Versão:** 0.10.0  
+**Tipo:** cumulativo e executável sobre o 07B.
 
-O Pacote 07B expande o Portal público sem interromper a evolução do Museu.
+Este pacote aprofunda o Museu sem interromper o Portal e transforma o modo de ecrã inteiro numa experiência museológica mais completa.
 
 ## Executar
 
@@ -19,54 +19,56 @@ npm install
 npm run dev
 ```
 
-Build:
+Validação:
 
 ```bash
+npm run museum:index
+npm run museum:audit
 npm run validate
 npm test
 npm run build
 npm run preview
 ```
 
-## Portal implementado
+## Entregas do Museu
 
-- página inicial expandida;
-- Projeto;
-- Metodologia;
-- Iniciativas;
-- detalhe de iniciativa;
-- Conhecimento e Milreu Proteus;
-- Participar;
-- Sobre;
-- navegação desktop e mobile;
-- conteúdo estruturado em `public/data/portal-content.json`.
+- página inicial do Museu ampliada;
+- pesquisa sobre conteúdo, tags, lugares, créditos e contexto;
+- filtros por período, tipo, data e intervenção digital;
+- ordenação;
+- grelha e lista;
+- cinco coleções derivadas para navegação;
+- páginas de coleção;
+- cronologia com registos datados e não datados;
+- detalhe documental;
+- fontes, acesso, crédito e proveniência;
+- indicação de intervenções digitais;
+- relações explícitas;
+- sugestões derivadas de palavras-chave, claramente identificadas;
+- direitos e ligação para correção ou retirada;
+- modo imersivo avançado;
+- filmstrip;
+- painel de informação;
+- navegação anterior e seguinte;
+- Escape, setas, I e F;
+- Fullscreen API do navegador;
+- comportamento responsivo.
 
-## Museu preservado e ampliado
+## Dados
 
-Continuam funcionais:
+- 31 registos preservados;
+- 30 visíveis;
+- `MM202617` bloqueado;
+- 124 derivados WebP;
+- índice público com 30 registos;
+- relatório de auditoria;
+- relações não recíprocas registadas, mas não corrigidas automaticamente;
+- traduções mantidas conforme os estados existentes.
 
-- entrada no Museu;
-- galeria;
-- filtros;
-- detalhe;
-- relações;
-- registo bloqueado;
-- linha temporal;
-- modo de ecrã inteiro;
-- anterior e seguinte;
-- saída por Escape;
-- retorno ao Portal.
+## Coleções
 
-## Contrato incremental
-
-O modo de ecrã inteiro é uma capacidade permanente do Museu. O pacote inclui um validador de não regressão que bloqueia a remoção acidental da rota, da view, da imagem imersiva, da saída por Escape e da navegação anterior/seguinte.
-
-## Conteúdo e publicação
-
-O Portal usa conteúdos preliminares em pt-PT. Os outros idiomas utilizam fallback enquanto as traduções não forem revistas.
-
-As 31 fotografias e os derivados do 07A permanecem incluídos. `MM202617` continua bloqueado na experiência pública.
+As coleções são percursos de navegação calculados por tipos, tags ou intervenções declaradas. Elas não criam novas relações históricas.
 
 ## Próximo pacote
 
-07C — evolução completa do Museu, pesquisa, filtros, relações, linha temporal e revisão contextual das 31 fotografias.
+07D — estrutura multicanal, pré-visualização de totem/painel, exportações e release de encerramento do MVP.
