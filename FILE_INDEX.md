@@ -1,13 +1,14 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.1"
+package: "07D.2"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
 
 - `.claude/rules/07d1-ui-editorial-fixes.md`
+- `.claude/rules/07d2-home-carousel-and-immersive.md`
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/derived-navigation-transparency.md`
 - `.claude/rules/digital-intervention-disclosure.md`
@@ -38,6 +39,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
 - `.claude/skills/review-07d1-fixes/SKILL.md`
+- `.claude/skills/review-07d2-fixes/SKILL.md`
 - `.claude/skills/review-digital-interventions/SKILL.md`
 - `.claude/skills/review-museum-record/SKILL.md`
 - `.claude/skills/review-panel-preview/SKILL.md`
@@ -52,13 +54,11 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.github/workflows/07d-pages.yml`
 - `.nojekyll`
 - `404.html`
-- `FILE_INDEX.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_MANIFEST.md`
 - `PROMPT_CLAUDE.md`
 - `README.md`
 - `RIGHTS.md`
-- `VALIDATION_REPORT.md`
 - `data/schemas/memory-public.schema.json`
 - `docs/architecture/MUSEUM_INCREMENTAL_CONTRACT.md`
 - `docs/architecture/PORTAL_CONTENT_ARCHITECTURE.md`
@@ -86,12 +86,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/release/PUBLICATION_GATES.md`
 - `docs/release/TECHNICAL_MVP_RELEASE.md`
 - `docs/review/FIX_REQUEST_07D1.md`
+- `docs/review/FIX_REQUEST_07D2.md`
 - `docs/review/PORTAL_07B_REVIEW.md`
 - `docs/review/VERTICAL_SLICE_REVIEW.md`
 - `docs/review/references/07d1/header-museu-referencia.png`
 - `docs/review/references/07d1/header-portal-antes.png`
 - `docs/review/references/07d1/museu-home-botao-sem-texto.png`
 - `docs/review/references/07d1/principios-pilares-referencia.png`
+- `docs/review/references/07d2/home-07d1-referencia.png`
 - `exports/channels/channel-records.csv`
 - `exports/channels/panel-candidates.csv`
 - `exports/channels/qr-targets.csv`
@@ -106,6 +108,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/channels/channel-config.json`
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
+- `public/data/home-carousel.json`
 - `public/data/media-manifest.json`
 - `public/data/memories.json`
 - `public/data/museum-audit.json`
@@ -136,6 +139,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/icons/share.svg`
 - `public/icons/timeline.svg`
 - `public/icons/zoom-in.svg`
+- `public/media/home/inquerito-2026.webp`
+- `public/media/home/source/inquerito-2026-original.jpeg`
 - `public/media/museum/generated/MM202601/card.webp`
 - `public/media/museum/generated/MM202601/detail.webp`
 - `public/media/museum/generated/MM202601/immersive.webp`
@@ -297,6 +302,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_07B_v0.9.0.md`
 - `releases/PACKAGE_07C_v0.10.0.md`
 - `releases/PACKAGE_07D1_v0.11.1.md`
+- `releases/PACKAGE_07D2_v0.11.2.md`
 - `releases/PACKAGE_07D_v0.11.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
@@ -318,6 +324,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/structured/validate-structured-data.mjs`
 - `scripts/validate-07d.mjs`
 - `scripts/validate-07d1-fixes.mjs`
+- `scripts/validate-07d2-fixes.mjs`
 - `scripts/validate-immersive-07c.mjs`
 - `scripts/validate-museum-07c.mjs`
 - `scripts/validate-museum-regression.mjs`
@@ -340,6 +347,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/channels-07d.test.mjs`
 - `tests/data.test.mjs`
 - `tests/fixes-07d1.test.mjs`
+- `tests/fixes-07d2.test.mjs`
 - `tests/immersive-07c.test.mjs`
 - `tests/media.test.mjs`
 - `tests/museum-07c.test.mjs`

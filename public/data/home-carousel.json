@@ -1,0 +1,92 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.11.2",
+  "autoplay": {
+    "enabled": true,
+    "intervalMs": 9000,
+    "pauseOnHover": true,
+    "pauseOnFocus": true,
+    "disableForReducedMotion": true
+  },
+  "slides": [
+    {
+      "id": "museum",
+      "kind": "museum-memory",
+      "memoryId": "MM202601",
+      "eyebrow": {
+        "pt-PT": "Entre Ruínas e Memórias"
+      },
+      "title": {
+        "pt-PT": "Museu de Memórias de Milreu"
+      },
+      "description": {
+        "pt-PT": "Fotografias, narrativas, contexto e relações que aproximam a comunidade, Estoi, a paisagem e Milreu."
+      },
+      "primaryAction": {
+        "label": {
+          "pt-PT": "Entrar no Museu"
+        },
+        "href": "/museu"
+      },
+      "secondaryAction": {
+        "label": {
+          "pt-PT": "Explorar memórias"
+        },
+        "href": "/museu/explorar"
+      }
+    },
+    {
+      "id": "proteus",
+      "kind": "empty-state",
+      "eyebrow": {
+        "pt-PT": "Dados, relações e pesquisa"
+      },
+      "title": {
+        "pt-PT": "Experiência Proteus"
+      },
+      "description": {
+        "pt-PT": "Uma nova forma de pesquisar e cruzar memórias, lugares, fontes, estudos e dados sobre Milreu. A estrutura está preparada e será ampliada de forma progressiva e documentada."
+      },
+      "primaryAction": {
+        "label": {
+          "pt-PT": "Abrir Experiência Proteus"
+        },
+        "href": "/conhecimento"
+      },
+      "emptyStateLabels": [
+        "Memórias",
+        "Lugares",
+        "Fontes",
+        "Dados",
+        "Relações"
+      ]
+    },
+    {
+      "id": "survey-2026",
+      "kind": "external-image",
+      "eyebrow": {
+        "pt-PT": "Inquérito 2026 · fase final"
+      },
+      "title": {
+        "pt-PT": "O que significa Milreu para si?"
+      },
+      "description": {
+        "pt-PT": "As ruínas, as histórias, as memórias, as festas, as pessoas, os caminhos e as fotografias antigas fazem parte desta história. Participar demora apenas alguns minutos e pode ajudar a construir futuras iniciativas culturais, exposições comunitárias e ações ligadas à memória e ao património local. A sua voz faz parte desta história."
+      },
+      "image": "public/media/home/inquerito-2026.webp",
+      "imageAlt": {
+        "pt-PT": "Cartaz do Inquérito 2026: O que Milreu significa para si?"
+      },
+      "primaryAction": {
+        "label": {
+          "pt-PT": "Responder ao Inquérito 2026"
+        },
+        "href": "https://pt.surveymonkey.com/r/3CFG2MQ",
+        "external": true
+      }
+    }
+  ],
+  "assets": {
+    "surveyWebpSha256": "fcff4e895417d4975f7b5623c5a5829f63447e2aa82838194673c36705256529"
+  }
+}

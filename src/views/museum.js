@@ -27,18 +27,6 @@ export function museumHome(records,collections,audit,lang) {
       </div>
     </section>
 
-    <section class="museum-dashboard">
-      <div class="section-heading section-heading--dark">
-        <span class="eyebrow">${text(lang,"museumStats")}</span>
-        <h2>${visible.length} ${text(lang,"visibleRecords")}</h2>
-      </div>
-      <div class="museum-stat-grid">
-        <div><strong>${audit.digitalInterventions.visibleRecords.length}</strong><span>${text(lang,"documentedInterventions")}</span></div>
-        <div><strong>${collections.length}</strong><span>${text(lang,"collectionsLabel")}</span></div>
-        <div><strong>${Object.keys(audit.primaryTypes).length}</strong><span>${text(lang,"type")}</span></div>
-      </div>
-    </section>
-
     <section class="museum-section">
       <div class="museum-section__heading"><div><span class="eyebrow">${text(lang,"collectionsLabel")}</span><h2>Percursos de exploração</h2></div><a href="#/museu/colecoes">${text(lang,"showAll")} →</a></div>
       <div class="museum-collection-grid">${collections.slice(0,4).map(collection => collectionCard(collection,records,lang)).join("")}</div>
@@ -267,12 +255,21 @@ export function immersiveView(records,record,lang,state={}) {
   const neighbors = [-2,-1,0,1,2].map(offset => list[(index+offset+list.length)%list.length]);
   const infoOpen = state.immersiveInfo !== false;
   const slideshowSpeed = Number(state.slideshowSpeed || 0);
+  const title = escapeHtml(localised(record.title,lang).value);
 
-  return `<div class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${escapeHtml(localised(record.title,lang).value)}">
+  return `<div class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${title}">
+    <a class="immersive-return-fixed" href="#/museu/memorias/${record.id}" data-close-immersive>
+      <img src="${assetUrl("public/icons/back.svg")}" alt="">
+      <span>Voltar ao Museu</span>
+    </a>
+    <button type="button" class="immersive-close-fixed" data-close-immersive aria-label="${text(lang,"close")}">
+      <img src="${assetUrl("public/icons/close.svg")}" alt="">
+    </button>
+
     <div class="immersive-top">
       <div>
         <span class="immersive-position">${index+1}/${list.length} · ${record.id}</span>
-        <span class="immersive-title">${escapeHtml(localised(record.title,lang).value)}</span>
+        <span class="immersive-title">${title}</span>
       </div>
       <div class="immersive-actions">
         <div class="immersive-slideshow" role="group" aria-label="${text(lang,"slideshow")}">
@@ -284,16 +281,15 @@ export function immersiveView(records,record,lang,state={}) {
         </div>
         <button class="icon-button" data-toggle-immersive-info aria-pressed="${infoOpen}" aria-label="${infoOpen ? text(lang,"hideInfo") : text(lang,"immersiveInfo")}">i</button>
         <button class="icon-button" data-browser-fullscreen aria-label="${text(lang,"browserFullscreen")}"><img src="${assetUrl("public/icons/fullscreen.svg")}" alt=""></button>
-        <button type="button" class="icon-button" data-close-immersive aria-label="${text(lang,"close")}"><img src="${assetUrl("public/icons/close.svg")}" alt=""></button>
       </div>
     </div>
 
     <div class="immersive-stage">
       <a class="immersive-side immersive-side--previous" href="#/museu/imersivo/${prev.id}" aria-label="${text(lang,"previous")}"><img src="${assetUrl("public/icons/back.svg")}" alt=""></a>
-      <div class="immersive-frame"><img src="${assetUrl(record.media.variants.immersive)}" alt="${escapeHtml(localised(record.title,lang).value)}"></div>
+      <div class="immersive-frame"><img src="${assetUrl(record.media.variants.immersive)}" alt="${title}"></div>
       <a class="immersive-side immersive-side--next" href="#/museu/imersivo/${next.id}" aria-label="${text(lang,"next")}"><img src="${assetUrl("public/icons/forward.svg")}" alt=""></a>
       <aside class="immersive-info-panel">
-        <h2>${escapeHtml(localised(record.title,lang).value)}</h2>
+        <h2>${title}</h2>
         <p>${escapeHtml(localised(record.channels.museum.introduction,lang).value)}</p>
         <dl>
           <dt>${text(lang,"dateAndPlace")}</dt><dd>${escapeHtml(localised(record.date.display,lang).value || text(lang,"undated"))}</dd>
