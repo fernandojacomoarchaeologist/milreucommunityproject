@@ -4,34 +4,30 @@ project: "Projeto Comunitário de Milreu"
 rights: "Consultar RIGHTS.md"
 ---
 
-# Pacote 05D — Componentes e Padrões Museológicos
+# Pacote 05E — Identidade, Logótipo, Iconografia e Arquitetura de Marca
 
-**Versão:** 0.4.0  
+**Versão:** 0.5.0  
 **Estado:** pronto para integração controlada  
-**Dependências:** Pacotes 01, 02, 03, 04, 05A, 05B e 05C
+**Dependências:** Pacotes 01, 02, 03, 04 e 05A–05D
 
 ## Finalidade
 
-Concluir o ciclo 05 do Sistema de Design com um inventário implementável e navegável de componentes e padrões próprios do Projeto Comunitário de Milreu.
+Encerrar o ciclo 05 do Sistema de Design, incorporando o logótipo oficial do Projeto Comunitário de Milreu, variantes raster transparentes, dark mode, iconografia inicial e regras de arquitetura de marca.
 
-## Entregas
+## Decisões consolidadas
 
-- 21 componentes registados;
-- 13 padrões registados;
-- exemplos visuais acessíveis e marcados como demonstração;
-- biblioteca CSS e auxiliares Vanilla JS;
-- catálogo visual atualizado para 0.4.0;
-- projeções documentais para impressão e Flutter;
-- regras, skills, specs, testes e release.
+- o nome público principal permanece **Projeto Comunitário de Milreu**;
+- **Milreu Proteus** é a camada de dados e conhecimento, não a marca principal;
+- Proteus não recebe logótipo independente nesta fase;
+- o fundo texturado e o brilho do ficheiro recebido são ignorados;
+- todas as cores derivadas são chapadas; gradientes são proibidos;
+- o original é preservado e os derivados permanecem `draft` até revisão visual;
+- não foi criada uma falsa versão vetorial.
 
-## Limites
-
-O pacote não constrói o Portal ou o Museu públicos, não liga backend, não publica o acervo, não implementa Flutter e não gera ficheiros finais de impressão. Nenhum componente está marcado como `approved`.
-
-## Executar localmente
+## Executar a pré-visualização
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Abrir `http://localhost:8080/apps/design-guide/`.
+Abrir `http://localhost:8080/apps/brand-guide-preview/`.

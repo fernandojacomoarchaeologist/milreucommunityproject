@@ -1,0 +1,35 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "version": "0.5.0",
+  "primaryBrand": {
+    "name": "Projeto Comunitário de Milreu",
+    "type": "umbrella-programme",
+    "logo": "project-primary",
+    "publicSiteTitle": "Projeto Comunitário de Milreu"
+  },
+  "initiatives": [
+    {
+      "name": "Museu de Memórias de Milreu",
+      "brandRole": "initiative",
+      "independentLogo": false
+    },
+    {
+      "name": "Open Milreu",
+      "brandRole": "initiative",
+      "independentLogo": false
+    }
+  ],
+  "knowledgeLayer": {
+    "name": "Milreu Proteus",
+    "publicDescriptor": "Base de Conhecimento de Milreu",
+    "fullName": "Milreu Proteus — Base de Conhecimento do Projeto Comunitário de Milreu",
+    "brandRole": "technical-product",
+    "independentLogo": false,
+    "menuLabel": "Dados e Conhecimento"
+  },
+  "rules": [
+    "Proteus não entra no logótipo principal.",
+    "O Museu não substitui a marca guarda-chuva.",
+    "Todas as interfaces apresentam a marca principal de modo proporcional ao contexto."
+  ]
+}

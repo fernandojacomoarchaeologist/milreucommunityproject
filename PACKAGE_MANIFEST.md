@@ -4,37 +4,22 @@ project: "Projeto Comunitário de Milreu"
 rights: "Consultar RIGHTS.md"
 ---
 
-# Manifesto do Pacote 05D
+# Manifesto do Pacote 05E
 
-## Identificação
+## Ficheiros a integrar
 
-- **Nome:** Componentes e Padrões Museológicos
-- **Versão:** 0.4.0
-- **Série:** Pacote 05 — Design System
-- **Posição:** 05D de 05D
+- `assets/brand/`: fonte original, derivados transparentes, símbolos, monocromáticos e aplicações;
+- `assets/icons/`: iconografia funcional e de domínio;
+- `packages/brand-assets/v0.5/`: manifesto técnico da marca;
+- `packages/brand-tokens/v0.5/`: tokens da marca;
+- `data/brand/`: arquitetura de marca, variantes e registo de ícones;
+- `apps/brand-guide-preview/`: pré-visualização independente;
+- `apps/design-guide/extensions/brand/`: extensão para o catálogo visual;
+- `docs/brand/`: normas editoriais e técnicas;
+- `.claude/`: rules e skills;
+- `scripts/` e `tests/`: verificações;
+- `releases/PACKAGE_05E_v0.5.0.md`: release.
 
-## Objetivo
+## Comportamento de integração
 
-Concluir a infraestrutura visual do Design System antes da construção do Portal e do Museu.
-
-## Alterações previstas
-
-1. Atualizar `apps/design-guide/` para 0.4.0.
-2. Adicionar `packages/design-components/v0.4/`.
-3. Adicionar `packages/design-patterns/v0.4/`.
-4. Adicionar `packages/design-guide-catalog/v0.4/`.
-5. Integrar documentação, specs, rules e skills.
-6. Registar handoff para o próximo pacote.
-
-## Critérios de aceite
-
-- 21 IDs de componente únicos e válidos.
-- 13 IDs de padrão únicos e válidos.
-- Todos os componentes referidos pelos padrões existem.
-- Todas as novas rotas do catálogo abrem sem erro.
-- Exemplos não usam o acervo nem imagens do livro.
-- Nenhum elemento está `approved`.
-- CSS e JavaScript validam sintaticamente.
-- Direitos, certeza, estado e proveniência permanecem visíveis quando aplicáveis.
-
-A lista completa e os hashes estão em `PACKAGE_FILES.json`.
+O pacote acrescenta ativos e documentação. Não substitui automaticamente o shell do Design Guide 05D. O Claude deve integrar as novas rotas e páginas preservando a navegação e os componentes existentes.

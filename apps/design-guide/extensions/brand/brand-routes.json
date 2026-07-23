@@ -1,0 +1,35 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "routes": [
+    {
+      "id": "identity/brand-architecture",
+      "title": "Arquitetura de marca",
+      "status": "draft"
+    },
+    {
+      "id": "identity/logo",
+      "title": "Logótipo",
+      "status": "draft"
+    },
+    {
+      "id": "identity/dark-mode",
+      "title": "Dark mode",
+      "status": "draft"
+    },
+    {
+      "id": "identity/iconography",
+      "title": "Iconografia",
+      "status": "draft"
+    },
+    {
+      "id": "identity/application-icons",
+      "title": "Aplicações",
+      "status": "draft"
+    },
+    {
+      "id": "knowledge/milreu-proteus",
+      "title": "Milreu Proteus",
+      "status": "draft"
+    }
+  ]
+}

@@ -154,6 +154,15 @@ Não criar logótipo, textura, ícone ou reprodução do livro por inferência. 
 - Direitos, certeza, estado editorial e proveniência não podem ser ocultados quando aplicáveis.
 - Níveis de certeza apenas `confirmed`, `probable` e `hypothesis`; a narrativa comunitária antecede o contexto institucional.
 
+### 9.5 Identidade, logótipo e marca — integrados pelo Pacote 05E
+
+- A marca pública principal é **Projeto Comunitário de Milreu**.
+- **Milreu Proteus** é a camada técnica de dados e conhecimento e **não** recebe logótipo independente; o Museu também não, nesta fase.
+- O logótipo usa cores chapadas e **nunca** gradientes, brilhos ou texturas.
+- O terracota do logótipo **não** substitui o token vermelho de assinatura da interface.
+- Preservar o ficheiro original recebido; não alterar proporções, composição, ordem ou texto; não criar falso mestre vetorial (o SVG oficial permanece pendente).
+- Os derivados raster permanecem `draft` até revisão visual do responsável.
+
 ## 10. Copyright
 
 Todos os novos MDs e ficheiros de código devem conter:

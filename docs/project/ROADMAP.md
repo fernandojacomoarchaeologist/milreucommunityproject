@@ -105,3 +105,7 @@ O número dos pacotes indica a ordem recomendada, não uma obrigação absoluta.
 ## Handoff após a série 05 — pelo Pacote 05D
 
 Com a série 05 concluída (Design System), o próximo pacote pode especificar a arquitetura e a navegação do Portal e do Museu digital. Deve consumir os tokens 05B, os componentes e padrões 05D, os schemas 03 e os dados preliminares 04, sem publicar automaticamente.
+
+## Handoff para o Pacote 06 — pelo Pacote 05E
+
+A arquitetura do Portal deve manter **Projeto Comunitário de Milreu** como título e tratar **Milreu Proteus** como fonte canónica de dados. O Pacote 06 define URLs, menus, páginas e distribuição de dados; **não** altera a marca.

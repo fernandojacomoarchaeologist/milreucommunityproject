@@ -76,3 +76,12 @@ A aprovação do scaffold não aprova automaticamente homepage, galeria, mapa, t
 ## Acréscimo do Pacote 05D — componentes e padrões
 
 As rotas `components/*` e `patterns/*` do catálogo do guia são documentação **interna** (estado `internal-preview`). Não devem ser confundidas com rotas públicas do Portal ou do Museu.
+
+## Acréscimo do Pacote 05E — identidade e marca
+
+Rotas de identidade adicionadas ao guia (estado `internal-preview`):
+
+- `brand/logo-variants`
+- `brand/iconography-grid`
+- `brand/architecture-map`
+- `knowledge/proteus-relationship`
