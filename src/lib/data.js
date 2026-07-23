@@ -20,6 +20,10 @@ export async function loadPortalContent() {
   return loadJson("public/data/portal-content.json");
 }
 
+export async function loadHomeCarousel() {
+  return loadJson("public/data/home-carousel.json");
+}
+
 export async function loadMuseumCollections() {
   return (await loadJson("public/data/museum-collections.json")).collections;
 }

@@ -1,31 +1,40 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.1"
+package: "07D.2"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 07D.1
+# Prompt de integração — Pacote 07D.2
 
-Integra este hotfix sobre o 07D.
+Integra este hotfix sobre o 07D.1.
 
-## Regras
+## Preservar
 
-1. Preserva Portal, Museu, imagens, exports e modo imersivo.
-2. Não recuperes os pilares antigos.
-3. Não restaures os blocos técnicos removidos da Home.
-4. Não restaures Relação multicanal nas iniciativas.
-5. Mantém Experiência Proteus como nome do menu.
-6. Mantém o retorno ao Projeto como botão flutuante.
-7. Mantém o botão X com handler explícito.
-8. Mantém as velocidades:
-   - x1 = 15 s;
-   - x2 = 7 s;
-   - x3 = 4 s.
-9. Não exponhas year/range na cronologia.
-10. Não exponhas regras JSON nas páginas de coleção.
+- Portal;
+- Museu;
+- 31 fotografias;
+- modo slide x1/x2/x3;
+- Fullscreen API;
+- filmstrip;
+- MM202617 bloqueado;
+- Experiência Proteus no menu.
 
-## Integração
+## Aplicar
+
+1. Carregar `home-carousel.json`.
+2. Manter os três destaques na ordem:
+   - Museu;
+   - Proteus;
+   - Inquérito 2026.
+3. Manter o link externo do inquérito.
+4. Não substituir o empty state Proteus por imagem inventada.
+5. Remover o sumário estatístico da entrada do Museu.
+6. Manter Voltar ao Museu e X fixos.
+7. Garantir que a fotografia imersiva utiliza dimensões automáticas, máximos de 100% e `contain`.
+8. Manter título e descrição das iniciativas em blocos separados.
+
+## Validar
 
 ```bash
 npm install
@@ -40,19 +49,17 @@ npm run smoke
 
 ## Revisão visual
 
-Testar em 1280, 768 e 375 px:
+Testar:
 
-- header do Portal;
-- Projeto e pilares;
-- Home;
-- iniciativa Museu;
-- Museu;
-- botão flutuante;
-- botão de modo imersivo;
+- Home nos três destaques;
+- transição automática;
+- setas, indicadores e pausa;
+- link externo;
+- Museu sem sumário;
+- imersivo horizontal e vertical;
+- Voltar ao Museu;
 - X;
-- modo slide;
-- linha temporal;
-- coleções;
-- Experiência Proteus.
+- browser fullscreen;
+- 1280, 768 e 375 px.
 
-Não promover para lançamento público.
+Não publicar automaticamente.

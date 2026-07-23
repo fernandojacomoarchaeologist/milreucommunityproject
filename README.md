@@ -1,14 +1,14 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.1"
+package: "07D.2"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 07D.1 — Correções de Conteúdo, Navegação e Modo Slide
+# Pacote 07D.2 — Correções do Modo Imersivo e Carrossel da Home
 
-**Versão:** 0.11.1  
-**Tipo:** hotfix cumulativo sobre o Pacote 07D.
+**Versão:** 0.11.2  
+**Base:** Pacote 07D.1.
 
 ## Executar
 
@@ -23,30 +23,47 @@ npm run build
 npm run dev
 ```
 
-## Principais correções
+## Modo imersivo
 
-- pilares do projeto corrigidos;
-- objetivo do projeto incluído;
-- header do Portal compactado;
-- retorno ao Projeto transformado em botão flutuante;
-- blocos técnicos removidos da Home;
-- CTA para o Museu na iniciativa correspondente;
-- relação multicanal removida das páginas de iniciativa;
-- contraste do botão imersivo corrigido;
-- botão X corrigido;
-- apresentação automática com x1, x2 e x3;
-- labels técnicos removidos da linha temporal;
-- documentação JSON removida das coleções;
-- menu renomeado para Experiência Proteus.
+- botão persistente **Voltar ao Museu**;
+- botão X independente dos restantes controlos;
+- ambos continuam visíveis em ecrã inteiro;
+- fotografia centralizada;
+- largura e altura automáticas;
+- limites máximos de 100%;
+- `object-fit: contain`;
+- anterior, seguinte, filmstrip e modo slide preservados.
 
-## Modo slide
+## Home do Museu
 
-- x1: 15 segundos;
-- x2: 7 segundos;
-- x3: 4 segundos;
-- Pausar interrompe a apresentação;
-- o modo termina ao fechar ou sair do ecrã imersivo.
+O bloco estatístico foi removido. A entrada conduz diretamente para percursos de exploração e memórias.
+
+## Carrossel da Home
+
+Transição automática a cada nove segundos, com:
+
+- setas anterior e seguinte;
+- indicadores;
+- pausar/retomar;
+- pausa ao receber foco ou ponteiro;
+- autoplay desativado com preferência de movimento reduzido.
+
+### Destaques
+
+1. Museu de Memórias de Milreu;
+2. Experiência Proteus;
+3. Inquérito 2026.
+
+O Inquérito encaminha para:
+
+```text
+https://pt.surveymonkey.com/r/3CFG2MQ
+```
+
+## Experiência Proteus
+
+Como ainda não existe uma imagem final, foi criado um empty state visual baseado numa rede de memórias, lugares, fontes, dados e relações.
 
 ## Estado
 
-O lançamento público continua bloqueado. Este pacote não altera direitos, domínio, QR, seleção física ou aprovação editorial.
+O lançamento público continua bloqueado. Este pacote não aprova conteúdo editorial, traduções, QR ou produção física.

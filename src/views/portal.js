@@ -47,32 +47,105 @@ function initiativeCard(item, lang) {
   </article>`;
 }
 
-export function homeView(records, content, lang) {
+
+function actionLink(action,lang,className="ml-button ml-button--primary") {
+  if (!action) return "";
+  const label = localised(action.label,lang).value;
+  const external = Boolean(action.external);
+  const href = external ? action.href : `#${action.href}`;
+  return `<a class="${className}" href="${esc(href)}" ${external ? 'target="_blank" rel="noopener noreferrer external"' : ""}>${esc(label)}${external ? " ↗" : ""}</a>`;
+}
+
+function homeCarouselSlide(slide,records,lang,isActive,index,total) {
+  const title = localised(slide.title,lang);
+  const description = localised(slide.description,lang);
+  const eyebrow = localised(slide.eyebrow,lang);
+  const activeClass = isActive ? " home-carousel__slide--active" : "";
+  const ariaHidden = isActive ? "false" : "true";
+
+  if (slide.kind === "museum-memory") {
+    const memory = records.find(record => record.id === slide.memoryId) || records.find(record => record.publication.siteVisible);
+    const credit = memory ? localised(memory.media.credit,lang).value : "";
+    return `<article class="home-carousel__slide home-carousel__slide--image${activeClass}" data-home-slide="${index}" aria-hidden="${ariaHidden}">
+      <div class="home-carousel__media">
+        <img src="${assetUrl(memory.media.variants.immersive)}" alt="${esc(localised(memory.title,lang).value)}">
+      </div>
+      <div class="home-carousel__overlay"></div>
+      <div class="home-carousel__content">
+        <span class="eyebrow">${esc(eyebrow.value)}</span>
+        <h1>${esc(title.value)}</h1>
+        <p>${esc(description.value)}</p>
+        <div class="hero-actions">
+          ${actionLink(slide.primaryAction,lang)}
+          ${actionLink(slide.secondaryAction,lang,"ml-button ml-button--secondary")}
+        </div>
+        <div class="hero-credit">${esc(credit)}</div>
+      </div>
+    </article>`;
+  }
+
+  if (slide.kind === "empty-state") {
+    const labels = slide.emptyStateLabels || [];
+    return `<article class="home-carousel__slide home-carousel__slide--proteus${activeClass}" data-home-slide="${index}" aria-hidden="${ariaHidden}">
+      <div class="home-carousel__content">
+        <span class="eyebrow">${esc(eyebrow.value)}</span>
+        <h1>${esc(title.value)}</h1>
+        <p>${esc(description.value)}</p>
+        <div class="hero-actions">${actionLink(slide.primaryAction,lang)}</div>
+      </div>
+      <div class="proteus-empty-state" aria-label="Estrutura visual da Experiência Proteus">
+        <div class="proteus-empty-state__core">
+          <img src="${assetUrl("public/brand/symbol.webp")}" alt="">
+          <strong>Milreu Proteus</strong>
+          <span>base de conhecimento</span>
+        </div>
+        ${labels.map((label,nodeIndex) => `<span class="proteus-node proteus-node--${nodeIndex+1}">${esc(label)}</span>`).join("")}
+      </div>
+    </article>`;
+  }
+
+  return `<article class="home-carousel__slide home-carousel__slide--survey${activeClass}" data-home-slide="${index}" aria-hidden="${ariaHidden}">
+    <div class="home-carousel__survey-copy">
+      <span class="eyebrow">${esc(eyebrow.value)}</span>
+      <h1>${esc(title.value)}</h1>
+      <p>${esc(description.value)}</p>
+      <div class="hero-actions">${actionLink(slide.primaryAction,lang)}</div>
+    </div>
+    <div class="home-carousel__survey-image">
+      <img src="${assetUrl(slide.image)}" alt="${esc(localised(slide.imageAlt,lang).value)}">
+    </div>
+  </article>`;
+}
+
+function homeCarousel(records,carousel,lang,state={}) {
+  const slides = carousel.slides || [];
+  const activeIndex = Math.max(0,Math.min(Number(state.index || 0),slides.length-1));
+  return `<section class="home-carousel" data-home-carousel aria-roledescription="carousel" aria-label="Destaques do Projeto Comunitário de Milreu">
+    <div class="home-carousel__viewport" aria-live="polite">
+      ${slides.map((slide,index) => homeCarouselSlide(slide,records,lang,index===activeIndex,index,slides.length)).join("")}
+    </div>
+    <button type="button" class="home-carousel__arrow home-carousel__arrow--previous" data-home-carousel-previous aria-label="${text(lang,"carouselPrevious")}">←</button>
+    <button type="button" class="home-carousel__arrow home-carousel__arrow--next" data-home-carousel-next aria-label="${text(lang,"carouselNext")}">→</button>
+    <div class="home-carousel__controls">
+      <div class="home-carousel__dots" role="group" aria-label="${text(lang,"carouselSelect")}">
+        ${slides.map((slide,index) => `<button type="button" data-home-carousel-index="${index}" aria-label="Destaque ${index+1} de ${slides.length}" aria-pressed="${index===activeIndex}"><span></span></button>`).join("")}
+      </div>
+      <button type="button" class="home-carousel__pause" data-home-carousel-pause aria-pressed="${Boolean(state.paused)}">${state.paused ? text(lang,"carouselResume") : text(lang,"carouselPause")}</button>
+    </div>
+  </section>`;
+}
+
+
+export function homeView(records, content, carousel, lang, carouselState={}) {
   const featured = records.filter(x => x.publication.siteVisible).slice(0,3);
-  const hero = featured[0];
-  const heroTitle = localised(hero.title, lang);
   const initiatives = content.initiatives.slice(0,3);
 
   return `${portalHeader(lang)}
   <main id="main">
-    <section class="portal-hero">
-      <div class="portal-hero__media">
-        <img src="${assetUrl(hero.media.variants.immersive)}" alt="${esc(heroTitle.value)}">
-      </div>
-      <div class="portal-hero__content">
-        <span class="eyebrow">Arqueologia pública e comunitária</span>
-        <h1>${text(lang,"homeTitle")}</h1>
-        <p>${text(lang,"homeLead")}</p>
-        <div class="hero-actions">
-          <a class="ml-button ml-button--primary" href="#/museu">${text(lang,"enterMuseum")}</a>
-          <a class="ml-button ml-button--secondary" href="#/projeto">${text(lang,"discoverProject")}</a>
-        </div>
-        <div class="hero-credit">${esc(localised(hero.media.credit,lang).value)}</div>
-      </div>
-    </section>
+    ${homeCarousel(records,carousel,lang,carouselState)}
 
     <section class="content-section">
-      <div class="section-heading">
+      <div class="section-heading section-heading--stacked">
         <h2>${text(lang,"currentInitiatives")}</h2>
         <p>O Portal apresenta as diferentes frentes do Projeto Comunitário de Milreu.</p>
       </div>

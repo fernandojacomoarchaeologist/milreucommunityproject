@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -24,6 +24,9 @@ const app = document.querySelector("#app");
 const state = {
   records: [],
   portal: null,
+  homeCarousel: null,
+  homeCarouselIndex: 0,
+  homeCarouselPaused: false,
   collections: [],
   museumIndex: [],
   audit: null,
@@ -46,6 +49,36 @@ const slideshowIntervals = {
 
 let immersiveKeyHandler = null;
 let slideshowTimer = null;
+let homeCarouselTimer = null;
+
+function clearHomeCarouselTimer() {
+  if (homeCarouselTimer) {
+    clearTimeout(homeCarouselTimer);
+    homeCarouselTimer = null;
+  }
+}
+
+function scheduleHomeCarousel() {
+  clearHomeCarouselTimer();
+  const route = getRoute();
+  const config = state.homeCarousel?.autoplay;
+  const slides = state.homeCarousel?.slides || [];
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+  if (route.name !== "home" || !config?.enabled || state.homeCarouselPaused || reducedMotion || slides.length < 2) return;
+
+  homeCarouselTimer = setTimeout(() => {
+    state.homeCarouselIndex = (state.homeCarouselIndex + 1) % slides.length;
+    render(false);
+  }, Number(config.intervalMs || 9000));
+}
+
+function moveHomeCarousel(direction) {
+  const slides = state.homeCarousel?.slides || [];
+  if (!slides.length) return;
+  state.homeCarouselIndex = (state.homeCarouselIndex + direction + slides.length) % slides.length;
+  render(false);
+}
 
 function setLanguage(lang) {
   state.lang = lang;
@@ -108,6 +141,29 @@ function bindPage() {
     });
   }
 
+  document.querySelector("[data-home-carousel-previous]")?.addEventListener("click", () => moveHomeCarousel(-1));
+  document.querySelector("[data-home-carousel-next]")?.addEventListener("click", () => moveHomeCarousel(1));
+  document.querySelectorAll("[data-home-carousel-index]").forEach(button =>
+    button.addEventListener("click", () => {
+      state.homeCarouselIndex = Number(button.dataset.homeCarouselIndex);
+      render(false);
+    })
+  );
+  document.querySelector("[data-home-carousel-pause]")?.addEventListener("click", () => {
+    state.homeCarouselPaused = !state.homeCarouselPaused;
+    render(false);
+  });
+
+  const carousel = document.querySelector("[data-home-carousel]");
+  if (carousel && state.homeCarousel?.autoplay?.pauseOnHover) {
+    carousel.addEventListener("mouseenter", clearHomeCarouselTimer);
+    carousel.addEventListener("mouseleave", scheduleHomeCarousel);
+  }
+  if (carousel && state.homeCarousel?.autoplay?.pauseOnFocus) {
+    carousel.addEventListener("focusin", clearHomeCarouselTimer);
+    carousel.addEventListener("focusout", scheduleHomeCarousel);
+  }
+
   document.querySelectorAll("[data-layout]").forEach(button =>
     button.addEventListener("click", () => {
       state.filters.layout = button.dataset.layout;
@@ -136,10 +192,13 @@ function bindPage() {
     }
   });
 
-  document.querySelector("[data-close-immersive]")?.addEventListener("click", () => {
-    const route = getRoute();
-    if (route.name === "immersive") closeImmersive(route.id);
-  });
+  document.querySelectorAll("[data-close-immersive]").forEach(control =>
+    control.addEventListener("click", event => {
+      event.preventDefault();
+      const route = getRoute();
+      if (route.name === "immersive") closeImmersive(route.id);
+    })
+  );
 
   document.querySelectorAll("[data-slideshow-speed]").forEach(button =>
     button.addEventListener("click", () => {
@@ -155,6 +214,7 @@ function bindPage() {
 
   bindImmersiveKeyboard();
   scheduleSlideshow();
+  scheduleHomeCarousel();
 }
 
 function bindImmersiveKeyboard() {
@@ -203,7 +263,7 @@ function render(scroll=true) {
   let html = "";
 
   switch (route.name) {
-    case "home": html = homeView(state.records,state.portal,state.lang); setMetadata(text(state.lang,"homeTitle")); break;
+    case "home": html = homeView(state.records,state.portal,state.homeCarousel,state.lang,{index:state.homeCarouselIndex,paused:state.homeCarouselPaused}); setMetadata(text(state.lang,"homeTitle")); break;
     case "project": html = projectView(state.portal,state.lang); setMetadata(text(state.lang,"project")); break;
     case "methodology": html = methodologyView(state.portal,state.lang); setMetadata(text(state.lang,"methodology")); break;
     case "initiatives": html = initiativesView(state.portal,state.lang); setMetadata(text(state.lang,"initiatives")); break;
@@ -244,8 +304,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
+    [state.records,state.portal,state.homeCarousel,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
     ]);
     render();
   } catch (error) {
