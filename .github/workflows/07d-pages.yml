@@ -32,6 +32,10 @@ jobs:
     environment: github-pages
     env:
       MILREU_PUBLIC_BASE_URL: ${{ inputs.public_base_url }}
+      MILREU_SITE_URL: ${{ inputs.public_base_url }}
+      MILREU_SUPABASE_URL: ${{ secrets.MILREU_SUPABASE_URL }}
+      MILREU_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.MILREU_SUPABASE_PUBLISHABLE_KEY }}
+      MILREU_ALLOW_DEMO: "false"
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -39,6 +43,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run collab:config
       - uses: actions/setup-python@v6
         with:
           python-version: "3.13"

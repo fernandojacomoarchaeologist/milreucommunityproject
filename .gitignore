@@ -23,3 +23,6 @@ data/private/
 
 # Pacote 07A — output de build (não commitar)
 dist/
+
+# Pacote 08A — override local do runtime colaborativo (pode conter chaves)
+public/config/collaborative-area.runtime.local.json

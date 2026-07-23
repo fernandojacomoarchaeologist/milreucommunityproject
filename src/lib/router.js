@@ -17,6 +17,20 @@ export function getRoute() {
   if (path === "/participar") return { name:"participate" };
   if (path === "/sobre") return { name:"about" };
 
+
+  if (path === "/entrar") return { name:"collab-login" };
+  if (path === "/auth/callback") return { name:"collab-callback" };
+  if (path === "/area-colaborativa") return { name:"collab-dashboard" };
+  if (path === "/area-colaborativa/perfil") return { name:"collab-profile" };
+  if (path === "/area-colaborativa/tarefas") return { name:"collab-tasks" };
+  if (path === "/area-colaborativa/contributos") return { name:"collab-contributions" };
+  if (path === "/area-colaborativa/agenda") return { name:"collab-agenda" };
+  if (path === "/area-colaborativa/biblioteca") return { name:"collab-library" };
+  if (path === "/area-colaborativa/formacao") return { name:"collab-training" };
+  if (path === "/area-colaborativa/revisao-museu") return { name:"collab-museum-review" };
+  if (path === "/area-colaborativa/gestao/perfis") return { name:"collab-profile-management" };
+  if (path === "/area-colaborativa/gestao/exposicoes") return { name:"collab-exhibition-management" };
+
   if (path === "/laboratorio/canais") return { name:"channel-lab" };
   const totemPreview = path.match(/^\/laboratorio\/totem\/(MM\d{6})$/);
   if (totemPreview) return { name:"totem-preview", id:totemPreview[1] };

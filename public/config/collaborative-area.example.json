@@ -1,0 +1,28 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.12.0",
+  "mode": "demo",
+  "supabaseUrl": null,
+  "supabasePublishableKey": null,
+  "supabaseJsModule": "https://esm.sh/@supabase/supabase-js@2.110.8?bundle",
+  "siteUrl": null,
+  "callbackPath": "auth/callback/",
+  "afterLoginHash": "#/area-colaborativa",
+  "googleProvider": "google",
+  "allowDemo": true,
+  "allowDemoMaster": true,
+  "registration": {
+    "openAccessRequests": true,
+    "requireApproval": true,
+    "requiredFields": [
+      "displayName",
+      "email",
+      "primaryProfileType"
+    ]
+  },
+  "security": {
+    "serviceRoleInBrowser": false,
+    "rlsRequired": true,
+    "storeGoogleProviderTokens": false
+  }
+}

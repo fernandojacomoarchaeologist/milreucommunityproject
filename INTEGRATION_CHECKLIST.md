@@ -1,38 +1,75 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.3"
+package: "08A"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Checklist de integração
 
-## MM202617
+## Aplicação
 
-- [ ] aparece na galeria;
-- [ ] aparece na pesquisa;
-- [ ] aparece no filtro de intervenções;
-- [ ] aparece na coleção de intervenções digitais;
-- [ ] abre no detalhe;
-- [ ] abre no modo imersivo;
-- [ ] mostra aviso no card;
-- [ ] mostra aviso no detalhe;
-- [ ] mostra aviso no imersivo;
-- [ ] crédito menciona IA;
-- [ ] intervenção substantiva documentada;
-- [ ] `siteStatus = review-visible`;
-- [ ] `publicReleaseEligible = false`;
-- [ ] `robots = noindex`;
-- [ ] não entra no JSON-LD;
-- [ ] não gera página estática de lançamento;
-- [ ] não gera QR;
-- [ ] totem e painel permanecem review-only.
+- [ ] Portal e Museu sem regressão
+- [ ] Link Área Colaborativa
+- [ ] `/entrar`
+- [ ] `/area-colaborativa`
+- [ ] perfil
+- [ ] tarefas
+- [ ] contributos
+- [ ] agenda
+- [ ] biblioteca
+- [ ] formação
+- [ ] revisão do Museu
+- [ ] gestão de perfis
+- [ ] gestão de exposições
 
-## Validação
+## Demonstração
 
-- [ ] `npm run channels:export`
-- [ ] `npm run museum:index`
-- [ ] `npm run museum:audit`
+- [ ] utilizador pendente
+- [ ] cadastro com nome
+- [ ] e-mail somente leitura
+- [ ] escolha do perfil
+- [ ] pedido pendente
+- [ ] master de demonstração
+- [ ] módulos condicionados
+- [ ] logout
+
+## Supabase
+
+- [ ] migrations preservadas
+- [ ] RLS
+- [ ] funções RPC
+- [ ] perfil criado após login
+- [ ] vínculo pending
+- [ ] aprovação de acesso
+- [ ] atribuição de funções
+- [ ] auditoria
+- [ ] tabelas de tarefas
+- [ ] tabelas de exposições
+
+## Google
+
+- [ ] projeto Google Cloud
+- [ ] ecrã de consentimento
+- [ ] cliente OAuth Web
+- [ ] provider Google no Supabase
+- [ ] callback local
+- [ ] callback GitHub Pages
+- [ ] callback domínio final
+- [ ] teste PKCE
+
+## Master
+
+- [ ] login inicial efetuado
+- [ ] e-mail real definido fora do Git
+- [ ] service role apenas em ambiente administrativo
+- [ ] bootstrap executado
+- [ ] função master confirmada
+- [ ] auditoria confirmada
+
+## Qualidade
+
+- [ ] `npm run collab:status`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`

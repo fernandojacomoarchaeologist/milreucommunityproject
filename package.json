@@ -1,6 +1,6 @@
 {
   "name": "milreu-community-project",
-  "version": "0.6.0",
+  "version": "0.12.0",
   "private": true,
   "description": "Infraestrutura, dados e Design System do Projeto Comunitário de Milreu.",
   "license": "SEE RIGHTS.md",
@@ -24,10 +24,10 @@
     "architecture:validate": "node scripts/architecture/validate-architecture.mjs",
     "architecture:test": "node --test tests/architecture/*.test.mjs",
     "architecture:prototype:serve": "python3 -m http.server 8080 -d apps/architecture-prototype",
-    "dev": "node scripts/dev-server.mjs --root . --port 4173",
-    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs && node scripts/channels/validate-channels.mjs && node scripts/structured/validate-structured-data.mjs && node scripts/quality/validate-performance.mjs && node scripts/quality/validate-accessibility.mjs && node scripts/validate-07d.mjs && node scripts/validate-07d1-fixes.mjs && node scripts/validate-07d2-fixes.mjs && node scripts/validate-07d3-mm202617.mjs",
+    "dev": "node scripts/collab/build-runtime-config.mjs && node scripts/dev-server.mjs --root . --port 4173",
+    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs && node scripts/channels/validate-channels.mjs && node scripts/structured/validate-structured-data.mjs && node scripts/quality/validate-performance.mjs && node scripts/quality/validate-accessibility.mjs && node scripts/validate-07d.mjs && node scripts/validate-07d1-fixes.mjs && node scripts/validate-07d2-fixes.mjs && node scripts/validate-07d3-mm202617.mjs && node scripts/collab/validate-foundation.mjs",
     "test": "node --test tests/*.test.mjs",
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/collab/build-runtime-config.mjs && node scripts/build.mjs",
     "preview": "node scripts/dev-server.mjs --root dist --port 4173",
     "smoke": "node scripts/smoke.mjs",
     "media:generate": "python3 scripts/media/generate_variants.py",
@@ -49,7 +49,12 @@
     "validate:07d": "node scripts/validate-07d.mjs",
     "validate:07d1": "node scripts/validate-07d1-fixes.mjs",
     "validate:07d2": "node scripts/validate-07d2-fixes.mjs",
-    "validate:07d3": "node scripts/validate-07d3-mm202617.mjs"
+    "validate:07d3": "node scripts/validate-07d3-mm202617.mjs",
+    "collab:config": "node scripts/collab/build-runtime-config.mjs",
+    "collab:validate": "node scripts/collab/validate-foundation.mjs",
+    "collab:bootstrap-master": "node scripts/admin/bootstrap-master.mjs",
+    "collab:status": "node scripts/collab/status.mjs",
+    "validate:08a": "node scripts/collab/validate-foundation.mjs"
   },
   "devDependencies": {
     "supabase": "2.109.1"
