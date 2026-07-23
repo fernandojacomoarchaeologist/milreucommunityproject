@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "$comment": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "title": "Milreu public memory snapshot",
+  "type": "object",
+  "required": [
+    "id",
+    "editorialStatus",
+    "publication",
+    "title",
+    "description",
+    "media",
+    "rights",
+    "channels"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^MM[0-9]{6}$"
+    },
+    "editorialStatus": {
+      "enum": [
+        "preliminary",
+        "review",
+        "approved",
+        "published",
+        "withdrawn"
+      ]
+    },
+    "publication": {
+      "type": "object",
+      "required": [
+        "repositoryAllowed",
+        "siteVisible",
+        "siteStatus"
+      ]
+    },
+    "title": {
+      "type": "object"
+    },
+    "description": {
+      "type": "object"
+    },
+    "media": {
+      "type": "object"
+    },
+    "rights": {
+      "type": "object"
+    },
+    "channels": {
+      "type": "object"
+    }
+  }
+}

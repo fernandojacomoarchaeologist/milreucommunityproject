@@ -1,53 +1,69 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "06"
-rights: "Consultar RIGHTS.md no repositório principal"
+package: "07A"
+rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
 ---
 
-# Pacote 06 — Arquitetura do Portal e do Museu
+# Pacote 07A — Base Executável, Pipeline de Imagens e Primeira Experiência Vertical
 
-**Versão:** 0.7.0  
-**Estado:** pronto para integração arquitetural  
-**Pré-condições:** Pacotes 01–05F integrados, CI verde, Gate A aceite e tokens v0.2 canónicos.
+**Versão:** 0.8.0  
+**Estado:** executável, static-first e pronto para integração controlada  
+**Pré-condições:** Pacotes 01–06 integrados; Gate A aceite; CI verde.
 
-Este pacote define a aplicação antes da construção do MVP.
+Este é o primeiro pacote que entrega uma aplicação real do Projeto Comunitário de Milreu.
 
-## Entregas
+## O que funciona
 
-- mapa completo do Portal;
-- mapa específico do Museu;
-- arquitetura da informação;
-- rotas e menus;
-- separação entre Portal e Museu;
-- ligação ao Milreu Proteus;
-- fluxos principais;
-- wireframes funcionais;
-- regras responsivas;
-- specs por página;
-- matriz página × componente;
-- matriz página × fonte de dados;
-- critérios do MVP;
-- backlog inicial do Pacote 07;
-- rules, skills, testes, prompt e release.
+```text
+Página inicial do Portal
+→ entrada no Museu
+→ galeria com fotografias reais
+→ detalhe da memória
+→ modo imersivo
+→ regresso ao Portal
+```
 
-## Decisão principal
+A aplicação:
 
-O **Projeto Comunitário de Milreu** permanece como marca e entrada pública.
+- funciona sem backend;
+- não depende do Supabase para abrir;
+- é compatível com GitHub Pages;
+- utiliza as fotografias autorizadas do Museu;
+- utiliza descrições migradas, assinaladas como preliminares;
+- preserva créditos, proveniência e direitos;
+- usa os tokens v0.2 e componentes do Design System;
+- suporta pt-PT, en, es e fr com fallback;
+- prepara a mesma estrutura canónica para Portal, Museu, totem e painel.
 
-- O **Portal** orienta, contextualiza e permite consulta.
-- O **Museu** oferece exploração visual e imersiva.
-- O **Milreu Proteus** é a fonte canónica de dados e conhecimento.
+## Executar
 
-## Limites
+```bash
+npm install
+npm run dev
+```
 
-Este pacote não:
+Abrir o endereço apresentado no terminal, normalmente `http://localhost:4173`.
 
-- reconstrói o site final;
-- publica os 31 registos;
-- liga ao Supabase remoto;
-- cria o mapa vivo;
-- ativa submissões;
-- cria a aplicação Flutter;
-- resolve traduções;
-- substitui o protótipo anterior.
+## Build
+
+```bash
+npm run validate
+npm test
+npm run build
+npm run preview
+```
+
+O conteúdo publicável fica em `dist/`.
+
+## Estado dos conteúdos
+
+- 31 imagens únicas estão no repositório do pacote;
+- 30 podem aparecer nesta pré-visualização;
+- `MM202617` permanece bloqueado no site devido à natureza da intervenção por IA;
+- todos os textos continuam `preliminary` até ao Pacote 08;
+- o build inclui `noindex` para evitar indexação acidental desta versão de trabalho.
+
+## Próximo passo
+
+Após integração e revisão no browser, avançar para o Pacote 07B — Portal público.

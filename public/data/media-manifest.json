@@ -1,0 +1,1330 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.8.0",
+  "sourceArchive": "museu-memorias-milreu-GITHUB.zip",
+  "uniqueImages": 31,
+  "duplicateResolved": "MM202612.jpeg identical to MM202612.jpg",
+  "excludedLegacyHero": "milreu_mosaic_hero.png contained JPEG data and is not used",
+  "variants": {
+    "thumbnail": [
+      480,
+      75
+    ],
+    "card": [
+      900,
+      80
+    ],
+    "detail": [
+      1600,
+      84
+    ],
+    "immersive": [
+      2400,
+      88
+    ]
+  },
+  "items": [
+    {
+      "id": "MM202601",
+      "sourceFile": "MM202601.jpg",
+      "originalPath": "public/media/museum/originals/MM202601.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2414,
+      "height": 1728,
+      "bytes": 939534,
+      "sha256": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202601/thumbnail.webp",
+          "width": 480,
+          "height": 344,
+          "bytes": 19604,
+          "sha256": "bb70b362d4bd5803e409b7024514b97a553bc17a7a063aa23bf47c9d01a8762d"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202601/card.webp",
+          "width": 900,
+          "height": 644,
+          "bytes": 55868,
+          "sha256": "39ebc06a4a2c2a5c5ec252b65b9b88e8ed4cd9f9e3459666ee687b1c681ffe81"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202601/detail.webp",
+          "width": 1600,
+          "height": 1145,
+          "bytes": 130354,
+          "sha256": "5a2cdc8640f8ee37d1d30c4aa11058d2d52ef4323bcb2a4473d3640da013cb41"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202601/immersive.webp",
+          "width": 2400,
+          "height": 1718,
+          "bytes": 284358,
+          "sha256": "9b8881ee7fb4c3a0078a6d5c571aa5bd8fb734a81c2e4af2939d44d5ca73ef44"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202602",
+      "sourceFile": "MM202602.jpg",
+      "originalPath": "public/media/museum/originals/MM202602.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 1797396,
+      "sha256": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202602/thumbnail.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 55260,
+          "sha256": "284a84612328989db544ad3cb870aec2c54fabeaf8f76203905b875707bf1568"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202602/card.webp",
+          "width": 900,
+          "height": 900,
+          "bytes": 188710,
+          "sha256": "0bcbfe9eab4ad255b7d94ff83257cc30ea2210a91fbb4fef3afd38fdedc47020"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202602/detail.webp",
+          "width": 1600,
+          "height": 1600,
+          "bytes": 537954,
+          "sha256": "903b971565c00549a68d68452930ac13ad5a12f549caa5174d2ffc4b0d21765f"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202602/immersive.webp",
+          "width": 2048,
+          "height": 2048,
+          "bytes": 1030104,
+          "sha256": "be6a404c896f197bd75d3232e4370a3a6eb876421bdfd96bd00133123f5f4a9b"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202603",
+      "sourceFile": "MM202603.jpg",
+      "originalPath": "public/media/museum/originals/MM202603.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2384,
+      "height": 1792,
+      "bytes": 1306511,
+      "sha256": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202603/thumbnail.webp",
+          "width": 480,
+          "height": 361,
+          "bytes": 38080,
+          "sha256": "d7322b6e5fc436a5c35392a9eeb58d90847c6397495b2cfbf287c755647153db"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202603/card.webp",
+          "width": 900,
+          "height": 677,
+          "bytes": 109490,
+          "sha256": "08c9808d423b21b00ebe47a547f6c161cbe5bf0476a75e8759d0b799bc04a046"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202603/detail.webp",
+          "width": 1600,
+          "height": 1203,
+          "bytes": 263326,
+          "sha256": "0e942793745181bcef9a103ca91acf5d83515c742561ba4315f79c29f4e499de"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202603/immersive.webp",
+          "width": 2384,
+          "height": 1792,
+          "bytes": 565302,
+          "sha256": "1fd6ebc7e35e5f2b04b5b812101b6ef7a10d5f281cda402c9bf43098f51416b1"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202604",
+      "sourceFile": "MM202604.jpg",
+      "originalPath": "public/media/museum/originals/MM202604.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2612,
+      "height": 1632,
+      "bytes": 725608,
+      "sha256": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202604/thumbnail.webp",
+          "width": 480,
+          "height": 300,
+          "bytes": 12654,
+          "sha256": "d7283fa1b880ee58b7cdeb39e65115ed6f0042c94d62a431e6dbd3ec75f8b260"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202604/card.webp",
+          "width": 900,
+          "height": 562,
+          "bytes": 36256,
+          "sha256": "11f6de3dc2335763884f4d2dc6ad2eea26f6447fc3a06406daaa2f19479a7a5e"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202604/detail.webp",
+          "width": 1600,
+          "height": 1000,
+          "bytes": 82690,
+          "sha256": "3a82692ce4bbb5249bffcdba95a6aaf41ffa83b99f21e69058993b9cdfe112e7"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202604/immersive.webp",
+          "width": 2400,
+          "height": 1500,
+          "bytes": 166112,
+          "sha256": "f2957c5c40f069469cc4708a43507393aa5696072d5049c4d4b8aa1735d0bed1"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202605",
+      "sourceFile": "MM202605.jpg",
+      "originalPath": "public/media/museum/originals/MM202605.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2400,
+      "height": 1792,
+      "bytes": 1278431,
+      "sha256": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202605/thumbnail.webp",
+          "width": 480,
+          "height": 358,
+          "bytes": 40192,
+          "sha256": "99676ce8141b4876d4f008214355cb318ca7dd86843e1248ecf520fdf3477ef2"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202605/card.webp",
+          "width": 900,
+          "height": 672,
+          "bytes": 112728,
+          "sha256": "69e9e61d84cfecaffda0a327a95a7eb7807486183a3a33aba7f762cff4a57d4c"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202605/detail.webp",
+          "width": 1600,
+          "height": 1195,
+          "bytes": 252194,
+          "sha256": "1582a9e478367f27fa53053583cfb9e891f8a3a0bc9dc87579daffbb3151ead8"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202605/immersive.webp",
+          "width": 2400,
+          "height": 1792,
+          "bytes": 538516,
+          "sha256": "858d7711c790921878f55aa508e2ae142c94e38199924c5f381818e85cc58631"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202606",
+      "sourceFile": "MM202606.jpg",
+      "originalPath": "public/media/museum/originals/MM202606.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2550,
+      "height": 1664,
+      "bytes": 1682886,
+      "sha256": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202606/thumbnail.webp",
+          "width": 480,
+          "height": 313,
+          "bytes": 38378,
+          "sha256": "407833354b78c2d2b54d57ae27a4ffe42017f90d91ce367267c152f038fbe9fe"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202606/card.webp",
+          "width": 900,
+          "height": 587,
+          "bytes": 126296,
+          "sha256": "e660e42fb906c95ffdad34b308252c46785bc9ad57e1b46355a95022a09bd607"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202606/detail.webp",
+          "width": 1600,
+          "height": 1044,
+          "bytes": 352346,
+          "sha256": "7244b12ee76b89413e8a69cdb93cd9637ebf4aa576af2252494bc61d1a6627d7"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202606/immersive.webp",
+          "width": 2400,
+          "height": 1566,
+          "bytes": 790858,
+          "sha256": "4c34b575bcf6254976605a05245530668c2658312e76d3b7ab0f820473f80ddc"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202607",
+      "sourceFile": "MM202607.jpg",
+      "originalPath": "public/media/museum/originals/MM202607.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2416,
+      "height": 1760,
+      "bytes": 1121284,
+      "sha256": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202607/thumbnail.webp",
+          "width": 480,
+          "height": 350,
+          "bytes": 25884,
+          "sha256": "2ab5eb573cc1c472f3e848bc40dd9a0fd21140bd137c4236c87c95d5caf4e095"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202607/card.webp",
+          "width": 900,
+          "height": 656,
+          "bytes": 83118,
+          "sha256": "21205ae77bdf1c15bdde2154811dcbc651c684dda7fad463906084de27ccedec"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202607/detail.webp",
+          "width": 1600,
+          "height": 1166,
+          "bytes": 224496,
+          "sha256": "ae09e8e78e81031592a463b06cffbd98f994bbe1af16934577eff4ad0a129462"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202607/immersive.webp",
+          "width": 2400,
+          "height": 1748,
+          "bytes": 478588,
+          "sha256": "06d28722043e65b5b054a0707fb059d0e8f992ef78bb957533dc7cec3ee01701"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202608",
+      "sourceFile": "MM202608.jpg",
+      "originalPath": "public/media/museum/originals/MM202608.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2680,
+      "height": 1600,
+      "bytes": 1712309,
+      "sha256": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202608/thumbnail.webp",
+          "width": 480,
+          "height": 287,
+          "bytes": 28476,
+          "sha256": "4ef0713971adb95f89f92b34ce5ecd5d228a536db4c759bab233f4074bb1d2e6"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202608/card.webp",
+          "width": 900,
+          "height": 537,
+          "bytes": 105754,
+          "sha256": "ed88c5d29b2452c080f8554a9bec2e903e7e75091e60c18e7cab493eddc07841"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202608/detail.webp",
+          "width": 1600,
+          "height": 955,
+          "bytes": 324386,
+          "sha256": "4f7f16cec62acaa1d25a006420663137cd3b16fed530fb2cae01f2e6db15bfc6"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202608/immersive.webp",
+          "width": 2400,
+          "height": 1433,
+          "bytes": 731774,
+          "sha256": "8cc26e4584184fcad446f9623f4a1c32d4b3cd7ca5eed88dd5284b71597982b2"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202609",
+      "sourceFile": "MM202609.jpg",
+      "originalPath": "public/media/museum/originals/MM202609.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2052,
+      "height": 2048,
+      "bytes": 901525,
+      "sha256": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202609/thumbnail.webp",
+          "width": 480,
+          "height": 479,
+          "bytes": 27794,
+          "sha256": "f47d82f6c9a6d65e0e022b60ee5834a03fdf5e4f1909fe7e771d87ee5e3cb476"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202609/card.webp",
+          "width": 900,
+          "height": 898,
+          "bytes": 74072,
+          "sha256": "931e81723a04bf77a6dbb90d3af9892cc1a4d43818b33fb67022fa7ae1a02ee8"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202609/detail.webp",
+          "width": 1600,
+          "height": 1597,
+          "bytes": 173652,
+          "sha256": "c380dafd0e9d2c151648e0223b90b388aa68243adf241449f06ceb9ce513a85f"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202609/immersive.webp",
+          "width": 2052,
+          "height": 2048,
+          "bytes": 310456,
+          "sha256": "48153dfe6c4d60b8f5b6f49ce949c483da5a02d4a28fd07a1e0bd9587b3050b5"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202610",
+      "sourceFile": "MM202610.jpg",
+      "originalPath": "public/media/museum/originals/MM202610.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1792,
+      "height": 2398,
+      "bytes": 1172248,
+      "sha256": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202610/thumbnail.webp",
+          "width": 359,
+          "height": 480,
+          "bytes": 11160,
+          "sha256": "27b88756b0703f45ac03c146c4b4ee063e1e7c354e8b4f12923e61e6f1e69000"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202610/card.webp",
+          "width": 673,
+          "height": 900,
+          "bytes": 29592,
+          "sha256": "38a0ae8805e5f00be1b0fb54205988a5bae70517fe8c7192495c655a568cc684"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202610/detail.webp",
+          "width": 1196,
+          "height": 1600,
+          "bytes": 133068,
+          "sha256": "194ebfd8280af129f7ce043e5d911fd7722260dea67afb9e501037246ad09335"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202610/immersive.webp",
+          "width": 1792,
+          "height": 2398,
+          "bytes": 533706,
+          "sha256": "b05572fff5c5447634179bbcf60c894c0c8174e78f925a842f7b3b135df62c0c"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202611",
+      "sourceFile": "MM202611.jpg",
+      "originalPath": "public/media/museum/originals/MM202611.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1536,
+      "height": 2730,
+      "bytes": 999468,
+      "sha256": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202611/thumbnail.webp",
+          "width": 270,
+          "height": 480,
+          "bytes": 9540,
+          "sha256": "61a0a4574f323e8066ee1e9f3510cff01a9a715df79a022a2c9a530eac1dedc3"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202611/card.webp",
+          "width": 506,
+          "height": 900,
+          "bytes": 23730,
+          "sha256": "cc6971d5f325ebfbed2a368228abef446ad84ac4ad17c229ffe419c67a367f3a"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202611/detail.webp",
+          "width": 900,
+          "height": 1600,
+          "bytes": 77862,
+          "sha256": "d6c2f3c70d47fc5de0ce305ab627807c078e288c3e780af35dd1c62b68904bb9"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202611/immersive.webp",
+          "width": 1350,
+          "height": 2400,
+          "bytes": 290288,
+          "sha256": "8fe4d619fa444c9f1e8c5fbfb2e5724661934d4587210f75867f39ad9848bfe7"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202612",
+      "sourceFile": "MM202612.jpg",
+      "originalPath": "public/media/museum/originals/MM202612.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1440,
+      "height": 810,
+      "bytes": 146639,
+      "sha256": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202612/thumbnail.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 18790,
+          "sha256": "61cd553ed023a45443bd319b73fa543480128adb6b224f8baca0317d58f9fc0a"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202612/card.webp",
+          "width": 900,
+          "height": 506,
+          "bytes": 58042,
+          "sha256": "4ef2c0b2b43f0bb71c3fd7677db1cacecf6ca4c00623613fc9fa2b94a9721281"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202612/detail.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 126932,
+          "sha256": "7e2862dfe46d07415790d07ea119bde6541968e00dc8ace0641229745d9c5df4"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202612/immersive.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 152486,
+          "sha256": "d62df0aab9a85641fb2b5454eea56794dd8c4f3c47efbd1926997c124542cafc"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202613",
+      "sourceFile": "MM202613.jpg",
+      "originalPath": "public/media/museum/originals/MM202613.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2626,
+      "height": 1600,
+      "bytes": 1424062,
+      "sha256": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202613/thumbnail.webp",
+          "width": 480,
+          "height": 292,
+          "bytes": 20516,
+          "sha256": "f884ddaa548f95986b438af89c819b37c9f7faf518757a84e9b734bf5c3b5226"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202613/card.webp",
+          "width": 900,
+          "height": 548,
+          "bytes": 74458,
+          "sha256": "7b62edf7049ff43b2436005dedf5c1fe2b445c451804739dfb6db713cfab651e"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202613/detail.webp",
+          "width": 1600,
+          "height": 975,
+          "bytes": 223576,
+          "sha256": "3514d2dcb71a9920106183738b5d06fc8b6845f3af16bf0e6626174acccb0c08"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202613/immersive.webp",
+          "width": 2400,
+          "height": 1462,
+          "bytes": 552088,
+          "sha256": "ad925e31701e384274e38ec719dea277cfebbfbd2bb3294759ce2ec629cb2467"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202614",
+      "sourceFile": "MM202614.jpg",
+      "originalPath": "public/media/museum/originals/MM202614.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2340,
+      "height": 1824,
+      "bytes": 1334683,
+      "sha256": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202614/thumbnail.webp",
+          "width": 480,
+          "height": 374,
+          "bytes": 28742,
+          "sha256": "9794f07d8377abc102b14f6d9331d4903701ea870181c1469c5786407c11ee10"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202614/card.webp",
+          "width": 900,
+          "height": 702,
+          "bytes": 96650,
+          "sha256": "c1335a6b14f3a39ad37672ff1c7eb7e14b927753a85eb59c72f29752fd80261d"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202614/detail.webp",
+          "width": 1600,
+          "height": 1247,
+          "bytes": 283872,
+          "sha256": "4d2b3a987e73a4b285ccb0f3394a0df9cf616292f7c9f03f2c2ec62858af632b"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202614/immersive.webp",
+          "width": 2340,
+          "height": 1824,
+          "bytes": 639240,
+          "sha256": "06246d0ea37792ead46741997290b4212eb6abb84efe7853824f98f332c96e5e"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202615",
+      "sourceFile": "MM202615.jpg",
+      "originalPath": "public/media/museum/originals/MM202615.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2338,
+      "height": 1824,
+      "bytes": 1031005,
+      "sha256": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202615/thumbnail.webp",
+          "width": 480,
+          "height": 374,
+          "bytes": 15744,
+          "sha256": "4a7bea20f435298a9b01e8a723ce599a0b3c7e2f8e65f91a9cf0bd747d26f271"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202615/card.webp",
+          "width": 900,
+          "height": 702,
+          "bytes": 50332,
+          "sha256": "af01fc11b7457df067705f2e17ed057535d7dc6e7d8f5bdee6431dd0b3d4484b"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202615/detail.webp",
+          "width": 1600,
+          "height": 1248,
+          "bytes": 163754,
+          "sha256": "cf268f3bcf7b35b46b7efa5135f1c47f8863072989b302ba8ebe6b04f3a3e07e"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202615/immersive.webp",
+          "width": 2338,
+          "height": 1824,
+          "bytes": 458370,
+          "sha256": "3f374c7e31bb40cd47f481869ba035db5b6a1087da5c934e990fd59be95ae7f4"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202616",
+      "sourceFile": "MM202616.jpg",
+      "originalPath": "public/media/museum/originals/MM202616.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2438,
+      "height": 1728,
+      "bytes": 907306,
+      "sha256": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202616/thumbnail.webp",
+          "width": 480,
+          "height": 340,
+          "bytes": 12956,
+          "sha256": "5e843d27eae8cbbf727d71866c8b39b8d1ef1320a489fb85d1d1479e5e1be53b"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202616/card.webp",
+          "width": 900,
+          "height": 638,
+          "bytes": 40122,
+          "sha256": "79080d60c74e495aba75a0a68bc670ef1387378312e1030a8231fd7a9b63355a"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202616/detail.webp",
+          "width": 1600,
+          "height": 1134,
+          "bytes": 120266,
+          "sha256": "02af8a9d5a32b910aee0b281ccfc5061eeb89b869a470ae68f43423ef31bea3a"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202616/immersive.webp",
+          "width": 2400,
+          "height": 1701,
+          "bytes": 305992,
+          "sha256": "fcae6bda60ce6684c0d263a5d6bc797fee38635b42e64150a8082dc0bf83bdb3"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202617",
+      "sourceFile": "MM202617.jpg",
+      "originalPath": "public/media/museum/originals/MM202617.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2340,
+      "height": 1824,
+      "bytes": 1693665,
+      "sha256": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202617/thumbnail.webp",
+          "width": 480,
+          "height": 374,
+          "bytes": 46164,
+          "sha256": "fb6e1f43947e1abf1b5cbd9cf4ed28a1ff268822bb60eaabec9054a35a2fc69a"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202617/card.webp",
+          "width": 900,
+          "height": 702,
+          "bytes": 149758,
+          "sha256": "a7e95e35d754e76e5a81559c6d705a768a0d597fac927a0483eeb1334c398dea"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202617/detail.webp",
+          "width": 1600,
+          "height": 1247,
+          "bytes": 398736,
+          "sha256": "2d72a19123587049af32b283f83060687023b020d2e8ccbe2856fd4cb1c957ab"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202617/immersive.webp",
+          "width": 2340,
+          "height": 1824,
+          "bytes": 863462,
+          "sha256": "a1542f73eac0792b367d83ca796799434b648aec77be73e586f3afddec8bb726"
+        }
+      },
+      "siteVisible": false
+    },
+    {
+      "id": "MM202618",
+      "sourceFile": "MM202618.jpg",
+      "originalPath": "public/media/museum/originals/MM202618.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1616,
+      "height": 2624,
+      "bytes": 1122988,
+      "sha256": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202618/thumbnail.webp",
+          "width": 296,
+          "height": 480,
+          "bytes": 15278,
+          "sha256": "4ee7bac17131044183f85b9cfa8379fbc73c8bb796bc033793d341359d6a5015"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202618/card.webp",
+          "width": 554,
+          "height": 900,
+          "bytes": 49532,
+          "sha256": "a6cd89dc0b88729ab0ab379d17df90bbbf04d273bb87a9b27a381771d6d588d0"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202618/detail.webp",
+          "width": 985,
+          "height": 1600,
+          "bytes": 137154,
+          "sha256": "9816772cde2ecb4a94bb7fa321ba10ba019990e38ac866061c4a0e0fd32f558e"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202618/immersive.webp",
+          "width": 1478,
+          "height": 2400,
+          "bytes": 366402,
+          "sha256": "0eea24c753437b045e6ac28767c99c39c580bc6fbd71b812a69f6e5a17d948f0"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202619",
+      "sourceFile": "MM202619.jpg",
+      "originalPath": "public/media/museum/originals/MM202619.jpg",
+      "mimeType": "image/jpeg",
+      "width": 808,
+      "height": 1312,
+      "bytes": 267472,
+      "sha256": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202619/thumbnail.webp",
+          "width": 296,
+          "height": 480,
+          "bytes": 9772,
+          "sha256": "81bc7829d9d647eadcaff28a6ae93cd6db8a3bb66350c68c54fd4f2d525c0966"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202619/card.webp",
+          "width": 554,
+          "height": 900,
+          "bytes": 33316,
+          "sha256": "ef25e42aa9324c78173d3cc6887cfdc20b41fe8dda3f04080295d7a29a08e1fb"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202619/detail.webp",
+          "width": 808,
+          "height": 1312,
+          "bytes": 75696,
+          "sha256": "f59fe16a4bb0b38a1734d3ef87e2b4e9b3a04825fab7ed8472467321991cf7c8"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202619/immersive.webp",
+          "width": 808,
+          "height": 1312,
+          "bytes": 104738,
+          "sha256": "fe850e6029a798ce35376f8288591d99a3acfef4fadad5bdda2f9a23fb3bae9f"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202620",
+      "sourceFile": "MM202620.jpg",
+      "originalPath": "public/media/museum/originals/MM202620.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2784,
+      "height": 1536,
+      "bytes": 905088,
+      "sha256": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202620/thumbnail.webp",
+          "width": 480,
+          "height": 265,
+          "bytes": 15068,
+          "sha256": "764adeef5309fa66a27dcac3828db2d423ac83a4aac1dce2ba6c1fa3febd0cb4"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202620/card.webp",
+          "width": 900,
+          "height": 497,
+          "bytes": 47914,
+          "sha256": "365100cf5a46dcc01e78f3c492c468e307c1a3a788ac3cf9a060a063605b1f50"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202620/detail.webp",
+          "width": 1600,
+          "height": 883,
+          "bytes": 114442,
+          "sha256": "c7b7b44b9f81a1884fad96fb6dea1231f110312c49b4ecbd7778f827f4418aa5"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202620/immersive.webp",
+          "width": 2400,
+          "height": 1324,
+          "bytes": 252440,
+          "sha256": "74ce94c7866bf1b6b376eb4e53f953c2c95fb6b3a443dfef7b5210b7c3f9990f"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202621",
+      "sourceFile": "MM202621.jpg",
+      "originalPath": "public/media/museum/originals/MM202621.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2432,
+      "height": 1750,
+      "bytes": 789660,
+      "sha256": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202621/thumbnail.webp",
+          "width": 480,
+          "height": 345,
+          "bytes": 10702,
+          "sha256": "a4311d2511d35a59aad721d98bee1571dccd47b2aeccf97538b1fb68fa2939f8"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202621/card.webp",
+          "width": 900,
+          "height": 648,
+          "bytes": 32830,
+          "sha256": "65f2665a19bb829a7074b861415d7bbd48c5707b05cd47d1342ef6124aaedb2d"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202621/detail.webp",
+          "width": 1600,
+          "height": 1151,
+          "bytes": 91460,
+          "sha256": "d82f0e311c508385f829064f5efd6dad51949e6dd6bb33a9bad2543f8e082d6b"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202621/immersive.webp",
+          "width": 2400,
+          "height": 1727,
+          "bytes": 255060,
+          "sha256": "f87b1ee8a157056f34da1d1a011650a74477136f135b5ec1bc150b38f8550095"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202622",
+      "sourceFile": "MM202622.jpg",
+      "originalPath": "public/media/museum/originals/MM202622.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2472,
+      "height": 1728,
+      "bytes": 775903,
+      "sha256": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202622/thumbnail.webp",
+          "width": 480,
+          "height": 336,
+          "bytes": 9214,
+          "sha256": "f80c9acee1af403108870f1fb93b15c3791f9d33164005c4e305c92e6004038b"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202622/card.webp",
+          "width": 900,
+          "height": 629,
+          "bytes": 31384,
+          "sha256": "da4d6190de181d7b2aa63e9dc72ce774c7825d741cbe1f4fae699b4aead6affb"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202622/detail.webp",
+          "width": 1600,
+          "height": 1118,
+          "bytes": 96750,
+          "sha256": "96108ade83bff27418e765b0411205e0b15c66b1fa57d20fce625b4d365528b3"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202622/immersive.webp",
+          "width": 2400,
+          "height": 1678,
+          "bytes": 243338,
+          "sha256": "739fae163dab5950284ab664f11148165d13db1ef40505dd26d7666052ea155b"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202623",
+      "sourceFile": "MM202623.jpg",
+      "originalPath": "public/media/museum/originals/MM202623.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2272,
+      "height": 1872,
+      "bytes": 1097970,
+      "sha256": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202623/thumbnail.webp",
+          "width": 480,
+          "height": 395,
+          "bytes": 18866,
+          "sha256": "7f7b04231d4a4113a6f319eaa8d99995cb18d05129d48646dd5189add3126efd"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202623/card.webp",
+          "width": 900,
+          "height": 742,
+          "bytes": 56378,
+          "sha256": "051488ca47ee2531356688fea3adbce2a3d12bc62b2176957159b1a07865a683"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202623/detail.webp",
+          "width": 1600,
+          "height": 1318,
+          "bytes": 166882,
+          "sha256": "5b734e065020a2c917ec9738f1931bf07d2c97c66ff19a97b7b2349bddb90df9"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202623/immersive.webp",
+          "width": 2272,
+          "height": 1872,
+          "bytes": 438930,
+          "sha256": "369f92c78f66a62876cf586c077839b4e2ef14eaea2d690768175c3c064d6f22"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202624",
+      "sourceFile": "MM202624.jpg",
+      "originalPath": "public/media/museum/originals/MM202624.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1630,
+      "height": 2624,
+      "bytes": 807209,
+      "sha256": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202624/thumbnail.webp",
+          "width": 298,
+          "height": 480,
+          "bytes": 10548,
+          "sha256": "4414c27dfa3bc49229bbd5dea396f2cf5e4c0197bbf318c3c2960a323261f55a"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202624/card.webp",
+          "width": 559,
+          "height": 900,
+          "bytes": 26674,
+          "sha256": "cf7a9047ce4483ae7705c1280ddfbb8e68851d05cc02eec86cd1d65ade1e07a8"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202624/detail.webp",
+          "width": 994,
+          "height": 1600,
+          "bytes": 69842,
+          "sha256": "5ea05173862ff2c6338001a02e700e8de2f4709ca790b3e93db4e2d478b94db4"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202624/immersive.webp",
+          "width": 1491,
+          "height": 2400,
+          "bytes": 183820,
+          "sha256": "07133f3546022594af7947b8b6fd6b3a01187f99d9ee755a923956bf1985e272"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202625",
+      "sourceFile": "MM202625.jpg",
+      "originalPath": "public/media/museum/originals/MM202625.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2564,
+      "height": 1632,
+      "bytes": 900704,
+      "sha256": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202625/thumbnail.webp",
+          "width": 480,
+          "height": 306,
+          "bytes": 19188,
+          "sha256": "f949462a7cf9ffcfcfff71839fc77de06b2196d55b85d5fbedbd7cf64ddad481"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202625/card.webp",
+          "width": 900,
+          "height": 573,
+          "bytes": 60760,
+          "sha256": "234bd8aac09f5092c55d3f8b3791dd438b98641e98040721635b2d66092147ed"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202625/detail.webp",
+          "width": 1600,
+          "height": 1018,
+          "bytes": 153716,
+          "sha256": "d036fcd381a10e6a334c38dd5723c15dbc99bf3505e57717d3aa534e3f611c18"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202625/immersive.webp",
+          "width": 2400,
+          "height": 1528,
+          "bytes": 318584,
+          "sha256": "da4ef384a2f690d85fbd546a535c4c8f8b3489c9924e24c55a78d9c1443e7af5"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202626",
+      "sourceFile": "MM202626.jpg",
+      "originalPath": "public/media/museum/originals/MM202626.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2270,
+      "height": 1856,
+      "bytes": 1013731,
+      "sha256": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202626/thumbnail.webp",
+          "width": 480,
+          "height": 392,
+          "bytes": 25894,
+          "sha256": "5afed115283c38a4a1f8e2785873a287af041500c1c469db5746f0bf1865260f"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202626/card.webp",
+          "width": 900,
+          "height": 736,
+          "bytes": 81774,
+          "sha256": "6a22cf7d0a6d96d70974393c2055626a94edb0a8df6880d85a9170ef83ab0289"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202626/detail.webp",
+          "width": 1600,
+          "height": 1308,
+          "bytes": 198208,
+          "sha256": "e1806badabc089740183fdb449824bb14089ef2ac4c6c1adf6fb6a3af6fcd0d0"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202626/immersive.webp",
+          "width": 2270,
+          "height": 1856,
+          "bytes": 426250,
+          "sha256": "b43ec28bae0425b2ad31346527aea7e89acf648d4458fd37497f7c4596062027"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202627",
+      "sourceFile": "MM202627.jpg",
+      "originalPath": "public/media/museum/originals/MM202627.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2464,
+      "height": 1728,
+      "bytes": 718616,
+      "sha256": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202627/thumbnail.webp",
+          "width": 480,
+          "height": 337,
+          "bytes": 9272,
+          "sha256": "109d8aac2114c2956f8926b7c6d771fb29a8c58340c50838fa24a6717762952c"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202627/card.webp",
+          "width": 900,
+          "height": 631,
+          "bytes": 28122,
+          "sha256": "c1cee0c6ea2a1797d668326cfabdb4ed1ac7e2a8aa2dda3cbe00755a431ca3f9"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202627/detail.webp",
+          "width": 1600,
+          "height": 1122,
+          "bytes": 78996,
+          "sha256": "258215e0bea9214f97f987e00b7aab290bd1084fd3a30a7374c187040e4c6d9c"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202627/immersive.webp",
+          "width": 2400,
+          "height": 1683,
+          "bytes": 196858,
+          "sha256": "7850809a43bbf01e401ccfeef56ff8c8374ed0086cdb03ea5b4fcbf16dca6c2f"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202628",
+      "sourceFile": "MM202628.jpg",
+      "originalPath": "public/media/museum/originals/MM202628.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2240,
+      "height": 1918,
+      "bytes": 794707,
+      "sha256": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202628/thumbnail.webp",
+          "width": 480,
+          "height": 411,
+          "bytes": 12532,
+          "sha256": "e45ead234c1dc2c7deb3a7ea3c38254db6eea7ff86bc7a29d8597ef9295ae473"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202628/card.webp",
+          "width": 900,
+          "height": 771,
+          "bytes": 34768,
+          "sha256": "206984d2de82023e27460ca308ec68c5de5e5156156bf8190161d46eeef92a37"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202628/detail.webp",
+          "width": 1600,
+          "height": 1370,
+          "bytes": 94814,
+          "sha256": "a402df60bc6a71038db1576c00059b456361dfd51f8101a192e5f2e1ec50a43a"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202628/immersive.webp",
+          "width": 2240,
+          "height": 1918,
+          "bytes": 263922,
+          "sha256": "5bf7abefc407b4298dd7d0e67933dbd9789dfe2f4ea4a782eb4048c7252a04ea"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202629",
+      "sourceFile": "MM202629.jpg",
+      "originalPath": "public/media/museum/originals/MM202629.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2184,
+      "height": 1952,
+      "bytes": 826832,
+      "sha256": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202629/thumbnail.webp",
+          "width": 480,
+          "height": 429,
+          "bytes": 15200,
+          "sha256": "05679d996584f0f6e9c79d0211530eb455358886e94d69b0ff098e9be2b21232"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202629/card.webp",
+          "width": 900,
+          "height": 804,
+          "bytes": 40700,
+          "sha256": "711b0dd0b37496453ad1bfd34855c3ac2d17acf5782ea0e3dd4e878c38f46508"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202629/detail.webp",
+          "width": 1600,
+          "height": 1430,
+          "bytes": 115044,
+          "sha256": "77dec56423f0ab49bc432f5a31b1b4541f499e42880edf6bc59585c47b748817"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202629/immersive.webp",
+          "width": 2184,
+          "height": 1952,
+          "bytes": 285538,
+          "sha256": "cfee5497bda98a0877fd19c981f7206cb47fd7215b454bf60831ae75c6cbe8be"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202630",
+      "sourceFile": "MM202630.jpg",
+      "originalPath": "public/media/museum/originals/MM202630.jpg",
+      "mimeType": "image/jpeg",
+      "width": 1600,
+      "height": 2668,
+      "bytes": 768968,
+      "sha256": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202630/thumbnail.webp",
+          "width": 288,
+          "height": 480,
+          "bytes": 6446,
+          "sha256": "646c29ac03ab492aaae3cf8a5c3176e09b9b9241f0af3bae0b88544430da470d"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202630/card.webp",
+          "width": 540,
+          "height": 900,
+          "bytes": 19850,
+          "sha256": "25ac3d147bceff504b3c92f16b80e682cdbe6aa9e0a48971ecc1532438d00790"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202630/detail.webp",
+          "width": 960,
+          "height": 1600,
+          "bytes": 61154,
+          "sha256": "82a4d4447a4920de6a052df60ec7b47ae4e4dfb40c56a62529c467c55c2824b9"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202630/immersive.webp",
+          "width": 1439,
+          "height": 2400,
+          "bytes": 181268,
+          "sha256": "e828cf9af8c7816869b9670a66439ddaa4a3671581b6054e73275424e28e52cb"
+        }
+      },
+      "siteVisible": true
+    },
+    {
+      "id": "MM202631",
+      "sourceFile": "MM202631.jpg",
+      "originalPath": "public/media/museum/originals/MM202631.jpg",
+      "mimeType": "image/jpeg",
+      "width": 2730,
+      "height": 1536,
+      "bytes": 897363,
+      "sha256": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "gpsExifDetected": false,
+      "variants": {
+        "thumbnail": {
+          "path": "public/media/museum/generated/MM202631/thumbnail.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 12294,
+          "sha256": "33a0918eb4e98ff3da734fcf1eeb10ab4a6e5e73124efc7d7fad28e0479fd867"
+        },
+        "card": {
+          "path": "public/media/museum/generated/MM202631/card.webp",
+          "width": 900,
+          "height": 506,
+          "bytes": 43192,
+          "sha256": "0ddca933421328268c8de4c427550fca7a9b86ef54c8edb3676bdc6938c5b39a"
+        },
+        "detail": {
+          "path": "public/media/museum/generated/MM202631/detail.webp",
+          "width": 1600,
+          "height": 900,
+          "bytes": 135362,
+          "sha256": "2ecb015238979e45baf7ec172d0c5c3462bcd4311baae25240eeb99e97ead4f8"
+        },
+        "immersive": {
+          "path": "public/media/museum/generated/MM202631/immersive.webp",
+          "width": 2400,
+          "height": 1350,
+          "bytes": 321678,
+          "sha256": "72ed63687958d1655a7ebe55983f2b928cdf0e44ab2d4e9327a822364e0066da"
+        }
+      },
+      "siteVisible": true
+    }
+  ]
+}

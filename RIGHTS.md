@@ -1,41 +1,32 @@
 ---
-title: "Direitos e condições de utilização"
-version: "0.1.0"
-status: "draft-policy"
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Este documento define as condições gerais do próprio projeto"
+package: "07A"
+rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
 ---
 
-# Direitos e condições de utilização
+# Direitos, publicação e atribuição
 
-## Regra geral
+## Código e documentação
 
-Todos os direitos sobre a estrutura, documentação e código original do projeto permanecem reservados, salvo quando uma licença específica for formalmente atribuída a um ficheiro, módulo ou release.
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.
 
-O acesso público ao portal, à base de conhecimento ou aos dados publicados não implica autorização automática para reprodução, redistribuição, transformação ou exploração comercial.
+## Fotografias e descrições
 
-## Conteúdos de terceiros e da comunidade
+O responsável pelo projeto confirmou que as 31 fotografias e as descrições associadas foram previamente autorizadas para publicação no repositório público do projeto.
 
-Fotografias, narrativas, testemunhos, publicações, mapas, plantas e outros documentos podem possuir titulares e condições próprias. A publicação de um item não deverá ser interpretada como transferência de direitos para o projeto.
+Esta autorização:
 
-Cada registo deverá, quando a infraestrutura correspondente estiver implementada, indicar:
+- permite a inclusão dos ficheiros no Git público e nos builds do projeto;
+- não transfere a titularidade das imagens para Fernando Rodrigues de Jácomo;
+- não elimina créditos, proveniência ou condições das fontes;
+- não autoriza reutilizações externas fora das condições registadas;
+- mantém disponível o mecanismo de correção ou retirada.
 
-- origem e proveniência;
-- titular conhecido ou estado de identificação;
-- base de utilização no projeto;
-- condição de publicação;
-- possibilidade de correção, contestação ou remoção;
-- licença, quando aplicável.
+## Restrição editorial
 
-## Investigação viva
+`MM202617` permanece no repositório para auditoria, mas não é exibido no site. Trata-se de uma imagem com intervenção substantiva por inteligência artificial que não deve ser apresentada como documento original.
 
-O projeto está em desenvolvimento e determinados conteúdos podem ser preliminares, revistos ou retirados. A disponibilização pública deverá preservar o histórico editorial sem impedir a correção de erros ou o exercício de direitos.
+## Livro Milreu: Ruínas
 
-## Reutilização futura
-
-A eventual adoção de uma licença aberta para código, documentação, dados ou imagens deverá ocorrer separadamente, por decisão explícita e documentada. Este pacote não atribui uma licença aberta geral.
-
-## Contacto para direitos
-
-O canal público definitivo para pedidos de esclarecimento, correção, identificação, reivindicação de direitos ou remoção ainda será configurado. Nenhuma interface deverá publicar um endereço inventado ou provisório como definitivo.
+O PDF do livro e as miniaturas derivadas continuam privados e não fazem parte deste pacote.
