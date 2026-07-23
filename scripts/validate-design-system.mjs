@@ -43,6 +43,7 @@ const mdFiles = [];
 function walk(directory) {
   if (!fs.existsSync(directory)) return;
   for (const entry of fs.readdirSync(directory, {withFileTypes:true})) {
+    if (entry.name === "node_modules" || entry.name === ".git") continue;
     const full = path.join(directory, entry.name);
     if (entry.isDirectory()) walk(full);
     else if (entry.name.endsWith(".md")) mdFiles.push(full);

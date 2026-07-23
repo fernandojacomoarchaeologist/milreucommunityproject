@@ -14,7 +14,7 @@ if(!fs.existsSync(pdf)) fail.push('PDF de referência ausente');
 if(pages.length!==36) fail.push(`Esperadas 36 páginas, encontradas ${pages.length}`);
 for(let i=1;i<=36;i++){const f=path.join(root,'apps/visual-source-board/assets/pages',`page-${String(i).padStart(2,'0')}.webp`);if(!fs.existsSync(f))fail.push(`Miniatura ausente: ${f}`)}
 if(fs.existsSync(pdf)){const hash=crypto.createHash('sha256').update(fs.readFileSync(pdf)).digest('hex');if(hash!==manifest.sha256)fail.push('SHA-256 do PDF não corresponde ao manifesto')}
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)])}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>(e.name==='node_modules'||e.name==='.git')?[]:(e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]))}
 for(const file of walk(root)){
   if(file.endsWith('.md')){const text=fs.readFileSync(file,'utf8');if(!text.includes('© 2026 Fernando Rodrigues de Jácomo'))fail.push(`Copyright ausente: ${path.relative(root,file)}`)}
   if(/\.(js|mjs|css)$/.test(file)){const text=fs.readFileSync(file,'utf8');if(!text.includes('© 2026 Fernando Rodrigues de Jácomo'))fail.push(`Copyright ausente no código: ${path.relative(root,file)}`)}
