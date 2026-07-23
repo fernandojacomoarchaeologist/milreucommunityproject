@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.9.0",
+  "version": "0.11.1",
   "editorialStatus": "preliminary",
   "sourceLanguage": "pt-PT",
   "project": {
@@ -15,30 +15,48 @@
     },
     "principles": [
       {
-        "id": "community-first",
+        "id": "communication",
         "title": {
-          "pt-PT": "A comunidade fala primeiro"
+          "pt-PT": "Comunicação",
+          "en": null,
+          "es": null,
+          "fr": null
         },
         "description": {
-          "pt-PT": "As memórias, perceções e perguntas da comunidade abrem a interpretação. A instituição oferece contexto, enquadramento e fontes."
+          "pt-PT": "Criar diálogo contínuo, acessível e bidirecional entre a comunidade, a investigação e as instituições.",
+          "en": null,
+          "es": null,
+          "fr": null
         }
       },
       {
-        "id": "evidence",
+        "id": "mutuality",
         "title": {
-          "pt-PT": "Conhecimento com proveniência"
+          "pt-PT": "Mutualidade",
+          "en": null,
+          "es": null,
+          "fr": null
         },
         "description": {
-          "pt-PT": "Informações, narrativas e interpretações devem indicar a sua fonte, grau de certeza, estado editorial e histórico de revisão."
+          "pt-PT": "Construir relações de troca em que saberes, responsabilidades e benefícios sejam partilhados.",
+          "en": null,
+          "es": null,
+          "fr": null
         }
       },
       {
-        "id": "living-project",
+        "id": "social-political-relevance",
         "title": {
-          "pt-PT": "Um projeto vivo"
+          "pt-PT": "Pertinência Social e Política",
+          "en": null,
+          "es": null,
+          "fr": null
         },
         "description": {
-          "pt-PT": "Conteúdos podem ser corrigidos, aprofundados, contestados ou retirados, preservando a auditoria do processo."
+          "pt-PT": "Orientar a investigação e as ações por questões relevantes para a comunidade e para as decisões sobre o património.",
+          "en": null,
+          "es": null,
+          "fr": null
         }
       }
     ],
@@ -70,7 +88,13 @@
           "pt-PT": "Consolidação dos resultados, avaliação das ações e sistematização da investigação doutoral."
         }
       }
-    ]
+    ],
+    "objective": {
+      "pt-PT": "Resgatar a memória e o valor histórico de Milreu para a população de Estoi e também de Faro.",
+      "en": null,
+      "es": null,
+      "fr": null
+    }
   },
   "initiatives": [
     {
