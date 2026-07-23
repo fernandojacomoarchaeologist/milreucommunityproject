@@ -22,7 +22,7 @@ export function museumHome(records,collections,audit,lang) {
         <p>${text(lang,"museumLead")}</p>
         <div class="hero-actions">
           <a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"explore")}</a>
-          <a class="ml-button ml-button--secondary ml-button--on-dark" href="#/museu/imersivo/${hero.id}">${text(lang,"openImmersive")}</a>
+          <a class="ml-button ml-button--ghost-on-dark" href="#/museu/imersivo/${hero.id}">${text(lang,"openImmersive")}</a>
         </div>
       </div>
     </section>
@@ -157,7 +157,6 @@ export function collectionDetailView(records,collection,lang) {
       <span class="eyebrow">${text(lang,"collectionDerived")} · ${collection.memberCount} ${text(lang,"collectionMembers")}</span>
       <h1>${escapeHtml(title.value)}</h1>
       <p>${escapeHtml(description.value)}</p>
-      <details><summary>${text(lang,"documentation")}</summary><pre>${escapeHtml(JSON.stringify(collection.rule,null,2))}</pre></details>
     </div>
     <div class="memory-grid">${members.map(record => memoryCard(record,lang)).join("")}</div>
   </main></div>`;
@@ -267,6 +266,8 @@ export function immersiveView(records,record,lang,state={}) {
   const next = list[(index+1)%list.length];
   const neighbors = [-2,-1,0,1,2].map(offset => list[(index+offset+list.length)%list.length]);
   const infoOpen = state.immersiveInfo !== false;
+  const slideshowSpeed = Number(state.slideshowSpeed || 0);
+
   return `<div class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${escapeHtml(localised(record.title,lang).value)}">
     <div class="immersive-top">
       <div>
@@ -274,9 +275,16 @@ export function immersiveView(records,record,lang,state={}) {
         <span class="immersive-title">${escapeHtml(localised(record.title,lang).value)}</span>
       </div>
       <div class="immersive-actions">
+        <div class="immersive-slideshow" role="group" aria-label="${text(lang,"slideshow")}">
+          <span>${text(lang,"slideshow")}</span>
+          <button type="button" data-slideshow-speed="1" aria-pressed="${slideshowSpeed===1}" title="15 segundos">x1</button>
+          <button type="button" data-slideshow-speed="2" aria-pressed="${slideshowSpeed===2}" title="7 segundos">x2</button>
+          <button type="button" data-slideshow-speed="3" aria-pressed="${slideshowSpeed===3}" title="4 segundos">x3</button>
+          <button type="button" data-slideshow-pause aria-pressed="${slideshowSpeed===0}">${text(lang,"pauseSlideshow")}</button>
+        </div>
         <button class="icon-button" data-toggle-immersive-info aria-pressed="${infoOpen}" aria-label="${infoOpen ? text(lang,"hideInfo") : text(lang,"immersiveInfo")}">i</button>
         <button class="icon-button" data-browser-fullscreen aria-label="${text(lang,"browserFullscreen")}"><img src="${assetUrl("public/icons/fullscreen.svg")}" alt=""></button>
-        <a class="icon-button" href="#/museu/memorias/${record.id}" aria-label="${text(lang,"close")}"><img src="${assetUrl("public/icons/close.svg")}" alt=""></a>
+        <button type="button" class="icon-button" data-close-immersive aria-label="${text(lang,"close")}"><img src="${assetUrl("public/icons/close.svg")}" alt=""></button>
       </div>
     </div>
 
@@ -346,7 +354,6 @@ function timelineItem(record,lang) {
   return `<article class="museum-timeline__item">
     <span>${escapeHtml(localised(record.date.display,lang).value || record.date.start || "")}</span>
     <a href="#/museu/memorias/${record.id}">${escapeHtml(localised(record.title,lang).value)}</a>
-    <small>${escapeHtml(record.date.precision)}</small>
   </article>`;
 }
 

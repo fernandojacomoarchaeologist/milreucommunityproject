@@ -42,3 +42,7 @@ As coleções e sugestões desta versão são derivações de navegação basead
 ## Pacote 07D
 
 Os previews de totem e painel são composições técnicas derivadas dos registos autorizados para publicação no âmbito do projeto. Não constituem autorização para impressão, reprodução comercial ou reutilização fora do projeto. Os QR finais permanecem pendentes de domínio público.
+
+## Referências visuais 07D.1
+
+As capturas e a ilustração de referência fornecidas para este hotfix foram disponibilizadas pelo autor do projeto. Permanecem em documentação de revisão e não são publicadas como elementos do site nesta versão.

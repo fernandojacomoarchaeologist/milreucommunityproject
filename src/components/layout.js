@@ -25,12 +25,14 @@ export function portalHeader(lang, current="") {
   const nav = links.map(([path,key]) =>
     `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`
   ).join("");
-  return `<div class="preview-banner">${text(lang,"preliminary")} · conteúdos em revisão</div>
-  <header class="site-header">
+
+  return `<header class="site-header">
     <div class="site-header__inner">
-      <a class="site-logo" href="#/" aria-label="Projeto Comunitário de Milreu">
-        <img src="${assetUrl("public/brand/logo-light.webp")}" alt="Projeto Comunitário de Milreu">
+      <a class="site-brand" href="#/" aria-label="Projeto Comunitário de Milreu">
+        <img src="${assetUrl("public/brand/symbol.webp")}" alt="">
+        <span>Projeto Comunitário de Milreu</span>
       </a>
+      <span class="preview-status">${text(lang,"preliminary")}</span>
       <nav class="primary-nav" aria-label="Principal">${nav}</nav>
       <div class="header-actions">
         <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
@@ -52,6 +54,7 @@ export function museumHeader(lang, current="") {
   const nav = links.map(([path,key]) =>
     `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`
   ).join("");
+
   return `<header class="museum-header">
     <div class="museum-header__inner">
       <a class="museum-brand" href="#/museu">
@@ -59,14 +62,17 @@ export function museumHeader(lang, current="") {
         <span>Museu de Memórias</span>
       </a>
       <nav class="museum-nav" aria-label="Museu">${nav}</nav>
-      <a class="back-project" href="#/"><span>${text(lang,"backProject")}</span> ↗</a>
       <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
         <img src="${assetUrl("public/icons/menu.svg")}" alt="">
       </button>
       ${languageSwitcher(lang)}
     </div>
-    <nav class="mobile-drawer" data-drawer data-open="false">${nav}<a href="#/">${text(lang,"backProject")}</a></nav>
-  </header>`;
+    <nav class="mobile-drawer" data-drawer data-open="false">${nav}</nav>
+  </header>
+  <a class="museum-return-floating" href="#/" aria-label="${text(lang,"backProject")}">
+    <img src="${assetUrl("public/icons/back.svg")}" alt="">
+    <span>${text(lang,"backProject")}</span>
+  </a>`;
 }
 
 export function footer(lang="pt-PT") {
@@ -78,7 +84,7 @@ export function footer(lang="pt-PT") {
         <p>Fotografias: consultar créditos de cada memória.</p>
       </div>
       <div>
-        <p>Versão 07B · pré-visualização não indexável</p>
+        <p>Versão 07D.1 · pré-visualização não indexável</p>
         <p><a href="#/museu">${text(lang,"museum")}</a> · <a href="#/participar">${text(lang,"participate")}</a></p>
       </div>
     </div>

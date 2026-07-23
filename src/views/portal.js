@@ -52,6 +52,7 @@ export function homeView(records, content, lang) {
   const hero = featured[0];
   const heroTitle = localised(hero.title, lang);
   const initiatives = content.initiatives.slice(0,3);
+
   return `${portalHeader(lang)}
   <main id="main">
     <section class="portal-hero">
@@ -72,44 +73,8 @@ export function homeView(records, content, lang) {
 
     <section class="content-section">
       <div class="section-heading">
-        <h2>Um projeto, várias formas de encontro</h2>
-        <p>A mesma base estruturada liga o Portal, o Museu digital, os futuros totens físicos e a aplicação.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <img src="${assetUrl("public/icons/knowledge.svg")}" alt="">
-          <h3>${text(lang,"portalFeature")}</h3>
-          <p>${text(lang,"portalFeatureText")}</p>
-        </article>
-        <article class="feature-card">
-          <img src="${assetUrl("public/icons/memory.svg")}" alt="">
-          <h3>${text(lang,"museumFeature")}</h3>
-          <p>${text(lang,"museumFeatureText")}</p>
-        </article>
-        <article class="feature-card">
-          <img src="${assetUrl("public/icons/community.svg")}" alt="">
-          <h3>${text(lang,"proteusFeature")}</h3>
-          <p>${text(lang,"proteusFeatureText")}</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="content-section content-section--contrast">
-      <div class="section-heading">
-        <h2>${text(lang,"protectedMuseum")}</h2>
-        <p>${text(lang,"protectedMuseumText")}</p>
-      </div>
-      <div class="museum-continuity">
-        <a href="#/museu/explorar">Galeria</a>
-        <a href="#/museu/memorias/${featured[0].id}">Detalhe</a>
-        <a href="#/museu/imersivo/${featured[0].id}">${text(lang,"fullscreen")}</a>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <div class="section-heading">
         <h2>${text(lang,"currentInitiatives")}</h2>
-        <p>O Portal passa a orientar as diferentes frentes do programa sem reduzir o projeto ao Museu.</p>
+        <p>O Portal apresenta as diferentes frentes do Projeto Comunitário de Milreu.</p>
       </div>
       <div class="initiative-grid">${initiatives.map(item => initiativeCard(item,lang)).join("")}</div>
       <p class="section-action"><a class="ml-button ml-button--secondary" href="#/iniciativas">${text(lang,"viewAll")}</a></p>
@@ -129,15 +94,28 @@ export function homeView(records, content, lang) {
 export function projectView(content, lang) {
   const project = content.project;
   const summary = fallbackNote(project.summary, lang);
+  const objective = fallbackNote(project.objective, lang);
+
   return `${portalHeader(lang,"/projeto")}<main id="main">
     ${pageLead(text(lang,"project"), project.summary, lang)}
     <section class="content-section">
+      <div class="project-objective">
+        <span>${text(lang,"projectObjective")}</span>
+        <p>${esc(objective.value)}</p>
+        ${objective.note}
+      </div>
       <div class="section-heading"><h2>${text(lang,"principles")}</h2><p>${esc(summary.value)}</p></div>
-      <div class="principle-grid">
-        ${project.principles.map(item => {
+      <div class="principle-grid principle-grid--pillars">
+        ${project.principles.map((item,index) => {
           const title = fallbackNote(item.title,lang);
           const description = fallbackNote(item.description,lang);
-          return `<article class="principle-card"><span class="principle-number">${String(project.principles.indexOf(item)+1).padStart(2,"0")}</span><h2>${esc(title.value)}</h2>${title.note}<p>${esc(description.value)}</p></article>`;
+          return `<article class="principle-card principle-card--pillar">
+            <span class="principle-number">${String(index+1).padStart(2,"0")}</span>
+            <div class="principle-symbol" aria-hidden="true">${["↔","∞","◎"][index] || "•"}</div>
+            <h2>${esc(title.value)}</h2>
+            ${title.note}
+            <p>${esc(description.value)}</p>
+          </article>`;
         }).join("")}
       </div>
     </section>
@@ -183,19 +161,19 @@ export function initiativeDetailView(item, lang) {
   if (!item) return notFoundView(lang);
   const title = fallbackNote(item.title,lang);
   const description = fallbackNote(item.description,lang);
+  const museumAction = item.slug === "museu-de-memorias"
+    ? `<p class="initiative-primary-action"><a class="ml-button ml-button--primary" href="#/museu">${text(lang,"accessMuseum")}</a></p>`
+    : "";
+
   return `${portalHeader(lang,"/iniciativas")}<main id="main">
     ${pageLead(title.value, item.short, lang, `${text(lang,"initiatives")} · ${item.status}`)}
-    <section class="content-section initiative-detail">
-      <div>
+    <section class="content-section initiative-detail initiative-detail--single">
+      <article class="initiative-detail__content">
         <h2>Enquadramento</h2>
         <p>${esc(description.value)}</p>
         ${description.note}
-      </div>
-      <aside class="channel-card">
-        <h2>Relação multicanal</h2>
-        <p>Esta iniciativa deve reutilizar entidades, fontes, direitos e identificadores do Milreu Proteus.</p>
-        <dl><dt>Portal</dt><dd>Síntese e orientação</dd><dt>Museu</dt><dd>Exploração visual quando aplicável</dd><dt>Totem</dt><dd>Texto curto e QR</dd></dl>
-      </aside>
+        ${museumAction}
+      </article>
     </section>
   </main>${footer(lang)}`;
 }

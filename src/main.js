@@ -34,10 +34,18 @@ const state = {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
     sort:"catalog", layout:localStorage.getItem("milreu-gallery-layout") || "grid"
   },
-  immersiveInfo: true
+  immersiveInfo: true,
+  slideshowSpeed: 0
+};
+
+const slideshowIntervals = {
+  1: 15000,
+  2: 7000,
+  3: 4000
 };
 
 let immersiveKeyHandler = null;
+let slideshowTimer = null;
 
 function setLanguage(lang) {
   state.lang = lang;
@@ -48,6 +56,45 @@ function setLanguage(lang) {
 function setMetadata(title) {
   document.documentElement.lang = state.lang;
   document.title = `${title} | Projeto Comunitário de Milreu`;
+}
+
+function clearSlideshowTimer() {
+  if (slideshowTimer) {
+    clearTimeout(slideshowTimer);
+    slideshowTimer = null;
+  }
+}
+
+function stopSlideshow() {
+  state.slideshowSpeed = 0;
+  clearSlideshowTimer();
+}
+
+function scheduleSlideshow() {
+  clearSlideshowTimer();
+  const route = getRoute();
+  const delay = slideshowIntervals[state.slideshowSpeed];
+
+  if (route.name !== "immersive" || !delay) return;
+
+  const list = state.records.filter(record => record.publication.siteVisible);
+  const index = list.findIndex(record => record.id === route.id);
+  if (index < 0 || list.length < 2) return;
+  const next = list[(index+1)%list.length];
+
+  slideshowTimer = setTimeout(() => {
+    go(`/museu/imersivo/${next.id}`);
+  }, delay);
+}
+
+async function closeImmersive(routeId) {
+  stopSlideshow();
+  if (document.fullscreenElement) {
+    try {
+      await document.exitFullscreen();
+    } catch {}
+  }
+  go(`/museu/memorias/${routeId}`);
 }
 
 function bindPage() {
@@ -89,7 +136,25 @@ function bindPage() {
     }
   });
 
+  document.querySelector("[data-close-immersive]")?.addEventListener("click", () => {
+    const route = getRoute();
+    if (route.name === "immersive") closeImmersive(route.id);
+  });
+
+  document.querySelectorAll("[data-slideshow-speed]").forEach(button =>
+    button.addEventListener("click", () => {
+      state.slideshowSpeed = Number(button.dataset.slideshowSpeed);
+      render(false);
+    })
+  );
+
+  document.querySelector("[data-slideshow-pause]")?.addEventListener("click", () => {
+    stopSlideshow();
+    render(false);
+  });
+
   bindImmersiveKeyboard();
+  scheduleSlideshow();
 }
 
 function bindImmersiveKeyboard() {
@@ -101,6 +166,7 @@ function bindImmersiveKeyboard() {
   const route = getRoute();
   if (route.name !== "immersive") {
     document.body.classList.remove("is-immersive");
+    stopSlideshow();
     return;
   }
 
@@ -112,7 +178,10 @@ function bindImmersiveKeyboard() {
 
   immersiveKeyHandler = async event => {
     const key = event.key.toLowerCase();
-    if (event.key === "Escape") go(`/museu/memorias/${route.id}`);
+    if (event.key === "Escape") {
+      event.preventDefault();
+      await closeImmersive(route.id);
+    }
     if (event.key === "ArrowLeft") go(`/museu/imersivo/${previous.id}`);
     if (event.key === "ArrowRight") go(`/museu/imersivo/${next.id}`);
     if (key === "i") {
@@ -158,7 +227,10 @@ function render(scroll=true) {
     }
     case "immersive": {
       const record = findMemory(state.records,route.id);
-      html = immersiveView(state.records,record,state.lang,{immersiveInfo:state.immersiveInfo});
+      html = immersiveView(state.records,record,state.lang,{
+        immersiveInfo:state.immersiveInfo,
+        slideshowSpeed:state.slideshowSpeed
+      });
       setMetadata(record?.title?.[state.lang] || record?.title?.["pt-PT"] || route.id);
       break;
     }

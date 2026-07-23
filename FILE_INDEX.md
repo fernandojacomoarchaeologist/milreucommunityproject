@@ -1,12 +1,13 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D"
+package: "07D.1"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
 
+- `.claude/rules/07d1-ui-editorial-fixes.md`
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/derived-navigation-transparency.md`
 - `.claude/rules/digital-intervention-disclosure.md`
@@ -36,6 +37,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/prepare-pages-deployment/SKILL.md`
 - `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
+- `.claude/skills/review-07d1-fixes/SKILL.md`
 - `.claude/skills/review-digital-interventions/SKILL.md`
 - `.claude/skills/review-museum-record/SKILL.md`
 - `.claude/skills/review-panel-preview/SKILL.md`
@@ -83,8 +85,13 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/release/GITHUB_PAGES_DEPLOYMENT.md`
 - `docs/release/PUBLICATION_GATES.md`
 - `docs/release/TECHNICAL_MVP_RELEASE.md`
+- `docs/review/FIX_REQUEST_07D1.md`
 - `docs/review/PORTAL_07B_REVIEW.md`
 - `docs/review/VERTICAL_SLICE_REVIEW.md`
+- `docs/review/references/07d1/header-museu-referencia.png`
+- `docs/review/references/07d1/header-portal-antes.png`
+- `docs/review/references/07d1/museu-home-botao-sem-texto.png`
+- `docs/review/references/07d1/principios-pilares-referencia.png`
 - `exports/channels/channel-records.csv`
 - `exports/channels/panel-candidates.csv`
 - `exports/channels/qr-targets.csv`
@@ -289,6 +296,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_07A_v0.8.0.md`
 - `releases/PACKAGE_07B_v0.9.0.md`
 - `releases/PACKAGE_07C_v0.10.0.md`
+- `releases/PACKAGE_07D1_v0.11.1.md`
 - `releases/PACKAGE_07D_v0.11.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
@@ -309,6 +317,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/structured/static-record-builder.mjs`
 - `scripts/structured/validate-structured-data.mjs`
 - `scripts/validate-07d.mjs`
+- `scripts/validate-07d1-fixes.mjs`
 - `scripts/validate-immersive-07c.mjs`
 - `scripts/validate-museum-07c.mjs`
 - `scripts/validate-museum-regression.mjs`
@@ -330,6 +339,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/data.test.mjs`
+- `tests/fixes-07d1.test.mjs`
 - `tests/immersive-07c.test.mjs`
 - `tests/media.test.mjs`
 - `tests/museum-07c.test.mjs`
