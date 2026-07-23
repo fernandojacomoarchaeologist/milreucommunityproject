@@ -3,7 +3,10 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  */
-import { loadMemories, loadPortalContent, findMemory, findInitiative } from "./lib/data.js";
+import {
+  loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
+  findMemory, findInitiative, findCollection
+} from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
 import {
@@ -11,7 +14,8 @@ import {
   knowledgeView, participateView, aboutView, notFoundView
 } from "./views/portal.js";
 import {
-  museumHome, galleryView, detailView, immersiveView, timelineView
+  museumHome, galleryView, detailView, immersiveView, timelineView,
+  collectionsView, collectionDetailView
 } from "./views/museum.js";
 import { text } from "./lib/i18n.js";
 
@@ -19,14 +23,23 @@ const app = document.querySelector("#app");
 const state = {
   records: [],
   portal: null,
+  collections: [],
+  museumIndex: [],
+  audit: null,
   lang: localStorage.getItem("milreu-language") || "pt-PT",
-  filters: { query:"", period:"", type:"" }
+  filters: {
+    query:"", period:"", type:"", dateKnown:"", intervention:"",
+    sort:"catalog", layout:localStorage.getItem("milreu-gallery-layout") || "grid"
+  },
+  immersiveInfo: true
 };
+
+let immersiveKeyHandler = null;
 
 function setLanguage(lang) {
   state.lang = lang;
-  localStorage.setItem("milreu-language", lang);
-  render();
+  localStorage.setItem("milreu-language",lang);
+  render(false);
 }
 
 function setMetadata(title) {
@@ -36,27 +49,81 @@ function setMetadata(title) {
 
 function bindPage() {
   bindCommon(setLanguage);
+
   const form = document.querySelector("[data-filters]");
   if (form) {
     form.addEventListener("input", () => {
-      const data = new FormData(form);
-      state.filters = Object.fromEntries(data.entries());
+      state.filters = {...state.filters,...Object.fromEntries(new FormData(form).entries())};
       render(false);
     });
   }
 
-  if (getRoute().name === "immersive") {
-    document.body.classList.add("is-immersive");
-    const close = event => {
-      if (event.key === "Escape") {
-        const id = getRoute().id;
-        go(`/museu/memorias/${id}`);
-      }
-    };
-    document.addEventListener("keydown", close, { once:true });
-  } else {
-    document.body.classList.remove("is-immersive");
+  document.querySelectorAll("[data-layout]").forEach(button =>
+    button.addEventListener("click", () => {
+      state.filters.layout = button.dataset.layout;
+      localStorage.setItem("milreu-gallery-layout",state.filters.layout);
+      render(false);
+    })
+  );
+
+  document.querySelector("[data-reset-filters]")?.addEventListener("click", () => {
+    const layout = state.filters.layout;
+    state.filters = {query:"",period:"",type:"",dateKnown:"",intervention:"",sort:"catalog",layout};
+    render(false);
+  });
+
+  document.querySelector("[data-toggle-immersive-info]")?.addEventListener("click", () => {
+    state.immersiveInfo = !state.immersiveInfo;
+    render(false);
+  });
+
+  document.querySelector("[data-browser-fullscreen]")?.addEventListener("click", async () => {
+    try {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    } catch (error) {
+      console.warn("Fullscreen API indisponível",error);
+    }
+  });
+
+  bindImmersiveKeyboard();
+}
+
+function bindImmersiveKeyboard() {
+  if (immersiveKeyHandler) {
+    document.removeEventListener("keydown",immersiveKeyHandler);
+    immersiveKeyHandler = null;
   }
+
+  const route = getRoute();
+  if (route.name !== "immersive") {
+    document.body.classList.remove("is-immersive");
+    return;
+  }
+
+  document.body.classList.add("is-immersive");
+  const list = state.records.filter(record => record.publication.siteVisible);
+  const index = list.findIndex(record => record.id === route.id);
+  const previous = list[(index-1+list.length)%list.length];
+  const next = list[(index+1)%list.length];
+
+  immersiveKeyHandler = async event => {
+    const key = event.key.toLowerCase();
+    if (event.key === "Escape") go(`/museu/memorias/${route.id}`);
+    if (event.key === "ArrowLeft") go(`/museu/imersivo/${previous.id}`);
+    if (event.key === "ArrowRight") go(`/museu/imersivo/${next.id}`);
+    if (key === "i") {
+      state.immersiveInfo = !state.immersiveInfo;
+      render(false);
+    }
+    if (key === "f") {
+      try {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+        else await document.exitFullscreen();
+      } catch {}
+    }
+  };
+  document.addEventListener("keydown",immersiveKeyHandler);
 }
 
 function render(scroll=true) {
@@ -64,65 +131,32 @@ function render(scroll=true) {
   let html = "";
 
   switch (route.name) {
-    case "home":
-      html = homeView(state.records, state.portal, state.lang);
-      setMetadata(text(state.lang,"homeTitle"));
-      break;
-    case "project":
-      html = projectView(state.portal, state.lang);
-      setMetadata(text(state.lang,"project"));
-      break;
-    case "methodology":
-      html = methodologyView(state.portal, state.lang);
-      setMetadata(text(state.lang,"methodology"));
-      break;
-    case "initiatives":
-      html = initiativesView(state.portal, state.lang);
-      setMetadata(text(state.lang,"initiatives"));
-      break;
-    case "initiative":
-      html = initiativeDetailView(findInitiative(state.portal, route.slug), state.lang);
-      setMetadata(route.slug);
-      break;
-    case "knowledge":
-      html = knowledgeView(state.portal, state.lang);
-      setMetadata(text(state.lang,"knowledge"));
-      break;
-    case "participate":
-      html = participateView(state.portal, state.lang);
-      setMetadata(text(state.lang,"participate"));
-      break;
-    case "about":
-      html = aboutView(state.portal, state.lang);
-      setMetadata(text(state.lang,"about"));
-      break;
-    case "museum-home":
-      html = museumHome(state.records, state.lang);
-      setMetadata(text(state.lang,"museumTitle"));
-      break;
-    case "gallery":
-      html = galleryView(state.records, state.lang, state.filters);
-      setMetadata(text(state.lang,"gallery"));
-      break;
-    case "timeline":
-      html = timelineView(state.records, state.lang);
-      setMetadata(text(state.lang,"timeline"));
-      break;
+    case "home": html = homeView(state.records,state.portal,state.lang); setMetadata(text(state.lang,"homeTitle")); break;
+    case "project": html = projectView(state.portal,state.lang); setMetadata(text(state.lang,"project")); break;
+    case "methodology": html = methodologyView(state.portal,state.lang); setMetadata(text(state.lang,"methodology")); break;
+    case "initiatives": html = initiativesView(state.portal,state.lang); setMetadata(text(state.lang,"initiatives")); break;
+    case "initiative": html = initiativeDetailView(findInitiative(state.portal,route.slug),state.lang); setMetadata(route.slug); break;
+    case "knowledge": html = knowledgeView(state.portal,state.lang); setMetadata(text(state.lang,"knowledge")); break;
+    case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
+    case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
+    case "museum-home": html = museumHome(state.records,state.collections,state.audit,state.lang); setMetadata(text(state.lang,"museumTitle")); break;
+    case "gallery": html = galleryView(state.records,state.museumIndex,state.lang,state.filters); setMetadata(text(state.lang,"gallery")); break;
+    case "timeline": html = timelineView(state.records,state.lang); setMetadata(text(state.lang,"timeline")); break;
+    case "collections": html = collectionsView(state.records,state.collections,state.lang); setMetadata(text(state.lang,"collectionsLabel")); break;
+    case "collection": html = collectionDetailView(state.records,findCollection(state.collections,route.slug),state.lang); setMetadata(route.slug); break;
     case "memory": {
-      const record = findMemory(state.records, route.id);
-      html = detailView(state.records, record, state.lang);
+      const record = findMemory(state.records,route.id);
+      html = detailView(state.records,record,state.lang);
       setMetadata(record?.title?.[state.lang] || record?.title?.["pt-PT"] || route.id);
       break;
     }
     case "immersive": {
-      const record = findMemory(state.records, route.id);
-      html = immersiveView(state.records, record, state.lang);
+      const record = findMemory(state.records,route.id);
+      html = immersiveView(state.records,record,state.lang,{immersiveInfo:state.immersiveInfo});
       setMetadata(record?.title?.[state.lang] || record?.title?.["pt-PT"] || route.id);
       break;
     }
-    default:
-      html = notFoundView(state.lang);
-      setMetadata(text(state.lang,"notFound"));
+    default: html = notFoundView(state.lang); setMetadata(text(state.lang,"notFound"));
   }
 
   app.innerHTML = html;
@@ -132,9 +166,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records, state.portal] = await Promise.all([
-      loadMemories(),
-      loadPortalContent()
+    [state.records,state.portal,state.collections,state.museumIndex,state.audit] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit()
     ]);
     render();
   } catch (error) {
@@ -143,5 +176,5 @@ async function start() {
   }
 }
 
-window.addEventListener("hashchange", () => render());
+window.addEventListener("hashchange",() => render());
 start();

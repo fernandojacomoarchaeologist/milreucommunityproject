@@ -1,0 +1,222 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.10.0",
+  "records": 31,
+  "siteVisible": 30,
+  "blocked": [
+    "MM202617"
+  ],
+  "datePrecision": {
+    "day": 1,
+    "decade": 1,
+    "range": 8,
+    "unknown": 14,
+    "year": 7
+  },
+  "primaryTypes": {
+    "festa": 2,
+    "juventude": 1,
+    "escavações": 6,
+    "figura comunitária": 1,
+    "visita": 1,
+    "memória comunitária": 2,
+    "literatura": 1,
+    "habitação": 1,
+    "história oral": 1,
+    "trabalho e convívio": 4,
+    "imagem derivada": 1,
+    "trabalho arqueológico": 8,
+    "trabalho e quotidiano": 2
+  },
+  "digitalInterventions": {
+    "records": [
+      "MM202617",
+      "MM202618",
+      "MM202619",
+      "MM202631"
+    ],
+    "visibleRecords": [
+      "MM202618",
+      "MM202619",
+      "MM202631"
+    ]
+  },
+  "nonReciprocalRelations": {
+    "count": 37,
+    "pairs": [
+      [
+        "MM202613",
+        "MM202627"
+      ],
+      [
+        "MM202613",
+        "MM202629"
+      ],
+      [
+        "MM202614",
+        "MM202627"
+      ],
+      [
+        "MM202614",
+        "MM202629"
+      ],
+      [
+        "MM202615",
+        "MM202617"
+      ],
+      [
+        "MM202623",
+        "MM202615"
+      ],
+      [
+        "MM202623",
+        "MM202616"
+      ],
+      [
+        "MM202623",
+        "MM202618"
+      ],
+      [
+        "MM202623",
+        "MM202619"
+      ],
+      [
+        "MM202623",
+        "MM202620"
+      ],
+      [
+        "MM202623",
+        "MM202621"
+      ],
+      [
+        "MM202623",
+        "MM202622"
+      ],
+      [
+        "MM202624",
+        "MM202615"
+      ],
+      [
+        "MM202624",
+        "MM202616"
+      ],
+      [
+        "MM202624",
+        "MM202618"
+      ],
+      [
+        "MM202624",
+        "MM202619"
+      ],
+      [
+        "MM202624",
+        "MM202620"
+      ],
+      [
+        "MM202624",
+        "MM202621"
+      ],
+      [
+        "MM202624",
+        "MM202622"
+      ],
+      [
+        "MM202624",
+        "MM202623"
+      ],
+      [
+        "MM202625",
+        "MM202602"
+      ],
+      [
+        "MM202625",
+        "MM202605"
+      ],
+      [
+        "MM202625",
+        "MM202608"
+      ],
+      [
+        "MM202625",
+        "MM202609"
+      ],
+      [
+        "MM202626",
+        "MM202615"
+      ],
+      [
+        "MM202626",
+        "MM202616"
+      ],
+      [
+        "MM202626",
+        "MM202618"
+      ],
+      [
+        "MM202626",
+        "MM202619"
+      ],
+      [
+        "MM202626",
+        "MM202620"
+      ],
+      [
+        "MM202626",
+        "MM202621"
+      ],
+      [
+        "MM202626",
+        "MM202622"
+      ],
+      [
+        "MM202626",
+        "MM202623"
+      ],
+      [
+        "MM202630",
+        "MM202615"
+      ],
+      [
+        "MM202630",
+        "MM202616"
+      ],
+      [
+        "MM202630",
+        "MM202627"
+      ],
+      [
+        "MM202630",
+        "MM202628"
+      ],
+      [
+        "MM202630",
+        "MM202629"
+      ]
+    ]
+  },
+  "translations": {
+    "pt-PT": {
+      "titlePresent": 31,
+      "summaryPresent": 31
+    },
+    "en": {
+      "titlePresent": 31,
+      "summaryPresent": 0
+    },
+    "es": {
+      "titlePresent": 0,
+      "summaryPresent": 0
+    },
+    "fr": {
+      "titlePresent": 0,
+      "summaryPresent": 0
+    }
+  },
+  "collections": {
+    "escavacoes-e-trabalho-arqueologico": 14,
+    "comunidade-e-quotidiano": 13,
+    "festa-da-pinha": 2,
+    "casa-rural-e-memorias": 9,
+    "intervencoes-digitais-documentadas": 3
+  }
+}

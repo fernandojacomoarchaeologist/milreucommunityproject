@@ -14,7 +14,7 @@ const required = [
   [router, "imersivo", "rota de ecrã inteiro"],
   [main, 'case "immersive"', "renderização imersiva"],
   [main, 'event.key === "Escape"', "saída por Escape"],
-  [main, 'go(`/museu/memorias/${id}`)', "retorno ao detalhe"],
+  [main, 'go(`/museu/memorias/${route.id}`)', "retorno ao detalhe"],
   [museum, "export function immersiveView", "view imersiva"],
   [museum, "record.media.variants.immersive", "imagem imersiva"],
   [museum, "/museu/imersivo/${prev.id}", "memória anterior"],

@@ -20,6 +20,9 @@ export function getRoute() {
   if (path === "/museu") return { name:"museum-home" };
   if (path === "/museu/explorar") return { name:"gallery" };
   if (path === "/museu/linha-do-tempo") return { name:"timeline" };
+  if (path === "/museu/colecoes") return { name:"collections" };
+  const collection = path.match(/^\/museu\/colecoes\/([a-z0-9-]+)$/);
+  if (collection) return { name:"collection", slug:collection[1] };
   const detail = path.match(/^\/museu\/memorias\/(MM\d{6})$/);
   if (detail) return { name:"memory", id:detail[1] };
   const immersive = path.match(/^\/museu\/imersivo\/(MM\d{6})$/);

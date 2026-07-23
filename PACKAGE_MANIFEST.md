@@ -1,42 +1,44 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07B"
+package: "07C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 07B
+# Manifesto do Pacote 07C
 
 ## Identificação
 
-- Pacote: 07B
-- Versão: 0.9.0
+- Pacote: 07C
+- Versão: 0.10.0
 - Tipo: cumulativo e executável
-- Base: Pacote 07A
+- Base: 07B
 
 ## Conteúdo
 
-- 31 originais autorizados;
-- 124 derivados WebP;
-- dados das memórias;
-- Portal público;
-- seis áreas institucionais;
-- iniciativas;
-- Milreu Proteus;
-- metodologia;
-- participação;
-- linha temporal do Museu;
-- modo imersivo protegido;
-- rules, skills, testes e validadores.
+- Portal 07B preservado;
+- Museu ampliado;
+- 31 originais;
+- 124 derivados;
+- índice de pesquisa;
+- auditoria;
+- cinco coleções;
+- filtros;
+- ordenação;
+- grelha/lista;
+- detalhe documental;
+- cronologia;
+- modo imersivo avançado;
+- testes, validators, rules e skills.
 
 ## Critérios
 
-- aplicação local executável;
+- 30 registos públicos;
+- MM202617 bloqueado;
+- nenhuma relação corrigida sem revisão;
+- intervenções visíveis;
+- coleções declaradas como derivadas;
+- ecrã inteiro sem regressão;
 - build estático;
-- Portal sem placeholders principais;
-- nenhum contacto fictício;
-- Museu sem regressão;
-- `MM202617` bloqueado;
-- quatro idiomas com fallback;
 - CI compatível;
-- nenhuma ligação remota.
+- sem Supabase remoto.

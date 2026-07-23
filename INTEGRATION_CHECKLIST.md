@@ -1,57 +1,63 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07B"
+package: "07C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Checklist de integração
 
-## Aplicação
+## Comandos
 
 - [ ] `npm install`
+- [ ] `npm run museum:index`
+- [ ] `npm run museum:audit`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`
 - [ ] `npm run smoke`
 
-## Portal
+## Museu
 
 - [ ] Home
-- [ ] Projeto
-- [ ] Metodologia
-- [ ] Iniciativas
-- [ ] Detalhe de iniciativa
-- [ ] Conhecimento
-- [ ] Participar
-- [ ] Sobre
-- [ ] Drawer mobile
-- [ ] Quatro idiomas e fallback
+- [ ] Pesquisa
+- [ ] Período
+- [ ] Tipo
+- [ ] Data
+- [ ] Intervenção digital
+- [ ] Ordenação
+- [ ] Grelha
+- [ ] Lista
+- [ ] Coleções
+- [ ] Detalhe de coleção
+- [ ] Cronologia
+- [ ] Registos sem data
+- [ ] Fontes
+- [ ] Créditos
+- [ ] Intervenções
+- [ ] Relações explícitas
+- [ ] Sugestões derivadas
+- [ ] Correção/retirada
+- [ ] MM202617 bloqueado
 
-## Museu — não regressão
+## Ecrã inteiro
 
-- [ ] Página inicial
-- [ ] Galeria
-- [ ] Filtros
-- [ ] Detalhe
-- [ ] Linha temporal
-- [ ] Ecrã inteiro
-- [ ] Imagem imersiva
-- [ ] Anterior
-- [ ] Seguinte
+- [ ] Viewport integral
+- [ ] Variante immersive
+- [ ] object-fit contain
+- [ ] Anterior/seguinte
+- [ ] Setas
 - [ ] Escape
-- [ ] Retorno ao Portal
-- [ ] `MM202617` bloqueado
-
-## Viewports
-
-- [ ] 1280 px
-- [ ] 768 px
-- [ ] 375 px
+- [ ] Tecla I
+- [ ] Tecla F
+- [ ] Fullscreen API
+- [ ] Filmstrip
+- [ ] Painel de informação
+- [ ] Mobile
 
 ## Release
 
-- [ ] Registar conflitos
-- [ ] Registar conteúdo pendente
-- [ ] Não promover textos a aprovados
-- [ ] Preparar handoff para 07C
+- [ ] Portal sem regressão
+- [ ] Auditoria atualizada
+- [ ] Pendências preservadas
+- [ ] Handoff para 07D

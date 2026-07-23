@@ -13,12 +13,23 @@ async function loadJson(path) {
 }
 
 export async function loadMemories() {
-  const payload = await loadJson("public/data/memories.json");
-  return payload.records;
+  return (await loadJson("public/data/memories.json")).records;
 }
 
 export async function loadPortalContent() {
   return loadJson("public/data/portal-content.json");
+}
+
+export async function loadMuseumCollections() {
+  return (await loadJson("public/data/museum-collections.json")).collections;
+}
+
+export async function loadMuseumIndex() {
+  return (await loadJson("public/data/museum-index.json")).records;
+}
+
+export async function loadMuseumAudit() {
+  return loadJson("public/data/museum-audit.json");
 }
 
 export function publicMemories(records) {
@@ -31,4 +42,30 @@ export function findMemory(records, id) {
 
 export function findInitiative(content, slug) {
   return content?.initiatives?.find(item => item.slug === slug);
+}
+
+export function findCollection(collections, slug) {
+  return collections?.find(item => item.slug === slug);
+}
+
+export function suggestedMemories(records, record, limit=4) {
+  if (!record) return [];
+  const explicit = new Set(record.relations || []);
+  const tags = new Set((record.classification.tags || []).map(tag => String(tag).casefold()));
+  return records
+    .filter(candidate =>
+      candidate.id !== record.id &&
+      candidate.publication.siteVisible &&
+      !explicit.has(candidate.id)
+    )
+    .map(candidate => {
+      const score = (candidate.classification.tags || [])
+        .map(tag => String(tag).casefold())
+        .filter(tag => tags.has(tag)).length;
+      return { candidate, score };
+    })
+    .filter(item => item.score > 0)
+    .sort((a,b) => b.score - a.score || a.candidate.id.localeCompare(b.candidate.id))
+    .slice(0,limit)
+    .map(item => item.candidate);
 }
