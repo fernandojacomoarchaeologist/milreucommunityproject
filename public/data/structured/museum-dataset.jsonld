@@ -1,0 +1,832 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "urn:milreu:dataset:museum-memories",
+  "name": "Museu de Memórias de Milreu — registos públicos",
+  "description": "Conjunto de registos fotográficos e documentais do Projeto Comunitário de Milreu.",
+  "inLanguage": [
+    "pt-PT",
+    "en",
+    "es",
+    "fr"
+  ],
+  "isAccessibleForFree": true,
+  "hasPart": [
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202601",
+      "identifier": "MM202601",
+      "name": "Um aspecto do cortejo da Festa da Pinha, em Estoi",
+      "abstract": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+      "dateCreated": "1909-05-02",
+      "temporalCoverage": "1909-05-02",
+      "about": [
+        "Festa da Pinha",
+        "Estoi",
+        "Casa Rural",
+        "Milreu",
+        "Torre do Tombo",
+        "José Viegas Samorrinha",
+        "1909"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202601",
+        "contentUrl": "public/media/museum/generated/MM202601/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202601/thumbnail.webp",
+        "caption": "Fotografia que documenta um aspeto do cortejo da Festa da Pinha, em Estoi, datada de 2 de maio de 1909. A imagem mostra o cortejo a passar em frente à Casa Rural de Milreu, com elementos festivos, cavalo ornamentado e participantes com trajes especiais. A fotografia pertence ao acervo do Arquivo Nacional da Torre do Tombo, no fundo Foto Artística Samorrinha, com autoria de José Viegas Samorrinha. A leitura comunitária indica que o cortejo passa em frente às ruínas, sendo possível observar a paisagem característica do Monte Malhão e a Casa Rural.",
+        "creditText": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202601/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202602",
+      "identifier": "MM202602",
+      "name": "Memórias de juventude — Estoi, década de 1950",
+      "abstract": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+      "dateCreated": "1950",
+      "temporalCoverage": "ca. 1950s",
+      "about": [
+        "Milreu",
+        "Estoi",
+        "juventude",
+        "edifício de cultos",
+        "anos 1950",
+        "memória comunitária"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202602",
+        "contentUrl": "public/media/museum/generated/MM202602/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202602/thumbnail.webp",
+        "caption": "Fotografia de um grupo de cinco jovens raparigas, possivelmente captada durante um passeio às Ruínas de Milreu por volta da década de 1950. A imagem foi indicada pela população como referência de memória local e mostra as jovens sentadas junto ao lado sul do edifício de cultos. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202602/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202603",
+      "identifier": "MM202603",
+      "name": "Achados romanos de Milreu",
+      "abstract": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+      "dateCreated": "1966",
+      "temporalCoverage": "1966-1967",
+      "about": [
+        "Milreu",
+        "escavações",
+        "bustos romanos",
+        "Agripina",
+        "Adriano",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202603",
+        "contentUrl": "public/media/museum/generated/MM202603/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202603/thumbnail.webp",
+        "caption": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu, em Estoi, durante a década de 1960, quando foram encontrados importantes bustos de época romana, identificados como Agripina, a Jovem, e o imperador Adriano. A imagem mostra três homens não identificados ostentando os achados. A descrição original circulou na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202603/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202604",
+      "identifier": "MM202604",
+      "name": "Figura popular de Estoi — Ti’ Jacinto",
+      "abstract": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+      "dateCreated": null,
+      "temporalCoverage": "Data não determinada",
+      "about": [
+        "Estoi",
+        "Ti’ Jacinto",
+        "memória comunitária",
+        "figura popular"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202604",
+        "contentUrl": "public/media/museum/generated/MM202604/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202604/thumbnail.webp",
+        "caption": "Retrato de Ti’ Jacinto, figura conhecida da comunidade local de Estoi. Segundo testemunhos, desempenhou funções como capataz e esteve ligado à manutenção de espaços públicos, como o jardim da Praça Ossonoba. Também há referências à sua ligação às Ruínas de Milreu e ao seu papel como cobrador na praça, onde interagia com vendedores, comerciantes e moradores.",
+        "creditText": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202604/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202605",
+      "identifier": "MM202605",
+      "name": "Visita de jornalistas ingleses a Milreu",
+      "abstract": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+      "dateCreated": "1913",
+      "temporalCoverage": "1913",
+      "about": [
+        "Milreu",
+        "jornalistas ingleses",
+        "1913",
+        "Ilustração Portuguesa",
+        "Hemeroteca Digital",
+        "edifício de cultos"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202605",
+        "contentUrl": "public/media/museum/generated/MM202605/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202605/thumbnail.webp",
+        "caption": "Fotografia de uma visita de jornalistas ingleses às Ruínas de Milreu, datada de 1913. A imagem foi publicada na revista Ilustração Portuguesa, 2.ª série, n.º 368, de 10 de março de 1913, e pode ser consultada na Hemeroteca Digital. A fotografia parece ter sido tirada no interior do edifício de cultos. Alguns detalhes arquitetónicos visíveis, hoje desaparecidos ou alterados, evidenciam transformações do sítio ao longo do tempo.",
+        "creditText": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202605/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202606",
+      "identifier": "MM202606",
+      "name": "Escavações arqueológicas nas Ruínas de Milreu",
+      "abstract": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+      "dateCreated": "1897",
+      "temporalCoverage": "1897",
+      "about": [
+        "Milreu",
+        "escavações",
+        "século XIX",
+        "Estácio da Veiga",
+        "Pereira Boto",
+        "arqueologia"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202606",
+        "contentUrl": "public/media/museum/generated/MM202606/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202606/thumbnail.webp",
+        "caption": "Fotografia associada às escavações arqueológicas realizadas nas Ruínas Romanas de Milreu no final do século XIX, nomeadamente às intervenções conduzidas pelo Cónego Pereira Boto em 1897. O registo remete para uma fase pioneira da arqueologia em Portugal, marcada pela continuidade dos trabalhos iniciados por Estácio da Veiga em 1877.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202606/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202607",
+      "identifier": "MM202607",
+      "name": "Bustos romanos de Milreu",
+      "abstract": "Registo considerado um dos primeiros após a descoberta dos bustos de Adriano e Agripina em Milreu.",
+      "dateCreated": "1966",
+      "temporalCoverage": "1966",
+      "about": [
+        "Milreu",
+        "bustos romanos",
+        "Adriano",
+        "Agripina",
+        "Theodor Hauschild",
+        "Instituto Arqueológico Alemão",
+        "Museu Municipal de Faro"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202607",
+        "contentUrl": "public/media/museum/generated/MM202607/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202607/thumbnail.webp",
+        "caption": "Registo fotográfico considerado um dos primeiros após a descoberta dos bustos do imperador Adriano e de Agripina, a Jovem, encontrados nas Ruínas Romanas de Milreu, em Estoi. Os bustos foram descobertos em 1966 durante escavações conduzidas pelo Instituto Arqueológico Alemão sob direção de Theodor Hauschild. As esculturas encontram-se atualmente no Museu Municipal de Faro.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202607/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202608",
+      "identifier": "MM202608",
+      "name": "Edifício de cultos, potencialmente em 1910",
+      "abstract": "Registo fotográfico em frente ao edifício de cultos de Milreu, potencialmente datado de 1910 segundo relatos orais.",
+      "dateCreated": "1910",
+      "temporalCoverage": "potencialmente 1910",
+      "about": [
+        "Milreu",
+        "edifício de cultos",
+        "Estoi",
+        "1910",
+        "história oral"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202608",
+        "contentUrl": "public/media/museum/generated/MM202608/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202608/thumbnail.webp",
+        "caption": "Fotografia em frente ao edifício de cultos de Milreu, potencialmente datada de 1910 segundo relatos orais. A descrição foi divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202608/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202609",
+      "identifier": "MM202609",
+      "name": "Pessoas em frente ao edifício de cultos",
+      "abstract": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+      "dateCreated": null,
+      "temporalCoverage": "Ano desconhecido",
+      "about": [
+        "Milreu",
+        "edifício de cultos",
+        "Estoi",
+        "memória comunitária"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202609",
+        "contentUrl": "public/media/museum/generated/MM202609/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202609/thumbnail.webp",
+        "caption": "Registo de pessoas em frente ao edifício de cultos das Ruínas Romanas de Milreu. O ano da fotografia é desconhecido. A descrição foi divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "creditText": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202609/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202610",
+      "identifier": "MM202610",
+      "name": "Poesia nas ruínas",
+      "abstract": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+      "dateCreated": null,
+      "temporalCoverage": "Data não determinada",
+      "about": [
+        "Milreu",
+        "Estoi",
+        "Emiliano da Costa",
+        "António Aleixo",
+        "poesia",
+        "José António Paula Brito"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202610",
+        "contentUrl": "public/media/museum/generated/MM202610/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202610/thumbnail.webp",
+        "caption": "Fotografia pertencente ao espólio do poeta Emiliano da Costa, nascido em Tavira e radicado em Estoi como médico. A pessoa retratada poderá ser o Dr. Magalhães, professor do ensino secundário que coligiu a poesia de António Aleixo, ou o fotógrafo e ator amador Hélder Azevedo, de Faro. A fotografia pertence à coleção de José António Paula Brito.",
+        "creditText": "Coleção de José António Paula Brito.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202610/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202611",
+      "identifier": "MM202611",
+      "name": "Natalina Crispim na Casa Rural de Milreu",
+      "abstract": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+      "dateCreated": null,
+      "temporalCoverage": "Data não determinada",
+      "about": [
+        "Milreu",
+        "Casa Rural",
+        "Natalina Crispim",
+        "Monte Figo",
+        "memória familiar"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202611",
+        "contentUrl": "public/media/museum/generated/MM202611/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202611/thumbnail.webp",
+        "caption": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo. Não há informações detalhadas sobre o contexto da imagem, pois foi retirada de arquivo digital. Em contacto com Dona Natalina, a mesma não se recordava com precisão do contexto da fotografia, mas sabia que era nas proximidades da Casa Rural.",
+        "creditText": "Arquivo digital associado à memória de Natalina Crispim.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202611/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202612",
+      "identifier": "MM202612",
+      "name": "Rosário Félix desenha as memórias de Natalina Crispim",
+      "abstract": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+      "dateCreated": null,
+      "temporalCoverage": "Possivelmente próxima da produção do documentário Memórias Vivas da Casa Rural",
+      "about": [
+        "Milreu",
+        "Casa Rural",
+        "Natalina Crispim",
+        "Rosário Félix",
+        "Partilha Alternativa",
+        "história oral",
+        "Memórias Vivas da Casa Rural"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202612",
+        "contentUrl": "public/media/museum/generated/MM202612/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202612/thumbnail.webp",
+        "caption": "Fotografia de Rosário Félix a desenhar as memórias de Natalina Crispim. A imagem está associada à Partilha Alternativa e ao documentário Memórias Vivas da Casa Rural. A hipótese é que a fotografia tenha sido tirada próximo da produção do documentário. A imagem reflete a memória da Casa Rural e encontrava-se, no momento da catalogação, na página de Facebook da Partilha Alternativa.",
+        "creditText": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202612/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202613",
+      "identifier": "MM202613",
+      "name": "Theodor Hauschild e equipa de escavadores em Milreu",
+      "abstract": "Fotografia de grupo associada às campanhas arqueológicas de Milreu com o Instituto Arqueológico Alemão.",
+      "dateCreated": "1981",
+      "temporalCoverage": "ca. 1981, segundo hipótese de Cristina Farias",
+      "about": [
+        "Milreu",
+        "escavações",
+        "Theodor Hauschild",
+        "Instituto Arqueológico Alemão",
+        "Casa Rural",
+        "Pedro Fialho de Sousa",
+        "Cristina Farias"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202613",
+        "contentUrl": "public/media/museum/generated/MM202613/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202613/thumbnail.webp",
+        "caption": "Fotografia de Theodor Hauschild e sua equipa de escavadores em Milreu, associada às campanhas arqueológicas realizadas por volta dos anos 1970 e início dos anos 1980. A fotografia pertence à coleção de Maria de Lurdes Mendes Martins e foi providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz, conhecida como “papo seco”. A imagem mostra 19 indivíduos no que aparenta ser o lado sudoeste externo da Casa Rural, próximo das colunas. Cristina Farias identificou desenhadores do Instituto Arqueológico Alemão, o arquiteto Pedro Fialho de Sousa e trabalhadores contratados para a escavação.",
+        "creditText": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202613/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202614",
+      "identifier": "MM202614",
+      "name": "Equipa de escavadores em Milreu sobre os mosaicos",
+      "abstract": "Fotografia de grupo das campanhas arqueológicas de Milreu, com 31 indivíduos sobre os mosaicos.",
+      "dateCreated": "1981",
+      "temporalCoverage": "Provavelmente 1981, segundo testemunho de Cristina Farias",
+      "about": [
+        "Milreu",
+        "escavações",
+        "mosaicos",
+        "Instituto Arqueológico Alemão",
+        "Cristina Farias",
+        "Pedro Fialho de Sousa",
+        "Casa Rural"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202614",
+        "contentUrl": "public/media/museum/generated/MM202614/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202614/thumbnail.webp",
+        "caption": "Fotografia da equipa de escavadores em Milreu durante campanhas associadas ao Instituto Arqueológico Alemão. A imagem mostra 31 indivíduos no que aparenta ser a zona dos mosaicos próxima ao ponto central, no lado oeste da Casa Rural. A fotografia foi providenciada por Celeste Pimenta e Branca Pimenta. No verso há marcas de manuseio, amarelamento, dobras, manchas e o número “8” escrito a lápis. Cristina Farias aparece na fotografia e indicou detalhes importantes sobre a presença de desenhadores do Instituto Arqueológico Alemão, do arquiteto Pedro Fialho de Sousa e de trabalhadores contratados.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202614/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202615",
+      "identifier": "MM202615",
+      "name": "Os escavadores ao almoço",
+      "abstract": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980",
+      "about": [
+        "Milreu",
+        "escavações",
+        "almoço",
+        "trabalhadores",
+        "Theodor Hauschild",
+        "Kodak",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202615",
+        "contentUrl": "public/media/museum/generated/MM202615/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202615/thumbnail.webp",
+        "caption": "Fotografia de escavadores ao almoço durante as campanhas arqueológicas de Milreu associadas ao Instituto Arqueológico Alemão. A imagem pertence à coleção de Maria de Lurdes Mendes Martins e foi providenciada por Celeste Pimenta e Branca Pimenta. A fotografia apresenta dez indivíduos, não identificados com segurança. No extremo direito, é possível que esteja o professor Theodor Hauschild, mas esta identificação permanece hipotética. A fotografia tem formato retrato, dimensões aproximadas de 10,1 x 14,9 cm e indicação Kodak no verso.",
+        "creditText": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202615/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202616",
+      "identifier": "MM202616",
+      "name": "Grupo de trabalhadores com Theodor Hauschild",
+      "abstract": "Grupo de trabalhadores nas campanhas de Milreu, com possível presença de Theodor Hauschild.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento fotografado possivelmente anterior",
+      "about": [
+        "Milreu",
+        "escavações",
+        "Theodor Hauschild",
+        "Sandra",
+        "Maria",
+        "Celeste",
+        "Alzira",
+        "Pepe",
+        "Afonso",
+        "Kodak"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202616",
+        "contentUrl": "public/media/museum/generated/MM202616/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202616/thumbnail.webp",
+        "caption": "Fotografia de grupo durante as escavações em Milreu, com Sandra, Maria, Celeste, Alzira, Pepe, Afonso e o professor Theodor Hauschild indicados na descrição original. O verso da fotografia apresenta carimbo Kodak de dezembro de 1984, embora a imagem possa corresponder a campanhas anteriores. A fotografia tem dimensões de 10 x 15 cm, orientação paisagem, brilho espelhado, pontas arredondadas e sinais de amarelecimento, obscurecimento e pequenos descolamentos nas bordas.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202616/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202618",
+      "identifier": "MM202618",
+      "name": "Trabalhando nas ruínas",
+      "abstract": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980",
+      "about": [
+        "Milreu",
+        "escavações",
+        "trabalho arqueológico",
+        "Kodak",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202618",
+        "contentUrl": "public/media/museum/generated/MM202618/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202618/thumbnail.webp",
+        "caption": "Fotografia de trabalho nas Ruínas de Milreu durante as campanhas associadas ao Instituto Arqueológico Alemão. A imagem mostra dois indivíduos em contexto de escavação, sem identificação confirmada. A fotografia tem formato retrato, dimensões aproximadas de 10,1 x 14,9 cm, indicação Kodak no verso e bom estado de conservação, com algum amarelecimento e impacto nas cores. A digitalização foi realizada em scanner HP 2700 series a 1200 dpi, com cópia corrigida por IA para uso expositivo.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202618/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202619",
+      "identifier": "MM202619",
+      "name": "Tomando notas dos achados",
+      "abstract": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+      "dateCreated": "1987-01",
+      "temporalCoverage": "Provavelmente entre janeiro e junho de 1987",
+      "about": [
+        "Milreu",
+        "Celeste Pimenta",
+        "notas",
+        "achados",
+        "Kodak",
+        "1987",
+        "Caixa de Crédito Agrícola",
+        "Partilha Alternativa"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202619",
+        "contentUrl": "public/media/museum/generated/MM202619/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202619/thumbnail.webp",
+        "caption": "Fotografia da coleção de Maria de Lurdes Mendes Martins, associada ao trabalho nas escavações de Milreu. Ao centro é possível identificar, aparentemente, Dona Celeste Pimenta a tomar notas. Ao fundo há um calendário da Caixa de Crédito Agrícola que aparenta ser de 1987, dado que janeiro de 1987 iniciou numa quinta-feira. O verso da fotografia indica revelação Kodak em junho de 1987. A imagem foi digitalizada em scanner HP 2700 series a 1200 dpi, com cópia corrigida por IA para exposição. A correção por IA distorceu parcialmente dados do calendário, tendo sido aplicado blur para evitar interpretações indevidas.",
+        "creditText": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202619/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202620",
+      "identifier": "MM202620",
+      "name": "No frigidarium",
+      "abstract": "Fotografia de trabalhadora das ruínas sentada no frigidarium de Milreu.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em junho de 1987; evento possivelmente anterior ou próximo",
+      "about": [
+        "Milreu",
+        "frigidarium",
+        "Celeste Pimenta",
+        "Kodak",
+        "1987",
+        "mosaicos",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202620",
+        "contentUrl": "public/media/museum/generated/MM202620/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202620/thumbnail.webp",
+        "caption": "Fotografia de trabalhadora das ruínas durante campanhas associadas ao Instituto Arqueológico Alemão. No quadrante inferior direito, é possível observar uma pessoa que parece ser Dona Celeste Pimenta, sentada na parte baixa do frigidarium, de costas para uma parede de mosaicos. Também são visíveis os degraus que levam ao nível inferior do frigidarium. O verso indica revelação Kodak em junho de 1987. A imagem tem orientação paisagem, dimensões aproximadas de 10,1 x 14,9 cm e boas condições de preservação.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202620/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202621",
+      "identifier": "MM202621",
+      "name": "Lavando cacos",
+      "abstract": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "lavando cacos",
+        "Alzira Parente",
+        "Kodak",
+        "1984",
+        "Partilha Alternativa",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202621",
+        "contentUrl": "public/media/museum/generated/MM202621/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202621/thumbnail.webp",
+        "caption": "Fotografia associada às campanhas arqueológicas de Milreu conduzidas pelo Instituto Arqueológico Alemão. A descrição “Lavando cacos” veio de publicação da página Partilha Alternativa. A imagem mostra dois indivíduos no quadrante superior direito a manipular materiais junto a uma carriola e um balde. Um dos indivíduos aparenta ser Dona Alzira Parente; o outro não foi identificado. A fotografia foi revelada pela Kodak em dezembro de 1984, segundo carimbo apagado no verso, e apresenta brilho espelhado, pontas arredondadas, dimensão de 10 x 15 cm e bom estado de conservação, embora com efeitos do tempo.",
+        "creditText": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202621/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202622",
+      "identifier": "MM202622",
+      "name": "Trabalhadoras das ruínas a cozinhar",
+      "abstract": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas de Milreu.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "trabalhadoras",
+        "cozinha",
+        "Kodak",
+        "1984",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202622",
+        "contentUrl": "public/media/museum/generated/MM202622/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202622/thumbnail.webp",
+        "caption": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas conduzidas pelo Instituto Arqueológico Alemão. A imagem integra o conjunto de fotografias providenciado por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz. O verso da fotografia indica revelação Kodak em dezembro de 1984, com marca de água cinzenta “This Paper Manufactured by Kodak”.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202622/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202623",
+      "identifier": "MM202623",
+      "name": "Trabalhadores das ruínas",
+      "abstract": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980",
+      "about": [
+        "Milreu",
+        "trabalhadores",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202623",
+        "contentUrl": "public/media/museum/generated/MM202623/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202623/thumbnail.webp",
+        "caption": "Fotografia pertencente ao conjunto de imagens das campanhas arqueológicas realizadas em Milreu e providenciadas por Celeste Pimenta e Branca Pimenta. O registo documenta trabalhadores das ruínas em contexto de trabalho arqueológico ou de apoio às campanhas.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202623/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202624",
+      "identifier": "MM202624",
+      "name": "Trabalhadoras nas ruínas com carriola",
+      "abstract": "Fotografia de três trabalhadoras das ruínas com uma carriola.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980",
+      "about": [
+        "Milreu",
+        "trabalhadoras",
+        "carriola",
+        "Kodak",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202624",
+        "contentUrl": "public/media/museum/generated/MM202624/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202624/thumbnail.webp",
+        "caption": "Fotografia de trabalhadoras das ruínas durante campanhas arqueológicas conduzidas pelo Instituto Arqueológico Alemão. O verso da imagem não traz datação nem carimbo, apenas a indicação Kodak com a descrição “This Paper Manufactured by Kodak”. É possível identificar três indivíduos do sexo feminino com um carrinho de mão ou carriola.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202624/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202625",
+      "identifier": "MM202625",
+      "name": "Trabalhadores junto ao edifício de cultos",
+      "abstract": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos de Milreu.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980",
+      "about": [
+        "Milreu",
+        "edifício de cultos",
+        "trabalhadores",
+        "Kodak",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202625",
+        "contentUrl": "public/media/museum/generated/MM202625/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202625/thumbnail.webp",
+        "caption": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos, no lado esquerdo à entrada. A imagem pertence ao conjunto das campanhas arqueológicas conduzidas pelo Instituto Arqueológico Alemão. O verso não traz datação nem carimbo, apenas a indicação Kodak com a descrição “This Paper Manufactured by Kodak”. É possível identificar seis indivíduos: cinco à frente e um ao fundo, possivelmente quatro do sexo feminino, um aparentemente masculino e outro sem identificação possível sem ampliação adequada.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202625/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202626",
+      "identifier": "MM202626",
+      "name": "Trabalhadores nas ruínas",
+      "abstract": "Fotografia em papel Kodak Kodacolor, em melhor estado de conservação que outras imagens do conjunto.",
+      "dateCreated": "1970",
+      "temporalCoverage": "ca. anos 1970-1980; revelação possivelmente mais recente",
+      "about": [
+        "Milreu",
+        "trabalhadores",
+        "Kodak",
+        "Kodacolor",
+        "processo cromogénico",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202626",
+        "contentUrl": "public/media/museum/generated/MM202626/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202626/thumbnail.webp",
+        "caption": "Fotografia de trabalhadores nas ruínas, pertencente ao conjunto de imagens das campanhas de Milreu. A fotografia está impressa em papel Kodak com tecnologia Kodacolor, conforme carimbo em cor magenta quase desaparecido e pouco visível. Pode tratar-se de processo cromogénico, embora sejam necessárias análises mais específicas. O melhor estado de conservação pode indicar revelação em período mais recente, mas esta hipótese requer confirmação técnica.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202626/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202627",
+      "identifier": "MM202627",
+      "name": "Trabalhadores em momento de descanso e convívio",
+      "abstract": "Fotografia de trabalhadores em torno de uma mesa, possivelmente após refeição.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "convívio",
+        "almoço",
+        "trabalhadores",
+        "Casa Rural",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202627",
+        "contentUrl": "public/media/museum/generated/MM202627/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202627/thumbnail.webp",
+        "caption": "Fotografia de trabalhadores das ruínas em potencial momento de descanso e convívio. Há interferência na imagem do lado direito, causando bloqueio e estouro da imagem. As pessoas estão em torno de uma mesa após comerem; ao centro há um indivíduo a fumar um cigarro e, em destaque, um indivíduo do sexo feminino com roupa aparentemente esportiva. A fotografia está associada ao conjunto das campanhas arqueológicas de Milreu.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202627/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202628",
+      "identifier": "MM202628",
+      "name": "Trabalhadores junto ao professor Theodor Hauschild",
+      "abstract": "Fotografia obscurecida mostrando pessoas sentadas junto ao professor Theodor Hauschild.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "Theodor Hauschild",
+        "Casa Rural",
+        "trabalhadores",
+        "escavações",
+        "Instituto Arqueológico Alemão"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202628",
+        "contentUrl": "public/media/museum/generated/MM202628/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202628/thumbnail.webp",
+        "caption": "Fotografia obscurecida no lado inferior esquerdo, mostrando pessoas sentadas ao lado do professor Theodor Hauschild. Não é possível identificar com segurança o local da imagem, sendo a hipótese que tenha sido tirada dentro da Casa Rural ou nas proximidades. A imagem pertence ao conjunto de fotografias das campanhas arqueológicas de Milreu.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202628/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202629",
+      "identifier": "MM202629",
+      "name": "Trabalhadores junto ao professor Theodor Hauschild, blusa listrada",
+      "abstract": "Fotografia de pessoas em torno de uma mesa com alimentos, junto ao professor Theodor Hauschild.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "Theodor Hauschild",
+        "refeição",
+        "trabalhadores",
+        "Casa Rural",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202629",
+        "contentUrl": "public/media/museum/generated/MM202629/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202629/thumbnail.webp",
+        "caption": "Fotografia obscurecida e com desgaste no lado direito. É possível observar pessoas em volta de uma mesa com alimentos durante uma refeição. A imagem está associada ao professor Theodor Hauschild e ao conjunto de fotografias das campanhas arqueológicas de Milreu.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202629/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202630",
+      "identifier": "MM202630",
+      "name": "Trabalhadores nas escadas internas da Casa Rural",
+      "abstract": "Fotografia de pessoas nas escadas internas da Casa Rural de Milreu.",
+      "dateCreated": null,
+      "temporalCoverage": "Revelação em dezembro de 1984; evento possivelmente anterior",
+      "about": [
+        "Milreu",
+        "Casa Rural",
+        "escadas",
+        "Celeste Pimenta",
+        "Sandra Pimenta",
+        "Kodak",
+        "escavações"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202630",
+        "contentUrl": "public/media/museum/generated/MM202630/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202630/thumbnail.webp",
+        "caption": "Fotografia impressa em papel Kodak com brilho espelhado, apresentando interferência de um artefacto na imagem, provavelmente causada por algum objeto que entrou à frente da câmara durante a fotografia. As pessoas estão localizadas no lado esquerdo, sendo potencialmente Celeste Pimenta e Sandra Pimenta, embora os sobrenomes possam ter sido alterados. A fotografia parece ter sido tirada nos degraus de uma das escadas localizadas nos cantos da Casa Rural, potencialmente sudeste ou nordeste.",
+        "creditText": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202630/"
+    },
+    {
+      "@type": "Photograph",
+      "@id": "urn:milreu:memory:MM202631",
+      "identifier": "MM202631",
+      "name": "Cortejo da Festa da Pinha em frente às Ruínas de Milreu",
+      "abstract": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+      "dateCreated": "2024",
+      "temporalCoverage": "2024",
+      "about": [
+        "Milreu",
+        "Festa da Pinha",
+        "Património Cultural I.P.",
+        "2024",
+        "Estoi"
+      ],
+      "image": {
+        "@type": "ImageObject",
+        "@id": "urn:milreu:image:MM202631",
+        "contentUrl": "public/media/museum/generated/MM202631/detail.webp",
+        "thumbnailUrl": "public/media/museum/generated/MM202631/thumbnail.webp",
+        "caption": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, em 2024. A imagem foi adaptada para redes sociais em formato de publicação para Instagram, tendo alguns elementos aparentemente cortados, como parte da cabeça do cavalo. Os indivíduos da imagem não foram identificados. Foi realizada correção de imagem com IA conforme prompt descrito na observação da catalogação.",
+        "creditText": "Publicação em redes sociais por Património Cultural I.P.",
+        "copyrightNotice": "Consultar os direitos e créditos do registo."
+      },
+      "url": "museu/memorias/MM202631/"
+    }
+  ]
+}

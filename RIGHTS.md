@@ -38,3 +38,7 @@ Os textos institucionais permanecem preliminares e sujeitos a revisão. As fotog
 ## Museu 07C
 
 As coleções e sugestões desta versão são derivações de navegação baseadas em tipos e palavras-chave. Não representam novas alegações históricas. Intervenções digitais declaradas permanecem identificadas nos registos públicos.
+
+## Pacote 07D
+
+Os previews de totem e painel são composições técnicas derivadas dos registos autorizados para publicação no âmbito do projeto. Não constituem autorização para impressão, reprodução comercial ou reutilização fora do projeto. Os QR finais permanecem pendentes de domínio público.

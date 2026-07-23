@@ -1,44 +1,45 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07C"
+package: "07D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 07C
+# Manifesto do Pacote 07D
 
-## Identificação
-
-- Pacote: 07C
-- Versão: 0.10.0
+- Pacote: 07D
+- Versão: 0.11.0
 - Tipo: cumulativo e executável
-- Base: 07B
+- Base: 07C
 
-## Conteúdo
+## Entregas
 
-- Portal 07B preservado;
-- Museu ampliado;
-- 31 originais;
-- 124 derivados;
-- índice de pesquisa;
-- auditoria;
-- cinco coleções;
-- filtros;
-- ordenação;
-- grelha/lista;
-- detalhe documental;
-- cronologia;
-- modo imersivo avançado;
-- testes, validators, rules e skills.
+- Portal;
+- Museu;
+- modo imersivo;
+- laboratório multicanal;
+- preview de totem;
+- preview de painel;
+- 31 perfis;
+- 30 candidatos públicos;
+- exports CSV;
+- destinos QR;
+- gerador QR condicionado;
+- JSON-LD;
+- páginas estáticas;
+- JSON por memória;
+- budgets;
+- CI;
+- Pages manual;
+- release readiness.
 
 ## Critérios
 
-- 30 registos públicos;
+- aplicação executável;
 - MM202617 bloqueado;
-- nenhuma relação corrigida sem revisão;
-- intervenções visíveis;
-- coleções declaradas como derivadas;
-- ecrã inteiro sem regressão;
-- build estático;
-- CI compatível;
-- sem Supabase remoto.
+- nenhum canal físico ativado;
+- domínio não inventado;
+- QR pendente sem domínio;
+- previews com marca de água;
+- public launch false;
+- validações e testes verdes.

@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -17,6 +17,7 @@ import {
   museumHome, galleryView, detailView, immersiveView, timelineView,
   collectionsView, collectionDetailView
 } from "./views/museum.js";
+import { channelLabView, totemPreviewView, panelPreviewView } from "./views/channels.js";
 import { text } from "./lib/i18n.js";
 
 const app = document.querySelector("#app");
@@ -26,6 +27,8 @@ const state = {
   collections: [],
   museumIndex: [],
   audit: null,
+  channelConfig: null,
+  channelRecords: [],
   lang: localStorage.getItem("milreu-language") || "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
@@ -139,6 +142,9 @@ function render(scroll=true) {
     case "knowledge": html = knowledgeView(state.portal,state.lang); setMetadata(text(state.lang,"knowledge")); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
+    case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
+    case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
+    case "panel-preview": html = panelPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Painel ${route.id}`); break;
     case "museum-home": html = museumHome(state.records,state.collections,state.audit,state.lang); setMetadata(text(state.lang,"museumTitle")); break;
     case "gallery": html = galleryView(state.records,state.museumIndex,state.lang,state.filters); setMetadata(text(state.lang,"gallery")); break;
     case "timeline": html = timelineView(state.records,state.lang); setMetadata(text(state.lang,"timeline")); break;
@@ -166,8 +172,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.collections,state.museumIndex,state.audit] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit()
+    [state.records,state.portal,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
     ]);
     render();
   } catch (error) {

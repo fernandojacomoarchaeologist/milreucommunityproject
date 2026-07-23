@@ -208,7 +208,7 @@ export function knowledgeView(content, lang) {
       <div class="knowledge-grid">
         ${knowledge.categories.map(item => `<article class="knowledge-card"><img src="${assetUrl("public/icons/knowledge.svg")}" alt=""><h2>${esc(localised(item.title,lang).value)}</h2><p>${esc(localised(item.description,lang).value)}</p><span>Estrutura preparada · conteúdo futuro</span></article>`).join("")}
       </div>
-      <div class="architecture-note"><h2>Fonte única</h2><p>As páginas públicas, o Museu, os totens e as futuras APIs deverão derivar dos mesmos registos canónicos.</p></div>
+      <div class="architecture-note"><h2>Fonte única</h2><p>As páginas públicas, o Museu, os totens e as futuras APIs deverão derivar dos mesmos registos canónicos.</p><p><a class="ml-button ml-button--secondary ml-button--on-dark" href="#/laboratorio/canais">Abrir laboratório multicanal</a></p></div>
     </section>
   </main>${footer(lang)}`;
 }

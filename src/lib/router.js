@@ -17,6 +17,12 @@ export function getRoute() {
   if (path === "/participar") return { name:"participate" };
   if (path === "/sobre") return { name:"about" };
 
+  if (path === "/laboratorio/canais") return { name:"channel-lab" };
+  const totemPreview = path.match(/^\/laboratorio\/totem\/(MM\d{6})$/);
+  if (totemPreview) return { name:"totem-preview", id:totemPreview[1] };
+  const panelPreview = path.match(/^\/laboratorio\/painel\/(MM\d{6})$/);
+  if (panelPreview) return { name:"panel-preview", id:panelPreview[1] };
+
   if (path === "/museu") return { name:"museum-home" };
   if (path === "/museu/explorar") return { name:"gallery" };
   if (path === "/museu/linha-do-tempo") return { name:"timeline" };

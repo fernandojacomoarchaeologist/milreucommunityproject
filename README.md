@@ -1,74 +1,77 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07C"
+package: "07D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 07C — Museu Digital Incremental
+# Pacote 07D — Multicanal e Release Técnica do MVP
 
-**Versão:** 0.10.0  
-**Tipo:** cumulativo e executável sobre o 07B.
+**Versão:** 0.11.0  
+**Tipo:** pacote cumulativo e executável sobre o 07C.
 
-Este pacote aprofunda o Museu sem interromper o Portal e transforma o modo de ecrã inteiro numa experiência museológica mais completa.
+O Pacote 07D fecha o primeiro ciclo técnico do Portal e do Museu e cria a ponte estruturada para totens e painéis físicos.
 
 ## Executar
 
 ```bash
 npm install
-npm run dev
-```
-
-Validação:
-
-```bash
+npm run channels:export
 npm run museum:index
 npm run museum:audit
 npm run validate
 npm test
 npm run build
-npm run preview
+npm run dev
 ```
 
-## Entregas do Museu
+## Laboratório multicanal
 
-- página inicial do Museu ampliada;
-- pesquisa sobre conteúdo, tags, lugares, créditos e contexto;
-- filtros por período, tipo, data e intervenção digital;
-- ordenação;
-- grelha e lista;
-- cinco coleções derivadas para navegação;
-- páginas de coleção;
-- cronologia com registos datados e não datados;
-- detalhe documental;
-- fontes, acesso, crédito e proveniência;
-- indicação de intervenções digitais;
-- relações explícitas;
-- sugestões derivadas de palavras-chave, claramente identificadas;
-- direitos e ligação para correção ou retirada;
-- modo imersivo avançado;
-- filmstrip;
-- painel de informação;
-- navegação anterior e seguinte;
-- Escape, setas, I e F;
-- Fullscreen API do navegador;
-- comportamento responsivo.
+Abrir:
 
-## Dados
+```text
+#/laboratorio/canais
+```
 
-- 31 registos preservados;
-- 30 visíveis;
-- `MM202617` bloqueado;
-- 124 derivados WebP;
-- índice público com 30 registos;
-- relatório de auditoria;
-- relações não recíprocas registadas, mas não corrigidas automaticamente;
-- traduções mantidas conforme os estados existentes.
+É possível visualizar cada memória como:
 
-## Coleções
+- página do Museu;
+- proposta técnica de totem;
+- proposta técnica de painel.
 
-As coleções são percursos de navegação calculados por tipos, tags ou intervenções declaradas. Elas não criam novas relações históricas.
+Os previews físicos não são arte final e mostram marca de água.
 
-## Próximo pacote
+## Estrutura comum
 
-07D — estrutura multicanal, pré-visualização de totem/painel, exportações e release de encerramento do MVP.
+Todos os canais reutilizam identificador, fotografia, título, data, descrição, crédito, direitos, fontes e destino canónico. Portal, Museu, totem e painel alteram a composição, a densidade e a sequência.
+
+## QR
+
+O pacote não inventa um domínio.
+
+```bash
+pip install -r requirements-qr.txt
+MILREU_PUBLIC_BASE_URL="https://URL-REAL" npm run channels:qr:generate
+```
+
+A URL deve ser real. Não utilizar domínio de exemplo ou localhost como QR final.
+
+## Build público
+
+O build gera:
+
+- aplicação;
+- 30 páginas HTML estáticas;
+- 30 JSONs individuais;
+- JSON-LD;
+- manifest;
+- dados multicanal;
+- exports CSV.
+
+## GitHub Pages
+
+O workflow `.github/workflows/07d-pages.yml` é manual e exige confirmação literal e URL pública.
+
+## Estado
+
+Este é um **MVP técnico candidato**, não um lançamento público aprovado. Os bloqueios permanecem em `public/data/release-readiness.json`.
