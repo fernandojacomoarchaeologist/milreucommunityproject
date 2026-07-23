@@ -1,44 +1,47 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "06"
-rights: "Consultar RIGHTS.md no repositório principal"
+package: "07A"
+rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
 ---
 
-# Manifesto do Pacote 06
+# Manifesto do Pacote 07A
 
 ## Identificação
 
-- Pacote: 06
-- Versão: 0.7.0
-- Finalidade: arquitetura do Portal e do Museu.
-- Próximo pacote: 07 — Portal e Museu: MVP funcional.
+- Pacote: 07A
+- Versão: 0.8.0
+- Finalidade: base executável e primeira fatia vertical.
+- Próximo pacote: 07B — Portal público.
 
-## Grupos
+## Aplicação
 
-| Grupo | Finalidade |
+| Caminho | Finalidade |
 |---|---|
-| `docs/architecture` | decisões estruturais |
-| `docs/navigation` | rotas e menus |
-| `docs/flows` | jornadas principais |
-| `docs/responsive` | comportamento responsivo |
-| `docs/mvp` | escopo, critérios e backlog |
-| `docs/specifications/pages` | specs por página |
-| `data/architecture` | manifests e matrizes |
-| `apps/architecture-prototype` | wireframes navegáveis |
-| `.claude/rules` | regras |
-| `.claude/skills` | procedimentos |
-| `scripts` | validação |
-| `tests` | testes automatizados |
-| `releases` | histórico do pacote |
+| `index.html` | entrada da aplicação |
+| `src/` | código e estilos |
+| `public/data/` | snapshots públicos preliminares |
+| `public/media/` | originais autorizados e derivados |
+| `scripts/` | build, servidor, validação e pipeline |
+| `tests/` | integridade, media e aplicação |
+| `docs/` | decisões e handoff |
+| `.claude/` | rules e skills |
 
-## Critérios de aceitação
+## Números esperados
 
-- rotas únicas;
-- Portal e Museu claramente separados;
-- páginas associadas a componentes e dados;
-- fluxos completos;
-- quatro idiomas previstos;
-- protótipo sem dados reais;
-- mapa e submissão fora do MVP;
-- CI e testes verdes.
+- 31 registos;
+- 31 originais;
+- 4 variantes por imagem;
+- 30 registos visíveis;
+- 1 bloqueado;
+- 4 idiomas com fallback.
+
+## Critérios
+
+- executável sem serviços externos;
+- build reproduzível;
+- imagens reais;
+- créditos preservados;
+- conteúdo preliminar assinalado;
+- estrutura multicanal;
+- compatibilidade com GitHub Pages.

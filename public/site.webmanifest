@@ -1,0 +1,15 @@
+{
+  "name": "Projeto Comunitário de Milreu",
+  "short_name": "Milreu",
+  "start_url": "./#/",
+  "display": "standalone",
+  "background_color": "#FFFCF7",
+  "theme_color": "#A83227",
+  "icons": [
+    {
+      "src": "./apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Consultar RIGHTS.md.
+ */
+import { portalHeader, footer } from "../components/layout.js";
+import { memoryCard } from "../components/memory-card.js";
+import { assetUrl } from "../lib/data.js";
+import { localised, text } from "../lib/i18n.js";
+export function homeView(records,lang) {
+  const featured=records.filter(x=>x.publication.siteVisible).slice(0,3); const hero=featured[0]; const heroTitle=localised(hero.title,lang);
+  return `${portalHeader(lang)}<main id="main"><section class="portal-hero"><div class="portal-hero__media"><img src="${assetUrl(hero.media.variants.immersive)}" alt="${heroTitle.value}"></div><div class="portal-hero__content"><span class="eyebrow">Arqueologia pública e comunitária</span><h1>${text(lang,"homeTitle")}</h1><p>${text(lang,"homeLead")}</p><div class="hero-actions"><a class="ml-button ml-button--primary" href="#/museu">${text(lang,"enterMuseum")}</a><a class="ml-button ml-button--secondary" href="#/projeto">${text(lang,"discoverProject")}</a></div><div class="hero-credit">${localised(hero.media.credit,lang).value}</div></div></section><section class="content-section"><div class="section-heading"><h2>Um projeto, várias formas de encontro</h2><p>A mesma base estruturada liga o Portal, o Museu digital, os futuros totens físicos e a aplicação.</p></div><div class="feature-grid"><article class="feature-card"><img src="${assetUrl("public/icons/knowledge.svg")}" alt=""><h3>${text(lang,"portalFeature")}</h3><p>${text(lang,"portalFeatureText")}</p></article><article class="feature-card"><img src="${assetUrl("public/icons/memory.svg")}" alt=""><h3>${text(lang,"museumFeature")}</h3><p>${text(lang,"museumFeatureText")}</p></article><article class="feature-card"><img src="${assetUrl("public/icons/community.svg")}" alt=""><h3>${text(lang,"proteusFeature")}</h3><p>${text(lang,"proteusFeatureText")}</p></article></div></section><section class="content-section"><div class="section-heading"><h2>${text(lang,"featured")}</h2><p>${text(lang,"featuredLead")}</p></div><div class="memory-grid">${featured.map(x=>memoryCard(x,lang)).join("")}</div><p style="margin-top:2rem"><a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"viewAll")}</a></p></section></main>${footer()}`;
+}
+export function placeholderView(lang,path) { const labels={"/projeto":"Projeto","/iniciativas":"Iniciativas","/conhecimento":"Conhecimento","/participar":"Participar"}; return `${portalHeader(lang,path)}<main id="main" class="content-section"><span class="eyebrow">Pacote 07B</span><h1 class="page-title">${labels[path]}</h1><div class="ml-empty"><h3>Página arquitetada, ainda não implementada</h3><p>Esta área será construída no Pacote 07B. O 07A entrega a primeira fatia vertical do Portal ao Museu.</p></div></main>${footer()}`; }

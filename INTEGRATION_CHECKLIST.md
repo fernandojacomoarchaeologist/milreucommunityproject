@@ -1,52 +1,62 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "06"
-rights: "Consultar RIGHTS.md no repositório principal"
+package: "07A"
+rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
 ---
 
 # Checklist de integração
 
-## Pré-condições
+## Código
 
-- [ ] CI verde.
-- [ ] Gate A registado.
-- [ ] Tokens v0.2 canónicos.
-- [ ] Logótipo claro e escuro aceites para arquitetura.
+- [ ] Criar branch.
+- [ ] Ler direitos e regras.
+- [ ] Mesclar `package.json`.
+- [ ] Gerar ou atualizar lockfile.
+- [ ] Preservar tokens v0.2.
+- [ ] Preservar assets 05E.
 
-## Arquitetura
+## Dados e imagens
 
-- [ ] Validar mapa do Portal.
-- [ ] Validar mapa do Museu.
-- [ ] Validar fronteira Portal × Museu.
-- [ ] Validar relação com Milreu Proteus.
-- [ ] Validar rotas canónicas.
-- [ ] Validar menus desktop e mobile.
-- [ ] Validar fluxos.
-- [ ] Validar páginas do MVP.
+- [ ] Confirmar 31 registos.
+- [ ] Confirmar 31 originais únicos.
+- [ ] Confirmar 124 derivados WebP.
+- [ ] Confirmar duplicado MM202612 removido.
+- [ ] Confirmar hero legado excluído.
+- [ ] Confirmar MM202617 não visível.
+- [ ] Confirmar créditos presentes.
+- [ ] Confirmar descrições `preliminary`.
 
-## Protótipo
+## Execução
 
-- [ ] Servir localmente.
-- [ ] Testar 1280 px.
-- [ ] Testar 768 px.
-- [ ] Testar 375 px.
-- [ ] Testar teclado.
-- [ ] Testar idioma.
-- [ ] Testar detalhe.
-- [ ] Testar modo imersivo.
-- [ ] Testar registo indisponível.
+- [ ] `npm install`.
+- [ ] `npm run validate`.
+- [ ] `npm test`.
+- [ ] `npm run build`.
+- [ ] `npm run smoke`.
+- [ ] `npm run dev`.
 
-## Dados
+## Revisão visual
 
-- [ ] Confirmar dados demonstrativos.
-- [ ] Confirmar ausência de Supabase remoto.
-- [ ] Confirmar que nenhuma memória real foi publicada.
-- [ ] Confirmar contratos do Milreu Proteus.
+- [ ] 1280 px.
+- [ ] 768 px.
+- [ ] 375 px.
+- [ ] teclado.
+- [ ] idioma e fallback.
+- [ ] modo imersivo.
+- [ ] menu mobile.
+- [ ] registo indisponível.
+
+## GitHub Pages
+
+- [ ] Manter `.nojekyll`.
+- [ ] Confirmar `dist/`.
+- [ ] Confirmar `robots.txt` como noindex nesta etapa.
+- [ ] Não ativar indexação antes da revisão editorial.
 
 ## Release
 
-- [ ] Executar validadores.
-- [ ] Registar conflitos.
-- [ ] Registar decisões.
-- [ ] Preparar backlog do Pacote 07.
+- [ ] Registar testes.
+- [ ] Registar diferenças visuais.
+- [ ] Registar conteúdo que exige revisão.
+- [ ] Preparar Pacote 07B.
