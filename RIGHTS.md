@@ -30,3 +30,7 @@ Esta autorização:
 ## Livro Milreu: Ruínas
 
 O PDF do livro e as miniaturas derivadas continuam privados e não fazem parte deste pacote.
+
+## Portal 07B
+
+Os textos institucionais permanecem preliminares e sujeitos a revisão. As fotografias do Museu mantêm a autorização previamente confirmada para publicação no âmbito do projeto.

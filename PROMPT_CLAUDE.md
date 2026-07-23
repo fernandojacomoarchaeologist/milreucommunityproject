@@ -1,83 +1,73 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07A"
-rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
+package: "07B"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 07A
+# Prompt de integração — Pacote 07B
 
-Estás a integrar o **Pacote 07A — Base Executável, Pipeline de Imagens e Primeira Experiência Vertical**.
+Integra este pacote cumulativo sobre o 07A já existente.
 
-## Pré-condições confirmadas
+## Objetivo
 
-- Pacotes 01–06 integrados;
-- CI verde;
-- Gate A aceite;
-- tokens v0.2 canónicos;
-- fotografias e descrições autorizadas para publicação no repositório público;
-- livro e fontes protegidas continuam privados.
+Expandir o Portal público mantendo intacta a experiência museológica, especialmente o modo de ecrã inteiro.
 
-## Antes de agir
+## Antes de alterar
 
-1. Lê `README.md`, `RIGHTS.md`, `PACKAGE_MANIFEST.md` e `INTEGRATION_CHECKLIST.md`.
-2. Inspeciona a aplicação e o `package.json` existentes.
-3. Mescla; não substituas o repositório sem comparar.
-4. Preserva os tokens canónicos e os derivados do logótipo.
-5. Não alteres textos migrados para “melhorar” a escrita.
-6. Não publiques `MM202617` no site.
-7. Não ligues ao Supabase remoto.
-8. Não marques textos como `approved`.
+1. Lê `README.md`.
+2. Lê `docs/architecture/MUSEUM_INCREMENTAL_CONTRACT.md`.
+3. Compara o Portal atual com `public/data/portal-content.json`.
+4. Não substituas conteúdos aprovados por texto demonstrativo.
+5. Não publiques contactos fictícios.
+6. Não ligues ao Supabase remoto.
+7. Não removas rotas ou recursos do Museu.
 
-## Integração técnica
+## Integração
 
-1. Copia a aplicação, dados, imagens, scripts, tests, rules e skills.
-2. Mescla scripts do `package.json`; este pacote não exige dependências runtime.
-3. Mantém routing por hash para GitHub Pages nesta fase.
-4. Executa:
+1. Mescla os ficheiros.
+2. Preserva as imagens e manifests do 07A.
+3. Executa:
    - `npm install`;
    - `npm run validate`;
    - `npm test`;
    - `npm run build`;
    - `npm run smoke`.
-5. Abre em 1280, 768 e 375 px.
-6. Verifica as rotas:
-   - `#/`;
-   - `#/museu`;
-   - `#/museu/explorar`;
-   - `#/museu/memorias/MM202601`;
-   - `#/museu/imersivo/MM202601`;
-   - `#/museu/memorias/MM202617`.
-7. Confirma que `MM202617` devolve estado indisponível.
-8. Confirma que o build não contém o PDF do livro.
+4. Abre em 1280, 768 e 375 px.
+5. Revê todas as páginas do Portal.
+6. Executa manualmente o fluxo:
+   - Portal;
+   - Museu;
+   - galeria;
+   - detalhe;
+   - ecrã inteiro;
+   - anterior;
+   - seguinte;
+   - Escape;
+   - voltar ao Projeto.
+7. Gera release de integração.
 
-## Imagens
+## Bloqueios obrigatórios
 
-- Não substituas os originais autorizados sem registo.
-- A interface deve usar os WebP gerados.
-- Preserva os créditos.
-- `MM202612.jpeg` era duplicado exato de `MM202612.jpg`; manter apenas `.jpg`.
-- `milreu_mosaic_hero.png` tinha conteúdo JPEG e não é usado neste pacote.
-- O script de regeneração exige Python e Pillow, mas os derivados já estão incluídos.
+Interrompe se:
 
-## Conteúdo multicanal
+- a integração remover `#/museu/imersivo/:id`;
+- o modo imersivo deixar de ocupar o viewport;
+- Escape não regressar ao detalhe;
+- anterior/seguinte deixarem de funcionar;
+- as imagens imersivas forem substituídas por thumbnails;
+- `MM202617` ficar visível;
+- algum contacto ou parceria for inventado;
+- forem publicados dados privados.
 
-Cada memória contém perfis para:
+## Estado editorial
 
-- Portal;
-- Museu;
-- totem;
-- painel.
+- Portal: `preliminary`;
+- Museu: pré-visualização editorial;
+- imagens: autorizadas para publicação no projeto;
+- textos: sujeitos a revisão;
+- traduções: fallback para pt-PT.
 
-Não criar uma segunda fonte de verdade para os totens. A arte final permanece no Pacote 14.
+## Resultado
 
-## Resultado esperado
-
-- aplicação local executável;
-- build para GitHub Pages;
-- 31 imagens no repositório;
-- 30 memórias visíveis na pré-visualização;
-- 1 memória bloqueada;
-- primeira fatia vertical funcional;
-- release de integração;
-- nenhuma ligação produtiva.
+Uma aplicação executável com Portal funcional e Museu preservado, pronta para a evolução do 07C.

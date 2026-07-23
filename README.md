@@ -1,40 +1,16 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07A"
-rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
+package: "07B"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 07A — Base Executável, Pipeline de Imagens e Primeira Experiência Vertical
+# Pacote 07B — Portal Público e Evolução Incremental
 
-**Versão:** 0.8.0  
-**Estado:** executável, static-first e pronto para integração controlada  
-**Pré-condições:** Pacotes 01–06 integrados; Gate A aceite; CI verde.
+**Versão:** 0.9.0  
+**Natureza:** pacote cumulativo e executável, construído sobre o 07A.
 
-Este é o primeiro pacote que entrega uma aplicação real do Projeto Comunitário de Milreu.
-
-## O que funciona
-
-```text
-Página inicial do Portal
-→ entrada no Museu
-→ galeria com fotografias reais
-→ detalhe da memória
-→ modo imersivo
-→ regresso ao Portal
-```
-
-A aplicação:
-
-- funciona sem backend;
-- não depende do Supabase para abrir;
-- é compatível com GitHub Pages;
-- utiliza as fotografias autorizadas do Museu;
-- utiliza descrições migradas, assinaladas como preliminares;
-- preserva créditos, proveniência e direitos;
-- usa os tokens v0.2 e componentes do Design System;
-- suporta pt-PT, en, es e fr com fallback;
-- prepara a mesma estrutura canónica para Portal, Museu, totem e painel.
+O Pacote 07B expande o Portal público sem interromper a evolução do Museu.
 
 ## Executar
 
@@ -43,9 +19,7 @@ npm install
 npm run dev
 ```
 
-Abrir o endereço apresentado no terminal, normalmente `http://localhost:4173`.
-
-## Build
+Build:
 
 ```bash
 npm run validate
@@ -54,16 +28,45 @@ npm run build
 npm run preview
 ```
 
-O conteúdo publicável fica em `dist/`.
+## Portal implementado
 
-## Estado dos conteúdos
+- página inicial expandida;
+- Projeto;
+- Metodologia;
+- Iniciativas;
+- detalhe de iniciativa;
+- Conhecimento e Milreu Proteus;
+- Participar;
+- Sobre;
+- navegação desktop e mobile;
+- conteúdo estruturado em `public/data/portal-content.json`.
 
-- 31 imagens únicas estão no repositório do pacote;
-- 30 podem aparecer nesta pré-visualização;
-- `MM202617` permanece bloqueado no site devido à natureza da intervenção por IA;
-- todos os textos continuam `preliminary` até ao Pacote 08;
-- o build inclui `noindex` para evitar indexação acidental desta versão de trabalho.
+## Museu preservado e ampliado
 
-## Próximo passo
+Continuam funcionais:
 
-Após integração e revisão no browser, avançar para o Pacote 07B — Portal público.
+- entrada no Museu;
+- galeria;
+- filtros;
+- detalhe;
+- relações;
+- registo bloqueado;
+- linha temporal;
+- modo de ecrã inteiro;
+- anterior e seguinte;
+- saída por Escape;
+- retorno ao Portal.
+
+## Contrato incremental
+
+O modo de ecrã inteiro é uma capacidade permanente do Museu. O pacote inclui um validador de não regressão que bloqueia a remoção acidental da rota, da view, da imagem imersiva, da saída por Escape e da navegação anterior/seguinte.
+
+## Conteúdo e publicação
+
+O Portal usa conteúdos preliminares em pt-PT. Os outros idiomas utilizam fallback enquanto as traduções não forem revistas.
+
+As 31 fotografias e os derivados do 07A permanecem incluídos. `MM202617` continua bloqueado na experiência pública.
+
+## Próximo pacote
+
+07C — evolução completa do Museu, pesquisa, filtros, relações, linha temporal e revisão contextual das 31 fotografias.

@@ -1,14 +1,16 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07A"
-rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
+package: "07B"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
 
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/media-pipeline.md`
+- `.claude/rules/museum-incremental-non-regression.md`
+- `.claude/rules/portal-content-no-invention.md`
 - `.claude/rules/preliminary-copy.md`
 - `.claude/rules/public-museum-images.md`
 - `.claude/rules/shared-channel-data.md`
@@ -16,10 +18,14 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - `.claude/skills/build-github-pages/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
 - `.claude/skills/prepare-07b-handoff/SKILL.md`
+- `.claude/skills/prepare-07c-handoff/SKILL.md`
+- `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
+- `.claude/skills/review-portal-07b/SKILL.md`
 - `.claude/skills/review-publication-status/SKILL.md`
 - `.claude/skills/review-vertical-slice/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
+- `.claude/skills/update-portal-content/SKILL.md`
 - `.nojekyll`
 - `404.html`
 - `FILE_INDEX.md`
@@ -30,11 +36,14 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - `RIGHTS.md`
 - `VALIDATION_REPORT.md`
 - `data/schemas/memory-public.schema.json`
+- `docs/architecture/MUSEUM_INCREMENTAL_CONTRACT.md`
+- `docs/architecture/PORTAL_CONTENT_ARCHITECTURE.md`
 - `docs/architecture/SHARED_CONTENT_SITE_TOTEM.md`
 - `docs/content/EDITORIAL_PREVIEW_POLICY.md`
 - `docs/deployment/GITHUB_PAGES.md`
 - `docs/media/IMAGE_PIPELINE.md`
 - `docs/media/PUBLICATION_ASSET_AUDIT.md`
+- `docs/review/PORTAL_07B_REVIEW.md`
 - `docs/review/VERTICAL_SLICE_REVIEW.md`
 - `index.html`
 - `package-lock.json`
@@ -45,6 +54,7 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - `public/brand/symbol.webp`
 - `public/data/media-manifest.json`
 - `public/data/memories.json`
+- `public/data/portal-content.json`
 - `public/data/rights-register.json`
 - `public/favicon.ico`
 - `public/icons/back.svg`
@@ -223,12 +233,15 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - `public/robots.txt`
 - `public/site.webmanifest`
 - `releases/PACKAGE_07A_v0.8.0.md`
+- `releases/PACKAGE_07B_v0.9.0.md`
 - `requirements-media.txt`
 - `scripts/build.mjs`
 - `scripts/dev-server.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
 - `scripts/smoke.mjs`
+- `scripts/validate-museum-regression.mjs`
+- `scripts/validate-portal.mjs`
 - `scripts/validate.mjs`
 - `src/components/layout.js`
 - `src/components/memory-card.js`
@@ -245,3 +258,5 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - `tests/app.test.mjs`
 - `tests/data.test.mjs`
 - `tests/media.test.mjs`
+- `tests/museum-regression.test.mjs`
+- `tests/portal.test.mjs`
