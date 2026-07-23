@@ -1,81 +1,52 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "05F"
+package: "06"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Checklist de integração
 
-## Preparação
+## Pré-condições
 
-- [ ] Criar branch de integração.
-- [ ] Ler as ADRs e políticas.
-- [ ] Confirmar que não existem segredos no pacote.
-- [ ] Inspecionar `package.json`, `.gitignore` e `.github/workflows`.
-- [ ] Confirmar que o repositório permanece público.
+- [ ] CI verde.
+- [ ] Gate A registado.
+- [ ] Tokens v0.2 canónicos.
+- [ ] Logótipo claro e escuro aceites para arquitetura.
 
-## Ficheiros e dependências
+## Arquitetura
 
-- [ ] Copiar ficheiros sem sobrescrever decisões existentes.
-- [ ] Mesclar `integration/package-json.fragment.json`.
-- [ ] Fixar versões exatas.
-- [ ] Atualizar lockfile.
-- [ ] Mesclar `.gitignore.fragment`.
-- [ ] Validar cabeçalhos de copyright.
+- [ ] Validar mapa do Portal.
+- [ ] Validar mapa do Museu.
+- [ ] Validar fronteira Portal × Museu.
+- [ ] Validar relação com Milreu Proteus.
+- [ ] Validar rotas canónicas.
+- [ ] Validar menus desktop e mobile.
+- [ ] Validar fluxos.
+- [ ] Validar páginas do MVP.
 
-## Infraestrutura local
+## Protótipo
 
-- [ ] Executar `npm run infra:validate`.
-- [ ] Executar `npm run infra:test`.
-- [ ] Verificar `npm run env:status`.
-- [ ] Verificar `npm run assets:private:status`.
-- [ ] Executar migrations localmente, se Docker estiver disponível.
-- [ ] Executar testes SQL.
-- [ ] Confirmar que o POC pode ser removido sem afetar outros schemas.
+- [ ] Servir localmente.
+- [ ] Testar 1280 px.
+- [ ] Testar 768 px.
+- [ ] Testar 375 px.
+- [ ] Testar teclado.
+- [ ] Testar idioma.
+- [ ] Testar detalhe.
+- [ ] Testar modo imersivo.
+- [ ] Testar registo indisponível.
 
-## GitHub
+## Dados
 
-- [ ] Ativar workflow de CI.
-- [ ] Confirmar que workflows não imprimem segredos.
-- [ ] Criar ambientes `staging` e `production`.
-- [ ] Configurar required reviewer em `production`.
-- [ ] Limitar branches autorizadas.
-- [ ] Adicionar secrets apenas aos ambientes adequados.
-- [ ] Não executar o workflow produtivo durante a integração.
-
-## Supabase remoto
-
-- [ ] Confirmar organização, região e projeto.
-- [ ] Confirmar política de custos.
-- [ ] Criar ambiente remoto apenas após autorização.
-- [ ] Configurar RLS antes de expor qualquer tabela.
-- [ ] Confirmar que `service_role` nunca entra no frontend.
-- [ ] Testar leitura pública apenas em views aprovadas.
-
-## Fontes privadas
-
-- [ ] Definir localização de backup.
-- [ ] Confirmar modo público sem binários.
-- [ ] Confirmar modo privado com verificação de hash.
-- [ ] Não introduzir PDF ou miniaturas no Git público.
-- [ ] Documentar recuperação das fontes.
-
-## Gate A visual
-
-- [ ] Gerar índice de revisão.
-- [ ] Rever identidade.
-- [ ] Rever logótipo claro e escuro.
-- [ ] Rever cores e tipografia.
-- [ ] Rever navegação desktop, tablet e mobile.
-- [ ] Rever componentes críticos.
-- [ ] Registar decisões.
-- [ ] Não promover a `approved`.
+- [ ] Confirmar dados demonstrativos.
+- [ ] Confirmar ausência de Supabase remoto.
+- [ ] Confirmar que nenhuma memória real foi publicada.
+- [ ] Confirmar contratos do Milreu Proteus.
 
 ## Release
 
-- [ ] Criar release de integração.
-- [ ] Listar conflitos e decisões.
-- [ ] Registar validações.
-- [ ] Registar pendências.
-- [ ] Confirmar que nenhuma escrita produtiva ocorreu.
+- [ ] Executar validadores.
+- [ ] Registar conflitos.
+- [ ] Registar decisões.
+- [ ] Preparar backlog do Pacote 07.

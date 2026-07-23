@@ -1,120 +1,80 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "05F"
+package: "06"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 05F
+# Prompt de integração — Pacote 06
 
-Estás a integrar o **Pacote 05F — Infraestrutura, Persistência, CI e Skills de Desenvolvimento** no repositório do Projeto Comunitário de Milreu.
+Estás a integrar o **Pacote 06 — Arquitetura do Portal e do Museu**.
+
+## Contexto já confirmado
+
+- Pacotes 01–05F integrados;
+- CI ativo e verde;
+- Gate A concluído;
+- 17 elementos `accepted-for-architecture`;
+- tokens v0.2 canónicos;
+- navegação responsiva validada;
+- logótipo claro e escuro revistos;
+- Supabase aprovado para o Milreu Proteus;
+- binários privados desacoplados do build público.
 
 ## Antes de agir
 
-1. Lê integralmente:
+1. Lê:
    - `README.md`;
    - `PACKAGE_MANIFEST.md`;
-   - `docs/architecture/ADR-AI-001-CLAUDE-DATABASE-ACCESS.md`;
-   - `docs/security/PRODUCTION_ACCESS_POLICY.md`;
-   - `docs/development/CLAUDE_OPERATING_MODES.md`;
-   - `docs/architecture/RELEASE_GATES.md`.
-2. Inspeciona o repositório atual.
-3. Não sobrescrevas `package.json`, `.gitignore`, workflows ou documentação existentes sem comparar e fundir.
-4. Se encontrares conflito que altere segurança, acesso produtivo, publicação ou direitos, interrompe e pergunta.
-5. Não peças nem exibas segredos em texto aberto.
+   - `docs/architecture/ARCHITECTURE_OVERVIEW.md`;
+   - `docs/architecture/INFORMATION_ARCHITECTURE.md`;
+   - `docs/architecture/PORTAL_MUSEUM_BOUNDARY.md`;
+   - `docs/mvp/MVP_SCOPE.md`.
+2. Inspeciona as rotas, componentes e scripts já existentes.
+3. Não sobrescrevas decisões anteriores sem comparar.
+4. Não publiques dados reais.
+5. Não ligues ao Supabase remoto.
+6. Não promovas componentes para `approved`.
+7. Se existir conflito com o Gate A, interrompe e pergunta.
 
-## Decisões já aprovadas
+## Integração
 
-- Supabase é a infraestrutura operacional do **Milreu Proteus**.
-- O repositório principal continua público.
-- GitHub Pages continua responsável pela publicação estática.
-- Dados operacionais ficam no Supabase.
-- Conteúdos públicos aprovados são exportados para snapshots versionados no Git.
-- Claude pode manipular o banco apenas dentro da matriz de acesso e dos gates deste pacote.
-- Produção é read-only por defeito.
-- Escrita em produção só ocorre por migration versionada e workflow manual protegido por ambiente.
-- Fontes privadas não entram no Git público.
-- O livro e as miniaturas permanecem local-only ou em armazenamento privado.
-- O build público deve funcionar mesmo sem as fontes privadas.
+1. Copia documentação, manifests, specs, rules, skills, protótipo e testes.
+2. Mescla `integration/package-json.fragment.json`.
+3. Executa:
+   - `npm run architecture:validate`;
+   - `npm run architecture:test`;
+   - `npm run architecture:prototype:serve`.
+4. Revê o protótipo em 1280, 768 e 375 px.
+5. Verifica:
+   - entrada no Museu;
+   - retorno ao Portal;
+   - galeria;
+   - detalhe;
+   - modo imersivo;
+   - linha temporal;
+   - fallback de idioma;
+   - registo indisponível.
+6. Gera release de integração.
 
-## Integração obrigatória
+## Decisões fixas
 
-1. Copia a documentação, rules, skills, scripts, schemas e workflows.
-2. Mescla `integration/package-json.fragment.json` no `package.json` existente:
-   - preserva scripts atuais;
-   - fixa versões exatas das novas dependências;
-   - gera ou atualiza o lockfile.
-3. Mescla `.gitignore.fragment`.
-4. Confirma que `.env`, credenciais e fontes privadas estão ignoradas.
-5. Instala dependências de forma reproduzível.
-6. Executa:
-   - `npm run infra:validate`;
-   - `npm run infra:test`;
-   - `npm run assets:private:status`;
-   - `npm run review:gate-a:index`.
-7. Se Docker estiver disponível:
-   - inicia o Supabase local;
-   - aplica migrations;
-   - executa os testes SQL;
-   - termina os serviços.
-8. Não liga a um projeto remoto sem confirmação expressa.
-9. Não cria o projeto Supabase por conta própria sem o utilizador definir organização, região e política de custos.
-10. Gera uma release de integração com:
-    - ficheiros adicionados;
-    - ficheiros mesclados;
-    - comandos executados;
-    - validações;
-    - conflitos;
-    - pendências;
-    - próxima ação humana.
-
-## Produção
-
-Mesmo que existam credenciais no ambiente:
-
-- não executes `supabase db push` diretamente;
-- não uses SQL Editor remoto;
-- não executes `DELETE`, `UPDATE`, `INSERT`, `ALTER`, `DROP`, `TRUNCATE` ou funções equivalentes em produção;
-- prepara migration, testes, relatório de impacto e rollback;
-- utiliza apenas `.github/workflows/05f-production-migration.yml`;
-- exige `change_ticket`, confirmação literal e aprovação do ambiente GitHub `production`.
-
-## Fontes privadas
-
-Adapta o `visual-source-board` e os validadores para dois modos:
-
-- público: manifests presentes, binários ausentes sem falhar;
-- privado: binários presentes, hashes e miniaturas verificados.
-
-Não publiques o PDF, miniaturas ou URLs privadas.
-
-## Gate A visual
-
-Gera o índice de revisão visual, mas não marques componentes como `approved`.
-O máximo permitido antes da revisão humana é `validated-for-architecture`.
-
-## Quando questionar
-
-Questiona o utilizador quando faltar:
-
-- organização ou região do Supabase;
-- projeto remoto;
-- política de custos;
-- configuração do ambiente GitHub `production`;
-- required reviewer;
-- localização privada dos binários;
-- decisão visual;
-- permissão para ligação ou deployment remoto.
+- nome público: Projeto Comunitário de Milreu;
+- Milreu Proteus não substitui a marca;
+- Portal e Museu usam shells diferentes;
+- quatro idiomas: pt-PT, en, es e fr;
+- vermelho como assinatura e abertura;
+- preto aquecido como destaque;
+- superfícies claras para leitura;
+- snapshots JSON no MVP;
+- mapa vivo e submissão ficam fora do MVP;
+- dados reais só entram após revisão editorial.
 
 ## Resultado esperado
 
-O repositório deve terminar com:
-
-- desenvolvimento local reproduzível;
-- POC isolado e removível;
-- CI mínimo funcional;
-- política de produção aplicada;
-- coleção de skills disponível;
-- fontes privadas desacopladas do build público;
-- Gate A preparado;
-- nenhuma alteração produtiva executada.
+- arquitetura documentada;
+- rotas validadas;
+- wireframes navegáveis;
+- matrizes consistentes;
+- backlog pronto para o Pacote 07;
+- nenhuma implementação produtiva.

@@ -1,0 +1,47 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "portal": [
+    {
+      "label": "Projeto",
+      "path": "/projeto"
+    },
+    {
+      "label": "Iniciativas",
+      "path": "/iniciativas"
+    },
+    {
+      "label": "Museu",
+      "path": "/museu"
+    },
+    {
+      "label": "Conhecimento",
+      "path": "/conhecimento"
+    },
+    {
+      "label": "Dados",
+      "path": "/dados"
+    },
+    {
+      "label": "Biblioteca",
+      "path": "/biblioteca"
+    },
+    {
+      "label": "Participar",
+      "path": "/participar"
+    }
+  ],
+  "museum": [
+    {
+      "label": "Explorar",
+      "path": "/museu/explorar"
+    },
+    {
+      "label": "Linha temporal",
+      "path": "/museu/linha-do-tempo"
+    },
+    {
+      "label": "Coleções",
+      "path": "/museu/colecoes"
+    }
+  ]
+}
