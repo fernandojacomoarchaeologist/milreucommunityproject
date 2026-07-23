@@ -1,0 +1,18 @@
+/**
+ * © 2026 Fernando Rodrigues de Jácomo.
+ * Produzido no âmbito do Projeto Comunitário de Milreu.
+ * Consultar RIGHTS.md.
+ */
+
+:root {
+  --brand-logo-terracotta: #B56346;
+  --brand-logo-olive: #7E8464;
+  --brand-logo-sand: #D3C2A9;
+  --brand-logo-pale: #E5DBCA;
+  --brand-logo-ink: #2A2622;
+  --brand-logo-paper: #F2ECE0;
+  --brand-dark-surface: #1E1A17;
+  --brand-dark-text: #F2ECE0;
+  --brand-interface-signature-red: #A83227;
+  --brand-interface-signature-red-deep: #7E251C;
+}

@@ -34,3 +34,7 @@ Todos os exemplos são demonstrativos e não pertencem ao acervo.
 ## Atualização (Pacote 05D)
 
 Substituição controlada da versão 0.3.0 pela 0.4.0: o shell, pesquisa, rotas e navegação do 05C são preservados; foram adicionados registos, renderers, estilos e páginas de componentes e padrões.
+
+## Atualização (Pacote 05E)
+
+Guia atualizado para 0.5.0: adicionadas seis rotas de identidade e conhecimento (marca, logótipo, dark mode, iconografia, aplicações e relação com Milreu Proteus), preservando as 58 rotas existentes. Ativos de marca permanecem `draft`.

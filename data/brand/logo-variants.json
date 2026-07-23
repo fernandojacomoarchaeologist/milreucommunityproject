@@ -1,0 +1,50 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "version": "0.5.0",
+  "variants": [
+    {
+      "id": "project-full-light",
+      "path": "assets/brand/derived/light/logo-full-colour-transparent.png",
+      "background": "light",
+      "status": "draft",
+      "transparent": true
+    },
+    {
+      "id": "project-full-dark",
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent.png",
+      "background": "dark",
+      "status": "draft",
+      "transparent": true
+    },
+    {
+      "id": "project-mono-dark",
+      "path": "assets/brand/derived/monochrome/logo-monochrome-dark.png",
+      "background": "light",
+      "status": "draft",
+      "transparent": true
+    },
+    {
+      "id": "project-mono-light",
+      "path": "assets/brand/derived/monochrome/logo-monochrome-light.png",
+      "background": "dark",
+      "status": "draft",
+      "transparent": true
+    },
+    {
+      "id": "project-symbol-light",
+      "path": "assets/brand/symbol/symbol-colour-transparent.png",
+      "background": "light",
+      "status": "draft",
+      "transparent": true
+    },
+    {
+      "id": "project-symbol-dark",
+      "path": "assets/brand/symbol/symbol-dark-mode-transparent.png",
+      "background": "dark",
+      "status": "draft",
+      "transparent": true
+    }
+  ],
+  "svgStatus": "not-produced",
+  "svgReason": "Não existe mestre vetorial validado. Não reivindicar vetorização automática como original."
+}

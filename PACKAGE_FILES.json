@@ -1,381 +1,658 @@
 {
-  "package": "pacote-05d-componentes-padroes-museologicos",
-  "version": "0.4.0",
+  "package": "05E",
+  "version": "0.5.0",
   "files": [
     {
-      "path": ".claude/rules/accessibility-components.md",
-      "size": 354,
-      "sha256": "763ebc13eee93c93ffb892ad94ed2eb6dae163f6570441e5831429b4447545c3"
+      "path": ".claude/rules/brand-architecture.md",
+      "bytes": 261,
+      "sha256": "10d7a6f3cb4d8aadda8530e5148690c7d1056bbb33d306562f8f6d0eb131d277"
     },
     {
-      "path": ".claude/rules/community-first-components.md",
-      "size": 356,
-      "sha256": "347c628c9295fb11cba7171b3a62109b7fc4bb6fad05c767068305b505e212ba"
+      "path": ".claude/rules/brand-rights.md",
+      "bytes": 262,
+      "sha256": "e1a8144eb282e1995f4e82e942fb97e06b3fbcd2ff3ddb700696779bd54c2b42"
     },
     {
-      "path": ".claude/rules/component-maturity.md",
-      "size": 411,
-      "sha256": "c3a24c723787e6fbb006da8f8d7066b6a3a0174d8b91b543dbb3cc2adea300b6"
+      "path": ".claude/rules/flat-colours.md",
+      "bytes": 235,
+      "sha256": "48017d0bc0e70387ba4622dc68e74230f5ffa52b75934ebdf548c556156dfe7c"
     },
     {
-      "path": ".claude/rules/publication-safe-examples.md",
-      "size": 318,
-      "sha256": "3f9fd44e04a539b7b83a0720fc988c7b88a70fdbdfb76dc40dd0512a590822c7"
+      "path": ".claude/rules/iconography.md",
+      "bytes": 245,
+      "sha256": "d7046387a98cd0da87bc8ddea1c6efef693860aa158c9f10ae8b71acb04a6485"
     },
     {
-      "path": ".claude/skills/add-design-component/SKILL.md",
-      "size": 508,
-      "sha256": "fa4282467df91048bba18daf1a9c13f5989ff0935a1ff42d6bf514df398c9659"
+      "path": ".claude/rules/logo-integrity.md",
+      "bytes": 262,
+      "sha256": "49322ab93f84eee1ad192b5914646844fb62809c55999e5526d044affbf1656c"
     },
     {
-      "path": ".claude/skills/add-design-pattern/SKILL.md",
-      "size": 387,
-      "sha256": "f4bd239ccfb17b738704298c0304446d76000ede4eb0c4dbbd15375598333f06"
+      "path": ".claude/rules/proteus-naming.md",
+      "bytes": 233,
+      "sha256": "3cfffa1e8b15652cf61c565d75d950866a92e8c1579631dfa3691005834a334f"
     },
     {
-      "path": ".claude/skills/audit-component-accessibility/SKILL.md",
-      "size": 349,
-      "sha256": "c3491b52de7b78c6d0501962cb87e7594d23b8d02d9aa98d6072cb20470043da"
+      "path": ".claude/skills/create-domain-icon/SKILL.md",
+      "bytes": 432,
+      "sha256": "99225be60aaee845f0a54cffde3fa03c5ad0f5e3303a1417fa19d6109bd735dd"
     },
     {
-      "path": ".claude/skills/generate-platform-projection/SKILL.md",
-      "size": 347,
-      "sha256": "e3925a063a2eb5bfc066f187df52f1903c4a7d013b5589d6413ef0a377dc3b48"
+      "path": ".claude/skills/prepare-logo-assets/SKILL.md",
+      "bytes": 440,
+      "sha256": "7cc4f430fc4f9e1ac8eb86b3346a04275fd87d584e7d4f3e2077b08f946ed36d"
     },
     {
-      "path": ".claude/skills/promote-component-maturity/SKILL.md",
-      "size": 341,
-      "sha256": "bcdc712fd99fe0d622791176474f87bb9737534dbd2dc570148ff8a93009a00c"
+      "path": ".claude/skills/publish-brand-release/SKILL.md",
+      "bytes": 434,
+      "sha256": "c9a3e597b723ba0c4d6f37cf91923477fd63533040d74cdf2198f1df0c6dc54b"
+    },
+    {
+      "path": ".claude/skills/update-brand-guide/SKILL.md",
+      "bytes": 413,
+      "sha256": "89ae53bef8978458d98bfd6f0eda9e268b9e2ad53e3e01aaa755f6539652c690"
+    },
+    {
+      "path": ".claude/skills/validate-logo-usage/SKILL.md",
+      "bytes": 425,
+      "sha256": "1b4b24951ab43d8c6345f23d359a0468bbc51ab4f706d4b316039cc6282c98fc"
     },
     {
       "path": "INTEGRATION_CHECKLIST.md",
-      "size": 652,
-      "sha256": "6673ec05740296ad70e082efe6b316237c5dfce44fa222506a322bb51204d7f3"
+      "bytes": 704,
+      "sha256": "247442e9eaa2830091a5ff1a3889c7bd5939970c345d3c309d3ed8e117a8a449"
     },
     {
       "path": "PACKAGE_MANIFEST.md",
-      "size": 1240,
-      "sha256": "0bf0f8c79617becb13f63f25837d27c7741e8c632abc1cf27e8c9eae99783dba"
+      "bytes": 1075,
+      "sha256": "93c34d38a1edb227506a6ac76a6a3bf3f7c5515b8e2314d5fbd4805a26fa6073"
     },
     {
       "path": "PROMPT_CLAUDE.md",
-      "size": 2634,
-      "sha256": "52a458f7e900db4bff1bc1f9d218880a4946c84f714e6b1232d21ed95f16c682"
+      "bytes": 2824,
+      "sha256": "4c41e590f8cb51bff27b4a13bd189a0ed89430af1c44cd6f72a93a0cd9013ab5"
     },
     {
       "path": "README.md",
-      "size": 1146,
-      "sha256": "e2ec85c998d941fa75c6cd60cd6d7bcd1baa2c59efba573c5a714ea738c1f67c"
+      "bytes": 1197,
+      "sha256": "4fc5b8deb24d00af69020f07ca76db8c4cabe2546ed0885905311bae7a65e443"
     },
     {
-      "path": "apps/design-guide/README.md",
-      "size": 646,
-      "sha256": "a94d2d6bf79bf49c53434bebbb18bf2c7bd762eb76e8a7842593c05262ef3185"
+      "path": "SOURCE_RIGHTS_NOTICE.md",
+      "bytes": 607,
+      "sha256": "1697737677132b1eef8d5b43331c2457b9b9baebe4204953a97e2c586545cb2c"
     },
     {
-      "path": "apps/design-guide/app/catalog-data.js",
-      "size": 64525,
-      "sha256": "948f080c03fda24a0cb2631fb7670a05aa7d33b6b521324cbe28046605415856"
+      "path": "apps/brand-guide-preview/README.md",
+      "bytes": 287,
+      "sha256": "b49f837aeb06a0b9f6ba6ba27dc9db614ed40dc84fa8a5953ef3658357cf7a78"
     },
     {
-      "path": "apps/design-guide/app/component-data.js",
-      "size": 29393,
-      "sha256": "bdb4b3515ba5428e4242672f467979b7904636540e0e4a83a1c2afe1b07bb514"
+      "path": "apps/brand-guide-preview/brand.css",
+      "bytes": 2372,
+      "sha256": "f6e8d3909ce580eec6bb5496e2515155782ce94e823086ad362a3bddd7e896ea"
     },
     {
-      "path": "apps/design-guide/app/component-renderers.js",
-      "size": 15997,
-      "sha256": "8fd96acc3f87b41003f8a3c5dcaef01426eb05bf213cdec9a5e0f4c6454a54f4"
+      "path": "apps/brand-guide-preview/brand.js",
+      "bytes": 798,
+      "sha256": "6575f2d0cd5cf116ae6dee51f46e4c0fb60a1798a94e6eab625bb4d04ba59283"
     },
     {
-      "path": "apps/design-guide/app/i18n.js",
-      "size": 5661,
-      "sha256": "10fbff47e6f00db6e7a5200eed29168a3a01a6d1b47fb86f7b93b0dc0127861e"
+      "path": "apps/brand-guide-preview/index.html",
+      "bytes": 3225,
+      "sha256": "5fe05d40364ae422bac9ce26ad4662efb2b01038e2b039454c785ca4bed26677"
     },
     {
-      "path": "apps/design-guide/app/renderers.js",
-      "size": 9833,
-      "sha256": "c0fb10089928b0ef260769316b60b8dc85a350457f145e244d91903da12c514f"
+      "path": "apps/design-guide/extensions/brand/README.md",
+      "bytes": 309,
+      "sha256": "47768dd5b4ce7d0026d4544102aadba9ce50f2f3a80ab073d3c10e73b4d6ab4c"
     },
     {
-      "path": "apps/design-guide/app/router.js",
-      "size": 765,
-      "sha256": "c68e51a4b7fc6fe71096c0b06023505d7a066d013c87bccf835186ecf99c061f"
+      "path": "apps/design-guide/extensions/brand/brand-extension.css",
+      "bytes": 321,
+      "sha256": "1b929dbddccbbceb649d8d8f9bc7c3b9815d61ac0ec3ae245823e3508f65af6b"
     },
     {
-      "path": "apps/design-guide/app/search.js",
-      "size": 849,
-      "sha256": "c8a025051ba465ec1c7d24bc19a6e42cba59b5313f6f3c5d0e56464bfc3c2691"
+      "path": "apps/design-guide/extensions/brand/brand-routes.json",
+      "bytes": 712,
+      "sha256": "bf41e10c574f5090683d6057215e3dae4ad204e993a7311afe1a175bf27ee0c5"
     },
     {
-      "path": "apps/design-guide/app/state.js",
-      "size": 354,
-      "sha256": "e3cdff5ac70aaeec32a2ae58565347cb5c5c619ab942feb0ca43a8d3ed88743d"
+      "path": "assets/brand/README.md",
+      "bytes": 349,
+      "sha256": "0403ebdffb1cc1387e0ee4bec775631096ea45ea0998ce0c6959ad8aa405d19e"
     },
     {
-      "path": "apps/design-guide/guide.css",
-      "size": 19150,
-      "sha256": "83a4465289bfb40a33e3c8c2d77505e50ca6031be12590148e25633e5cb99e9d"
+      "path": "assets/brand/application/app-icon-192.png",
+      "bytes": 44608,
+      "sha256": "1fd9e92301446b1a8230a58d2a29c87082cbdd3bc5e32bc8ae48065d5d421030"
     },
     {
-      "path": "apps/design-guide/guide.js",
-      "size": 5464,
-      "sha256": "59ded62f97f657f185bb64bcf1af745993c281240f0c1ef20028f83356cb2862"
+      "path": "assets/brand/application/app-icon-512.png",
+      "bytes": 188642,
+      "sha256": "0846d8b37c7d531d79195a5569e29e787d44c203182d9c6f1d726b8049b38826"
     },
     {
-      "path": "apps/design-guide/index.html",
-      "size": 4903,
-      "sha256": "52c3e0d834105d4454dadab65e2b8ad3dd353c1e7c3c10dfea7568f588e79cb8"
+      "path": "assets/brand/application/app-icon-dark-512.png",
+      "bytes": 151446,
+      "sha256": "6365e66f19bb093c1b7859dd5688db0c9493f80e434536d710340e50bde265f1"
     },
     {
-      "path": "docs/design/components/ACCESSIBILITY_CONTRACT.md",
-      "size": 565,
-      "sha256": "0bd32a5b5cf06edc52866ac4e80074f2a80044016729fa4e9d843d8c7ba7f368"
+      "path": "assets/brand/application/app-icon-light-512.png",
+      "bytes": 130199,
+      "sha256": "fd22cee04a4b2370f01f4e3468f651841871bbef45cf24c8432effd295af7d03"
     },
     {
-      "path": "docs/design/components/COMPONENT_GOVERNANCE.md",
-      "size": 519,
-      "sha256": "665a16ef4bcf7d528a290e7d046b24d9aa3717aa30dbf64f71ac9b20c0b25948"
+      "path": "assets/brand/application/apple-touch-icon-180.png",
+      "bytes": 39989,
+      "sha256": "61c491c3fe0758f34cd05d5aa6eb45cb6dfbd0f8764d0cf41b15079bb6d442d4"
     },
     {
-      "path": "docs/design/components/COMPONENT_INVENTORY.md",
-      "size": 3177,
-      "sha256": "18623fc075ae862fdefcca0927b4ff81f15bd9a220ce7ef9ad812e103d598b49"
+      "path": "assets/brand/application/favicon-32.png",
+      "bytes": 1960,
+      "sha256": "08abd19ad93e08f16fe0ba1aec9e1b992d105493efc7c805f1e15c94ddb80bea"
     },
     {
-      "path": "docs/design/components/COMPONENT_MODEL.md",
-      "size": 512,
-      "sha256": "02899c1fd6aa633a01c4db07aa35c531e7540a624f2577e84b19ef074f54dccc"
+      "path": "assets/brand/application/favicon-48.png",
+      "bytes": 4035,
+      "sha256": "640260790a93e99e3bb31540f5348db1400c84d484817324a4cb877dc5f2e20d"
     },
     {
-      "path": "docs/design/components/CONTENT_GUIDELINES.md",
-      "size": 529,
-      "sha256": "8935d2391793ae3630f56024f9001cf7084558ff43823f267c22a5b77b2c5074"
+      "path": "assets/brand/application/favicon.ico",
+      "bytes": 6950,
+      "sha256": "010941de5c3e4782bc5d515868d6a6ae2f3939d2dc5240a6af86eb7b4c669312"
     },
     {
-      "path": "docs/design/components/DATA_LIBRARY_COMPONENTS.md",
-      "size": 390,
-      "sha256": "a12490fde3261668c4460f3d1ad8d65bbb4436f65c89f0f6b9022c13739dbe47"
+      "path": "assets/brand/application/social-preview-dark.png",
+      "bytes": 229770,
+      "sha256": "41110a4fbb351a9b1c2d83c47a4c687ccddd8c0c427a1861514160dcf16233e9"
     },
     {
-      "path": "docs/design/components/MUSEUM_COMPONENTS.md",
-      "size": 398,
-      "sha256": "6e70d0eebee4ebe2b04fd8c006c8cad887514503d517950ea555ad3410fef5d3"
+      "path": "assets/brand/application/social-preview-light.png",
+      "bytes": 196361,
+      "sha256": "e4f3a3e2226192a0cccad61f69118ba4acf1fad3102a745f3ef0890c4f2cf1d3"
     },
     {
-      "path": "docs/design/components/OPEN_QUESTIONS.md",
-      "size": 481,
-      "sha256": "0f50efeb404c6f80633c2bb27ab1febf2f79d772e9204d0feb43b74e5722123f"
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent.png",
+      "bytes": 57493,
+      "sha256": "03265e78b443fbe2085fbb83cbbba72205c6c983cb6893f59811618a7c590cc7"
     },
     {
-      "path": "docs/design/components/PORTAL_COMPONENTS.md",
-      "size": 362,
-      "sha256": "c388b442f7585d9167fc0116e52bcd44a8b251c0d97bfc7894740ff7eff3d48c"
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent.webp",
+      "bytes": 23776,
+      "sha256": "d160ff3be875601e8d29476a28e794cf80f89d7c69b1fb5f38a2b286c7ce5c5e"
     },
     {
-      "path": "docs/design/components/PRINT_AND_FLUTTER_PROJECTION.md",
-      "size": 453,
-      "sha256": "a8f1c289642a439cced56c482b3f25b562f8a71fe791a490be75d795f77dc340"
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent@2x.png",
+      "bytes": 730549,
+      "sha256": "a7ea982444aaa8b2c7fc004edb07b53067475ba0290172cf583dd2b4cc5d40f0"
     },
     {
-      "path": "docs/design/components/RIGHTS_COMPONENTS.md",
-      "size": 419,
-      "sha256": "eaae78e871fb340d5cb02d07833728ad09d6ce765b48cc9de8951be907d46fa7"
+      "path": "assets/brand/derived/light/logo-full-colour-transparent.png",
+      "bytes": 57895,
+      "sha256": "341127e3a6846cdd4dbca51d2432156aba9c05d434364e45ae4c5d324507b276"
     },
     {
-      "path": "docs/design/patterns/COMMUNITY_FIRST_COMPOSITION.md",
-      "size": 420,
-      "sha256": "a7871f0215d08301fdb46aeaaea2c7d941c9e9894e4ae112a3c593aeb9105290"
+      "path": "assets/brand/derived/light/logo-full-colour-transparent.webp",
+      "bytes": 23642,
+      "sha256": "d23c6d4757d7bd1973163c870053ffde8263aeefc3b2a93e54c06ac9e16e88ef"
     },
     {
-      "path": "docs/design/patterns/PATTERN_INVENTORY.md",
-      "size": 1933,
-      "sha256": "57c13a5ce72850db65cebf722c2dd5fbeab1d583dd7842ef422bf914d0005d10"
+      "path": "assets/brand/derived/light/logo-full-colour-transparent@2x.png",
+      "bytes": 754304,
+      "sha256": "abb2399598a2a9c9473351fcc59de6a17940f19efe2664d53c58cd11bf225630"
     },
     {
-      "path": "docs/design/patterns/PATTERN_MODEL.md",
-      "size": 339,
-      "sha256": "a22ec4d618f573ca502302ba2e651ebb8cf666cf2f00b9a0af118ef1060b80ef"
+      "path": "assets/brand/derived/monochrome/logo-monochrome-dark.png",
+      "bytes": 39626,
+      "sha256": "ba4d2c7e3d0177b60670aa5b9cc231117c62000e6f816914baba95f8d11426f6"
     },
     {
-      "path": "docs/design/patterns/PUBLICATION_GATES.md",
-      "size": 381,
-      "sha256": "d841d5c6762a753f98049a394454f0992bdf433a9742bd5e4e7330866011ddb8"
+      "path": "assets/brand/derived/monochrome/logo-monochrome-light.png",
+      "bytes": 39551,
+      "sha256": "6317626f61b39e2a9e4e9a60dd205ff53dbfabbb55a32456d55028e792620492"
     },
     {
-      "path": "docs/specifications/SPEC-DS-011-COMPONENT-REGISTRY.md",
-      "size": 646,
-      "sha256": "b4baba9dd57d925c6c5e04ca58cbcd7bdaa93f6cf12c872642ec05c26a1d0c06"
+      "path": "assets/brand/preview/logo-variants-contact-sheet.png",
+      "bytes": 754025,
+      "sha256": "3dc5faa8af975f8f98826fb41e4782cb8eb4e05706476d5861e1e37bb507a01a"
     },
     {
-      "path": "docs/specifications/SPEC-DS-012-COMPONENT-PAGE.md",
-      "size": 700,
-      "sha256": "2f1fc13c5a8d30ed499531c1d8a88277ec0747e5d8059313fe677a23bf714517"
+      "path": "assets/brand/source/logo-original-with-background.png",
+      "bytes": 468304,
+      "sha256": "07e9f4e5050867cc0091a54268671df20e81254702dd030651bebda241466186"
     },
     {
-      "path": "docs/specifications/SPEC-DS-013-MUSEUM-PATTERNS.md",
-      "size": 671,
-      "sha256": "bcdec1a649074a97fefcd5ffdd125d8536634d7d933f17b4095b41c6e559a3e6"
+      "path": "assets/brand/symbol/symbol-colour-transparent.png",
+      "bytes": 45392,
+      "sha256": "677672183d59892be7a0551df58010ff349c3d87270a6425c5dd3cbec0d3c1de"
     },
     {
-      "path": "docs/specifications/SPEC-DS-014-RIGHTS-PATTERN.md",
-      "size": 676,
-      "sha256": "2eac0afac0694741c6aa6faf501db00f3b98b4471e12743a6290b33265867ff3"
+      "path": "assets/brand/symbol/symbol-colour-transparent.webp",
+      "bytes": 18518,
+      "sha256": "8a7d63224236ceb3f5197bc4f07a3828c07d6f02809112b77063c2062d9ab571"
     },
     {
-      "path": "docs/specifications/SPEC-DS-015-PRINT-MOBILE-PROJECTION.md",
-      "size": 665,
-      "sha256": "366f3c6beb755ef621fee044b5f0ea1e7c9481bdeac39fe9ec55135ace217dfc"
+      "path": "assets/brand/symbol/symbol-dark-mode-transparent.png",
+      "bytes": 45469,
+      "sha256": "6c76fc2f021cd9b5df5c09eb416321ab71253c101fe858a2affeb60640b7e97e"
+    },
+    {
+      "path": "assets/brand/symbol/symbol-dark-mode-transparent.webp",
+      "bytes": 18832,
+      "sha256": "0df90afa9a3b134a753a6476e21af601b210def47a555dcf0131c626c53a6292"
+    },
+    {
+      "path": "assets/icons/README.md",
+      "bytes": 235,
+      "sha256": "7cea95a946c179aa79fe49c0a4f8ec04e5683c149141707106e667df3b1a2f0f"
+    },
+    {
+      "path": "assets/icons/domain/artefact.svg",
+      "bytes": 369,
+      "sha256": "35d0c3e78849c489571eb9f008206eb205f2f5e689aab751fc380936bc58f5fd"
+    },
+    {
+      "path": "assets/icons/domain/community.svg",
+      "bytes": 468,
+      "sha256": "18b8032114ca9a6ccd91e771cec3f7ef5c217951efc81e2263d6bc77943fc58f"
+    },
+    {
+      "path": "assets/icons/domain/confidence.svg",
+      "bytes": 368,
+      "sha256": "147f5fac520e52996f37d4fddf87b30c7acd0a9be1efbdb9a7b5bb23af406c49"
+    },
+    {
+      "path": "assets/icons/domain/dataset.svg",
+      "bytes": 417,
+      "sha256": "eeb8924df6c3fc79b0813dc7171108961c4e378df7322f0cff24096e78989500"
+    },
+    {
+      "path": "assets/icons/domain/excavation.svg",
+      "bytes": 361,
+      "sha256": "bff70368141f0272b8bf2258d6adcff8b3a41cecb626c313d3a2f0c5d992bb0e"
+    },
+    {
+      "path": "assets/icons/domain/exhibition.svg",
+      "bytes": 384,
+      "sha256": "bae2d6c9d81f0d59fde733e91235a2448c42a3e5ee21f503feb7bbb287ace894"
+    },
+    {
+      "path": "assets/icons/domain/knowledge.svg",
+      "bytes": 389,
+      "sha256": "a7d2c002acdd43a63f893d04b11633dc19c813b8a1fcc1e0d6a378c053a4def3"
+    },
+    {
+      "path": "assets/icons/domain/map.svg",
+      "bytes": 364,
+      "sha256": "1e15847b7ffd9e21388cee4320dd710242ea3e1c0cac1dc4bfe93b7dc0cf9636"
+    },
+    {
+      "path": "assets/icons/domain/memory.svg",
+      "bytes": 364,
+      "sha256": "3abb63e26de184e5e0ed37de0317c2d07c59578fecbdbb40fb9f02d955d813e9"
+    },
+    {
+      "path": "assets/icons/domain/photograph.svg",
+      "bytes": 423,
+      "sha256": "19551e009dcefdbad0d942b7dbbf6dcc61b1a027f7ced990de7dac19d9a342ad"
+    },
+    {
+      "path": "assets/icons/domain/provenance.svg",
+      "bytes": 451,
+      "sha256": "02130939078f1495c3449484e9bf8c6beb7693a6f1992525a7609c6a7665ae3b"
+    },
+    {
+      "path": "assets/icons/domain/reference.svg",
+      "bytes": 362,
+      "sha256": "16d27bb6ece4bfd6d8d5c1f19bd9a4040c48837f4b7cc2991333c8939e707d09"
+    },
+    {
+      "path": "assets/icons/domain/rights.svg",
+      "bytes": 384,
+      "sha256": "5b1b1a4eeedd9b739611a3cb37085601a06db9ab0e53ad98991f7a684a42cb91"
+    },
+    {
+      "path": "assets/icons/domain/site.svg",
+      "bytes": 374,
+      "sha256": "3aad61ed209fda5bbaa79e933aee15175c9a251a1b3b886f350b3008e74341f8"
+    },
+    {
+      "path": "assets/icons/domain/structure.svg",
+      "bytes": 365,
+      "sha256": "1439b7935e8b40a72771080cf348bcd8f45d9de2ae34d16e9d841d835d1e9767"
+    },
+    {
+      "path": "assets/icons/domain/timeline.svg",
+      "bytes": 454,
+      "sha256": "64800e4f413e7d0bcba94c95f12fac18edb8714cbdf64dcc87e1eccef3671382"
+    },
+    {
+      "path": "assets/icons/functional/accessibility.svg",
+      "bytes": 384,
+      "sha256": "6d24c0ace27b667d92880569ad7750af76d40d2f0a69009f5240cc020048553b"
+    },
+    {
+      "path": "assets/icons/functional/back.svg",
+      "bytes": 331,
+      "sha256": "7b6894bb70a875a2e1ee82de92de2d2aa0c054d3f8be037d01493b26a7742951"
+    },
+    {
+      "path": "assets/icons/functional/check.svg",
+      "bytes": 333,
+      "sha256": "dc2f2a3ef842b3508696f5af5a1334931256cd57559016c7f9bc318293ad208e"
+    },
+    {
+      "path": "assets/icons/functional/close.svg",
+      "bytes": 338,
+      "sha256": "282631ac89e15182020cd44e9b0aafcd8c4f6397bcea7b7e63235d3632e333f0"
+    },
+    {
+      "path": "assets/icons/functional/download.svg",
+      "bytes": 350,
+      "sha256": "53e1f4963ba349b048cb1e0bf8e00b5212647c515c7a1551d2d4477790b355c4"
+    },
+    {
+      "path": "assets/icons/functional/edit.svg",
+      "bytes": 351,
+      "sha256": "448516e339bd43c855f8ca440748a8ab8a78e6caa5f6217eb33b90e353fa59f4"
+    },
+    {
+      "path": "assets/icons/functional/external-link.svg",
+      "bytes": 359,
+      "sha256": "0a03ccf925eb5179174a2f8601b441e8bc20c126cbbe82059f6ff0485b5036b8"
+    },
+    {
+      "path": "assets/icons/functional/filter.svg",
+      "bytes": 342,
+      "sha256": "c54340b38735a56012f6ac33eb839ebfa1fbb597b53464c4a3177156603085c7"
+    },
+    {
+      "path": "assets/icons/functional/forward.svg",
+      "bytes": 333,
+      "sha256": "4d102b40399d91f1d4a16605cef870648d43e59141fcb68395f3d1e7accdda94"
+    },
+    {
+      "path": "assets/icons/functional/fullscreen.svg",
+      "bytes": 361,
+      "sha256": "672769df4c2a8b5688d96ec4e612af37901854121b4a47977f7b059d0ec5b2bf"
+    },
+    {
+      "path": "assets/icons/functional/info.svg",
+      "bytes": 365,
+      "sha256": "6041e2b94106d0d1c4cee2a3c22947be95a358caa374f19571c6b83967bd703d"
+    },
+    {
+      "path": "assets/icons/functional/language.svg",
+      "bytes": 399,
+      "sha256": "3c0f39e9e338e66a1fe00d335849d1212355860eee8643c39acf31017cf0e3b3"
+    },
+    {
+      "path": "assets/icons/functional/menu.svg",
+      "bytes": 340,
+      "sha256": "6eceb7fa551bffb47c1d0a6e2c92b637c70b3bbaa25f4c2bc4b72148eeac6e1e"
+    },
+    {
+      "path": "assets/icons/functional/search.svg",
+      "bytes": 360,
+      "sha256": "bcd3a602484fcac0e197cbd5ea1b8c19d54595581e925300c3e612b7f5e63722"
+    },
+    {
+      "path": "assets/icons/functional/share.svg",
+      "bytes": 427,
+      "sha256": "db0ed3ee2f9ac7583cbdb25a23f456780c5a81ff230697beef0706b64bd78df3"
+    },
+    {
+      "path": "assets/icons/functional/zoom-in.svg",
+      "bytes": 385,
+      "sha256": "7e216bd04ac6b289f9bf52539d37d032a108c688a4d689dde891fd998267ee42"
+    },
+    {
+      "path": "data/brand/brand-relationships.json",
+      "bytes": 1050,
+      "sha256": "c3f69ed91245790fa0054600765407156f510dc881da7c7865b73fbd42090973"
+    },
+    {
+      "path": "data/brand/icon-registry.json",
+      "bytes": 13426,
+      "sha256": "1f90bcc1f1d96762c22728fff1ee67fd67b09aa42b53b020f82c44b74faa74d4"
+    },
+    {
+      "path": "data/brand/logo-manifest.json",
+      "bytes": 4709,
+      "sha256": "cd0f825853dacc5861064faa850928f4cc7307ed0cc3ff34538542d8ded30cda"
+    },
+    {
+      "path": "data/brand/logo-variants.json",
+      "bytes": 1443,
+      "sha256": "ad403b4b0d546882ffa1c1e0e5a353ec009d27d56206e56eadb7ea1f9edca15f"
+    },
+    {
+      "path": "docs/brand/ACCESSIBILITY_AND_ALT_TEXT.md",
+      "bytes": 424,
+      "sha256": "bff9f5caa6c7d97095d01f40b6a9232ccf8a265f41a1446fc8338b1b45442c0f"
+    },
+    {
+      "path": "docs/brand/BRAND_ARCHITECTURE.md",
+      "bytes": 429,
+      "sha256": "24bfac0c65b8037a7b1bd4e97a16132c1927741a9713dcf8b88ac871ccd5d5cf"
+    },
+    {
+      "path": "docs/brand/DOMAIN_ICONS.md",
+      "bytes": 386,
+      "sha256": "233c29a59fac503a82733e76a40cd5249223c427624709ebf9f9c0bf39f69391"
+    },
+    {
+      "path": "docs/brand/FAVICON_AND_APP_ICONS.md",
+      "bytes": 400,
+      "sha256": "71c913cc4d38cce3272c9b0d60f731ea4b11b1455b64bb69cb8631944c188735"
+    },
+    {
+      "path": "docs/brand/FLAT_COLOUR_POLICY.md",
+      "bytes": 361,
+      "sha256": "83741911293d045de6f3db5d7e44d8f042b0844a1863ed3da8bd3f3d69167588"
+    },
+    {
+      "path": "docs/brand/FUNCTIONAL_ICONS.md",
+      "bytes": 383,
+      "sha256": "4b794a8df8a62710861fab4df55a55312a46fa863d2b6e46adf4f69c4b17a54b"
+    },
+    {
+      "path": "docs/brand/ICONOGRAPHY_SYSTEM.md",
+      "bytes": 409,
+      "sha256": "f6eeb1fbb5bc3e4adb4faebad21da385bb1fd36e5de0dbd7a27e813c18c94806"
+    },
+    {
+      "path": "docs/brand/LOGO_BACKGROUND_RULES.md",
+      "bytes": 484,
+      "sha256": "9275917f0c8ca8f7ccee311ba1ad5af7fd3fa8dbe24ade7fdfa37cd9df537951"
+    },
+    {
+      "path": "docs/brand/LOGO_CLEAR_SPACE.md",
+      "bytes": 396,
+      "sha256": "9e75d514a446ea9448b623c448cc75895fa765de807adbb6f761d9f82664e7bc"
+    },
+    {
+      "path": "docs/brand/LOGO_DARK_MODE.md",
+      "bytes": 370,
+      "sha256": "5edad50c37539024d2b4a92d3a259845af0700083c329c5b44064ab6662f8bbe"
+    },
+    {
+      "path": "docs/brand/LOGO_INCORRECT_USAGE.md",
+      "bytes": 414,
+      "sha256": "b9becbe544bce6de4469638aee3267e4e3e189713721db0de2a09620c8b18c50"
+    },
+    {
+      "path": "docs/brand/LOGO_MINIMUM_SIZES.md",
+      "bytes": 428,
+      "sha256": "d0bf32569f1ff7143c48560733365dba54e60ca1f6ed08a4505dc68e6ffc3200"
+    },
+    {
+      "path": "docs/brand/LOGO_SYSTEM.md",
+      "bytes": 408,
+      "sha256": "9381b0d73125f425af8ec22892f4421384b49b9c83173de2f3186f7dd74f5482"
+    },
+    {
+      "path": "docs/brand/NAMING_SYSTEM.md",
+      "bytes": 478,
+      "sha256": "e0bad42de452b1f50bd3475fbfe67c840c656ebc7e31218c97963d23e3b9168b"
+    },
+    {
+      "path": "docs/brand/OPEN_DECISIONS.md",
+      "bytes": 581,
+      "sha256": "61710dd864ffea8634a61c613e161801b86ea599aca51a694946f5d79614c4f4"
+    },
+    {
+      "path": "docs/brand/PROJECT_AND_PROTEUS.md",
+      "bytes": 412,
+      "sha256": "6b0cd020e2a2d0a596dc0aff675e0fbd9ea51699235fe1053efcd4fe44c0bb9b"
+    },
+    {
+      "path": "docs/brand/SITE_NAMING_AND_TITLE.md",
+      "bytes": 410,
+      "sha256": "354f4d17391b0076d16382bd29785b4ecc81c601e341bc173e510cbaf27b262f"
+    },
+    {
+      "path": "docs/brand/SOURCE_ASSET_AND_DERIVATIVES.md",
+      "bytes": 385,
+      "sha256": "be3a25d9490af6310d4e601eb222a41ff99f609337b5de2f0da36f54858a0d43"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-016-BRAND-ARCHITECTURE.md",
+      "bytes": 429,
+      "sha256": "b575f3553aba75b42d22609d7117340af58cd8f37347b9b1692a148f93470537"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-017-LOGO-SYSTEM.md",
+      "bytes": 428,
+      "sha256": "41f55fa5efe003a6cb24854fe7b7c951f3ce0f744df4ecd376f1c20c3e0c92e7"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-018-ICONOGRAPHY.md",
+      "bytes": 414,
+      "sha256": "98dd513f810610d26f9ef5fdd2e8936d752509c825cafeb66b1b172e2626d0c6"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-019-PROTEUS-NAMING.md",
+      "bytes": 408,
+      "sha256": "8bc75e08442ae95ecc72d2550a861013f08a89da0a607286b9c922f26049cc3b"
+    },
+    {
+      "path": "docs/specifications/SPEC-DS-020-APPLICATION-ASSETS.md",
+      "bytes": 424,
+      "sha256": "046f9916c0c97ac3bace6ed51cbe1316c643db2f85d6851b6345e4e61d5e63b0"
     },
     {
       "path": "integration/CLAUDE_APPEND.md",
-      "size": 488,
-      "sha256": "bb01a32cb9a95bee7816e84602461f983bd0710ddc44e23a91da332e9973f6bb"
+      "bytes": 404,
+      "sha256": "2fa5e19c8103cb555f4991571ce54ed4a882cd16e99cce1ccf1ccc5be4dfd95f"
     },
     {
-      "path": "integration/PACKAGE_03_DOMAIN_ALIGNMENT.md",
-      "size": 411,
-      "sha256": "ad062265506b47c8de41045e25b331d7e34228a32ed68fb94a093f77eb0efd67"
-    },
-    {
-      "path": "integration/PACKAGE_04_DATA_SAFETY.md",
-      "size": 339,
-      "sha256": "5907543d18966240f5f73bef541b4246e1feb290d42c5dcd956b9f950cbe98ef"
-    },
-    {
-      "path": "integration/PACKAGE_05C_UPGRADE.md",
-      "size": 396,
-      "sha256": "79cb4540a45d0528020524a702833058318866aede56cbc0101c07bb8c7b3428"
+      "path": "integration/PACKAGE_05D_UPGRADE.md",
+      "bytes": 295,
+      "sha256": "9d8c57cb4f261988b1cbfdee5cfc52577b270907e123b43019ecbc996f65ba27"
     },
     {
       "path": "integration/PACKAGE_06_HANDOFF.md",
-      "size": 407,
-      "sha256": "bbc68ce47b0e524cb7f75bd2b01b4d5ec80f91f9201cb84594616d5f2617c392"
+      "bytes": 383,
+      "sha256": "d49b7616b0608b76ade592efaf604e645d9ce760a430bde8f493b88144f34c3c"
     },
     {
       "path": "integration/VISUALIZATION_REGISTRY_APPEND.md",
-      "size": 320,
-      "sha256": "8b19767a80232af806047663354ee66751710c79279d3a0182a6c83f55b06e47"
+      "bytes": 305,
+      "sha256": "0c38b284af727e185f3d34ec194c9ab7a8cf51e33e100eb1d93771057b739e1e"
     },
     {
-      "path": "packages/design-components/v0.4/README.md",
-      "size": 831,
-      "sha256": "c42738ab4d35315f35748eddae96ff11caffd150854cda8032f8d8afcd557956"
+      "path": "packages/brand-assets/v0.5/README.md",
+      "bytes": 251,
+      "sha256": "fd006937d6b819eacbe7e9d99eca25e57b1578fd307de92cc9b465e9b067a404"
     },
     {
-      "path": "packages/design-components/v0.4/component.schema.json",
-      "size": 2277,
-      "sha256": "ffab01a9d8dec868539404ba2a59cb02c90c93cb95175ecfcf67ed7bd4022be5"
+      "path": "packages/brand-assets/v0.5/favicon.ico",
+      "bytes": 6950,
+      "sha256": "010941de5c3e4782bc5d515868d6a6ae2f3939d2dc5240a6af86eb7b4c669312"
     },
     {
-      "path": "packages/design-components/v0.4/components.css",
-      "size": 11622,
-      "sha256": "8f2bc54db62753e9fd85b5ee360c901eb0811f842afe969b214b3fd8915082ff"
+      "path": "packages/brand-assets/v0.5/logo-dark-mode-transparent.png",
+      "bytes": 57493,
+      "sha256": "03265e78b443fbe2085fbb83cbbba72205c6c983cb6893f59811618a7c590cc7"
     },
     {
-      "path": "packages/design-components/v0.4/components.js",
-      "size": 2341,
-      "sha256": "8638fc6f126af1821c7b8e8daca677a1f7a0da6696abade887459754174744fd"
+      "path": "packages/brand-assets/v0.5/logo-full-colour-transparent.png",
+      "bytes": 57895,
+      "sha256": "341127e3a6846cdd4dbca51d2432156aba9c05d434364e45ae4c5d324507b276"
     },
     {
-      "path": "packages/design-components/v0.4/components.json",
-      "size": 20831,
-      "sha256": "e92d2c7adc872e8ab595458a62ae4e0cf8b026bb842c250a36c0863f4f2c934b"
+      "path": "packages/brand-assets/v0.5/logo-manifest.json",
+      "bytes": 4709,
+      "sha256": "cd0f825853dacc5861064faa850928f4cc7307ed0cc3ff34538542d8ded30cda"
     },
     {
-      "path": "packages/design-components/v0.4/demo-assets/README.md",
-      "size": 371,
-      "sha256": "eb97a33eced2ed7114715ebdbe837110ae2b0f3b7ea5e1324d393210a39fffb9"
+      "path": "packages/brand-assets/v0.5/symbol-colour-transparent.png",
+      "bytes": 45392,
+      "sha256": "677672183d59892be7a0551df58010ff349c3d87270a6425c5dd3cbec0d3c1de"
     },
     {
-      "path": "packages/design-components/v0.4/demo-assets/document-placeholder.svg",
-      "size": 1391,
-      "sha256": "1e9b488f876dad499429515ec2129b30e14a087f84de20805032140cd1ef7cec"
+      "path": "packages/brand-tokens/v0.5/README.md",
+      "bytes": 302,
+      "sha256": "8a2c27a4b9107cd1b7d402520c259197db42f3563bd0eaf69d4f646c312ac846"
     },
     {
-      "path": "packages/design-components/v0.4/demo-assets/memory-placeholder.svg",
-      "size": 940,
-      "sha256": "17f7dcb84f8599cff6074bdc112e042d7ecbd0d85fb952a6ef7389eacbed959e"
+      "path": "packages/brand-tokens/v0.5/brand-tokens.css",
+      "bytes": 487,
+      "sha256": "06b0d952ea301ad662e1ef53893cc6edc18d1293ed58139e2f8b0c1cc4c9c269"
     },
     {
-      "path": "packages/design-components/v0.4/demo-assets/plan-placeholder.svg",
-      "size": 994,
-      "sha256": "0eba386a5959ee7ebcbfc3ff38baab420274564c09d04aadfc40b995d8114240"
+      "path": "packages/brand-tokens/v0.5/brand-tokens.json",
+      "bytes": 720,
+      "sha256": "bbf5c46b4cfc264bc40475e332364ce7f0ee527c8680f897a0a52ddc8837f520"
     },
     {
-      "path": "packages/design-guide-catalog/v0.4/README.md",
-      "size": 422,
-      "sha256": "e1caa3e27682c9682e0d011db9ceb4074f8c94832529badabb73ba57ad107d84"
+      "path": "releases/PACKAGE_05E_v0.5.0.md",
+      "bytes": 1205,
+      "sha256": "be39ba0a077d038410c3762f00fefa46b2acc6e9218ab0a048c7da18203385c2"
     },
     {
-      "path": "packages/design-guide-catalog/v0.4/catalog.json",
-      "size": 64356,
-      "sha256": "28fe1f6891a0e9da037e677f37506c0b90dd41acbebc3d77c5817dc8f5a193d4"
+      "path": "scripts/build-icon-registry.mjs",
+      "bytes": 660,
+      "sha256": "4a9d2ce62aebf5986b449274ed6663c5c95f20b2451b5107a0971082d93df957"
     },
     {
-      "path": "packages/design-guide-catalog/v0.4/catalog.schema.json",
-      "size": 1386,
-      "sha256": "8744a27236d59064f437e730e7f8f7b5ff30741e38a1720e91cad9eac97f02d1"
+      "path": "scripts/prepare-logo-assets.py",
+      "bytes": 954,
+      "sha256": "b2316c2031ff3ed9ee94a62339af5f36e4a8b00da852d830ef13ebb8f4fd9157"
     },
     {
-      "path": "packages/design-patterns/v0.4/README.md",
-      "size": 447,
-      "sha256": "c18ca923cc2ec322d49db40e143a288e3f80f8214304cdaceec233a3f4dc1620"
+      "path": "scripts/validate-alpha-channel.mjs",
+      "bytes": 786,
+      "sha256": "3f05b4efc430b2f4139d2c74d1ce76fc1d792b4e6982f127f8aef3c9151ffee4"
     },
     {
-      "path": "packages/design-patterns/v0.4/pattern.schema.json",
-      "size": 1619,
-      "sha256": "e845708642bdb2dcd546696a84a9dfa7af9fddc687f0acd599d31e39cb42aa01"
+      "path": "scripts/validate-package-05e.mjs",
+      "bytes": 1719,
+      "sha256": "cb73c46b14a12eff64014cd1643279c26cad0ddc4908e0402cd726b8d594f85d"
     },
     {
-      "path": "packages/design-patterns/v0.4/patterns.css",
-      "size": 3753,
-      "sha256": "72059239efc46d9cac4a2ca82fadf2421cecbe35067327796ddddde77bd2bff2"
+      "path": "tests/brand-architecture.test.mjs",
+      "bytes": 581,
+      "sha256": "dd3a7c4bea3090df1e72add4df02193374eecb2ce6ab608c8c1c445f96cec040"
     },
     {
-      "path": "packages/design-patterns/v0.4/patterns.js",
-      "size": 661,
-      "sha256": "3142714335a6ff01d28fa6ebeb20b74f485cfdb3b5fa050edd06def9ad833f97"
+      "path": "tests/icon-registry.test.mjs",
+      "bytes": 179,
+      "sha256": "ced2beb6812d7ae85acdc531368f935134b1c578460cb225d9a91e2ba2c17df5"
     },
     {
-      "path": "packages/design-patterns/v0.4/patterns.json",
-      "size": 8364,
-      "sha256": "e5e190dc3b3ff4516bc813979f3f1b98dbb446549eb2482b8ac30e1fcea2aefd"
+      "path": "tests/logo-variants.test.mjs",
+      "bytes": 182,
+      "sha256": "b170407ed5afda54a05325d5ede80d400c9c4857a87a9303c894b011e0632f79"
     },
     {
-      "path": "releases/PACKAGE_05D_v0.4.0.md",
-      "size": 1253,
-      "sha256": "0e8ea5b6a9007f6fc824e8bcc607d75bb7e35665624db202cad138b6085858b6"
-    },
-    {
-      "path": "scripts/validate-package-05d.mjs",
-      "size": 1784,
-      "sha256": "b28dd83ae5d43b9189b007e77878ef655c52e553c5c99838317822c65b580ce6"
-    },
-    {
-      "path": "tests/catalog-05d.test.mjs",
-      "size": 784,
-      "sha256": "9ae9b170fe61f855a9243aeaa1e54514c3016790cd3306aa25146fa0c6ace3f8"
-    },
-    {
-      "path": "tests/component-registry.test.mjs",
-      "size": 594,
-      "sha256": "3b44f8c875e5fced85a0e5f67aed3846766926e3c2204e971ca6f8a4b4316756"
-    },
-    {
-      "path": "tests/demo-safety.test.mjs",
-      "size": 507,
-      "sha256": "74c768987bee0f6decd47e545b33a6b8c27fc8a5836b7d5a3e9522dbd8988870"
-    },
-    {
-      "path": "tests/pattern-registry.test.mjs",
-      "size": 672,
-      "sha256": "13d5d31e7735b7203153593c001ca5c6e2a982ab45162542b97a5bb466a3ca59"
-    },
-    {
-      "path": "tests/static-accessibility-05d.test.mjs",
-      "size": 461,
-      "sha256": "5b0c859805c75b97a97776064551aa90f6b5c1085f54b7c5215ec6d5e2d44759"
+      "path": "tests/package-05e.test.mjs",
+      "bytes": 180,
+      "sha256": "9e50e2acef832e4ac1c71ff0bfe7b048d0c20ecbddd7bfc1169cf5d057e292ee"
     }
-  ]
+  ],
+  "fileCountExcludingThisManifest": 130,
+  "totalFilesIncludingThisManifest": 131
 }

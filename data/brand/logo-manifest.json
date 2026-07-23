@@ -1,0 +1,131 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "version": "0.5.0",
+  "status": "draft",
+  "flatColours": true,
+  "gradients": false,
+  "ignoreSourceBackground": true,
+  "ignoreSourceSparkle": true,
+  "files": [
+    {
+      "path": "assets/brand/application/app-icon-192.png",
+      "bytes": 44608,
+      "sha256": "1fd9e92301446b1a8230a58d2a29c87082cbdd3bc5e32bc8ae48065d5d421030"
+    },
+    {
+      "path": "assets/brand/application/app-icon-512.png",
+      "bytes": 188642,
+      "sha256": "0846d8b37c7d531d79195a5569e29e787d44c203182d9c6f1d726b8049b38826"
+    },
+    {
+      "path": "assets/brand/application/app-icon-dark-512.png",
+      "bytes": 151446,
+      "sha256": "6365e66f19bb093c1b7859dd5688db0c9493f80e434536d710340e50bde265f1"
+    },
+    {
+      "path": "assets/brand/application/app-icon-light-512.png",
+      "bytes": 130199,
+      "sha256": "fd22cee04a4b2370f01f4e3468f651841871bbef45cf24c8432effd295af7d03"
+    },
+    {
+      "path": "assets/brand/application/apple-touch-icon-180.png",
+      "bytes": 39989,
+      "sha256": "61c491c3fe0758f34cd05d5aa6eb45cb6dfbd0f8764d0cf41b15079bb6d442d4"
+    },
+    {
+      "path": "assets/brand/application/favicon-32.png",
+      "bytes": 1960,
+      "sha256": "08abd19ad93e08f16fe0ba1aec9e1b992d105493efc7c805f1e15c94ddb80bea"
+    },
+    {
+      "path": "assets/brand/application/favicon-48.png",
+      "bytes": 4035,
+      "sha256": "640260790a93e99e3bb31540f5348db1400c84d484817324a4cb877dc5f2e20d"
+    },
+    {
+      "path": "assets/brand/application/favicon.ico",
+      "bytes": 6950,
+      "sha256": "010941de5c3e4782bc5d515868d6a6ae2f3939d2dc5240a6af86eb7b4c669312"
+    },
+    {
+      "path": "assets/brand/application/social-preview-dark.png",
+      "bytes": 229770,
+      "sha256": "41110a4fbb351a9b1c2d83c47a4c687ccddd8c0c427a1861514160dcf16233e9"
+    },
+    {
+      "path": "assets/brand/application/social-preview-light.png",
+      "bytes": 196361,
+      "sha256": "e4f3a3e2226192a0cccad61f69118ba4acf1fad3102a745f3ef0890c4f2cf1d3"
+    },
+    {
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent.png",
+      "bytes": 57493,
+      "sha256": "03265e78b443fbe2085fbb83cbbba72205c6c983cb6893f59811618a7c590cc7"
+    },
+    {
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent.webp",
+      "bytes": 23776,
+      "sha256": "d160ff3be875601e8d29476a28e794cf80f89d7c69b1fb5f38a2b286c7ce5c5e"
+    },
+    {
+      "path": "assets/brand/derived/dark/logo-dark-mode-transparent@2x.png",
+      "bytes": 730549,
+      "sha256": "a7ea982444aaa8b2c7fc004edb07b53067475ba0290172cf583dd2b4cc5d40f0"
+    },
+    {
+      "path": "assets/brand/derived/light/logo-full-colour-transparent.png",
+      "bytes": 57895,
+      "sha256": "341127e3a6846cdd4dbca51d2432156aba9c05d434364e45ae4c5d324507b276"
+    },
+    {
+      "path": "assets/brand/derived/light/logo-full-colour-transparent.webp",
+      "bytes": 23642,
+      "sha256": "d23c6d4757d7bd1973163c870053ffde8263aeefc3b2a93e54c06ac9e16e88ef"
+    },
+    {
+      "path": "assets/brand/derived/light/logo-full-colour-transparent@2x.png",
+      "bytes": 754304,
+      "sha256": "abb2399598a2a9c9473351fcc59de6a17940f19efe2664d53c58cd11bf225630"
+    },
+    {
+      "path": "assets/brand/derived/monochrome/logo-monochrome-dark.png",
+      "bytes": 39626,
+      "sha256": "ba4d2c7e3d0177b60670aa5b9cc231117c62000e6f816914baba95f8d11426f6"
+    },
+    {
+      "path": "assets/brand/derived/monochrome/logo-monochrome-light.png",
+      "bytes": 39551,
+      "sha256": "6317626f61b39e2a9e4e9a60dd205ff53dbfabbb55a32456d55028e792620492"
+    },
+    {
+      "path": "assets/brand/preview/logo-variants-contact-sheet.png",
+      "bytes": 754025,
+      "sha256": "3dc5faa8af975f8f98826fb41e4782cb8eb4e05706476d5861e1e37bb507a01a"
+    },
+    {
+      "path": "assets/brand/source/logo-original-with-background.png",
+      "bytes": 468304,
+      "sha256": "07e9f4e5050867cc0091a54268671df20e81254702dd030651bebda241466186"
+    },
+    {
+      "path": "assets/brand/symbol/symbol-colour-transparent.png",
+      "bytes": 45392,
+      "sha256": "677672183d59892be7a0551df58010ff349c3d87270a6425c5dd3cbec0d3c1de"
+    },
+    {
+      "path": "assets/brand/symbol/symbol-colour-transparent.webp",
+      "bytes": 18518,
+      "sha256": "8a7d63224236ceb3f5197bc4f07a3828c07d6f02809112b77063c2062d9ab571"
+    },
+    {
+      "path": "assets/brand/symbol/symbol-dark-mode-transparent.png",
+      "bytes": 45469,
+      "sha256": "6c76fc2f021cd9b5df5c09eb416321ab71253c101fe858a2affeb60640b7e97e"
+    },
+    {
+      "path": "assets/brand/symbol/symbol-dark-mode-transparent.webp",
+      "bytes": 18832,
+      "sha256": "0df90afa9a3b134a753a6476e21af601b210def47a555dcf0131c626c53a6292"
+    }
+  ]
+}

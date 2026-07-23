@@ -1,0 +1,455 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "version": "0.5.0",
+  "status": "draft",
+  "icons": [
+    {
+      "id": "icon-functional-menu",
+      "name": "menu",
+      "category": "functional",
+      "path": "assets/icons/functional/menu.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: menu",
+        "en": "Functional icon: menu",
+        "es": "Icono funcional: menu",
+        "fr": "Icône fonctionnelle: menu"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-search",
+      "name": "search",
+      "category": "functional",
+      "path": "assets/icons/functional/search.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: search",
+        "en": "Functional icon: search",
+        "es": "Icono funcional: search",
+        "fr": "Icône fonctionnelle: search"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-back",
+      "name": "back",
+      "category": "functional",
+      "path": "assets/icons/functional/back.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: back",
+        "en": "Functional icon: back",
+        "es": "Icono funcional: back",
+        "fr": "Icône fonctionnelle: back"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-forward",
+      "name": "forward",
+      "category": "functional",
+      "path": "assets/icons/functional/forward.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: forward",
+        "en": "Functional icon: forward",
+        "es": "Icono funcional: forward",
+        "fr": "Icône fonctionnelle: forward"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-zoom-in",
+      "name": "zoom-in",
+      "category": "functional",
+      "path": "assets/icons/functional/zoom-in.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: zoom in",
+        "en": "Functional icon: zoom in",
+        "es": "Icono funcional: zoom in",
+        "fr": "Icône fonctionnelle: zoom in"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-fullscreen",
+      "name": "fullscreen",
+      "category": "functional",
+      "path": "assets/icons/functional/fullscreen.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: fullscreen",
+        "en": "Functional icon: fullscreen",
+        "es": "Icono funcional: fullscreen",
+        "fr": "Icône fonctionnelle: fullscreen"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-close",
+      "name": "close",
+      "category": "functional",
+      "path": "assets/icons/functional/close.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: close",
+        "en": "Functional icon: close",
+        "es": "Icono funcional: close",
+        "fr": "Icône fonctionnelle: close"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-filter",
+      "name": "filter",
+      "category": "functional",
+      "path": "assets/icons/functional/filter.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: filter",
+        "en": "Functional icon: filter",
+        "es": "Icono funcional: filter",
+        "fr": "Icône fonctionnelle: filter"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-download",
+      "name": "download",
+      "category": "functional",
+      "path": "assets/icons/functional/download.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: download",
+        "en": "Functional icon: download",
+        "es": "Icono funcional: download",
+        "fr": "Icône fonctionnelle: download"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-share",
+      "name": "share",
+      "category": "functional",
+      "path": "assets/icons/functional/share.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: share",
+        "en": "Functional icon: share",
+        "es": "Icono funcional: share",
+        "fr": "Icône fonctionnelle: share"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-language",
+      "name": "language",
+      "category": "functional",
+      "path": "assets/icons/functional/language.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: language",
+        "en": "Functional icon: language",
+        "es": "Icono funcional: language",
+        "fr": "Icône fonctionnelle: language"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-accessibility",
+      "name": "accessibility",
+      "category": "functional",
+      "path": "assets/icons/functional/accessibility.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: accessibility",
+        "en": "Functional icon: accessibility",
+        "es": "Icono funcional: accessibility",
+        "fr": "Icône fonctionnelle: accessibility"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-info",
+      "name": "info",
+      "category": "functional",
+      "path": "assets/icons/functional/info.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: info",
+        "en": "Functional icon: info",
+        "es": "Icono funcional: info",
+        "fr": "Icône fonctionnelle: info"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-external-link",
+      "name": "external-link",
+      "category": "functional",
+      "path": "assets/icons/functional/external-link.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: external link",
+        "en": "Functional icon: external link",
+        "es": "Icono funcional: external link",
+        "fr": "Icône fonctionnelle: external link"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-edit",
+      "name": "edit",
+      "category": "functional",
+      "path": "assets/icons/functional/edit.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: edit",
+        "en": "Functional icon: edit",
+        "es": "Icono funcional: edit",
+        "fr": "Icône fonctionnelle: edit"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-functional-check",
+      "name": "check",
+      "category": "functional",
+      "path": "assets/icons/functional/check.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone funcional: check",
+        "en": "Functional icon: check",
+        "es": "Icono funcional: check",
+        "fr": "Icône fonctionnelle: check"
+      },
+      "decorativeAllowed": true
+    },
+    {
+      "id": "icon-domain-memory",
+      "name": "memory",
+      "category": "domain",
+      "path": "assets/icons/domain/memory.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: memory",
+        "en": "Domain icon: memory",
+        "es": "Icono temático: memory",
+        "fr": "Icône de domaine: memory"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-community",
+      "name": "community",
+      "category": "domain",
+      "path": "assets/icons/domain/community.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: community",
+        "en": "Domain icon: community",
+        "es": "Icono temático: community",
+        "fr": "Icône de domaine: community"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-photograph",
+      "name": "photograph",
+      "category": "domain",
+      "path": "assets/icons/domain/photograph.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: photograph",
+        "en": "Domain icon: photograph",
+        "es": "Icono temático: photograph",
+        "fr": "Icône de domaine: photograph"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-timeline",
+      "name": "timeline",
+      "category": "domain",
+      "path": "assets/icons/domain/timeline.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: timeline",
+        "en": "Domain icon: timeline",
+        "es": "Icono temático: timeline",
+        "fr": "Icône de domaine: timeline"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-map",
+      "name": "map",
+      "category": "domain",
+      "path": "assets/icons/domain/map.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: map",
+        "en": "Domain icon: map",
+        "es": "Icono temático: map",
+        "fr": "Icône de domaine: map"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-site",
+      "name": "site",
+      "category": "domain",
+      "path": "assets/icons/domain/site.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: site",
+        "en": "Domain icon: site",
+        "es": "Icono temático: site",
+        "fr": "Icône de domaine: site"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-structure",
+      "name": "structure",
+      "category": "domain",
+      "path": "assets/icons/domain/structure.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: structure",
+        "en": "Domain icon: structure",
+        "es": "Icono temático: structure",
+        "fr": "Icône de domaine: structure"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-artefact",
+      "name": "artefact",
+      "category": "domain",
+      "path": "assets/icons/domain/artefact.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: artefact",
+        "en": "Domain icon: artefact",
+        "es": "Icono temático: artefact",
+        "fr": "Icône de domaine: artefact"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-excavation",
+      "name": "excavation",
+      "category": "domain",
+      "path": "assets/icons/domain/excavation.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: excavation",
+        "en": "Domain icon: excavation",
+        "es": "Icono temático: excavation",
+        "fr": "Icône de domaine: excavation"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-reference",
+      "name": "reference",
+      "category": "domain",
+      "path": "assets/icons/domain/reference.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: reference",
+        "en": "Domain icon: reference",
+        "es": "Icono temático: reference",
+        "fr": "Icône de domaine: reference"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-dataset",
+      "name": "dataset",
+      "category": "domain",
+      "path": "assets/icons/domain/dataset.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: dataset",
+        "en": "Domain icon: dataset",
+        "es": "Icono temático: dataset",
+        "fr": "Icône de domaine: dataset"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-rights",
+      "name": "rights",
+      "category": "domain",
+      "path": "assets/icons/domain/rights.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: rights",
+        "en": "Domain icon: rights",
+        "es": "Icono temático: rights",
+        "fr": "Icône de domaine: rights"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-provenance",
+      "name": "provenance",
+      "category": "domain",
+      "path": "assets/icons/domain/provenance.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: provenance",
+        "en": "Domain icon: provenance",
+        "es": "Icono temático: provenance",
+        "fr": "Icône de domaine: provenance"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-confidence",
+      "name": "confidence",
+      "category": "domain",
+      "path": "assets/icons/domain/confidence.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: confidence",
+        "en": "Domain icon: confidence",
+        "es": "Icono temático: confidence",
+        "fr": "Icône de domaine: confidence"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-exhibition",
+      "name": "exhibition",
+      "category": "domain",
+      "path": "assets/icons/domain/exhibition.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: exhibition",
+        "en": "Domain icon: exhibition",
+        "es": "Icono temático: exhibition",
+        "fr": "Icône de domaine: exhibition"
+      },
+      "decorativeAllowed": false
+    },
+    {
+      "id": "icon-domain-knowledge",
+      "name": "knowledge",
+      "category": "domain",
+      "path": "assets/icons/domain/knowledge.svg",
+      "status": "draft",
+      "labels": {
+        "pt-PT": "Ícone temático: knowledge",
+        "en": "Domain icon: knowledge",
+        "es": "Icono temático: knowledge",
+        "fr": "Icône de domaine: knowledge"
+      },
+      "decorativeAllowed": false
+    }
+  ]
+}

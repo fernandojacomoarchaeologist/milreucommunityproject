@@ -4,44 +4,45 @@ project: "Projeto Comunitário de Milreu"
 rights: "Consultar RIGHTS.md"
 ---
 
-# Prompt de integração — Pacote 05D
+# Prompt de integração — Pacote 05E
 
-Estás a integrar o **Pacote 05D — Componentes e Padrões Museológicos v0.4.0** no repositório do Projeto Comunitário de Milreu.
+Estás a integrar o **Pacote 05E — Identidade, Logótipo, Iconografia e Arquitetura de Marca v0.5.0** no repositório do Projeto Comunitário de Milreu.
 
-## Antes de alterar qualquer ficheiro
+## Antes de agir
 
-1. Lê `CLAUDE.md`, `README.md`, `PACKAGE_MANIFEST.md`, `INTEGRATION_CHECKLIST.md` e os releases 05A–05C.
-2. Confirma a existência de `packages/design-tokens/v0.2/tokens.css` e da versão 0.3.0 de `apps/design-guide/`.
-3. Verifica alterações locais. Se houver conflito relevante no guia, interrompe e pergunta.
-4. Confirma que os Pacotes 03 e 04 estão integrados ou documenta a ausência; não inventes campos ou estados.
+1. Lê `CLAUDE.md`, `README.md`, `PACKAGE_MANIFEST.md`, `INTEGRATION_CHECKLIST.md` e os releases 05A–05D.
+2. Confirma a existência de `apps/design-guide/` v0.4.0 e `packages/design-tokens/v0.2/`.
+3. Verifica alterações locais. Se houver conflitos no Design Guide ou na marca, interrompe e pergunta.
+4. Preserva o ficheiro original do logótipo sem o substituir.
 
 ## Objetivo
 
-Atualizar o catálogo para 0.4.0, integrar a biblioteca de componentes e padrões e concluir o ciclo 05 sem construir ainda o Portal ou o Museu públicos.
+Integrar o sistema de marca, as variantes transparentes, o dark mode, a iconografia inicial e a arquitetura Projeto–Museu–Milreu Proteus no catálogo do Sistema de Design.
 
 ## Regras obrigatórias
 
-- Não usar imagens, textos, nomes ou dados reais do acervo nos exemplos.
-- Não publicar páginas ou imagens do livro *Milreu: Ruínas*.
-- Não copiar componentes, textos ou código da referência externa Conta BOLD.
-- Consumir os tokens do Pacote 05B; não criar uma segunda fonte de verdade.
-- Preservar apenas os níveis de certeza `confirmed`, `probable` e `hypothesis`.
-- A narrativa comunitária antecede o contexto institucional.
-- Não ocultar direitos, proveniência, certeza ou estado editorial quando forem necessários.
-- Não marcar nenhum componente ou padrão como `approved` sem decisão explícita de Fernando Rodrigues de Jácomo.
-- Não criar backend, base de dados, Portal, Museu público, app Flutter ou ficheiros finais de impressão.
-- Perguntar quando faltar uma decisão que altere comportamento, direitos, publicação ou arquitetura.
+- O nome público principal é `Projeto Comunitário de Milreu`.
+- `Milreu Proteus` é a base estruturada de dados e conhecimento; não entra no logótipo principal.
+- Não criar logótipo independente para Proteus ou para o Museu sem decisão expressa.
+- Ignorar o fundo texturado e o pequeno brilho do ficheiro original.
+- Usar apenas cores chapadas; não usar gradientes, brilhos, sombras decorativas ou texturas no logótipo.
+- Tratar os PNGs derivados como `draft` até revisão visual de Fernando Rodrigues de Jácomo.
+- Não afirmar que existe um SVG oficial. Não converter automaticamente o raster em vetor e tratá-lo como mestre.
+- Não modificar proporções, composição, ordem dos elementos ou texto do logótipo.
+- Não misturar o terracota do logótipo com o token vermelho de assinatura da interface.
+- Ícones devem ser funcionais, consistentes e herdar `currentColor`; não criar arqueologia decorativa genérica.
+- Perguntar antes de mudar cores, recortar elementos, alterar tipografia do logótipo ou promover maturidade.
 
 ## Sequência
 
-1. Integrar `packages/design-components/v0.4/` e `packages/design-patterns/v0.4/`.
-2. Atualizar `apps/design-guide/` preservando o shell 05C.
-3. Integrar `packages/design-guide-catalog/v0.4/`.
-4. Integrar docs, specs, rules, skills e anexos.
-5. Executar testes e validadores.
-6. Servir por HTTP e verificar manualmente: inventários, componentes, padrões, pesquisa, navegação mobile, idiomas, teclado, foco e exemplos.
-7. Produzir relatório com ficheiros criados/substituídos, conflitos, testes, pendências e decisão de publicação.
+1. Integrar `packages/brand-tokens/v0.5/` e `packages/brand-assets/v0.5/`.
+2. Integrar `assets/brand/`, `assets/icons/` e `data/brand/`.
+3. Atualizar o Design Guide com páginas: arquitetura de marca, logótipo, dark mode, iconografia e aplicações.
+4. Manter as páginas em estado `internal-preview` e os ativos em `draft`.
+5. Executar todos os validadores e testes.
+6. Servir o guia por HTTP e rever: fundos claros, fundo `#1E1A17`, tamanhos mínimos, responsividade, contraste, favicon e ícones.
+7. Produzir relatório de integração com ficheiros criados/substituídos, conflitos, testes, pendências e capturas.
 
-## Conclusão
+## Condição de conclusão
 
-A integração termina quando o guia 0.4.0 funciona localmente, os testes passam e o estado permanece `internal-preview`. O próximo trabalho deve partir para as specs e arquitetura do Portal e do Museu, consumindo este sistema.
+A integração termina quando os ativos funcionam, os testes passam, o Design Guide apresenta as novas secções e nenhum derivado é promovido para `approved` sem validação humana.

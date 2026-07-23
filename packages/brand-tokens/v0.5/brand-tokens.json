@@ -1,0 +1,25 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_project": "Projeto Comunitário de Milreu",
+  "version": "0.5.0",
+  "status": "internal-preview",
+  "colours": {
+    "logoTerracotta": "#B56346",
+    "logoOlive": "#7E8464",
+    "logoSand": "#D3C2A9",
+    "logoPale": "#E5DBCA",
+    "logoInk": "#2A2622",
+    "logoPaper": "#F2ECE0",
+    "darkSurface": "#1E1A17",
+    "darkText": "#F2ECE0",
+    "interfaceSignatureRed": "#A83227",
+    "interfaceSignatureRedDeep": "#7E251C"
+  },
+  "rules": {
+    "flatColoursOnly": true,
+    "gradientsAllowed": false,
+    "logoTerracottaDoesNotReplaceInterfaceRed": true,
+    "proteusHasIndependentLogo": false,
+    "primaryPublicName": "Projeto Comunitário de Milreu"
+  }
+}
