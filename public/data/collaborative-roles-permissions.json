@@ -1,0 +1,148 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.12.0",
+  "roles": [
+    {
+      "code": "master",
+      "name": "Master do sistema",
+      "system": true
+    },
+    {
+      "code": "coordinator",
+      "name": "Coordenador",
+      "system": true
+    },
+    {
+      "code": "volunteer",
+      "name": "Voluntário",
+      "system": true
+    },
+    {
+      "code": "reviewer",
+      "name": "Revisor",
+      "system": true
+    },
+    {
+      "code": "researcher",
+      "name": "Investigador",
+      "system": true
+    },
+    {
+      "code": "translator",
+      "name": "Tradutor",
+      "system": true
+    },
+    {
+      "code": "partner",
+      "name": "Parceiro",
+      "system": true
+    },
+    {
+      "code": "observer",
+      "name": "Observador",
+      "system": true
+    }
+  ],
+  "permissions": [
+    "area.view",
+    "profile.self.manage",
+    "access.request",
+    "tasks.view",
+    "tasks.accept",
+    "tasks.manage",
+    "contributions.view-own",
+    "contributions.submit",
+    "contributions.moderate",
+    "agenda.view",
+    "exhibitions.manage",
+    "library.view",
+    "library.manage",
+    "training.view",
+    "training.manage",
+    "museum.review",
+    "museum.approve",
+    "memberships.view",
+    "memberships.manage",
+    "roles.manage",
+    "audit.view"
+  ],
+  "rolePermissions": {
+    "master": [
+      "*"
+    ],
+    "coordinator": [
+      "area.view",
+      "profile.self.manage",
+      "tasks.view",
+      "tasks.accept",
+      "tasks.manage",
+      "contributions.view-own",
+      "contributions.submit",
+      "contributions.moderate",
+      "agenda.view",
+      "exhibitions.manage",
+      "library.view",
+      "library.manage",
+      "training.view",
+      "training.manage",
+      "museum.review",
+      "museum.approve",
+      "memberships.view",
+      "memberships.manage",
+      "audit.view"
+    ],
+    "volunteer": [
+      "area.view",
+      "profile.self.manage",
+      "tasks.view",
+      "tasks.accept",
+      "contributions.view-own",
+      "contributions.submit",
+      "agenda.view",
+      "library.view",
+      "training.view"
+    ],
+    "reviewer": [
+      "area.view",
+      "profile.self.manage",
+      "contributions.view-own",
+      "agenda.view",
+      "library.view",
+      "training.view",
+      "museum.review"
+    ],
+    "researcher": [
+      "area.view",
+      "profile.self.manage",
+      "tasks.view",
+      "contributions.view-own",
+      "contributions.submit",
+      "agenda.view",
+      "library.view",
+      "training.view",
+      "museum.review"
+    ],
+    "translator": [
+      "area.view",
+      "profile.self.manage",
+      "tasks.view",
+      "tasks.accept",
+      "agenda.view",
+      "library.view",
+      "training.view",
+      "museum.review"
+    ],
+    "partner": [
+      "area.view",
+      "profile.self.manage",
+      "agenda.view",
+      "library.view"
+    ],
+    "observer": [
+      "area.view",
+      "profile.self.manage",
+      "agenda.view",
+      "library.view"
+    ]
+  }
+}

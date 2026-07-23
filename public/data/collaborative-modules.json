@@ -1,0 +1,86 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.12.0",
+  "modules": [
+    {
+      "code": "dashboard",
+      "name": "Início",
+      "route": "/area-colaborativa",
+      "status": "active",
+      "permission": "area.view",
+      "description": "Resumo do vínculo, próximos passos e módulos disponíveis."
+    },
+    {
+      "code": "profile",
+      "name": "O meu perfil",
+      "route": "/area-colaborativa/perfil",
+      "status": "active",
+      "permission": "profile.self.manage",
+      "description": "Nome, e-mail, perfil principal e preferências básicas."
+    },
+    {
+      "code": "tasks",
+      "name": "As minhas tarefas",
+      "route": "/area-colaborativa/tarefas",
+      "status": "skeleton",
+      "permission": "tasks.view",
+      "description": "Tarefas de voluntariado, investigação, digitalização e apoio."
+    },
+    {
+      "code": "contributions",
+      "name": "Contributos",
+      "route": "/area-colaborativa/contributos",
+      "status": "skeleton",
+      "permission": "contributions.view-own",
+      "description": "Fotografias, memórias, correções, referências e documentos submetidos."
+    },
+    {
+      "code": "agenda",
+      "name": "Agenda e exposições",
+      "route": "/area-colaborativa/agenda",
+      "status": "skeleton",
+      "permission": "agenda.view",
+      "description": "Calendário de atividades e percurso da exposição física itinerante."
+    },
+    {
+      "code": "library",
+      "name": "Biblioteca",
+      "route": "/area-colaborativa/biblioteca",
+      "status": "skeleton",
+      "permission": "library.view",
+      "description": "Guias, procedimentos, consentimentos e documentação interna."
+    },
+    {
+      "code": "training",
+      "name": "Formação",
+      "route": "/area-colaborativa/formacao",
+      "status": "skeleton",
+      "permission": "training.view",
+      "description": "Percursos de formação para voluntários e colaboradores."
+    },
+    {
+      "code": "museum-review",
+      "name": "Revisão do Museu",
+      "route": "/area-colaborativa/revisao-museu",
+      "status": "skeleton",
+      "permission": "museum.review",
+      "description": "Futura revisão editorial e curatorial das 31 memórias."
+    },
+    {
+      "code": "profile-management",
+      "name": "Gestão de perfis",
+      "route": "/area-colaborativa/gestao/perfis",
+      "status": "foundation",
+      "permission": "memberships.manage",
+      "description": "Pedidos de acesso, perfis, estados e funções."
+    },
+    {
+      "code": "exhibition-management",
+      "name": "Gestão de exposições",
+      "route": "/area-colaborativa/gestao/exposicoes",
+      "status": "skeleton",
+      "permission": "exhibitions.manage",
+      "description": "Locais, períodos e estado da exposição itinerante."
+    }
+  ]
+}

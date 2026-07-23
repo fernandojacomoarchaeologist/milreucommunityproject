@@ -54,3 +54,9 @@ A imagem do Inquérito 2026 foi fornecida pelo responsável do projeto para inte
 ## Decisão MM202617 — 07D.3
 
 MM202617 está autorizado a aparecer no ambiente de revisão do projeto, com identificação obrigatória do retoque substantivo por inteligência artificial. A decisão não o torna elegível para lançamento público definitivo, QR, totem ou painel.
+
+## Área Colaborativa — Pacote 08A
+
+A Área Colaborativa trata identidade, perfil, funções, permissões e futuras atividades internas. O login Google é utilizado apenas para autenticação básica. Dados de demonstração são locais e não correspondem a pessoas, contactos, locais ou eventos reais.
+
+A definição do master depende de um e-mail fornecido fora do repositório. Nenhuma chave administrativa, e-mail pessoal ou token Google deve ser incluído no frontend ou no Git.

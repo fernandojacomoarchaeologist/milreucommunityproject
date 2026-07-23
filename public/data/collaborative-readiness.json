@@ -1,0 +1,34 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.12.0",
+  "status": "foundation-ready",
+  "remoteAuthConfigured": false,
+  "googleOAuthConfigured": false,
+  "masterBootstrapped": false,
+  "databaseMigrationsReady": true,
+  "demoModeReady": true,
+  "functionalModules": [
+    "dashboard",
+    "profile",
+    "profile-management-foundation"
+  ],
+  "skeletonModules": [
+    "tasks",
+    "contributions",
+    "agenda",
+    "library",
+    "training",
+    "museum-review",
+    "exhibition-management"
+  ],
+  "nextActions": [
+    "create-or-select-supabase-project",
+    "apply-08a-migrations-to-local-and-staging",
+    "configure-google-oauth",
+    "set-production-redirect-urls",
+    "sign-in-master-user-once",
+    "bootstrap-master-by-email",
+    "review-rls-with-staging-users",
+    "decide-next-08-package"
+  ]
+}

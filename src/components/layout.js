@@ -20,7 +20,8 @@ export function portalHeader(lang, current="") {
     ["/museu","museum"],
     ["/conhecimento","knowledge"],
     ["/participar","participate"],
-    ["/sobre","about"]
+    ["/sobre","about"],
+    ["/area-colaborativa","collaborativeArea"]
   ];
   const nav = links.map(([path,key]) =>
     `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`
@@ -84,7 +85,7 @@ export function footer(lang="pt-PT") {
         <p>Fotografias: consultar créditos de cada memória.</p>
       </div>
       <div>
-        <p>Versão 07D.1 · pré-visualização não indexável</p>
+        <p>Versão 08A · pré-visualização não indexável</p>
         <p><a href="#/museu">${text(lang,"museum")}</a> · <a href="#/participar">${text(lang,"participate")}</a></p>
       </div>
     </div>

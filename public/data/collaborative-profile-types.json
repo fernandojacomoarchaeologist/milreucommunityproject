@@ -1,0 +1,47 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.12.0",
+  "notice": "O perfil principal descreve o vínculo predominante. Permissões e funções são atribuídas separadamente.",
+  "profileTypes": [
+    {
+      "code": "coordinator",
+      "name": "Coordenação",
+      "description": "Coordenação geral, curadoria e decisões do projeto."
+    },
+    {
+      "code": "volunteer",
+      "name": "Voluntário",
+      "description": "Participação em tarefas, eventos, recolha, digitalização e apoio."
+    },
+    {
+      "code": "researcher",
+      "name": "Investigador",
+      "description": "Investigação, análise, documentação e produção de conhecimento."
+    },
+    {
+      "code": "community-collaborator",
+      "name": "Colaborador comunitário",
+      "description": "Contributos de memória, conhecimento local e ligação à comunidade."
+    },
+    {
+      "code": "institutional-partner",
+      "name": "Parceiro institucional",
+      "description": "Representação ou colaboração de instituição parceira."
+    },
+    {
+      "code": "reviewer",
+      "name": "Revisor",
+      "description": "Revisão editorial, histórica, museológica ou documental."
+    },
+    {
+      "code": "translator",
+      "name": "Tradutor",
+      "description": "Tradução e revisão linguística dos conteúdos aprovados."
+    },
+    {
+      "code": "observer",
+      "name": "Observador",
+      "description": "Acesso de consulta sem responsabilidades operacionais."
+    }
+  ]
+}

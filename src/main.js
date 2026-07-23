@@ -19,6 +19,12 @@ import {
 } from "./views/museum.js";
 import { channelLabView, totemPreviewView, panelPreviewView } from "./views/channels.js";
 import { text } from "./lib/i18n.js";
+import { collaborative } from "./collab/controller.js";
+import {
+  collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView,
+  collaborativeProfileView, collaborativeSkeletonView, collaborativeAgendaView,
+  collaborativeProfileManagementView, collaborativeExhibitionManagementView
+} from "./views/collaborative.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -32,6 +38,7 @@ const state = {
   audit: null,
   channelConfig: null,
   channelRecords: [],
+  collab: {ready:false,authenticated:false,mode:"demo"},
   lang: localStorage.getItem("milreu-language") || "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
@@ -130,8 +137,134 @@ async function closeImmersive(routeId) {
   go(`/museu/memorias/${routeId}`);
 }
 
+
+function setCollaborativeFeedback(message,isError=false) {
+  const target=document.querySelector("[data-collab-feedback]");
+  if (!target) return;
+  target.textContent=message;
+  target.dataset.error=String(Boolean(isError));
+}
+
+function formValues(form) {
+  const data=new FormData(form);
+  return Object.fromEntries(data.entries());
+}
+
+function isCollaborativeRoute(route) {
+  return route.name.startsWith("collab-");
+}
+
+function renderCollaborativeRoute(route) {
+  const context=state.collab;
+  if (!context?.ready) {
+    return `<main class="collab-loading"><p>A preparar a Área Colaborativa…</p></main>`;
+  }
+
+  if (!context.authenticated) {
+    return collaborativeLoginView(context);
+  }
+
+  if (context.membership?.status !== "active") {
+    return collaborativeOnboardingView(context);
+  }
+
+  switch(route.name) {
+    case "collab-login":
+    case "collab-callback":
+    case "collab-dashboard":
+      return collaborativeDashboardView(context);
+    case "collab-profile":
+      return collaborativeProfileView(context);
+    case "collab-tasks":
+      return collaborativeSkeletonView(context,"tasks");
+    case "collab-contributions":
+      return collaborativeSkeletonView(context,"contributions");
+    case "collab-agenda":
+      return collaborativeAgendaView(context);
+    case "collab-library":
+      return collaborativeSkeletonView(context,"library");
+    case "collab-training":
+      return collaborativeSkeletonView(context,"training");
+    case "collab-museum-review":
+      return collaborativeSkeletonView(context,"museum-review");
+    case "collab-profile-management":
+      return collaborativeProfileManagementView(context);
+    case "collab-exhibition-management":
+      return collaborativeExhibitionManagementView(context);
+    default:
+      return collaborativeDashboardView(context);
+  }
+}
+
 function bindPage() {
   bindCommon(setLanguage);
+
+  document.querySelector("[data-collab-google-login]")?.addEventListener("click",async()=>{
+    try {
+      await collaborative.signInGoogle();
+    } catch(error) {
+      alert(error.message);
+    }
+  });
+
+  document.querySelectorAll("[data-collab-demo-login]").forEach(button =>
+    button.addEventListener("click",()=>{
+      collaborative.demoSignIn(button.dataset.collabDemoLogin);
+      go("/area-colaborativa");
+    })
+  );
+
+  document.querySelector("[data-collab-logout]")?.addEventListener("click",async()=>{
+    try {
+      await collaborative.signOut();
+      go("/entrar");
+    } catch(error) {
+      alert(error.message);
+    }
+  });
+
+  document.querySelector("[data-collab-edit-request]")?.addEventListener("click",()=>{
+    document.querySelector("[data-collab-request-editor]")?.classList.toggle("collab-onboarding-form--hidden");
+  });
+
+  document.querySelector("[data-collab-access-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const values=formValues(event.currentTarget);
+    setCollaborativeFeedback("A guardar…");
+    try {
+      await collaborative.submitAccessRequest(values);
+      setCollaborativeFeedback("Pedido guardado.");
+    } catch(error) {
+      setCollaborativeFeedback(error.message,true);
+    }
+  });
+
+  document.querySelector("[data-collab-profile-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const values=formValues(event.currentTarget);
+    values.publicRecognitionOptIn=event.currentTarget.elements.publicRecognitionOptIn?.checked || false;
+    setCollaborativeFeedback("A guardar…");
+    try {
+      await collaborative.updateMyProfile(values);
+      setCollaborativeFeedback("Perfil atualizado.");
+    } catch(error) {
+      setCollaborativeFeedback(error.message,true);
+    }
+  });
+
+  document.querySelectorAll("[data-collab-approve]").forEach(button =>
+    button.addEventListener("click",async()=>{
+      button.disabled=true;
+      try {
+        await collaborative.approveAccess(button.dataset.collabApprove,["volunteer"]);
+      } catch(error) {
+        alert(error.message);
+      } finally {
+        button.disabled=false;
+      }
+    })
+  );
+
 
   const form = document.querySelector("[data-filters]");
   if (form) {
@@ -263,6 +396,21 @@ function render(scroll=true) {
   let html = "";
 
   switch (route.name) {
+    case "collab-login":
+    case "collab-callback":
+    case "collab-dashboard":
+    case "collab-profile":
+    case "collab-tasks":
+    case "collab-contributions":
+    case "collab-agenda":
+    case "collab-library":
+    case "collab-training":
+    case "collab-museum-review":
+    case "collab-profile-management":
+    case "collab-exhibition-management":
+      html=renderCollaborativeRoute(route);
+      setMetadata("Área Colaborativa");
+      break;
     case "home": html = homeView(state.records,state.portal,state.homeCarousel,state.lang,{index:state.homeCarouselIndex,paused:state.homeCarouselPaused}); setMetadata(text(state.lang,"homeTitle")); break;
     case "project": html = projectView(state.portal,state.lang); setMetadata(text(state.lang,"project")); break;
     case "methodology": html = methodologyView(state.portal,state.lang); setMetadata(text(state.lang,"methodology")); break;
@@ -307,6 +455,11 @@ async function start() {
     [state.records,state.portal,state.homeCarousel,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
       loadMemories(),loadPortalContent(),loadHomeCarousel(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
     ]);
+    state.collab=await collaborative.init();
+    collaborative.subscribe(context=>{
+      state.collab=context;
+      if (isCollaborativeRoute(getRoute())) render(false);
+    });
     render();
   } catch (error) {
     console.error(error);

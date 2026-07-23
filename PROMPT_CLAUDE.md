@@ -1,76 +1,65 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.3"
+package: "08A"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 07D.3
+# Prompt de integração — Pacote 08A
 
-Integra este hotfix sobre o 07D.2.
+Integra o 08A cumulativamente sobre o 07D.3.
 
-## Decisão humana
+## Objetivo
 
-MM202617 deve ficar visível para revisão, com menção clara ao retoque substantivo por inteligência artificial.
+Criar a fundação da Área Colaborativa sem transformar esta release num sistema completo.
 
-## Estado obrigatório
+## Preservar
 
-- `siteVisible: true`;
-- `siteStatus: review-visible`;
-- `editorialStatus: in-review`;
-- `robots: noindex`;
-- `publicReleaseEligible: false`;
-- Portal e Museu ativados;
-- totem e painel desativados.
+- Portal;
+- Museu;
+- modo imersivo e slideshow;
+- carrossel da Home;
+- Experiência Proteus;
+- laboratório multicanal;
+- MM202617 visível para revisão, mas inelegível para lançamento;
+- gates de publicação.
 
-## Divulgação obrigatória
+## Integrar
 
-Confirmar aviso no:
+1. Mesclar rotas, componentes e estilos.
+2. Integrar `auth/callback/`.
+3. Integrar dados e configuração colaborativa.
+4. Integrar migrations sem apagar migrations existentes.
+5. Executar:
+   - `npm run collab:config`;
+   - `npm run channels:export`;
+   - `npm run museum:index`;
+   - `npm run museum:audit`;
+   - `npm run validate`;
+   - `npm test`;
+   - `npm run build`;
+   - `npm run smoke`.
+6. Testar modo demo pendente e master.
+7. Testar os módulos visíveis conforme permissões.
+8. Testar callback apenas num ambiente Supabase configurado.
 
-1. card;
-2. detalhe;
-3. modo imersivo;
-4. crédito;
-5. bloco de intervenção digital.
+## Segurança
 
-A interface deve afirmar que:
+- nunca colocar `SUPABASE_SERVICE_ROLE_KEY` no frontend;
+- usar apenas chave publicável no navegador;
+- não guardar tokens Google de Gmail, Drive ou Calendar;
+- não hardcodar e-mail do master;
+- manter RLS em todas as tabelas;
+- login Google não ativa automaticamente um membro.
 
-- a imagem é derivada;
-- houve retoque substantivo por IA;
-- podem existir detalhes reconstruídos ou alterados;
-- não corresponde ao documento fotográfico original;
-- ainda não está aprovada para lançamento público.
+## Master
 
-## Separação de estados
+Após o primeiro login real do responsável, usar o script administrativo com `MILREU_MASTER_EMAIL`.
 
-O índice local de revisão possui 31 registos.
+## Exposições
 
-O dataset público, as páginas estáticas de lançamento e os QR continuam com 30 e excluem MM202617.
+Integrar as tabelas e a interface de fundação, mas não inventar locais ou datas.
 
-## Integração
+## Resultado
 
-```bash
-npm install
-npm run channels:export
-npm run museum:index
-npm run museum:audit
-npm run validate
-npm test
-npm run build
-npm run smoke
-```
-
-## Revisão manual
-
-Abrir MM202617 em:
-
-- galeria;
-- lista;
-- pesquisa;
-- filtro de intervenção digital;
-- coleção de intervenções;
-- detalhe;
-- modo imersivo;
-- navegação anterior e seguinte.
-
-Não promover `publicReleaseEligible` sem nova decisão humana.
+Uma fundação executável e auditável, pronta para avaliação antes dos pacotes 08B–08G.

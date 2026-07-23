@@ -1,0 +1,31 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08A Collaborative Foundation CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run collab:config
+      - run: npm run channels:export
+      - run: npm run museum:index
+      - run: npm run museum:audit
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
