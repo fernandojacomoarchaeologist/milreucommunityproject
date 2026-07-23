@@ -1,0 +1,31 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md no repositório principal.
+
+name: 05F Database Tests
+
+on:
+  pull_request:
+    paths:
+      - "supabase/**"
+      - "scripts/database/**"
+      - ".github/workflows/05f-database-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  database:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx supabase start
+      - run: npx supabase db reset
+      - run: npx supabase test db
+      - if: always()
+        run: npx supabase stop --no-backup

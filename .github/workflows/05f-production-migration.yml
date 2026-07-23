@@ -1,0 +1,52 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md no repositório principal.
+
+name: 05F Production Migration
+
+on:
+  workflow_dispatch:
+    inputs:
+      change_ticket:
+        description: "Ticket aprovado da alteração"
+        required: true
+        type: string
+      confirmation:
+        description: "Escrever APPLY_APPROVED_MIGRATIONS"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milreu-proteus-production-database
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    if: ${{ inputs.confirmation == 'APPLY_APPROVED_MIGRATIONS' }}
+    environment: production
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      MILREU_ENV: production
+      MILREU_ALLOW_PRODUCTION_WRITE: "true"
+      MILREU_PRODUCTION_CONFIRMATION: ${{ inputs.confirmation }}
+      MILREU_CHANGE_TICKET: ${{ inputs.change_ticket }}
+      MILREU_GITHUB_ENVIRONMENT: production
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run infra:validate
+      - run: npm run infra:test
+      - run: npm run db:production:preflight
+      - run: npx supabase link --project-ref "$SUPABASE_PROJECT_ID"
+      - run: npx supabase db push

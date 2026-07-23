@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const __dirname=path.dirname(fileURLToPath(import.meta.url)); const root=path.resolve(__dirname,'..');
-function walk(d,ext){if(!fs.existsSync(d))return[];return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{const p=path.join(d,e.name);return e.isDirectory()?walk(p,ext):(p.endsWith(ext)?[p]:[])})}
+function walk(d,ext){if(!fs.existsSync(d))return[];return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{if(e.name==='node_modules'||e.name==='.git')return[];const p=path.join(d,e.name);return e.isDirectory()?walk(p,ext):(p.endsWith(ext)?[p]:[])})}
 function read(p){return JSON.parse(fs.readFileSync(p,'utf8'))}
 const errors=[];
 const records=walk(path.join(root,'data','migration','records'),'.json').map(read);

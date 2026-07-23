@@ -17,4 +17,4 @@ if(catalog.pages.length<20) errors.push("catalog must include at least 20 pages"
 for(const file of walk(root)){ if(/\.(md|js|css)$/.test(file)){ const text=fs.readFileSync(file,"utf8"); if(!text.includes("Fernando Rodrigues de Jácomo")) errors.push(`copyright missing: ${path.relative(root,file)}`); } }
 if(errors.length){ console.error(errors.join("\n")); process.exit(1); }
 console.log(`05C valid: ${catalog.pages.length} pages, ${ids.size} routes.`);
-function walk(dir){ return fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>{ const full=path.join(dir,entry.name); return entry.isDirectory()?walk(full):[full]; }); }
+function walk(dir){ return fs.readdirSync(dir,{withFileTypes:true}).flatMap(entry=>{ if(entry.name==='node_modules'||entry.name==='.git')return []; const full=path.join(dir,entry.name); return entry.isDirectory()?walk(full):[full]; }); }

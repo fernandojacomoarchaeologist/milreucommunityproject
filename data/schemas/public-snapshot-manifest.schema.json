@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/public-snapshot-manifest.schema.json",
+  "$comment": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "x-copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.",
+  "title": "Milreu Proteus Public Snapshot Manifest",
+  "type": "object",
+  "required": [
+    "snapshotId",
+    "version",
+    "generatedAt",
+    "source",
+    "records",
+    "checksum"
+  ],
+  "properties": {
+    "snapshotId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_-]+$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "milreu-proteus"
+      ]
+    },
+    "records": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "checksum": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "pt-PT",
+          "en",
+          "es",
+          "fr"
+        ]
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

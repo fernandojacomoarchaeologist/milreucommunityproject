@@ -20,6 +20,7 @@ function readJson(file) {
 function walk(dir, extension) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.name === "node_modules" || entry.name === ".git") return [];
     const full = path.join(dir, entry.name);
     return entry.isDirectory() ? walk(full, extension) : (full.endsWith(extension) ? [full] : []);
   });

@@ -1,48 +1,120 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md"
+package: "05F"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 05E
+# Prompt de integração — Pacote 05F
 
-Estás a integrar o **Pacote 05E — Identidade, Logótipo, Iconografia e Arquitetura de Marca v0.5.0** no repositório do Projeto Comunitário de Milreu.
+Estás a integrar o **Pacote 05F — Infraestrutura, Persistência, CI e Skills de Desenvolvimento** no repositório do Projeto Comunitário de Milreu.
 
 ## Antes de agir
 
-1. Lê `CLAUDE.md`, `README.md`, `PACKAGE_MANIFEST.md`, `INTEGRATION_CHECKLIST.md` e os releases 05A–05D.
-2. Confirma a existência de `apps/design-guide/` v0.4.0 e `packages/design-tokens/v0.2/`.
-3. Verifica alterações locais. Se houver conflitos no Design Guide ou na marca, interrompe e pergunta.
-4. Preserva o ficheiro original do logótipo sem o substituir.
+1. Lê integralmente:
+   - `README.md`;
+   - `PACKAGE_MANIFEST.md`;
+   - `docs/architecture/ADR-AI-001-CLAUDE-DATABASE-ACCESS.md`;
+   - `docs/security/PRODUCTION_ACCESS_POLICY.md`;
+   - `docs/development/CLAUDE_OPERATING_MODES.md`;
+   - `docs/architecture/RELEASE_GATES.md`.
+2. Inspeciona o repositório atual.
+3. Não sobrescrevas `package.json`, `.gitignore`, workflows ou documentação existentes sem comparar e fundir.
+4. Se encontrares conflito que altere segurança, acesso produtivo, publicação ou direitos, interrompe e pergunta.
+5. Não peças nem exibas segredos em texto aberto.
 
-## Objetivo
+## Decisões já aprovadas
 
-Integrar o sistema de marca, as variantes transparentes, o dark mode, a iconografia inicial e a arquitetura Projeto–Museu–Milreu Proteus no catálogo do Sistema de Design.
+- Supabase é a infraestrutura operacional do **Milreu Proteus**.
+- O repositório principal continua público.
+- GitHub Pages continua responsável pela publicação estática.
+- Dados operacionais ficam no Supabase.
+- Conteúdos públicos aprovados são exportados para snapshots versionados no Git.
+- Claude pode manipular o banco apenas dentro da matriz de acesso e dos gates deste pacote.
+- Produção é read-only por defeito.
+- Escrita em produção só ocorre por migration versionada e workflow manual protegido por ambiente.
+- Fontes privadas não entram no Git público.
+- O livro e as miniaturas permanecem local-only ou em armazenamento privado.
+- O build público deve funcionar mesmo sem as fontes privadas.
 
-## Regras obrigatórias
+## Integração obrigatória
 
-- O nome público principal é `Projeto Comunitário de Milreu`.
-- `Milreu Proteus` é a base estruturada de dados e conhecimento; não entra no logótipo principal.
-- Não criar logótipo independente para Proteus ou para o Museu sem decisão expressa.
-- Ignorar o fundo texturado e o pequeno brilho do ficheiro original.
-- Usar apenas cores chapadas; não usar gradientes, brilhos, sombras decorativas ou texturas no logótipo.
-- Tratar os PNGs derivados como `draft` até revisão visual de Fernando Rodrigues de Jácomo.
-- Não afirmar que existe um SVG oficial. Não converter automaticamente o raster em vetor e tratá-lo como mestre.
-- Não modificar proporções, composição, ordem dos elementos ou texto do logótipo.
-- Não misturar o terracota do logótipo com o token vermelho de assinatura da interface.
-- Ícones devem ser funcionais, consistentes e herdar `currentColor`; não criar arqueologia decorativa genérica.
-- Perguntar antes de mudar cores, recortar elementos, alterar tipografia do logótipo ou promover maturidade.
+1. Copia a documentação, rules, skills, scripts, schemas e workflows.
+2. Mescla `integration/package-json.fragment.json` no `package.json` existente:
+   - preserva scripts atuais;
+   - fixa versões exatas das novas dependências;
+   - gera ou atualiza o lockfile.
+3. Mescla `.gitignore.fragment`.
+4. Confirma que `.env`, credenciais e fontes privadas estão ignoradas.
+5. Instala dependências de forma reproduzível.
+6. Executa:
+   - `npm run infra:validate`;
+   - `npm run infra:test`;
+   - `npm run assets:private:status`;
+   - `npm run review:gate-a:index`.
+7. Se Docker estiver disponível:
+   - inicia o Supabase local;
+   - aplica migrations;
+   - executa os testes SQL;
+   - termina os serviços.
+8. Não liga a um projeto remoto sem confirmação expressa.
+9. Não cria o projeto Supabase por conta própria sem o utilizador definir organização, região e política de custos.
+10. Gera uma release de integração com:
+    - ficheiros adicionados;
+    - ficheiros mesclados;
+    - comandos executados;
+    - validações;
+    - conflitos;
+    - pendências;
+    - próxima ação humana.
 
-## Sequência
+## Produção
 
-1. Integrar `packages/brand-tokens/v0.5/` e `packages/brand-assets/v0.5/`.
-2. Integrar `assets/brand/`, `assets/icons/` e `data/brand/`.
-3. Atualizar o Design Guide com páginas: arquitetura de marca, logótipo, dark mode, iconografia e aplicações.
-4. Manter as páginas em estado `internal-preview` e os ativos em `draft`.
-5. Executar todos os validadores e testes.
-6. Servir o guia por HTTP e rever: fundos claros, fundo `#1E1A17`, tamanhos mínimos, responsividade, contraste, favicon e ícones.
-7. Produzir relatório de integração com ficheiros criados/substituídos, conflitos, testes, pendências e capturas.
+Mesmo que existam credenciais no ambiente:
 
-## Condição de conclusão
+- não executes `supabase db push` diretamente;
+- não uses SQL Editor remoto;
+- não executes `DELETE`, `UPDATE`, `INSERT`, `ALTER`, `DROP`, `TRUNCATE` ou funções equivalentes em produção;
+- prepara migration, testes, relatório de impacto e rollback;
+- utiliza apenas `.github/workflows/05f-production-migration.yml`;
+- exige `change_ticket`, confirmação literal e aprovação do ambiente GitHub `production`.
 
-A integração termina quando os ativos funcionam, os testes passam, o Design Guide apresenta as novas secções e nenhum derivado é promovido para `approved` sem validação humana.
+## Fontes privadas
+
+Adapta o `visual-source-board` e os validadores para dois modos:
+
+- público: manifests presentes, binários ausentes sem falhar;
+- privado: binários presentes, hashes e miniaturas verificados.
+
+Não publiques o PDF, miniaturas ou URLs privadas.
+
+## Gate A visual
+
+Gera o índice de revisão visual, mas não marques componentes como `approved`.
+O máximo permitido antes da revisão humana é `validated-for-architecture`.
+
+## Quando questionar
+
+Questiona o utilizador quando faltar:
+
+- organização ou região do Supabase;
+- projeto remoto;
+- política de custos;
+- configuração do ambiente GitHub `production`;
+- required reviewer;
+- localização privada dos binários;
+- decisão visual;
+- permissão para ligação ou deployment remoto.
+
+## Resultado esperado
+
+O repositório deve terminar com:
+
+- desenvolvimento local reproduzível;
+- POC isolado e removível;
+- CI mínimo funcional;
+- política de produção aplicada;
+- coleção de skills disponível;
+- fontes privadas desacopladas do build público;
+- Gate A preparado;
+- nenhuma alteração produtiva executada.

@@ -1,25 +1,54 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md"
+package: "05F"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 05E
+# Manifesto do Pacote 05F
 
-## Ficheiros a integrar
+## Identificação
 
-- `assets/brand/`: fonte original, derivados transparentes, símbolos, monocromáticos e aplicações;
-- `assets/icons/`: iconografia funcional e de domínio;
-- `packages/brand-assets/v0.5/`: manifesto técnico da marca;
-- `packages/brand-tokens/v0.5/`: tokens da marca;
-- `data/brand/`: arquitetura de marca, variantes e registo de ícones;
-- `apps/brand-guide-preview/`: pré-visualização independente;
-- `apps/design-guide/extensions/brand/`: extensão para o catálogo visual;
-- `docs/brand/`: normas editoriais e técnicas;
-- `.claude/`: rules e skills;
-- `scripts/` e `tests/`: verificações;
-- `releases/PACKAGE_05E_v0.5.0.md`: release.
+- Pacote: 05F
+- Versão: 0.6.0
+- Finalidade: infraestrutura, persistência, CI, segurança operacional e skills.
+- Próximo pacote: 06 — Arquitetura do Portal e do Museu.
 
-## Comportamento de integração
+## Grupos de ficheiros
 
-O pacote acrescenta ativos e documentação. Não substitui automaticamente o shell do Design Guide 05D. O Claude deve integrar as novas rotas e páginas preservando a navegação e os componentes existentes.
+| Grupo | Finalidade |
+|---|---|
+| `docs/architecture` | Decisões estruturais e ciclo de dados |
+| `docs/security` | Acesso produtivo, segredos, RLS e incidentes |
+| `docs/development` | Fluxos operacionais e modos de Claude |
+| `docs/design/visual-reviews` | Gate A de revisão humana |
+| `.claude/rules` | Regras obrigatórias por contexto |
+| `.claude/skills` | Procedimentos reutilizáveis |
+| `.claude/agents` | Revisores especializados |
+| `supabase` | POC local, migrations, seed e testes SQL |
+| `scripts` | Guards, validação, exports e fontes privadas |
+| `.github/workflows` | CI, testes de banco e deployment protegido |
+| `data/schemas` | Contratos dos snapshots públicos |
+| `infrastructure` | Matrizes e políticas legíveis por máquina |
+| `integration` | Fragmentos a mesclar |
+| `tests` | Testes dos guards e exports |
+| `releases` | Release do pacote |
+
+## Modos de integração
+
+- **Add:** documentação, skills, scripts, schemas e POC.
+- **Merge:** `package.json`, `.gitignore`, workflows existentes.
+- **Do not replace:** tokens, componentes, conteúdo migrado e configuração de publicação existente.
+- **Human gate:** produção, secrets, Supabase remoto e revisão visual.
+
+## Critérios de aceitação
+
+- nenhuma credencial no pacote;
+- produção bloqueada por defeito;
+- migrations versionadas;
+- POC isolado;
+- testes locais;
+- CI mínimo;
+- build público sem binários privados;
+- coleção de skills instalada;
+- release de integração produzida.

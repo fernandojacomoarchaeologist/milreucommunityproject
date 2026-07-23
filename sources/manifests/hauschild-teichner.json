@@ -1,0 +1,15 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "sourceId": "SOURCE-VISUAL-001",
+  "title": "Milreu: Ruínas",
+  "authors": [
+    "Theodor Hauschild",
+    "Felix Teichner"
+  ],
+  "visibility": "private",
+  "relativePrivatePath": "hauschild-teichner/original.pdf",
+  "sha256": null,
+  "expectedPages": 36,
+  "publicRepositoryContainsBinary": false,
+  "notes": "Preencher o checksum no ambiente que contém o PDF original."
+}

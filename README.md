@@ -1,33 +1,80 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-rights: "Consultar RIGHTS.md"
+package: "05F"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 05E — Identidade, Logótipo, Iconografia e Arquitetura de Marca
+# Pacote 05F — Infraestrutura, Persistência, CI e Skills de Desenvolvimento
 
-**Versão:** 0.5.0  
+**Versão:** 0.6.0  
 **Estado:** pronto para integração controlada  
-**Dependências:** Pacotes 01, 02, 03, 04 e 05A–05D
+**Dependências conceptuais:** Pacotes 01–05E
 
-## Finalidade
+Este pacote prepara o Projeto Comunitário de Milreu para:
 
-Encerrar o ciclo 05 do Sistema de Design, incorporando o logótipo oficial do Projeto Comunitário de Milreu, variantes raster transparentes, dark mode, iconografia inicial e regras de arquitetura de marca.
+- utilizar o Supabase como infraestrutura operacional do **Milreu Proteus**;
+- permitir que Claude Code manipule estruturas e dados nos ambientes autorizados;
+- impedir escrita direta e não aprovada em produção;
+- versionar migrations, políticas e snapshots públicos no Git;
+- gerir fontes privadas fora do repositório público;
+- executar validações reproduzíveis em CI;
+- preparar o Gate A de revisão visual antes do Pacote 06;
+- fornecer uma coleção de skills operacionais para desenvolvimento seguro.
 
-## Decisões consolidadas
+## Decisão estrutural
 
-- o nome público principal permanece **Projeto Comunitário de Milreu**;
-- **Milreu Proteus** é a camada de dados e conhecimento, não a marca principal;
-- Proteus não recebe logótipo independente nesta fase;
-- o fundo texturado e o brilho do ficheiro recebido são ignorados;
-- todas as cores derivadas são chapadas; gradientes são proibidos;
-- o original é preservado e os derivados permanecem `draft` até revisão visual;
-- não foi criada uma falsa versão vetorial.
+O modelo adotado é híbrido:
 
-## Executar a pré-visualização
+```text
+GitHub público
+├── código, schemas, migrations e documentação
+├── snapshots públicos aprovados
+├── JSON e JSON-LD
+├── CI e releases
+└── GitHub Pages
 
-```bash
-python3 -m http.server 8080
+Supabase — Milreu Proteus
+├── rascunhos e dados operacionais
+├── submissões e revisões
+├── direitos, consentimentos e moderação
+├── histórico e autenticação
+└── armazenamento privado
+
+Armazenamento documental privado
+├── original do livro e outras fontes protegidas
+└── backup independente do repositório
 ```
 
-Abrir `http://localhost:8080/apps/brand-guide-preview/`.
+## Regra central para Claude
+
+Claude pode:
+
+- criar e alterar migrations no Git;
+- executar localmente e em ambientes de teste;
+- consultar produção em modo estritamente autorizado e preferencialmente por views seguras;
+- preparar alterações produtivas para revisão;
+- acionar um workflow produtivo apenas quando o utilizador o solicitar expressamente.
+
+Claude não pode:
+
+- executar DDL ou DML produtivo diretamente a partir da sessão local;
+- utilizar `service_role` no frontend;
+- expor segredos;
+- apagar, truncar ou sobrescrever dados produtivos sem migration, rollback, ticket e aprovação;
+- editar manualmente snapshots públicos gerados;
+- descarregar ou publicar fontes privadas sem autorização.
+
+## O que este pacote ainda não faz
+
+- não cria o modelo final de narrativas e moderação, reservado ao Pacote 09;
+- não cria o Portal ou o Museu;
+- não cria um projeto Supabase remoto automaticamente;
+- não contém credenciais;
+- não promove automaticamente o POC a produção;
+- não corrige pendências editoriais dos 31 registos;
+- não substitui a revisão visual humana.
+
+## Integração
+
+Começar por `PROMPT_CLAUDE.md` e seguir `INTEGRATION_CHECKLIST.md`.
