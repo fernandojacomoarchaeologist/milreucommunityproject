@@ -12,14 +12,18 @@ const index = JSON.parse(readFileSync("public/data/museum-index.json","utf8")).r
 const collections = JSON.parse(readFileSync("public/data/museum-collections.json","utf8")).collections;
 const audit = JSON.parse(readFileSync("public/data/museum-audit.json","utf8"));
 
-test("índice cobre os 30 registos públicos", () => {
-  assert.equal(index.length,30);
-  assert.deepEqual(new Set(index.map(item => item.id)),new Set(memories.filter(x => x.publication.siteVisible).map(x => x.id)));
+test("índice cobre os 31 registos visíveis para revisão", () => {
+  assert.equal(index.length,31);
+  assert.deepEqual(
+    new Set(index.map(item => item.id)),
+    new Set(memories.filter(record => record.publication.siteVisible).map(record => record.id))
+  );
 });
 
-test("MM202617 permanece bloqueado", () => {
-  assert.ok(!index.some(item => item.id === "MM202617"));
-  assert.ok(!collections.some(collection => collection.members.includes("MM202617")));
+test("MM202617 integra a revisão e a coleção de intervenções", () => {
+  assert.ok(index.some(item => item.id === "MM202617"));
+  const collection = collections.find(item => item.slug === "intervencoes-digitais-documentadas");
+  assert.ok(collection.members.includes("MM202617"));
 });
 
 test("coleções são derivadas e transparentes", () => {
@@ -30,9 +34,11 @@ test("coleções são derivadas e transparentes", () => {
   }
 });
 
-test("auditoria preserva pendências", () => {
+test("auditoria preserva o estado de revisão", () => {
   assert.equal(audit.records,31);
-  assert.equal(audit.siteVisible,30);
+  assert.equal(audit.siteVisible,31);
+  assert.deepEqual(audit.reviewVisible,["MM202617"]);
+  assert.deepEqual(audit.publicReleaseIneligible,["MM202617"]);
   assert.ok(audit.nonReciprocalRelations.count > 0);
-  assert.ok(audit.digitalInterventions.visibleRecords.includes("MM202631"));
+  assert.ok(audit.digitalInterventions.visibleRecords.includes("MM202617"));
 });

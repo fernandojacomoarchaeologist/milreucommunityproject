@@ -11,8 +11,12 @@ const qr = JSON.parse(readFileSync("public/data/channels/qr-targets.json","utf8"
 const memories = JSON.parse(readFileSync("public/data/memories.json","utf8")).records;
 
 if (records.length !== memories.length) throw new Error("Exportação multicanal incompleta.");
-if (records.find(item => item.id === "MM202617")?.totem.eligibility !== "blocked") {
-  throw new Error("MM202617 deve estar bloqueado nos canais físicos.");
+const mm202617=records.find(item => item.id === "MM202617");
+if (mm202617?.publication.siteVisible !== true || mm202617?.publication.publicReleaseEligible !== false) {
+  throw new Error("MM202617 deve estar visível para revisão e inelegível para lançamento público.");
+}
+if (mm202617?.totem.eligibility !== "review-only" || mm202617?.panel.eligibility !== "review-only") {
+  throw new Error("MM202617 deve permanecer apenas em revisão nos canais físicos.");
 }
 if (records.some(item => item.totem.enabled || item.panel.enabled)) {
   throw new Error("Totens e painéis não podem ser ativados sem seleção curatorial.");

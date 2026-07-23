@@ -8,6 +8,22 @@ import { memoryCard } from "../components/memory-card.js";
 import { assetUrl, suggestedMemories } from "../lib/data.js";
 import { localised, text } from "../lib/i18n.js";
 
+
+function isSubstantiveAiRecord(record) {
+  return Boolean(record?.media?.digitalInterventions?.some(item =>
+    item.substantiveChange && String(item.type).includes("ai")
+  ));
+}
+
+function aiReviewDisclosure(record,lang,compact=false) {
+  if (!isSubstantiveAiRecord(record)) return "";
+  return `<div class="${compact ? "ai-review-disclosure ai-review-disclosure--compact" : "ai-review-disclosure"}" role="note">
+    <strong>${text(lang,"aiDisclosureTitle")}</strong>
+    <p>${text(lang,"aiDisclosureText")}</p>
+    ${record.publication.publicReleaseEligible === false ? `<span>${text(lang,"publicReleasePending")}</span>` : ""}
+  </div>`;
+}
+
 export function museumHome(records,collections,audit,lang) {
   const visible = records.filter(x => x.publication.siteVisible);
   const hero = visible[0];
@@ -185,7 +201,7 @@ export function detailView(records,record,lang) {
       <span class="eyebrow">${record.id} · ${text(lang,"preliminary")}</span>
       <h1>${escapeHtml(title.value)}</h1>
       ${title.fallback ? `<div class="fallback-note">${text(lang,"fallback")}</div>` : ""}
-      <p class="memory-lead">${escapeHtml(short.value)}</p>
+      <p class="memory-lead">${escapeHtml(short.value)}</p>${aiReviewDisclosure(record,lang)}
 
       <nav class="memory-local-nav" aria-label="${text(lang,"documentation")}">
         <a href="#record-description">${text(lang,"objective")}</a>
@@ -269,7 +285,7 @@ export function immersiveView(records,record,lang,state={}) {
     <div class="immersive-top">
       <div>
         <span class="immersive-position">${index+1}/${list.length} · ${record.id}</span>
-        <span class="immersive-title">${title}</span>
+        <span class="immersive-title">${title}</span>${isSubstantiveAiRecord(record) ? `<span class="immersive-ai-badge">${text(lang,"aiRetouchedBadge")}</span>` : ""}
       </div>
       <div class="immersive-actions">
         <div class="immersive-slideshow" role="group" aria-label="${text(lang,"slideshow")}">
@@ -295,7 +311,7 @@ export function immersiveView(records,record,lang,state={}) {
           <dt>${text(lang,"dateAndPlace")}</dt><dd>${escapeHtml(localised(record.date.display,lang).value || text(lang,"undated"))}</dd>
           <dt>${text(lang,"type")}</dt><dd>${escapeHtml(record.classification.primaryType)}</dd>
         </dl>
-        <p class="immersive-credit">${escapeHtml(localised(record.media.credit,lang).value)}</p>
+        <p class="immersive-credit">${escapeHtml(localised(record.media.credit,lang).value)}</p>${aiReviewDisclosure(record,lang,true)}
         ${record.media.digitalInterventions.length ? `<p class="immersive-warning">${text(lang,"digitalNotice")}</p>` : ""}
       </aside>
     </div>

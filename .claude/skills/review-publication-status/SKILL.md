@@ -1,23 +1,19 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07A"
-rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condições das respetivas fontes."
+package: "07D.3"
+rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Skill — Review Publication Status
+# Skill — Rever estado de publicação
 
-## Procedimento
+1. Ler o registo de direitos.
+2. Verificar `editorialStatus`.
+3. Distinguir visibilidade de revisão de elegibilidade para lançamento.
+4. Verificar divulgação de intervenção digital.
+5. Confirmar QR e canais físicos.
+6. Registar a decisão humana.
 
-1. Ler rights register.
-2. Verificar editorialStatus.
-3. Verificar siteVisible.
-4. Não desbloquear MM202617.
-5. Registar decisão.
+## MM202617
 
-## Saída
-
-- comandos;
-- validações;
-- problemas;
-- próxima decisão.
+Está visível para revisão, mas não aprovado para lançamento público.

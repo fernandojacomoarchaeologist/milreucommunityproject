@@ -11,10 +11,10 @@ const collections = JSON.parse(readFileSync("public/data/museum-collections.json
 const audit = JSON.parse(readFileSync("public/data/museum-audit.json","utf8"));
 const visible = memories.filter(record => record.publication.siteVisible);
 
-if (visible.length !== 30) throw new Error(`Esperados 30 registos visíveis; obtidos ${visible.length}.`);
+if (visible.length !== 31) throw new Error(`Esperados 31 registos visíveis em revisão; obtidos ${visible.length}.`);
 if (index.length !== visible.length) throw new Error("Índice não cobre todos os registos visíveis.");
-if (index.some(item => item.id === "MM202617")) throw new Error("MM202617 não pode entrar no índice público.");
-if (collections.some(collection => collection.members.includes("MM202617"))) throw new Error("MM202617 não pode entrar em coleções públicas.");
+if (!index.some(item => item.id === "MM202617")) throw new Error("MM202617 deve entrar no índice de revisão.");
+const interventionCollection=collections.find(collection=>collection.slug==="intervencoes-digitais-documentadas");if (!interventionCollection?.members.includes("MM202617")) throw new Error("MM202617 deve aparecer na coleção de intervenções digitais.");
 if (collections.some(collection => collection.collectionType !== "derived-navigation" || collection.factualClaim !== false)) {
   throw new Error("Coleções derivadas devem declarar natureza navegacional e ausência de nova alegação factual.");
 }

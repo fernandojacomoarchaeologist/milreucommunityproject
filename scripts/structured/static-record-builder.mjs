@@ -12,7 +12,7 @@ const value = field => field?.["pt-PT"] || "";
 
 export async function buildStaticRecordPages(outputRoot="dist") {
   const records = JSON.parse(readFileSync("public/data/memories.json","utf8")).records
-    .filter(record => record.publication.siteVisible);
+    .filter(record => record.publication.siteVisible && record.publication.publicReleaseEligible !== false);
   const baseUrl = process.env.MILREU_PUBLIC_BASE_URL?.replace(/\/+$/,"") || null;
 
   for (const record of records) {

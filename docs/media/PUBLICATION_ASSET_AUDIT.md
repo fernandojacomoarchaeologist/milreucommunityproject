@@ -12,5 +12,5 @@ rights: "Consultar RIGHTS.md; imagens e conteúdos mantêm créditos e condiçõ
 - 124 derivados;
 - autorização de repositório: confirmada;
 - site preview: 30;
-- bloqueado: MM202617;
+- visível para revisão: MM202617, com divulgação de retoque substantivo por IA;
 - livro e miniaturas do livro: ausentes.

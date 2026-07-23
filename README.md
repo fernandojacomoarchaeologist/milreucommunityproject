@@ -1,14 +1,49 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.2"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 07D.2 — Correções do Modo Imersivo e Carrossel da Home
+# Pacote 07D.3 — MM202617 visível para revisão
 
-**Versão:** 0.11.2  
-**Base:** Pacote 07D.1.
+**Versão:** 0.11.3  
+**Base:** Pacote 07D.2.
+
+Este hotfix aplica a decisão do responsável do projeto de tornar MM202617 visível para revisão, desde que o retoque por inteligência artificial seja indicado de forma clara.
+
+## Estado de MM202617
+
+```text
+siteVisible: true
+siteStatus: review-visible
+editorialStatus: in-review
+robots: noindex
+publicReleaseEligible: false
+```
+
+O registo pode ser consultado no Museu local, na pesquisa, nas coleções, no detalhe e no modo imersivo.
+
+Ele permanece excluído de:
+
+- lançamento público definitivo;
+- dataset JSON-LD de lançamento;
+- páginas estáticas públicas;
+- QR finais;
+- totem;
+- painel.
+
+## Divulgação do retoque
+
+A interface apresenta aviso:
+
+- no card;
+- na página de detalhe;
+- no painel do modo imersivo;
+- no crédito;
+- na documentação da intervenção digital.
+
+O texto informa que a imagem é derivada, recebeu retoque substantivo por IA e pode conter reconstruções ou alterações que não estavam presentes no original.
 
 ## Executar
 
@@ -23,47 +58,16 @@ npm run build
 npm run dev
 ```
 
-## Modo imersivo
+## Contagens
 
-- botão persistente **Voltar ao Museu**;
-- botão X independente dos restantes controlos;
-- ambos continuam visíveis em ecrã inteiro;
-- fotografia centralizada;
-- largura e altura automáticas;
-- limites máximos de 100%;
-- `object-fit: contain`;
-- anterior, seguinte, filmstrip e modo slide preservados.
+- 31 registos visíveis no ambiente de revisão;
+- 30 registos elegíveis para lançamento público;
+- 31 registos no índice de revisão;
+- 30 registos no dataset e nas páginas estáticas de lançamento;
+- 30 destinos QR pendentes.
 
-## Home do Museu
+## Próximos passos
 
-O bloco estatístico foi removido. A entrada conduz diretamente para percursos de exploração e memórias.
+Consultar `docs/roadmap/NEXT_STEPS_AFTER_07D3.md`.
 
-## Carrossel da Home
-
-Transição automática a cada nove segundos, com:
-
-- setas anterior e seguinte;
-- indicadores;
-- pausar/retomar;
-- pausa ao receber foco ou ponteiro;
-- autoplay desativado com preferência de movimento reduzido.
-
-### Destaques
-
-1. Museu de Memórias de Milreu;
-2. Experiência Proteus;
-3. Inquérito 2026.
-
-O Inquérito encaminha para:
-
-```text
-https://pt.surveymonkey.com/r/3CFG2MQ
-```
-
-## Experiência Proteus
-
-Como ainda não existe uma imagem final, foi criado um empty state visual baseado numa rede de memórias, lugares, fontes, dados e relações.
-
-## Estado
-
-O lançamento público continua bloqueado. Este pacote não aprova conteúdo editorial, traduções, QR ou produção física.
+O próximo pacote recomendado é o **08A — Interface de Revisão Editorial e Curatorial das 31 Memórias**.

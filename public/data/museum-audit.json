@@ -1,9 +1,13 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.10.0",
+  "version": "0.11.3",
   "records": 31,
-  "siteVisible": 30,
-  "blocked": [
+  "siteVisible": 31,
+  "blocked": [],
+  "reviewVisible": [
+    "MM202617"
+  ],
+  "publicReleaseIneligible": [
     "MM202617"
   ],
   "datePrecision": {
@@ -36,6 +40,7 @@
       "MM202631"
     ],
     "visibleRecords": [
+      "MM202617",
       "MM202618",
       "MM202619",
       "MM202631"
@@ -217,6 +222,6 @@
     "comunidade-e-quotidiano": 13,
     "festa-da-pinha": 2,
     "casa-rural-e-memorias": 9,
-    "intervencoes-digitais-documentadas": 3
+    "intervencoes-digitais-documentadas": 4
   }
 }

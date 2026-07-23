@@ -18,10 +18,12 @@ const counts = key => Object.fromEntries([...new Set(records.map(key))].map(valu
 
 const audit = {
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.10.0",
+  version:"0.11.3",
   records:records.length,
   siteVisible:records.filter(record => record.publication.siteVisible).length,
   blocked:records.filter(record => !record.publication.siteVisible).map(record => record.id),
+  reviewVisible:records.filter(record => record.publication.siteStatus === "review-visible").map(record => record.id),
+  publicReleaseIneligible:records.filter(record => record.publication.publicReleaseEligible === false).map(record => record.id),
   datePrecision:counts(record => record.date.precision),
   primaryTypes:counts(record => record.classification.primaryType),
   digitalInterventions:{

@@ -1,18 +1,19 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07D.2"
+package: "07D.3"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 07D.2
+# Manifesto do Pacote 07D.3
 
-- Versão: 0.11.2
-- Base: 07D.1
-- Tipo: hotfix cumulativo
-- Carrossel: 3 destaques
-- Intervalo: 9000 ms
-- Imagem nova: Inquérito 2026
-- Empty state: Experiência Proteus
-- Modo imersivo: retorno e encaixe corrigidos
+- Versão: 0.11.3
+- Base: 07D.2
+- Tipo: hotfix editorial cumulativo
+- Registos visíveis para revisão: 31
+- Elegíveis para lançamento: 30
+- MM202617: review-visible
+- Retoque por IA: divulgação obrigatória
+- QR de MM202617: não gerar
+- Totem/painel: review-only
 - Lançamento público: não aprovado
