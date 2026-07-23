@@ -8,3 +8,15 @@ node_modules/
 # Ver SOURCE_RIGHTS_NOTICE.md. Os ficheiros ficam localmente para consulta interna.
 sources/primary/private/
 apps/visual-source-board/assets/pages/
+
+# Pacote 05F — segredos, fontes privadas e artefactos de Supabase (nunca no Git público).
+.env.*
+!.env.example
+.private-assets/
+sources/**/private/
+supabase/.branches/
+supabase/.temp/
+data/working/
+data/private/
+*.dump
+*.sql.gz

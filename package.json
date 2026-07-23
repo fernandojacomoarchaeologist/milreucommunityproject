@@ -1,0 +1,28 @@
+{
+  "name": "milreu-community-project",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Infraestrutura, dados e Design System do Projeto Comunitário de Milreu.",
+  "license": "SEE RIGHTS.md",
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "scripts": {
+    "env:status": "node scripts/env/status.mjs",
+    "infra:validate": "node scripts/ci/validate-package.mjs && node scripts/database/check-migration-safety.mjs",
+    "infra:test": "node --test tests/*.test.mjs",
+    "db:start": "supabase start",
+    "db:reset": "supabase db reset",
+    "db:test": "supabase test db",
+    "db:stop": "supabase stop",
+    "db:migration:new": "node scripts/database/create-migration.mjs",
+    "db:migration:check": "node scripts/database/check-migration-safety.mjs",
+    "db:production:preflight": "node scripts/database/preflight-production.mjs",
+    "snapshot:export": "node scripts/database/export-public-snapshot.mjs",
+    "snapshot:validate": "node scripts/database/validate-public-snapshot.mjs",
+    "assets:private:status": "node scripts/private-assets/status.mjs",
+    "assets:private:verify": "node scripts/private-assets/verify.mjs",
+    "review:gate-a:index": "node scripts/visual-review/generate-review-index.mjs"
+  },
+  "devDependencies": {
+    "supabase": "2.109.1"
+  }
+}

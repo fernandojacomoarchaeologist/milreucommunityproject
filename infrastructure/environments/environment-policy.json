@@ -1,0 +1,15 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "allowed": [
+    "local",
+    "staging",
+    "production"
+  ],
+  "default": "local",
+  "production": {
+    "write_default": false,
+    "direct_session_write": false,
+    "workflow": ".github/workflows/05f-production-migration.yml",
+    "confirmation": "APPLY_APPROVED_MIGRATIONS"
+  }
+}

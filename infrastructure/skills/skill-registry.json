@@ -1,0 +1,97 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "05F",
+  "version": "0.6.0",
+  "skills": [
+    {
+      "id": "setup-development-environment",
+      "title": "Preparar ambiente local",
+      "path": ".claude/skills/setup-development-environment/SKILL.md"
+    },
+    {
+      "id": "inspect-environment",
+      "title": "Inspecionar ambiente",
+      "path": ".claude/skills/inspect-environment/SKILL.md"
+    },
+    {
+      "id": "create-database-migration",
+      "title": "Criar migration",
+      "path": ".claude/skills/create-database-migration/SKILL.md"
+    },
+    {
+      "id": "test-database-locally",
+      "title": "Testar banco local",
+      "path": ".claude/skills/test-database-locally/SKILL.md"
+    },
+    {
+      "id": "plan-production-change",
+      "title": "Planear alteração produtiva",
+      "path": ".claude/skills/plan-production-change/SKILL.md"
+    },
+    {
+      "id": "apply-staging-migration",
+      "title": "Aplicar em staging",
+      "path": ".claude/skills/apply-staging-migration/SKILL.md"
+    },
+    {
+      "id": "request-production-deployment",
+      "title": "Preparar deployment produtivo",
+      "path": ".claude/skills/request-production-deployment/SKILL.md"
+    },
+    {
+      "id": "verify-production-readonly",
+      "title": "Consultar produção com segurança",
+      "path": ".claude/skills/verify-production-readonly/SKILL.md"
+    },
+    {
+      "id": "export-public-snapshot",
+      "title": "Exportar snapshot público",
+      "path": ".claude/skills/export-public-snapshot/SKILL.md"
+    },
+    {
+      "id": "validate-public-snapshot",
+      "title": "Validar snapshot",
+      "path": ".claude/skills/validate-public-snapshot/SKILL.md"
+    },
+    {
+      "id": "manage-private-assets",
+      "title": "Gerir fontes privadas",
+      "path": ".claude/skills/manage-private-assets/SKILL.md"
+    },
+    {
+      "id": "verify-private-assets",
+      "title": "Verificar fontes privadas",
+      "path": ".claude/skills/verify-private-assets/SKILL.md"
+    },
+    {
+      "id": "run-ci-locally",
+      "title": "Executar CI local",
+      "path": ".claude/skills/run-ci-locally/SKILL.md"
+    },
+    {
+      "id": "prepare-visual-review",
+      "title": "Preparar Gate A",
+      "path": ".claude/skills/prepare-visual-review/SKILL.md"
+    },
+    {
+      "id": "record-visual-decision",
+      "title": "Registar decisão visual",
+      "path": ".claude/skills/record-visual-decision/SKILL.md"
+    },
+    {
+      "id": "rollback-database-change",
+      "title": "Preparar rollback",
+      "path": ".claude/skills/rollback-database-change/SKILL.md"
+    },
+    {
+      "id": "create-release",
+      "title": "Criar release",
+      "path": ".claude/skills/create-release/SKILL.md"
+    },
+    {
+      "id": "incident-response",
+      "title": "Responder a incidente",
+      "path": ".claude/skills/incident-response/SKILL.md"
+    }
+  ]
+}
