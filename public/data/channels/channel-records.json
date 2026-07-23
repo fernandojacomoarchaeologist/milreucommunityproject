@@ -1,0 +1,3734 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.11.0",
+  "notice": "Perfis físicos são candidatos técnicos. Nenhum registo foi selecionado para produção de totem ou painel.",
+  "records": [
+    {
+      "id": "MM202601",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Um aspecto do cortejo da Festa da Pinha, em Estoi",
+          "en": "An aspect of the Festa da Pinha procession in Estoi",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "1909-05-02",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "day",
+        "primaryType": "festa",
+        "tags": [
+          "Festa da Pinha",
+          "Estoi",
+          "Casa Rural",
+          "Milreu",
+          "Torre do Tombo",
+          "José Viegas Samorrinha",
+          "1909"
+        ],
+        "credit": {
+          "pt-PT": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202601-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202601.",
+            "locator": "data/museum-items.js#MM202601",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202601-ORIGIN",
+            "type": "archive-record",
+            "citation": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202601.jpg",
+        "webPreview": "public/media/museum/generated/MM202601/detail.webp",
+        "immersive": "public/media/museum/generated/MM202601/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202601.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202601",
+        "summary": {
+          "pt-PT": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202601",
+        "immersiveRoute": "/museu/imersivo/MM202601",
+        "introduction": {
+          "pt-PT": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202601",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202601"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo do cortejo da Festa da Pinha em Estoi, em 1909, em frente à Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202601"
+      }
+    },
+    {
+      "id": "MM202602",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Memórias de juventude — Estoi, década de 1950",
+          "en": "Youth memories — Estoi, 1950s",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. 1950s",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "decade",
+        "primaryType": "juventude",
+        "tags": [
+          "Milreu",
+          "Estoi",
+          "juventude",
+          "edifício de cultos",
+          "anos 1950",
+          "memória comunitária"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202602-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202602.",
+            "locator": "data/museum-items.js#MM202602",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202602-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202602.jpg",
+        "webPreview": "public/media/museum/generated/MM202602/detail.webp",
+        "immersive": "public/media/museum/generated/MM202602/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202602.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202602",
+        "summary": {
+          "pt-PT": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202602",
+        "immersiveRoute": "/museu/imersivo/MM202602",
+        "introduction": {
+          "pt-PT": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202602",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202602"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Grupo de jovens raparigas junto ao edifício de cultos de Milreu, possivelmente durante um passeio, na década de 1950.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202602"
+      }
+    },
+    {
+      "id": "MM202603",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Achados romanos de Milreu",
+          "en": "Roman finds from Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "1966-1967",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "bustos romanos",
+          "Agripina",
+          "Adriano",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202603-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202603.",
+            "locator": "data/museum-items.js#MM202603",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202603-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202603.jpg",
+        "webPreview": "public/media/museum/generated/MM202603/detail.webp",
+        "immersive": "public/media/museum/generated/MM202603/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202603.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202603",
+        "summary": {
+          "pt-PT": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202603",
+        "immersiveRoute": "/museu/imersivo/MM202603",
+        "introduction": {
+          "pt-PT": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202603",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202603"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo associado aos achados dos bustos romanos de Agripina e Adriano nas escavações de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202603"
+      }
+    },
+    {
+      "id": "MM202604",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Figura popular de Estoi — Ti’ Jacinto",
+          "en": "A popular figure from Estoi — Ti’ Jacinto",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Data não determinada",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "figura comunitária",
+        "tags": [
+          "Estoi",
+          "Ti’ Jacinto",
+          "memória comunitária",
+          "figura popular"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202604-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202604.",
+            "locator": "data/museum-items.js#MM202604",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202604-ORIGIN",
+            "type": "social-media",
+            "citation": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202604.jpg",
+        "webPreview": "public/media/museum/generated/MM202604/detail.webp",
+        "immersive": "public/media/museum/generated/MM202604/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202604.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202604",
+        "summary": {
+          "pt-PT": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202604",
+        "immersiveRoute": "/museu/imersivo/MM202604",
+        "introduction": {
+          "pt-PT": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202604",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202604"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Retrato de Ti’ Jacinto, figura recordada pela comunidade de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202604"
+      }
+    },
+    {
+      "id": "MM202605",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Visita de jornalistas ingleses a Milreu",
+          "en": "Visit of English journalists to Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "1913",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "visita",
+        "tags": [
+          "Milreu",
+          "jornalistas ingleses",
+          "1913",
+          "Ilustração Portuguesa",
+          "Hemeroteca Digital",
+          "edifício de cultos"
+        ],
+        "credit": {
+          "pt-PT": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202605-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202605.",
+            "locator": "data/museum-items.js#MM202605",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202605-ORIGIN",
+            "type": "publication",
+            "citation": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202605.jpg",
+        "webPreview": "public/media/museum/generated/MM202605/detail.webp",
+        "immersive": "public/media/museum/generated/MM202605/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202605.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202605",
+        "summary": {
+          "pt-PT": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202605",
+        "immersiveRoute": "/museu/imersivo/MM202605",
+        "introduction": {
+          "pt-PT": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202605",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202605"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo da visita de jornalistas ingleses às Ruínas de Milreu em 1913.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202605"
+      }
+    },
+    {
+      "id": "MM202606",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Escavações arqueológicas nas Ruínas de Milreu",
+          "en": "Archaeological excavations at the Ruins of Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "1897",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "século XIX",
+          "Estácio da Veiga",
+          "Pereira Boto",
+          "arqueologia"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202606-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202606.",
+            "locator": "data/museum-items.js#MM202606",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202606-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202606.jpg",
+        "webPreview": "public/media/museum/generated/MM202606/detail.webp",
+        "immersive": "public/media/museum/generated/MM202606/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202606.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202606",
+        "summary": {
+          "pt-PT": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202606",
+        "immersiveRoute": "/museu/imersivo/MM202606",
+        "introduction": {
+          "pt-PT": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202606",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202606"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia associada às escavações arqueológicas em Milreu no final do século XIX.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202606"
+      }
+    },
+    {
+      "id": "MM202607",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Bustos romanos de Milreu",
+          "en": "Roman busts from Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "1966",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "bustos romanos",
+          "Adriano",
+          "Agripina",
+          "Theodor Hauschild",
+          "Instituto Arqueológico Alemão",
+          "Museu Municipal de Faro"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202607-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202607.",
+            "locator": "data/museum-items.js#MM202607",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202607-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202607.jpg",
+        "webPreview": "public/media/museum/generated/MM202607/detail.webp",
+        "immersive": "public/media/museum/generated/MM202607/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202607.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202607",
+        "summary": {
+          "pt-PT": "Registo considerado um dos primeiros após a descoberta dos bustos de Adriano e Agripina em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202607",
+        "immersiveRoute": "/museu/imersivo/MM202607",
+        "introduction": {
+          "pt-PT": "Registo considerado um dos primeiros após a descoberta dos bustos de Adriano e Agripina em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo considerado um dos primeiros após a descoberta dos bustos de Adriano e Agripina em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202607",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202607"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo considerado um dos primeiros após a descoberta dos bustos de Adriano e Agripina em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202607"
+      }
+    },
+    {
+      "id": "MM202608",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Edifício de cultos, potencialmente em 1910",
+          "en": "Cult building, potentially in 1910",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "potencialmente 1910",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "memória comunitária",
+        "tags": [
+          "Milreu",
+          "edifício de cultos",
+          "Estoi",
+          "1910",
+          "história oral"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202608-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202608.",
+            "locator": "data/museum-items.js#MM202608",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202608-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202608.jpg",
+        "webPreview": "public/media/museum/generated/MM202608/detail.webp",
+        "immersive": "public/media/museum/generated/MM202608/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202608.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202608",
+        "summary": {
+          "pt-PT": "Registo fotográfico em frente ao edifício de cultos de Milreu, potencialmente datado de 1910 segundo relatos orais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202608",
+        "immersiveRoute": "/museu/imersivo/MM202608",
+        "introduction": {
+          "pt-PT": "Registo fotográfico em frente ao edifício de cultos de Milreu, potencialmente datado de 1910 segundo relatos orais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo fotográfico em frente ao edifício de cultos de Milreu, potencialmente datado de 1910 segundo relatos orais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202608",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202608"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo fotográfico em frente ao edifício de cultos de Milreu, potencialmente datado de 1910 segundo relatos orais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202608"
+      }
+    },
+    {
+      "id": "MM202609",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Pessoas em frente ao edifício de cultos",
+          "en": "People in front of the cult building",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Ano desconhecido",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "memória comunitária",
+        "tags": [
+          "Milreu",
+          "edifício de cultos",
+          "Estoi",
+          "memória comunitária"
+        ],
+        "credit": {
+          "pt-PT": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202609-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202609.",
+            "locator": "data/museum-items.js#MM202609",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202609-ORIGIN",
+            "type": "social-media",
+            "citation": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202609.jpg",
+        "webPreview": "public/media/museum/generated/MM202609/detail.webp",
+        "immersive": "public/media/museum/generated/MM202609/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202609.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202609",
+        "summary": {
+          "pt-PT": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202609",
+        "immersiveRoute": "/museu/imersivo/MM202609",
+        "introduction": {
+          "pt-PT": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202609",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202609"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de pessoas em frente ao edifício de cultos de Milreu, em ano desconhecido.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202609"
+      }
+    },
+    {
+      "id": "MM202610",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Poesia nas ruínas",
+          "en": "Poetry in the ruins",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Data não determinada",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "literatura",
+        "tags": [
+          "Milreu",
+          "Estoi",
+          "Emiliano da Costa",
+          "António Aleixo",
+          "poesia",
+          "José António Paula Brito"
+        ],
+        "credit": {
+          "pt-PT": "Coleção de José António Paula Brito.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202610-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202610.",
+            "locator": "data/museum-items.js#MM202610",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202610-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Coleção de José António Paula Brito.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202610.jpg",
+        "webPreview": "public/media/museum/generated/MM202610/detail.webp",
+        "immersive": "public/media/museum/generated/MM202610/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202610.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202610",
+        "summary": {
+          "pt-PT": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202610",
+        "immersiveRoute": "/museu/imersivo/MM202610",
+        "introduction": {
+          "pt-PT": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202610",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202610"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia associada ao espólio do poeta Emiliano da Costa e à memória literária de Estoi.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202610"
+      }
+    },
+    {
+      "id": "MM202611",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Natalina Crispim na Casa Rural de Milreu",
+          "en": "Natalina Crispim at the Rural House of Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Data não determinada",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "habitação",
+        "tags": [
+          "Milreu",
+          "Casa Rural",
+          "Natalina Crispim",
+          "Monte Figo",
+          "memória familiar"
+        ],
+        "credit": {
+          "pt-PT": "Arquivo digital associado à memória de Natalina Crispim.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202611-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202611.",
+            "locator": "data/museum-items.js#MM202611",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202611-ORIGIN",
+            "type": "archive-record",
+            "citation": "Arquivo digital associado à memória de Natalina Crispim.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202611.jpg",
+        "webPreview": "public/media/museum/generated/MM202611/detail.webp",
+        "immersive": "public/media/museum/generated/MM202611/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202611.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202611",
+        "summary": {
+          "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202611",
+        "immersiveRoute": "/museu/imersivo/MM202611",
+        "introduction": {
+          "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202611",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202611"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de Natalina Crispim quando morava na Casa Rural de Milreu, na subida do Monte Figo.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202611"
+      }
+    },
+    {
+      "id": "MM202612",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Rosário Félix desenha as memórias de Natalina Crispim",
+          "en": "Rosário Félix draws Natalina Crispim’s memories",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Possivelmente próxima da produção do documentário Memórias Vivas da Casa Rural",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "história oral",
+        "tags": [
+          "Milreu",
+          "Casa Rural",
+          "Natalina Crispim",
+          "Rosário Félix",
+          "Partilha Alternativa",
+          "história oral",
+          "Memórias Vivas da Casa Rural"
+        ],
+        "credit": {
+          "pt-PT": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202612-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202612.",
+            "locator": "data/museum-items.js#MM202612",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202612-ORIGIN",
+            "type": "social-media",
+            "citation": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202612.jpg",
+        "webPreview": "public/media/museum/generated/MM202612/detail.webp",
+        "immersive": "public/media/museum/generated/MM202612/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202612.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202612",
+        "summary": {
+          "pt-PT": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202612",
+        "immersiveRoute": "/museu/imersivo/MM202612",
+        "introduction": {
+          "pt-PT": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202612",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202612"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Registo de Rosário Félix a desenhar memórias de Natalina Crispim, no contexto da Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202612"
+      }
+    },
+    {
+      "id": "MM202613",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Theodor Hauschild e equipa de escavadores em Milreu",
+          "en": "Theodor Hauschild and his excavation team at Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. 1981, segundo hipótese de Cristina Farias",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "Theodor Hauschild",
+          "Instituto Arqueológico Alemão",
+          "Casa Rural",
+          "Pedro Fialho de Sousa",
+          "Cristina Farias"
+        ],
+        "credit": {
+          "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202613-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202613.",
+            "locator": "data/museum-items.js#MM202613",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202613-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202613.jpg",
+        "webPreview": "public/media/museum/generated/MM202613/detail.webp",
+        "immersive": "public/media/museum/generated/MM202613/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202613.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202613",
+        "summary": {
+          "pt-PT": "Fotografia de grupo associada às campanhas arqueológicas de Milreu com o Instituto Arqueológico Alemão.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202613",
+        "immersiveRoute": "/museu/imersivo/MM202613",
+        "introduction": {
+          "pt-PT": "Fotografia de grupo associada às campanhas arqueológicas de Milreu com o Instituto Arqueológico Alemão.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de grupo associada às campanhas arqueológicas de Milreu com o Instituto Arqueológico Alemão.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202613",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202613"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de grupo associada às campanhas arqueológicas de Milreu com o Instituto Arqueológico Alemão.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202613"
+      }
+    },
+    {
+      "id": "MM202614",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Equipa de escavadores em Milreu sobre os mosaicos",
+          "en": "Excavation team at Milreu on the mosaics",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Provavelmente 1981, segundo testemunho de Cristina Farias",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "mosaicos",
+          "Instituto Arqueológico Alemão",
+          "Cristina Farias",
+          "Pedro Fialho de Sousa",
+          "Casa Rural"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202614-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202614.",
+            "locator": "data/museum-items.js#MM202614",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202614-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202614.jpg",
+        "webPreview": "public/media/museum/generated/MM202614/detail.webp",
+        "immersive": "public/media/museum/generated/MM202614/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202614.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202614",
+        "summary": {
+          "pt-PT": "Fotografia de grupo das campanhas arqueológicas de Milreu, com 31 indivíduos sobre os mosaicos.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202614",
+        "immersiveRoute": "/museu/imersivo/MM202614",
+        "introduction": {
+          "pt-PT": "Fotografia de grupo das campanhas arqueológicas de Milreu, com 31 indivíduos sobre os mosaicos.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de grupo das campanhas arqueológicas de Milreu, com 31 indivíduos sobre os mosaicos.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202614",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202614"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de grupo das campanhas arqueológicas de Milreu, com 31 indivíduos sobre os mosaicos.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202614"
+      }
+    },
+    {
+      "id": "MM202615",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Os escavadores ao almoço",
+          "en": "The excavators at lunch",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho e convívio",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "almoço",
+          "trabalhadores",
+          "Theodor Hauschild",
+          "Kodak",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202615-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202615.",
+            "locator": "data/museum-items.js#MM202615",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202615-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202615.jpg",
+        "webPreview": "public/media/museum/generated/MM202615/detail.webp",
+        "immersive": "public/media/museum/generated/MM202615/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202615.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202615",
+        "summary": {
+          "pt-PT": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202615",
+        "immersiveRoute": "/museu/imersivo/MM202615",
+        "introduction": {
+          "pt-PT": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202615",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202615"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de momento de refeição dos escavadores durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202615"
+      }
+    },
+    {
+      "id": "MM202616",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Grupo de trabalhadores com Theodor Hauschild",
+          "en": "Group of workers with Theodor Hauschild",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento fotografado possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "escavações",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "Theodor Hauschild",
+          "Sandra",
+          "Maria",
+          "Celeste",
+          "Alzira",
+          "Pepe",
+          "Afonso",
+          "Kodak"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202616-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202616.",
+            "locator": "data/museum-items.js#MM202616",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202616-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202616.jpg",
+        "webPreview": "public/media/museum/generated/MM202616/detail.webp",
+        "immersive": "public/media/museum/generated/MM202616/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202616.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202616",
+        "summary": {
+          "pt-PT": "Grupo de trabalhadores nas campanhas de Milreu, com possível presença de Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202616",
+        "immersiveRoute": "/museu/imersivo/MM202616",
+        "introduction": {
+          "pt-PT": "Grupo de trabalhadores nas campanhas de Milreu, com possível presença de Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Grupo de trabalhadores nas campanhas de Milreu, com possível presença de Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202616",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202616"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Grupo de trabalhadores nas campanhas de Milreu, com possível presença de Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202616"
+      }
+    },
+    {
+      "id": "MM202617",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": false,
+        "blocked": true,
+        "blockReason": "ai-substantive-intervention"
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Versão restaurada com inteligência artificial",
+          "en": "AI-restored version",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Imagem derivada contemporânea de fotografia histórica",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "imagem derivada",
+        "tags": [
+          "Milreu",
+          "IA",
+          "restauro",
+          "Theodor Hauschild",
+          "escavações",
+          "imagem derivada"
+        ],
+        "credit": {
+          "pt-PT": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202617-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202617.",
+            "locator": "data/museum-items.js#MM202617",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202617-ORIGIN",
+            "type": "project-documentation",
+            "citation": "Imagem tratada com inteligência artificial a partir de fotografia histórica das campanhas de Milreu.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202617.jpg",
+        "webPreview": "public/media/museum/generated/MM202617/detail.webp",
+        "immersive": "public/media/museum/generated/MM202617/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202617.jpg",
+        "digitalInterventions": [
+          {
+            "type": "ai-assisted-enhancement",
+            "description": {
+              "pt-PT": "O registo legado declara uma versão restaurada com inteligência artificial, produzida no Gemini, para simulação e identificação. Exige revisão humana e não deve ser apresentado como documento original.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": "Gemini",
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          }
+        ]
+      },
+      "portal": {
+        "enabled": false,
+        "route": "/museu/memorias/MM202617",
+        "summary": {
+          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": false,
+        "route": "/museu/memorias/MM202617",
+        "immersiveRoute": "/museu/imersivo/MM202617",
+        "introduction": {
+          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "blocked",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202617",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202617"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "blocked",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Versão restaurada com inteligência artificial de fotografia das escavações de Milreu, removida da exposição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202617"
+      }
+    },
+    {
+      "id": "MM202618",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhando nas ruínas",
+          "en": "Working in the ruins",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "escavações",
+          "trabalho arqueológico",
+          "Kodak",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202618-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202618.",
+            "locator": "data/museum-items.js#MM202618",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202618-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202618.jpg",
+        "webPreview": "public/media/museum/generated/MM202618/detail.webp",
+        "immersive": "public/media/museum/generated/MM202618/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202618.jpg",
+        "digitalInterventions": [
+          {
+            "type": "ai-assisted-enhancement",
+            "description": {
+              "pt-PT": "O registo legado declara uma correção de imagem assistida por inteligência artificial. Os detalhes do processo e o ficheiro de origem devem ser verificados.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": null,
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          }
+        ]
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202618",
+        "summary": {
+          "pt-PT": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202618",
+        "immersiveRoute": "/museu/imersivo/MM202618",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202618",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202618"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalho nas ruínas durante as campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202618"
+      }
+    },
+    {
+      "id": "MM202619",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Tomando notas dos achados",
+          "en": "Taking notes on the finds",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Provavelmente entre janeiro e junho de 1987",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "Celeste Pimenta",
+          "notas",
+          "achados",
+          "Kodak",
+          "1987",
+          "Caixa de Crédito Agrícola",
+          "Partilha Alternativa"
+        ],
+        "credit": {
+          "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202619-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202619.",
+            "locator": "data/museum-items.js#MM202619",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202619-ORIGIN",
+            "type": "social-media",
+            "citation": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202619.jpg",
+        "webPreview": "public/media/museum/generated/MM202619/detail.webp",
+        "immersive": "public/media/museum/generated/MM202619/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202619.jpg",
+        "digitalInterventions": [
+          {
+            "type": "ai-assisted-enhancement",
+            "description": {
+              "pt-PT": "O registo legado declara uma correção de imagem assistida por inteligência artificial. Os detalhes do processo e o ficheiro de origem devem ser verificados.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": null,
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          },
+          {
+            "type": "other",
+            "description": {
+              "pt-PT": "O registo legado declara aplicação de desfocagem para reduzir interpretações indevidas de dados distorcidos.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": null,
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          }
+        ]
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202619",
+        "summary": {
+          "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202619",
+        "immersiveRoute": "/museu/imersivo/MM202619",
+        "introduction": {
+          "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202619",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202619"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de pessoa a tomar notas, possivelmente Dona Celeste Pimenta, no contexto de trabalho arqueológico em Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202619"
+      }
+    },
+    {
+      "id": "MM202620",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "No frigidarium",
+          "en": "In the frigidarium",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em junho de 1987; evento possivelmente anterior ou próximo",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "frigidarium",
+          "Celeste Pimenta",
+          "Kodak",
+          "1987",
+          "mosaicos",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202620-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202620.",
+            "locator": "data/museum-items.js#MM202620",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202620-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202620.jpg",
+        "webPreview": "public/media/museum/generated/MM202620/detail.webp",
+        "immersive": "public/media/museum/generated/MM202620/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202620.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202620",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadora das ruínas sentada no frigidarium de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202620",
+        "immersiveRoute": "/museu/imersivo/MM202620",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadora das ruínas sentada no frigidarium de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadora das ruínas sentada no frigidarium de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202620",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202620"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadora das ruínas sentada no frigidarium de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202620"
+      }
+    },
+    {
+      "id": "MM202621",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Lavando cacos",
+          "en": "Washing sherds",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "lavando cacos",
+          "Alzira Parente",
+          "Kodak",
+          "1984",
+          "Partilha Alternativa",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202621-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202621.",
+            "locator": "data/museum-items.js#MM202621",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202621-ORIGIN",
+            "type": "social-media",
+            "citation": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202621.jpg",
+        "webPreview": "public/media/museum/generated/MM202621/detail.webp",
+        "immersive": "public/media/museum/generated/MM202621/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202621.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202621",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202621",
+        "immersiveRoute": "/museu/imersivo/MM202621",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202621",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202621"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadores a lavar cacos durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202621"
+      }
+    },
+    {
+      "id": "MM202622",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadoras das ruínas a cozinhar",
+          "en": "Women workers of the ruins cooking",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho e quotidiano",
+        "tags": [
+          "Milreu",
+          "trabalhadoras",
+          "cozinha",
+          "Kodak",
+          "1984",
+          "escavações",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202622-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202622.",
+            "locator": "data/museum-items.js#MM202622",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202622-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202622.jpg",
+        "webPreview": "public/media/museum/generated/MM202622/detail.webp",
+        "immersive": "public/media/museum/generated/MM202622/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202622.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202622",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202622",
+        "immersiveRoute": "/museu/imersivo/MM202622",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202622",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202622"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadoras das ruínas a cozinhar durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202622"
+      }
+    },
+    {
+      "id": "MM202623",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores das ruínas",
+          "en": "Workers of the ruins",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "trabalhadores",
+          "escavações",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202623-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202623.",
+            "locator": "data/museum-items.js#MM202623",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202623-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202623.jpg",
+        "webPreview": "public/media/museum/generated/MM202623/detail.webp",
+        "immersive": "public/media/museum/generated/MM202623/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202623.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202623",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202623",
+        "immersiveRoute": "/museu/imersivo/MM202623",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202623",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202623"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas durante campanhas arqueológicas de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202623"
+      }
+    },
+    {
+      "id": "MM202624",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadoras nas ruínas com carriola",
+          "en": "Women workers in the ruins with a wheelbarrow",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "trabalhadoras",
+          "carriola",
+          "Kodak",
+          "escavações",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202624-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202624.",
+            "locator": "data/museum-items.js#MM202624",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202624-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202624.jpg",
+        "webPreview": "public/media/museum/generated/MM202624/detail.webp",
+        "immersive": "public/media/museum/generated/MM202624/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202624.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202624",
+        "summary": {
+          "pt-PT": "Fotografia de três trabalhadoras das ruínas com uma carriola.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202624",
+        "immersiveRoute": "/museu/imersivo/MM202624",
+        "introduction": {
+          "pt-PT": "Fotografia de três trabalhadoras das ruínas com uma carriola.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de três trabalhadoras das ruínas com uma carriola.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202624",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202624"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de três trabalhadoras das ruínas com uma carriola.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202624"
+      }
+    },
+    {
+      "id": "MM202625",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores junto ao edifício de cultos",
+          "en": "Workers near the cult building",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "edifício de cultos",
+          "trabalhadores",
+          "Kodak",
+          "escavações",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202625-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202625.",
+            "locator": "data/museum-items.js#MM202625",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202625-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202625.jpg",
+        "webPreview": "public/media/museum/generated/MM202625/detail.webp",
+        "immersive": "public/media/museum/generated/MM202625/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202625.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202625",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202625",
+        "immersiveRoute": "/museu/imersivo/MM202625",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202625",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202625"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadores das ruínas próximo ao edifício de cultos de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202625"
+      }
+    },
+    {
+      "id": "MM202626",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores nas ruínas",
+          "en": "Workers in the ruins",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "ca. anos 1970-1980; revelação possivelmente mais recente",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "range",
+        "primaryType": "trabalho arqueológico",
+        "tags": [
+          "Milreu",
+          "trabalhadores",
+          "Kodak",
+          "Kodacolor",
+          "processo cromogénico",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202626-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202626.",
+            "locator": "data/museum-items.js#MM202626",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202626-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202626.jpg",
+        "webPreview": "public/media/museum/generated/MM202626/detail.webp",
+        "immersive": "public/media/museum/generated/MM202626/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202626.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202626",
+        "summary": {
+          "pt-PT": "Fotografia em papel Kodak Kodacolor, em melhor estado de conservação que outras imagens do conjunto.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202626",
+        "immersiveRoute": "/museu/imersivo/MM202626",
+        "introduction": {
+          "pt-PT": "Fotografia em papel Kodak Kodacolor, em melhor estado de conservação que outras imagens do conjunto.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia em papel Kodak Kodacolor, em melhor estado de conservação que outras imagens do conjunto.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202626",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202626"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia em papel Kodak Kodacolor, em melhor estado de conservação que outras imagens do conjunto.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202626"
+      }
+    },
+    {
+      "id": "MM202627",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores em momento de descanso e convívio",
+          "en": "Workers in a moment of rest and conviviality",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho e convívio",
+        "tags": [
+          "Milreu",
+          "convívio",
+          "almoço",
+          "trabalhadores",
+          "Casa Rural",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202627-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202627.",
+            "locator": "data/museum-items.js#MM202627",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202627-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202627.jpg",
+        "webPreview": "public/media/museum/generated/MM202627/detail.webp",
+        "immersive": "public/media/museum/generated/MM202627/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202627.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202627",
+        "summary": {
+          "pt-PT": "Fotografia de trabalhadores em torno de uma mesa, possivelmente após refeição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202627",
+        "immersiveRoute": "/museu/imersivo/MM202627",
+        "introduction": {
+          "pt-PT": "Fotografia de trabalhadores em torno de uma mesa, possivelmente após refeição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de trabalhadores em torno de uma mesa, possivelmente após refeição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202627",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202627"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de trabalhadores em torno de uma mesa, possivelmente após refeição.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202627"
+      }
+    },
+    {
+      "id": "MM202628",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores junto ao professor Theodor Hauschild",
+          "en": "Workers with Professor Theodor Hauschild",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho e convívio",
+        "tags": [
+          "Milreu",
+          "Theodor Hauschild",
+          "Casa Rural",
+          "trabalhadores",
+          "escavações",
+          "Instituto Arqueológico Alemão"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202628-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202628.",
+            "locator": "data/museum-items.js#MM202628",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202628-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202628.jpg",
+        "webPreview": "public/media/museum/generated/MM202628/detail.webp",
+        "immersive": "public/media/museum/generated/MM202628/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202628.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202628",
+        "summary": {
+          "pt-PT": "Fotografia obscurecida mostrando pessoas sentadas junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202628",
+        "immersiveRoute": "/museu/imersivo/MM202628",
+        "introduction": {
+          "pt-PT": "Fotografia obscurecida mostrando pessoas sentadas junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia obscurecida mostrando pessoas sentadas junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202628",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202628"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia obscurecida mostrando pessoas sentadas junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202628"
+      }
+    },
+    {
+      "id": "MM202629",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores junto ao professor Theodor Hauschild, blusa listrada",
+          "en": "Workers with Professor Theodor Hauschild, striped shirt",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho e convívio",
+        "tags": [
+          "Milreu",
+          "Theodor Hauschild",
+          "refeição",
+          "trabalhadores",
+          "Casa Rural",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202629-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202629.",
+            "locator": "data/museum-items.js#MM202629",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202629-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202629.jpg",
+        "webPreview": "public/media/museum/generated/MM202629/detail.webp",
+        "immersive": "public/media/museum/generated/MM202629/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202629.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202629",
+        "summary": {
+          "pt-PT": "Fotografia de pessoas em torno de uma mesa com alimentos, junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202629",
+        "immersiveRoute": "/museu/imersivo/MM202629",
+        "introduction": {
+          "pt-PT": "Fotografia de pessoas em torno de uma mesa com alimentos, junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de pessoas em torno de uma mesa com alimentos, junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202629",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202629"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de pessoas em torno de uma mesa com alimentos, junto ao professor Theodor Hauschild.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202629"
+      }
+    },
+    {
+      "id": "MM202630",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Trabalhadores nas escadas internas da Casa Rural",
+          "en": "Workers on the internal stairs of the Rural House",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "Revelação em dezembro de 1984; evento possivelmente anterior",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "unknown",
+        "primaryType": "trabalho e quotidiano",
+        "tags": [
+          "Milreu",
+          "Casa Rural",
+          "escadas",
+          "Celeste Pimenta",
+          "Sandra Pimenta",
+          "Kodak",
+          "escavações"
+        ],
+        "credit": {
+          "pt-PT": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202630-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202630.",
+            "locator": "data/museum-items.js#MM202630",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202630-ORIGIN",
+            "type": "physical-photograph",
+            "citation": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+            "locator": null,
+            "access": "restricted"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202630.jpg",
+        "webPreview": "public/media/museum/generated/MM202630/detail.webp",
+        "immersive": "public/media/museum/generated/MM202630/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202630.jpg",
+        "digitalInterventions": []
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202630",
+        "summary": {
+          "pt-PT": "Fotografia de pessoas nas escadas internas da Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202630",
+        "immersiveRoute": "/museu/imersivo/MM202630",
+        "introduction": {
+          "pt-PT": "Fotografia de pessoas nas escadas internas da Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia de pessoas nas escadas internas da Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202630",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202630"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia de pessoas nas escadas internas da Casa Rural de Milreu.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202630"
+      }
+    },
+    {
+      "id": "MM202631",
+      "editorialStatus": "preliminary",
+      "publication": {
+        "siteVisible": true,
+        "blocked": false,
+        "blockReason": null
+      },
+      "canonicalData": {
+        "title": {
+          "pt-PT": "Cortejo da Festa da Pinha em frente às Ruínas de Milreu",
+          "en": "Festa da Pinha procession in front of the Ruins of Milreu",
+          "es": null,
+          "fr": null
+        },
+        "dateDisplay": {
+          "pt-PT": "2024",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "datePrecision": "year",
+        "primaryType": "festa",
+        "tags": [
+          "Milreu",
+          "Festa da Pinha",
+          "Património Cultural I.P.",
+          "2024",
+          "Estoi"
+        ],
+        "credit": {
+          "pt-PT": "Publicação em redes sociais por Património Cultural I.P.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "rightsStatus": "authorized-for-project-publication",
+        "sources": [
+          {
+            "id": "SRC-MM202631-LEGACY",
+            "type": "project-documentation",
+            "citation": "Registo legado do Museu de Memórias de Milreu: MM202631.",
+            "locator": "data/museum-items.js#MM202631",
+            "access": "restricted"
+          },
+          {
+            "id": "SRC-MM202631-ORIGIN",
+            "type": "social-media",
+            "citation": "Publicação em redes sociais por Património Cultural I.P.",
+            "locator": null,
+            "access": "public-metadata"
+          }
+        ]
+      },
+      "media": {
+        "original": "public/media/museum/originals/MM202631.jpg",
+        "webPreview": "public/media/museum/generated/MM202631/detail.webp",
+        "immersive": "public/media/museum/generated/MM202631/immersive.webp",
+        "printSource": "public/media/museum/originals/MM202631.jpg",
+        "digitalInterventions": [
+          {
+            "type": "ai-assisted-enhancement",
+            "description": {
+              "pt-PT": "O registo legado declara uma correção de imagem assistida por inteligência artificial. Os detalhes do processo e o ficheiro de origem devem ser verificados.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": null,
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          },
+          {
+            "type": "crop",
+            "description": {
+              "pt-PT": "O registo legado indica adaptação da imagem para publicação em redes sociais, com possível corte de elementos.",
+              "en": null,
+              "es": null,
+              "fr": null
+            },
+            "tool": null,
+            "performedAt": null,
+            "sourceAssetId": null,
+            "promptReference": null,
+            "humanReviewStatus": "not-reviewed",
+            "substantiveChange": true
+          }
+        ]
+      },
+      "portal": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202631",
+        "summary": {
+          "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "museum": {
+        "enabled": true,
+        "route": "/museu/memorias/MM202631",
+        "immersiveRoute": "/museu/imersivo/MM202631",
+        "introduction": {
+          "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "totem": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "shortText": {
+          "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "qrTargetPath": "/museu/memorias/MM202631",
+        "qrStatus": "pending-public-base-url",
+        "previewRoute": "/laboratorio/totem/MM202631"
+      },
+      "panel": {
+        "enabled": false,
+        "eligibility": "candidate",
+        "selectionStatus": "not-selected",
+        "editorialText": {
+          "pt-PT": null,
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewText": {
+          "pt-PT": "Fotografia contemporânea do cortejo da Festa da Pinha em frente às Ruínas de Milreu, publicada em redes sociais.",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "technicalPreviewTextDerived": true,
+        "previewRoute": "/laboratorio/painel/MM202631"
+      }
+    }
+  ]
+}

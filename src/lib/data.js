@@ -32,6 +32,18 @@ export async function loadMuseumAudit() {
   return loadJson("public/data/museum-audit.json");
 }
 
+export async function loadChannelConfig() {
+  return loadJson("public/data/channels/channel-config.json");
+}
+
+export async function loadChannelRecords() {
+  return (await loadJson("public/data/channels/channel-records.json")).records;
+}
+
+export function findChannelRecord(records,id) {
+  return records?.find(record => record.id === id);
+}
+
 export function publicMemories(records) {
   return records.filter(record => record.publication.siteVisible);
 }

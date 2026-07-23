@@ -1,0 +1,58 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: Publish Technical MVP to Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Escrever PUBLISH_TECHNICAL_MVP"
+        required: true
+        type: string
+      public_base_url:
+        description: "URL pública final, incluindo subdiretório quando existir"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: ${{ inputs.confirmation == 'PUBLISH_TECHNICAL_MVP' }}
+    runs-on: ubuntu-latest
+    environment: github-pages
+    env:
+      MILREU_PUBLIC_BASE_URL: ${{ inputs.public_base_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements-qr.txt
+      - run: npm run channels:export
+      - run: npm run channels:qr:generate
+      - run: npm run museum:index
+      - run: npm run museum:audit
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

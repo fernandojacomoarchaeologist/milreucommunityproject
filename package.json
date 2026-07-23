@@ -25,7 +25,7 @@
     "architecture:test": "node --test tests/architecture/*.test.mjs",
     "architecture:prototype:serve": "python3 -m http.server 8080 -d apps/architecture-prototype",
     "dev": "node scripts/dev-server.mjs --root . --port 4173",
-    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs && node scripts/channels/validate-channels.mjs && node scripts/structured/validate-structured-data.mjs && node scripts/quality/validate-performance.mjs && node scripts/quality/validate-accessibility.mjs && node scripts/validate-07d.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/dev-server.mjs --root dist --port 4173",
@@ -37,7 +37,16 @@
     "museum:index": "node scripts/museum/build-index.mjs",
     "museum:audit": "node scripts/museum/audit-content.mjs",
     "validate:museum": "node scripts/validate-museum-07c.mjs",
-    "validate:immersive": "node scripts/validate-immersive-07c.mjs"
+    "validate:immersive": "node scripts/validate-immersive-07c.mjs",
+    "channels:export": "node scripts/channels/export-channels.mjs",
+    "channels:validate": "node scripts/channels/validate-channels.mjs",
+    "channels:qr:status": "node scripts/channels/qr-status.mjs",
+    "channels:qr:generate": "python3 scripts/channels/generate_qr.py",
+    "structured:validate": "node scripts/structured/validate-structured-data.mjs",
+    "quality:performance": "node scripts/quality/validate-performance.mjs",
+    "quality:accessibility": "node scripts/quality/validate-accessibility.mjs",
+    "release:readiness": "node scripts/release/check-readiness.mjs",
+    "validate:07d": "node scripts/validate-07d.mjs"
   },
   "devDependencies": {
     "supabase": "2.109.1"

@@ -1,0 +1,47 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.11.0",
+  "publicBaseUrl": null,
+  "publicBaseUrlStatus": "pending",
+  "sourceLanguage": "pt-PT",
+  "channels": {
+    "portal": {
+      "status": "technical-mvp",
+      "contentDensity": "medium",
+      "purpose": "orientação, consulta e contextualização"
+    },
+    "museum": {
+      "status": "technical-mvp",
+      "contentDensity": "layered",
+      "purpose": "exploração visual, documental e imersiva"
+    },
+    "totem": {
+      "status": "preview-only",
+      "contentDensity": "short",
+      "purpose": "leitura física breve e continuação digital",
+      "physicalDimensions": null,
+      "physicalDimensionsStatus": "pending",
+      "previewAspectRatio": "3/7",
+      "printReady": false
+    },
+    "panel": {
+      "status": "preview-only",
+      "contentDensity": "editorial",
+      "purpose": "composição física com fotografia, contexto e QR",
+      "physicalDimensions": null,
+      "physicalDimensionsStatus": "pending",
+      "previewAspectRatio": "4/3",
+      "printReady": false
+    }
+  },
+  "qr": {
+    "status": "pending-public-base-url",
+    "finalCodesGenerated": false,
+    "generator": "scripts/channels/generate_qr.py",
+    "environmentVariable": "MILREU_PUBLIC_BASE_URL"
+  },
+  "publication": {
+    "mode": "editorial-preview-noindex",
+    "publicLaunchApproved": false
+  }
+}

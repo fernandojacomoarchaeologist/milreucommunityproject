@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "07C"
+package: "07D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -10,54 +10,57 @@ rights: "Consultar RIGHTS.md no repositório principal"
 ## Comandos
 
 - [ ] `npm install`
+- [ ] `npm run channels:export`
 - [ ] `npm run museum:index`
 - [ ] `npm run museum:audit`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`
 - [ ] `npm run smoke`
+- [ ] `npm run release:readiness`
 
-## Museu
+## Site
 
-- [ ] Home
-- [ ] Pesquisa
-- [ ] Período
-- [ ] Tipo
-- [ ] Data
-- [ ] Intervenção digital
-- [ ] Ordenação
-- [ ] Grelha
-- [ ] Lista
-- [ ] Coleções
-- [ ] Detalhe de coleção
-- [ ] Cronologia
-- [ ] Registos sem data
-- [ ] Fontes
-- [ ] Créditos
-- [ ] Intervenções
-- [ ] Relações explícitas
-- [ ] Sugestões derivadas
-- [ ] Correção/retirada
+- [ ] Portal
+- [ ] Museu
+- [ ] Ecrã inteiro
+- [ ] Páginas estáticas
+- [ ] JSON por memória
+- [ ] JSON-LD
+
+## Multicanal
+
+- [ ] Laboratório
+- [ ] Totem
+- [ ] Painel
+- [ ] Marca de água
+- [ ] Crédito
+- [ ] Direitos
+- [ ] QR relativo
 - [ ] MM202617 bloqueado
 
-## Ecrã inteiro
+## QR
 
-- [ ] Viewport integral
-- [ ] Variante immersive
-- [ ] object-fit contain
-- [ ] Anterior/seguinte
-- [ ] Setas
-- [ ] Escape
-- [ ] Tecla I
-- [ ] Tecla F
-- [ ] Fullscreen API
-- [ ] Filmstrip
-- [ ] Painel de informação
-- [ ] Mobile
+- [ ] Domínio real
+- [ ] Geração SVG
+- [ ] Leitura testada
+- [ ] Destinos validados
 
-## Release
+## Produção física
 
-- [ ] Portal sem regressão
-- [ ] Auditoria atualizada
-- [ ] Pendências preservadas
-- [ ] Handoff para 07D
+- [ ] Dimensões
+- [ ] Material
+- [ ] Seleção
+- [ ] Texto
+- [ ] Resolução
+- [ ] Perfil de cor
+- [ ] Sangria
+- [ ] Prova
+- [ ] Créditos
+
+## Publicação
+
+- [ ] Workflow revisto
+- [ ] Ambiente Pages
+- [ ] Confirmação explícita
+- [ ] Bloqueios editoriais resolvidos
