@@ -42,6 +42,13 @@ O e-mail não é guardado no repositório.
 
 Adicionar as migrations `20260723090000` e `20260723090100`, depois executar `supabase/tests/008b_member_management.test.sql`. O 08B inclui proteção do último master, pré-autorizações por e-mail Google, notas internas, interesses e competências.
 
+## Migrations 08C
+
+8. `20260724080000_collaborative_volunteering_tasks.sql`
+9. `20260724080100_collaborative_volunteering_tasks_rpc.sql`
+
+O 08C revoga escritas diretas em tarefas, atribuições, disponibilidade e horas. As alterações passam por RPCs auditadas.
+
 ---
 
 © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

@@ -1,9 +1,7 @@
--- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-23):
--- Os `delete from collab_member_roles/interests/skills where project_id=... and
--- user_id=...` são reatribuições scoped (padrão "definir" = apagar as linhas
--- atuais desse membro e inserir as novas) em funções RPC sob RLS. Não é
--- exclusão massiva, não altera schema, é reversível pela própria reatribuição
--- e não afeta dados canónicos do Museu. Marcador após revisão manual.
+-- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-24):
+-- Os `delete from ...` são reatribuição scoped de funções/interesses/competências por membro sob RLS: apagam apenas as linhas do alvo e reinserem
+-- as novas. Não é exclusão massiva, não altera schema, é reversível e não
+-- toca dados canónicos do Museu. Marcador aposto após revisão manual.
 
 -- 08B — operações transacionais e proteção do último master.
 

@@ -1,27 +1,47 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08B"
+package: "08C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08B
+# Prompt de integração — Pacote 08C
 
-Integra o 08B cumulativamente sobre o 08A.
+Integra o 08C cumulativamente sobre o 08B.
 
-## Objetivo
+## Preservar
 
-Ativar a gestão completa de membros e perfis sem avançar ainda para tarefas, calendário ou revisão editorial.
+- autenticação Google e callback PKCE;
+- proteção do master;
+- gestão de membros e pré-autorizações;
+- Portal, Museu, modo imersivo e carrossel;
+- MM202617 visível apenas para revisão;
+- gates de publicação.
 
-## Regras
+## Integrar
 
-1. Preservar Google OAuth, PKCE, RLS e separação entre perfil/função/permissão.
-2. Não expor `service_role`.
-3. Não hardcodar o e-mail do master.
-4. Não permitir a remoção ou suspensão do último master ativo.
-5. Não apresentar pré-autorização como e-mail enviado.
-6. Não apagar membros; arquivar preservando histórico.
-7. Aplicar migrations apenas em local/staging antes de produção.
+1. Mesclar o modelo de tarefas e os módulos ativos.
+2. Integrar as novas rotas e views.
+3. Integrar o controller 08C sem remover operações 08B.
+4. Aplicar migrations somente em local ou staging.
+5. Executar os testes SQL 08A, 08B e 08C.
+6. Validar demonstração de voluntário e master.
+7. Testar os três modos de atribuição:
+   - adesão direta;
+   - candidatura com aprovação;
+   - convite direto.
+8. Testar capacidade, desistência, submissão, validação e tempo.
+9. Confirmar que tarefas em rascunho não aparecem para voluntários.
+10. Confirmar que escritas diretas foram revogadas e passam por RPC auditada.
+
+## Segurança
+
+- disponibilidade própria é privada para o membro e para gestores de tarefas;
+- horas são autodeclaradas e exigem validação;
+- não criar ranking de voluntários;
+- não enviar e-mails ou notificações fictícias;
+- não expor `service_role`;
+- não inventar tarefas, pessoas, datas ou locais em produção.
 
 ## Comandos
 
@@ -35,20 +55,3 @@ npm test
 npm run build
 npm run smoke
 ```
-
-## Revisão manual
-
-- filtros e pesquisa;
-- pedido pendente;
-- aprovação com perfil e funções;
-- recusa;
-- suspensão e reativação;
-- arquivo;
-- proteção do último master;
-- notas e histórico;
-- criação e revogação de pré-autorização;
-- login Google com e-mail previamente autorizado.
-
-## Workflows
-
-Substituir os workflows 08A pelos workflows 08B incluídos neste pacote para evitar CI duplicado.

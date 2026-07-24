@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.13.0",
-  "status": "member-management-ready",
+  "version": "0.14.0",
+  "status": "volunteering-tasks-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -10,11 +10,13 @@
   "functionalModules": [
     "dashboard",
     "profile",
+    "availability",
+    "tasks",
+    "task-management",
     "profile-management",
     "member-invitations"
   ],
   "skeletonModules": [
-    "tasks",
     "contributions",
     "agenda",
     "library",
@@ -23,11 +25,12 @@
     "exhibition-management"
   ],
   "nextActions": [
-    "apply-08b-migrations-to-local-and-staging",
-    "test-last-master-protection",
-    "test-google-preauthorization-claim",
+    "apply-08c-migrations-to-local-and-staging",
+    "test-task-lifecycle-with-volunteer-and-coordinator",
+    "review-availability-privacy",
     "configure-real-master",
-    "select-next-08-package"
+    "plan-08d-agenda-and-exhibitions"
   ],
-  "memberManagementReady": true
+  "memberManagementReady": true,
+  "volunteeringTasksReady": true
 }

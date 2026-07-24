@@ -1,35 +1,42 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08B"
+package: "08C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08B — Gestão de Membros e Perfis
+# Pacote 08C — Voluntariado e Tarefas
 
-**Versão:** 0.13.0  
-**Base cumulativa:** Pacote 08A.
+**Versão:** 0.14.0  
+**Base cumulativa:** Pacote 08B.
 
-O 08B transforma a fundação de gestão numa funcionalidade completa para pequenos grupos de colaboradores.
+O 08C transforma o módulo de tarefas num fluxo operacional para voluntários, investigadores, tradutores, revisores e coordenação.
 
 ## Funcionalidades
 
-- pesquisa e filtros de membros;
-- métricas por estado;
-- detalhe individual;
-- aprovação e recusa de pedidos;
-- atribuição do perfil principal;
-- atribuição de múltiplas funções;
-- suspensão, reativação e arquivo;
-- notas internas;
-- histórico de auditoria;
-- proteção do último master ativo;
-- pré-autorizações por e-mail para futuro login Google;
-- interesses, competências e idiomas no perfil do membro.
+- demonstração com perfil de voluntário;
+- disponibilidade semanal e modos preferidos;
+- oportunidades abertas;
+- tarefas próprias;
+- adesão direta, candidatura ou convite;
+- capacidade e competências requeridas;
+- início, progresso, desistência e submissão;
+- registo de tempo;
+- validação da conclusão pela coordenação;
+- criação, edição, publicação, atribuição, cancelamento e encerramento;
+- histórico de atividade e auditoria.
 
-## Pré-autorização
+## Rotas
 
-A Área Colaborativa **não envia um e-mail**. A coordenação regista previamente o e-mail, perfil e funções. Quando a pessoa entrar com Google usando o mesmo e-mail verificado, o vínculo pode ser ativado automaticamente.
+```text
+#/area-colaborativa/tarefas
+#/area-colaborativa/tarefas/:taskId
+#/area-colaborativa/disponibilidade
+#/area-colaborativa/gestao/tarefas
+#/area-colaborativa/gestao/tarefas/nova
+#/area-colaborativa/gestao/tarefas/:taskId
+#/area-colaborativa/gestao/tarefas/:taskId/editar
+```
 
 ## Demonstração
 
@@ -38,21 +45,39 @@ npm install
 npm run dev
 ```
 
-Abrir `#/area-colaborativa`, entrar como master de demonstração e aceder a:
+Na entrada da Área Colaborativa estão disponíveis três simulações:
+
+- pedido de acesso;
+- voluntário ativo;
+- master.
+
+Os dados são fictícios, utilizam endereços `.invalid` e permanecem no `localStorage`.
+
+## Ciclo da participação
 
 ```text
-#/area-colaborativa/gestao/perfis
-#/area-colaborativa/gestao/convites
+Tarefa aberta
+→ adesão direta / candidatura / convite
+→ aceite
+→ em execução
+→ submetida
+→ validada
+→ concluída
 ```
 
-## Validação
+O registo de tempo fica `pending` até validação. Não é convertido automaticamente em pontuação, ranking ou certificado.
+
+## Executar validações
 
 ```bash
 npm run collab:config
+npm run channels:export
+npm run museum:index
+npm run museum:audit
 npm run validate
 npm test
 npm run build
 npm run smoke
 ```
 
-A execução real das migrations deve ocorrer primeiro em ambiente local ou staging.
+A execução real das migrations deve ocorrer primeiro em Supabase local ou staging.
