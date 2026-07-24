@@ -482,3 +482,42 @@ linear-gradient(#d8cfc3 1px,transparent 1px),linear-gradient(90deg,#d8cfc3 1px,t
   .collab-request-list article{grid-template-columns:1fr}
   .collab-pending__card dl{grid-template-columns:1fr}
 }
+
+/* 08B — gestão completa de membros, perfis e acessos */
+.collab-management-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-bottom:1.5rem}
+.collab-management-metrics article{display:grid;gap:.15rem;padding:1rem;background:#fffefa;border-top:4px solid #a83227}
+.collab-management-metrics strong{font:500 2.4rem var(--ml-font-display)}
+.collab-management-metrics span{font-size:.68rem;font-weight:900;text-transform:uppercase}
+.collab-management-toolbar{display:grid;grid-template-columns:minmax(14rem,1fr) 10rem 13rem auto;gap:.7rem;align-items:end;margin-bottom:2rem;padding:1rem;background:#ded6c9}
+.collab-management-toolbar label{display:grid;gap:.25rem;font-size:.66rem;font-weight:900;text-transform:uppercase}
+.collab-management-toolbar input,.collab-management-toolbar select{min-height:2.7rem;padding:.55rem;border:1px solid #8b8075;background:white}
+.collab-member-table tr[hidden]{display:none}
+.collab-member-table a,.collab-request-list a{font-weight:800;color:#7e251c}
+.collab-filter-empty{padding:1rem;text-align:center}
+.collab-back-link{display:inline-block;margin-bottom:1rem;color:#7e251c;font-weight:900;text-decoration:none}
+.collab-member-detail{display:grid;grid-template-columns:minmax(16rem,.36fr) minmax(0,.64fr);gap:1rem;align-items:start}
+.collab-member-summary{position:sticky;top:6rem;padding:1.2rem;background:#fffefa;border-top:6px solid #a83227}
+.collab-member-avatar{width:5rem;height:5rem;display:grid;place-items:center;margin-bottom:1rem;border-radius:50%;background:#1e1a17;color:white;font:500 2.2rem var(--ml-font-display)}
+.collab-member-summary dl{display:grid;grid-template-columns:7rem 1fr;gap:.5rem .7rem;margin-top:1rem}
+.collab-member-summary dt{font-size:.68rem;font-weight:900;text-transform:uppercase}.collab-member-summary dd{margin:0}
+.collab-master-warning{margin-top:1rem;padding:.8rem;background:#fff5d6;border-left:5px solid #a83227;font-size:.75rem;font-weight:800}
+.collab-member-workspace{display:grid;gap:1rem}.collab-member-form{max-width:none}
+.collab-role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+.collab-role-option{display:grid!important;grid-template-columns:auto 1fr;align-items:start;gap:.55rem;padding:.65rem;background:#eee7db;border:1px solid #d1c5b7}
+.collab-role-option input{width:auto;margin-top:.25rem}.collab-role-option span{display:grid}.collab-role-option small{font-weight:400}
+.collab-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+.collab-choice{display:grid!important;grid-template-columns:auto 1fr;align-items:center;gap:.45rem;padding:.5rem;background:#f1ece4;border:1px solid #d8cfc3}
+.collab-choice input{width:auto}
+.collab-form fieldset{margin:0;padding:1rem;border:1px solid #c7bbad}.collab-form legend{padding:0 .4rem;font-size:.72rem;font-weight:900;text-transform:uppercase}
+.collab-member-history{display:grid;gap:.55rem;padding:1.2rem;background:#fffefa;border:1px solid #d5cabd}
+.collab-member-history h2{margin:1rem 0 .25rem;font:500 1.6rem var(--ml-font-display)}
+.collab-member-history article{display:flex;justify-content:space-between;gap:1rem;padding:.65rem;border-bottom:1px solid #ded5ca}
+.collab-member-history article p{margin:0}.collab-member-history small,.collab-member-history span{font-size:.68rem;color:#655e57}
+.collab-invite-notice{max-width:70rem;margin-bottom:1rem;padding:1rem;background:#fff5d6;border-left:5px solid #a83227}.collab-invite-notice p{margin:.35rem 0}
+.collab-invitation-layout{display:grid;grid-template-columns:minmax(20rem,.42fr) minmax(0,.58fr);gap:1rem;align-items:start}
+.collab-invitation-list{display:grid;gap:.65rem}.collab-invitation-list h2{font:500 2rem var(--ml-font-display)}
+.collab-invitation-list article{display:grid;gap:.45rem;padding:1rem;background:#fffefa;border:1px solid #d5cabd}
+.collab-invitation-list article>div{display:flex;justify-content:space-between;gap:1rem;align-items:center}.collab-invitation-list p{margin:0}.collab-invitation-list small{color:#655e57}
+.collab-invitation-list button{justify-self:start;padding:.45rem .65rem;background:transparent;border:1px solid #9b3d32;color:#7e251c;font-weight:800;cursor:pointer}
+@media(max-width:70rem){.collab-management-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.collab-management-toolbar{grid-template-columns:1fr 1fr}.collab-member-detail,.collab-invitation-layout{grid-template-columns:1fr}.collab-member-summary{position:relative;top:auto}}
+@media(max-width:42rem){.collab-management-metrics,.collab-management-toolbar,.collab-role-grid,.collab-choice-grid{grid-template-columns:1fr}.collab-member-summary dl{grid-template-columns:1fr}.collab-member-history article{display:grid}}

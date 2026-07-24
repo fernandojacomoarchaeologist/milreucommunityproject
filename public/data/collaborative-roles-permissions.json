@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "roles": [
     {
       "code": "master",
@@ -64,7 +64,13 @@
     "memberships.view",
     "memberships.manage",
     "roles.manage",
-    "audit.view"
+    "audit.view",
+    "memberships.reject",
+    "memberships.suspend",
+    "memberships.archive",
+    "invitations.manage",
+    "member.audit.view",
+    "member.notes.manage"
   ],
   "rolePermissions": {
     "master": [
@@ -89,7 +95,13 @@
       "museum.approve",
       "memberships.view",
       "memberships.manage",
-      "audit.view"
+      "audit.view",
+      "memberships.reject",
+      "memberships.suspend",
+      "memberships.archive",
+      "invitations.manage",
+      "member.audit.view",
+      "member.notes.manage"
     ],
     "volunteer": [
       "area.view",

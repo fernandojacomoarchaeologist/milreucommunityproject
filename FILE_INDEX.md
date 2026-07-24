@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08A"
+package: "08B"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -16,13 +16,16 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/rules/derived-navigation-transparency.md`
 - `.claude/rules/digital-intervention-disclosure.md`
 - `.claude/rules/google-oauth-boundaries.md`
+- `.claude/rules/last-master-protection.md`
 - `.claude/rules/master-not-hardcoded.md`
 - `.claude/rules/media-pipeline.md`
+- `.claude/rules/member-management-audit.md`
 - `.claude/rules/museum-immersive-permanent.md`
 - `.claude/rules/museum-incremental-non-regression.md`
 - `.claude/rules/museum-public-index.md`
 - `.claude/rules/physical-preview-not-production.md`
 - `.claude/rules/portal-content-no-invention.md`
+- `.claude/rules/preauthorization-not-email.md`
 - `.claude/rules/preliminary-copy.md`
 - `.claude/rules/profile-role-separation.md`
 - `.claude/rules/public-museum-images.md`
@@ -42,7 +45,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/export-multichannel-content/SKILL.md`
 - `.claude/skills/generate-final-qr/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
+- `.claude/skills/manage-collaborative-member/SKILL.md`
 - `.claude/skills/plan-next-collaborative-module/SKILL.md`
+- `.claude/skills/preauthorize-google-member/SKILL.md`
 - `.claude/skills/prepare-07b-handoff/SKILL.md`
 - `.claude/skills/prepare-07c-handoff/SKILL.md`
 - `.claude/skills/prepare-07d-handoff/SKILL.md`
@@ -66,8 +71,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.env.example`
 - `.github/workflows/07d-ci.yml`
 - `.github/workflows/07d-pages.yml`
-- `.github/workflows/08a-ci.yml`
-- `.github/workflows/08a-database-tests.yml`
+- `.github/workflows/08b-ci.yml`
+- `.github/workflows/08b-database-tests.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
@@ -91,7 +96,10 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/collaborative/ARCHITECTURE.md`
 - `docs/collaborative/EXHIBITION_CALENDAR_FOUNDATION.md`
 - `docs/collaborative/GOOGLE_OAUTH_SETUP.md`
+- `docs/collaborative/GOOGLE_PREAUTHORIZATION.md`
 - `docs/collaborative/MASTER_BOOTSTRAP.md`
+- `docs/collaborative/MASTER_SAFEGUARDS.md`
+- `docs/collaborative/MEMBER_MANAGEMENT.md`
 - `docs/collaborative/MODULE_ROADMAP.md`
 - `docs/collaborative/OPEN_DECISIONS.md`
 - `docs/collaborative/PROFILE_ROLE_PERMISSION_MODEL.md`
@@ -109,6 +117,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/museum/SEARCH_AND_FILTER_SPEC.md`
 - `docs/museum/TIMELINE_SPEC.md`
 - `docs/references/TECHNICAL_REFERENCES_08A.md`
+- `docs/references/TECHNICAL_REFERENCES_08B.md`
 - `docs/references/TECHNICAL_STANDARDS.md`
 - `docs/release/GITHUB_PAGES_DEPLOYMENT.md`
 - `docs/release/PUBLICATION_GATES.md`
@@ -140,6 +149,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
 - `public/data/collaborative-demo.json`
+- `public/data/collaborative-member-catalog.json`
 - `public/data/collaborative-modules.json`
 - `public/data/collaborative-profile-types.json`
 - `public/data/collaborative-readiness.json`
@@ -343,6 +353,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_07D3_v0.11.3.md`
 - `releases/PACKAGE_07D_v0.11.0.md`
 - `releases/PACKAGE_08A_v0.12.0.md`
+- `releases/PACKAGE_08B_v0.13.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
 - `scripts/admin/bootstrap-master.mjs`
@@ -354,6 +365,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/collab/build-runtime-config.mjs`
 - `scripts/collab/status.mjs`
 - `scripts/collab/validate-foundation.mjs`
+- `scripts/collab/validate-member-management.mjs`
 - `scripts/dev-server.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
@@ -401,12 +413,18 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260723080200_collaborative_rls_and_rpc.sql`
 - `supabase/migrations/20260723080300_collaborative_context_and_admin.sql`
 - `supabase/migrations/20260723080400_collaborative_tasks_exhibitions.sql`
+- `supabase/migrations/20260723090000_collaborative_member_management.sql`
+- `supabase/migrations/20260723090100_collaborative_member_management_rpc.sql`
 - `supabase/seed.sql`
-- `supabase/collab-tests/008a_collaborative_foundation.test.sql`
+- `supabase/tests/008a_collaborative_foundation.test.sql`
+- `supabase/tests/008b_member_management.test.sql`
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/collaborative-data-08a.test.mjs`
 - `tests/collaborative-database-08a.test.mjs`
+- `tests/collaborative-invitations-08b.test.mjs`
+- `tests/collaborative-master-protection-08b.test.mjs`
+- `tests/collaborative-member-management-08b.test.mjs`
 - `tests/collaborative-permissions-08a.test.mjs`
 - `tests/collaborative-security-08a.test.mjs`
 - `tests/collaborative-ui-08a.test.mjs`

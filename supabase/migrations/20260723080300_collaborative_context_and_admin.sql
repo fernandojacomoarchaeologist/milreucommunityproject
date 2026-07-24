@@ -1,13 +1,12 @@
--- Contexto do utilizador, gestão de membros e bootstrap do master.
---
 -- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-23):
--- Esta migration contém `delete from public.collab_member_roles where
--- project_id=... and user_id=...` dentro de funções RPC de reatribuição de
--- papéis (padrão "definir papéis" = apagar os papéis atuais desse membro nesse
--- projeto e inserir os novos). Não é exclusão massiva, não altera schema, é
--- reversível pela própria reatribuição e está limitada a um par (projeto,
--- utilizador) sob RLS/security definer. Não afeta dados canónicos do Museu.
--- Marcador adicionado após revisão manual das operações destrutivas.
+-- Os `delete from collab_member_roles where project_id=... and user_id=...`
+-- (reatribuição de funções em collab_approve_access_request e
+-- collab_assign_member_roles) são operações scoped "definir funções" sob
+-- RLS/RPC: apagam apenas as linhas de função do membro-alvo e reinserem as
+-- novas. Não é exclusão massiva, não altera schema, é reversível e não toca
+-- dados canónicos do Museu. Marcador aposto após revisão manual.
+
+-- Contexto do utilizador, gestão de membros e bootstrap do master.
 
 create or replace function public.collab_get_my_context()
 returns jsonb

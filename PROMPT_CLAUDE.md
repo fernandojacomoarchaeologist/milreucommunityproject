@@ -1,65 +1,54 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08A"
+package: "08B"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08A
+# Prompt de integração — Pacote 08B
 
-Integra o 08A cumulativamente sobre o 07D.3.
+Integra o 08B cumulativamente sobre o 08A.
 
 ## Objetivo
 
-Criar a fundação da Área Colaborativa sem transformar esta release num sistema completo.
+Ativar a gestão completa de membros e perfis sem avançar ainda para tarefas, calendário ou revisão editorial.
 
-## Preservar
+## Regras
 
-- Portal;
-- Museu;
-- modo imersivo e slideshow;
-- carrossel da Home;
-- Experiência Proteus;
-- laboratório multicanal;
-- MM202617 visível para revisão, mas inelegível para lançamento;
-- gates de publicação.
+1. Preservar Google OAuth, PKCE, RLS e separação entre perfil/função/permissão.
+2. Não expor `service_role`.
+3. Não hardcodar o e-mail do master.
+4. Não permitir a remoção ou suspensão do último master ativo.
+5. Não apresentar pré-autorização como e-mail enviado.
+6. Não apagar membros; arquivar preservando histórico.
+7. Aplicar migrations apenas em local/staging antes de produção.
 
-## Integrar
+## Comandos
 
-1. Mesclar rotas, componentes e estilos.
-2. Integrar `auth/callback/`.
-3. Integrar dados e configuração colaborativa.
-4. Integrar migrations sem apagar migrations existentes.
-5. Executar:
-   - `npm run collab:config`;
-   - `npm run channels:export`;
-   - `npm run museum:index`;
-   - `npm run museum:audit`;
-   - `npm run validate`;
-   - `npm test`;
-   - `npm run build`;
-   - `npm run smoke`.
-6. Testar modo demo pendente e master.
-7. Testar os módulos visíveis conforme permissões.
-8. Testar callback apenas num ambiente Supabase configurado.
+```bash
+npm run collab:config
+npm run channels:export
+npm run museum:index
+npm run museum:audit
+npm run validate
+npm test
+npm run build
+npm run smoke
+```
 
-## Segurança
+## Revisão manual
 
-- nunca colocar `SUPABASE_SERVICE_ROLE_KEY` no frontend;
-- usar apenas chave publicável no navegador;
-- não guardar tokens Google de Gmail, Drive ou Calendar;
-- não hardcodar e-mail do master;
-- manter RLS em todas as tabelas;
-- login Google não ativa automaticamente um membro.
+- filtros e pesquisa;
+- pedido pendente;
+- aprovação com perfil e funções;
+- recusa;
+- suspensão e reativação;
+- arquivo;
+- proteção do último master;
+- notas e histórico;
+- criação e revogação de pré-autorização;
+- login Google com e-mail previamente autorizado.
 
-## Master
+## Workflows
 
-Após o primeiro login real do responsável, usar o script administrativo com `MILREU_MASTER_EMAIL`.
-
-## Exposições
-
-Integrar as tabelas e a interface de fundação, mas não inventar locais ou datas.
-
-## Resultado
-
-Uma fundação executável e auditável, pronta para avaliação antes dos pacotes 08B–08G.
+Substituir os workflows 08A pelos workflows 08B incluídos neste pacote para evitar CI duplicado.

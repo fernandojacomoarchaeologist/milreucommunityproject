@@ -55,5 +55,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(portArg, "127.0.0.1", () => {
-  console.log(`Milreu 08A: http://127.0.0.1:${portArg}`);
+  console.log(`Milreu 08B: http://127.0.0.1:${portArg}`);
 });

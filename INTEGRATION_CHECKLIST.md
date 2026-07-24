@@ -1,75 +1,35 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08A"
+package: "08B"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração
+# Checklist de integração 08B
 
-## Aplicação
-
-- [ ] Portal e Museu sem regressão
-- [ ] Link Área Colaborativa
-- [ ] `/entrar`
-- [ ] `/area-colaborativa`
-- [ ] perfil
-- [ ] tarefas
-- [ ] contributos
-- [ ] agenda
-- [ ] biblioteca
-- [ ] formação
-- [ ] revisão do Museu
-- [ ] gestão de perfis
-- [ ] gestão de exposições
-
-## Demonstração
-
-- [ ] utilizador pendente
-- [ ] cadastro com nome
-- [ ] e-mail somente leitura
-- [ ] escolha do perfil
-- [ ] pedido pendente
-- [ ] master de demonstração
-- [ ] módulos condicionados
-- [ ] logout
-
-## Supabase
-
-- [ ] migrations preservadas
-- [ ] RLS
-- [ ] funções RPC
-- [ ] perfil criado após login
-- [ ] vínculo pending
-- [ ] aprovação de acesso
-- [ ] atribuição de funções
-- [ ] auditoria
-- [ ] tabelas de tarefas
-- [ ] tabelas de exposições
-
-## Google
-
-- [ ] projeto Google Cloud
-- [ ] ecrã de consentimento
-- [ ] cliente OAuth Web
-- [ ] provider Google no Supabase
-- [ ] callback local
-- [ ] callback GitHub Pages
-- [ ] callback domínio final
-- [ ] teste PKCE
-
-## Master
-
-- [ ] login inicial efetuado
-- [ ] e-mail real definido fora do Git
-- [ ] service role apenas em ambiente administrativo
-- [ ] bootstrap executado
-- [ ] função master confirmada
-- [ ] auditoria confirmada
-
-## Qualidade
-
-- [ ] `npm run collab:status`
+- [ ] migrations 08B em local/staging
+- [ ] teste SQL 008b
+- [ ] gestão de perfis ativa
+- [ ] pesquisa
+- [ ] filtro por estado
+- [ ] filtro por perfil
+- [ ] detalhe do membro
+- [ ] aprovação
+- [ ] recusa
+- [ ] suspensão
+- [ ] reativação
+- [ ] arquivo
+- [ ] funções múltiplas
+- [ ] master apenas por master
+- [ ] último master protegido
+- [ ] notas internas
+- [ ] histórico
+- [ ] criação de pré-autorização
+- [ ] revogação de pré-autorização
+- [ ] claim com login Google
+- [ ] perfil com idiomas
+- [ ] perfil com interesses
+- [ ] perfil com competências
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`
