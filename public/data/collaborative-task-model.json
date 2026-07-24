@@ -1,0 +1,233 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.14.0",
+  "notice": "Catálogo operacional. Os exemplos de demonstração não representam atividades reais.",
+  "categories": [
+    {
+      "code": "digitisation",
+      "name": "Fotografia e digitalização",
+      "description": "Digitalização, organização e verificação técnica de imagens."
+    },
+    {
+      "code": "transcription",
+      "name": "Transcrição",
+      "description": "Transcrição e revisão de entrevistas, testemunhos e documentos."
+    },
+    {
+      "code": "oral-history",
+      "name": "História oral",
+      "description": "Preparação, apoio e documentação de recolhas orais."
+    },
+    {
+      "code": "historical-research",
+      "name": "Pesquisa histórica",
+      "description": "Pesquisa de fontes, referências, cronologias e proveniência."
+    },
+    {
+      "code": "cataloguing",
+      "name": "Catalogação",
+      "description": "Descrição, metadados, relações e normalização de registos."
+    },
+    {
+      "code": "translation",
+      "name": "Tradução",
+      "description": "Tradução e revisão linguística de conteúdos aprovados."
+    },
+    {
+      "code": "communication",
+      "name": "Comunicação",
+      "description": "Preparação de materiais, divulgação e apoio editorial."
+    },
+    {
+      "code": "survey",
+      "name": "Inquéritos e dados",
+      "description": "Apoio a inquéritos, tratamento e verificação de dados."
+    },
+    {
+      "code": "event-support",
+      "name": "Apoio a eventos",
+      "description": "Receção, orientação, registo e apoio ao público."
+    },
+    {
+      "code": "exhibition-setup",
+      "name": "Montagem de exposição",
+      "description": "Montagem, desmontagem, acondicionamento e verificação."
+    },
+    {
+      "code": "logistics",
+      "name": "Apoio logístico",
+      "description": "Transporte, materiais, organização e coordenação prática."
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade",
+      "description": "Revisão de acessibilidade digital, textual ou física."
+    },
+    {
+      "code": "other",
+      "name": "Outra atividade",
+      "description": "Atividade que não se enquadra nas categorias anteriores."
+    }
+  ],
+  "taskStatuses": [
+    {
+      "code": "draft",
+      "name": "Rascunho"
+    },
+    {
+      "code": "open",
+      "name": "Aberta"
+    },
+    {
+      "code": "in-progress",
+      "name": "Em curso"
+    },
+    {
+      "code": "completed",
+      "name": "Concluída"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelada"
+    },
+    {
+      "code": "archived",
+      "name": "Arquivada"
+    }
+  ],
+  "assignmentStatuses": [
+    {
+      "code": "invited",
+      "name": "Convidado"
+    },
+    {
+      "code": "applied",
+      "name": "Candidatura enviada"
+    },
+    {
+      "code": "accepted",
+      "name": "Aceite"
+    },
+    {
+      "code": "declined",
+      "name": "Recusada"
+    },
+    {
+      "code": "in-progress",
+      "name": "Em execução"
+    },
+    {
+      "code": "submitted",
+      "name": "Submetida para validação"
+    },
+    {
+      "code": "completed",
+      "name": "Concluída e validada"
+    },
+    {
+      "code": "withdrawn",
+      "name": "Desistência"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelada"
+    }
+  ],
+  "assignmentModes": [
+    {
+      "code": "open",
+      "name": "Adesão direta",
+      "description": "O membro aceita enquanto existir capacidade."
+    },
+    {
+      "code": "approval",
+      "name": "Candidatura com aprovação",
+      "description": "A coordenação analisa antes de confirmar."
+    },
+    {
+      "code": "direct",
+      "name": "Atribuição ou convite",
+      "description": "A coordenação convida membros específicos."
+    }
+  ],
+  "locationModes": [
+    {
+      "code": "remote",
+      "name": "Remota"
+    },
+    {
+      "code": "on-site",
+      "name": "Presencial"
+    },
+    {
+      "code": "hybrid",
+      "name": "Híbrida"
+    },
+    {
+      "code": "flexible",
+      "name": "A combinar"
+    }
+  ],
+  "priorities": [
+    {
+      "code": "low",
+      "name": "Baixa"
+    },
+    {
+      "code": "normal",
+      "name": "Normal"
+    },
+    {
+      "code": "high",
+      "name": "Alta"
+    },
+    {
+      "code": "urgent",
+      "name": "Urgente"
+    }
+  ],
+  "availabilityModes": [
+    {
+      "code": "remote",
+      "name": "Remoto"
+    },
+    {
+      "code": "on-site",
+      "name": "Presencial"
+    },
+    {
+      "code": "hybrid",
+      "name": "Ambos"
+    }
+  ],
+  "weekdays": [
+    {
+      "code": 1,
+      "name": "Segunda-feira"
+    },
+    {
+      "code": 2,
+      "name": "Terça-feira"
+    },
+    {
+      "code": 3,
+      "name": "Quarta-feira"
+    },
+    {
+      "code": 4,
+      "name": "Quinta-feira"
+    },
+    {
+      "code": 5,
+      "name": "Sexta-feira"
+    },
+    {
+      "code": 6,
+      "name": "Sábado"
+    },
+    {
+      "code": 0,
+      "name": "Domingo"
+    }
+  ]
+}

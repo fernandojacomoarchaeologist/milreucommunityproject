@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "modules": [
     {
       "code": "dashboard",
@@ -8,7 +8,8 @@
       "route": "/area-colaborativa",
       "status": "active",
       "permission": "area.view",
-      "description": "Resumo do vínculo, próximos passos e módulos disponíveis."
+      "description": "Resumo do vínculo, próximos passos e módulos disponíveis.",
+      "sortOrder": 10
     },
     {
       "code": "profile",
@@ -16,15 +17,26 @@
       "route": "/area-colaborativa/perfil",
       "status": "active",
       "permission": "profile.self.manage",
-      "description": "Nome, e-mail, perfil principal e preferências básicas."
+      "description": "Nome, e-mail, perfil principal e preferências básicas.",
+      "sortOrder": 20
+    },
+    {
+      "code": "availability",
+      "name": "Disponibilidade",
+      "route": "/area-colaborativa/disponibilidade",
+      "status": "active",
+      "permission": "availability.self.manage",
+      "sortOrder": 25,
+      "description": "Horários recorrentes, modos de colaboração e disponibilidade semanal."
     },
     {
       "code": "tasks",
       "name": "As minhas tarefas",
       "route": "/area-colaborativa/tarefas",
-      "status": "skeleton",
+      "status": "active",
       "permission": "tasks.view",
-      "description": "Tarefas de voluntariado, investigação, digitalização e apoio."
+      "description": "Oportunidades disponíveis, tarefas próprias, progresso e horas registadas.",
+      "sortOrder": 30
     },
     {
       "code": "contributions",
@@ -32,7 +44,8 @@
       "route": "/area-colaborativa/contributos",
       "status": "skeleton",
       "permission": "contributions.view-own",
-      "description": "Fotografias, memórias, correções, referências e documentos submetidos."
+      "description": "Fotografias, memórias, correções, referências e documentos submetidos.",
+      "sortOrder": 40
     },
     {
       "code": "agenda",
@@ -40,7 +53,8 @@
       "route": "/area-colaborativa/agenda",
       "status": "skeleton",
       "permission": "agenda.view",
-      "description": "Calendário de atividades e percurso da exposição física itinerante."
+      "description": "Calendário de atividades e percurso da exposição física itinerante.",
+      "sortOrder": 50
     },
     {
       "code": "library",
@@ -48,7 +62,8 @@
       "route": "/area-colaborativa/biblioteca",
       "status": "skeleton",
       "permission": "library.view",
-      "description": "Guias, procedimentos, consentimentos e documentação interna."
+      "description": "Guias, procedimentos, consentimentos e documentação interna.",
+      "sortOrder": 60
     },
     {
       "code": "training",
@@ -56,7 +71,8 @@
       "route": "/area-colaborativa/formacao",
       "status": "skeleton",
       "permission": "training.view",
-      "description": "Percursos de formação para voluntários e colaboradores."
+      "description": "Percursos de formação para voluntários e colaboradores.",
+      "sortOrder": 70
     },
     {
       "code": "museum-review",
@@ -64,7 +80,17 @@
       "route": "/area-colaborativa/revisao-museu",
       "status": "skeleton",
       "permission": "museum.review",
-      "description": "Futura revisão editorial e curatorial das 31 memórias."
+      "description": "Futura revisão editorial e curatorial das 31 memórias.",
+      "sortOrder": 80
+    },
+    {
+      "code": "task-management",
+      "name": "Gestão de tarefas",
+      "route": "/area-colaborativa/gestao/tarefas",
+      "status": "active",
+      "permission": "tasks.manage",
+      "sortOrder": 85,
+      "description": "Criar, publicar, atribuir, acompanhar e validar tarefas de voluntariado."
     },
     {
       "code": "profile-management",
@@ -72,15 +98,8 @@
       "route": "/area-colaborativa/gestao/perfis",
       "status": "active",
       "permission": "memberships.manage",
-      "description": "Pesquisar membros, rever pedidos, atribuir perfis e funções, suspender acessos e consultar histórico."
-    },
-    {
-      "code": "exhibition-management",
-      "name": "Gestão de exposições",
-      "route": "/area-colaborativa/gestao/exposicoes",
-      "status": "skeleton",
-      "permission": "exhibitions.manage",
-      "description": "Locais, períodos e estado da exposição itinerante."
+      "description": "Pesquisar membros, rever pedidos, atribuir perfis e funções, suspender acessos e consultar histórico.",
+      "sortOrder": 90
     },
     {
       "code": "member-invitations",
@@ -90,6 +109,15 @@
       "permission": "memberships.manage",
       "sortOrder": 95,
       "description": "Pré-autorizar um e-mail Google com perfil e funções, sem enviar mensagem automaticamente."
+    },
+    {
+      "code": "exhibition-management",
+      "name": "Gestão de exposições",
+      "route": "/area-colaborativa/gestao/exposicoes",
+      "status": "skeleton",
+      "permission": "exhibitions.manage",
+      "description": "Locais, períodos e estado da exposição itinerante.",
+      "sortOrder": 100
     }
   ]
 }

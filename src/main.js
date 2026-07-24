@@ -25,6 +25,10 @@ import {
   collaborativeProfileView, collaborativeSkeletonView, collaborativeAgendaView,
   collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView, collaborativeExhibitionManagementView
 } from "./views/collaborative.js";
+import {
+  collaborativeTasksView, collaborativeTaskDetailView, collaborativeAvailabilityView,
+  collaborativeTaskManagementView, collaborativeTaskEditorView
+} from "./views/collaborative-tasks.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -39,6 +43,7 @@ const state = {
   channelConfig: null,
   channelRecords: [],
   collab: {ready:false,authenticated:false,mode:"demo"},
+  collabTaskFilters: {query:"",category:"",location:""},
   lang: localStorage.getItem("milreu-language") || "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
@@ -180,7 +185,11 @@ function renderCollaborativeRoute(route) {
     case "collab-profile":
       return collaborativeProfileView(context);
     case "collab-tasks":
-      return collaborativeSkeletonView(context,"tasks");
+      return collaborativeTasksView(context,{...state.collabTaskFilters,...(route.query||{})});
+    case "collab-task-detail":
+      return collaborativeTaskDetailView(context,route.taskId,false);
+    case "collab-availability":
+      return collaborativeAvailabilityView(context);
     case "collab-contributions":
       return collaborativeSkeletonView(context,"contributions");
     case "collab-agenda":
@@ -197,6 +206,14 @@ function renderCollaborativeRoute(route) {
       return collaborativeMemberDetailView(context,route.userId);
     case "collab-invitations":
       return collaborativeInvitationsView(context);
+    case "collab-task-management":
+      return collaborativeTaskManagementView(context);
+    case "collab-task-new":
+      return collaborativeTaskEditorView(context,null);
+    case "collab-task-edit":
+      return collaborativeTaskEditorView(context,route.taskId);
+    case "collab-task-manage-detail":
+      return collaborativeTaskDetailView(context,route.taskId,true);
     case "collab-exhibition-management":
       return collaborativeExhibitionManagementView(context);
     default:
@@ -322,6 +339,82 @@ function bindPage() {
       finally { button.disabled=false; }
     })
   );
+
+
+  const taskFilterForm=document.querySelector("[data-task-filters]");
+  taskFilterForm?.addEventListener("input",()=>{
+    const values=formValues(taskFilterForm);
+    state.collabTaskFilters={query:values.query||"",category:values.category||"",location:values.location||""};
+    const query=state.collabTaskFilters.query.toLowerCase();
+    let visible=0;
+    document.querySelectorAll("[data-task-card]").forEach(card=>{
+      const show=(!query||card.dataset.search.includes(query))&&(!state.collabTaskFilters.category||card.dataset.category===state.collabTaskFilters.category)&&(!state.collabTaskFilters.location||card.dataset.location===state.collabTaskFilters.location);
+      card.hidden=!show;if(show)visible+=1;
+    });
+    const empty=document.querySelector("[data-task-filter-empty]");if(empty)empty.hidden=visible>0;
+  });
+
+  document.querySelector("[data-task-join-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A guardar…");
+    try{await collaborative.joinTask(form.dataset.taskId,values.note||"");setCollaborativeFeedback("Participação registada.");}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-task-invitation-response]").forEach(button=>button.addEventListener("click",async()=>{
+    const note=document.querySelector("[data-task-response-note]")?.value||"";button.disabled=true;
+    try{await collaborative.respondTaskInvitation(button.dataset.taskId,button.dataset.taskInvitationResponse==="accept",note);}catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-task-withdraw]").forEach(button=>button.addEventListener("click",async()=>{
+    const note=prompt("Indique o motivo da desistência ou retirada (opcional):","")||"";button.disabled=true;
+    try{await collaborative.withdrawTask(button.dataset.taskId,note);}catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-task-start]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;try{await collaborative.startTask(button.dataset.taskId);}catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-task-submit-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A submeter…");
+    try{await collaborative.submitTask(form.dataset.taskId,values.note||"",values.minutes?Number(values.minutes):null);setCollaborativeFeedback("Conclusão enviada para validação.");}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-task-time-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar…");
+    try{await collaborative.logTaskTime(form.dataset.taskId,values.activityDate,Number(values.minutes),values.note||"");setCollaborativeFeedback("Tempo registado para validação.");form.reset();}catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-availability-add]")?.addEventListener("click",()=>{
+    const template=document.querySelector("[data-availability-template]"),target=document.querySelector("[data-availability-slots]");
+    if(template&&target)target.insertAdjacentHTML("beforeend",template.innerHTML);
+  });
+  document.querySelector("[data-availability-slots]")?.addEventListener("click",event=>{
+    const button=event.target.closest("[data-availability-remove]");if(!button)return;button.closest("[data-availability-row]")?.remove();
+  });
+  document.querySelector("[data-availability-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,preferredModes=checkedValues(form,"preferredModes");
+    const slots=[...form.querySelectorAll("[data-availability-row]")].map(row=>({dayOfWeek:Number(row.querySelector('[name="dayOfWeek"]').value),startsAt:row.querySelector('[name="startsAt"]').value,endsAt:row.querySelector('[name="endsAt"]').value,mode:row.querySelector('[name="mode"]').value}));
+    const values=formValues(form);setCollaborativeFeedback("A guardar…");
+    try{await collaborative.saveAvailability({preferredModes,maximumWeeklyMinutes:values.maximumWeeklyHours?Number(values.maximumWeeklyHours)*60:null,timezone:values.timezone||"Europe/Lisbon",notes:values.notes||"",slots});setCollaborativeFeedback("Disponibilidade atualizada.");}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-task-editor-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form),skillCodes=checkedValues(form,"skills");
+    const payload={title:values.title,summary:values.summary||null,description:values.description||null,instructions:values.instructions||null,categoryCode:values.categoryCode,priority:values.priority,assignmentMode:values.assignmentMode,locationMode:values.locationMode,locationName:values.locationName||null,municipality:values.municipality||null,startsAt:values.startsAt?new Date(values.startsAt).toISOString():null,dueAt:values.dueAt?new Date(values.dueAt).toISOString():null,applicationDeadline:values.applicationDeadline?new Date(values.applicationDeadline).toISOString():null,estimatedMinutes:values.estimatedMinutes?Number(values.estimatedMinutes):null,capacity:values.capacity?Number(values.capacity):null,minimumParticipants:values.minimumParticipants?Number(values.minimumParticipants):1,recognitionEligible:Boolean(form.elements.recognitionEligible?.checked),skills:skillCodes.map(code=>({code,required:form.elements[`skillRequirement:${code}`]?.value==="required"}))};
+    setCollaborativeFeedback("A guardar…");
+    try{if(form.dataset.taskId){await collaborative.updateTask(form.dataset.taskId,payload);setCollaborativeFeedback("Tarefa atualizada.");}else{const id=await collaborative.createTask(payload);go(`/area-colaborativa/gestao/tarefas/${id}`);}}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-task-publish]").forEach(button=>button.addEventListener("click",async()=>{button.disabled=true;try{await collaborative.publishTask(button.dataset.taskId);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
+  document.querySelectorAll("[data-task-cancel]").forEach(button=>button.addEventListener("click",async()=>{const reason=prompt("Motivo do cancelamento:","")||"";if(!confirm("Cancelar esta tarefa?"))return;button.disabled=true;try{await collaborative.cancelTask(button.dataset.taskId,reason);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
+  document.querySelectorAll("[data-task-complete]").forEach(button=>button.addEventListener("click",async()=>{const note=prompt("Nota de encerramento (opcional):","")||"";button.disabled=true;try{await collaborative.completeTask(button.dataset.taskId,note);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
+
+  document.querySelector("[data-task-invite-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A convidar…");
+    try{await collaborative.inviteTaskMember(form.dataset.taskId,values.userId,values.note||"");setCollaborativeFeedback("Convite interno registado.");form.reset();}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-task-review-application]").forEach(button=>button.addEventListener("click",async()=>{const note=prompt("Nota da decisão (opcional):","")||"";button.disabled=true;try{await collaborative.reviewTaskApplication(button.dataset.taskId,button.dataset.userId,button.dataset.taskReviewApplication==="accept",note);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
+  document.querySelectorAll("[data-task-verify]").forEach(button=>button.addEventListener("click",async()=>{const note=prompt("Nota de validação ou correção (opcional):","")||"";button.disabled=true;try{await collaborative.verifyTask(button.dataset.taskId,button.dataset.userId,button.dataset.taskVerify==="accept",note);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
 
 
   const form = document.querySelector("[data-filters]");
@@ -459,6 +552,8 @@ function render(scroll=true) {
     case "collab-dashboard":
     case "collab-profile":
     case "collab-tasks":
+    case "collab-task-detail":
+    case "collab-availability":
     case "collab-contributions":
     case "collab-agenda":
     case "collab-library":
@@ -467,6 +562,10 @@ function render(scroll=true) {
     case "collab-profile-management":
     case "collab-member-detail":
     case "collab-invitations":
+    case "collab-task-management":
+    case "collab-task-new":
+    case "collab-task-edit":
+    case "collab-task-manage-detail":
     case "collab-exhibition-management":
       html=renderCollaborativeRoute(route);
       setMetadata("Área Colaborativa");

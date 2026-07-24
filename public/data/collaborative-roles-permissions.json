@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "roles": [
     {
       "code": "master",
@@ -70,7 +70,15 @@
     "memberships.archive",
     "invitations.manage",
     "member.audit.view",
-    "member.notes.manage"
+    "member.notes.manage",
+    "availability.self.manage",
+    "tasks.apply",
+    "tasks.progress",
+    "tasks.time-log",
+    "tasks.assign",
+    "tasks.verify",
+    "tasks.cancel",
+    "tasks.audit.view"
   ],
   "rolePermissions": {
     "master": [
@@ -101,7 +109,15 @@
       "memberships.archive",
       "invitations.manage",
       "member.audit.view",
-      "member.notes.manage"
+      "member.notes.manage",
+      "availability.self.manage",
+      "tasks.apply",
+      "tasks.progress",
+      "tasks.time-log",
+      "tasks.assign",
+      "tasks.verify",
+      "tasks.cancel",
+      "tasks.audit.view"
     ],
     "volunteer": [
       "area.view",
@@ -112,7 +128,11 @@
       "contributions.submit",
       "agenda.view",
       "library.view",
-      "training.view"
+      "training.view",
+      "availability.self.manage",
+      "tasks.apply",
+      "tasks.progress",
+      "tasks.time-log"
     ],
     "reviewer": [
       "area.view",
@@ -121,7 +141,11 @@
       "agenda.view",
       "library.view",
       "training.view",
-      "museum.review"
+      "museum.review",
+      "availability.self.manage",
+      "tasks.apply",
+      "tasks.progress",
+      "tasks.time-log"
     ],
     "researcher": [
       "area.view",
@@ -132,7 +156,11 @@
       "agenda.view",
       "library.view",
       "training.view",
-      "museum.review"
+      "museum.review",
+      "availability.self.manage",
+      "tasks.apply",
+      "tasks.progress",
+      "tasks.time-log"
     ],
     "translator": [
       "area.view",
@@ -142,7 +170,11 @@
       "agenda.view",
       "library.view",
       "training.view",
-      "museum.review"
+      "museum.review",
+      "availability.self.manage",
+      "tasks.apply",
+      "tasks.progress",
+      "tasks.time-log"
     ],
     "partner": [
       "area.view",

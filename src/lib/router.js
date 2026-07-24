@@ -6,6 +6,7 @@
 export function getRoute() {
   const raw = location.hash.slice(1) || "/";
   const path = raw.split("?")[0].replace(/\/+$/, "") || "/";
+  const query = Object.fromEntries(new URLSearchParams(raw.includes("?") ? raw.split("?")[1] : ""));
 
   if (path === "/") return { name:"home" };
   if (path === "/projeto") return { name:"project" };
@@ -22,7 +23,10 @@ export function getRoute() {
   if (path === "/auth/callback") return { name:"collab-callback" };
   if (path === "/area-colaborativa") return { name:"collab-dashboard" };
   if (path === "/area-colaborativa/perfil") return { name:"collab-profile" };
-  if (path === "/area-colaborativa/tarefas") return { name:"collab-tasks" };
+  if (path === "/area-colaborativa/tarefas") return { name:"collab-tasks", query };
+  const collabTask = path.match(/^\/area-colaborativa\/tarefas\/([^/]+)$/);
+  if (collabTask) return { name:"collab-task-detail", taskId:decodeURIComponent(collabTask[1]) };
+  if (path === "/area-colaborativa/disponibilidade") return { name:"collab-availability" };
   if (path === "/area-colaborativa/contributos") return { name:"collab-contributions" };
   if (path === "/area-colaborativa/agenda") return { name:"collab-agenda" };
   if (path === "/area-colaborativa/biblioteca") return { name:"collab-library" };
@@ -32,6 +36,12 @@ export function getRoute() {
   const collabMember = path.match(/^\/area-colaborativa\/gestao\/perfis\/([^/]+)$/);
   if (collabMember) return { name:"collab-member-detail", userId:decodeURIComponent(collabMember[1]) };
   if (path === "/area-colaborativa/gestao/convites") return { name:"collab-invitations" };
+  if (path === "/area-colaborativa/gestao/tarefas") return { name:"collab-task-management" };
+  if (path === "/area-colaborativa/gestao/tarefas/nova") return { name:"collab-task-new" };
+  const collabTaskEdit = path.match(/^\/area-colaborativa\/gestao\/tarefas\/([^/]+)\/editar$/);
+  if (collabTaskEdit) return { name:"collab-task-edit", taskId:decodeURIComponent(collabTaskEdit[1]) };
+  const collabTaskManage = path.match(/^\/area-colaborativa\/gestao\/tarefas\/([^/]+)$/);
+  if (collabTaskManage) return { name:"collab-task-manage-detail", taskId:decodeURIComponent(collabTaskManage[1]) };
   if (path === "/area-colaborativa/gestao/exposicoes") return { name:"collab-exhibition-management" };
 
   if (path === "/laboratorio/canais") return { name:"channel-lab" };

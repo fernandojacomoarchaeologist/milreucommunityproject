@@ -64,3 +64,7 @@ A definição do master depende de um e-mail fornecido fora do repositório. Nen
 ## Área Colaborativa — Pacote 08B
 
 A gestão de membros trata dados pessoais de acesso restrito. E-mails, notas internas, estados e funções não integram conteúdos públicos. Pré-autorizações não equivalem a consentimento para reconhecimento público, participação em investigação ou publicação de contributos.
+
+## Voluntariado e tarefas — Pacote 08C
+
+A disponibilidade, as notas de tarefa e os registos de tempo são dados internos. Não devem ser publicados, usados para ranking ou reutilizados fora da gestão do projeto sem base e consentimento adequados.

@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08B"
+package: "08C"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -9,6 +9,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 
 - `.claude/agents/collaborative-product-reviewer.md`
 - `.claude/agents/collaborative-security-reviewer.md`
+- `.claude/agents/volunteer-operations-reviewer.md`
 - `.claude/rules/07d1-ui-editorial-fixes.md`
 - `.claude/rules/07d2-home-carousel-and-immersive.md`
 - `.claude/rules/blocked-mm202617.md`
@@ -35,13 +36,21 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/rules/single-source-multichannel.md`
 - `.claude/rules/skeleton-modules-no-fake-data.md`
 - `.claude/rules/static-first-runtime.md`
+- `.claude/rules/task-demo-data-boundaries.md`
+- `.claude/rules/task-transitions-via-rpc.md`
+- `.claude/rules/tasks-no-fake-notifications.md`
+- `.claude/rules/volunteer-availability-not-obligation.md`
+- `.claude/rules/volunteer-time-no-gamification.md`
 - `.claude/skills/approve-collaborative-member/SKILL.md`
+- `.claude/skills/assign-volunteer-task/SKILL.md`
 - `.claude/skills/audit-museum-relations/SKILL.md`
 - `.claude/skills/bootstrap-collaborative-master/SKILL.md`
 - `.claude/skills/build-github-pages/SKILL.md`
 - `.claude/skills/close-technical-mvp/SKILL.md`
+- `.claude/skills/close-volunteer-task/SKILL.md`
 - `.claude/skills/configure-google-oauth/SKILL.md`
 - `.claude/skills/create-derived-collection/SKILL.md`
+- `.claude/skills/create-volunteer-task/SKILL.md`
 - `.claude/skills/export-multichannel-content/SKILL.md`
 - `.claude/skills/generate-final-qr/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
@@ -63,19 +72,25 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-panel-preview/SKILL.md`
 - `.claude/skills/review-portal-07b/SKILL.md`
 - `.claude/skills/review-publication-status/SKILL.md`
+- `.claude/skills/review-task-application/SKILL.md`
 - `.claude/skills/review-totem-preview/SKILL.md`
 - `.claude/skills/review-vertical-slice/SKILL.md`
+- `.claude/skills/review-volunteer-availability/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
 - `.claude/skills/test-immersive-experience/SKILL.md`
 - `.claude/skills/update-portal-content/SKILL.md`
+- `.claude/skills/verify-task-completion/SKILL.md`
 - `.env.example`
 - `.github/workflows/07d-ci.yml`
 - `.github/workflows/07d-pages.yml`
 - `.github/workflows/08b-ci.yml`
 - `.github/workflows/08b-database-tests.yml`
+- `.github/workflows/08c-ci.yml`
+- `.github/workflows/08c-database-tests.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
+- `CONTEXT_ATE_08C.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_MANIFEST.md`
 - `PROMPT_CLAUDE.md`
@@ -94,6 +109,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/channels/QR_STRATEGY.md`
 - `docs/channels/TOTEM_PREVIEW_SPEC.md`
 - `docs/collaborative/ARCHITECTURE.md`
+- `docs/collaborative/AVAILABILITY_MODEL.md`
+- `docs/collaborative/DEMO_MODE_08C.md`
 - `docs/collaborative/EXHIBITION_CALENDAR_FOUNDATION.md`
 - `docs/collaborative/GOOGLE_OAUTH_SETUP.md`
 - `docs/collaborative/GOOGLE_PREAUTHORIZATION.md`
@@ -101,9 +118,16 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/collaborative/MASTER_SAFEGUARDS.md`
 - `docs/collaborative/MEMBER_MANAGEMENT.md`
 - `docs/collaborative/MODULE_ROADMAP.md`
+- `docs/collaborative/NEXT_STEPS_AFTER_08C.md`
 - `docs/collaborative/OPEN_DECISIONS.md`
+- `docs/collaborative/OPEN_DECISIONS_08C.md`
 - `docs/collaborative/PROFILE_ROLE_PERMISSION_MODEL.md`
+- `docs/collaborative/SECURITY_AND_AUDIT_08C.md`
 - `docs/collaborative/SECURITY_AND_RLS.md`
+- `docs/collaborative/TASK_ASSIGNMENT_AND_CAPACITY.md`
+- `docs/collaborative/TASK_LIFECYCLE.md`
+- `docs/collaborative/TIME_LOGGING_AND_RECOGNITION.md`
+- `docs/collaborative/VOLUNTEERING_TASK_MODEL.md`
 - `docs/content/EDITORIAL_PREVIEW_POLICY.md`
 - `docs/deployment/GITHUB_PAGES.md`
 - `docs/media/IMAGE_PIPELINE.md`
@@ -118,6 +142,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/museum/TIMELINE_SPEC.md`
 - `docs/references/TECHNICAL_REFERENCES_08A.md`
 - `docs/references/TECHNICAL_REFERENCES_08B.md`
+- `docs/references/TECHNICAL_REFERENCES_08C.md`
 - `docs/references/TECHNICAL_STANDARDS.md`
 - `docs/release/GITHUB_PAGES_DEPLOYMENT.md`
 - `docs/release/PUBLICATION_GATES.md`
@@ -154,6 +179,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/collaborative-profile-types.json`
 - `public/data/collaborative-readiness.json`
 - `public/data/collaborative-roles-permissions.json`
+- `public/data/collaborative-task-model.json`
 - `public/data/editorial-decisions/MM202617-unlock-review.json`
 - `public/data/home-carousel.json`
 - `public/data/media-manifest.json`
@@ -354,6 +380,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_07D_v0.11.0.md`
 - `releases/PACKAGE_08A_v0.12.0.md`
 - `releases/PACKAGE_08B_v0.13.0.md`
+- `releases/PACKAGE_08C_v0.14.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
 - `scripts/admin/bootstrap-master.mjs`
@@ -366,6 +393,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/collab/status.mjs`
 - `scripts/collab/validate-foundation.mjs`
 - `scripts/collab/validate-member-management.mjs`
+- `scripts/collab/validate-volunteering-tasks.mjs`
 - `scripts/dev-server.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
@@ -403,6 +431,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/styles/components.css`
 - `src/styles/tokens.css`
 - `src/views/channels.js`
+- `src/views/collaborative-tasks.js`
 - `src/views/collaborative.js`
 - `src/views/museum.js`
 - `src/views/portal.js`
@@ -415,9 +444,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260723080400_collaborative_tasks_exhibitions.sql`
 - `supabase/migrations/20260723090000_collaborative_member_management.sql`
 - `supabase/migrations/20260723090100_collaborative_member_management_rpc.sql`
+- `supabase/migrations/20260724080000_collaborative_volunteering_tasks.sql`
+- `supabase/migrations/20260724080100_collaborative_volunteering_tasks_rpc.sql`
 - `supabase/seed.sql`
 - `supabase/tests/008a_collaborative_foundation.test.sql`
 - `supabase/tests/008b_member_management.test.sql`
+- `supabase/tests/008c_volunteering_tasks.test.sql`
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/collaborative-data-08a.test.mjs`
@@ -427,6 +459,11 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/collaborative-member-management-08b.test.mjs`
 - `tests/collaborative-permissions-08a.test.mjs`
 - `tests/collaborative-security-08a.test.mjs`
+- `tests/collaborative-task-permissions-08c.test.mjs`
+- `tests/collaborative-tasks-controller-08c.test.mjs`
+- `tests/collaborative-tasks-data-08c.test.mjs`
+- `tests/collaborative-tasks-database-08c.test.mjs`
+- `tests/collaborative-tasks-ui-08c.test.mjs`
 - `tests/collaborative-ui-08a.test.mjs`
 - `tests/data.test.mjs`
 - `tests/fixes-07d1.test.mjs`
