@@ -45,7 +45,19 @@ export function collaborativeShell(context,currentRoute,content) {
     <div class="collab-layout">
       <aside class="collab-sidebar">
         <nav class="collab-nav" aria-label="Área Colaborativa">${nav}</nav>
-        ${hasPermission(context,"memberships.manage") ? `<div class="collab-sidebar__admin"><span>Gestão</span><a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a><a href="#/area-colaborativa/gestao/exposicoes">Exposições</a></div>` : ""}
+        ${(
+          hasPermission(context,"memberships.manage")
+          || hasPermission(context,"tasks.manage")
+          || hasPermission(context,"exhibitions.manage")
+          || hasPermission(context,"venues.manage")
+          || hasPermission(context,"agenda.manage")
+        ) ? `<div class="collab-sidebar__admin"><span>Gestão</span>
+          ${hasPermission(context,"memberships.manage")?`<a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a>`:""}
+          ${hasPermission(context,"tasks.manage")?`<a href="#/area-colaborativa/gestao/tarefas">Tarefas</a>`:""}
+          ${hasPermission(context,"exhibitions.manage")?`<a href="#/area-colaborativa/gestao/exposicoes">Exposições</a>`:""}
+          ${hasPermission(context,"venues.manage")?`<a href="#/area-colaborativa/gestao/locais">Locais</a>`:""}
+          ${hasPermission(context,"agenda.manage")?`<a href="#/area-colaborativa/gestao/agenda/novo">Nova atividade</a>`:""}
+        </div>` : ""}
       </aside>
       <main id="main" class="collab-main">${content}</main>
     </div>
@@ -59,7 +71,7 @@ export function collaborativePublicFrame(context,content) {
 export function statusPill(status) {
   const labels = {
     pending:"Pendente",active:"Ativo",suspended:"Suspenso",archived:"Arquivado",
-    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação"
+    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação",draft:"Rascunho",planning:"Em planeamento",ready:"Preparada",paused:"Pausada",completed:"Concluída",cancelled:"Cancelada",planned:"Planeada",confirmed:"Confirmada",installed:"Instalada",open:"Aberta",closed:"Encerrada","in-progress":"Em curso",blocked:"Bloqueada"
   };
   return `<span class="collab-status collab-status--${esc(status)}">${esc(labels[status] || status || "—")}</span>`;
 }

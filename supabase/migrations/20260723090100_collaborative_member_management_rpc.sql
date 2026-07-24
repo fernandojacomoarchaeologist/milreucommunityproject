@@ -1,7 +1,7 @@
 -- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-24):
--- Os `delete from ...` são reatribuição scoped de funções/interesses/competências por membro sob RLS: apagam apenas as linhas do alvo e reinserem
--- as novas. Não é exclusão massiva, não altera schema, é reversível e não
--- toca dados canónicos do Museu. Marcador aposto após revisão manual.
+-- Os `delete from ...` são reatribuição de funções/interesses/competências por membro: apagam só as linhas do alvo e reinserem as
+-- novas (set-operation scoped sob RLS/RPC). Não é exclusão massiva, não altera
+-- schema, é reversível e não toca dados canónicos do Museu. Marcador após revisão.
 
 -- 08B — operações transacionais e proteção do último master.
 

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "modules": [
     {
       "code": "dashboard",
@@ -51,9 +51,9 @@
       "code": "agenda",
       "name": "Agenda e exposições",
       "route": "/area-colaborativa/agenda",
-      "status": "skeleton",
+      "status": "active",
       "permission": "agenda.view",
-      "description": "Calendário de atividades e percurso da exposição física itinerante.",
+      "description": "Calendário de atividades, confirmações de participação e percurso da exposição física itinerante.",
       "sortOrder": 50
     },
     {
@@ -111,12 +111,21 @@
       "description": "Pré-autorizar um e-mail Google com perfil e funções, sem enviar mensagem automaticamente."
     },
     {
+      "code": "venue-management",
+      "name": "Gestão de locais",
+      "route": "/area-colaborativa/gestao/locais",
+      "status": "active",
+      "permission": "venues.manage",
+      "description": "Gerir museus, escolas, bibliotecas e outros locais que podem receber atividades e exposições.",
+      "sortOrder": 98
+    },
+    {
       "code": "exhibition-management",
       "name": "Gestão de exposições",
       "route": "/area-colaborativa/gestao/exposicoes",
-      "status": "skeleton",
+      "status": "active",
       "permission": "exhibitions.manage",
-      "description": "Locais, períodos e estado da exposição itinerante.",
+      "description": "Exposições, locais, itinerância, publicação, logística e verificação de conflitos.",
       "sortOrder": 100
     }
   ]

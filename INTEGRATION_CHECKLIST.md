@@ -1,61 +1,114 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08C"
+package: "08D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração
+# Checklist de integração — 08D
 
-## Regressão
+## Não regressão
 
 - [ ] Portal
 - [ ] Museu
 - [ ] modo imersivo
-- [ ] carrossel
-- [ ] autenticação
+- [ ] carrossel da Home
+- [ ] Experiência Proteus
+- [ ] autenticação Google
 - [ ] gestão de membros
-- [ ] proteção do master
+- [ ] tarefas e voluntariado
+- [ ] MM202617
 
-## Voluntário
+## Agenda
 
-- [ ] entrar na demonstração de voluntário
-- [ ] consultar tarefas disponíveis
-- [ ] filtrar por categoria e modalidade
-- [ ] enviar candidatura
-- [ ] responder a convite
-- [ ] iniciar tarefa
-- [ ] registar tempo
-- [ ] submeter conclusão
-- [ ] desistir com nota
-- [ ] guardar disponibilidade
+- [ ] lista de próximas atividades
+- [ ] calendário mensal
+- [ ] itinerância
+- [ ] mudança de mês
+- [ ] RSVP interessado
+- [ ] RSVP participante
+- [ ] RSVP não participante
+- [ ] capacidade e lista de espera
+- [ ] privacidade dos participantes
 
-## Coordenação
+## Locais
 
-- [ ] criar rascunho
+- [ ] criar
 - [ ] editar
+- [ ] rascunho
+- [ ] ativo
+- [ ] arquivado
+- [ ] dados públicos
+- [ ] contacto interno
+- [ ] acessibilidade
+- [ ] impedir ID de outro projeto
+
+## Exposições
+
+- [ ] criar
+- [ ] editar
+- [ ] tipo fixa
+- [ ] tipo itinerante
+- [ ] tipo temporária
+- [ ] tipo digital
+- [ ] estado
+- [ ] resumo público
+- [ ] objetivos internos
+
+## Agendamentos
+
+- [ ] associar exposição e local
+- [ ] datas válidas
+- [ ] montagem
+- [ ] desmontagem
+- [ ] bloquear sobreposição da mesma exposição
+- [ ] avisar sobre ocupação simultânea do local
+- [ ] estado da instalação
+- [ ] estado da logística
+- [ ] notas públicas
+- [ ] notas internas
 - [ ] publicar
-- [ ] convidar membro
-- [ ] rever candidatura
-- [ ] validar conclusão
-- [ ] rejeitar e reabrir conclusão
-- [ ] cancelar tarefa
-- [ ] concluir tarefa
-- [ ] consultar participantes e histórico
+- [ ] retirar da publicação
 
-## Banco
+## Logística
 
-- [ ] aplicar migration de modelo
-- [ ] aplicar migration de RPCs
-- [ ] executar teste SQL 08C
-- [ ] confirmar RLS
-- [ ] confirmar revogação de escritas diretas
-- [ ] testar capacidade concorrente
-- [ ] testar prazo de candidatura
-- [ ] testar utilizador sem permissão
+- [ ] checklist
+- [ ] prazo
+- [ ] responsável
+- [ ] concluir item
+- [ ] bloquear item
+- [ ] gerar tarefa de montagem
+- [ ] gerar tarefa de desmontagem
+- [ ] tarefas em rascunho
+- [ ] ligação ao agendamento
+
+## Público
+
+- [ ] `#/exposicoes`
+- [ ] empty state sem datas fictícias
+- [ ] local atual
+- [ ] próximos locais
+- [ ] histórico
+- [ ] atividades públicas
+- [ ] sem notas internas
+- [ ] sem contactos internos
+- [ ] sem relatórios de condição
+
+## Supabase
+
+- [ ] migrations 08D
+- [ ] RLS
+- [ ] RPCs
+- [ ] constraint de sobreposição
+- [ ] bloqueio entre projetos
+- [ ] lock de capacidade do RSVP
+- [ ] teste SQL 08D
+- [ ] staging
+- [ ] rollback documentado
 
 ## Qualidade
 
+- [ ] `npm run exhibitions:export`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`

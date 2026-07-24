@@ -1,79 +1,88 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08C"
+package: "08D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Relatório de validação
+# Relatório de validação — Pacote 08D
 
 ## Resultado
 
-- Pacote: 08C
-- Versão: 0.14.0
-- Base: 08B v0.13.0
-- SHA-256 da base: `602cafd55f3d219c345543d4acf29f0c0c4bbd7fa77acf0bae55cb869356af60`
-- Validação acumulada: sucesso
-- Testes automatizados: 99 aprovados, 0 falhados
-- Build: sucesso
-- Smoke HTTP: sucesso
-- JSONs validados: 80
-- Credenciais prováveis encontradas: 0
-- Revisão visual humana: pendente após integração
+- Resultado geral: sucesso
+- Versão: 0.15.0
+- Testes automatizados: 118
+- Testes aprovados: 118
+- Testes falhados: 0
+- ZIP ainda não gerado neste ponto do relatório
+- Revisão visual humana em navegador: pendente
 
-## Voluntariado e tarefas
+## Área Colaborativa
 
-- Categorias: 13
-- Modos de atribuição: 3
-- Estados da tarefa: 6
-- Estados da participação: 9
-- Módulos colaborativos: 13
-- Módulos ativos: 7
-- Permissões colaborativas: 35
-- Migrations novas: 2
-- Migrations colaborativas acumuladas: 9
+- Módulos totais: 14
+- Módulos ativos: 10
+- Permissões: 42
+- Tipos de exposição: 4
+- Tipos de local: 8
+- Tipos de evento: 10
+- Categorias logísticas: 8
 
-## Regressão pública
+## Agenda e itinerância
 
-- Memórias visíveis no ambiente de revisão: 31
-- Elegíveis para lançamento público: 30
-- Páginas estáticas do Museu geradas: 30
-- JSONs individuais gerados: 30
-- Callback de autenticação no build: sim
-- Checksum do modelo de tarefas no manifest: sim
+- Agenda em lista: validada
+- Calendário mensal: validado estruturalmente
+- Percurso da exposição: validado
+- RSVP: validado
+- Capacidade com bloqueio transacional: presente
+- Gestão de locais: validada
+- Gestão de exposições: validada
+- Gestão de períodos: validada
+- Sobreposição da mesma exposição: bloqueada
+- Sobreposição do mesmo local: aviso
+- Checklist logístico: validado
+- Geração de tarefas de montagem/desmontagem: validada
+- Proteções entre projetos: presentes
 
-## Comandos executados
+## Publicação
 
-```text
-npm run collab:config      sucesso
-npm run collab:status      sucesso
-npm run channels:export    sucesso
-npm run museum:index       sucesso
-npm run museum:audit       sucesso
-npm run validate           sucesso
-npm test                   99/99
-npm run build              sucesso
-npm run smoke              sucesso
-```
+- Página pública: incluída
+- Snapshot público no build: sim
+- View pública no build: sim
+- Snapshot atual: 0 atuais, 0 futuros, 0 passados e 0 eventos
+- Dados reais inventados: não
+- Chave administrativa no exportador: não
+- Campos internos no snapshot: não
+- Checksum do modelo: sim
+- Checksum do snapshot público: sim
+
+## Build cumulativo
+
+- Callback Google no build: sim
+- Páginas estáticas do Museu: 30
+- JSONs individuais do Museu: 30
+- Build removido do ZIP para evitar duplicação de imagens
 
 ## Banco de dados
 
-As migrations, políticas RLS, grants, constraints e RPCs foram validados estaticamente. O ambiente de geração não possui Supabase CLI, PostgreSQL ou Docker, portanto as migrations não foram executadas contra uma base real.
+- Migrations novas: 3
+- Teste SQL 08D: presente
+- Workflow cumulativo 08A–08D: presente
+- Constraint `EXCLUDE`: presente
+- RLS: presente
+- RPC pública controlada: presente
+- Execução PostgreSQL nesta geração: não
 
-O pacote inclui:
+As migrations, políticas RLS, constraints e RPCs foram validadas estruturalmente, mas não executadas contra um PostgreSQL real neste ambiente. Não estavam disponíveis Supabase CLI, PostgreSQL ou Docker. O pacote inclui teste SQL e workflow próprios para execução durante a integração.
 
-- `supabase/tests/008c_volunteering_tasks.test.sql`;
-- `.github/workflows/08c-database-tests.yml`;
-- execução acumulada dos testes 08A, 08B e 08C em Supabase local.
+## Comandos
 
-A integração deve executar o workflow de banco em local ou staging antes de ligar o módulo a utilizadores reais.
-
-## Limites preservados
-
-- sem ranking ou gamificação;
-- disponibilidade não cria obrigação;
-- tempo autodeclarado exige validação;
-- sem notificações ou e-mails automáticos;
-- sem Google Calendar nesta versão;
-- sem dados reais na demonstração;
-- sem `service_role` no frontend.
+- `npm run collab:config`: sucesso
+- `npm run collab:status`: sucesso
+- `npm run exhibitions:export`: sucesso
+- `npm run channels:export`: sucesso
+- `npm run museum:index`: sucesso
+- `npm run museum:audit`: sucesso
+- `npm run validate`: sucesso
+- `npm test`: sucesso
+- `npm run build`: sucesso
+- `npm run smoke`: sucesso

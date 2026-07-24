@@ -1,24 +1,25 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08C"
+package: "08D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 08C
+# Manifesto do Pacote 08D
 
-- Versão: 0.14.0
-- Base: 08B
+- Versão: 0.15.0
+- Base: 08C
 - Tipo: cumulativo e executável
-- Categorias de tarefa: 13
-- Modos de atribuição: 3
-- Módulos colaborativos: 13
-- Permissões colaborativas: 35
-- Migrations novas: 2
-- Disponibilidade semanal: implementada
-- Tarefas para membros: implementadas
-- Gestão de tarefas: implementada
-- Registo de tempo: implementado com validação
-- Notificações: não implementadas
-- Integração Google Calendar: não implementada
-- Ranking ou gamificação: proibidos
+- Módulos colaborativos: 14
+- Permissões colaborativas: 42
+- Migrations novas: 3
+- Teste SQL novo: 1
+- Agenda interna: ativa
+- Gestão de locais: ativa
+- Gestão de exposições: ativa
+- Página pública da itinerância: ativa
+- Snapshot público inicial: vazio
+- Dados reais inventados: não
+- Integração com tarefas: sim, em rascunho
+- Google Calendar: não integrado
+- Publicação automática: não

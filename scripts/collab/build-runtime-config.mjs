@@ -20,7 +20,7 @@ if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
 
 const config = {
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.14.0",
+  version:"0.15.0",
   mode:url && publishableKey ? "supabase" : "demo",
   supabaseUrl:url || null,
   supabasePublishableKey:publishableKey || null,

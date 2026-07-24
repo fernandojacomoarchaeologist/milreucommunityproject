@@ -68,3 +68,9 @@ A gestão de membros trata dados pessoais de acesso restrito. E-mails, notas int
 ## Voluntariado e tarefas — Pacote 08C
 
 A disponibilidade, as notas de tarefa e os registos de tempo são dados internos. Não devem ser publicados, usados para ranking ou reutilizados fora da gestão do projeto sem base e consentimento adequados.
+
+## Agenda e exposições — Pacote 08D
+
+O modo de demonstração utiliza locais, eventos e datas explicitamente fictícios. Nenhum destes dados deve ser confundido com a agenda real do projeto.
+
+A publicação pública depende de confirmação editorial e operacional. Contactos internos, participantes, notas logísticas e relatórios de condição permanecem restritos.

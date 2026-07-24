@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.14.0",
-  "status": "volunteering-tasks-ready",
+  "version": "0.15.0",
+  "status": "agenda-exhibitions-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -14,23 +14,27 @@
     "tasks",
     "task-management",
     "profile-management",
-    "member-invitations"
+    "member-invitations",
+    "agenda",
+    "venue-management",
+    "exhibition-management"
   ],
   "skeletonModules": [
     "contributions",
-    "agenda",
     "library",
     "training",
-    "museum-review",
-    "exhibition-management"
+    "museum-review"
   ],
   "nextActions": [
-    "apply-08c-migrations-to-local-and-staging",
-    "test-task-lifecycle-with-volunteer-and-coordinator",
-    "review-availability-privacy",
-    "configure-real-master",
-    "plan-08d-agenda-and-exhibitions"
+    "apply-08d-migrations-to-local-and-staging",
+    "test-exhibition-lifecycle-with-coordinator-and-volunteer",
+    "register-first-real-exhibition-and-venue",
+    "review-public-visibility-and-contact-data",
+    "test-conflict-detection",
+    "test-logistics-task-generation",
+    "plan-08e-community-contributions"
   ],
   "memberManagementReady": true,
-  "volunteeringTasksReady": true
+  "volunteeringTasksReady": true,
+  "agendaExhibitionsReady": true
 }

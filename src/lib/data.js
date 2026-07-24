@@ -85,3 +85,7 @@ export function suggestedMemories(records, record, limit=4) {
     .slice(0,limit)
     .map(item => item.candidate);
 }
+
+export async function loadPublicExhibitions() {
+  return loadJson("public/data/exhibitions-public.json");
+}

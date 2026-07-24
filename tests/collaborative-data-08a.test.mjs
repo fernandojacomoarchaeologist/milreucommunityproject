@@ -29,5 +29,5 @@ test("módulos voluntários e gestão estão registados",()=>{
     assert.ok(modules.some(module=>module.code===code),code);
   }
   assert.equal(modules.find(module=>module.code==="profile").status,"active");
-  assert.equal(modules.find(module=>module.code==="agenda").status,"skeleton");
+  assert.equal(modules.find(module=>module.code==="agenda").status,"active");
 });

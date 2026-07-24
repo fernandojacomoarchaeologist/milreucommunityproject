@@ -236,7 +236,9 @@ export function initiativeDetailView(item, lang) {
   const description = fallbackNote(item.description,lang);
   const museumAction = item.slug === "museu-de-memorias"
     ? `<p class="initiative-primary-action"><a class="ml-button ml-button--primary" href="#/museu">${text(lang,"accessMuseum")}</a></p>`
-    : "";
+    : item.slug === "exposicao-itinerante"
+      ? `<p class="initiative-primary-action"><a class="ml-button ml-button--primary" href="#/exposicoes">Ver agenda da exposição</a></p>`
+      : "";
 
   return `${portalHeader(lang,"/iniciativas")}<main id="main">
     ${pageLead(title.value, item.short, lang, `${text(lang,"initiatives")} · ${item.status}`)}

@@ -571,3 +571,111 @@ linear-gradient(#d8cfc3 1px,transparent 1px),linear-gradient(90deg,#d8cfc3 1px,t
 @media(max-width:78rem){.task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.task-detail__layout{grid-template-columns:1fr}.task-detail__content{border-right:0;border-bottom:1px solid #d6cbbf}.task-editor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.task-management-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:58rem){.collab-page-heading--actions{align-items:flex-start;flex-direction:column}.collab-heading-actions{justify-content:flex-start}.task-filters,.task-grid,.task-manager-columns,.task-editor-grid,.task-skill-editor{grid-template-columns:1fr}.task-detail__header{flex-direction:column}.task-detail__header>div:last-child{align-items:flex-start}.task-invite-form{grid-template-columns:1fr}.availability-row{grid-template-columns:1fr 1fr}.availability-row>label:first-child{grid-column:1/-1}.availability-row>button{grid-column:2;justify-self:end}.task-management-metrics{grid-template-columns:1fr 1fr}}
 @media(max-width:38rem){.task-card__meta,.task-time-form>div,.task-management-metrics{grid-template-columns:1fr}.task-detail__aside dl{grid-template-columns:1fr}.task-history article{grid-template-columns:1fr}.task-time-list article{grid-template-columns:1fr}.availability-row{grid-template-columns:1fr}.availability-row>button{grid-column:1}.task-management-list>article{grid-template-columns:1fr}.task-management-list article>div:last-child{justify-items:start}}
+
+
+/* 08D — Agenda, locais e exposição itinerante */
+.agenda-view-tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin:0 0 1.5rem}
+.agenda-view-tabs a{padding:.65rem .8rem;background:#fffefa;color:#1e1a17;border:1px solid #cfc3b5;text-decoration:none;font-size:.75rem;font-weight:800}
+.agenda-view-tabs a[aria-current="page"]{color:white;background:#7e251c;border-color:#7e251c}
+.agenda-event-list{display:grid;gap:1rem}
+.agenda-event-card{display:grid;grid-template-columns:12rem minmax(0,1fr);background:#fffefa;border:1px solid #d5cabd}
+.agenda-event-card__date{display:grid;align-content:start;gap:.45rem;padding:1.1rem;background:#2a2521;color:white}
+.agenda-event-card__date time{font-weight:800}.agenda-event-card__date span{color:#d8cbbc;font-size:.68rem;text-transform:uppercase}
+.agenda-event-card__body{padding:1.2rem}.agenda-event-card__top{display:flex;align-items:center;gap:.5rem}.agenda-event-card__top>span:last-child{font-size:.65rem;text-transform:uppercase}
+.agenda-event-card h2{margin:.45rem 0;font:500 1.8rem var(--ml-font-display)}
+.agenda-event-card dl{display:flex;gap:1.2rem;flex-wrap:wrap}.agenda-event-card dl div{display:grid}.agenda-event-card dt{font-size:.6rem;font-weight:900;text-transform:uppercase}.agenda-event-card dd{margin:0}
+.agenda-rsvp{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid #ded5ca}
+.agenda-rsvp span{margin-right:auto;font-size:.72rem;font-weight:800}.agenda-rsvp button{padding:.45rem .6rem;background:#eee7db;border:1px solid #9a8f84;cursor:pointer;font-size:.68rem;font-weight:800}
+.agenda-rsvp button:hover{background:#a83227;color:white;border-color:#a83227}
+
+.agenda-calendar{background:#fffefa;border:1px solid #d5cabd}
+.agenda-calendar>header{display:grid;grid-template-columns:3rem 1fr 3rem;align-items:center;padding:1rem;background:#2a2521;color:white}
+.agenda-calendar>header h2{margin:0;text-align:center;font:500 1.8rem var(--ml-font-display);text-transform:capitalize}
+.agenda-calendar>header a{display:grid;place-items:center;width:2.2rem;height:2.2rem;color:white;border:1px solid rgb(255 255 255/.35);text-decoration:none}
+.agenda-calendar__weekdays,.agenda-calendar__grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.agenda-calendar__weekdays span{padding:.55rem;text-align:center;background:#ded6c9;font-size:.65rem;font-weight:900}
+.agenda-calendar__day{min-height:8.2rem;padding:.45rem;border-right:1px solid #e1d8cd;border-bottom:1px solid #e1d8cd}
+.agenda-calendar__day time{display:grid;place-items:center;width:1.7rem;height:1.7rem;font-size:.72rem;font-weight:900}
+.agenda-calendar__day--today time{color:white;background:#a83227;border-radius:50%}
+.agenda-calendar__day--outside{background:#f3eee7}
+.calendar-chip{display:block;margin:.3rem 0;padding:.25rem .35rem;background:#eee7db;font-size:.58rem;line-height:1.2}
+.calendar-chip--exhibition{color:white;background:#7e251c}
+
+.exhibition-itinerary,.public-exhibition-list{display:grid;gap:1rem}
+.exhibition-stop-card{display:grid;grid-template-columns:15rem minmax(0,1fr);background:#fffefa;border:1px solid #d5cabd}
+.exhibition-stop-card--current{border:3px solid #a83227}
+.exhibition-stop-card__date{display:grid;align-content:start;gap:.45rem;padding:1.1rem;background:#eee7db}
+.exhibition-stop-card--current .exhibition-stop-card__date{color:white;background:#7e251c}
+.exhibition-stop-card>div:last-child{padding:1.2rem}
+.exhibition-stop-card__visibility{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}
+.exhibition-stop-card h2{margin:.4rem 0;font:500 2rem var(--ml-font-display)}
+.exhibition-stop-card__place{font-weight:800}
+.exhibition-stop-card__meta{display:flex;gap:1rem;flex-wrap:wrap}.exhibition-stop-card__meta div{display:grid;min-width:8rem}.exhibition-stop-card__meta dt{font-size:.58rem;font-weight:900;text-transform:uppercase}.exhibition-stop-card__meta dd{margin:0}
+.internal-note{margin-top:1rem;padding:.8rem;background:#f1e8d7;border-left:4px solid #a83227}
+.internal-note p{margin:.3rem 0 0}
+
+.exhibition-summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-bottom:2rem}
+.exhibition-summary-grid article{min-height:8rem;display:grid;align-content:center;padding:1rem;background:#fffefa;border-top:5px solid #a83227}
+.exhibition-summary-grid span{font-size:.62rem;font-weight:900;text-transform:uppercase}.exhibition-summary-grid strong{font:500 2.7rem var(--ml-font-display)}
+.exhibition-management-list{display:grid;gap:.85rem;margin-top:2rem}
+.exhibition-management-list>h2{font:500 2rem var(--ml-font-display)}
+.exhibition-management-list>article:not(.exhibition-stop-card){display:grid;grid-template-columns:minmax(0,1fr) 10rem 15rem;align-items:center;gap:1rem;padding:1rem;background:#fffefa;border:1px solid #d5cabd}
+.exhibition-management-list>article>div:nth-child(2){display:grid;justify-items:start}.exhibition-management-list>article>div:nth-child(2)>strong{font:500 2rem var(--ml-font-display)}
+.exhibition-management-list>article>div:last-child{display:flex;gap:.35rem;justify-content:flex-end;flex-wrap:wrap}
+.exhibition-management-list>article>div:last-child a{padding:.4rem .55rem;background:#eee7db;color:#1e1a17;text-decoration:none;font-size:.68rem;font-weight:800}
+
+.venue-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.venue-card{display:grid;align-content:start;gap:.55rem;min-height:17rem;padding:1.1rem;background:#fffefa;border:1px solid #d5cabd}
+.venue-card>span:first-child{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}
+.venue-card h2{margin:.2rem 0;font:500 1.8rem var(--ml-font-display)}
+.venue-card>div{display:flex;gap:.45rem;align-items:center}.venue-card>div>span:last-child{font-size:.65rem;text-transform:uppercase}
+.venue-card__accessibility{padding:.55rem;background:#eef0e9;border-left:4px solid #61704d;font-size:.76rem}
+.venue-card>a{margin-top:auto;color:#7e251c;font-weight:800}
+
+.exhibition-editor{max-width:74rem}.exhibition-editor fieldset{display:grid;gap:1rem;padding:1rem;border:1px solid #cfc3b5}.exhibition-editor legend{padding:0 .4rem;font-weight:900}
+.form-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.schedule-conflict-result:empty{display:none}.schedule-warning,.schedule-error{padding:.8rem}.schedule-warning{background:#fff5d6;border-left:5px solid #cc9a1f}.schedule-error{color:white;background:#8c2e28}
+.schedule-warning p,.schedule-error p{margin:.25rem 0 0}
+
+.exhibition-detail-summary{display:grid;gap:1rem}.exhibition-detail-summary>div:first-child{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.exhibition-checklist,.exhibition-events{margin-top:2.5rem}
+.section-heading-inline{display:flex;align-items:center;justify-content:space-between;gap:1rem}.section-heading-inline h2{font:500 2rem var(--ml-font-display)}
+.checklist-list{display:grid;gap:.55rem}
+.checklist-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.85rem;background:#fffefa;border-left:5px solid #cfc3b5}
+.checklist-item--completed{border-left-color:#3f6b4c}.checklist-item--blocked{border-left-color:#9b3d32}.checklist-item--in-progress{border-left-color:#cc9a1f}
+.checklist-item h3{margin:.2rem 0}.checklist-item>div:last-child{display:grid;align-content:start;justify-items:end;gap:.4rem}
+.checklist-form{margin-top:1rem;max-width:none}
+
+.page-lead--exhibitions{padding:clamp(3rem,8vw,7rem) clamp(1rem,6vw,6rem);color:white;background:linear-gradient(125deg,#1e1a17,#7e251c)}
+.page-lead--exhibitions>span{font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.page-lead--exhibitions h1{max-width:12ch;margin:.15em 0;font:500 clamp(3rem,7vw,7rem)/.92 var(--ml-font-display)}
+.page-lead--exhibitions p{max-width:55ch;font:1.2rem/1.65 var(--ml-font-editorial)}
+.public-exhibition-stop{display:grid;grid-template-columns:16rem minmax(0,1fr);background:#fffefa;border:1px solid #d5cabd}
+.public-exhibition-stop--current{border:3px solid #a83227}
+.public-exhibition-stop__date{display:grid;align-content:center;gap:.35rem;padding:1.2rem;background:#eee7db}
+.public-exhibition-stop--current .public-exhibition-stop__date{color:white;background:#7e251c}
+.public-exhibition-stop__date span{font-size:.62rem;font-weight:900;text-transform:uppercase}.public-exhibition-stop__date strong{font:500 1.5rem var(--ml-font-display)}
+.public-exhibition-stop>div:last-child{padding:1.3rem}.public-exhibition-stop h2{margin:.3rem 0;font:500 2.2rem var(--ml-font-display)}
+.public-exhibition-stop__place{font-weight:800}.public-exhibition-stop dl{display:grid;gap:.55rem}.public-exhibition-stop dl div{display:grid;grid-template-columns:8rem 1fr}.public-exhibition-stop dt{font-weight:900}.public-exhibition-stop dd{margin:0}
+.public-exhibition-history{display:grid;gap:.5rem}.public-exhibition-history article{display:grid;grid-template-columns:16rem minmax(0,1fr) 12rem;gap:1rem;padding:.75rem;background:#fffefa}
+.public-exhibition-empty{min-height:28rem;display:grid;place-items:center;align-content:center;padding:2rem;text-align:center;background:
+linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,transparent 1px),#fffefa;background-size:3rem 3rem}
+.public-exhibition-empty span{font-size:.65rem;font-weight:900;text-transform:uppercase;color:#7e251c}.public-exhibition-empty h2{max-width:18ch;margin:.35rem;font:500 3rem var(--ml-font-display)}.public-exhibition-empty p{max-width:52ch}
+.public-event-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.public-event-grid article{display:grid;align-content:start;gap:.55rem;min-height:15rem;padding:1rem;background:#fffefa;border-top:5px solid #a83227}.public-event-grid time{font-size:.7rem;font-weight:900}.public-event-grid h3{margin:.2rem 0;font:500 1.6rem var(--ml-font-display)}
+
+@media(max-width:75rem){
+  .exhibition-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .venue-grid,.public-event-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .exhibition-management-list>article:not(.exhibition-stop-card){grid-template-columns:1fr 8rem}
+  .exhibition-management-list>article>div:last-child{grid-column:1/-1;justify-content:flex-start}
+}
+@media(max-width:55rem){
+  .agenda-event-card,.exhibition-stop-card,.public-exhibition-stop{grid-template-columns:1fr}
+  .agenda-calendar__day{min-height:6rem;padding:.25rem}.calendar-chip{font-size:.5rem}
+  .form-grid-2,.venue-grid,.public-event-grid,.exhibition-summary-grid{grid-template-columns:1fr}
+  .public-exhibition-history article{grid-template-columns:1fr}
+}
+@media(max-width:38rem){
+  .agenda-calendar{overflow:auto}.agenda-calendar__weekdays,.agenda-calendar__grid{min-width:44rem}
+  .section-heading-inline{align-items:flex-start;flex-direction:column}
+}
