@@ -25,7 +25,7 @@ export async function createCollaborativeSupabaseClient(config) {
     },
     global: {
       headers: {
-        "X-Client-Info": "milreu-collaborative-area/0.12.0"
+        "X-Client-Info": "milreu-collaborative-area/0.13.0"
       }
     }
   });

@@ -45,7 +45,7 @@ export function collaborativeShell(context,currentRoute,content) {
     <div class="collab-layout">
       <aside class="collab-sidebar">
         <nav class="collab-nav" aria-label="Área Colaborativa">${nav}</nav>
-        ${hasPermission(context,"memberships.manage") ? `<div class="collab-sidebar__admin"><span>Gestão</span><a href="#/area-colaborativa/gestao/perfis">Perfis e acessos</a><a href="#/area-colaborativa/gestao/exposicoes">Exposições</a></div>` : ""}
+        ${hasPermission(context,"memberships.manage") ? `<div class="collab-sidebar__admin"><span>Gestão</span><a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a><a href="#/area-colaborativa/gestao/exposicoes">Exposições</a></div>` : ""}
       </aside>
       <main id="main" class="collab-main">${content}</main>
     </div>

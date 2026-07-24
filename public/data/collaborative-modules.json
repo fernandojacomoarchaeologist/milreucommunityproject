@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "modules": [
     {
       "code": "dashboard",
@@ -70,9 +70,9 @@
       "code": "profile-management",
       "name": "Gestão de perfis",
       "route": "/area-colaborativa/gestao/perfis",
-      "status": "foundation",
+      "status": "active",
       "permission": "memberships.manage",
-      "description": "Pedidos de acesso, perfis, estados e funções."
+      "description": "Pesquisar membros, rever pedidos, atribuir perfis e funções, suspender acessos e consultar histórico."
     },
     {
       "code": "exhibition-management",
@@ -81,6 +81,15 @@
       "status": "skeleton",
       "permission": "exhibitions.manage",
       "description": "Locais, períodos e estado da exposição itinerante."
+    },
+    {
+      "code": "member-invitations",
+      "name": "Pré-autorizações",
+      "route": "/area-colaborativa/gestao/convites",
+      "status": "active",
+      "permission": "memberships.manage",
+      "sortOrder": 95,
+      "description": "Pré-autorizar um e-mail Google com perfil e funções, sem enviar mensagem automaticamente."
     }
   ]
 }

@@ -60,3 +60,7 @@ MM202617 está autorizado a aparecer no ambiente de revisão do projeto, com ide
 A Área Colaborativa trata identidade, perfil, funções, permissões e futuras atividades internas. O login Google é utilizado apenas para autenticação básica. Dados de demonstração são locais e não correspondem a pessoas, contactos, locais ou eventos reais.
 
 A definição do master depende de um e-mail fornecido fora do repositório. Nenhuma chave administrativa, e-mail pessoal ou token Google deve ser incluído no frontend ou no Git.
+
+## Área Colaborativa — Pacote 08B
+
+A gestão de membros trata dados pessoais de acesso restrito. E-mails, notas internas, estados e funções não integram conteúdos públicos. Pré-autorizações não equivalem a consentimento para reconhecimento público, participação em investigação ou publicação de contributos.

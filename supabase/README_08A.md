@@ -38,6 +38,10 @@ npm run collab:bootstrap-master
 
 O e-mail não é guardado no repositório.
 
+## Pacote 08B
+
+Adicionar as migrations `20260723090000` e `20260723090100`, depois executar `supabase/tests/008b_member_management.test.sql`. O 08B inclui proteção do último master, pré-autorizações por e-mail Google, notas internas, interesses e competências.
+
 ---
 
 © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.

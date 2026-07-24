@@ -29,6 +29,9 @@ export function getRoute() {
   if (path === "/area-colaborativa/formacao") return { name:"collab-training" };
   if (path === "/area-colaborativa/revisao-museu") return { name:"collab-museum-review" };
   if (path === "/area-colaborativa/gestao/perfis") return { name:"collab-profile-management" };
+  const collabMember = path.match(/^\/area-colaborativa\/gestao\/perfis\/([^/]+)$/);
+  if (collabMember) return { name:"collab-member-detail", userId:decodeURIComponent(collabMember[1]) };
+  if (path === "/area-colaborativa/gestao/convites") return { name:"collab-invitations" };
   if (path === "/area-colaborativa/gestao/exposicoes") return { name:"collab-exhibition-management" };
 
   if (path === "/laboratorio/canais") return { name:"channel-lab" };

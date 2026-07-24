@@ -30,11 +30,17 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - formação;
 - revisão do Museu.
 
+## Implementado no 08B
+
+- pesquisa e filtros de membros;
+- aprovação, recusa, suspensão, reativação e arquivo;
+- múltiplas funções;
+- proteção do último master;
+- notas e auditoria;
+- pré-autorizações por e-mail Google;
+- interesses, competências e idiomas.
+
 ## Pacotes seguintes propostos
-
-### 08B — Gestão de membros e perfis
-
-Aprovação completa, atribuição de funções, suspensão, histórico e filtros.
 
 ### 08C — Voluntariado e tarefas
 

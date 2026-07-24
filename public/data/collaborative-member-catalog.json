@@ -1,0 +1,109 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.13.0",
+  "interestAreas": [
+    {
+      "code": "museum-memories",
+      "name": "Museu de Memórias"
+    },
+    {
+      "code": "oral-history",
+      "name": "História oral"
+    },
+    {
+      "code": "photography",
+      "name": "Fotografia e digitalização"
+    },
+    {
+      "code": "cataloguing",
+      "name": "Catalogação"
+    },
+    {
+      "code": "events",
+      "name": "Eventos e exposições"
+    },
+    {
+      "code": "translation",
+      "name": "Tradução"
+    },
+    {
+      "code": "surveys",
+      "name": "Inquéritos e dados"
+    },
+    {
+      "code": "communication",
+      "name": "Comunicação"
+    },
+    {
+      "code": "research",
+      "name": "Investigação"
+    },
+    {
+      "code": "logistics",
+      "name": "Apoio logístico"
+    }
+  ],
+  "skills": [
+    {
+      "code": "community-listening",
+      "name": "Escuta e relação comunitária"
+    },
+    {
+      "code": "photography",
+      "name": "Fotografia"
+    },
+    {
+      "code": "digitisation",
+      "name": "Digitalização"
+    },
+    {
+      "code": "transcription",
+      "name": "Transcrição"
+    },
+    {
+      "code": "historical-research",
+      "name": "Pesquisa histórica"
+    },
+    {
+      "code": "cataloguing",
+      "name": "Catalogação"
+    },
+    {
+      "code": "translation-en",
+      "name": "Tradução — inglês"
+    },
+    {
+      "code": "translation-es",
+      "name": "Tradução — espanhol"
+    },
+    {
+      "code": "translation-fr",
+      "name": "Tradução — francês"
+    },
+    {
+      "code": "event-support",
+      "name": "Apoio a eventos"
+    },
+    {
+      "code": "installation",
+      "name": "Montagem de exposição"
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade"
+    }
+  ],
+  "languages": [
+    "pt-PT",
+    "en",
+    "es",
+    "fr"
+  ],
+  "membershipStatuses": [
+    "pending",
+    "active",
+    "suspended",
+    "archived",
+    "rejected"
+  ]
+}

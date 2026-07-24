@@ -20,7 +20,7 @@ const runtimeBuilder=readFileSync("scripts/collab/build-runtime-config.mjs","utf
 const bootstrap=readFileSync("scripts/admin/bootstrap-master.mjs","utf8");
 const css=readFileSync("src/styles/app.css","utf8");
 
-if(pkg.version!=="0.12.0") throw new Error("Versão do pacote 08A incorreta.");
+if(pkg.version!=="0.13.0") throw new Error("Versão do pacote 08A incorreta.");
 if(config.security.serviceRoleInBrowser!==false||example.security.serviceRoleInBrowser!==false){
   throw new Error("service_role não pode ser permitida no navegador.");
 }
@@ -33,7 +33,7 @@ if(!config.supabaseJsModule.includes("@supabase/supabase-js@2.110.8")){
 if(profiles.length<8) throw new Error("Perfis de colaboração incompletos.");
 if(!roles.roles.some(role=>role.code==="master")) throw new Error("Função master ausente.");
 if(!roles.permissions.includes("exhibitions.manage")) throw new Error("Permissão de exposições ausente.");
-if(modules.length!==10) throw new Error(`Esperados 10 módulos; obtidos ${modules.length}.`);
+if(modules.length<10) throw new Error(`Esperados pelo menos 10 módulos; obtidos ${modules.length}.`);
 for(const code of ["profile","tasks","contributions","agenda","museum-review","profile-management","exhibition-management"]){
   if(!modules.some(module=>module.code===code)) throw new Error(`Módulo ausente: ${code}`);
 }

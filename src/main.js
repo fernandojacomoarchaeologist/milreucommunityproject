@@ -23,7 +23,7 @@ import { collaborative } from "./collab/controller.js";
 import {
   collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView,
   collaborativeProfileView, collaborativeSkeletonView, collaborativeAgendaView,
-  collaborativeProfileManagementView, collaborativeExhibitionManagementView
+  collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView, collaborativeExhibitionManagementView
 } from "./views/collaborative.js";
 
 const app = document.querySelector("#app");
@@ -150,6 +150,10 @@ function formValues(form) {
   return Object.fromEntries(data.entries());
 }
 
+function checkedValues(form,name) {
+  return [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(input => input.value);
+}
+
 function isCollaborativeRoute(route) {
   return route.name.startsWith("collab-");
 }
@@ -189,6 +193,10 @@ function renderCollaborativeRoute(route) {
       return collaborativeSkeletonView(context,"museum-review");
     case "collab-profile-management":
       return collaborativeProfileManagementView(context);
+    case "collab-member-detail":
+      return collaborativeMemberDetailView(context,route.userId);
+    case "collab-invitations":
+      return collaborativeInvitationsView(context);
     case "collab-exhibition-management":
       return collaborativeExhibitionManagementView(context);
     default:
@@ -241,8 +249,12 @@ function bindPage() {
 
   document.querySelector("[data-collab-profile-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
-    const values=formValues(event.currentTarget);
-    values.publicRecognitionOptIn=event.currentTarget.elements.publicRecognitionOptIn?.checked || false;
+    const form=event.currentTarget;
+    const values=formValues(form);
+    values.publicRecognitionOptIn=form.elements.publicRecognitionOptIn?.checked || false;
+    values.languages=checkedValues(form,"languages");
+    values.interests=checkedValues(form,"interests");
+    values.skills=checkedValues(form,"skills");
     setCollaborativeFeedback("A guardar…");
     try {
       await collaborative.updateMyProfile(values);
@@ -252,16 +264,62 @@ function bindPage() {
     }
   });
 
-  document.querySelectorAll("[data-collab-approve]").forEach(button =>
+  const applyMemberFilters=()=>{
+    const query=(document.querySelector("[data-member-search]")?.value||"").trim().toLowerCase();
+    const status=document.querySelector("[data-member-status]")?.value||"";
+    const profile=document.querySelector("[data-member-profile]")?.value||"";
+    let visible=0;
+    document.querySelectorAll("[data-member-row]").forEach(row=>{
+      const show=(!query||row.dataset.search.includes(query))&&(!status||row.dataset.status===status)&&(!profile||row.dataset.profile===profile);
+      row.hidden=!show;
+      if(show) visible+=1;
+    });
+    const empty=document.querySelector("[data-member-filter-empty]");
+    if(empty) empty.hidden=visible>0;
+  };
+  ["[data-member-search]","[data-member-status]","[data-member-profile]"].forEach(selector=>{
+    const control=document.querySelector(selector);
+    control?.addEventListener("input",applyMemberFilters);
+    control?.addEventListener("change",applyMemberFilters);
+  });
+
+  document.querySelector("[data-collab-member-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget;
+    const values=formValues(form);
+    values.roleCodes=checkedValues(form,"roleCodes");
+    setCollaborativeFeedback("A guardar…");
+    try {
+      await collaborative.manageMember(values);
+      setCollaborativeFeedback("Membro atualizado.");
+    } catch(error) {
+      setCollaborativeFeedback(error.message,true);
+    }
+  });
+
+  document.querySelector("[data-collab-invitation-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget;
+    const values=formValues(form);
+    values.roleCodes=checkedValues(form,"roleCodes");
+    values.expiresAt=values.expiresAt?new Date(values.expiresAt).toISOString():null;
+    setCollaborativeFeedback("A criar…");
+    try {
+      await collaborative.createInvitation(values);
+      setCollaborativeFeedback("Pré-autorização criada.");
+      form.reset();
+    } catch(error) {
+      setCollaborativeFeedback(error.message,true);
+    }
+  });
+
+  document.querySelectorAll("[data-collab-revoke-invitation]").forEach(button=>
     button.addEventListener("click",async()=>{
+      const reason=prompt("Motivo da revogação (opcional):","")||"";
       button.disabled=true;
-      try {
-        await collaborative.approveAccess(button.dataset.collabApprove,["volunteer"]);
-      } catch(error) {
-        alert(error.message);
-      } finally {
-        button.disabled=false;
-      }
+      try { await collaborative.revokeInvitation(button.dataset.collabRevokeInvitation,reason); }
+      catch(error){ alert(error.message); }
+      finally { button.disabled=false; }
     })
   );
 
@@ -407,6 +465,8 @@ function render(scroll=true) {
     case "collab-training":
     case "collab-museum-review":
     case "collab-profile-management":
+    case "collab-member-detail":
+    case "collab-invitations":
     case "collab-exhibition-management":
       html=renderCollaborativeRoute(route);
       setMetadata("Área Colaborativa");

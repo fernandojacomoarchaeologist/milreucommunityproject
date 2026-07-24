@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08A"
+package: "08B"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -10,48 +10,43 @@ rights: "Consultar RIGHTS.md no repositório principal"
 ## Resultado
 
 - Resultado geral: sucesso
-- Versão: 0.12.0
-- Modo runtime do pacote: `demo`
+- Versão: 0.13.0
+- Modo runtime: `demo`
 - Supabase remoto configurado: não
-- Google OAuth configurado no ambiente: não
-- Modo de demonstração: disponível
-- Service role no navegador: não
-- E-mail do master hardcoded: não
+- Google OAuth executado neste ambiente: não
+- Service role no frontend: não
+- E-mail real do master no pacote: não
 
-## Fundação colaborativa
+## Gestão de membros
 
+- Módulos colaborativos: 11
+- Módulos ativos: 4
 - Perfis principais: 8
 - Funções: 8
-- Permissões: 21
-- Módulos: 10
-- Módulos ativos: 2
-- Módulos em fundação: 1
-- Módulos em esqueleto: 7
-- Migrations colaborativas: 5
-- Callback incluído no build: sim
-- Checksum colaborativo no manifest: sim
-- Checksum da configuração no manifest: sim
+- Permissões: 27
+- Áreas de interesse: 10
+- Competências: 12
+- Migrations colaborativas totais: 7
+- Migrations novas do 08B: 2
+- Proteção do último master: validada estaticamente
+- Pré-autorização Google: validada estaticamente
+- Envio automático de e-mail: não implementado
 
-## Regressão e build
+## Qualidade
 
-- Testes automatizados: 72
-- Testes aprovados: 72
+- Testes automatizados: 82
+- Testes aprovados: 82
 - Testes falhados: 0
 - Páginas estáticas do Museu: 30
 - JSONs individuais do Museu: 30
-- Smoke HTTP: Portal, callback, controller, configuração, módulos, Museu e imagem
-- Build removido do ZIP para evitar duplicação de imagens
+- Callback no build: sim
+- Checksum colaborativo no manifest: sim
+- Build e smoke HTTP: concluídos
+- Teste visual automatizado em Chromium: não executado; o ambiente bloqueou acesso do navegador ao localhost por política administrativa
 
 ## Banco de dados
 
-As migrations, políticas RLS, RPCs, grants e testes SQL foram validados estaticamente. O ambiente desta geração não possui Supabase CLI, PostgreSQL ou Docker; por isso, a execução real das migrations não foi realizada aqui.
-
-O pacote inclui:
-
-- `supabase/collab-tests/008a_collaborative_foundation.test.sql`;
-- `.github/workflows/08a-database-tests.yml`.
-
-A integração deve executar o teste de banco local ou em staging antes de qualquer utilização remota.
+As migrations e políticas foram validadas por inspeção automatizada. O ambiente não dispõe de Supabase CLI, Docker ou PostgreSQL, pelo que a execução real deve ocorrer no workflow `08b-database-tests.yml` ou num ambiente local/staging antes de produção.
 
 ## Comandos
 
