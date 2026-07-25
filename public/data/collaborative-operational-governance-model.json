@@ -1,0 +1,414 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.20.0",
+  "modules": [
+    {
+      "code": "system-administration",
+      "route": "/area-colaborativa/gestao/sistema",
+      "name": "Administração do sistema"
+    },
+    {
+      "code": "audit-governance",
+      "route": "/area-colaborativa/gestao/auditoria",
+      "name": "Auditoria e retenção"
+    },
+    {
+      "code": "incident-continuity",
+      "route": "/area-colaborativa/gestao/incidentes",
+      "name": "Incidentes e continuidade"
+    }
+  ],
+  "operationalChecks": [
+    {
+      "code": "database-migrations",
+      "category": "database",
+      "name": "Migrations aplicadas",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "rls-policies",
+      "category": "database",
+      "name": "RLS e RPCs validadas",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "audit-chain",
+      "category": "audit",
+      "name": "Cadeia de integridade da auditoria",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "weekly"
+    },
+    {
+      "code": "google-oauth",
+      "category": "authentication",
+      "name": "Google OAuth operacional",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "active-master",
+      "category": "authentication",
+      "name": "Master ativo",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "weekly"
+    },
+    {
+      "code": "last-master-protection",
+      "category": "authentication",
+      "name": "Proteção do último master",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "private-storage",
+      "category": "storage",
+      "name": "Storage privado",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "monthly"
+    },
+    {
+      "code": "signed-links",
+      "category": "storage",
+      "name": "URLs assinadas e expiração",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "monthly"
+    },
+    {
+      "code": "notification-center",
+      "category": "notifications",
+      "name": "Centro interno de notificações",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "notification-dead-letter",
+      "category": "notifications",
+      "name": "Outbox e dead-letter controladas",
+      "blocking": false,
+      "evidenceRequired": true,
+      "frequency": "weekly"
+    },
+    {
+      "code": "backup-freshness",
+      "category": "backup",
+      "name": "Backup recente",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "daily"
+    },
+    {
+      "code": "restore-test",
+      "category": "backup",
+      "name": "Teste de restauração",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "quarterly"
+    },
+    {
+      "code": "retention-preview",
+      "category": "retention",
+      "name": "Preview de retenção revisto",
+      "blocking": false,
+      "evidenceRequired": true,
+      "frequency": "monthly"
+    },
+    {
+      "code": "legal-holds",
+      "category": "retention",
+      "name": "Legal holds revistos",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "monthly"
+    },
+    {
+      "code": "critical-incidents",
+      "category": "incidents",
+      "name": "Incidentes críticos sem resposta",
+      "blocking": true,
+      "evidenceRequired": false,
+      "frequency": "daily"
+    },
+    {
+      "code": "public-build",
+      "category": "publication",
+      "name": "Build público validado",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "staging-homologation",
+      "category": "deployment",
+      "name": "Staging homologado",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "production-gate",
+      "category": "deployment",
+      "name": "Gate de produção preservado",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "secrets-boundary",
+      "category": "security",
+      "name": "Fronteira de secrets",
+      "blocking": true,
+      "evidenceRequired": true,
+      "frequency": "release"
+    },
+    {
+      "code": "continuity-runbook",
+      "category": "continuity",
+      "name": "Runbook e responsáveis atualizados",
+      "blocking": false,
+      "evidenceRequired": true,
+      "frequency": "quarterly"
+    }
+  ],
+  "checkStatuses": [
+    "pending",
+    "running",
+    "passed",
+    "failed",
+    "blocked",
+    "not-applicable"
+  ],
+  "incident": {
+    "severities": [
+      "sev-1",
+      "sev-2",
+      "sev-3",
+      "sev-4"
+    ],
+    "statuses": [
+      "open",
+      "investigating",
+      "mitigating",
+      "monitoring",
+      "resolved",
+      "closed",
+      "cancelled"
+    ],
+    "categories": [
+      "authentication",
+      "availability",
+      "data",
+      "privacy",
+      "security",
+      "storage",
+      "notifications",
+      "publication",
+      "integration",
+      "content",
+      "other"
+    ],
+    "updateTypes": [
+      "status",
+      "analysis",
+      "mitigation",
+      "communication",
+      "resolution",
+      "postmortem"
+    ],
+    "actionStatuses": [
+      "pending",
+      "in-progress",
+      "completed",
+      "cancelled"
+    ]
+  },
+  "backup": {
+    "types": [
+      "database",
+      "storage",
+      "code",
+      "configuration",
+      "audit-export"
+    ],
+    "frequencies": [
+      "daily",
+      "weekly",
+      "monthly",
+      "quarterly",
+      "manual"
+    ],
+    "providers": [
+      "managed",
+      "github",
+      "manual-export",
+      "external",
+      "unconfigured"
+    ],
+    "verificationStatuses": [
+      "pending",
+      "passed",
+      "partial",
+      "failed",
+      "expired"
+    ]
+  },
+  "continuity": {
+    "statuses": [
+      "planned",
+      "running",
+      "completed",
+      "cancelled"
+    ],
+    "scenarios": [
+      "database-loss",
+      "storage-loss",
+      "auth-outage",
+      "provider-outage",
+      "credential-compromise",
+      "accidental-publication",
+      "data-withdrawal",
+      "other"
+    ]
+  },
+  "retention": {
+    "policies": [
+      {
+        "code": "expired-notifications",
+        "resourceType": "collab_notifications",
+        "name": "Notificações expiradas",
+        "retentionDays": 365,
+        "action": "delete",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Registos cujo expires_at já terminou.",
+        "risk": "low"
+      },
+      {
+        "code": "notification-outbox-delivered",
+        "resourceType": "collab_notification_outbox",
+        "name": "Outbox entregue ou cancelada",
+        "retentionDays": 180,
+        "action": "delete",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Itens delivered ou cancelled mais antigos do que o prazo.",
+        "risk": "low"
+      },
+      {
+        "code": "notification-deliveries",
+        "resourceType": "collab_notification_deliveries",
+        "name": "Tentativas de entrega",
+        "retentionDays": 365,
+        "action": "delete",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Tentativas ligadas a outbox antiga.",
+        "risk": "medium"
+      },
+      {
+        "code": "operational-results",
+        "resourceType": "collab_operational_results",
+        "name": "Resultados operacionais",
+        "retentionDays": 730,
+        "action": "delete",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Resultados não bloqueantes de execuções antigas.",
+        "risk": "low"
+      },
+      {
+        "code": "audit-log",
+        "resourceType": "collab_audit_log",
+        "name": "Auditoria",
+        "retentionDays": 2555,
+        "action": "export-only",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Não é eliminada pela aplicação; apenas revisão e arquivo controlado.",
+        "risk": "critical"
+      },
+      {
+        "code": "incidents",
+        "resourceType": "collab_incidents",
+        "name": "Incidentes e continuidade",
+        "retentionDays": 2555,
+        "action": "manual-review",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Revisão humana antes de qualquer anonimização ou arquivo.",
+        "risk": "critical"
+      },
+      {
+        "code": "community-contributions",
+        "resourceType": "collab_contributions",
+        "name": "Contributos comunitários",
+        "retentionDays": 0,
+        "action": "manual-review",
+        "automaticAllowed": false,
+        "legalHoldSupported": true,
+        "scope": "Governado por consentimento, direitos e pedidos de retirada.",
+        "risk": "critical"
+      }
+    ],
+    "runStatuses": [
+      "previewed",
+      "awaiting-approval",
+      "approved",
+      "applying",
+      "completed",
+      "failed",
+      "cancelled"
+    ],
+    "approvalLiteral": "APPROVE_MILREU_RETENTION_RUN",
+    "applyLiteral": "APPLY_MILREU_RETENTION_POLICY",
+    "productionLiteral": "APPLY_MILREU_PRODUCTION_RETENTION",
+    "automaticApply": false
+  },
+  "audit": {
+    "severities": [
+      "info",
+      "warning",
+      "critical"
+    ],
+    "categories": [
+      "access",
+      "members",
+      "tasks",
+      "agenda",
+      "exhibitions",
+      "contributions",
+      "museum",
+      "training",
+      "deployment",
+      "notifications",
+      "operations",
+      "retention",
+      "incidents",
+      "backups",
+      "security",
+      "other"
+    ],
+    "maxPageSize": 200,
+    "maxExportRows": 5000,
+    "directTableAccess": false,
+    "hashChain": true,
+    "redactionVersion": 1
+  },
+  "safety": {
+    "secretsInSettings": false,
+    "automaticRetention": false,
+    "automaticBackupClaims": false,
+    "productionMutationsFromBrowser": false,
+    "auditUpdateDelete": false
+  }
+}

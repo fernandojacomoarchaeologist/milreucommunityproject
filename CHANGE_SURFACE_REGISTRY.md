@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -105,3 +105,26 @@ Contratos:
 - fornecedor desativado por padrão;
 - convites explícitos;
 - sem chat.
+
+## Administração, auditoria e continuidade
+
+Ficheiros:
+
+- `public/data/collaborative-operational-governance-model.json`;
+- `public/data/collaborative-retention-model.json`;
+- `public/config/operations.runtime.json`;
+- `src/views/collaborative-operations.js`;
+- `supabase/migrations/20260724150*.sql`;
+- `supabase/functions/export-collab-audit/`;
+- `scripts/operations/`.
+
+Contratos:
+
+- auditoria imutável e redigida;
+- exportação sem service role;
+- retenção preview → aprovação → service role;
+- produção com confirmação adicional;
+- legal holds revalidados;
+- backup com evidência;
+- incidentes auditados;
+- sem mutação operacional automática.

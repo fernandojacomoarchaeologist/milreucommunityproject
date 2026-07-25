@@ -1,12 +1,14 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
 
+- `.claude/agents/audit-integrity-reviewer.md`
+- `.claude/agents/backup-continuity-reviewer.md`
 - `.claude/agents/collaborative-product-reviewer.md`
 - `.claude/agents/collaborative-security-reviewer.md`
 - `.claude/agents/community-contribution-moderation-reviewer.md`
@@ -15,6 +17,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/agents/exhibition-operations-reviewer.md`
 - `.claude/agents/google-oauth-contract-reviewer.md`
 - `.claude/agents/homologation-gate-reviewer.md`
+- `.claude/agents/incident-response-reviewer.md`
 - `.claude/agents/master-bootstrap-security-reviewer.md`
 - `.claude/agents/museum-editorial-gate-reviewer.md`
 - `.claude/agents/museum-rights-ai-reviewer.md`
@@ -23,10 +26,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/agents/notification-outbox-reviewer.md`
 - `.claude/agents/notification-privacy-reviewer.md`
 - `.claude/agents/notification-worker-security-reviewer.md`
+- `.claude/agents/operations-secrets-reviewer.md`
 - `.claude/agents/private-upload-security-reviewer.md`
 - `.claude/agents/project-context-continuity-reviewer.md`
 - `.claude/agents/public-agenda-privacy-reviewer.md`
 - `.claude/agents/public-page-organic-effects-reviewer.md`
+- `.claude/agents/retention-gate-reviewer.md`
 - `.claude/agents/rls-profile-matrix-reviewer.md`
 - `.claude/agents/transactional-template-reviewer.md`
 - `.claude/agents/volunteer-operations-reviewer.md`
@@ -71,6 +76,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/rules/08h-no-chat.md`
 - `.claude/rules/08h-no-secret-or-recipient-in-logs.md`
 - `.claude/rules/08h-outbox-service-role-only.md`
+- `.claude/rules/08i-audit-export-is-redacted.md`
+- `.claude/rules/08i-audit-is-immutable.md`
+- `.claude/rules/08i-incident-minimum-necessary.md`
+- `.claude/rules/08i-legal-hold-before-apply.md`
+- `.claude/rules/08i-no-automatic-retention.md`
+- `.claude/rules/08i-no-backup-claim-without-evidence.md`
+- `.claude/rules/08i-no-production-mutation-from-browser.md`
+- `.claude/rules/08i-production-retention-two-literals.md`
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/collaborative-rls-required.md`
 - `.claude/rules/derived-navigation-transparency.md`
@@ -101,6 +114,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/rules/volunteer-availability-not-obligation.md`
 - `.claude/rules/volunteer-time-no-gamification.md`
 - `.claude/skills/activate-transactional-email/SKILL.md`
+- `.claude/skills/apply-approved-retention/SKILL.md`
 - `.claude/skills/apply-museum-editorial-snapshot/SKILL.md`
 - `.claude/skills/approve-collaborative-member/SKILL.md`
 - `.claude/skills/approve-museum-editorial/SKILL.md`
@@ -126,12 +140,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/deploy-notification-worker/SKILL.md`
 - `.claude/skills/export-multichannel-content/SKILL.md`
 - `.claude/skills/export-public-itinerary/SKILL.md`
+- `.claude/skills/export-redacted-audit/SKILL.md`
 - `.claude/skills/generate-approved-museum-snapshot/SKILL.md`
 - `.claude/skills/generate-final-qr/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
 - `.claude/skills/manage-collaborative-member/SKILL.md`
 - `.claude/skills/manage-exhibition-logistics/SKILL.md`
 - `.claude/skills/moderate-community-contribution/SKILL.md`
+- `.claude/skills/open-and-manage-incident/SKILL.md`
 - `.claude/skills/operate-notification-outbox/SKILL.md`
 - `.claude/skills/plan-next-collaborative-module/SKILL.md`
 - `.claude/skills/preauthorize-google-member/SKILL.md`
@@ -140,6 +156,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/prepare-07d-handoff/SKILL.md`
 - `.claude/skills/prepare-pages-deployment/SKILL.md`
 - `.claude/skills/prepare-staging-environment/SKILL.md`
+- `.claude/skills/preview-retention-policy/SKILL.md`
 - `.claude/skills/process-withdrawal-request/SKILL.md`
 - `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/publish-itinerary-stop/SKILL.md`
@@ -163,6 +180,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-museum-memory-field/SKILL.md`
 - `.claude/skills/review-museum-record/SKILL.md`
 - `.claude/skills/review-notification-event/SKILL.md`
+- `.claude/skills/review-operational-settings/SKILL.md`
 - `.claude/skills/review-panel-preview/SKILL.md`
 - `.claude/skills/review-portal-07b/SKILL.md`
 - `.claude/skills/review-private-contribution-file/SKILL.md`
@@ -172,12 +190,15 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-vertical-slice/SKILL.md`
 - `.claude/skills/review-volunteer-availability/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
+- `.claude/skills/run-continuity-exercise/SKILL.md`
 - `.claude/skills/run-role-rls-homologation/SKILL.md`
 - `.claude/skills/schedule-itinerary-stop/SKILL.md`
 - `.claude/skills/test-immersive-experience/SKILL.md`
 - `.claude/skills/test-notification-preferences/SKILL.md`
 - `.claude/skills/test-public-contribution-flow/SKILL.md`
 - `.claude/skills/update-portal-content/SKILL.md`
+- `.claude/skills/verify-audit-integrity/SKILL.md`
+- `.claude/skills/verify-backup-plan/SKILL.md`
 - `.claude/skills/verify-private-storage-staging/SKILL.md`
 - `.claude/skills/verify-task-completion/SKILL.md`
 - `.env.example`
@@ -200,11 +221,15 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.github/workflows/08h-database-tests.yml`
 - `.github/workflows/08h-notification-dispatch.yml`
 - `.github/workflows/08h-notification-worker-deploy.yml`
+- `.github/workflows/08i-audit-export-deploy.yml`
+- `.github/workflows/08i-ci.yml`
+- `.github/workflows/08i-database-tests.yml`
+- `.github/workflows/08i-retention-apply.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
 - `CHANGE_SURFACE_REGISTRY.md`
-- `CONTEXT_ATE_08H.md`
+- `CONTEXT_ATE_08I.md`
 - `CONTEXT_RECOVERY_PROTOCOL.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_DEPENDENCY_MAP.md`
@@ -307,6 +332,17 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/notifications/NOTIFICATION_PRIVACY_RETENTION_08H.md`
 - `docs/notifications/NOTIFICATION_TEMPLATE_GUIDE_08H.md`
 - `docs/notifications/NOTIFICATION_WEBHOOK_CONTRACT_08H.md`
+- `docs/operations/AUDIT_EXPORT_GUIDE_08I.md`
+- `docs/operations/AUDIT_INTEGRITY_08I.md`
+- `docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md`
+- `docs/operations/CONTINUITY_EXERCISES_08I.md`
+- `docs/operations/INCIDENT_RESPONSE_08I.md`
+- `docs/operations/LEGAL_HOLD_GUIDE_08I.md`
+- `docs/operations/OPERATIONAL_CHECKS_08I.md`
+- `docs/operations/OPERATIONAL_GOVERNANCE_08I.md`
+- `docs/operations/OPERATIONS_PRIVACY_08I.md`
+- `docs/operations/PRODUCTION_RETENTION_GATE_08I.md`
+- `docs/operations/RETENTION_LIFECYCLE_08I.md`
 - `docs/references/TECHNICAL_REFERENCES_08A.md`
 - `docs/references/TECHNICAL_REFERENCES_08B.md`
 - `docs/references/TECHNICAL_REFERENCES_08C.md`
@@ -357,6 +393,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/config/deployment-profile.runtime.json`
 - `public/config/notifications.example.json`
 - `public/config/notifications.runtime.json`
+- `public/config/operations.example.json`
+- `public/config/operations.runtime.json`
 - `public/data/channels/channel-config.json`
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
@@ -370,8 +408,10 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/collaborative-museum-review-model.json`
 - `public/data/collaborative-notification-model.json`
 - `public/data/collaborative-notification-templates.json`
+- `public/data/collaborative-operational-governance-model.json`
 - `public/data/collaborative-profile-types.json`
 - `public/data/collaborative-readiness.json`
+- `public/data/collaborative-retention-model.json`
 - `public/data/collaborative-roles-permissions.json`
 - `public/data/collaborative-task-model.json`
 - `public/data/collaborative-training-trails.json`
@@ -588,9 +628,13 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_08F_v0.17.0.md`
 - `releases/PACKAGE_08G_v0.18.0.md`
 - `releases/PACKAGE_08H_v0.19.0.md`
+- `releases/PACKAGE_08I_v0.20.0.md`
 - `releases/homologation/homologation-local-2026-07-25T16-54-42-708Z.json`
 - `releases/notifications/template-preview-pt-PT.json`
 - `releases/notifications/webhook-test-payload.json`
+- `releases/operations/backup-evidence-template.json`
+- `releases/operations/operations-foundation-report.json`
+- `releases/operations/retention-plan.json`
 - `requirements-media.txt`
 - `requirements-qr.txt`
 - `scripts/admin/bootstrap-master.mjs`
@@ -629,6 +673,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/notifications/generate-test-payload.mjs`
 - `scripts/notifications/preview-templates.mjs`
 - `scripts/notifications/validate-notifications.mjs`
+- `scripts/operations/audit-integrity-status.mjs`
+- `scripts/operations/build-runtime-config.mjs`
+- `scripts/operations/generate-backup-evidence-template.mjs`
+- `scripts/operations/generate-operations-report.mjs`
+- `scripts/operations/generate-retention-plan.mjs`
+- `scripts/operations/validate-operations.mjs`
 - `scripts/quality/validate-accessibility.mjs`
 - `scripts/quality/validate-performance.mjs`
 - `scripts/release/check-readiness.mjs`
@@ -667,6 +717,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/views/collaborative-exhibitions.js`
 - `src/views/collaborative-museum-review.js`
 - `src/views/collaborative-notifications.js`
+- `src/views/collaborative-operations.js`
 - `src/views/collaborative-tasks.js`
 - `src/views/collaborative.js`
 - `src/views/contributions-public.js`
@@ -679,11 +730,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/README_08F.md`
 - `supabase/README_08G.md`
 - `supabase/README_08H.md`
+- `supabase/README_08I.md`
 - `supabase/config.toml`
 - `supabase/functions/community-contribution-intake/config.toml`
 - `supabase/functions/community-contribution-intake/index.ts`
 - `supabase/functions/dispatch-collab-notifications/config.toml`
 - `supabase/functions/dispatch-collab-notifications/index.ts`
+- `supabase/functions/export-collab-audit/config.toml`
+- `supabase/functions/export-collab-audit/index.ts`
 - `supabase/migrations/20260723080000_collaborative_foundation.sql`
 - `supabase/migrations/20260723080100_collaborative_seed.sql`
 - `supabase/migrations/20260723080200_collaborative_rls_and_rpc.sql`
@@ -708,6 +762,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260724140000_collaborative_notifications_foundation.sql`
 - `supabase/migrations/20260724140100_collaborative_notifications_rpc.sql`
 - `supabase/migrations/20260724140200_collaborative_notifications_seed.sql`
+- `supabase/migrations/20260724150000_collaborative_operations_foundation.sql`
+- `supabase/migrations/20260724150100_collaborative_operations_rpc.sql`
+- `supabase/migrations/20260724150200_collaborative_operations_seed.sql`
 - `supabase/seed.sql`
 - `supabase/tests/008a_collaborative_foundation.test.sql`
 - `supabase/tests/008b_member_management.test.sql`
@@ -717,7 +774,11 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/tests/008f_museum_review.test.sql`
 - `supabase/tests/008g_deployment_homologation.test.sql`
 - `supabase/tests/008h_notifications.test.sql`
+- `supabase/tests/008i_operations_governance.test.sql`
 - `tests/app.test.mjs`
+- `tests/audit-export-edge-08i.test.mjs`
+- `tests/audit-integrity-08i.test.mjs`
+- `tests/backups-08i.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/collaborative-agenda-controller-08d.test.mjs`
 - `tests/collaborative-agenda-data-08d.test.mjs`
@@ -753,6 +814,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/fixes-07d1.test.mjs`
 - `tests/fixes-07d2.test.mjs`
 - `tests/immersive-07c.test.mjs`
+- `tests/incidents-continuity-08i.test.mjs`
 - `tests/media.test.mjs`
 - `tests/museum-07c.test.mjs`
 - `tests/museum-regression.test.mjs`
@@ -769,11 +831,17 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/notification-triggers-08h.test.mjs`
 - `tests/notification-ui-08h.test.mjs`
 - `tests/notification-worker-08h.test.mjs`
+- `tests/operations-controller-08i.test.mjs`
+- `tests/operations-model-08i.test.mjs`
+- `tests/operations-permissions-08i.test.mjs`
+- `tests/operations-runtime-08i.test.mjs`
+- `tests/operations-ui-08i.test.mjs`
 - `tests/physical-preview-07d.test.mjs`
 - `tests/portal.test.mjs`
 - `tests/public-content-effects-08f.test.mjs`
 - `tests/public-exhibitions-08d.test.mjs`
 - `tests/release-07d.test.mjs`
+- `tests/retention-gates-08i.test.mjs`
 - `tests/rights-07c.test.mjs`
 - `tests/structured-07d.test.mjs`
 - `tests/training-library-08f.test.mjs`

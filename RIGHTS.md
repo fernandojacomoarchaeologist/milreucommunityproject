@@ -92,3 +92,7 @@ Credenciais, tokens, passwords, secrets do Google, service role e o e-mail maste
 ## Notificações e comunicação — Pacote 08H
 
 Notificações devem conter apenas o contexto mínimo. Endereços, tokens, payloads, mensagens do fornecedor e dados pessoais não devem entrar em ficheiros públicos, screenshots ou relatórios sem necessidade. O e-mail não transfere direitos nem substitui consentimentos formais.
+
+## Administração, auditoria e continuidade — Pacote 08I
+
+Exportações de auditoria, evidências de backup, incidentes e exercícios são materiais internos. Devem evitar dados pessoais desnecessários e permanecer em armazenamento privado. A política de retenção não substitui consentimentos, pedidos de retirada, obrigações institucionais ou avaliação ética.

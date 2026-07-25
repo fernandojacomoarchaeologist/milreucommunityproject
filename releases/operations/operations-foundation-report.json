@@ -1,0 +1,28 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.20.0",
+  "generatedAt": "2026-07-25T18:52:56.951Z",
+  "environment": "local",
+  "modules": [
+    "system-administration",
+    "audit-governance",
+    "incident-continuity"
+  ],
+  "operationalChecks": 20,
+  "retentionPolicies": 7,
+  "automaticRetention": false,
+  "auditHashChain": true,
+  "auditDirectTableAccess": false,
+  "backupProvider": "unconfigured",
+  "managedBackupConfirmed": false,
+  "continuity": {
+    "primaryResponsibleConfigured": false,
+    "secondaryResponsibleConfigured": false
+  },
+  "readiness": {
+    "status": "operational-governance-foundation-ready",
+    "operationalGovernanceReady": true,
+    "remoteOperationsValidated": false
+  },
+  "notice": "Relatório estrutural. Não constitui evidência de backup, restauração, Supabase remoto ou produção."
+}

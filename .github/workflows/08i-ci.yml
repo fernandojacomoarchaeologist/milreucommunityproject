@@ -1,0 +1,45 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08I Operations CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run deploy:profile
+      - run: npm run deploy:preflight
+      - run: npm run deploy:oauth-check
+      - run: npm run notifications:config
+      - run: npm run operations:config
+      - run: npm run operations:report
+      - run: npm run operations:backup-evidence
+      - run: npm run operations:retention-plan
+      - run: npm run operations:audit-status
+      - run: npm run collab:config
+      - run: npm run museum:review-export
+      - run: npm run museum:review-apply
+      - run: npm run contributions:demo-export
+      - run: npm run exhibitions:export
+      - run: npm run channels:export
+      - run: npm run museum:index
+      - run: npm run museum:audit
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke

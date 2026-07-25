@@ -49,6 +49,11 @@ export function getRoute() {
   if (collabMuseumReviewPreview) return { name:"collab-museum-review-preview", memoryId:decodeURIComponent(collabMuseumReviewPreview[1]) };
   const collabMuseumReviewDetail = path.match(/^\/area-colaborativa\/revisao-museu\/([^/]+)$/);
   if (collabMuseumReviewDetail) return { name:"collab-museum-review-detail", memoryId:decodeURIComponent(collabMuseumReviewDetail[1]) };
+  if (path === "/area-colaborativa/gestao/sistema") return { name:"collab-system-administration" };
+  if (path === "/area-colaborativa/gestao/auditoria") return { name:"collab-audit-governance", query };
+  if (path === "/area-colaborativa/gestao/incidentes") return { name:"collab-incidents-continuity" };
+  const collabIncident = path.match(/^\/area-colaborativa\/gestao\/incidentes\/([^/]+)$/);
+  if (collabIncident) return { name:"collab-incident-detail", incidentId:decodeURIComponent(collabIncident[1]) };
   if (path === "/area-colaborativa/gestao/notificacoes") return { name:"collab-notification-management" };
   if (path === "/area-colaborativa/gestao/notificacoes/templates") return { name:"collab-notification-templates" };
   if (path === "/area-colaborativa/gestao/homologacao") return { name:"collab-deployment-homologation" };

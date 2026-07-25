@@ -1,138 +1,169 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08H — Notificações, Comunicação e Operação
+# Pacote 08I — Administração, Auditoria, Retenção e Continuidade
 
-**Versão:** 0.19.0  
-**Base cumulativa:** Pacote 08G.
+**Versão:** 0.20.0  
+**Base cumulativa:** Pacote 08H.
 
-O 08H ativa um centro interno de notificações e prepara a comunicação transacional por e-mail sem selecionar ou ativar automaticamente um fornecedor externo.
+O 08I fecha a camada de governação operacional da Área Colaborativa. Ele não executa retenção, backup ou produção automaticamente.
 
-## Rotas
+## Novos módulos
 
 ```text
-#/area-colaborativa/notificacoes
-#/area-colaborativa/notificacoes/preferencias
-#/area-colaborativa/gestao/notificacoes
-#/area-colaborativa/gestao/notificacoes/templates
+#/area-colaborativa/gestao/sistema
+#/area-colaborativa/gestao/auditoria
+#/area-colaborativa/gestao/incidentes
 ```
 
-## Centro interno
+Os incidentes possuem detalhe em:
 
-O centro interno é o canal canónico para membros autenticados.
+```text
+#/area-colaborativa/gestao/incidentes/:id
+```
+
+## Administração do sistema
 
 Inclui:
 
-- não lidas, lidas e arquivadas;
-- prioridade;
+- dashboard de saúde;
+- 20 checks operacionais;
+- execuções por ambiente;
+- evidências;
+- configurações não sensíveis;
+- planos de backup;
+- verificações de backup;
+- RPO e RTO;
+- responsáveis principal e secundário.
+
+A existência de um plano não é tratada como prova de backup.
+
+## Auditoria
+
+O acesso direto à tabela de auditoria foi removido dos utilizadores autenticados.
+
+A consulta passa por RPC redigida:
+
+- ator por nome, sem e-mail;
+- ação;
+- entidade;
 - categoria;
-- link para o contexto;
-- marcação individual;
-- marcação coletiva;
-- filtros;
-- badge no cabeçalho;
-- preferências.
+- prioridade;
+- chaves alteradas;
+- correlação;
+- hashes;
+- data.
 
-Avisos críticos e obrigatórios não podem ser desativados dentro da aplicação.
+A auditoria recebe:
 
-## Eventos
+- cadeia de hashes;
+- redacção recursiva;
+- categoria;
+- prioridade;
+- request hash;
+- correlação;
+- imutabilidade contra update/delete.
 
-O pacote possui 20 eventos, incluindo:
+Exportações são CSV redigidos, limitados e gerados por Edge Function com a sessão do utilizador.
 
-- acesso;
-- tarefas;
-- contributos;
-- revisão do Museu;
-- formação;
-- agenda;
-- exposição;
-- retirada;
-- homologação.
+## Retenção
 
-Triggers de banco criam avisos a partir das alterações operacionais existentes.
-
-## E-mail transacional
-
-Estado inicial:
+Fluxo:
 
 ```text
-provider=disabled
-channel=disabled
-automaticScheduleEnabled=false
+Política ativa
+→ preview
+→ legal holds
+→ hash dos candidatos
+→ aprovação literal
+→ workflow protegido
+→ service role
+→ confirmação de produção
 ```
 
-Fornecedor suportado pelo contrato:
+Aprovação:
 
 ```text
-webhook
+APPROVE_MILREU_RETENTION_RUN
 ```
 
-O Edge Function envia um payload genérico para um webhook configurado no servidor. O pacote não seleciona Resend, SendGrid, Mailgun ou outro fornecedor.
-
-Variáveis:
+Aplicação:
 
 ```text
-MILREU_NOTIFICATION_PROVIDER
-MILREU_NOTIFICATION_WEBHOOK_URL
-MILREU_NOTIFICATION_WEBHOOK_TOKEN
-MILREU_NOTIFICATION_WORKER_SECRET
-MILREU_NOTIFICATION_FROM_NAME
-MILREU_NOTIFICATION_FROM_EMAIL
-MILREU_PUBLIC_SITE_URL
+APPLY_MILREU_RETENTION_POLICY
 ```
 
-Nenhum desses valores é gravado no runtime público.
-
-## Ativação do e-mail
-
-A ativação lógica no Supabase exige:
+Produção:
 
 ```text
-ACTIVATE_MILREU_TRANSACTIONAL_EMAIL
+APPLY_MILREU_PRODUCTION_RETENTION
 ```
 
-Antes da ativação:
+O navegador não aplica retenção.
 
-1. fornecedor aprovado;
-2. domínio/remetente validados;
-3. política de privacidade revista;
-4. webhook testado;
-5. templates aprovados;
-6. worker secret configurado;
-7. staging homologado;
-8. rollback documentado.
+Contributos comunitários, pedidos de retirada, auditoria e incidentes permanecem em revisão humana; não entram em eliminação automática.
 
-## Outbox
+## Legal holds
 
-```text
-evento
-→ preferência
-→ template aprovado
-→ outbox
-→ claim por service role
-→ webhook
-→ delivery
-→ entregue / retry / dead-letter
-```
+Podem proteger:
 
-O navegador não reclama nem entrega mensagens.
+- um recurso completo;
+- uma entidade específica;
+- um período definido;
+- investigação, direitos ou incidente.
 
-## Convites
+O conjunto de legal holds é revisto novamente antes da aplicação.
 
-Convites por e-mail são explícitos. A criação da pré-autorização não envia automaticamente mensagem.
+## Incidentes
+
+Inclui:
+
+- referência `INC-AAAA-NNN`;
+- severidade SEV-1 a SEV-4;
+- ambiente;
+- estado;
+- impacto;
+- responsável;
+- linha temporal;
+- ações corretivas;
+- resumo público opcional;
+- resolução e fecho;
+- notificações internas.
+
+## Backups e continuidade
+
+Inclui planos para:
+
+- base de dados;
+- storage privado;
+- código;
+- configuração;
+- exportação de auditoria.
+
+Também inclui:
+
+- verificações;
+- restauração testada;
+- evidência;
+- RPO/RTO;
+- exercícios de continuidade;
+- resultados e tempo real de recuperação.
+
+O pacote não cria backups diretamente.
 
 ## Comandos
 
 ```bash
-npm run notifications:config
-npm run notifications:preview
-npm run notifications:test-payload
-npm run notifications:dispatch-status
-npm run notifications:validate
+npm run operations:config
+npm run operations:report
+npm run operations:audit-status
+npm run operations:backup-evidence
+npm run operations:retention-plan
+npm run operations:validate
 ```
 
 Validação cumulativa:
@@ -142,6 +173,7 @@ npm run deploy:profile
 npm run deploy:preflight
 npm run deploy:oauth-check
 npm run notifications:config
+npm run operations:config
 npm run collab:config
 npm run museum:review-export
 npm run museum:review-apply
@@ -156,4 +188,4 @@ npm run build
 npm run smoke
 ```
 
-As migrations e o worker devem ser testados em Supabase local e staging.
+As migrations 08A–08I devem ser executadas em Supabase local e staging.

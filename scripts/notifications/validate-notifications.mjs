@@ -34,14 +34,14 @@ const testPayload=readFileSync("scripts/notifications/generate-test-payload.mjs"
 const build=readFileSync("scripts/build.mjs","utf8");
 const smoke=readFileSync("scripts/smoke.mjs","utf8");
 
-if(pkg.version!=="0.19.0")throw new Error("Versão 08H incorreta.");
-if(model.version!=="0.19.0"||templates.version!=="0.19.0"||runtime.version!=="0.19.0")throw new Error("Contratos 08H desatualizados.");
-if(model.eventTypes.length!==20||new Set(model.eventTypes.map(item=>item.code)).size!==20)throw new Error("Modelo deve conter 20 eventos únicos.");
-if(model.categories.length!==10)throw new Error("Categorias 08H incompletas.");
+if(pkg.version!=="0.20.0")throw new Error("Versão 08H incorreta.");
+if(model.version!=="0.20.0"||templates.version!=="0.20.0"||runtime.version!=="0.20.0")throw new Error("Contratos 08H desatualizados.");
+if(model.eventTypes.length<20||new Set(model.eventTypes.map(item=>item.code)).size!==model.eventTypes.length)throw new Error("O modelo deve preservar os 20 eventos do 08H e manter códigos únicos.");
+if(model.categories.length<10)throw new Error("Categorias base do 08H incompletas.");
 if(model.preferenceRules.emailOptIn!==true||model.eventTypes.some(item=>item.defaultEmail!==false)){
   throw new Error("E-mail deve exigir opt-in explícito em todos os eventos ordinários.");
 }
-if(templates.templates.length!==20||new Set(templates.templates.map(item=>item.eventType)).size!==20)throw new Error("Templates pt-PT incompletos.");
+if(templates.templates.length<20||new Set(templates.templates.map(item=>item.eventType)).size!==templates.templates.length)throw new Error("Templates pt-PT acumulados incompletos.");
 if(model.templateTokens.length!==11)throw new Error("Whitelist de tokens divergente.");
 if(runtime.email.provider!=="disabled"||runtime.email.enabled!==false||runtime.email.automaticScheduleEnabled!==false)throw new Error("E-mail deve iniciar desativado.");
 if(runtime.inApp.enabled!==true)throw new Error("Centro interno deve iniciar ativo.");
@@ -59,7 +59,7 @@ for(const template of templates.templates){
   if(unknown.length)throw new Error(`Template usa tokens desconhecidos: ${template.eventType}`);
 }
 
-if(modules.length!==19||modules.some(item=>item.status!=="active"))throw new Error("08H deve manter 19 módulos ativos.");
+if(modules.length<19||modules.some(item=>item.status!=="active"))throw new Error("Os 19 módulos do 08H devem permanecer ativos.");
 for(const code of ["notifications","notification-management"]){
   if(!modules.some(item=>item.code===code))throw new Error(`Módulo ausente: ${code}`);
 }
@@ -76,7 +76,7 @@ for(const permission of [
 }
 if(roles.rolePermissions.volunteer.includes("notifications.manage"))throw new Error("Voluntário não pode gerir notificações.");
 if(!roles.rolePermissions.volunteer.includes("notifications.preferences"))throw new Error("Voluntário sem preferências.");
-if(library.resources.length!==17)throw new Error("Biblioteca 08H deve conter 17 recursos.");
+if(library.resources.length<17)throw new Error("A biblioteca deve preservar os 17 recursos do 08H.");
 
 for(const value of ["notificationModel","notificationTemplates","notificationRuntime"]){
   if(!configLoader.includes(value))throw new Error(`Loader sem ${value}.`);
@@ -232,7 +232,7 @@ for(const asset of [
 ]){
   if(!smoke.includes(asset))throw new Error(`Smoke 08H incompleto: ${asset}`);
 }
-if(impact.currentPackage!=="08H"||impact.version!=="0.19.0")throw new Error("Registo de impacto desatualizado.");
+if(impact.currentPackage!=="08I"||impact.version!=="0.20.0")throw new Error("Registo de impacto desatualizado.");
 if(!readiness.functionalModules.includes("notifications")||!readiness.functionalModules.includes("notification-management")){
   throw new Error("Readiness sem módulos 08H.");
 }
@@ -243,7 +243,7 @@ if(readiness.transactionalEmailEnabled!==false||readiness.notificationScheduleEn
 for(const file of [
   "PROJECT_CONTEXT_LEDGER.md","PACKAGE_DEPENDENCY_MAP.md",
   "CHANGE_SURFACE_REGISTRY.md","CONTEXT_RECOVERY_PROTOCOL.md",
-  "CONTEXT_ATE_08H.md",
+  "CONTEXT_ATE_08I.md",
   "docs/notifications/NOTIFICATION_ARCHITECTURE_08H.md",
   "docs/notifications/NOTIFICATION_OPERATIONS_RUNBOOK_08H.md",
   "docs/notifications/NOTIFICATION_PRIVACY_RETENTION_08H.md",

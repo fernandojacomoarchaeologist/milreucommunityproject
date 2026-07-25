@@ -1,5 +1,5 @@
 -- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-25):
--- Os `delete from collab_notifications/collab_notification_outbox` são função de RETENÇÃO: removem apenas notificações expiradas e outbox já entregue/cancelada. Dados operacionais efémeros, sob RLS; não é exclusão massiva de conteúdo canónico.
+-- Os `delete from collab_notifications/outbox` são RETENÇÃO de dados operacionais efémeros (expirados/entregues), sob RLS.
 -- Não altera schema nem toca dados canónicos do Museu. Marcador após revisão.
 
 -- © 2026 Fernando Rodrigues de Jácomo.

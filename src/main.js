@@ -56,6 +56,10 @@ import {
   collaborativeNotificationsView, collaborativeNotificationPreferencesView,
   collaborativeNotificationManagementView
 } from "./views/collaborative-notifications.js";
+import {
+  collaborativeSystemAdministrationView, collaborativeAuditGovernanceView,
+  collaborativeIncidentsContinuityView, collaborativeIncidentDetailView
+} from "./views/collaborative-operations.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -78,6 +82,7 @@ const state = {
   collabLibraryFilters: {query:"",category:""},
   collabMuseumReviewFilters: {query:"",status:""},
   collabNotificationFilters: {query:"",status:"",category:""},
+  collabAuditFilters: {query:"",action:"",entityType:"",category:"",severity:"",from:"",to:""},
   contributionSubmissionResult: null,
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
@@ -303,6 +308,14 @@ function renderCollaborativeRoute(route) {
       return collaborativeNotificationsView(context,{...state.collabNotificationFilters,...(route.query||{})});
     case "collab-notification-preferences":
       return collaborativeNotificationPreferencesView(context);
+    case "collab-system-administration":
+      return collaborativeSystemAdministrationView(context);
+    case "collab-audit-governance":
+      return collaborativeAuditGovernanceView(context,{...state.collabAuditFilters,...(route.query||{})});
+    case "collab-incidents-continuity":
+      return collaborativeIncidentsContinuityView(context);
+    case "collab-incident-detail":
+      return collaborativeIncidentDetailView(context,route.incidentId);
     case "collab-notification-management":
       return collaborativeNotificationManagementView(context,"overview");
     case "collab-notification-templates":
@@ -869,6 +882,133 @@ function bindPage() {
     catch(error){alert(error.message);}finally{event.currentTarget.disabled=false;}
   });
 
+
+  document.querySelectorAll("[data-operations-refresh]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{await collaborative.refreshOperations();}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-operation-run-start-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A iniciar execução…");
+    try{await collaborative.startOperationalRun(values.environment,values.version||"",values.commitSha||"");setCollaborativeFeedback("Execução iniciada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-operation-result-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar check…");
+    try{await collaborative.recordOperationalResult(form.dataset.runId,form.dataset.checkCode,values.status,values.evidenceReference||"",values.notes||"");setCollaborativeFeedback("Check atualizado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-operation-complete-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A concluir execução…");
+    try{await collaborative.completeOperationalRun(form.dataset.runId,values.summary||"");setCollaborativeFeedback("Execução concluída.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-operation-setting-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);let value;
+    try{value=JSON.parse(values.valueJson||"{}");}catch{setCollaborativeFeedback("JSON inválido.",true);return;}
+    setCollaborativeFeedback("A guardar configuração…");
+    try{await collaborative.saveOperationalSetting({code:form.dataset.settingCode,category:values.category,value,status:values.status,description:values.description||null});setCollaborativeFeedback("Configuração guardada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelectorAll("[data-backup-plan-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar plano…");
+    try{await collaborative.saveBackupPlan(form.dataset.planId||null,{code:values.code,name:values.name,backupType:values.backupType,provider:values.provider,frequency:values.frequency,retentionDays:values.retentionDays,targetRpoMinutes:values.targetRpoMinutes,targetRtoMinutes:values.targetRtoMinutes,status:values.status,instructionsReference:values.instructionsReference||null,responsibleUserId:values.responsibleUserId||null,secondaryUserId:values.secondaryUserId||null,nextDueAt:values.nextDueAt||null});setCollaborativeFeedback("Plano guardado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelectorAll("[data-backup-verification-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar verificação…");
+    try{await collaborative.recordBackupVerification(form.dataset.planId,{status:values.status,backupObservedAt:values.backupObservedAt||null,restoreTested:Boolean(form.elements.restoreTested?.checked),evidenceReference:values.evidenceReference||null,notes:values.notes||null});setCollaborativeFeedback("Verificação guardada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-audit-search-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);
+    state.collabAuditFilters={query:values.query||"",action:values.action||"",entityType:values.entityType||"",category:values.category||"",severity:values.severity||"",from:values.from||"",to:values.to||""};
+    try{await collaborative.searchAudit({...state.collabAuditFilters,limit:100,offset:0});}
+    catch(error){alert(error.message);}
+  });
+
+  document.querySelector("[data-audit-integrity]")?.addEventListener("click",async event=>{
+    event.currentTarget.disabled=true;
+    try{await collaborative.verifyAuditIntegrity();}
+    catch(error){alert(error.message);}finally{event.currentTarget.disabled=false;}
+  });
+
+  document.querySelector("[data-audit-export]")?.addEventListener("click",async event=>{
+    event.currentTarget.disabled=true;
+    try{await collaborative.exportAudit({...state.collabAuditFilters,limit:5000,offset:0});}
+    catch(error){alert(error.message);}finally{event.currentTarget.disabled=false;}
+  });
+
+  document.querySelectorAll("[data-retention-preview-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A gerar preview…");
+    try{await collaborative.previewRetention(form.dataset.policyCode,values.environment);setCollaborativeFeedback("Preview criado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelectorAll("[data-retention-approve]").forEach(button=>button.addEventListener("click",async()=>{
+    const confirmation=prompt('Escreva exatamente "APPROVE_MILREU_RETENTION_RUN":',"")||"";
+    button.disabled=true;
+    try{await collaborative.approveRetention(button.dataset.retentionApprove,confirmation);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-retention-cancel]").forEach(button=>button.addEventListener("click",async()=>{
+    const reason=prompt("Fundamente o cancelamento:","")||"";if(!reason.trim())return;
+    button.disabled=true;
+    try{await collaborative.cancelRetention(button.dataset.retentionCancel,reason);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-legal-hold-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A criar legal hold…");
+    try{await collaborative.createLegalHold({resourceType:values.resourceType,entityId:values.entityId||null,reason:values.reason,endsAt:values.endsAt||null});setCollaborativeFeedback("Legal hold criado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-legal-hold-release]").forEach(button=>button.addEventListener("click",async()=>{
+    const reason=prompt("Fundamente a libertação:","")||"";if(!reason.trim())return;
+    button.disabled=true;
+    try{await collaborative.releaseLegalHold(button.dataset.legalHoldRelease,reason);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-incident-create-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A abrir incidente…");
+    try{await collaborative.createIncident({title:values.title,description:values.description,category:values.category,severity:values.severity,environment:values.environment,impactSummary:values.impactSummary||null,ownerUserId:values.ownerUserId||null});setCollaborativeFeedback("Incidente aberto.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-incident-update-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A atualizar incidente…");
+    try{await collaborative.updateIncident(form.dataset.incidentId,{status:values.status,ownerUserId:values.ownerUserId||null,impactSummary:values.impactSummary||null,publicSummary:values.publicSummary||null,updateBody:values.updateBody});setCollaborativeFeedback("Incidente atualizado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-incident-note-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A adicionar nota…");
+    try{await collaborative.addIncidentUpdate(form.dataset.incidentId,values.updateType,values.body);setCollaborativeFeedback("Nota adicionada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-incident-action-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar ação…");
+    try{await collaborative.saveIncidentAction(form.dataset.actionId||null,form.dataset.incidentId,{title:values.title,description:values.description||null,status:values.status,priority:values.priority,assignedTo:values.assignedTo||null,dueAt:values.dueAt||null});setCollaborativeFeedback("Ação guardada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelectorAll("[data-continuity-exercise-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar exercício…");
+    try{await collaborative.saveContinuityExercise(form.dataset.exerciseId||null,{title:values.title,scenario:values.scenario,status:values.status,objectives:values.objectives,scheduledAt:values.scheduledAt||null,targetRtoMinutes:values.targetRtoMinutes,targetRpoMinutes:values.targetRpoMinutes,actualRecoveryMinutes:values.actualRecoveryMinutes,resultSummary:values.resultSummary||null,evidenceReference:values.evidenceReference||null,coordinatorUserId:values.coordinatorUserId||null});setCollaborativeFeedback("Exercício guardado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
   document.querySelector("[data-venue-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
     const form=event.currentTarget,values=formValues(form);
@@ -1219,6 +1359,10 @@ function render(scroll=true) {
     case "collab-agenda":
     case "collab-notifications":
     case "collab-notification-preferences":
+    case "collab-system-administration":
+    case "collab-audit-governance":
+    case "collab-incidents-continuity":
+    case "collab-incident-detail":
     case "collab-notification-management":
     case "collab-notification-templates":
     case "collab-library":

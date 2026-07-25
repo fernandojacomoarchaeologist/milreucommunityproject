@@ -1,0 +1,85 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.20.0",
+  "generatedAt": "2026-07-25T18:52:57.157Z",
+  "policies": [
+    {
+      "code": "expired-notifications",
+      "resourceType": "collab_notifications",
+      "action": "delete",
+      "retentionDays": 365,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "low",
+      "nextStep": "Criar preview no ambiente correto; não aplicar."
+    },
+    {
+      "code": "notification-outbox-delivered",
+      "resourceType": "collab_notification_outbox",
+      "action": "delete",
+      "retentionDays": 180,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "low",
+      "nextStep": "Criar preview no ambiente correto; não aplicar."
+    },
+    {
+      "code": "notification-deliveries",
+      "resourceType": "collab_notification_deliveries",
+      "action": "delete",
+      "retentionDays": 365,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "medium",
+      "nextStep": "Criar preview no ambiente correto; não aplicar."
+    },
+    {
+      "code": "operational-results",
+      "resourceType": "collab_operational_results",
+      "action": "delete",
+      "retentionDays": 730,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "low",
+      "nextStep": "Criar preview no ambiente correto; não aplicar."
+    },
+    {
+      "code": "audit-log",
+      "resourceType": "collab_audit_log",
+      "action": "export-only",
+      "retentionDays": 2555,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "critical",
+      "nextStep": "Revisão humana obrigatória."
+    },
+    {
+      "code": "incidents",
+      "resourceType": "collab_incidents",
+      "action": "manual-review",
+      "retentionDays": 2555,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "critical",
+      "nextStep": "Revisão humana obrigatória."
+    },
+    {
+      "code": "community-contributions",
+      "resourceType": "collab_contributions",
+      "action": "manual-review",
+      "retentionDays": 0,
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "risk": "critical",
+      "nextStep": "Revisão humana obrigatória."
+    }
+  ],
+  "gates": {
+    "previewBeforeApproval": true,
+    "approvalLiteral": true,
+    "serviceRoleApplyOnly": true,
+    "productionConfirmationRequired": true,
+    "automaticScheduleEnabled": false
+  },
+  "notice": "Este plano não seleciona candidatos e não executa qualquer eliminação."
+}

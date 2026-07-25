@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -89,3 +89,20 @@ Localizar:
 - decisão sobre fornecedor e domínio.
 
 Nunca inferir que o canal de e-mail está ativo.
+
+### Operações 08I
+
+Localizar:
+
+- modelo operacional;
+- modelo de retenção;
+- runtime;
+- migrations 08I;
+- Edge Function de exportação;
+- execuções de saúde;
+- incidentes;
+- backup plans;
+- legal holds;
+- lifecycle runs.
+
+Nunca inferir que backup, restauração, staging ou produção foram validados.

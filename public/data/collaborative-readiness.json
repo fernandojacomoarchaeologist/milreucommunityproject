@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
-  "status": "notification-foundation-ready",
+  "version": "0.20.0",
+  "status": "operational-governance-foundation-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -26,19 +26,23 @@
     "exhibition-management",
     "deployment-homologation",
     "notifications",
-    "notification-management"
+    "notification-management",
+    "system-administration",
+    "audit-governance",
+    "incident-continuity"
   ],
   "skeletonModules": [],
   "nextActions": [
-    "run-08a-through-08h-database-tests",
-    "test-notification-triggers-in-local-supabase",
-    "review-20-portuguese-templates",
-    "validate-notification-privacy-and-retention",
-    "choose-email-provider-only-if-needed",
-    "configure-webhook-and-sender-in-staging",
-    "test-outbox-retry-and-dead-letter",
-    "keep-automatic-schedule-disabled",
-    "continue-to-08i-operational-governance"
+    "run-08a-through-08i-database-tests",
+    "execute-audit-backfill-and-integrity-test-locally",
+    "deploy-audit-export-function-to-staging",
+    "configure-real-backup-evidence",
+    "perform-first-restore-test",
+    "assign-primary-and-secondary-continuity-responsibles",
+    "run-first-operational-check-cycle",
+    "test-retention-preview-with-legal-hold",
+    "keep-retention-apply-and-production-blocked",
+    "continue-to-08j-release-candidate"
   ],
   "memberManagementReady": true,
   "volunteeringTasksReady": true,
@@ -60,5 +64,16 @@
   "transactionalEmailPrepared": true,
   "transactionalEmailEnabled": false,
   "notificationProviderConfigured": false,
-  "notificationScheduleEnabled": false
+  "notificationScheduleEnabled": false,
+  "operationalGovernanceReady": true,
+  "auditIntegrityPrepared": true,
+  "auditIntegrityRemoteValidated": false,
+  "retentionLifecyclePrepared": true,
+  "retentionAutomaticApply": false,
+  "incidentManagementReady": true,
+  "backupRegistryReady": true,
+  "backupRemoteConfirmed": false,
+  "restoreTestConfirmed": false,
+  "continuityExercisesReady": true,
+  "remoteOperationsValidated": false
 }

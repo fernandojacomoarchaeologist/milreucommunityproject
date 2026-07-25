@@ -1,0 +1,65 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08I Apply Approved Retention
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Ambiente protegido"
+        required: true
+        type: choice
+        options: [staging, production]
+      run_id:
+        description: "UUID da execução aprovada"
+        required: true
+        type: string
+      confirmation:
+        description: "APPLY_MILREU_RETENTION_POLICY"
+        required: true
+        type: string
+      production_confirmation:
+        description: "Em produção: APPLY_MILREU_PRODUCTION_RETENTION"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milreu-retention-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Validate confirmations
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${{ inputs.confirmation }}" = "APPLY_MILREU_RETENTION_POLICY"
+          if [ "${{ inputs.environment }}" = "production" ]; then
+            test "${{ inputs.production_confirmation }}" = "APPLY_MILREU_PRODUCTION_RETENTION"
+          fi
+          echo "${{ inputs.run_id }}" | grep -Eq '^[0-9a-fA-F-]{36}$'
+      - name: Apply one approved run
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RUN_ID: ${{ inputs.run_id }}
+          PRODUCTION_CONFIRMATION: ${{ inputs.production_confirmation }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SUPABASE_URL"
+          test -n "$SUPABASE_SERVICE_ROLE_KEY"
+          body="$(jq -n             --arg run "$RUN_ID"             --arg confirmation "APPLY_MILREU_RETENTION_POLICY"             --arg production "$PRODUCTION_CONFIRMATION"             '{
+              p_run_id:$run,
+              p_confirmation:$confirmation,
+              p_production_confirmation:($production|select(length>0))
+            }')"
+          curl --fail-with-body --silent --show-error             --request POST             --header "apikey: $SUPABASE_SERVICE_ROLE_KEY"             --header "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY"             --header "Content-Type: application/json"             --data "$body"             "$SUPABASE_URL/rest/v1/rpc/collab_apply_retention_run_08i"
