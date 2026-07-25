@@ -18,7 +18,7 @@ create or replace function public.collab_record_audit(
 returns void
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   request_value text:=nullif(current_setting('request.headers',true),'');
@@ -82,7 +82,7 @@ returns jsonb
 language plpgsql
 stable
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -161,7 +161,7 @@ returns jsonb
 language plpgsql
 stable
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -234,7 +234,7 @@ returns jsonb
 language plpgsql
 stable
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -466,7 +466,7 @@ create or replace function public.collab_upsert_operational_setting_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -508,7 +508,7 @@ create or replace function public.collab_start_operational_run_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -554,7 +554,7 @@ create or replace function public.collab_record_operational_result_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -601,7 +601,7 @@ create or replace function public.collab_complete_operational_run_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -666,7 +666,7 @@ create or replace function public.collab_upsert_retention_policy_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -716,7 +716,7 @@ create or replace function public.collab_create_legal_hold_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -750,7 +750,7 @@ create or replace function public.collab_release_legal_hold_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -785,7 +785,7 @@ returns table(entity_id text)
 language plpgsql
 stable
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 begin
   if p_policy_code='expired-notifications' then
@@ -832,7 +832,7 @@ create or replace function public.collab_preview_retention_run_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -912,7 +912,7 @@ create or replace function public.collab_approve_retention_run_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -957,7 +957,7 @@ create or replace function public.collab_cancel_retention_run_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -991,7 +991,7 @@ create or replace function public.collab_apply_retention_run_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   run_row public.collab_lifecycle_runs%rowtype;
@@ -1147,7 +1147,7 @@ create or replace function public.collab_create_incident_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1231,7 +1231,7 @@ create or replace function public.collab_update_incident_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1328,7 +1328,7 @@ create or replace function public.collab_add_incident_update_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1369,7 +1369,7 @@ create or replace function public.collab_upsert_incident_action_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1446,7 +1446,7 @@ create or replace function public.collab_upsert_backup_plan_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1506,7 +1506,7 @@ create or replace function public.collab_record_backup_verification_08i(
 returns uuid
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();
@@ -1581,7 +1581,7 @@ create or replace function public.collab_upsert_continuity_exercise_08i(
 returns jsonb
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   project_uuid uuid:=public.collab_project_id();

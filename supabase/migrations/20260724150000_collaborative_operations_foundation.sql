@@ -197,7 +197,7 @@ create or replace function public.collab_audit_hash_before_insert_08i()
 returns trigger
 language plpgsql
 security definer
-set search_path=public
+set search_path=public,extensions
 as $$
 declare
   previous_value text;
