@@ -80,3 +80,7 @@ A publicação pública depende de confirmação editorial e operacional. Contac
 A pessoa que submete um contributo não transfere automaticamente direitos de autor ou outros direitos ao projeto. A utilização depende do âmbito autorizado, da revisão de direitos, da forma de crédito acordada e da decisão editorial.
 
 Os ficheiros permanecem privados durante a análise. Dados de identificação, contactos, notas internas, pedidos de retirada e decisões não devem ser publicados. O modo de demonstração contém apenas dados fictícios.
+
+## Revisão editorial — Pacote 08F
+
+Propostas, comentários e snapshots não transferem direitos nem criam autorização. A aplicação depende de gates explícitos. MM202617 mantém divulgação obrigatória de retoque substantivo com IA.

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "modules": [
     {
       "code": "dashboard",
@@ -60,27 +60,27 @@
       "code": "library",
       "name": "Biblioteca",
       "route": "/area-colaborativa/biblioteca",
-      "status": "skeleton",
+      "status": "active",
       "permission": "library.view",
-      "description": "Guias, procedimentos, consentimentos e documentação interna.",
+      "description": "Guias, procedimentos, consentimentos, manuais e recursos internos do projeto.",
       "sortOrder": 60
     },
     {
       "code": "training",
       "name": "Formação",
       "route": "/area-colaborativa/formacao",
-      "status": "skeleton",
+      "status": "active",
       "permission": "training.view",
-      "description": "Percursos de formação para voluntários e colaboradores.",
+      "description": "Percursos de formação, avaliações e requisitos para atividades especializadas.",
       "sortOrder": 70
     },
     {
       "code": "museum-review",
       "name": "Revisão do Museu",
       "route": "/area-colaborativa/revisao-museu",
-      "status": "skeleton",
-      "permission": "museum.review",
-      "description": "Futura revisão editorial e curatorial das 31 memórias.",
+      "status": "active",
+      "permission": "museum.review.view",
+      "description": "Revisão campo a campo das 31 memórias, fontes, direitos, relações, traduções e publicação.",
       "sortOrder": 80
     },
     {
@@ -118,6 +118,15 @@
       "permission": "contributions.moderate",
       "description": "Triagem, atribuição, revisão, direitos, decisões e encaminhamento editorial.",
       "sortOrder": 95
+    },
+    {
+      "code": "museum-review-management",
+      "name": "Gestão da revisão do Museu",
+      "route": "/area-colaborativa/gestao/revisao-museu",
+      "status": "active",
+      "permission": "museum.review.manage",
+      "description": "Ciclos, atribuições, gates, snapshots, efeitos públicos e incorporação controlada.",
+      "sortOrder": 96
     },
     {
       "code": "venue-management",

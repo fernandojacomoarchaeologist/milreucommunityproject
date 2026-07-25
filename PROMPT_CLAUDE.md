@@ -1,43 +1,57 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08E"
+package: "08F"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08E
+# Prompt de integração — Pacote 08F
 
-Integra cumulativamente o 08E sobre o 08D.
+Integra cumulativamente o 08F sobre o 08E.
 
-## Objetivo
+## Prioridade
 
-Ativar contributos comunitários e moderação sem publicar automaticamente conteúdo, ficheiros ou dados pessoais.
+Preservar o contexto acumulado. Antes de alterar rotas públicas, Museu, Home, Supabase ou módulos colaborativos, ler:
 
-## Preservar
-
-- Portal e Museu;
-- MM202617 em revisão;
-- Proteus;
-- autenticação Google;
-- membros;
-- tarefas;
-- agenda e exposições;
-- RLS;
-- gates de lançamento;
-- separação entre público e interno.
+- `PROJECT_CONTEXT_LEDGER.md`;
+- `PACKAGE_DEPENDENCY_MAP.md`;
+- `CHANGE_SURFACE_REGISTRY.md`;
+- `CONTEXT_RECOVERY_PROTOCOL.md`.
 
 ## Integrar
 
-1. Mesclar as três migrations 08E.
-2. Integrar a Edge Function `community-contribution-intake`.
-3. Integrar modelo, rotas, views, controller, estilos, testes e workflows.
-4. Preservar o bucket como privado.
-5. Configurar secrets apenas no ambiente Supabase.
-6. Executar:
+1. migrations 08F;
+2. modelos de revisão, formação e biblioteca;
+3. controller;
+4. views e rotas;
+5. slots públicos;
+6. scripts de exportação e aplicação;
+7. testes e workflows;
+8. documentação de contexto.
+
+## Regras
+
+- 31 memórias, não 30;
+- MM202617 visível para revisão com divulgação de IA;
+- nenhum registo aprovado por inferência;
+- proposta por campo;
+- bloqueios resolvidos antes da aprovação;
+- formação exigida;
+- editorial antes de direitos;
+- direitos antes de publicação;
+- snapshot aprovado antes da aplicação;
+- aplicação local antes de PR;
+- efeitos públicos apenas por slots;
+- não usar `service_role` no browser;
+- não inventar traduções, fontes, direitos ou conteúdo.
+
+## Validação
 
 ```bash
 npm ci
 npm run collab:config
+npm run museum:review-export
+npm run museum:review-apply
 npm run contributions:demo-export
 npm run exhibitions:export
 npm run channels:export
@@ -49,59 +63,25 @@ npm run build
 npm run smoke
 ```
 
-7. Executar os testes SQL cumulativos.
-8. Testar a Edge Function em staging.
+Executar migrations e testes SQL em Supabase local.
 
-## Regras
+## Revisão manual
 
-- visitante não consulta tabelas diretamente;
-- anon não recebe permissão de insert nas tabelas;
-- entrada pública passa pela Edge Function;
-- ficheiros permanecem privados;
-- URLs de upload e download expiram;
-- service role existe apenas na Edge Function;
-- notas internas não são devolvidas no acompanhamento;
-- nomes de participantes não são publicados;
-- contribuição aceite gera proposta, não alteração canónica;
-- retirada mantém histórico de auditoria;
-- não declarar ficheiro como seguro apenas por ter sido recebido.
+- biblioteca;
+- cinco trilhas;
+- progresso e avaliação;
+- fila das 31 memórias;
+- detalhe;
+- proposta textual;
+- proposta JSON;
+- comentário bloqueante;
+- resolução;
+- checks;
+- sequência de aprovações;
+- preview;
+- contribuição aceite;
+- snapshot;
+- efeito público;
+- desktop, tablet e telemóvel.
 
-## Testes manuais
-
-### Público
-
-- texto sem ficheiro;
-- fotografia;
-- cinco ficheiros;
-- ficheiro acima do limite;
-- tipo não permitido;
-- honeypot;
-- limite de pedidos;
-- acompanhamento correto;
-- acompanhamento com e-mail incorreto;
-- retirada;
-- código inválido.
-
-### Membro
-
-- submissão autenticada;
-- acompanhamento;
-- ficheiros próprios;
-- isolamento entre membros.
-
-### Moderação
-
-- triagem;
-- atribuição;
-- pedido de informação;
-- revisão de direitos;
-- aceitação parcial;
-- recusa;
-- proposta Museu;
-- proposta Proteus;
-- retirada;
-- ficheiro aceite e rejeitado;
-- URL temporária;
-- ausência de atualização canónica.
-
-Não publicar automaticamente o projeto.
+Não aplicar um snapshot real durante a integração.

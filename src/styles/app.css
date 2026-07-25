@@ -783,3 +783,99 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
   .contribution-history article,.moderation-event{grid-template-columns:1fr}
   .moderation-filters{grid-template-columns:1fr}
 }
+
+
+/* 08F — Formação, biblioteca e revisão editorial do Museu */
+.content-effect{margin:0;padding:clamp(2rem,6vw,5rem) clamp(1rem,6vw,6rem);background:#f1ece3;border-top:1px solid #d6ccbf;border-bottom:1px solid #d6ccbf}
+.museum-shell .content-effect{margin:0;padding:clamp(2rem,5vw,4rem) clamp(1rem,5vw,5rem)}
+.content-effect--callout{display:grid;grid-template-columns:minmax(0,1fr) minmax(18rem,.6fr);gap:2rem;color:white;background:#7e251c}
+.content-effect--callout h2{font:500 clamp(2rem,4vw,4rem)/1 var(--ml-font-display)}
+.content-effect:empty{display:none}
+
+.collab-library-filters,.museum-review-filters{display:grid;grid-template-columns:minmax(15rem,1fr) minmax(12rem,.4fr) auto;gap:.7rem;align-items:end;margin-bottom:1.2rem;padding:.8rem;background:#fffefa;border:1px solid #d5cabd}
+.collab-library-filters label,.museum-review-filters label{display:grid;gap:.25rem;font-size:.68rem;font-weight:900}
+.collab-library-filters input,.collab-library-filters select,.museum-review-filters input,.museum-review-filters select{padding:.65rem;border:1px solid #9a8f84}
+.collab-library-filters button,.museum-review-filters button{padding:.7rem .9rem;color:white;background:#7e251c;border:0;font-weight:900;cursor:pointer}
+.collab-library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.collab-library-grid article{display:grid;align-content:start;min-height:15rem;padding:1rem;background:#fffefa;border:1px solid #d5cabd;border-top:5px solid #a83227}
+.collab-library-grid article>span{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}
+.collab-library-grid h2{margin:.45rem 0;font:500 1.65rem var(--ml-font-display)}
+.collab-library-grid p{overflow-wrap:anywhere;font-size:.72rem;color:#665f58}
+.collab-library-grid a{margin-top:auto;font-weight:900;color:#7e251c}
+
+.training-trail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.training-trail-card{display:grid;align-content:start;gap:.65rem;min-height:21rem;padding:1.1rem;background:#fffefa;border:1px solid #d5cabd}
+.training-trail-card>div:first-child{display:flex;justify-content:space-between;gap:.5rem;align-items:center}.training-trail-card>div:first-child>span:first-child{font-size:.62rem;font-weight:900;text-transform:uppercase}
+.training-trail-card h2{margin:.25rem 0;font:500 1.8rem var(--ml-font-display)}
+.training-trail-card p{font-size:.84rem}.training-trail-card>a{margin-top:auto;color:#7e251c;font-weight:900}
+.training-progress{height:.55rem;overflow:hidden;background:#ddd4c7}.training-progress span{display:block;height:100%;background:#a83227}
+.training-trail-card small{font-size:.66rem}
+.training-trail-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-bottom:2rem}
+.training-trail-overview article{display:grid;align-content:center;gap:.35rem;min-height:8rem;padding:1rem;background:#fffefa;border-top:5px solid #a83227}
+.training-trail-overview article>span:first-child{font-size:.62rem;font-weight:900;text-transform:uppercase}.training-trail-overview strong{font:500 2rem var(--ml-font-display)}
+.training-lessons{display:grid;gap:.6rem}.training-lessons>h2{font:500 2rem var(--ml-font-display)}
+.training-lessons article{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:.8rem;align-items:center;padding:.8rem;background:#fffefa;border:1px solid #d5cabd}
+.training-lessons article>span:first-child{display:grid;place-items:center;width:2.2rem;height:2.2rem;color:white;background:#85786c;border-radius:50%;font-weight:900}
+.training-lessons .training-lesson--complete{border-left:5px solid #3f6b4c}.training-lessons .training-lesson--complete>span:first-child{background:#3f6b4c}
+.training-lessons h3{margin:0;font:500 1.25rem var(--ml-font-display)}.training-lessons p{margin:.2rem 0 0;font-size:.7rem;overflow-wrap:anywhere}.training-lessons button{padding:.55rem .7rem;background:#eee7db;border:1px solid #9a8f84;cursor:pointer;font-weight:900}
+.training-assessment-pending,.training-completion-note{margin-top:1.5rem;padding:1rem;background:#f1e8d7;border-left:5px solid #cc9a1f}
+
+.museum-review-metrics,.review-cycle-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-bottom:1.5rem}
+.museum-review-metrics article,.review-cycle-summary article{display:grid;align-content:center;min-height:8rem;padding:1rem;background:#fffefa;border-top:5px solid #a83227}
+.museum-review-metrics strong,.review-cycle-summary strong{font:500 2.6rem var(--ml-font-display)}
+.museum-review-metrics span,.review-cycle-summary span{font-size:.62rem;font-weight:900;text-transform:uppercase}
+.museum-review-list{display:grid;gap:.75rem}
+.museum-review-card{display:grid;grid-template-columns:8rem minmax(0,1fr) 6rem;gap:1rem;align-items:center;padding:.75rem;background:#fffefa;border:1px solid #d5cabd;border-left:6px solid #85786c}
+.museum-review-card--in-progress,.museum-review-card--ready-editorial{border-left-color:#cc9a1f}.museum-review-card--needs-changes{border-left-color:#9b3d32}.museum-review-card--publication-approved,.museum-review-card--incorporated{border-left-color:#3f6b4c}
+.museum-review-card__image{aspect-ratio:4/3;overflow:hidden;background:#ded6c9}.museum-review-card__image img{width:100%;height:100%;object-fit:cover}
+.museum-review-card>div:nth-child(2)>span:first-child{font-size:.62rem;font-weight:900;color:#7e251c}.museum-review-card h2{margin:.2rem 0;font:500 1.55rem var(--ml-font-display)}
+.review-card-meta{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}.review-card-meta>span:not(.status-pill){font-size:.64rem}.museum-review-card>a{font-weight:900;color:#7e251c}
+
+.review-record-overview{display:grid;grid-template-columns:minmax(16rem,.45fr) minmax(0,1fr);gap:1.4rem;align-items:start;margin-bottom:2rem}
+.review-record-image{position:relative;background:#1e1a17}.review-record-image img{display:block;width:100%;max-height:32rem;object-fit:contain}.review-record-image>span{display:block;padding:.65rem;color:white;background:#7e251c;font-size:.72rem;font-weight:900}
+.review-record-overview>div:last-child{padding:1rem;background:#fffefa;border:1px solid #d5cabd}.review-record-overview dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.review-record-overview dl div{padding:.6rem;background:#eee7db}.review-record-overview dt{font-size:.58rem;font-weight:900;text-transform:uppercase}.review-record-overview dd{margin:.2rem 0 0;overflow-wrap:anywhere}
+.museum-field-groups{display:grid;gap:2rem}.museum-field-groups>section>h2{font:500 2rem var(--ml-font-display)}
+.museum-field-review{margin:.55rem 0;background:#fffefa;border:1px solid #d5cabd}.museum-field-review>summary{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.8rem;cursor:pointer;font-weight:900}.museum-field-review[open]>summary{border-bottom:1px solid #d5cabd}
+.museum-field-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:1rem}.museum-field-comparison>div{min-width:0}.museum-field-comparison strong{font-size:.64rem;text-transform:uppercase}.museum-field-comparison pre{max-height:24rem;overflow:auto;padding:.75rem;white-space:pre-wrap;overflow-wrap:anywhere;background:#f1ece3;border:1px solid #d5cabd;font:normal .75rem/1.55 ui-monospace,monospace}
+.field-proposal-rationale{display:grid;gap:.3rem;margin:0 1rem 1rem;padding:.8rem;background:#eef0e9;border-left:5px solid #61704d}.field-proposal-rationale p{margin:0}.field-proposal-rationale small{display:block}
+.museum-proposal-form{margin:0 1rem 1rem;max-width:none}.proposal-review-actions{display:flex;gap:.5rem;padding:0 1rem 1rem}.proposal-review-actions button{padding:.5rem .7rem;background:#eee7db;border:1px solid #9a8f84;cursor:pointer;font-weight:900}
+
+.review-checks,.review-comments,.review-management-panel,.review-history{margin-top:2.5rem}
+.review-checks>h2,.review-comments h2,.review-management-panel h2,.review-history>h2{font:500 2rem var(--ml-font-display)}
+.review-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.review-check-grid article{display:grid;gap:.45rem;padding:.8rem;background:#fffefa;border:1px solid #d5cabd}.review-check-grid form{display:grid;grid-template-columns:12rem minmax(0,1fr) auto;gap:.45rem}.review-check-grid select,.review-check-grid input{padding:.5rem;border:1px solid #9a8f84}.review-check-grid button{font-weight:900}
+.review-comments{display:grid;gap:.65rem}.review-comments>article{padding:.8rem;background:#fffefa;border-left:5px solid #85786c}.review-comments>article.review-comment--blocking{background:#fff0e8;border-left-color:#9b3d32}.review-comments>article>div:first-child{display:flex;justify-content:space-between;gap:.5rem;font-size:.65rem;font-weight:900;text-transform:uppercase}.review-comments article code{display:inline-block;padding:.25rem;background:#eee7db}.review-comments article button{display:block;margin-top:.5rem}
+.review-management-panel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:start}.review-management-panel>div{padding:1rem;background:#fffefa;border:1px solid #d5cabd}
+.review-history{display:grid;gap:.55rem}.review-history>article{display:grid;grid-template-columns:10rem 14rem 1fr;gap:.7rem;padding:.75rem;background:#fffefa;border-left:4px solid #85786c}.review-history p{margin:0}
+
+.museum-preview-warning{padding:1rem;color:white;background:#7e251c}.museum-preview-warning p{margin:.3rem 0 0}
+.museum-preview-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}.museum-preview-comparison>article{min-width:0;padding:1rem;background:#fffefa;border:1px solid #d5cabd}.museum-preview-comparison>article>span:first-child{display:block;margin-bottom:.7rem;font-size:.65rem;font-weight:900;text-transform:uppercase;color:#7e251c}
+.museum-preview-json{margin-top:1rem;background:#fffefa;border:1px solid #d5cabd}.museum-preview-json>summary{padding:.8rem;font-weight:900;cursor:pointer}.museum-preview-json>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;padding:.8rem}.museum-preview-json pre{max-height:42rem;overflow:auto;padding:.75rem;background:#1e1a17;color:#f5eee5;font-size:.7rem}
+
+.snapshot-generator{max-width:32rem}.snapshot-list,.public-effect-management{display:grid;gap:.65rem;margin-top:2rem}.snapshot-list>h2,.public-effect-management>h2{font:500 2rem var(--ml-font-display)}.snapshot-list>article,.public-effect-management>article{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:.7rem;align-items:center;padding:.8rem;background:#fffefa;border:1px solid #d5cabd}.snapshot-list>article>div{display:grid}.snapshot-list code{font-size:.65rem;overflow-wrap:anywhere}
+.public-effect-management>.collab-form{max-width:52rem}
+
+@media(max-width:78rem){
+  .collab-library-grid,.training-trail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .review-management-panel{grid-template-columns:1fr}
+  .museum-review-metrics,.review-cycle-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:58rem){
+  .collab-library-filters,.museum-review-filters,.review-record-overview,.museum-field-comparison,.museum-preview-comparison,.museum-preview-json>div{grid-template-columns:1fr}
+  .collab-library-grid,.training-trail-grid,.training-trail-overview,.museum-review-metrics,.review-cycle-summary,.review-check-grid{grid-template-columns:1fr}
+  .museum-review-card{grid-template-columns:6rem minmax(0,1fr)}.museum-review-card>a{grid-column:1/-1}
+  .review-record-overview dl{grid-template-columns:1fr}
+  .review-check-grid form{grid-template-columns:1fr}
+  .review-history>article{grid-template-columns:1fr}
+  .snapshot-list>article,.public-effect-management>article{grid-template-columns:1fr}
+}
+@media(max-width:38rem){
+  .training-lessons article{grid-template-columns:2.5rem minmax(0,1fr)}.training-lessons article>button,.training-lessons article>.status-pill{grid-column:1/-1}
+  .museum-review-card{grid-template-columns:1fr}.museum-review-card__image{max-width:10rem}
+}
+
+.collab-reference-content{max-width:70rem;padding:clamp(1rem,3vw,2.5rem);background:#fffefa;border:1px solid #d5cabd}
+.collab-reference-content h1,.collab-reference-content h2,.collab-reference-content h3{font-family:var(--ml-font-display);font-weight:500}
+.collab-reference-content h1{font-size:2.5rem}.collab-reference-content h2{margin-top:2rem;font-size:1.8rem}.collab-reference-content h3{margin-top:1.4rem;font-size:1.3rem}
+.collab-reference-content p,.collab-reference-content li{max-width:68ch;line-height:1.7}
+.collab-reference-visibility{max-width:70rem;padding:.7rem;background:#f1e8d7;border-left:4px solid #a83227;font-size:.72rem}
+.training-lessons details{margin-top:.45rem}.training-lessons details summary{cursor:pointer;font-size:.7rem;font-weight:900;color:#7e251c}.training-lesson-content{padding:.65rem;background:#f1ece3}.training-lesson-content h1{font-size:1.2rem}.training-lesson-content h2,.training-lesson-content h3{font-size:1rem}.training-lesson-content p,.training-lesson-content li{font-size:.74rem;line-height:1.6}

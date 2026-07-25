@@ -1,0 +1,66 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.17.0",
+  "currentPackage": "08F",
+  "surfaces": [
+    {
+      "code": "portal-home",
+      "owner": "public-portal",
+      "files": [
+        "src/views/portal.js",
+        "public/data/public-content-effects.json"
+      ],
+      "integration": "slot-registry"
+    },
+    {
+      "code": "museum-home",
+      "owner": "museum",
+      "files": [
+        "src/views/museum.js",
+        "public/data/public-content-effects.json"
+      ],
+      "integration": "slot-registry"
+    },
+    {
+      "code": "museum-canonical-data",
+      "owner": "museum-data",
+      "files": [
+        "public/data/memories.json",
+        "public/data/museum-editorial-approved.json"
+      ],
+      "integration": "hash-gated-patch"
+    },
+    {
+      "code": "collaborative-navigation",
+      "owner": "collaborative-area",
+      "files": [
+        "public/data/collaborative-modules.json",
+        "src/components/collaborative-layout.js"
+      ],
+      "integration": "module-registry"
+    },
+    {
+      "code": "training",
+      "owner": "collaborative-training",
+      "files": [
+        "public/data/collaborative-training-trails.json"
+      ],
+      "integration": "trail-registry"
+    },
+    {
+      "code": "library",
+      "owner": "collaborative-library",
+      "files": [
+        "public/data/collaborative-library.json"
+      ],
+      "integration": "resource-registry"
+    }
+  ],
+  "futurePackageRules": [
+    "Atualizar PROJECT_CONTEXT_LEDGER.md e PACKAGE_DEPENDENCY_MAP.md.",
+    "Registar cada alteração de página pública em public/data/package-impact-registry.json.",
+    "Adicionar efeitos públicos por slot; não substituir secções sem migration de interface.",
+    "Preservar hashes e gates da revisão editorial.",
+    "Não inventar contactos, domínios, traduções, direitos, datas ou aprovações."
+  ]
+}

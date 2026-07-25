@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "roles": [
     {
       "code": "master",
@@ -95,7 +95,25 @@
     "contributions.files.review",
     "contributions.export",
     "withdrawals.manage",
-    "rights.review"
+    "rights.review",
+    "training.complete",
+    "training.assess",
+    "training.audit.view",
+    "museum.review.view",
+    "museum.review.edit",
+    "museum.review.comment",
+    "museum.review.assign",
+    "museum.review.check",
+    "museum.review.editorial-approve",
+    "museum.review.rights-approve",
+    "museum.review.publication-approve",
+    "museum.review.preview",
+    "museum.review.export",
+    "museum.review.apply",
+    "museum.review.manage",
+    "museum.review.audit.view",
+    "museum.review.link-contribution",
+    "museum.review.effects.manage"
   ],
   "rolePermissions": {
     "master": [
@@ -151,7 +169,25 @@
       "contributions.files.review",
       "contributions.export",
       "withdrawals.manage",
-      "rights.review"
+      "rights.review",
+      "training.complete",
+      "training.assess",
+      "training.audit.view",
+      "museum.review.view",
+      "museum.review.edit",
+      "museum.review.comment",
+      "museum.review.assign",
+      "museum.review.check",
+      "museum.review.editorial-approve",
+      "museum.review.rights-approve",
+      "museum.review.publication-approve",
+      "museum.review.preview",
+      "museum.review.export",
+      "museum.review.apply",
+      "museum.review.manage",
+      "museum.review.audit.view",
+      "museum.review.link-contribution",
+      "museum.review.effects.manage"
     ],
     "volunteer": [
       "area.view",
@@ -168,7 +204,10 @@
       "tasks.progress",
       "tasks.time-log",
       "agenda.rsvp",
-      "contributions.track-own"
+      "contributions.track-own",
+      "training.complete",
+      "museum.review.view",
+      "museum.review.comment"
     ],
     "reviewer": [
       "area.view",
@@ -187,7 +226,16 @@
       "contributions.view-all",
       "contributions.review",
       "contributions.request-info",
-      "rights.review"
+      "rights.review",
+      "training.complete",
+      "training.assess",
+      "museum.review.view",
+      "museum.review.edit",
+      "museum.review.comment",
+      "museum.review.check",
+      "museum.review.preview",
+      "museum.review.link-contribution",
+      "museum.review.audit.view"
     ],
     "researcher": [
       "area.view",
@@ -206,7 +254,15 @@
       "agenda.rsvp",
       "contributions.track-own",
       "contributions.view-all",
-      "contributions.review"
+      "contributions.review",
+      "training.complete",
+      "museum.review.view",
+      "museum.review.edit",
+      "museum.review.comment",
+      "museum.review.check",
+      "museum.review.preview",
+      "museum.review.link-contribution",
+      "museum.review.audit.view"
     ],
     "translator": [
       "area.view",
@@ -222,21 +278,32 @@
       "tasks.progress",
       "tasks.time-log",
       "agenda.rsvp",
-      "contributions.track-own"
+      "contributions.track-own",
+      "training.complete",
+      "museum.review.view",
+      "museum.review.edit",
+      "museum.review.comment",
+      "museum.review.check",
+      "museum.review.preview"
     ],
     "partner": [
       "area.view",
       "profile.self.manage",
       "agenda.view",
       "library.view",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "training.complete",
+      "museum.review.view",
+      "museum.review.comment"
     ],
     "observer": [
       "area.view",
       "profile.self.manage",
       "agenda.view",
       "library.view",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "training.complete",
+      "museum.review.view"
     ]
   }
 }

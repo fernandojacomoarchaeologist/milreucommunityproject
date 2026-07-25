@@ -5,6 +5,7 @@
  */
 import { museumHeader, footer } from "../components/layout.js";
 import { memoryCard } from "../components/memory-card.js";
+import { renderPublicContentEffects } from "../components/public-content-effects.js";
 import { assetUrl, suggestedMemories } from "../lib/data.js";
 import { localised, text } from "../lib/i18n.js";
 
@@ -24,7 +25,7 @@ function aiReviewDisclosure(record,lang,compact=false) {
   </div>`;
 }
 
-export function museumHome(records,collections,audit,lang) {
+export function museumHome(records,collections,audit,lang,publicEffects=null) {
   const visible = records.filter(x => x.publication.siteVisible);
   const hero = visible[0];
   const featured = visible.slice(0,3);
@@ -42,6 +43,8 @@ export function museumHome(records,collections,audit,lang) {
         </div>
       </div>
     </section>
+
+    ${renderPublicContentEffects(publicEffects,"museum.home.after-opening",records,lang)}
 
     <section class="museum-section">
       <div class="museum-section__heading"><div><span class="eyebrow">${text(lang,"collectionsLabel")}</span><h2>Percursos de exploração</h2></div><a href="#/museu/colecoes">${text(lang,"showAll")} →</a></div>

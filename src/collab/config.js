@@ -22,7 +22,7 @@ export async function loadCollaborativeConfig() {
 }
 
 export async function loadCollaborativeFoundationData() {
-  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, demo] = await Promise.all([
+  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, museumReviewModel, trainingTrails, library, reviewSeed, demo] = await Promise.all([
     fetchJson("public/data/collaborative-profile-types.json"),
     fetchJson("public/data/collaborative-roles-permissions.json"),
     fetchJson("public/data/collaborative-modules.json"),
@@ -30,6 +30,10 @@ export async function loadCollaborativeFoundationData() {
     fetchJson("public/data/collaborative-task-model.json"),
     fetchJson("public/data/collaborative-exhibition-model.json"),
     fetchJson("public/data/collaborative-contribution-model.json"),
+    fetchJson("public/data/collaborative-museum-review-model.json"),
+    fetchJson("public/data/collaborative-training-trails.json"),
+    fetchJson("public/data/collaborative-library.json"),
+    fetchJson("public/data/museum-review-seed.json"),
     fetchJson("public/data/collaborative-demo.json")
   ]);
   return {
@@ -42,6 +46,10 @@ export async function loadCollaborativeFoundationData() {
     taskModel,
     exhibitionModel,
     contributionModel,
+    museumReviewModel,
+    trainingTrails,
+    library,
+    reviewSeed,
     demo
   };
 }

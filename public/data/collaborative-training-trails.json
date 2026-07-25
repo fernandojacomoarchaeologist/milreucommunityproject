@@ -1,0 +1,204 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.17.0",
+  "trails": [
+    {
+      "code": "project-foundations",
+      "title": "Fundamentos do Projeto Comunitário de Milreu",
+      "summary": "Princípios, objetivos, ética, participação, consentimento e separação entre comunidade, instituição e conteúdo canónico.",
+      "audience": [
+        "volunteer",
+        "reviewer",
+        "researcher",
+        "translator",
+        "coordinator",
+        "partner"
+      ],
+      "requiredFor": [
+        "museum-review",
+        "contributions",
+        "tasks"
+      ],
+      "estimatedMinutes": 45,
+      "lessons": [
+        {
+          "code": "project-purpose",
+          "title": "Objetivo, princípios e iniciativas",
+          "resource": "docs/training/project-purpose.md",
+          "content": "# Objetivo, princípios e iniciativas\n\nEstudar o objetivo, os três princípios e a diferença entre programa, Museu e Proteus."
+        },
+        {
+          "code": "community-first",
+          "title": "Comunidade, mutualidade e contexto institucional",
+          "resource": "docs/training/community-first.md",
+          "content": "# Comunidade e contexto\n\nA comunidade fala primeiro. A instituição contextualiza sem substituir a voz comunitária."
+        },
+        {
+          "code": "ethics-consent",
+          "title": "Ética, consentimento, correção e retirada",
+          "resource": "docs/training/ethics-consent.md",
+          "content": "# Ética e consentimento\n\nRever consentimento, correção, retirada, privacidade e limites de utilização."
+        }
+      ],
+      "assessment": {
+        "passingScore": 80,
+        "questions": 6
+      }
+    },
+    {
+      "code": "museum-editorial-evidence",
+      "title": "Revisão editorial, evidência e proveniência",
+      "summary": "Como rever títulos, descrições, datas, classificações, fontes, relações e níveis de certeza.",
+      "audience": [
+        "reviewer",
+        "researcher",
+        "coordinator"
+      ],
+      "requiredFor": [
+        "museum-review.edit",
+        "museum-review.editorial-approve"
+      ],
+      "estimatedMinutes": 75,
+      "lessons": [
+        {
+          "code": "field-review",
+          "title": "Revisão campo a campo",
+          "resource": "docs/training/field-review.md",
+          "content": "# Revisão campo a campo\n\nTrabalhar com propostas pequenas, comparáveis e justificadas."
+        },
+        {
+          "code": "sources-certainty",
+          "title": "Fontes, inferência e grau de certeza",
+          "resource": "docs/training/sources-certainty.md",
+          "content": "# Fontes e certeza\n\nDistinguir certo, provável, possível, contestado e desconhecido."
+        },
+        {
+          "code": "provenance-relations",
+          "title": "Proveniência e relações entre memórias",
+          "resource": "docs/training/provenance-relations.md",
+          "content": "# Proveniência e relações\n\nManter a origem de cada afirmação e as relações entre registos."
+        }
+      ],
+      "assessment": {
+        "passingScore": 85,
+        "questions": 10
+      }
+    },
+    {
+      "code": "rights-credits-ai",
+      "title": "Direitos, créditos e intervenções digitais",
+      "summary": "Autoria, titularidade, crédito, condições de uso, retoque, restauro e divulgação de IA.",
+      "audience": [
+        "reviewer",
+        "coordinator",
+        "researcher"
+      ],
+      "requiredFor": [
+        "museum-review.rights-approve",
+        "contributions.files.review"
+      ],
+      "estimatedMinutes": 60,
+      "lessons": [
+        {
+          "code": "rights-roles",
+          "title": "Autor, titular, fonte e cedente",
+          "resource": "docs/training/rights-roles.md",
+          "content": "# Papéis de direitos\n\nAutor, titular, fonte e cedente podem ser pessoas distintas."
+        },
+        {
+          "code": "credits-conditions",
+          "title": "Crédito e condições de utilização",
+          "resource": "docs/training/credits-conditions.md",
+          "content": "# Créditos e condições\n\nNão reduzir direitos a uma legenda. Registar âmbito e condições."
+        },
+        {
+          "code": "digital-ai-disclosure",
+          "title": "Intervenções digitais e IA",
+          "resource": "docs/training/digital-ai-disclosure.md",
+          "content": "# Intervenções digitais e IA\n\nDivulgar alterações substantivas de forma visível e compreensível."
+        }
+      ],
+      "assessment": {
+        "passingScore": 90,
+        "questions": 8
+      }
+    },
+    {
+      "code": "translation-localisation",
+      "title": "Tradução e localização do Museu",
+      "summary": "Tradução a partir do português europeu, controlo terminológico e estados de revisão.",
+      "audience": [
+        "translator",
+        "reviewer",
+        "coordinator"
+      ],
+      "requiredFor": [
+        "museum-review.translate"
+      ],
+      "estimatedMinutes": 50,
+      "lessons": [
+        {
+          "code": "source-language",
+          "title": "Português europeu como fonte",
+          "resource": "docs/training/source-language.md",
+          "content": "# Língua-fonte\n\nO português europeu governa o sentido editorial."
+        },
+        {
+          "code": "translation-status",
+          "title": "Estados e revisão de tradução",
+          "resource": "docs/training/translation-status.md",
+          "content": "# Estados de tradução\n\nDistinguir rascunho, revisão e aprovação."
+        },
+        {
+          "code": "terminology",
+          "title": "Terminologia arqueológica e comunitária",
+          "resource": "docs/training/terminology.md",
+          "content": "# Terminologia\n\nManter consistência arqueológica, museológica e comunitária."
+        }
+      ],
+      "assessment": {
+        "passingScore": 85,
+        "questions": 7
+      }
+    },
+    {
+      "code": "accessible-public-writing",
+      "title": "Escrita pública e acessibilidade",
+      "summary": "Clareza, leitura, estrutura, texto alternativo, linguagem não excludente e comunicação de incerteza.",
+      "audience": [
+        "reviewer",
+        "translator",
+        "coordinator",
+        "volunteer"
+      ],
+      "requiredFor": [
+        "museum-review.publication-approve"
+      ],
+      "estimatedMinutes": 55,
+      "lessons": [
+        {
+          "code": "plain-language",
+          "title": "Clareza sem simplificação indevida",
+          "resource": "docs/training/plain-language.md",
+          "content": "# Linguagem clara\n\nEscrever com precisão, frases legíveis e contexto suficiente."
+        },
+        {
+          "code": "accessibility-text",
+          "title": "Acessibilidade textual e visual",
+          "resource": "docs/training/accessibility-text.md",
+          "content": "# Acessibilidade textual\n\nRever estrutura, texto alternativo e leitura em diferentes ecrãs."
+        },
+        {
+          "code": "uncertainty-public",
+          "title": "Comunicar incerteza ao público",
+          "resource": "docs/training/uncertainty-public.md",
+          "content": "# Incerteza pública\n\nComunicar limites sem apagar a complexidade."
+        }
+      ],
+      "assessment": {
+        "passingScore": 85,
+        "questions": 8
+      }
+    }
+  ]
+}

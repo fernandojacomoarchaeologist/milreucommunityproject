@@ -1,0 +1,439 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.17.0",
+  "recordCount": 31,
+  "sourceLanguage": "pt-PT",
+  "languages": [
+    "pt-PT",
+    "en",
+    "es",
+    "fr"
+  ],
+  "reviewStatuses": [
+    {
+      "code": "not-started",
+      "name": "Não iniciada"
+    },
+    {
+      "code": "in-progress",
+      "name": "Em revisão"
+    },
+    {
+      "code": "needs-changes",
+      "name": "Necessita alterações"
+    },
+    {
+      "code": "ready-editorial",
+      "name": "Pronta para decisão editorial"
+    },
+    {
+      "code": "editorial-approved",
+      "name": "Editorialmente aprovada"
+    },
+    {
+      "code": "rights-approved",
+      "name": "Direitos aprovados"
+    },
+    {
+      "code": "publication-approved",
+      "name": "Publicação aprovada"
+    },
+    {
+      "code": "incorporated",
+      "name": "Incorporada no snapshot"
+    },
+    {
+      "code": "closed",
+      "name": "Encerrada"
+    }
+  ],
+  "proposalStatuses": [
+    {
+      "code": "draft",
+      "name": "Rascunho"
+    },
+    {
+      "code": "submitted",
+      "name": "Submetida"
+    },
+    {
+      "code": "accepted",
+      "name": "Aceite"
+    },
+    {
+      "code": "rejected",
+      "name": "Rejeitada"
+    },
+    {
+      "code": "superseded",
+      "name": "Substituída"
+    },
+    {
+      "code": "incorporated",
+      "name": "Incorporada"
+    }
+  ],
+  "commentTypes": [
+    {
+      "code": "note",
+      "name": "Nota"
+    },
+    {
+      "code": "question",
+      "name": "Questão"
+    },
+    {
+      "code": "blocking",
+      "name": "Bloqueio"
+    },
+    {
+      "code": "source-request",
+      "name": "Pedido de fonte"
+    },
+    {
+      "code": "rights-request",
+      "name": "Pedido de direitos"
+    },
+    {
+      "code": "translation-request",
+      "name": "Pedido de tradução"
+    },
+    {
+      "code": "accessibility-request",
+      "name": "Pedido de acessibilidade"
+    }
+  ],
+  "checkTypes": [
+    {
+      "code": "editorial",
+      "name": "Coerência editorial"
+    },
+    {
+      "code": "source",
+      "name": "Fontes e verificabilidade"
+    },
+    {
+      "code": "rights",
+      "name": "Direitos e créditos"
+    },
+    {
+      "code": "digital-intervention",
+      "name": "Intervenções digitais e IA"
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade e linguagem"
+    },
+    {
+      "code": "translation",
+      "name": "Traduções"
+    },
+    {
+      "code": "relations",
+      "name": "Relações e proveniência"
+    },
+    {
+      "code": "publication",
+      "name": "Elegibilidade de publicação"
+    }
+  ],
+  "decisionTypes": [
+    {
+      "code": "editorial-approve",
+      "name": "Aprovar editorialmente"
+    },
+    {
+      "code": "rights-approve",
+      "name": "Aprovar direitos"
+    },
+    {
+      "code": "publication-approve",
+      "name": "Aprovar publicação"
+    },
+    {
+      "code": "request-changes",
+      "name": "Solicitar alterações"
+    },
+    {
+      "code": "reopen",
+      "name": "Reabrir"
+    },
+    {
+      "code": "incorporate",
+      "name": "Incorporar no snapshot"
+    }
+  ],
+  "assignmentRoles": [
+    {
+      "code": "editorial",
+      "name": "Revisão editorial"
+    },
+    {
+      "code": "research",
+      "name": "Investigação e fontes"
+    },
+    {
+      "code": "rights",
+      "name": "Direitos e créditos"
+    },
+    {
+      "code": "translation",
+      "name": "Tradução"
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade"
+    },
+    {
+      "code": "publication",
+      "name": "Publicação"
+    }
+  ],
+  "fieldGroups": [
+    {
+      "code": "identity",
+      "name": "Identificação"
+    },
+    {
+      "code": "description",
+      "name": "Descrições e narrativa"
+    },
+    {
+      "code": "dating",
+      "name": "Datação"
+    },
+    {
+      "code": "classification",
+      "name": "Classificação"
+    },
+    {
+      "code": "place",
+      "name": "Lugares"
+    },
+    {
+      "code": "media-rights",
+      "name": "Imagem, intervenções e direitos"
+    },
+    {
+      "code": "sources-relations",
+      "name": "Fontes e relações"
+    },
+    {
+      "code": "translation",
+      "name": "Traduções"
+    },
+    {
+      "code": "publication",
+      "name": "Publicação"
+    }
+  ],
+  "fields": [
+    {
+      "path": "/title/pt-PT",
+      "group": "identity",
+      "label": "Título em português",
+      "type": "text",
+      "required": true
+    },
+    {
+      "path": "/description/short/pt-PT",
+      "group": "description",
+      "label": "Descrição breve",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "path": "/description/objective/pt-PT",
+      "group": "description",
+      "label": "Descrição objetiva",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "path": "/description/community/pt-PT",
+      "group": "description",
+      "label": "Voz e memória comunitária",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "path": "/description/historicalContext/pt-PT",
+      "group": "description",
+      "label": "Contexto histórico",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "path": "/description/institutionalContext/pt-PT",
+      "group": "description",
+      "label": "Contexto institucional",
+      "type": "textarea",
+      "required": false
+    },
+    {
+      "path": "/date/display/pt-PT",
+      "group": "dating",
+      "label": "Datação apresentada",
+      "type": "text",
+      "required": true
+    },
+    {
+      "path": "/date/start",
+      "group": "dating",
+      "label": "Início normalizado",
+      "type": "text",
+      "required": false
+    },
+    {
+      "path": "/date/end",
+      "group": "dating",
+      "label": "Fim normalizado",
+      "type": "text",
+      "required": false
+    },
+    {
+      "path": "/date/precision",
+      "group": "dating",
+      "label": "Precisão da datação",
+      "type": "select",
+      "required": true
+    },
+    {
+      "path": "/classification/primaryType",
+      "group": "classification",
+      "label": "Tipo principal",
+      "type": "text",
+      "required": true
+    },
+    {
+      "path": "/classification/secondaryTypes",
+      "group": "classification",
+      "label": "Tipos secundários",
+      "type": "list",
+      "required": false
+    },
+    {
+      "path": "/classification/period/pt-PT",
+      "group": "classification",
+      "label": "Período",
+      "type": "text",
+      "required": false
+    },
+    {
+      "path": "/classification/tags",
+      "group": "classification",
+      "label": "Palavras-chave",
+      "type": "list",
+      "required": false
+    },
+    {
+      "path": "/places",
+      "group": "place",
+      "label": "Lugares e precisão espacial",
+      "type": "json",
+      "required": false
+    },
+    {
+      "path": "/media/credit",
+      "group": "media-rights",
+      "label": "Crédito da imagem",
+      "type": "json",
+      "required": true
+    },
+    {
+      "path": "/media/digitalInterventions",
+      "group": "media-rights",
+      "label": "Intervenções digitais",
+      "type": "json",
+      "required": false
+    },
+    {
+      "path": "/rights",
+      "group": "media-rights",
+      "label": "Direitos e condições",
+      "type": "json",
+      "required": true
+    },
+    {
+      "path": "/sources",
+      "group": "sources-relations",
+      "label": "Fontes",
+      "type": "json",
+      "required": true
+    },
+    {
+      "path": "/relations",
+      "group": "sources-relations",
+      "label": "Relações com outras memórias",
+      "type": "list",
+      "required": false
+    },
+    {
+      "path": "/publication",
+      "group": "publication",
+      "label": "Publicação e visibilidade",
+      "type": "json",
+      "required": true
+    },
+    {
+      "path": "/localisationStatus",
+      "group": "translation",
+      "label": "Estado das traduções",
+      "type": "json",
+      "required": true
+    }
+  ],
+  "approvalGates": {
+    "editorial": [
+      "editorial",
+      "source",
+      "relations",
+      "accessibility"
+    ],
+    "rights": [
+      "rights",
+      "digital-intervention"
+    ],
+    "publication": [
+      "publication",
+      "translation"
+    ],
+    "blockingCommentsMustBeResolved": true,
+    "trainingRequired": true,
+    "baseHashMustMatch": true
+  },
+  "requiredTrainingByAction": {
+    "edit": [
+      "project-foundations",
+      "museum-editorial-evidence"
+    ],
+    "editorial-approve": [
+      "project-foundations",
+      "museum-editorial-evidence",
+      "accessible-public-writing"
+    ],
+    "rights-approve": [
+      "project-foundations",
+      "rights-credits-ai"
+    ],
+    "publication-approve": [
+      "project-foundations",
+      "museum-editorial-evidence",
+      "rights-credits-ai",
+      "accessible-public-writing"
+    ],
+    "translate": [
+      "project-foundations",
+      "translation-localisation"
+    ]
+  },
+  "publicEffects": {
+    "allowedSlots": [
+      "portal.home.after-featured",
+      "museum.home.after-opening"
+    ],
+    "maximumMemoriesPerEffect": 3,
+    "requiresPublicationApproved": true,
+    "requiresCanonicalVisibility": true
+  }
+}
