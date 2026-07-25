@@ -1,0 +1,66 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.18.0",
+  "environment": "local",
+  "deploymentMode": "validation-only",
+  "siteUrl": null,
+  "supabaseUrl": null,
+  "projectRef": null,
+  "googleOAuth": {
+    "enabled": false,
+    "provider": "google",
+    "localClientIdConfigured": false,
+    "localClientSecretConfigured": false,
+    "clientSecretInFrontend": false,
+    "supabaseCallbackUrl": null,
+    "applicationCallbackUrl": null,
+    "allowedEmailDomains": [],
+    "requirePreauthorization": true,
+    "storeProviderTokens": false
+  },
+  "master": {
+    "emailConfigured": false,
+    "bootstrapExecuted": false,
+    "bootstrapRequiresLiteralConfirmation": true,
+    "minimumActiveMasters": 1
+  },
+  "safety": {
+    "allowDemo": true,
+    "allowDemoMaster": true,
+    "productionWritesEnabled": false,
+    "serviceRoleInBrowser": false,
+    "requireRls": true,
+    "requireSeparateStaging": true,
+    "requireDbDryRun": true,
+    "requireManualProductionApproval": true
+  },
+  "homologation": {
+    "requiredProfiles": [
+      "master",
+      "coordinator",
+      "volunteer",
+      "reviewer",
+      "translator",
+      "observer"
+    ],
+    "requiredViewports": [
+      375,
+      768,
+      1280
+    ],
+    "requiredFlows": [
+      "google-oauth",
+      "membership-approval",
+      "master-protection",
+      "profile-and-permissions",
+      "tasks-and-availability",
+      "agenda-and-exhibitions",
+      "community-contributions",
+      "training",
+      "museum-review",
+      "private-files",
+      "withdrawal",
+      "logout-and-session-expiry"
+    ]
+  }
+}

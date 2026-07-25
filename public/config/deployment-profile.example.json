@@ -1,0 +1,65 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.18.0",
+  "environment": "local",
+  "deploymentMode": "validation-only",
+  "siteUrl": "http://localhost:4173/",
+  "supabaseUrl": "http://127.0.0.1:54321",
+  "projectRef": null,
+  "googleOAuth": {
+    "enabled": false,
+    "provider": "google",
+    "localClientIdConfigured": false,
+    "clientSecretInFrontend": false,
+    "supabaseCallbackUrl": "http://127.0.0.1:54321/auth/v1/callback",
+    "applicationCallbackUrl": "http://localhost:4173/auth/callback/",
+    "allowedEmailDomains": [],
+    "requirePreauthorization": true,
+    "storeProviderTokens": false
+  },
+  "master": {
+    "emailConfigured": false,
+    "bootstrapExecuted": false,
+    "bootstrapRequiresLiteralConfirmation": true,
+    "minimumActiveMasters": 1
+  },
+  "safety": {
+    "allowDemo": true,
+    "allowDemoMaster": true,
+    "productionWritesEnabled": false,
+    "serviceRoleInBrowser": false,
+    "requireRls": true,
+    "requireSeparateStaging": true,
+    "requireDbDryRun": true,
+    "requireManualProductionApproval": true
+  },
+  "homologation": {
+    "requiredProfiles": [
+      "master",
+      "coordinator",
+      "volunteer",
+      "reviewer",
+      "translator",
+      "observer"
+    ],
+    "requiredViewports": [
+      375,
+      768,
+      1280
+    ],
+    "requiredFlows": [
+      "google-oauth",
+      "membership-approval",
+      "master-protection",
+      "profile-and-permissions",
+      "tasks-and-availability",
+      "agenda-and-exhibitions",
+      "community-contributions",
+      "training",
+      "museum-review",
+      "private-files",
+      "withdrawal",
+      "logout-and-session-expiry"
+    ]
+  }
+}

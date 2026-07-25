@@ -1,0 +1,72 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08G Staging Homologation
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply_migrations:
+        description: "Aplicar migrations em staging depois do dry-run"
+        required: true
+        type: boolean
+        default: false
+      deploy_functions:
+        description: "Publicar Edge Functions em staging"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milreu-staging-homologation
+  cancel-in-progress: false
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      MILREU_ENVIRONMENT: staging
+      MILREU_SITE_URL: ${{ secrets.STAGING_SITE_URL }}
+      MILREU_SUPABASE_URL: ${{ secrets.STAGING_SUPABASE_URL }}
+      MILREU_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.STAGING_SUPABASE_PUBLISHABLE_KEY }}
+      MILREU_SUPABASE_PROJECT_REF: ${{ secrets.STAGING_PROJECT_ID }}
+      MILREU_STAGING_PROJECT_REF: ${{ secrets.STAGING_PROJECT_ID }}
+      MILREU_PRODUCTION_PROJECT_REF: ${{ secrets.PRODUCTION_PROJECT_ID }}
+      MILREU_GOOGLE_OAUTH_ENABLED: "true"
+      MILREU_ALLOW_DEMO: "false"
+      MILREU_MASTER_EMAIL: ${{ secrets.MILREU_MASTER_EMAIL }}
+      MILREU_PREFLIGHT_STRICT: "true"
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.STAGING_DB_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - run: npm ci
+      - run: npm run deploy:profile
+      - run: npm run deploy:preflight
+      - run: npm run deploy:oauth-check
+        env:
+          MILREU_OAUTH_STRICT: "true"
+      - run: supabase link --project-ref "$MILREU_SUPABASE_PROJECT_REF"
+      - run: supabase db push --dry-run
+      - if: ${{ inputs.apply_migrations }}
+        run: supabase db push
+      - if: ${{ inputs.deploy_functions }}
+        run: supabase functions deploy community-contribution-intake --project-ref "$MILREU_SUPABASE_PROJECT_REF" --no-verify-jwt
+      - if: ${{ inputs.apply_migrations }}
+        run: |
+          psql "postgresql://postgres:${SUPABASE_DB_PASSWORD}@db.${MILREU_SUPABASE_PROJECT_REF}.supabase.co:5432/postgres"             -v ON_ERROR_STOP=1             -f supabase/collab-tests/008g_deployment_homologation.test.sql
+      - run: npm run build
+      - run: npm run smoke
+      - run: npm run deploy:remote-smoke

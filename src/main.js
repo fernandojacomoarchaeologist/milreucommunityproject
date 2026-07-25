@@ -49,6 +49,9 @@ import {
   collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView,
   collaborativeMuseumReviewPreviewView, collaborativeMuseumReviewManagementView
 } from "./views/collaborative-museum-review.js";
+import {
+  collaborativeDeploymentHomologationView, collaborativeHomologationRunView
+} from "./views/collaborative-deployment.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -313,6 +316,10 @@ function renderCollaborativeRoute(route) {
       return collaborativeMuseumReviewPreviewView(context,route.memoryId,true);
     case "collab-museum-review-releases":
       return collaborativeMuseumReviewManagementView(context,"releases");
+    case "collab-deployment-homologation":
+      return collaborativeDeploymentHomologationView(context);
+    case "collab-homologation-run":
+      return collaborativeHomologationRunView(context,route.runId);
     case "collab-profile-management":
       return collaborativeProfileManagementView(context);
     case "collab-member-detail":
@@ -675,6 +682,75 @@ function bindPage() {
     catch(error){setCollaborativeFeedback(error.message,true);}
   });
 
+
+  document.querySelectorAll("[data-deployment-environment-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar ambiente…");
+    try{
+      await collaborative.saveDeploymentEnvironment({
+        code:values.code,name:values.name,status:values.status,
+        siteUrl:values.siteUrl||null,projectRef:values.projectRef||null,
+        authCallbackUrl:values.authCallbackUrl||null,metadata:{source:"08G UI"}
+      });
+      setCollaborativeFeedback("Ambiente guardado.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-auth-policy-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A guardar política…");
+    try{
+      await collaborative.saveAuthPolicy({
+        googleEnabled:Boolean(form.elements.googleEnabled?.checked),
+        allowedEmailDomains:String(values.allowedEmailDomains||"").split(",").map(value=>value.trim()).filter(Boolean),
+        sessionExpiryMinutes:Number(values.sessionExpiryMinutes||60),
+        policyStatus:values.policyStatus||"draft"
+      });
+      setCollaborativeFeedback("Política guardada.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-homologation-start-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A iniciar homologação…");
+    try{
+      await collaborative.startHomologation(values.environmentCode,values.version,values.commitSha||"");
+      setCollaborativeFeedback("Execução criada.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-homologation-check-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar check…");
+    try{
+      await collaborative.recordHomologationCheck(
+        form.dataset.runId,form.dataset.checkCode,values.status,
+        values.evidence||"",values.note||""
+      );
+      setCollaborativeFeedback("Check atualizado.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-homologation-complete-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A concluir execução…");
+    try{
+      await collaborative.completeHomologation(form.dataset.runId,values.summary);
+      setCollaborativeFeedback("Execução concluída.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-homologation-approve]").forEach(button=>button.addEventListener("click",async()=>{
+    const expected=button.dataset.environmentCode==="production"
+      ?"APPROVE_MILREU_PRODUCTION_RELEASE":"APPROVE_MILREU_HOMOLOGATION";
+    const confirmation=prompt(`Escreva exatamente "${expected}" para aprovar:`,"")||"";
+    button.disabled=true;
+    try{await collaborative.approveHomologation(button.dataset.homologationApprove,confirmation);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-homologation-cancel]").forEach(button=>button.addEventListener("click",async()=>{
+    const reason=prompt("Fundamente o cancelamento:","")||"";
+    if(!reason.trim())return;button.disabled=true;
+    try{await collaborative.cancelHomologation(button.dataset.homologationCancel,reason);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
   document.querySelector("[data-venue-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
     const form=event.currentTarget,values=formValues(form);
@@ -1034,6 +1110,8 @@ function render(scroll=true) {
     case "collab-museum-review-management-detail":
     case "collab-museum-review-management-preview":
     case "collab-museum-review-releases":
+    case "collab-deployment-homologation":
+    case "collab-homologation-run":
     case "collab-profile-management":
     case "collab-member-detail":
     case "collab-invitations":

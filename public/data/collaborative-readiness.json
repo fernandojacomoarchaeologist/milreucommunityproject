@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.17.0",
-  "status": "collaborative-area-functionally-complete",
+  "version": "0.18.0",
+  "status": "deployment-foundation-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -23,17 +23,19 @@
     "contribution-moderation",
     "museum-review-management",
     "venue-management",
-    "exhibition-management"
+    "exhibition-management",
+    "deployment-homologation"
   ],
   "skeletonModules": [],
   "nextActions": [
-    "apply-08f-migrations-to-local-and-staging",
-    "test-training-gates",
-    "review-31-memories-field-by-field",
-    "review-mm202617-ai-disclosure",
-    "export-first-approved-snapshot",
-    "run-dry-apply-and-review-diff",
-    "continue-translations-and-public-launch-blockers"
+    "configure-supabase-local",
+    "run-08a-through-08g-database-tests",
+    "create-separate-staging-project",
+    "configure-google-oauth-local-and-staging",
+    "authenticate-and-bootstrap-master",
+    "run-role-and-rls-matrix",
+    "complete-24-homologation-checks",
+    "approve-staging-before-production"
   ],
   "memberManagementReady": true,
   "volunteeringTasksReady": true,
@@ -46,5 +48,8 @@
   "museumReviewReady": true,
   "trainingReady": true,
   "libraryReady": true,
-  "allRegisteredModulesActive": true
+  "allRegisteredModulesActive": true,
+  "deploymentHomologationReady": true,
+  "stagingConfigured": false,
+  "productionConfigured": false
 }

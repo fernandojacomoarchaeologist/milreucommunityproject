@@ -84,3 +84,7 @@ Os ficheiros permanecem privados durante a análise. Dados de identificação, c
 ## Revisão editorial — Pacote 08F
 
 Propostas, comentários e snapshots não transferem direitos nem criam autorização. A aplicação depende de gates explícitos. MM202617 mantém divulgação obrigatória de retoque substantivo com IA.
+
+## Implantação e autenticação — Pacote 08G
+
+Credenciais, tokens, passwords, secrets do Google, service role e o e-mail master não fazem parte dos artefactos públicos. Evidências de homologação não devem incluir dados pessoais desnecessários.

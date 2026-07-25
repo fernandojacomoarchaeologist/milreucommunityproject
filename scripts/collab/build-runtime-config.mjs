@@ -8,7 +8,21 @@ import { writeFile } from "node:fs/promises";
 const url = process.env.MILREU_SUPABASE_URL?.trim() || "";
 const publishableKey = process.env.MILREU_SUPABASE_PUBLISHABLE_KEY?.trim() || "";
 const siteUrl = process.env.MILREU_SITE_URL?.trim() || "";
-const allowDemo = process.env.MILREU_ALLOW_DEMO !== "false";
+const environment=(process.env.MILREU_ENVIRONMENT||"local").trim().toLowerCase();
+const allowDemo=environment==="local"&&process.env.MILREU_ALLOW_DEMO!=="false";
+const allowedEmailDomains=(process.env.MILREU_ALLOWED_EMAIL_DOMAINS||"")
+  .split(",").map(item=>item.trim().toLowerCase()).filter(Boolean);
+const googleOAuthEnabled=process.env.MILREU_GOOGLE_OAUTH_ENABLED==="true";
+
+if(!["local","staging","production"].includes(environment)){
+  throw new Error("MILREU_ENVIRONMENT deve ser local, staging ou production.");
+}
+if(environment!=="local"&&!siteUrl.startsWith("https://")){
+  throw new Error("MILREU_SITE_URL deve usar HTTPS fora do ambiente local.");
+}
+if(environment!=="local"&&allowDemo){
+  throw new Error("Demonstração não pode ser ativada em staging ou produção.");
+}
 
 if (Boolean(url) !== Boolean(publishableKey)) {
   throw new Error("MILREU_SUPABASE_URL e MILREU_SUPABASE_PUBLISHABLE_KEY devem ser definidos em conjunto.");
@@ -20,7 +34,8 @@ if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
 
 const config = {
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.17.0",
+  version:"0.18.0",
+  environment,
   mode:url && publishableKey ? "supabase" : "demo",
   supabaseUrl:url || null,
   supabasePublishableKey:publishableKey || null,
@@ -29,8 +44,16 @@ const config = {
   callbackPath:"auth/callback/",
   afterLoginHash:"#/area-colaborativa",
   googleProvider:"google",
+  auth:{
+    googleOAuthEnabled,
+    requirePreauthorization:true,
+    allowedEmailDomains,
+    storeProviderTokens:false,
+    productionDemoDisabled:environment!=="local"
+  },
   allowDemo,
   allowDemoMaster:allowDemo,
+  deploymentProfilePath:"public/config/deployment-profile.runtime.json",
   registration:{
     openAccessRequests:true,
     requireApproval:true,

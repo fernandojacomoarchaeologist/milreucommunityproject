@@ -1,0 +1,284 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.18.0",
+  "environments": [
+    {
+      "code": "local",
+      "name": "Local",
+      "allowsReset": true,
+      "allowsDemo": true,
+      "requiresHttps": false
+    },
+    {
+      "code": "staging",
+      "name": "Staging",
+      "allowsReset": true,
+      "allowsDemo": false,
+      "requiresHttps": true
+    },
+    {
+      "code": "production",
+      "name": "Produção",
+      "allowsReset": false,
+      "allowsDemo": false,
+      "requiresHttps": true
+    }
+  ],
+  "runStatuses": [
+    {
+      "code": "planned",
+      "name": "Planeada"
+    },
+    {
+      "code": "in-progress",
+      "name": "Em execução"
+    },
+    {
+      "code": "blocked",
+      "name": "Bloqueada"
+    },
+    {
+      "code": "failed",
+      "name": "Falhou"
+    },
+    {
+      "code": "passed",
+      "name": "Aprovada"
+    },
+    {
+      "code": "approved",
+      "name": "Homologada"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelada"
+    }
+  ],
+  "checkStatuses": [
+    {
+      "code": "pending",
+      "name": "Pendente"
+    },
+    {
+      "code": "running",
+      "name": "Em execução"
+    },
+    {
+      "code": "passed",
+      "name": "Aprovado"
+    },
+    {
+      "code": "failed",
+      "name": "Falhou"
+    },
+    {
+      "code": "blocked",
+      "name": "Bloqueado"
+    },
+    {
+      "code": "not-applicable",
+      "name": "Não aplicável"
+    }
+  ],
+  "checkCategories": [
+    {
+      "code": "environment",
+      "name": "Ambiente"
+    },
+    {
+      "code": "database",
+      "name": "Banco e migrations"
+    },
+    {
+      "code": "auth",
+      "name": "Autenticação Google"
+    },
+    {
+      "code": "master",
+      "name": "Master e proteção administrativa"
+    },
+    {
+      "code": "rls",
+      "name": "RLS e isolamento"
+    },
+    {
+      "code": "storage",
+      "name": "Storage privado"
+    },
+    {
+      "code": "functional",
+      "name": "Fluxos funcionais"
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade"
+    },
+    {
+      "code": "performance",
+      "name": "Desempenho"
+    },
+    {
+      "code": "recovery",
+      "name": "Rollback e recuperação"
+    },
+    {
+      "code": "privacy",
+      "name": "Privacidade e consentimento"
+    }
+  ],
+  "requiredChecks": [
+    {
+      "code": "env-config",
+      "category": "environment",
+      "title": "Variáveis e perfil do ambiente",
+      "blocking": true
+    },
+    {
+      "code": "separate-staging",
+      "category": "environment",
+      "title": "Staging separado de produção",
+      "blocking": true
+    },
+    {
+      "code": "migration-dry-run",
+      "category": "database",
+      "title": "Dry-run das migrations",
+      "blocking": true
+    },
+    {
+      "code": "database-tests",
+      "category": "database",
+      "title": "Testes SQL 08A–08G",
+      "blocking": true
+    },
+    {
+      "code": "google-provider",
+      "category": "auth",
+      "title": "Provider Google ativo",
+      "blocking": true
+    },
+    {
+      "code": "google-callback",
+      "category": "auth",
+      "title": "Callback do Google/Supabase validado",
+      "blocking": true
+    },
+    {
+      "code": "app-callback",
+      "category": "auth",
+      "title": "Callback da aplicação validado",
+      "blocking": true
+    },
+    {
+      "code": "preauthorization",
+      "category": "auth",
+      "title": "Pré-autorização e aprovação de membros",
+      "blocking": true
+    },
+    {
+      "code": "master-bootstrap",
+      "category": "master",
+      "title": "Master configurado",
+      "blocking": true
+    },
+    {
+      "code": "last-master-protection",
+      "category": "master",
+      "title": "Proteção do último master",
+      "blocking": true
+    },
+    {
+      "code": "role-matrix",
+      "category": "rls",
+      "title": "Matriz de perfis e permissões",
+      "blocking": true
+    },
+    {
+      "code": "cross-user-isolation",
+      "category": "rls",
+      "title": "Isolamento entre utilizadores",
+      "blocking": true
+    },
+    {
+      "code": "private-contribution-files",
+      "category": "storage",
+      "title": "Ficheiros comunitários privados",
+      "blocking": true
+    },
+    {
+      "code": "signed-links",
+      "category": "storage",
+      "title": "Links temporários assinados",
+      "blocking": true
+    },
+    {
+      "code": "collaborative-flows",
+      "category": "functional",
+      "title": "Fluxos 08A–08F",
+      "blocking": true
+    },
+    {
+      "code": "session-expiry",
+      "category": "auth",
+      "title": "Logout e expiração de sessão",
+      "blocking": true
+    },
+    {
+      "code": "mobile-375",
+      "category": "accessibility",
+      "title": "Homologação a 375 px",
+      "blocking": true
+    },
+    {
+      "code": "tablet-768",
+      "category": "accessibility",
+      "title": "Homologação a 768 px",
+      "blocking": true
+    },
+    {
+      "code": "desktop-1280",
+      "category": "accessibility",
+      "title": "Homologação a 1280 px",
+      "blocking": true
+    },
+    {
+      "code": "keyboard-screen-reader",
+      "category": "accessibility",
+      "title": "Teclado e leitor de ecrã",
+      "blocking": true
+    },
+    {
+      "code": "performance-budget",
+      "category": "performance",
+      "title": "Budgets de desempenho",
+      "blocking": false
+    },
+    {
+      "code": "rollback-tested",
+      "category": "recovery",
+      "title": "Rollback documentado e ensaiado",
+      "blocking": true
+    },
+    {
+      "code": "backup-tested",
+      "category": "recovery",
+      "title": "Backup e restauração testados",
+      "blocking": true
+    },
+    {
+      "code": "consent-privacy-review",
+      "category": "privacy",
+      "title": "Consentimentos e privacidade revistos",
+      "blocking": true
+    }
+  ],
+  "productionGates": {
+    "allBlockingChecksPassed": true,
+    "stagingRunApproved": true,
+    "masterConfigured": true,
+    "demoDisabled": true,
+    "httpsRequired": true,
+    "separateSupabaseProject": true,
+    "manualLiteralConfirmation": "APPROVE_MILREU_PRODUCTION_RELEASE"
+  }
+}

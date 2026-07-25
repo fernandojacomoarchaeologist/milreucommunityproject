@@ -1,123 +1,127 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração — 08F
+# Checklist de integração — 08G
 
 ## Contexto
 
-- [ ] ledger lido
-- [ ] dependências lidas
-- [ ] superfícies lidas
-- [ ] protocolo de recuperação lido
-- [ ] registo de impacto preservado
+- [ ] ledger
+- [ ] dependências
+- [ ] superfícies
+- [ ] recuperação
+- [ ] relatório 08F
+- [ ] registo de impacto
 
-## Não regressão
+## Código
 
-- [ ] Portal
-- [ ] carrossel
-- [ ] Museu
-- [ ] imersivo
-- [ ] MM202617
-- [ ] Proteus
-- [ ] Auth
-- [ ] membros
-- [ ] tarefas
-- [ ] agenda
-- [ ] exposições
-- [ ] contributos
+- [ ] módulo de homologação
+- [ ] rota de gestão
+- [ ] detalhe da execução
+- [ ] controller
+- [ ] demo
+- [ ] preflight
+- [ ] OAuth checker
+- [ ] remote smoke
+- [ ] master status
+- [ ] bootstrap literal
 
-## Formação
+## Ambientes
 
-- [ ] cinco trilhas
-- [ ] 15 lições
-- [ ] progresso
-- [ ] avaliação
-- [ ] nota mínima
-- [ ] gates
-- [ ] auditoria
+- [ ] local identificado
+- [ ] staging criado
+- [ ] produção criada
+- [ ] referências diferentes
+- [ ] SITE_URL
+- [ ] callbacks
+- [ ] HTTPS
+- [ ] demo desativada fora de local
+- [ ] produção sem reset
 
-## Biblioteca
+## Google OAuth
 
-- [ ] nove recursos
-- [ ] pesquisa
-- [ ] categorias
-- [ ] permissões
+- [ ] projeto Google
+- [ ] consent screen
+- [ ] client web
+- [ ] callback Supabase local
+- [ ] callback Supabase staging
+- [ ] callback Supabase produção
+- [ ] provider local
+- [ ] provider staging
+- [ ] provider produção
+- [ ] callback da aplicação
+- [ ] pré-autorização
+- [ ] tokens não armazenados
+- [ ] logout
+- [ ] expiração
 
-## Revisão
+## Master
 
-- [ ] 31 registos
-- [ ] hash de base
-- [ ] 22 campos
-- [ ] proposta textual
-- [ ] proposta JSON
-- [ ] fundamentação
-- [ ] fontes
-- [ ] contributos
-- [ ] comentários
-- [ ] bloqueios
-- [ ] checks
-- [ ] atribuições
-- [ ] preview
-- [ ] decisões
+- [ ] utilizador autenticado pelo Google
+- [ ] e-mail definido em secret
+- [ ] confirmação literal
+- [ ] bootstrap
+- [ ] master ativo
+- [ ] proteção do último master
+- [ ] segundo responsável definido para contingência
 
-## Gates
+## Banco
 
-- [ ] editorial
-- [ ] fontes
-- [ ] relações
-- [ ] acessibilidade
-- [ ] direitos
-- [ ] intervenções digitais
-- [ ] tradução
-- [ ] publicação
-- [ ] formação
-- [ ] sem propostas submetidas
-- [ ] sem bloqueios
-
-## Snapshot
-
-- [ ] gerar
-- [ ] validar
-- [ ] aprovar literalmente
-- [ ] exportar com JWT de utilizador
-- [ ] dry-run
-- [ ] hash do dataset
-- [ ] hash por memória
-- [ ] backup
-- [ ] PR
-- [ ] rollback
-
-## Página principal
-
-- [ ] slot Portal
-- [ ] slot Museu
-- [ ] registo vazio inicial
-- [ ] máximo três memórias
-- [ ] referências canónicas
-- [ ] aprovação de publicação
-- [ ] datas de ativação
-- [ ] não regressão visual
-
-## Supabase
-
-- [ ] migrations
+- [ ] migrations 08A–08G
+- [ ] `db push --dry-run`
 - [ ] RLS
-- [ ] permissões
-- [ ] seed 31
+- [ ] RPCs
+- [ ] 24 checks
 - [ ] teste SQL
 - [ ] local
 - [ ] staging
+- [ ] rollback
+
+## Perfis
+
+- [ ] master
+- [ ] coordinator
+- [ ] volunteer
+- [ ] reviewer
+- [ ] researcher
+- [ ] translator
+- [ ] partner
+- [ ] observer
+- [ ] utilizadores isolados
+- [ ] não autorizado
+
+## Storage e contributos
+
+- [ ] bucket privado
+- [ ] upload assinado
+- [ ] download assinado
+- [ ] isolamento
+- [ ] retirada
+- [ ] ausência de URL pública
+- [ ] procedimento de verificação de ficheiros
+
+## Homologação
+
+- [ ] 24 checks
+- [ ] evidências
+- [ ] bloqueios
+- [ ] conclusão
+- [ ] aprovação staging
+- [ ] versão e SHA
+- [ ] produção bloqueada sem staging
+- [ ] confirmação literal
 
 ## Qualidade
 
 - [ ] validate
-- [ ] test
+- [ ] tests
 - [ ] build
 - [ ] smoke
-- [ ] 1280
-- [ ] 768
-- [ ] 375
+- [ ] 375 px
+- [ ] 768 px
+- [ ] 1280 px
+- [ ] teclado
+- [ ] leitor de ecrã

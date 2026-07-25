@@ -1,124 +1,153 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Relatório de validação — Pacote 08F
+# Relatório de validação — Pacote 08G
 
-## Resultado
+## Resultado técnico
 
-- Resultado geral: sucesso
-- Versão: 0.17.0
-- Testes automatizados: 180
-- Testes aprovados: 180
+- Versão: 0.18.0
+- Testes automatizados: 208
+- Testes aprovados: 208
 - Testes falhados: 0
 - Build: concluído
-- Smoke HTTP: concluído
+- Smoke HTTP local: concluído
+- YAML dos três workflows 08G: válido
+- Integridade do ZIP: validada após compactação
 - Revisão visual humana em navegador: pendente
 - Execução real das migrations no Supabase: pendente
-- Aplicação canónica automática: desativada
+
+## Estado operacional real
+
+O pacote foi validado em modo local e de demonstração. O preflight terminou corretamente como **blocked**, porque os dados externos não foram inventados.
+
+Bloqueios atuais:
+
+- MILREU_SITE_URL não está definido.
+- MILREU_SUPABASE_URL não está definido.
+- Google OAuth ainda não foi marcado como configurado.
+- MILREU_MASTER_EMAIL ainda não está definido.
+
+Consequentemente:
+
+- Google OAuth remoto não está configurado;
+- o e-mail master não está definido;
+- o master não foi criado;
+- staging não foi criado nem homologado;
+- produção não foi configurada;
+- remote smoke foi ignorado por falta de URL;
+- a consulta remota da contagem de masters foi ignorada por falta de credenciais seguras.
 
 ## Área Colaborativa
 
-- Módulos registados: 16
-- Módulos ativos: 16
-- Módulos esqueleto: 0
-- Permissões: 70
-- Trilhas de formação: 5
-- Lições: 15
-- Recursos de biblioteca: 9
+- Módulos registados: 17
+- Módulos ativos: 17
+- Permissões: 82
+- Recursos de biblioteca: 13
+- Novo módulo: `deployment-homologation`
+- Rota de gestão: `#/area-colaborativa/gestao/homologacao`
 
-## Revisão editorial e curatorial
+## Homologação
 
-- Memórias no ciclo inicial: 31
-- Memórias únicas: 31
-- Campos ou grupos de revisão: 22
-- Tipos de checks: 8
-- Tipos de decisão: 6
-- Memórias inicialmente aprovadas: 0
-- Efeitos públicos inicialmente ativos: 0
-- Slots públicos: 2
-- Proposta por JSON Pointer: ativa
-- Comentários bloqueantes: suportados
-- Atribuições especializadas: suportadas
-- Comparação canónico/candidato: suportada
-- Sequência editorial → direitos → publicação: obrigatória
-- Snapshot aprovado antes da aplicação: obrigatório
-- Confirmação literal para aprovação do snapshot: obrigatória
-- Dry-run antes da aplicação: suportado
-- Backup antes da alteração canónica: suportado
+- Ambientes modelados: 3
+- Checks obrigatórios/recomendados: 24
+- Checks bloqueantes: 23
+- Migrations novas: 3
+- Workflows novos: 3
+- Relatório local inicial gerado: sim
 
-## Formação e segurança
-
-- Escrita direta do progresso pelo browser: bloqueada
-- Progresso de formação: apenas por RPC auditada
-- Avaliação de formação: apenas por RPC autorizada
-- Aprovações especializadas: condicionadas à formação
-- Campos editoriais: limitados a whitelist
-- Contributos associados: limitados a aceites, parcialmente aceites ou incorporados
-- Propostas aceites: imutáveis
-- Substituição de proposta aceite: ação explícita e auditada
-- `service_role` no browser: não
-- Exportação do snapshot: JWT de utilizador autorizado
-- Hash do dataset: obrigatório
-- Hash do registo: obrigatório
-- RLS: preparada nas tabelas 08F
-
-## MM202617
-
-- Visível para revisão: true
-- Elegível para lançamento de origem: false
-- Divulgação de IA obrigatória: true
-- Publicação futura exige proposta explícita em `/publication`: sim
-- Divulgação `ai-substantive-intervention` deve ser preservada: sim
-- Exportação e aplicação validam a divulgação de IA: sim
-
-## Continuidade de contexto
-
-Incluídos e validados:
-
-- `PROJECT_CONTEXT_LEDGER.md`;
-- `PACKAGE_DEPENDENCY_MAP.md`;
-- `CHANGE_SURFACE_REGISTRY.md`;
-- `CONTEXT_RECOVERY_PROTOCOL.md`;
-- `public/data/package-impact-registry.json`.
-
-As páginas principais foram preparadas para evolução orgânica por slots:
+Fluxo protegido:
 
 ```text
-portal.home.after-featured
-museum.home.after-opening
+local
+→ staging separado
+→ 24 checks
+→ staging aprovado
+→ produção futuramente autorizada
 ```
 
-Nenhum conteúdo editorial foi inventado para esses slots.
+A produção exige a confirmação literal:
+
+```text
+APPROVE_MILREU_PRODUCTION_RELEASE
+```
+
+## Google OAuth e master
+
+- Provider Google preparado no `supabase/config.toml`
+- Provider ativado por padrão: não
+- Pré-autorização obrigatória: sim
+- Armazenamento de tokens do Google: não
+- Secret do Google no frontend: não
+- Service role no frontend: não
+- Domínios permitidos: configuráveis
+- E-mail master incluído no pacote: não
+- Bootstrap do master: protegido por literal
+- Proteção do último master: preservada
+
+Literal de bootstrap:
+
+```text
+BOOTSTRAP_MILREU_MASTER
+```
+
+## Segurança de implantação
+
+- Demo somente local
+- HTTPS obrigatório fora do local
+- Staging e produção devem usar projetos distintos
+- Escritas de produção desativadas no preflight
+- Dry-run de migrations obrigatório
+- Remote smoke de produção limitado a GET e confirmação literal
+- Escrita nas tabelas 08G apenas por RPC
+- RLS preparada nas cinco novas tabelas
+- Relatórios não expõem e-mail master
+- Artefactos públicos não contêm valores reais de secrets
 
 ## Banco de dados
 
-- Migrations novas: 3
-- Teste SQL novo: `supabase/tests/008f_museum_review.test.sql`
-- Workflow cumulativo 08A–08F: incluído
-- Supabase CLI disponível neste ambiente: não
-- PostgreSQL disponível neste ambiente: não
-- Docker disponível neste ambiente: não
+Novas migrations:
 
-As migrations, RPCs e políticas foram validadas estruturalmente. A execução real deve ocorrer no workflow, em Supabase local ou em staging.
+- `20260724130000_collaborative_deployment_homologation.sql`
+- `20260724130100_collaborative_deployment_homologation_rpc.sql`
+- `20260724130200_collaborative_deployment_homologation_seed.sql`
+
+Novo teste:
+
+```text
+supabase/tests/008g_deployment_homologation.test.sql
+```
+
+Este ambiente não possui Supabase CLI, PostgreSQL ou Docker. As migrations, RLS e RPCs foram validadas estruturalmente, mas precisam ser executadas em Supabase local e depois em staging.
+
+## Workflows
+
+- `08g-ci.yml`
+- `08g-database-tests.yml`
+- `08g-staging-homologation.yml`
+
+O workflow de staging é manual. O dry-run é executado antes de qualquer aplicação, enquanto migrations e Edge Functions dependem de inputs explícitos e do ambiente GitHub protegido.
 
 ## Build
 
+- Versão do manifest: 0.18.0
 - Páginas estáticas das memórias: 30
 - JSONs individuais das memórias: 30
-- Checksum do modelo de revisão: sim
-- Checksum das trilhas: sim
-- Checksum da biblioteca: sim
-- Checksum do snapshot editorial: sim
-- Checksum dos efeitos públicos: sim
+- Checksum do perfil de implantação: sim
+- Checksum do readiness: sim
+- Checksum do modelo de homologação: sim
+- Checksum do modelo editorial 08F: sim
 - Checksum do registo de impacto: sim
 - `dist/` removido do ZIP para evitar duplicação das imagens
 
 ## Comandos concluídos
 
+- `npm run deploy:profile`
+- `npm run deploy:preflight`
+- `npm run deploy:oauth-check`
 - `npm run collab:config`
 - `npm run museum:review-export`
 - `npm run museum:review-apply`
@@ -131,3 +160,19 @@ As migrations, RPCs e políticas foram validadas estruturalmente. A execução r
 - `npm test`
 - `npm run build`
 - `npm run smoke`
+- `npm run deploy:homologation-report`
+- `npm run deploy:master-status`
+- `npm run deploy:remote-smoke`
+
+## Próxima ação real
+
+1. integrar o 08G;
+2. executar Supabase local;
+3. executar os testes SQL 08A–08G;
+4. criar um projeto de staging separado;
+5. configurar Google OAuth local e em staging;
+6. autenticar o utilizador que será master;
+7. fornecer o e-mail master por secret;
+8. executar o bootstrap com confirmação literal;
+9. homologar os perfis e os 24 checks;
+10. manter produção bloqueada.

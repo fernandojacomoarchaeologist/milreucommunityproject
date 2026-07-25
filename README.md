@@ -1,107 +1,135 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08F — Revisão Editorial e Curatorial do Museu
+# Pacote 08G — Implantação, Google OAuth e Homologação
 
-**Versão:** 0.17.0  
-**Base cumulativa:** Pacote 08E.
+**Versão:** 0.18.0  
+**Base cumulativa:** Pacote 08F.
 
-## Escopo
+O 08G não cria uma nova experiência pública. Ele prepara a Área Colaborativa para funcionar fora da demonstração, com ambientes separados, Google OAuth, master configurável, testes de RLS, storage privado e homologação por perfil.
 
-- revisão das 31 memórias;
-- propostas campo a campo;
-- comparação canónica/candidata;
-- fontes e contributos;
-- comentários bloqueantes;
-- checks;
-- aprovações editoriais, de direitos e publicação;
-- snapshots;
-- aplicação local protegida;
-- formação;
-- biblioteca;
-- efeitos orgânicos na Home do Portal e do Museu;
-- preservação formal de contexto.
-
-## Rotas
+## Ambientes
 
 ```text
-#/area-colaborativa/biblioteca
-#/area-colaborativa/formacao
-#/area-colaborativa/formacao/:trilha
-#/area-colaborativa/revisao-museu
-#/area-colaborativa/revisao-museu/:memoria
-#/area-colaborativa/revisao-museu/:memoria/preview
-#/area-colaborativa/gestao/revisao-museu
-#/area-colaborativa/gestao/revisao-museu/:memoria
-#/area-colaborativa/gestao/revisao-museu/releases
+local
+→ staging
+→ produção
 ```
 
-## Formação
+Regras:
 
-Percursos:
+- staging e produção usam projetos Supabase distintos;
+- demonstração só existe em local;
+- staging e produção exigem HTTPS;
+- produção não aceita reset;
+- migrations passam por dry-run;
+- produção exige homologação aprovada em staging para a mesma versão;
+- nenhuma escrita de produção é ativada pelo preflight.
 
-1. Fundamentos do projeto;
-2. Revisão editorial e evidência;
-3. Direitos, créditos e IA;
-4. Tradução e localização;
-5. Escrita pública e acessibilidade.
-
-Aprovações utilizam gates de formação.
-
-## Snapshot
+## Configuração local
 
 ```bash
+cp .env.example .env
+npm install
+npm run deploy:profile
+npm run deploy:preflight
+npm run deploy:oauth-check
+npm run collab:config
+npm run dev
+```
+
+## Google OAuth local
+
+O ficheiro `supabase/config.toml` contém a secção:
+
+```toml
+[auth.external.google]
+enabled = false
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET)"
+redirect_uri = "http://127.0.0.1:54321/auth/v1/callback"
+skip_nonce_check = false
+```
+
+Para testar localmente, configure as variáveis e ative o provider. O callback registado no Google é o callback do Supabase. A aplicação regressa depois a:
+
+```text
+http://localhost:4173/auth/callback/
+```
+
+## Master
+
+O e-mail master não está incluído no pacote.
+
+Consulta segura:
+
+```bash
+MILREU_SUPABASE_URL="..." SUPABASE_SERVICE_ROLE_KEY="..." npm run deploy:master-status
+```
+
+Bootstrap explícito:
+
+```bash
+MILREU_SUPABASE_URL="..." SUPABASE_SERVICE_ROLE_KEY="..." MILREU_MASTER_EMAIL="..." MILREU_BOOTSTRAP_MASTER_CONFIRM="BOOTSTRAP_MILREU_MASTER" npm run collab:bootstrap-master
+```
+
+A chave administrativa permanece apenas no terminal seguro ou secret store.
+
+## Homologação
+
+Nova rota:
+
+```text
+#/area-colaborativa/gestao/homologacao
+```
+
+Permite:
+
+- configurar metadados dos ambientes;
+- rever política lógica de Google OAuth;
+- iniciar execução;
+- preencher 24 checks;
+- anexar evidências;
+- concluir;
+- homologar staging;
+- bloquear produção sem staging aprovado.
+
+## Staging
+
+O workflow `08g-staging-homologation.yml` é manual.
+
+Por padrão:
+
+- executa preflight;
+- valida OAuth;
+- liga o projeto de staging;
+- executa `supabase db push --dry-run`;
+- não aplica migrations;
+- não publica functions.
+
+As escritas exigem inputs manuais e ambiente GitHub protegido.
+
+## Validação
+
+```bash
+npm run deploy:profile
+npm run deploy:preflight
+npm run deploy:oauth-check
 npm run museum:review-export
-```
-
-Sem configuração remota, o comando valida e preserva o snapshot local.
-
-Para exportar:
-
-```bash
-MILREU_SUPABASE_URL="..." MILREU_SUPABASE_PUBLISHABLE_KEY="..." MILREU_SUPABASE_ACCESS_TOKEN="JWT_DE_UTILIZADOR" MILREU_MUSEUM_REVIEW_SNAPSHOT_ID="..." npm run museum:review-export
-```
-
-## Aplicação
-
-Dry-run:
-
-```bash
 npm run museum:review-apply
-```
-
-Aplicação real:
-
-```bash
-MILREU_APPLY_EDITORIAL_SNAPSHOT="I_CONFIRM_APPLY_APPROVED_MUSEUM_REVIEW" npm run museum:review-apply
-```
-
-Depois:
-
-```bash
+npm run contributions:demo-export
+npm run exhibitions:export
+npm run channels:export
 npm run museum:index
 npm run museum:audit
-npm run channels:export
 npm run validate
 npm test
 npm run build
 npm run smoke
 ```
 
-A aplicação cria backup e deve seguir para PR. Não publica automaticamente.
-
-## Contexto
-
-Ficheiros cumulativos:
-
-- `PROJECT_CONTEXT_LEDGER.md`;
-- `PACKAGE_DEPENDENCY_MAP.md`;
-- `CHANGE_SURFACE_REGISTRY.md`;
-- `CONTEXT_RECOVERY_PROTOCOL.md`;
-- `package-impact-registry.json`.
-
-Esses ficheiros devem acompanhar todos os próximos pacotes.
+As migrations devem ser executadas em Supabase local e staging antes de homologar o ambiente.

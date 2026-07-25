@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -16,7 +16,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
                               ↓
 07A → 07B → 07C → 07D → 07D.1 → 07D.2 → 07D.3
                                       ↓
-08A → 08B → 08C → 08D → 08E → 08F
+08A → 08B → 08C → 08D → 08E → 08F → 08G
 ```
 
 ## Dependências críticas do 08F
@@ -42,3 +42,20 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - ledger e registo de impactos.
 
 Pacotes futuros devem alterar páginas públicas através dos contratos e slots registados, sem substituir silenciosamente as integrações anteriores.
+
+## Dependências críticas do 08G
+
+- 05F: Supabase, GitHub e proteção de produção;
+- 08A: Google Auth e master;
+- 08B: perfis e proteção do último master;
+- 08E: storage privado e Edge Function;
+- 08F: módulos completos e ledger.
+
+## Saídas do 08G
+
+- perfil de ambiente;
+- readiness;
+- política de autenticação;
+- execuções de homologação;
+- checks e evidências;
+- gates de staging e produção.

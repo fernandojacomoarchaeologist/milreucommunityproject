@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.17.0",
-  "currentPackage": "08F",
+  "version": "0.18.0",
+  "currentPackage": "08G",
   "surfaces": [
     {
       "code": "portal-home",
@@ -54,6 +54,35 @@
         "public/data/collaborative-library.json"
       ],
       "integration": "resource-registry"
+    },
+    {
+      "code": "deployment-profile",
+      "owner": "deployment",
+      "files": [
+        "public/config/deployment-profile.runtime.json",
+        "scripts/deploy/build-deployment-profile.mjs"
+      ],
+      "integration": "environment-contract"
+    },
+    {
+      "code": "google-oauth",
+      "owner": "collaborative-auth",
+      "files": [
+        "supabase/config.toml",
+        "scripts/deploy/google-oauth-contract.mjs",
+        "src/collab/controller.js"
+      ],
+      "integration": "oauth-preauthorization"
+    },
+    {
+      "code": "homologation",
+      "owner": "collaborative-operations",
+      "files": [
+        "public/data/collaborative-homologation-model.json",
+        "src/views/collaborative-deployment.js",
+        "supabase/migrations/20260724130000_collaborative_deployment_homologation.sql"
+      ],
+      "integration": "check-registry"
     }
   ],
   "futurePackageRules": [
@@ -61,6 +90,9 @@
     "Registar cada alteração de página pública em public/data/package-impact-registry.json.",
     "Adicionar efeitos públicos por slot; não substituir secções sem migration de interface.",
     "Preservar hashes e gates da revisão editorial.",
-    "Não inventar contactos, domínios, traduções, direitos, datas ou aprovações."
+    "Não inventar contactos, domínios, traduções, direitos, datas ou aprovações.",
+    "Preservar staging e produção como projetos distintos.",
+    "Não gravar secrets ou o e-mail master em artefactos públicos.",
+    "Executar produção apenas após homologação aprovada."
   ]
 }

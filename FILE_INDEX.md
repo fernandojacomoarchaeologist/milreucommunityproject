@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -11,7 +11,11 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/agents/collaborative-security-reviewer.md`
 - `.claude/agents/community-contribution-moderation-reviewer.md`
 - `.claude/agents/contribution-privacy-rights-reviewer.md`
+- `.claude/agents/deployment-environment-reviewer.md`
 - `.claude/agents/exhibition-operations-reviewer.md`
+- `.claude/agents/google-oauth-contract-reviewer.md`
+- `.claude/agents/homologation-gate-reviewer.md`
+- `.claude/agents/master-bootstrap-security-reviewer.md`
 - `.claude/agents/museum-editorial-gate-reviewer.md`
 - `.claude/agents/museum-rights-ai-reviewer.md`
 - `.claude/agents/museum-snapshot-integrity-reviewer.md`
@@ -19,6 +23,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/agents/project-context-continuity-reviewer.md`
 - `.claude/agents/public-agenda-privacy-reviewer.md`
 - `.claude/agents/public-page-organic-effects-reviewer.md`
+- `.claude/agents/rls-profile-matrix-reviewer.md`
 - `.claude/agents/volunteer-operations-reviewer.md`
 - `.claude/rules/07d1-ui-editorial-fixes.md`
 - `.claude/rules/07d2-home-carousel-and-immersive.md`
@@ -45,6 +50,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/rules/08f-public-effects-by-slot.md`
 - `.claude/rules/08f-three-stage-approval.md`
 - `.claude/rules/08f-training-gated-approvals.md`
+- `.claude/rules/08g-environment-separation.md`
+- `.claude/rules/08g-google-oauth-preauthorization.md`
+- `.claude/rules/08g-homologation-evidence.md`
+- `.claude/rules/08g-master-explicit-bootstrap.md`
+- `.claude/rules/08g-no-remote-reset-production.md`
+- `.claude/rules/08g-no-secrets-in-artifacts.md`
+- `.claude/rules/08g-read-only-production-smoke.md`
+- `.claude/rules/08g-staging-before-production.md`
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/collaborative-rls-required.md`
 - `.claude/rules/derived-navigation-transparency.md`
@@ -82,9 +95,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/assign-volunteer-task/SKILL.md`
 - `.claude/skills/audit-museum-relations/SKILL.md`
 - `.claude/skills/bootstrap-collaborative-master/SKILL.md`
+- `.claude/skills/bootstrap-milreu-master/SKILL.md`
 - `.claude/skills/build-github-pages/SKILL.md`
 - `.claude/skills/close-technical-mvp/SKILL.md`
 - `.claude/skills/close-volunteer-task/SKILL.md`
+- `.claude/skills/complete-homologation-run/SKILL.md`
+- `.claude/skills/configure-google-oauth-local/SKILL.md`
 - `.claude/skills/configure-google-oauth/SKILL.md`
 - `.claude/skills/create-agenda-event/SKILL.md`
 - `.claude/skills/create-derived-collection/SKILL.md`
@@ -106,9 +122,11 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/prepare-07c-handoff/SKILL.md`
 - `.claude/skills/prepare-07d-handoff/SKILL.md`
 - `.claude/skills/prepare-pages-deployment/SKILL.md`
+- `.claude/skills/prepare-staging-environment/SKILL.md`
 - `.claude/skills/process-withdrawal-request/SKILL.md`
 - `.claude/skills/protect-immersive-mode/SKILL.md`
 - `.claude/skills/publish-itinerary-stop/SKILL.md`
+- `.claude/skills/recover-failed-staging-deployment/SKILL.md`
 - `.claude/skills/recover-project-context/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
 - `.claude/skills/register-exhibition-venue/SKILL.md`
@@ -119,6 +137,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-07d2-fixes/SKILL.md`
 - `.claude/skills/review-collaborative-rls/SKILL.md`
 - `.claude/skills/review-contribution-rights/SKILL.md`
+- `.claude/skills/review-deployment-secrets/SKILL.md`
 - `.claude/skills/review-digital-interventions/SKILL.md`
 - `.claude/skills/review-exhibition-conflicts/SKILL.md`
 - `.claude/skills/review-exhibition-foundation/SKILL.md`
@@ -133,10 +152,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-vertical-slice/SKILL.md`
 - `.claude/skills/review-volunteer-availability/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
+- `.claude/skills/run-role-rls-homologation/SKILL.md`
 - `.claude/skills/schedule-itinerary-stop/SKILL.md`
 - `.claude/skills/test-immersive-experience/SKILL.md`
 - `.claude/skills/test-public-contribution-flow/SKILL.md`
 - `.claude/skills/update-portal-content/SKILL.md`
+- `.claude/skills/verify-private-storage-staging/SKILL.md`
 - `.claude/skills/verify-task-completion/SKILL.md`
 - `.env.example`
 - `.github/workflows/07d-ci.yml`
@@ -151,11 +172,15 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.github/workflows/08e-database-tests.yml`
 - `.github/workflows/08f-ci.yml`
 - `.github/workflows/08f-database-tests.yml`
+- `.github/workflows/08g-ci.yml`
+- `.github/workflows/08g-database-tests.yml`
+- `.github/workflows/08g-staging-homologation.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
 - `CHANGE_SURFACE_REGISTRY.md`
-- `CONTEXT_ATE_08F.md`
+- `CONTEXT_ATE_08E.md`
+- `CONTEXT_ATE_08G.md`
 - `CONTEXT_RECOVERY_PROTOCOL.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_DEPENDENCY_MAP.md`
@@ -229,7 +254,16 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/collaborative/VENUE_DATA_SPEC.md`
 - `docs/collaborative/VOLUNTEERING_TASK_MODEL.md`
 - `docs/content/EDITORIAL_PREVIEW_POLICY.md`
+- `docs/deployment/ENVIRONMENT_STRATEGY_08G.md`
 - `docs/deployment/GITHUB_PAGES.md`
+- `docs/deployment/GOOGLE_OAUTH_SETUP_08G.md`
+- `docs/deployment/HOMOLOGATION_CHECKS_08G.md`
+- `docs/deployment/MASTER_BOOTSTRAP_08G.md`
+- `docs/deployment/PRODUCTION_GATE_08G.md`
+- `docs/deployment/RLS_HOMOLOGATION_MATRIX_08G.md`
+- `docs/deployment/ROLLBACK_08G.md`
+- `docs/deployment/SECRETS_MATRIX_08G.md`
+- `docs/deployment/STAGING_HOMOLOGATION_08G.md`
 - `docs/media/IMAGE_PIPELINE.md`
 - `docs/media/PUBLICATION_ASSET_AUDIT.md`
 - `docs/museum/COLLECTIONS_AND_DERIVED_RELATIONS.md`
@@ -286,12 +320,15 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/brand/symbol.webp`
 - `public/config/collaborative-area.example.json`
 - `public/config/collaborative-area.runtime.json`
+- `public/config/deployment-profile.example.json`
+- `public/config/deployment-profile.runtime.json`
 - `public/data/channels/channel-config.json`
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
 - `public/data/collaborative-contribution-model.json`
 - `public/data/collaborative-demo.json`
 - `public/data/collaborative-exhibition-model.json`
+- `public/data/collaborative-homologation-model.json`
 - `public/data/collaborative-library.json`
 - `public/data/collaborative-member-catalog.json`
 - `public/data/collaborative-modules.json`
@@ -302,6 +339,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/collaborative-task-model.json`
 - `public/data/collaborative-training-trails.json`
 - `public/data/contributions-public-summary.json`
+- `public/data/deployment-readiness.json`
 - `public/data/editorial-decisions/MM202617-unlock-review.json`
 - `public/data/exhibitions-public.json`
 - `public/data/home-carousel.json`
@@ -511,9 +549,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_08D_v0.15.0.md`
 - `releases/PACKAGE_08E_v0.16.0.md`
 - `releases/PACKAGE_08F_v0.17.0.md`
+- `releases/PACKAGE_08G_v0.18.0.md`
+- `releases/homologation/homologation-local-2026-07-25T16-54-42-708Z.json`
 - `requirements-media.txt`
 - `requirements-qr.txt`
 - `scripts/admin/bootstrap-master.mjs`
+- `scripts/admin/master-status.mjs`
 - `scripts/build.mjs`
 - `scripts/channels/export-channels.mjs`
 - `scripts/channels/generate_qr.py`
@@ -529,6 +570,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/collab/validate-volunteering-tasks.mjs`
 - `scripts/context/validate-context-ledger.mjs`
 - `scripts/contributions/export-demo-summary.mjs`
+- `scripts/deploy/build-deployment-profile.mjs`
+- `scripts/deploy/google-oauth-contract.mjs`
+- `scripts/deploy/homologation-report.mjs`
+- `scripts/deploy/preflight.mjs`
+- `scripts/deploy/remote-smoke.mjs`
+- `scripts/deploy/validate-deployment-homologation.mjs`
 - `scripts/dev-server.mjs`
 - `scripts/exhibitions/export-public.mjs`
 - `scripts/media/generate_variants.py`
@@ -571,6 +618,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/styles/tokens.css`
 - `src/views/channels.js`
 - `src/views/collaborative-contributions.js`
+- `src/views/collaborative-deployment.js`
 - `src/views/collaborative-exhibitions.js`
 - `src/views/collaborative-museum-review.js`
 - `src/views/collaborative-tasks.js`
@@ -583,6 +631,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/README_08D.md`
 - `supabase/README_08E.md`
 - `supabase/README_08F.md`
+- `supabase/README_08G.md`
 - `supabase/config.toml`
 - `supabase/functions/community-contribution-intake/config.toml`
 - `supabase/functions/community-contribution-intake/index.ts`
@@ -604,6 +653,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260724120000_collaborative_museum_review_foundation.sql`
 - `supabase/migrations/20260724120100_collaborative_museum_review_rpc.sql`
 - `supabase/migrations/20260724120200_collaborative_museum_review_seed.sql`
+- `supabase/migrations/20260724130000_collaborative_deployment_homologation.sql`
+- `supabase/migrations/20260724130100_collaborative_deployment_homologation_rpc.sql`
+- `supabase/migrations/20260724130200_collaborative_deployment_homologation_seed.sql`
 - `supabase/seed.sql`
 - `supabase/tests/008a_collaborative_foundation.test.sql`
 - `supabase/tests/008b_member_management.test.sql`
@@ -611,6 +663,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/tests/008d_agenda_exhibitions.test.sql`
 - `supabase/tests/008e_contributions.test.sql`
 - `supabase/tests/008f_museum_review.test.sql`
+- `supabase/tests/008g_deployment_homologation.test.sql`
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
 - `tests/collaborative-agenda-controller-08d.test.mjs`
@@ -637,6 +690,13 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/community-contribution-edge-function-08e.test.mjs`
 - `tests/community-contribution-privacy-08e.test.mjs`
 - `tests/data.test.mjs`
+- `tests/deployment-auth-contract-08g.test.mjs`
+- `tests/deployment-controller-08g.test.mjs`
+- `tests/deployment-database-08g.test.mjs`
+- `tests/deployment-homologation-model-08g.test.mjs`
+- `tests/deployment-profile-08g.test.mjs`
+- `tests/deployment-scripts-security-08g.test.mjs`
+- `tests/deployment-ui-08g.test.mjs`
 - `tests/fixes-07d1.test.mjs`
 - `tests/fixes-07d2.test.mjs`
 - `tests/immersive-07c.test.mjs`

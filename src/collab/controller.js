@@ -7,7 +7,7 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v6";
+const DEMO_KEY="milreu-collaborative-demo-context-v7";
 const PUBLIC_CONTRIBUTION_DEMO_KEY="milreu-public-contributions-demo-v1";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
@@ -15,7 +15,8 @@ function emptyTaskWorkspace(){return{tasks:[],assignments:[],requiredSkills:[],p
 function emptyExhibitionWorkspace(){return{venues:[],exhibitions:[],schedules:[],events:[],participants:[],checklist:[],conflicts:[]};}
 function emptyContributionWorkspace(){return{contributions:[],submitters:[],consents:[],files:[],targets:[],assignments:[],events:[],decisions:[],proposals:[],withdrawals:[]};}
 function emptyMuseumReviewWorkspace(){return{cycles:[],records:[],proposals:[],comments:[],assignments:[],checks:[],decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:[],lessonProgress:[],assessments:[]};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyDeploymentWorkspace(){return{environments:[],authPolicy:null,runs:[],checks:[],catalog:[],readiness:null};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -90,6 +91,49 @@ function createDemoMuseumReviewWorkspace(reviewSeed,trainingTrails,master=false)
   return{cycles:[cycle],records,proposals:[],comments:[],assignments:[],checks,decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:enrolments,lessonProgress,assessments};
 }
 
+
+function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deploymentReadiness,master=false){
+  const now=new Date().toISOString();
+  const environments=(homologationModel.environments||[]).map(item=>({
+    id:`demo-environment-${item.code}`,project_id:"demo-project",code:item.code,name:item.name,
+    status:item.code==="local"?"configured":"unconfigured",
+    site_url:item.code==="local"?"http://localhost:4173/":null,
+    supabase_project_ref:null,
+    auth_callback_url:item.code==="local"?"http://localhost:4173/auth/callback/":null,
+    is_production:item.code==="production",allows_reset:Boolean(item.allowsReset),
+    allows_demo:Boolean(item.allowsDemo),last_verified_at:null,metadata:{demo:true},
+    created_at:now,updated_at:now
+  }));
+  const local=environments.find(item=>item.code==="local");
+  const run={
+    id:"demo-homologation-local",project_id:"demo-project",environment_id:local.id,
+    version:"0.18.0",commit_sha:null,status:master?"in-progress":"planned",
+    summary:"Execução local de demonstração.",started_by:master?"demo-master":null,
+    started_at:master?now:null,created_at:now,updated_at:now
+  };
+  const checks=(homologationModel.requiredChecks||[]).map(item=>({
+    id:`demo-homologation-check-${item.code}`,project_id:"demo-project",run_id:run.id,
+    check_code:item.code,category:item.category,title:item.title,blocking:Boolean(item.blocking),
+    status:item.code==="env-config"&&master?"passed":"pending",
+    evidence:item.code==="env-config"&&master?"Perfil local de demonstração validado.":null,
+    note:null,checked_by:item.code==="env-config"&&master?"demo-master":null,
+    checked_at:item.code==="env-config"&&master?now:null,updated_at:now
+  }));
+  return{
+    environments,
+    authPolicy:{
+      project_id:"demo-project",provider:"google",
+      google_enabled:Boolean(deploymentProfile.googleOAuth?.enabled),
+      require_preauthorization:true,
+      allowed_email_domains:deploymentProfile.googleOAuth?.allowedEmailDomains||[],
+      store_provider_tokens:false,minimum_active_masters:1,session_expiry_minutes:60,
+      policy_status:"draft",updated_at:now
+    },
+    runs:[run],checks,catalog:homologationModel.requiredChecks||[],
+    readiness:deploymentReadiness
+  };
+}
+
 function createDemoTaskWorkspace(){
   const tasks=[
     {id:"demo-task-digitisation",project_id:"demo-project",title:"Digitalizar fotografias do arquivo comunitário",summary:"Preparar imagens e verificar nomes de ficheiros para futura catalogação.",description:"Digitalização e controlo técnico de um pequeno conjunto de fotografias de demonstração.",instructions:"Utilizar apenas os materiais indicados pela coordenação. Não publicar ficheiros fora do projeto.",category:"digitisation",category_code:"digitisation",status:"open",priority:"high",assignment_mode:"approval",location_mode:"hybrid",location_name:"Área Colaborativa",municipality:"Faro",starts_at:daysFromNow(2,9),due_at:daysFromNow(14,18),application_deadline:daysFromNow(7,18),estimated_minutes:240,capacity:3,minimum_participants:1,visibility:"members",recognition_eligible:true,created_by:"demo-master",updated_at:new Date().toISOString()},
@@ -128,7 +172,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed,homologationModel:this.foundation.homologationModel,deploymentProfile:this.foundation.deploymentProfile,deploymentReadiness:this.foundation.deploymentReadiness};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -137,9 +181,18 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),tasks:[],exhibitions:[],error:null});}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),tasks:[],exhibitions:[],error:null});}
 
   async loadRemoteContext(session){
+    const email=String(session.user.email||"").toLowerCase();
+    const allowedDomains=this.config.auth?.allowedEmailDomains||[];
+    const domain=email.split("@")[1]||"";
+    if(allowedDomains.length&&!allowedDomains.includes(domain)){
+      await this.client.auth.signOut();
+      this.resetAuthentication();
+      this.state.error="email_domain_not_allowed";
+      return;
+    }
     this.state.session={user:{id:session.user.id,email:session.user.email,user_metadata:session.user.user_metadata||{}}};this.state.authenticated=true;
     const{data,error}=await this.client.rpc("collab_get_my_context");if(error){this.state.error=error.message;return;}
     this.state.profile=data.profile||{user_id:session.user.id,email:session.user.email,display_name:session.user.user_metadata?.full_name||session.user.user_metadata?.name||"",avatar_url:session.user.user_metadata?.avatar_url||session.user.user_metadata?.picture||null,primary_profile_type:null,locale:"pt-PT"};
@@ -161,6 +214,12 @@ class CollaborativeController{
       ||hasPermission(this.state,"museum.review.view")
       ||hasPermission(this.state,"museum.review.manage")
     )await this.loadRemoteMuseumReview();
+    if(
+      hasPermission(this.state,"deployment.view")
+      ||hasPermission(this.state,"homologation.view")
+      ||hasPermission(this.state,"homologation.run")
+      ||hasPermission(this.state,"auth.policy.view")
+    )await this.loadRemoteDeployment();
   }
 
   async loadRemoteOwnPreferences(){
@@ -256,6 +315,31 @@ class CollaborativeController{
     };
   }
 
+
+  async loadRemoteDeployment(){
+    const jobs=[
+      this.client.from("collab_deployment_environments").select("*").order("code"),
+      this.client.from("collab_auth_policies").select("*").limit(1),
+      this.client.from("collab_homologation_runs").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_homologation_checks").select("*").order("updated_at",{ascending:false}),
+      this.client.from("collab_homologation_check_catalog").select("*").order("sort_order")
+    ];
+    const[environments,authPolicies,runs,checks,catalog]=await Promise.all(jobs);
+    const error=[environments,authPolicies,runs,checks,catalog].find(item=>item.error)?.error;
+    if(error){this.state.error=error.message;return;}
+    let readiness=null;
+    const readinessResponse=await this.client.rpc("collab_deployment_readiness_08g");
+    if(!readinessResponse.error)readiness=readinessResponse.data;
+    this.state.deploymentWorkspace={
+      environments:environments.data||[],
+      authPolicy:authPolicies.data?.[0]||null,
+      runs:runs.data||[],
+      checks:checks.data||[],
+      catalog:catalog.data||[],
+      readiness
+    };
+  }
+
   async loadRemoteContributions(){
     const jobs=[
       this.client.from("collab_contributions").select("*").order("submitted_at",{ascending:false}),
@@ -290,19 +374,19 @@ class CollaborativeController{
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.deploymentWorkspace=demo.deploymentWorkspace||emptyDeploymentWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,deploymentWorkspace:this.state.deploymentWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
-  async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
+  async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");if(this.config.auth?.googleOAuthEnabled!==true)throw new Error("Google OAuth ainda não foi homologado neste ambiente.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
   demoSignIn(kind="pending"){
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);const deploymentWorkspace=createDemoDeploymentWorkspace(this.foundation.homologationModel,this.foundation.deploymentProfile,this.foundation.deploymentReadiness,master);
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,deploymentWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -593,7 +677,7 @@ class CollaborativeController{
     const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
   }
 
-  async generateMuseumReviewSnapshot(cycleId,version="0.17.0"){
+  async generateMuseumReviewSnapshot(cycleId,version="0.18.0"){
     if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
     if(this.config.mode==="demo"){
       const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");
@@ -611,6 +695,197 @@ class CollaborativeController{
       this.demoMuseumReviewUpdate(workspace=>{const row=workspace.snapshots.find(item=>item.id===snapshotId&&item.status==="validated");if(!row)throw new Error("Snapshot indisponível.");row.status="approved";row.approved_by=this.state.session.user.id;row.approved_at=new Date().toISOString();});return;
     }
     const{error}=await this.client.rpc("collab_approve_museum_review_snapshot_08f",{p_snapshot_id:snapshotId,p_confirmation:confirmation});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+
+  demoDeploymentUpdate(mutator){
+    const deploymentWorkspace=structuredClone(this.state.deploymentWorkspace);
+    mutator(deploymentWorkspace);
+    this.persistDemo({deploymentWorkspace});
+  }
+
+  async refreshDeployment(){
+    if(this.config.mode==="supabase"){
+      await this.loadRemoteDeployment();
+      this.emit();
+    }
+  }
+
+  async saveDeploymentEnvironment(values){
+    if(!hasPermission(this.state,"deployment.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        let row=workspace.environments.find(item=>item.code===values.code);
+        const next={
+          id:row?.id||`demo-environment-${values.code}`,project_id:"demo-project",
+          code:values.code,name:values.name,status:values.status,
+          site_url:values.siteUrl||null,supabase_project_ref:values.projectRef||null,
+          auth_callback_url:values.authCallbackUrl||null,
+          is_production:values.code==="production",
+          allows_reset:values.code!=="production",allows_demo:values.code==="local",
+          metadata:values.metadata||{},updated_by:this.state.session.user.id,
+          updated_at:new Date().toISOString()
+        };
+        if(values.code!=="local"&&next.site_url&&!next.site_url.startsWith("https://"))throw new Error("HTTPS obrigatório fora do ambiente local.");
+        if(row)Object.assign(row,next);else workspace.environments.push(next);
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_deployment_environment_08g",{
+      p_code:values.code,p_name:values.name,p_status:values.status,
+      p_site_url:values.siteUrl||null,p_supabase_project_ref:values.projectRef||null,
+      p_auth_callback_url:values.authCallbackUrl||null,p_metadata:values.metadata||{}
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async saveAuthPolicy(values){
+    if(!hasPermission(this.state,"auth.policy.manage"))throw new Error("Permissão insuficiente.");
+    const domains=(values.allowedEmailDomains||[]).map(item=>String(item).trim().toLowerCase()).filter(Boolean);
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        workspace.authPolicy={
+          ...(workspace.authPolicy||{}),project_id:"demo-project",provider:"google",
+          google_enabled:Boolean(values.googleEnabled),require_preauthorization:true,
+          allowed_email_domains:[...new Set(domains)],store_provider_tokens:false,
+          minimum_active_masters:1,session_expiry_minutes:Number(values.sessionExpiryMinutes||60),
+          policy_status:values.policyStatus||"draft",updated_by:this.state.session.user.id,
+          updated_at:new Date().toISOString()
+        };
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_auth_policy_08g",{
+      p_google_enabled:Boolean(values.googleEnabled),
+      p_allowed_email_domains:domains,
+      p_session_expiry_minutes:Number(values.sessionExpiryMinutes||60),
+      p_policy_status:values.policyStatus||"draft"
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async startHomologation(environmentCode,version,commitSha=""){
+    if(!hasPermission(this.state,"homologation.run"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        const environment=workspace.environments.find(item=>item.code===environmentCode);
+        if(!environment)throw new Error("Ambiente não encontrado.");
+        if(workspace.runs.some(item=>item.environment_id===environment.id&&["planned","in-progress","blocked"].includes(item.status)))throw new Error("Já existe uma homologação ativa.");
+        const runId=`demo-homologation-${Date.now()}`;
+        workspace.runs.unshift({
+          id:runId,project_id:"demo-project",environment_id:environment.id,
+          version,commit_sha:commitSha||null,status:"in-progress",summary:null,
+          started_by:this.state.session.user.id,started_at:new Date().toISOString(),
+          created_at:new Date().toISOString(),updated_at:new Date().toISOString()
+        });
+        workspace.checks.push(...workspace.catalog.map(item=>({
+          id:`demo-check-${runId}-${item.code}`,project_id:"demo-project",run_id:runId,
+          check_code:item.code,category:item.category,title:item.title,
+          blocking:Boolean(item.blocking),status:"pending",evidence:null,note:null,
+          checked_by:null,checked_at:null,updated_at:new Date().toISOString()
+        })));
+        environment.status="testing";environment.updated_at=new Date().toISOString();
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_start_homologation_08g",{
+      p_environment_code:environmentCode,p_version:version,p_commit_sha:commitSha||null
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async recordHomologationCheck(runId,checkCode,status,evidence="",note=""){
+    if(!hasPermission(this.state,"homologation.check"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        const run=workspace.runs.find(item=>item.id===runId);
+        if(!run||!["in-progress","blocked"].includes(run.status))throw new Error("Execução indisponível.");
+        const check=workspace.checks.find(item=>item.run_id===runId&&item.check_code===checkCode);
+        if(!check)throw new Error("Check não encontrado.");
+        check.status=status;check.evidence=evidence||null;check.note=note||null;
+        check.checked_by=this.state.session.user.id;
+        check.checked_at=["passed","failed","blocked","not-applicable"].includes(status)?new Date().toISOString():null;
+        check.updated_at=new Date().toISOString();
+        run.status=workspace.checks.some(item=>item.run_id===runId&&item.blocking&&["failed","blocked"].includes(item.status))?"blocked":"in-progress";
+        run.updated_at=new Date().toISOString();
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_record_homologation_check_08g",{
+      p_run_id:runId,p_check_code:checkCode,p_status:status,
+      p_evidence:evidence||null,p_note:note||null
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async completeHomologation(runId,summary){
+    if(!hasPermission(this.state,"homologation.run"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        const run=workspace.runs.find(item=>item.id===runId);
+        if(!run||!["in-progress","blocked"].includes(run.status))throw new Error("Execução indisponível.");
+        const checks=workspace.checks.filter(item=>item.run_id===runId);
+        const open=checks.filter(item=>item.blocking&&["pending","running"].includes(item.status));
+        if(open.length)throw new Error(`Existem ${open.length} checks bloqueantes por concluir.`);
+        run.status=checks.some(item=>item.blocking&&["failed","blocked"].includes(item.status))?"failed":"passed";
+        run.summary=summary;run.completed_by=this.state.session.user.id;
+        run.completed_at=new Date().toISOString();run.updated_at=new Date().toISOString();
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_complete_homologation_08g",{
+      p_run_id:runId,p_summary:summary
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async approveHomologation(runId,confirmation){
+    if(!hasPermission(this.state,"homologation.approve"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        const run=workspace.runs.find(item=>item.id===runId&&item.status==="passed");
+        if(!run)throw new Error("Execução aprovada tecnicamente não encontrada.");
+        const environment=workspace.environments.find(item=>item.id===run.environment_id);
+        const expected=environment?.code==="production"?"APPROVE_MILREU_PRODUCTION_RELEASE":"APPROVE_MILREU_HOMOLOGATION";
+        if(confirmation!==expected)throw new Error("Confirmação literal obrigatória.");
+        if(environment?.code==="production"&&!workspace.runs.some(item=>{
+          const env=workspace.environments.find(environmentRow=>environmentRow.id===item.environment_id);
+          return env?.code==="staging"&&item.version===run.version&&item.status==="approved";
+        }))throw new Error("Homologação de staging aprovada é obrigatória.");
+        run.status="approved";run.approved_by=this.state.session.user.id;
+        run.approved_at=new Date().toISOString();run.updated_at=new Date().toISOString();
+        if(environment){environment.status="homologated";environment.last_verified_at=new Date().toISOString();}
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_approve_homologation_08g",{
+      p_run_id:runId,p_confirmation:confirmation
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
+  }
+
+  async cancelHomologation(runId,reason){
+    if(!hasPermission(this.state,"homologation.cancel"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoDeploymentUpdate(workspace=>{
+        const run=workspace.runs.find(item=>item.id===runId);
+        if(!run)throw new Error("Execução não encontrada.");
+        run.status="cancelled";run.summary=reason;run.cancelled_at=new Date().toISOString();
+        run.updated_at=new Date().toISOString();
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_cancel_homologation_08g",{
+      p_run_id:runId,p_reason:reason
+    });
+    if(error)throw error;
+    await this.refreshDeployment();
   }
 
   demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}
