@@ -19,6 +19,7 @@ try{for(const path of [
 "/src/views/collaborative-museum-review.js",
 "/src/views/collaborative-deployment.js",
 "/src/views/collaborative-notifications.js",
+"/src/views/collaborative-operations.js",
 "/src/components/public-content-effects.js",
 "/public/config/collaborative-area.runtime.json",
 "/public/data/collaborative-modules.json",
@@ -40,6 +41,9 @@ try{for(const path of [
 "/public/data/collaborative-notification-model.json",
 "/public/data/collaborative-notification-templates.json",
 "/public/config/notifications.runtime.json",
+"/public/data/collaborative-operational-governance-model.json",
+"/public/data/collaborative-retention-model.json",
+"/public/config/operations.runtime.json",
 "/public/data/memories.json",
 "/public/media/museum/generated/MM202601/card.webp"
 ]){const response=await fetch(`http://127.0.0.1:4187${path}`);if(!response.ok)throw new Error(`Smoke falhou em ${path}: ${response.status}`)}console.log("Smoke HTTP concluído.")}finally{child.kill("SIGTERM")}

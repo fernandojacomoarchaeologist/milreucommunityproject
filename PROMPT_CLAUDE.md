@@ -1,96 +1,97 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08H
+# Prompt de integração — Pacote 08I
 
-Integra cumulativamente o 08H sobre o 08G.
+Integra cumulativamente o 08I sobre o 08H.
 
-## Contexto obrigatório
-
-Ler:
+## Ler primeiro
 
 - `PROJECT_CONTEXT_LEDGER.md`;
 - `PACKAGE_DEPENDENCY_MAP.md`;
 - `CHANGE_SURFACE_REGISTRY.md`;
 - `CONTEXT_RECOVERY_PROTOCOL.md`;
-- `docs/notifications/NOTIFICATION_ARCHITECTURE_08H.md`;
-- `docs/notifications/NOTIFICATION_OPERATIONS_RUNBOOK_08H.md`;
-- `docs/notifications/NOTIFICATION_PRIVACY_RETENTION_08H.md`.
+- `docs/operations/OPERATIONAL_GOVERNANCE_08I.md`;
+- `docs/operations/AUDIT_INTEGRITY_08I.md`;
+- `docs/operations/RETENTION_LIFECYCLE_08I.md`;
+- `docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md`;
+- `docs/operations/INCIDENT_RESPONSE_08I.md`.
 
 ## Objetivo
 
-Ativar notificações internas e preparar e-mail transacional controlado.
+Ativar a administração operacional sem executar ações irreversíveis ou afirmar recursos remotos não comprovados.
 
 ## Integrar
 
-1. migrations `20260724140000`–`140200`;
-2. Edge Function `dispatch-collab-notifications`;
-3. modelos, templates e runtime;
+1. migrations `20260724150000`–`150200`;
+2. Edge Function `export-collab-audit`;
+3. modelos e runtime;
 4. controller;
-5. views, rotas, badge e estilos;
-6. scripts;
-7. workflows;
-8. testes;
-9. documentação e contexto.
+5. views, rotas, navegação e estilos;
+6. notificações orgânicas do 08I;
+7. scripts;
+8. workflows;
+9. testes;
+10. documentação e contexto.
 
-## Regras
+## Regras obrigatórias
 
-- centro interno ativo;
-- e-mail desativado por padrão;
-- sem fornecedor inventado;
-- sem envio automático de convites;
-- sem agenda automática do worker;
-- service role apenas no servidor;
-- worker secret obrigatório;
-- e-mails e payloads não aparecem nos relatórios administrativos;
-- templates aprovados são imutáveis;
-- correções criam nova versão;
-- HTML é gerado pelo worker a partir de texto escapado;
-- tokens são limitados;
-- eventos obrigatórios não podem ser desativados no centro interno;
-- pedidos de retirada são prioritários;
-- e-mail exige confirmação literal;
-- dead-letter não é reenviado sem ação;
-- staging antes de produção.
+- não editar nem apagar a auditoria;
+- não devolver `before_data` ou `after_data` brutos;
+- manter e-mail e identificadores sensíveis fora da exportação;
+- não configurar secrets como settings;
+- não afirmar backup sem evidência;
+- não criar backup fictício;
+- não aplicar retenção pelo navegador;
+- não habilitar retenção automática;
+- preview antes de aprovação;
+- legal holds antes da aplicação;
+- hash dos candidatos deve permanecer igual;
+- aplicação apenas com service role;
+- confirmação adicional para produção;
+- contributos, auditoria, incidentes e direitos em revisão humana;
+- não executar produção durante a integração;
+- manter Google OAuth, staging e master bloqueados quando não configurados.
 
 ## Validação
 
 ```bash
 npm ci
-npm run notifications:config
-npm run notifications:preview
-npm run notifications:test-payload
-npm run notifications:dispatch-status
+npm run operations:config
+npm run operations:report
+npm run operations:backup-evidence
+npm run operations:retention-plan
+npm run operations:audit-status
 npm run validate
 npm test
 npm run build
 npm run smoke
 ```
 
-Executar os testes SQL 08A–08H em Supabase local.
+Executar o teste SQL 08I após os testes 08A–08H.
 
 ## Revisão manual
 
-- badge;
-- inbox;
-- filtros;
-- leitura;
-- arquivo;
-- preferências;
-- aviso obrigatório;
-- horário silencioso;
-- templates;
-- canal;
-- teste interno;
-- convite explícito;
-- outbox;
-- retry;
-- cancelamento;
-- dead-letter;
-- 375, 768 e 1280 px.
+- dashboard;
+- check run;
+- evidência;
+- configuração sem secret;
+- pesquisa de auditoria;
+- integridade;
+- exportação;
+- preview de retenção;
+- aprovação;
+- legal hold;
+- incidente;
+- ação corretiva;
+- backup;
+- verificação;
+- exercício;
+- 375, 768 e 1280 px;
+- teclado e leitor de ecrã.
 
-Não ativar o e-mail durante a integração.
+Não executar o workflow de aplicação da retenção sem dados reais, backup e aprovação.

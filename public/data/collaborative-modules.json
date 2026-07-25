@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "modules": [
     {
       "code": "dashboard",
@@ -172,6 +172,33 @@
       "permission": "exhibitions.manage",
       "description": "Exposições, locais, itinerância, publicação, logística e verificação de conflitos.",
       "sortOrder": 100
+    },
+    {
+      "code": "system-administration",
+      "name": "Administração do sistema",
+      "route": "/area-colaborativa/gestao/sistema",
+      "status": "active",
+      "permission": "operations.view",
+      "description": "Saúde operacional, configurações não sensíveis, backups e verificações.",
+      "sortOrder": 101
+    },
+    {
+      "code": "audit-governance",
+      "name": "Auditoria e retenção",
+      "route": "/area-colaborativa/gestao/auditoria",
+      "status": "active",
+      "permission": "audit.search",
+      "description": "Pesquisa auditável, integridade, legal holds, previews e aplicações protegidas de retenção.",
+      "sortOrder": 102
+    },
+    {
+      "code": "incident-continuity",
+      "name": "Incidentes e continuidade",
+      "route": "/area-colaborativa/gestao/incidentes",
+      "status": "active",
+      "permission": "incidents.view",
+      "description": "Registo de incidentes, ações corretivas, exercícios e continuidade operacional.",
+      "sortOrder": 103
     }
   ]
 }

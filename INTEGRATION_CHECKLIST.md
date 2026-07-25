@@ -1,11 +1,11 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração — 08H
+# Checklist de integração — 08I
 
 ## Contexto
 
@@ -13,112 +13,101 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - [ ] dependências
 - [ ] superfícies
 - [ ] recuperação
-- [ ] relatório 08G
+- [ ] relatório 08H
 - [ ] registo de impacto
 
-## Centro interno
+## Administração
 
-- [ ] módulo
-- [ ] badge
-- [ ] contador
-- [ ] lista
-- [ ] filtros
-- [ ] marcar lida
-- [ ] marcar não lida
-- [ ] arquivar
-- [ ] ler todas
-- [ ] link contextual
-- [ ] prioridades
-- [ ] categorias
+- [ ] módulo sistema
+- [ ] dashboard
+- [ ] 20 checks
+- [ ] iniciar execução
+- [ ] guardar evidência
+- [ ] concluir execução
+- [ ] configurações sem secrets
+- [ ] polling mínimo
 
-## Preferências
+## Auditoria
 
-- [ ] 20 eventos
-- [ ] avisos obrigatórios
-- [ ] e-mail opcional
-- [ ] horário silencioso
-- [ ] timezone
-- [ ] idioma
-- [ ] canal desativado comunicado
-
-## Eventos automáticos
-
-- [ ] membership
-- [ ] tarefas
-- [ ] contributos
-- [ ] Museu
-- [ ] formação
-- [ ] agenda
-- [ ] logística
-- [ ] retirada
-- [ ] homologação
-- [ ] deduplicação
-
-## Templates
-
-- [ ] 20 templates
-- [ ] pt-PT
-- [ ] tokens
-- [ ] texto simples
-- [ ] HTML escapado
-- [ ] aprovação
+- [ ] acesso direto revogado
+- [ ] pesquisa RPC
+- [ ] ator sem e-mail
+- [ ] changed keys
+- [ ] redacção
+- [ ] cadeia de hashes
 - [ ] imutabilidade
-- [ ] versionamento
+- [ ] integridade
+- [ ] CSV
+- [ ] limite 5000
+- [ ] Edge Function com JWT
+- [ ] sem service role na exportação
+
+## Retenção
+
+- [ ] 7 políticas
+- [ ] manual-review
+- [ ] export-only
 - [ ] preview
+- [ ] hash de candidatos
+- [ ] legal holds
+- [ ] aprovação literal
+- [ ] service role apply
+- [ ] literal de produção
+- [ ] revalidação antes de aplicar
+- [ ] sem agenda automática
+- [ ] browser não aplica
 
-## E-mail
+## Incidentes
 
-- [ ] provider disabled
-- [ ] webhook
-- [ ] worker secret
-- [ ] from
-- [ ] domínio
-- [ ] função
-- [ ] claim
-- [ ] entrega
-- [ ] retry
-- [ ] dead-letter
-- [ ] cancelamento
-- [ ] sem logs de e-mail
-- [ ] sem payload no admin
+- [ ] referência
+- [ ] severidade
+- [ ] estados
+- [ ] ambiente
+- [ ] responsável
+- [ ] atualizações
+- [ ] ações
+- [ ] fecho
+- [ ] resumo público opcional
+- [ ] notificações
 
-## Convites
+## Backups
 
-- [ ] ação explícita
-- [ ] convite pendente
-- [ ] canal ativo obrigatório
-- [ ] template aprovado
-- [ ] dedupe
-- [ ] endereço mascarado
+- [ ] planos
+- [ ] provider unconfigured
+- [ ] evidência
+- [ ] restauração
+- [ ] RPO/RTO
+- [ ] principal
+- [ ] secundário
+- [ ] falha notificada
+- [ ] sem alegação automática
 
-## Segurança
+## Continuidade
 
-- [ ] RLS
-- [ ] outbox privada
-- [ ] deliveries privadas
-- [ ] service role only
-- [ ] secrets fora do Git
-- [ ] worker sem JWT público
-- [ ] segredo customizado
-- [ ] payload reduzido
-- [ ] retenção
-- [ ] cleanup
+- [ ] exercícios
+- [ ] cenários
+- [ ] objetivos
+- [ ] evidência
+- [ ] tempo real
+- [ ] runbook
+- [ ] responsáveis
 
 ## Banco
 
-- [ ] migrations 08A–08H
-- [ ] 7 tabelas
+- [ ] migrations 08A–08I
+- [ ] 13 tabelas
+- [ ] audit alter
+- [ ] RLS
 - [ ] RPCs
-- [ ] triggers
 - [ ] teste SQL
 - [ ] local
 - [ ] staging
-- [ ] rollback
 
 ## Qualidade
 
 - [ ] validate
 - [ ] tests
+- [ ] TypeScript Edge
 - [ ] build
 - [ ] smoke
 - [ ] 375

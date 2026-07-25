@@ -13,12 +13,12 @@ begin
 
   select count(*) into event_count
   from public.collab_notification_event_types where active;
-  if event_count<>20 then raise exception 'expected 20 event types, got %',event_count; end if;
+  if event_count<>25 then raise exception 'expected 25 event types, got %',event_count; end if;
 
   select count(*) into template_count
   from public.collab_notification_templates
   where channel='email' and language='pt-PT' and status='approved';
-  if template_count<>20 then raise exception 'expected 20 approved templates, got %',template_count; end if;
+  if template_count<>25 then raise exception 'expected 25 approved templates, got %',template_count; end if;
 
   if not exists(
     select 1 from public.collab_notification_channels

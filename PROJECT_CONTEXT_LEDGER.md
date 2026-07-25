@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -175,11 +175,15 @@ Ambientes local, staging e produção; Google OAuth; master configurável; prefl
 
 ### 08H — Notificações e operação
 
-Centro interno, preferências, 20 eventos, templates transacionais, outbox, worker webhook, retries, dead-letter e convites explícitos.
+Centro interno, preferências, eventos, templates transacionais, outbox, worker webhook, retries, dead-letter e convites explícitos.
 
-## Estado funcional após 08H
+### 08I — Administração e continuidade
 
-Todos os 19 módulos do registo colaborativo possuem implementação ativa:
+Saúde operacional, auditoria redigida e íntegra, retenção protegida, legal holds, incidentes, backups declarativos e exercícios de continuidade.
+
+## Estado funcional após 08I
+
+Todos os 22 módulos do registo colaborativo possuem implementação ativa:
 
 - dashboard;
 - perfil;
@@ -199,11 +203,14 @@ Todos os 19 módulos do registo colaborativo possuem implementação ativa:
 - gestão da revisão;
 - implantação e homologação;
 - notificações;
-- gestão de notificações.
+- gestão de notificações;
+- administração do sistema;
+- auditoria e retenção;
+- incidentes e continuidade.
 
 ## Próximas fronteiras
 
-- Pacote 08I: administração, auditoria, retenção, backups e continuidade operacional;
+- Pacote 08J: fecho funcional, acessibilidade, testes E2E e release candidate da Área Colaborativa;
 - execução real das migrations em local e staging;
 - configuração do Google OAuth;
 - bootstrap do master;
@@ -227,3 +234,14 @@ Todos os 19 módulos do registo colaborativo possuem implementação ativa:
 - service role e worker secret ficam no servidor;
 - pedidos de retirada são prioritários;
 - chat interno não faz parte do escopo.
+
+## Invariantes operacionais do 08I
+
+- auditoria sem update/delete;
+- consulta e exportação redigidas;
+- retenção sem execução automática;
+- legal hold antes de qualquer aplicação;
+- browser sem mutação de produção;
+- backup só é considerado verificado com evidência;
+- incidentes usam o mínimo de dados pessoais;
+- contributos, auditoria e direitos permanecem fora de eliminação automática.

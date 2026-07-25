@@ -1,13 +1,13 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "budgetsBytes": {
     "thumbnailMax": 80000,
     "cardMax": 250000,
     "detailMax": 700000,
     "immersiveMax": 1200000,
-    "javascriptTotalMax": 620000,
-    "cssTotalMax": 300000,
+    "javascriptTotalMax": 780000,
+    "cssTotalMax": 180000,
     "htmlShellMax": 100000
   }
 }

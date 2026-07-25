@@ -1,0 +1,37 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.20.0",
+  "environment": "local",
+  "dashboard": {
+    "pollIntervalSeconds": 120,
+    "recentAuditLimit": 50,
+    "recentIncidentLimit": 20
+  },
+  "audit": {
+    "maxPageSize": 200,
+    "maxExportRows": 5000,
+    "exportFunction": "export-collab-audit",
+    "directTableAccess": false
+  },
+  "retention": {
+    "automaticApply": false,
+    "automaticScheduleEnabled": false,
+    "applyFromBrowser": false
+  },
+  "backup": {
+    "provider": "unconfigured",
+    "managedBackupConfirmed": false,
+    "latestVerificationAt": null
+  },
+  "continuity": {
+    "runbookReviewedAt": null,
+    "primaryResponsibleConfigured": false,
+    "secondaryResponsibleConfigured": false
+  },
+  "privacy": {
+    "includeEmailInAuditExports": false,
+    "includeRawBeforeAfter": false,
+    "hashNetworkIdentifiers": true
+  },
+  "notice": "Operação em modo local. Retenção, backups e mutações de produção permanecem manuais e bloqueados."
+}

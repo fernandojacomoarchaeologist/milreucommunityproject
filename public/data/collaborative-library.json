@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "resources": [
     {
       "code": "project-context-ledger",
@@ -12,7 +12,7 @@
       ],
       "status": "active",
       "summary": "Este ficheiro é cumulativo. Não deve ser substituído por um resumo apenas do pacote mais recente.",
-      "content": "# Ledger de contexto do Projeto Comunitário de Milreu\n\nEste ficheiro é cumulativo. Não deve ser substituído por um resumo apenas do pacote mais recente.\n\n## Identidade e objetivo\n\nO **Projeto Comunitário de Milreu** é o programa principal de Arqueologia Pública e Comunitária em Estoi e Faro.\n\nObjetivo:\n\n> Resgatar a memória e o valor histórico de Milreu para a população de Estoi e também de Faro.\n\nPrincípios públicos:\n\n1. Comunicação;\n2. Mutualidade;\n3. Pertinência Social e Política.\n\nRegra interpretativa interna:\n\n> A comunidade fala primeiro; a instituição funciona como contexto e moldura.\n\n## Camadas\n\n### Portal público\n\nNavegação, contexto, metodologia, iniciativas, participação, agenda, conhecimento e acesso ao Museu.\n\n### Museu de Memórias\n\nExploração visual e imersiva das memórias. Possui 31 registos visíveis no ambiente de revisão.\n\n### Milreu Proteus\n\nBase de conhecimento, proveniência, relações, dados e exports. Não é a marca principal.\n\n### Área Colaborativa\n\nEspaço autenticado para coordenação, voluntários, investigadores, revisores, tradutores, parceiros e colaboradores comunitários.\n\n### Canais físicos\n\nTotens e painéis permanecem dependentes do Pacote 14 e de especificações finais de impressão.\n\n## Invariantes editoriais\n\n- `pt-PT` é a língua-fonte.\n- `en`, `es` e `fr` dependem de revisão.\n- Conteúdo preliminar não é aprovado por inferência.\n- Direitos, créditos, fontes, intervenções digitais e pedidos de retirada devem permanecer rastreáveis.\n- Regra operacional: não publicar automaticamente.\n- Não inventar contactos, domínios, datas, traduções, autorizações ou direitos.\n- GitHub guarda código, documentação e snapshots públicos aprovados.\n- Supabase guarda operação, rascunhos, membros, tarefas, contributos e decisões.\n- `service_role` nunca entra no browser.\n\n## MM202617\n\nMM202617 pode permanecer visível para revisão. Deve declarar claramente que houve **retoque substantivo com inteligência artificial**.\n\nO registo:\n\n- não deve ser apresentado como imagem original não alterada;\n- permanece inelegível para lançamento público enquanto os gates editoriais não forem concluídos;\n- pode ser aprovado posteriormente apenas com direitos, crédito e divulgação adequados.\n\n## Histórico dos pacotes\n\n### 01 — Fundação, governança e escopo\n\nDefiniu identidade, objetivos, princípios, estados e fronteiras.\n\n### 02 — Sistema de design e guia vivo\n\nDefiniu tokens, tipografia, grids, acessibilidade e linguagem visual.\n\n### 03 — Modelo de dados do Museu\n\nDefiniu memória, fonte, direitos, media, relações, canais e localização.\n\n### 04 — Auditoria e migração preliminar\n\nMapeou o legado e os estados de revisão.\n\n### 05A — Auditoria visual da fonte primária\n\nAnalisou o livro privado de Hauschild e Teichner sem o publicar.\n\n### 05B — Fundações visuais de produção\n\nConsolidou tokens visuais.\n\n### 05C — Catálogo visual interativo\n\nCriou a referência de componentes e padrões.\n\n### 05D — Componentes e padrões museológicos\n\nDefiniu comportamento do Portal e Museu.\n\n### 05E — Identidade, logo e iconografia\n\nCriou derivados técnicos do logótipo, sujeitos a revisão humana.\n\n### 05F — Infraestrutura, persistência e skills\n\nAprovou Supabase, GitHub Pages, migrations protegidas, skills e agentes.\n\n### 06 — Arquitetura do Portal e Museu\n\nDefiniu rotas, páginas, fluxos e matrizes.\n\n### 07A — Base executável e imagens\n\nCriou a aplicação estática e pipeline das 31 imagens.\n\n### 07B — Portal público\n\nAtivou páginas institucionais e iniciativas.\n\n### 07C — Museu digital\n\nAtivou pesquisa, filtros, coleções, timeline, detalhe e imersivo.\n\n### 07D — Multicanal e MVP\n\nCriou exports, JSON-LD, laboratório e gates de release.\n\n### 07D.1 — Conteúdo, navegação e slideshow\n\nCorrigiu pilares, menus, CTA e imersivo.\n\n### 07D.2 — Imersivo e carrossel da Home\n\nCorrigiu saída, encaixe de imagem e carrossel Museu/Proteus/Inquérito.\n\n### 07D.3 — MM202617\n\nDesbloqueou o registo para revisão com divulgação explícita de retoque substantivo por IA, mantendo o bloqueio de lançamento.\n\n### 08A — Fundação da Área Colaborativa\n\nGoogle Auth, perfis, permissões, master e módulos.\n\n### 08B — Membros e perfis\n\nGestão de membros, funções, interesses, competências e pré-autorizações.\n\n### 08C — Voluntariado e tarefas\n\nDisponibilidade, tarefas, candidaturas, progresso e tempo.\n\n### 08D — Agenda e exposição itinerante\n\nLocais, períodos, eventos, RSVP, logística e página pública.\n\n### 08E — Contributos comunitários\n\nSubmissão, ficheiros privados, consentimento, moderação, direitos e retirada.\n\n### 08F — Revisão editorial e curatorial\n\nRevisão das 31 memórias, formação, biblioteca, gates, snapshots e efeitos orgânicos nas páginas principais.\n\n### 08G — Implantação e homologação\n\nAmbientes local, staging e produção; Google OAuth; master configurável; preflight; RLS; storage; 24 checks e gates de produção.\n\n## Estado funcional após 08G\n\nTodos os 17 módulos do registo colaborativo possuem implementação ativa:\n\n- dashboard;\n- perfil;\n- disponibilidade;\n- tarefas;\n- contributos;\n- agenda;\n- biblioteca;\n- formação;\n- revisão do Museu;\n- gestão de tarefas;\n- membros;\n- convites;\n- moderação;\n- locais;\n- exposições;\n- gestão da revisão;\n- implantação e homologação.\n\n## Próximas fronteiras\n\n- execução real das migrations em local e staging;\n- configuração do Google OAuth;\n- bootstrap do master;\n- homologação por perfil;\n- aplicação humana das revisões;\n- traduções;\n- lançamento público;\n- domínio;\n- contacto público;\n- acessibilidade final;\n- impressão física;\n- notificações apenas quando justificadas.",
+      "content": "# Ledger de contexto do Projeto Comunitário de Milreu\n\nEste ficheiro é cumulativo. Não deve ser substituído por um resumo apenas do pacote mais recente.\n\n## Identidade e objetivo\n\nO **Projeto Comunitário de Milreu** é o programa principal de Arqueologia Pública e Comunitária em Estoi e Faro.\n\nObjetivo:\n\n> Resgatar a memória e o valor histórico de Milreu para a população de Estoi e também de Faro.\n\nPrincípios públicos:\n\n1. Comunicação;\n2. Mutualidade;\n3. Pertinência Social e Política.\n\nRegra interpretativa interna:\n\n> A comunidade fala primeiro; a instituição funciona como contexto e moldura.\n\n## Camadas\n\n### Portal público\n\nNavegação, contexto, metodologia, iniciativas, participação, agenda, conhecimento e acesso ao Museu.\n\n### Museu de Memórias\n\nExploração visual e imersiva das memórias. Possui 31 registos visíveis no ambiente de revisão.\n\n### Milreu Proteus\n\nBase de conhecimento, proveniência, relações, dados e exports. Não é a marca principal.\n\n### Área Colaborativa\n\nEspaço autenticado para coordenação, voluntários, investigadores, revisores, tradutores, parceiros e colaboradores comunitários.\n\n### Canais físicos\n\nTotens e painéis permanecem dependentes do Pacote 14 e de especificações finais de impressão.\n\n## Invariantes editoriais\n\n- `pt-PT` é a língua-fonte.\n- `en`, `es` e `fr` dependem de revisão.\n- Conteúdo preliminar não é aprovado por inferência.\n- Direitos, créditos, fontes, intervenções digitais e pedidos de retirada devem permanecer rastreáveis.\n- Regra operacional: não publicar automaticamente.\n- Não inventar contactos, domínios, datas, traduções, autorizações ou direitos.\n- GitHub guarda código, documentação e snapshots públicos aprovados.\n- Supabase guarda operação, rascunhos, membros, tarefas, contributos e decisões.\n- `service_role` nunca entra no browser.\n\n## MM202617\n\nMM202617 pode permanecer visível para revisão. Deve declarar claramente que houve **retoque substantivo com inteligência artificial**.\n\nO registo:\n\n- não deve ser apresentado como imagem original não alterada;\n- permanece inelegível para lançamento público enquanto os gates editoriais não forem concluídos;\n- pode ser aprovado posteriormente apenas com direitos, crédito e divulgação adequados.\n\n## Histórico dos pacotes\n\n### 01 — Fundação, governança e escopo\n\nDefiniu identidade, objetivos, princípios, estados e fronteiras.\n\n### 02 — Sistema de design e guia vivo\n\nDefiniu tokens, tipografia, grids, acessibilidade e linguagem visual.\n\n### 03 — Modelo de dados do Museu\n\nDefiniu memória, fonte, direitos, media, relações, canais e localização.\n\n### 04 — Auditoria e migração preliminar\n\nMapeou o legado e os estados de revisão.\n\n### 05A — Auditoria visual da fonte primária\n\nAnalisou o livro privado de Hauschild e Teichner sem o publicar.\n\n### 05B — Fundações visuais de produção\n\nConsolidou tokens visuais.\n\n### 05C — Catálogo visual interativo\n\nCriou a referência de componentes e padrões.\n\n### 05D — Componentes e padrões museológicos\n\nDefiniu comportamento do Portal e Museu.\n\n### 05E — Identidade, logo e iconografia\n\nCriou derivados técnicos do logótipo, sujeitos a revisão humana.\n\n### 05F — Infraestrutura, persistência e skills\n\nAprovou Supabase, GitHub Pages, migrations protegidas, skills e agentes.\n\n### 06 — Arquitetura do Portal e Museu\n\nDefiniu rotas, páginas, fluxos e matrizes.\n\n### 07A — Base executável e imagens\n\nCriou a aplicação estática e pipeline das 31 imagens.\n\n### 07B — Portal público\n\nAtivou páginas institucionais e iniciativas.\n\n### 07C — Museu digital\n\nAtivou pesquisa, filtros, coleções, timeline, detalhe e imersivo.\n\n### 07D — Multicanal e MVP\n\nCriou exports, JSON-LD, laboratório e gates de release.\n\n### 07D.1 — Conteúdo, navegação e slideshow\n\nCorrigiu pilares, menus, CTA e imersivo.\n\n### 07D.2 — Imersivo e carrossel da Home\n\nCorrigiu saída, encaixe de imagem e carrossel Museu/Proteus/Inquérito.\n\n### 07D.3 — MM202617\n\nDesbloqueou o registo para revisão com divulgação explícita de retoque substantivo por IA, mantendo o bloqueio de lançamento.\n\n### 08A — Fundação da Área Colaborativa\n\nGoogle Auth, perfis, permissões, master e módulos.\n\n### 08B — Membros e perfis\n\nGestão de membros, funções, interesses, competências e pré-autorizações.\n\n### 08C — Voluntariado e tarefas\n\nDisponibilidade, tarefas, candidaturas, progresso e tempo.\n\n### 08D — Agenda e exposição itinerante\n\nLocais, períodos, eventos, RSVP, logística e página pública.\n\n### 08E — Contributos comunitários\n\nSubmissão, ficheiros privados, consentimento, moderação, direitos e retirada.\n\n### 08F — Revisão editorial e curatorial\n\nRevisão das 31 memórias, formação, biblioteca, gates, snapshots e efeitos orgânicos nas páginas principais.\n\n### 08G — Implantação e homologação\n\nAmbientes local, staging e produção; Google OAuth; master configurável; preflight; RLS; storage; 24 checks e gates de produção.\n\n### 08H — Notificações e operação\n\nCentro interno, preferências, 20 eventos, templates transacionais, outbox, worker webhook, retries, dead-letter e convites explícitos.\n\n## Estado funcional após 08H\n\nTodos os 19 módulos do registo colaborativo possuem implementação ativa:\n\n- dashboard;\n- perfil;\n- disponibilidade;\n- tarefas;\n- contributos;\n- agenda;\n- biblioteca;\n- formação;\n- revisão do Museu;\n- gestão de tarefas;\n- membros;\n- convites;\n- moderação;\n- locais;\n- exposições;\n- gestão da revisão;\n- implantação e homologação;\n- notificações;\n- gestão de notificações.\n\n## Próximas fronteiras\n\n- Pacote 08I: administração, auditoria, retenção, backups e continuidade operacional;\n- execução real das migrations em local e staging;\n- configuração do Google OAuth;\n- bootstrap do master;\n- homologação por perfil;\n- aplicação humana das revisões;\n- traduções;\n- lançamento público;\n- domínio;\n- contacto público;\n- acessibilidade final;\n- impressão física;\n- notificações apenas quando justificadas.\n\n## Invariantes de comunicação\n\n- o centro interno é o canal canónico;\n- e-mail desativado por padrão;\n- fornecedor não é escolhido por inferência;\n- convites não são enviados automaticamente;\n- templates aprovados são imutáveis;\n- service role e worker secret ficam no servidor;\n- pedidos de retirada são prioritários;\n- chat interno não faz parte do escopo.",
       "visibility": "member-reference-not-confidential"
     },
     {
@@ -130,7 +130,7 @@
       ],
       "status": "active",
       "summary": "Interromper a implementação quando houver risco elevado de:",
-      "content": "# Protocolo de recuperação de contexto\n\n## Quando interromper e pedir contexto\n\nInterromper a implementação quando houver risco elevado de:\n\n- redefinir a identidade do projeto;\n- contradizer uma decisão anterior;\n- inventar conteúdo editorial;\n- substituir um fluxo já integrado;\n- alterar direitos, créditos ou autorizações;\n- publicar uma memória sem aprovação;\n- perder decisões da Área Colaborativa;\n- alterar a Home sem conhecer os slots e integrações atuais.\n\n## Conjunto mínimo necessário\n\nPara retomar com segurança, solicitar ou localizar:\n\n1. o ZIP do pacote cumulativo mais recente;\n2. `PROJECT_CONTEXT_LEDGER.md`;\n3. `PACKAGE_DEPENDENCY_MAP.md`;\n4. `CHANGE_SURFACE_REGISTRY.md`;\n5. `public/data/package-impact-registry.json`;\n6. `VALIDATION_REPORT.md`;\n7. a mensagem de integração do Claude/GitHub com PRs e problemas;\n8. ficheiros ou imagens novos explicitamente citados pelo utilizador.\n\n## Informação adicional conforme o risco\n\n### Museu\n\n- `memories.json`;\n- `museum-editorial-approved.json`;\n- imagens e direitos;\n- decisão específica sobre MM202617.\n\n### Página principal\n\n- `portal.js`;\n- `museum.js`;\n- `public-content-effects.json`;\n- `home-carousel.json`.\n\n### Supabase\n\n- migrations mais recentes;\n- políticas RLS;\n- funções RPC;\n- resultados do workflow local/staging.\n\n### Conteúdo\n\n- texto-fonte;\n- fontes;\n- grau de certeza;\n- crédito;\n- autorização;\n- língua e estado da tradução.\n\n## Resposta ao utilizador\n\nQuando faltar uma destas bases, indicar claramente:\n\n- qual decisão está em risco;\n- qual ficheiro ou confirmação é necessário;\n- o que pode continuar sem risco;\n- o que ficará bloqueado.\n\nNão preencher lacunas com inferências convincentes.",
+      "content": "# Protocolo de recuperação de contexto\n\n## Quando interromper e pedir contexto\n\nInterromper a implementação quando houver risco elevado de:\n\n- redefinir a identidade do projeto;\n- contradizer uma decisão anterior;\n- inventar conteúdo editorial;\n- substituir um fluxo já integrado;\n- alterar direitos, créditos ou autorizações;\n- publicar uma memória sem aprovação;\n- perder decisões da Área Colaborativa;\n- alterar a Home sem conhecer os slots e integrações atuais.\n\n## Conjunto mínimo necessário\n\nPara retomar com segurança, solicitar ou localizar:\n\n1. o ZIP do pacote cumulativo mais recente;\n2. `PROJECT_CONTEXT_LEDGER.md`;\n3. `PACKAGE_DEPENDENCY_MAP.md`;\n4. `CHANGE_SURFACE_REGISTRY.md`;\n5. `public/data/package-impact-registry.json`;\n6. `VALIDATION_REPORT.md`;\n7. a mensagem de integração do Claude/GitHub com PRs e problemas;\n8. ficheiros ou imagens novos explicitamente citados pelo utilizador.\n\n## Informação adicional conforme o risco\n\n### Museu\n\n- `memories.json`;\n- `museum-editorial-approved.json`;\n- imagens e direitos;\n- decisão específica sobre MM202617.\n\n### Página principal\n\n- `portal.js`;\n- `museum.js`;\n- `public-content-effects.json`;\n- `home-carousel.json`.\n\n### Supabase\n\n- migrations mais recentes;\n- políticas RLS;\n- funções RPC;\n- resultados do workflow local/staging.\n\n### Conteúdo\n\n- texto-fonte;\n- fontes;\n- grau de certeza;\n- crédito;\n- autorização;\n- língua e estado da tradução.\n\n## Resposta ao utilizador\n\nQuando faltar uma destas bases, indicar claramente:\n\n- qual decisão está em risco;\n- qual ficheiro ou confirmação é necessário;\n- o que pode continuar sem risco;\n- o que ficará bloqueado.\n\nNão preencher lacunas com inferências convincentes.\n\n### Notificações\n\nLocalizar:\n\n- `collaborative-notification-model.json`;\n- `collaborative-notification-templates.json`;\n- `notifications.runtime.json`;\n- migrations 08H;\n- Edge Function;\n- relatório de outbox;\n- decisão sobre fornecedor e domínio.\n\nNunca inferir que o canal de e-mail está ativo.",
       "visibility": "member-reference-not-confidential"
     },
     {
@@ -245,6 +245,80 @@
       "status": "active",
       "content": "# Runbook operacional\n\n## Todos os dias de operação\n\n- verificar canal;\n- verificar pending;\n- verificar failed;\n- verificar dead-letter;\n- rever pedidos de retirada;\n- validar worker.\n\n## Falha\n\n1. pausar canal;\n2. preservar outbox;\n3. verificar webhook;\n4. verificar domínio/remetente;\n5. corrigir secret;\n6. testar em staging;\n7. repetir apenas itens elegíveis;\n8. documentar incidente.\n\n## Dead-letter\n\nNão repetir em massa sem compreender a falha.",
       "summary": "- verificar canal;",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "operational-governance",
+      "title": "Governação operacional",
+      "category": "operations",
+      "path": "docs/operations/OPERATIONAL_GOVERNANCE_08I.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "researcher"
+      ],
+      "status": "active",
+      "content": "# Governação operacional\n\nA operação divide-se em:\n\n- sistema;\n- auditoria;\n- retenção;\n- incidentes;\n- backups;\n- continuidade.\n\nCada área possui permissões distintas. O master mantém acesso global e o coordinator concentra a execução operacional.",
+      "summary": "A operação divide-se em:",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "audit-integrity",
+      "title": "Integridade da auditoria",
+      "category": "security",
+      "path": "docs/operations/AUDIT_INTEGRITY_08I.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "researcher"
+      ],
+      "status": "active",
+      "content": "# Integridade da auditoria\n\nCada evento possui:\n\n- hash anterior;\n- hash do evento;\n- categoria;\n- prioridade;\n- correlação;\n- versão de redacção.\n\nA cadeia é calculada por projeto e protegida por lock transacional. Updates e deletes são bloqueados.\n\nA consulta não devolve snapshots completos. Ela apresenta apenas chaves alteradas e metadados redigidos.",
+      "summary": "Cada evento possui:",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "retention-lifecycle",
+      "title": "Ciclo de retenção",
+      "category": "rights",
+      "path": "docs/operations/RETENTION_LIFECYCLE_08I.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "researcher"
+      ],
+      "status": "active",
+      "content": "# Ciclo de retenção\n\n```text\npreview\n→ revisão\n→ legal holds\n→ aprovação\n→ workflow\n→ aplicação\n→ auditoria\n```\n\nA aplicação só é permitida quando:\n\n- a política está ativa;\n- a ação é suportada;\n- o hash dos candidatos não mudou;\n- os legal holds não mudaram;\n- a execução foi aprovada;\n- o worker possui service role;\n- os literais foram confirmados.",
+      "summary": "```text",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "backup-restore-runbook",
+      "title": "Backup e restauração",
+      "category": "operations",
+      "path": "docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md",
+      "audience": [
+        "coordinator",
+        "reviewer"
+      ],
+      "status": "active",
+      "content": "# Backup e restauração\n\nO registo de um plano não é evidência.\n\nUma verificação deve indicar:\n\n- data observada;\n- estado;\n- evidência privada;\n- se a restauração foi testada;\n- RPO;\n- RTO;\n- notas;\n- responsável.\n\nNunca incluir passwords, dumps ou tokens nos registos.",
+      "summary": "O registo de um plano não é evidência.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "incident-response",
+      "title": "Resposta a incidentes",
+      "category": "operations",
+      "path": "docs/operations/INCIDENT_RESPONSE_08I.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "researcher"
+      ],
+      "status": "active",
+      "content": "# Resposta a incidentes\n\n## SEV-1\n\nImpacto crítico ou risco elevado para dados, direitos ou operação.\n\n## SEV-2\n\nImpacto elevado e necessidade de resposta coordenada.\n\n## SEV-3\n\nImpacto limitado ou restrito a staging/grupo.\n\n## SEV-4\n\nAnomalia menor sem impacto significativo.\n\nFluxo:\n\n1. abrir;\n2. reconhecer;\n3. investigar;\n4. mitigar;\n5. monitorizar;\n6. resolver;\n7. fechar;\n8. realizar postmortem quando aplicável.",
+      "summary": "Impacto crítico ou risco elevado para dados, direitos ou operação.",
       "visibility": "member-reference-not-confidential"
     }
   ]

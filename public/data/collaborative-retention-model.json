@@ -1,0 +1,93 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.20.0",
+  "policies": [
+    {
+      "code": "expired-notifications",
+      "resourceType": "collab_notifications",
+      "name": "Notificações expiradas",
+      "retentionDays": 365,
+      "action": "delete",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Registos cujo expires_at já terminou.",
+      "risk": "low"
+    },
+    {
+      "code": "notification-outbox-delivered",
+      "resourceType": "collab_notification_outbox",
+      "name": "Outbox entregue ou cancelada",
+      "retentionDays": 180,
+      "action": "delete",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Itens delivered ou cancelled mais antigos do que o prazo.",
+      "risk": "low"
+    },
+    {
+      "code": "notification-deliveries",
+      "resourceType": "collab_notification_deliveries",
+      "name": "Tentativas de entrega",
+      "retentionDays": 365,
+      "action": "delete",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Tentativas ligadas a outbox antiga.",
+      "risk": "medium"
+    },
+    {
+      "code": "operational-results",
+      "resourceType": "collab_operational_results",
+      "name": "Resultados operacionais",
+      "retentionDays": 730,
+      "action": "delete",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Resultados não bloqueantes de execuções antigas.",
+      "risk": "low"
+    },
+    {
+      "code": "audit-log",
+      "resourceType": "collab_audit_log",
+      "name": "Auditoria",
+      "retentionDays": 2555,
+      "action": "export-only",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Não é eliminada pela aplicação; apenas revisão e arquivo controlado.",
+      "risk": "critical"
+    },
+    {
+      "code": "incidents",
+      "resourceType": "collab_incidents",
+      "name": "Incidentes e continuidade",
+      "retentionDays": 2555,
+      "action": "manual-review",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Revisão humana antes de qualquer anonimização ou arquivo.",
+      "risk": "critical"
+    },
+    {
+      "code": "community-contributions",
+      "resourceType": "collab_contributions",
+      "name": "Contributos comunitários",
+      "retentionDays": 0,
+      "action": "manual-review",
+      "automaticAllowed": false,
+      "legalHoldSupported": true,
+      "scope": "Governado por consentimento, direitos e pedidos de retirada.",
+      "risk": "critical"
+    }
+  ],
+  "rules": {
+    "previewBeforeApproval": true,
+    "approvalBeforeApply": true,
+    "serviceRoleApplyOnly": true,
+    "productionConfirmationRequired": true,
+    "legalHoldPreventsApply": true,
+    "auditNeverDeletedByApplication": true,
+    "communityDataNeverAutoDeleted": true,
+    "automaticScheduleEnabled": false
+  }
+}

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "templates": [
     {
       "eventType": "membership.approved",
@@ -201,6 +201,56 @@
       "subjectTemplate": "Homologação bloqueada — {{environment}}",
       "titleTemplate": "A homologação foi bloqueada",
       "bodyTextTemplate": "A homologação do ambiente {{environment}} foi bloqueada. Consulte checks e evidências em {{action_url}}."
+    },
+    {
+      "eventType": "incident.opened",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Incidente aberto — {{title}}",
+      "titleTemplate": "Novo incidente operacional",
+      "bodyTextTemplate": "Foi aberto o incidente “{{title}}”, com estado {{status}}. Consulte a informação operacional em {{action_url}}."
+    },
+    {
+      "eventType": "incident.assigned",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Incidente atribuído — {{title}}",
+      "titleTemplate": "Foi-lhe atribuído um incidente",
+      "bodyTextTemplate": "O incidente “{{title}}” foi-lhe atribuído com o papel {{role}}. Consulte ações e atualizações em {{action_url}}."
+    },
+    {
+      "eventType": "incident.resolved",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Incidente resolvido — {{title}}",
+      "titleTemplate": "Incidente resolvido",
+      "bodyTextTemplate": "O incidente “{{title}}” foi marcado como resolvido. Consulte o resumo e as ações de continuidade em {{action_url}}."
+    },
+    {
+      "eventType": "backup.verification-failed",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Verificação de backup falhou — {{title}}",
+      "titleTemplate": "Backup necessita de atenção",
+      "bodyTextTemplate": "A verificação “{{title}}” terminou com o estado {{status}}. Consulte a evidência e as ações corretivas em {{action_url}}."
+    },
+    {
+      "eventType": "retention.run-approved",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Execução de retenção aprovada — {{reference}}",
+      "titleTemplate": "Retenção aprovada para aplicação protegida",
+      "bodyTextTemplate": "A execução de retenção {{reference}} foi aprovada. A aplicação continua dependente de service role, legal holds e confirmação literal."
     }
   ],
   "rules": {

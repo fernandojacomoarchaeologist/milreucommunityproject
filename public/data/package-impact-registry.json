@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
-  "currentPackage": "08H",
+  "version": "0.20.0",
+  "currentPackage": "08I",
   "surfaces": [
     {
       "code": "portal-home",
@@ -110,6 +110,42 @@
         "scripts/notifications/"
       ],
       "integration": "service-role-worker"
+    },
+    {
+      "code": "system-administration",
+      "owner": "collaborative-operations",
+      "files": [
+        "src/views/collaborative-operations.js",
+        "public/config/operations.runtime.json"
+      ],
+      "integration": "operational-dashboard"
+    },
+    {
+      "code": "audit-integrity",
+      "owner": "collaborative-governance",
+      "files": [
+        "supabase/migrations/20260724150000_collaborative_operations_foundation.sql",
+        "supabase/functions/export-collab-audit/index.ts"
+      ],
+      "integration": "redacted-hash-chain"
+    },
+    {
+      "code": "retention-lifecycle",
+      "owner": "collaborative-governance",
+      "files": [
+        "public/data/collaborative-retention-model.json",
+        "supabase/migrations/20260724150100_collaborative_operations_rpc.sql"
+      ],
+      "integration": "preview-approve-apply"
+    },
+    {
+      "code": "incident-continuity",
+      "owner": "collaborative-operations",
+      "files": [
+        "src/views/collaborative-operations.js",
+        "docs/operations/INCIDENT_RESPONSE_08I.md"
+      ],
+      "integration": "incident-action-exercise"
     }
   ],
   "futurePackageRules": [
@@ -123,6 +159,10 @@
     "Executar produção apenas após homologação aprovada.",
     "Preservar o centro interno independentemente do fornecedor externo.",
     "Não ativar e-mail, convites automáticos ou agenda do worker por inferência.",
-    "Não introduzir chat sem pacote e decisão próprios."
+    "Não introduzir chat sem pacote e decisão próprios.",
+    "Preservar a imutabilidade e a redacção da auditoria.",
+    "Não permitir aplicação de retenção pelo navegador.",
+    "Não tratar um plano de backup como evidência de backup.",
+    "Não publicar resumos de incidente automaticamente."
   ]
 }

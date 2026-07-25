@@ -32,15 +32,15 @@ const foundation=readFileSync("supabase/migrations/20260724120000_collaborative_
 const rpc=readFileSync("supabase/migrations/20260724120100_collaborative_museum_review_rpc.sql","utf8");
 const sqlSeed=readFileSync("supabase/migrations/20260724120200_collaborative_museum_review_seed.sql","utf8");
 
-if(pkg.version!=="0.19.0")throw new Error("Versão 08F incorreta.");
-if(model.version!=="0.19.0"||model.recordCount!==31)throw new Error("Modelo de revisão incorreto.");
+if(pkg.version!=="0.20.0")throw new Error("Versão 08F incorreta.");
+if(model.version!=="0.20.0"||model.recordCount!==31)throw new Error("Modelo de revisão incorreto.");
 if(model.fields.length!==22)throw new Error("Mapa de campos incompleto.");
 if(training.trails.length!==5||training.trails.reduce((sum,item)=>sum+item.lessons.length,0)!==15)throw new Error("Trilhas de formação incompletas.");
 if(library.resources.length<9)throw new Error("Biblioteca incompleta.");
 if(seed.records.length!==31||new Set(seed.records.map(item=>item.memoryId)).size!==31)throw new Error("Seed não contém 31 memórias únicas.");
 if(approved.records.length!==0||approved.effects.length!==0)throw new Error("Snapshot inicial não deve inventar aprovações.");
 if(Object.values(effects.slots).flat().length!==0)throw new Error("Efeitos iniciais devem estar vazios.");
-if(impact.currentPackage!=="08H"||impact.version!=="0.19.0")throw new Error("Registo de impacto desatualizado.");
+if(impact.currentPackage!=="08I"||impact.version!=="0.20.0")throw new Error("Registo de impacto desatualizado.");
 
 for(const code of ["library","training","museum-review","museum-review-management"]){
   const module=modules.find(item=>item.code===code);

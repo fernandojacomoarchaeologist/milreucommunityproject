@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08H"
+package: "08I"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -16,7 +16,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
                               ↓
 07A → 07B → 07C → 07D → 07D.1 → 07D.2 → 07D.3
                                       ↓
-08A → 08B → 08C → 08D → 08E → 08F → 08G → 08H
+08A → 08B → 08C → 08D → 08E → 08F → 08G → 08H → 08I
 ```
 
 ## Dependências críticas do 08F
@@ -80,3 +80,22 @@ Pacotes futuros devem alterar páginas públicas através dos contratos e slots 
 - worker webhook;
 - runbook;
 - fronteiras para o 08I.
+
+## Dependências críticas do 08I
+
+- 08A/08B: identidade, master, perfis e permissões;
+- 08C–08F: objetos auditados e dados sob retenção;
+- 08G: ambientes, staging, produção e gates;
+- 08H: notificações, outbox e worker.
+
+## Saídas do 08I
+
+- três módulos de governação;
+- cadeia de auditoria;
+- pesquisa e exportação redigidas;
+- sete políticas de retenção;
+- legal holds;
+- incidentes;
+- backups declarativos;
+- exercícios;
+- 20 checks operacionais.

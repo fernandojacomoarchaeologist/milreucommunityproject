@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "channels": [
     {
       "code": "in-app",
@@ -55,6 +55,18 @@
     {
       "code": "operations",
       "name": "Operação"
+    },
+    {
+      "code": "incidents",
+      "name": "Incidentes"
+    },
+    {
+      "code": "backups",
+      "name": "Backups"
+    },
+    {
+      "code": "governance",
+      "name": "Governança operacional"
     }
   ],
   "eventTypes": [
@@ -277,6 +289,61 @@
       "defaultEmail": false,
       "retentionDays": 730,
       "routeTemplate": "/area-colaborativa/gestao/homologacao"
+    },
+    {
+      "code": "incident.opened",
+      "category": "incidents",
+      "name": "Incidente aberto",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/incidentes"
+    },
+    {
+      "code": "incident.assigned",
+      "category": "incidents",
+      "name": "Incidente atribuído",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/incidentes"
+    },
+    {
+      "code": "incident.resolved",
+      "category": "incidents",
+      "name": "Incidente resolvido",
+      "severity": "success",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/incidentes"
+    },
+    {
+      "code": "backup.verification-failed",
+      "category": "backups",
+      "name": "Verificação de backup falhou",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/sistema"
+    },
+    {
+      "code": "retention.run-approved",
+      "category": "governance",
+      "name": "Execução de retenção aprovada",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/auditoria"
     }
   ],
   "notificationStatuses": [

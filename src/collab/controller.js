@@ -7,7 +7,7 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v8";
+const DEMO_KEY="milreu-collaborative-demo-context-v9";
 const PUBLIC_CONTRIBUTION_DEMO_KEY="milreu-public-contributions-demo-v1";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
@@ -17,7 +17,8 @@ function emptyContributionWorkspace(){return{contributions:[],submitters:[],cons
 function emptyMuseumReviewWorkspace(){return{cycles:[],records:[],proposals:[],comments:[],assignments:[],checks:[],decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:[],lessonProgress:[],assessments:[]};}
 function emptyDeploymentWorkspace(){return{environments:[],authPolicy:null,runs:[],checks:[],catalog:[],readiness:null};}
 function emptyNotificationWorkspace(){return{notifications:[],preferences:[],channels:[],templates:[],summary:{unreadCount:0,criticalUnreadCount:0,byCategory:{}},operations:{channels:[],outboxCounts:{},recentOutbox:[],deliveryCounts:{},templates:[]}};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},notificationModel:{channels:[],categories:[],eventTypes:[],notificationStatuses:[],outboxStatuses:[],deliveryStatuses:[],preferenceRules:{},templateTokens:[],dispatch:{}},notificationTemplates:{templates:[],rules:{}},notificationRuntime:{inApp:{enabled:true,pollIntervalSeconds:60,pageSize:30},email:{provider:"disabled",enabled:false}},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyOperationalWorkspace(){return{settings:[],retentionPolicies:[],legalHolds:[],lifecycleRuns:[],incidents:[],incidentUpdates:[],incidentActions:[],backupPlans:[],backupVerifications:[],continuityExercises:[],checkCatalog:[],operationalRuns:[],operationalResults:[],summary:{openCriticalIncidents:0,activeLegalHolds:0,failedBackupVerifications:0,latestOperationalStatus:"not-run",auditEvents30Days:0},audit:{total:0,limit:100,offset:0,rows:[]},integrity:null};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},notificationModel:{channels:[],categories:[],eventTypes:[],notificationStatuses:[],outboxStatuses:[],deliveryStatuses:[],preferenceRules:{},templateTokens:[],dispatch:{}},notificationTemplates:{templates:[],rules:{}},notificationRuntime:{inApp:{enabled:true,pollIntervalSeconds:60,pageSize:30},email:{provider:"disabled",enabled:false}},operationalGovernanceModel:{modules:[],operationalChecks:[],incident:{},backup:{},continuity:{},retention:{},audit:{},safety:{}},retentionModel:{policies:[],rules:{}},operationsRuntime:{environment:"local",dashboard:{pollIntervalSeconds:120}},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -108,7 +109,7 @@ function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deplo
   const local=environments.find(item=>item.code==="local");
   const run={
     id:"demo-homologation-local",project_id:"demo-project",environment_id:local.id,
-    version:"0.19.0",commit_sha:null,status:master?"in-progress":"planned",
+    version:"0.20.0",commit_sha:null,status:master?"in-progress":"planned",
     summary:"Execução local de demonstração.",started_by:master?"demo-master":null,
     started_at:master?now:null,created_at:now,updated_at:now
   };
@@ -179,6 +180,77 @@ function createDemoNotificationWorkspace(notificationModel,notificationTemplates
   };
 }
 
+
+function createDemoOperationalWorkspace(model,retentionModel,runtime,master=false){
+  if(!master)return emptyOperationalWorkspace();
+  const now=new Date();
+  const iso=offset=>new Date(now.getTime()+offset).toISOString();
+  const settings=[
+    {code:"current-environment",category:"environment",value:{value:"local"},status:"active",description:"Ambiente de demonstração.",updatedAt:iso(-86400000)},
+    {code:"maintenance-mode",category:"maintenance",value:{enabled:false,message:null},status:"active",description:"Área Colaborativa disponível.",updatedAt:iso(-86400000)},
+    {code:"retention-auto-apply",category:"retention",value:{enabled:false},status:"active",description:"Aplicação automática bloqueada.",updatedAt:iso(-86400000)},
+    {code:"continuity-responsibles",category:"continuity",value:{primaryConfigured:false,secondaryConfigured:false},status:"draft",description:"Responsáveis reais não definidos.",updatedAt:iso(-86400000)}
+  ];
+  const retentionPolicies=(retentionModel.policies||[]).map(item=>({
+    code:item.code,resource_type:item.resourceType,name:item.name,
+    retention_days:item.retentionDays,action:item.action,
+    automatic_allowed:false,legal_hold_supported:item.legalHoldSupported,
+    risk:item.risk,scope_description:item.scope,status:"active",updated_at:iso(-86400000)
+  }));
+  const legalHolds=[
+    {id:"demo-hold-audit",resourceType:"collab_audit_log",entityId:null,reason:"Demonstração de preservação integral durante revisão.",status:"active",startsAt:iso(-7*86400000),endsAt:null,createdAt:iso(-7*86400000)}
+  ];
+  const lifecycleRuns=[
+    {id:"demo-retention-preview",policyCode:"expired-notifications",environment:"local",mode:"preview",status:"previewed",cutoffAt:iso(-365*86400000),candidateCount:4,affectedCount:0,excludedByHoldCount:0,candidateHash:"demo-hash-not-production",summary:{resourceType:"collab_notifications",action:"delete",retentionDays:365,eligibleCount:4},previewedAt:iso(-2*86400000),approvedAt:null,completedAt:null,errorMessage:null}
+  ];
+  const incidents=[
+    {id:"demo-incident-01",reference:"INC-2026-001",title:"Falha simulada no acesso de staging",description:"Incidente fictício criado apenas para avaliar o fluxo operacional.",category:"authentication",severity:"sev-3",status:"investigating",environment:"staging",impactSummary:"Apenas utilizadores de teste.",detectedAt:iso(-6*3600000),acknowledgedAt:iso(-5.5*3600000),mitigatedAt:null,resolvedAt:null,closedAt:null,ownerUserId:"demo-master",publicSummary:null,updatedAt:iso(-2*3600000)}
+  ];
+  const incidentUpdates=[
+    {id:"demo-incident-update-01",incidentId:"demo-incident-01",updateType:"analysis",body:"Callback de demonstração em revisão.",statusAfter:null,createdBy:"demo-master",createdAt:iso(-4*3600000)}
+  ];
+  const incidentActions=[
+    {id:"demo-incident-action-01",incidentId:"demo-incident-01",title:"Rever callbacks OAuth de staging",description:"Ação fictícia.",status:"in-progress",priority:"high",assignedTo:"demo-master",dueAt:iso(86400000),completedAt:null,updatedAt:iso(-2*3600000)}
+  ];
+  const backupPlans=[
+    {id:"demo-backup-db",code:"database-main",name:"Base de dados principal",backupType:"database",provider:"unconfigured",frequency:"daily",retentionDays:30,targetRpoMinutes:1440,targetRtoMinutes:240,status:"draft",instructionsReference:"docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md",responsibleUserId:null,secondaryUserId:null,lastSuccessfulAt:null,nextDueAt:null,updatedAt:iso(-86400000)},
+    {id:"demo-backup-code",code:"repository-code",name:"Código e documentação",backupType:"code",provider:"github",frequency:"daily",retentionDays:365,targetRpoMinutes:1440,targetRtoMinutes:120,status:"active",instructionsReference:"docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md",responsibleUserId:"demo-master",secondaryUserId:null,lastSuccessfulAt:iso(-86400000),nextDueAt:iso(86400000),updatedAt:iso(-86400000)}
+  ];
+  const backupVerifications=[
+    {id:"demo-backup-verification",planId:"demo-backup-code",status:"passed",backupObservedAt:iso(-86400000),verifiedAt:iso(-20*3600000),restoreTested:false,evidenceReference:"demo://github-commit",notes:"Evidência de demonstração.",verifiedBy:"demo-master"}
+  ];
+  const continuityExercises=[
+    {id:"demo-continuity-01",title:"Exercício de perda de credencial",scenario:"credential-compromise",status:"planned",objectives:"Testar rotação de secrets e manutenção do acesso master.",scheduledAt:iso(14*86400000),startedAt:null,completedAt:null,targetRtoMinutes:240,targetRpoMinutes:0,actualRecoveryMinutes:null,resultSummary:null,evidenceReference:null,coordinatorUserId:"demo-master",updatedAt:iso(-86400000)}
+  ];
+  const checkCatalog=(model.operationalChecks||[]).map((item,index)=>({
+    ...item,evidence_required:item.evidenceRequired,sort_order:(index+1)*10,active:true
+  }));
+  const operationalRuns=[
+    {id:"demo-operational-run",environment:"local",version:"0.20.0",commitSha:null,status:"running",summary:null,startedAt:iso(-2*3600000),completedAt:null}
+  ];
+  const operationalResults=checkCatalog.map((check,index)=>({
+    id:`demo-result-${check.code}`,runId:"demo-operational-run",checkCode:check.code,
+    status:index<5?"passed":index===10?"failed":"pending",
+    evidenceReference:index<5?`demo://evidence/${check.code}`:index===10?"demo://backup/unconfigured":null,
+    notes:index===10?"Backup remoto ainda não configurado.":null,
+    checkedAt:index<=10?iso(-3600000):null
+  }));
+  const auditRows=[
+    {id:5,actorUserId:"demo-master",actorName:"Master de demonstração",action:"incident.opened",entityType:"incident",entityId:"demo-incident-01",category:"incidents",severity:"critical",changedKeys:["category","severity","status"],metadata:{demo:true},correlationId:null,eventHash:"demo-event-hash-5",previousHash:"demo-event-hash-4",createdAt:iso(-6*3600000)},
+    {id:4,actorUserId:"demo-master",actorName:"Master de demonstração",action:"retention.preview.created",entityType:"lifecycle_run",entityId:"demo-retention-preview",category:"retention",severity:"info",changedKeys:["candidateCount","policyCode"],metadata:{demo:true},correlationId:null,eventHash:"demo-event-hash-4",previousHash:"demo-event-hash-3",createdAt:iso(-2*86400000)},
+    {id:3,actorUserId:"demo-master",actorName:"Master de demonstração",action:"backup.verification.recorded",entityType:"backup_verification",entityId:"demo-backup-verification",category:"backups",severity:"info",changedKeys:["status"],metadata:{demo:true},correlationId:null,eventHash:"demo-event-hash-3",previousHash:"demo-event-hash-2",createdAt:iso(-20*3600000)}
+  ];
+  return{
+    settings,retentionPolicies,legalHolds,lifecycleRuns,incidents,
+    incidentUpdates,incidentActions,backupPlans,backupVerifications,
+    continuityExercises,checkCatalog,operationalRuns,operationalResults,
+    summary:{openCriticalIncidents:0,activeLegalHolds:1,failedBackupVerifications:0,latestOperationalStatus:"running",auditEvents30Days:auditRows.length},
+    audit:{total:auditRows.length,limit:100,offset:0,rows:auditRows},
+    integrity:{valid:true,checkedCount:auditRows.length,firstBreakId:null,lastHash:"demo-event-hash-5",verifiedAt:iso(-3600000)},
+    runtime
+  };
+}
+
 function createDemoTaskWorkspace(){
   const tasks=[
     {id:"demo-task-digitisation",project_id:"demo-project",title:"Digitalizar fotografias do arquivo comunitário",summary:"Preparar imagens e verificar nomes de ficheiros para futura catalogação.",description:"Digitalização e controlo técnico de um pequeno conjunto de fotografias de demonstração.",instructions:"Utilizar apenas os materiais indicados pela coordenação. Não publicar ficheiros fora do projeto.",category:"digitisation",category_code:"digitisation",status:"open",priority:"high",assignment_mode:"approval",location_mode:"hybrid",location_name:"Área Colaborativa",municipality:"Faro",starts_at:daysFromNow(2,9),due_at:daysFromNow(14,18),application_deadline:daysFromNow(7,18),estimated_minutes:240,capacity:3,minimum_participants:1,visibility:"members",recognition_eligible:true,created_by:"demo-master",updated_at:new Date().toISOString()},
@@ -209,7 +281,7 @@ function createDemoTaskWorkspace(){
 }
 
 class CollaborativeController{
-  constructor(){this.state=emptyContext();this.listeners=new Set();this.config=null;this.foundation=null;this.client=null;this.authSubscription=null;this.notificationPoller=null;}
+  constructor(){this.state=emptyContext();this.listeners=new Set();this.config=null;this.foundation=null;this.client=null;this.authSubscription=null;this.notificationPoller=null;this.operationsPoller=null;}
   getState(){return structuredClone(this.state);}
   subscribe(listener){this.listeners.add(listener);return()=>this.listeners.delete(listener);}
   emit(){const snapshot=this.getState();for(const listener of this.listeners)listener(snapshot);}
@@ -217,7 +289,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed,homologationModel:this.foundation.homologationModel,deploymentProfile:this.foundation.deploymentProfile,deploymentReadiness:this.foundation.deploymentReadiness,notificationModel:this.foundation.notificationModel,notificationTemplates:this.foundation.notificationTemplates,notificationRuntime:this.foundation.notificationRuntime};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed,homologationModel:this.foundation.homologationModel,deploymentProfile:this.foundation.deploymentProfile,deploymentReadiness:this.foundation.deploymentReadiness,notificationModel:this.foundation.notificationModel,notificationTemplates:this.foundation.notificationTemplates,notificationRuntime:this.foundation.notificationRuntime,operationalGovernanceModel:this.foundation.operationalGovernanceModel,retentionModel:this.foundation.retentionModel,operationsRuntime:this.foundation.operationsRuntime};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -226,7 +298,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),tasks:[],exhibitions:[],error:null});this.stopNotificationPolling();}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),tasks:[],exhibitions:[],error:null});this.stopNotificationPolling();this.stopOperationsPolling();}
 
   async loadRemoteContext(session){
     const email=String(session.user.email||"").toLowerCase();
@@ -266,7 +338,17 @@ class CollaborativeController{
       ||hasPermission(this.state,"auth.policy.view")
     )await this.loadRemoteDeployment();
     if(hasPermission(this.state,"notifications.view"))await this.loadRemoteNotifications();
+    if(
+      hasPermission(this.state,"operations.view")
+      ||hasPermission(this.state,"audit.search")
+      ||hasPermission(this.state,"retention.view")
+      ||hasPermission(this.state,"incidents.view")
+      ||hasPermission(this.state,"backups.view")
+      ||hasPermission(this.state,"continuity.view")
+      ||hasPermission(this.state,"health.view")
+    )await this.loadRemoteOperations();
     this.startNotificationPolling();
+    this.startOperationsPolling();
   }
 
   async loadRemoteOwnPreferences(){
@@ -428,6 +510,42 @@ class CollaborativeController{
     if(this.notificationPoller){clearInterval(this.notificationPoller);this.notificationPoller=null;}
   }
 
+
+  async loadRemoteOperations(){
+    const response=await this.client.rpc("collab_operations_workspace_08i");
+    if(response.error){this.state.error=response.error.message;return;}
+    const workspace=response.data||emptyOperationalWorkspace();
+    let audit={total:0,limit:100,offset:0,rows:[]};
+    if(hasPermission(this.state,"audit.search")||hasPermission(this.state,"audit.view")){
+      const auditResponse=await this.client.rpc("collab_search_audit_08i",{
+        p_query:null,p_action:null,p_entity_type:null,p_severity:null,
+        p_category:null,p_actor_user_id:null,p_from:null,p_to:null,
+        p_limit:this.foundation.operationsRuntime?.dashboard?.recentAuditLimit||50,
+        p_offset:0
+      });
+      if(!auditResponse.error&&auditResponse.data)audit=auditResponse.data;
+    }
+    this.state.operationalWorkspace={
+      ...emptyOperationalWorkspace(),
+      ...workspace,
+      audit,
+      integrity:this.state.operationalWorkspace?.integrity||null
+    };
+  }
+
+  startOperationsPolling(){
+    this.stopOperationsPolling();
+    if(this.config?.mode!=="supabase"||!this.state.authenticated||!hasPermission(this.state,"operations.view"))return;
+    const seconds=Math.max(60,Number(this.foundation.operationsRuntime?.dashboard?.pollIntervalSeconds||120));
+    this.operationsPoller=setInterval(async()=>{
+      try{await this.loadRemoteOperations();this.emit();}catch{/* polling operacional não interrompe a sessão */}
+    },seconds*1000);
+  }
+
+  stopOperationsPolling(){
+    if(this.operationsPoller){clearInterval(this.operationsPoller);this.operationsPoller=null;}
+  }
+
   async loadRemoteContributions(){
     const jobs=[
       this.client.from("collab_contributions").select("*").order("submitted_at",{ascending:false}),
@@ -462,9 +580,9 @@ class CollaborativeController{
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.deploymentWorkspace=demo.deploymentWorkspace||emptyDeploymentWorkspace();this.state.notificationWorkspace=demo.notificationWorkspace||emptyNotificationWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.deploymentWorkspace=demo.deploymentWorkspace||emptyDeploymentWorkspace();this.state.notificationWorkspace=demo.notificationWorkspace||emptyNotificationWorkspace();this.state.operationalWorkspace=demo.operationalWorkspace||emptyOperationalWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,deploymentWorkspace:this.state.deploymentWorkspace,notificationWorkspace:this.state.notificationWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,deploymentWorkspace:this.state.deploymentWorkspace,notificationWorkspace:this.state.notificationWorkspace,operationalWorkspace:this.state.operationalWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
   async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");if(this.config.auth?.googleOAuthEnabled!==true)throw new Error("Google OAuth ainda não foi homologado neste ambiente.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
@@ -472,9 +590,9 @@ class CollaborativeController{
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);const deploymentWorkspace=createDemoDeploymentWorkspace(this.foundation.homologationModel,this.foundation.deploymentProfile,this.foundation.deploymentReadiness,master);const notificationWorkspace=createDemoNotificationWorkspace(this.foundation.notificationModel,this.foundation.notificationTemplates,this.foundation.notificationRuntime,master?"demo-master":volunteer?"demo-volunteer":"demo-pending",master,volunteer);
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);const deploymentWorkspace=createDemoDeploymentWorkspace(this.foundation.homologationModel,this.foundation.deploymentProfile,this.foundation.deploymentReadiness,master);const notificationWorkspace=createDemoNotificationWorkspace(this.foundation.notificationModel,this.foundation.notificationTemplates,this.foundation.notificationRuntime,master?"demo-master":volunteer?"demo-volunteer":"demo-pending",master,volunteer);const operationalWorkspace=createDemoOperationalWorkspace(this.foundation.operationalGovernanceModel,this.foundation.retentionModel,this.foundation.operationsRuntime,master);
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,deploymentWorkspace,notificationWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,deploymentWorkspace,notificationWorkspace,operationalWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -765,7 +883,7 @@ class CollaborativeController{
     const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
   }
 
-  async generateMuseumReviewSnapshot(cycleId,version="0.19.0"){
+  async generateMuseumReviewSnapshot(cycleId,version="0.20.0"){
     if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
     if(this.config.mode==="demo"){
       const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");
@@ -1267,6 +1385,308 @@ class CollaborativeController{
     });
     if(error)throw error;
     await this.refreshNotifications();
+  }
+
+
+  demoOperationalUpdate(mutator){
+    const operationalWorkspace=structuredClone(this.state.operationalWorkspace);
+    mutator(operationalWorkspace);
+    operationalWorkspace.summary={
+      openCriticalIncidents:operationalWorkspace.incidents.filter(item=>["sev-1","sev-2"].includes(item.severity)&&!["resolved","closed","cancelled"].includes(item.status)).length,
+      activeLegalHolds:operationalWorkspace.legalHolds.filter(item=>item.status==="active").length,
+      failedBackupVerifications:operationalWorkspace.backupVerifications.filter(item=>item.status==="failed").length,
+      latestOperationalStatus:operationalWorkspace.operationalRuns[0]?.status||"not-run",
+      auditEvents30Days:operationalWorkspace.audit?.rows?.length||0
+    };
+    this.persistDemo({operationalWorkspace});
+  }
+
+  async refreshOperations(){
+    if(this.config.mode==="supabase"){await this.loadRemoteOperations();this.emit();}
+  }
+
+  async saveOperationalSetting(values){
+    if(!hasPermission(this.state,"operations.settings.manage"))throw new Error("Permissão insuficiente.");
+    const raw=JSON.stringify(values.value||{});
+    if(/service[_-]?role|secret|password|access[_-]?token|refresh[_-]?token|private[_-]?key|webhook[_-]?token/i.test(raw)){
+      throw new Error("Configurações sensíveis não podem ser guardadas nesta área.");
+    }
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{
+        let row=workspace.settings.find(item=>item.code===values.code);
+        const next={code:values.code,category:values.category,value:values.value||{},status:values.status,description:values.description||null,updatedAt:new Date().toISOString()};
+        if(row)Object.assign(row,next);else workspace.settings.push(next);
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_operational_setting_08i",{
+      p_code:values.code,p_category:values.category,p_value:values.value||{},
+      p_status:values.status,p_description:values.description||null
+    });
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async startOperationalRun(environment,version="",commitSha=""){
+    if(!hasPermission(this.state,"health.run"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{
+        if(workspace.operationalRuns.some(item=>item.environment===environment&&item.status==="running"))throw new Error("Já existe uma execução ativa.");
+        const runId=`demo-operational-run-${Date.now()}`;
+        workspace.operationalRuns.unshift({id:runId,environment,version:version||null,commitSha:commitSha||null,status:"running",summary:null,startedAt:new Date().toISOString(),completedAt:null});
+        workspace.operationalResults.push(...workspace.checkCatalog.map(check=>({id:`demo-result-${runId}-${check.code}`,runId,checkCode:check.code,status:"pending",evidenceReference:null,notes:null,checkedAt:null})));
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_start_operational_run_08i",{p_environment:environment,p_version:version||null,p_commit_sha:commitSha||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async recordOperationalResult(runId,checkCode,status,evidenceReference="",notes=""){
+    if(!hasPermission(this.state,"health.check"))throw new Error("Permissão insuficiente.");
+    const check=this.state.operationalWorkspace.checkCatalog.find(item=>item.code===checkCode);
+    if(check?.evidence_required&&["passed","failed","blocked"].includes(status)&&!evidenceReference.trim())throw new Error("Este check exige evidência.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{
+        const row=workspace.operationalResults.find(item=>item.runId===runId&&item.checkCode===checkCode);
+        if(!row)throw new Error("Check não encontrado.");
+        Object.assign(row,{status,evidenceReference:evidenceReference||null,notes:notes||null,checkedAt:["passed","failed","blocked","not-applicable"].includes(status)?new Date().toISOString():null});
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_record_operational_result_08i",{p_run_id:runId,p_check_code:checkCode,p_status:status,p_evidence_reference:evidenceReference||null,p_notes:notes||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async completeOperationalRun(runId,summary=""){
+    if(!hasPermission(this.state,"health.run"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{
+        const run=workspace.operationalRuns.find(item=>item.id===runId&&item.status==="running");
+        if(!run)throw new Error("Execução ativa não encontrada.");
+        const results=workspace.operationalResults.filter(item=>item.runId===runId);
+        if(results.some(item=>["pending","running"].includes(item.status)))throw new Error("Existem checks por concluir.");
+        const blocking=new Set(workspace.checkCatalog.filter(item=>item.blocking).map(item=>item.code));
+        run.status=results.some(item=>item.status==="blocked"||(item.status==="failed"&&blocking.has(item.checkCode)))?"blocked":results.some(item=>item.status==="failed")?"failed":"passed";
+        run.summary=summary||null;run.completedAt=new Date().toISOString();
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_complete_operational_run_08i",{p_run_id:runId,p_summary:summary||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async searchAudit(filters={}){
+    if(!hasPermission(this.state,"audit.search")&&!hasPermission(this.state,"audit.view"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      const all=this.state.operationalWorkspace.audit?.rows||[];
+      const query=String(filters.query||"").toLowerCase();
+      const rows=all.filter(item=>(!query||`${item.action} ${item.entityType} ${item.entityId} ${item.actorName}`.toLowerCase().includes(query))&&(!filters.action||item.action===filters.action)&&(!filters.entityType||item.entityType===filters.entityType)&&(!filters.severity||item.severity===filters.severity)&&(!filters.category||item.category===filters.category));
+      this.demoOperationalUpdate(workspace=>{workspace.audit={total:rows.length,limit:Number(filters.limit||100),offset:Number(filters.offset||0),rows:rows.slice(Number(filters.offset||0),Number(filters.offset||0)+Number(filters.limit||100))};});
+      return;
+    }
+    const{data,error}=await this.client.rpc("collab_search_audit_08i",{
+      p_query:filters.query||null,p_action:filters.action||null,
+      p_entity_type:filters.entityType||null,p_severity:filters.severity||null,
+      p_category:filters.category||null,p_actor_user_id:filters.actorUserId||null,
+      p_from:filters.from||null,p_to:filters.to||null,
+      p_limit:Number(filters.limit||100),p_offset:Number(filters.offset||0)
+    });
+    if(error)throw error;
+    this.state.operationalWorkspace.audit=data||{total:0,limit:100,offset:0,rows:[]};
+    this.emit();
+  }
+
+  async verifyAuditIntegrity(){
+    if(!hasPermission(this.state,"audit.integrity"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{workspace.integrity={valid:true,checkedCount:workspace.audit.rows.length,firstBreakId:null,lastHash:workspace.audit.rows[0]?.eventHash||null,verifiedAt:new Date().toISOString()};});
+      return;
+    }
+    const{data,error}=await this.client.rpc("collab_verify_audit_chain_08i",{p_from_id:null,p_to_id:null});
+    if(error)throw error;
+    this.state.operationalWorkspace.integrity=data;
+    this.emit();
+  }
+
+  async exportAudit(filters={}){
+    if(!hasPermission(this.state,"audit.export"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      const rows=this.state.operationalWorkspace.audit?.rows||[];
+      const headers=["id","createdAt","actorName","action","entityType","entityId","category","severity","changedKeys","eventHash"];
+      const csv=[headers.join(","),...rows.map(row=>headers.map(key=>`"${String(key==="changedKeys"?(row[key]||[]).join("|"):row[key]??"").replaceAll('"','""')}"`).join(","))].join("\n");
+      const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+      const url=URL.createObjectURL(blob),anchor=document.createElement("a");
+      anchor.href=url;anchor.download="milreu-auditoria-demo.csv";anchor.click();URL.revokeObjectURL(url);
+      return;
+    }
+    const session=(await this.client.auth.getSession()).data.session;
+    if(!session?.access_token)throw new Error("Sessão necessária.");
+    const functionUrl=`${String(this.config.supabaseUrl).replace(/\/+$/,"")}/functions/v1/export-collab-audit`;
+    const response=await fetch(functionUrl,{
+      method:"POST",
+      headers:{"Authorization":`Bearer ${session.access_token}`,"Content-Type":"application/json"},
+      body:JSON.stringify(filters)
+    });
+    if(!response.ok)throw new Error((await response.text())||"Falha ao exportar auditoria.");
+    const blob=await response.blob(),url=URL.createObjectURL(blob),anchor=document.createElement("a");
+    anchor.href=url;anchor.download=response.headers.get("x-milreu-filename")||"milreu-auditoria.csv";anchor.click();URL.revokeObjectURL(url);
+  }
+
+  async saveRetentionPolicy(values){
+    if(!hasPermission(this.state,"retention.manage"))throw new Error("Permissão insuficiente.");
+    if(values.automaticAllowed)throw new Error("A aplicação automática não é suportada.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{
+        let row=workspace.retentionPolicies.find(item=>item.code===values.code);
+        const next={code:values.code,resource_type:values.resourceType,name:values.name,retention_days:Number(values.retentionDays),action:values.action,automatic_allowed:false,legal_hold_supported:Boolean(values.legalHoldSupported),risk:values.risk,scope_description:values.scopeDescription,status:values.status,updated_at:new Date().toISOString()};
+        if(row)Object.assign(row,next);else workspace.retentionPolicies.push(next);
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_retention_policy_08i",{p_code:values.code,p_resource_type:values.resourceType,p_name:values.name,p_retention_days:Number(values.retentionDays),p_action:values.action,p_automatic_allowed:false,p_legal_hold_supported:Boolean(values.legalHoldSupported),p_risk:values.risk,p_scope_description:values.scopeDescription,p_status:values.status});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async createLegalHold(values){
+    if(!hasPermission(this.state,"legal-holds.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{workspace.legalHolds.unshift({id:`demo-hold-${Date.now()}`,resourceType:values.resourceType,entityId:values.entityId||null,reason:values.reason,status:"active",startsAt:new Date().toISOString(),endsAt:values.endsAt||null,createdAt:new Date().toISOString()});});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_create_legal_hold_08i",{p_resource_type:values.resourceType,p_entity_id:values.entityId||null,p_reason:values.reason,p_ends_at:values.endsAt||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async releaseLegalHold(holdId,reason){
+    if(!hasPermission(this.state,"legal-holds.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const row=workspace.legalHolds.find(item=>item.id===holdId&&item.status==="active");if(!row)throw new Error("Legal hold ativo não encontrado.");row.status="released";row.releasedAt=new Date().toISOString();row.reason+=`\nLibertação: ${reason}`;});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_release_legal_hold_08i",{p_hold_id:holdId,p_reason:reason});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async previewRetention(policyCode,environment){
+    if(!hasPermission(this.state,"retention.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const policy=workspace.retentionPolicies.find(item=>item.code===policyCode&&item.status==="active");if(!policy)throw new Error("Política ativa não encontrada.");if(!["delete","anonymize"].includes(policy.action))throw new Error("A política exige revisão manual.");workspace.lifecycleRuns.unshift({id:`demo-retention-${Date.now()}`,policyCode,environment,mode:"preview",status:"previewed",cutoffAt:new Date(Date.now()-policy.retention_days*86400000).toISOString(),candidateCount:3,affectedCount:0,excludedByHoldCount:workspace.legalHolds.some(item=>item.status==="active"&&item.resourceType===policy.resource_type)?1:0,candidateHash:`demo-${Date.now()}`,summary:{resourceType:policy.resource_type,action:policy.action,retentionDays:policy.retention_days,eligibleCount:2},previewedAt:new Date().toISOString(),approvedAt:null,completedAt:null,errorMessage:null});});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_preview_retention_run_08i",{p_policy_code:policyCode,p_environment:environment});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async approveRetention(runId,confirmation){
+    if(!hasPermission(this.state,"retention.approve"))throw new Error("Permissão insuficiente.");
+    if(confirmation!=="APPROVE_MILREU_RETENTION_RUN")throw new Error("Confirmação literal inválida.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const row=workspace.lifecycleRuns.find(item=>item.id===runId&&item.status==="previewed");if(!row)throw new Error("Execução não aprovável.");row.status="approved";row.approvedAt=new Date().toISOString();});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_approve_retention_run_08i",{p_run_id:runId,p_confirmation:confirmation});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async cancelRetention(runId,reason){
+    if(!hasPermission(this.state,"retention.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const row=workspace.lifecycleRuns.find(item=>item.id===runId);if(!row)throw new Error("Execução não encontrada.");row.status="cancelled";row.errorMessage=`Cancelado: ${reason}`;row.completedAt=new Date().toISOString();});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_cancel_retention_run_08i",{p_run_id:runId,p_reason:reason});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async createIncident(values){
+    if(!hasPermission(this.state,"incidents.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const id=`demo-incident-${Date.now()}`,reference=`INC-2026-${String(workspace.incidents.length+1).padStart(3,"0")}`;workspace.incidents.unshift({id,reference,title:values.title,description:values.description,category:values.category,severity:values.severity,status:"open",environment:values.environment,impactSummary:values.impactSummary||null,detectedAt:new Date().toISOString(),acknowledgedAt:null,mitigatedAt:null,resolvedAt:null,closedAt:null,ownerUserId:values.ownerUserId||null,publicSummary:null,updatedAt:new Date().toISOString()});workspace.incidentUpdates.unshift({id:`demo-update-${Date.now()}`,incidentId:id,updateType:"status",body:"Incidente aberto.",statusAfter:"open",createdBy:this.state.session.user.id,createdAt:new Date().toISOString()});});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_create_incident_08i",{p_title:values.title,p_description:values.description,p_category:values.category,p_severity:values.severity,p_environment:values.environment,p_impact_summary:values.impactSummary||null,p_owner_user_id:values.ownerUserId||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async updateIncident(incidentId,values){
+    if(!hasPermission(this.state,"incidents.manage"))throw new Error("Permissão insuficiente.");
+    if(["resolved","closed"].includes(values.status)&&!hasPermission(this.state,"incidents.close"))throw new Error("Permissão de fecho necessária.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{const row=workspace.incidents.find(item=>item.id===incidentId);if(!row)throw new Error("Incidente não encontrado.");Object.assign(row,{status:values.status,ownerUserId:values.ownerUserId||null,impactSummary:values.impactSummary||null,publicSummary:values.publicSummary||null,updatedAt:new Date().toISOString()});if(["resolved","closed"].includes(values.status))row.resolvedAt=row.resolvedAt||new Date().toISOString();if(values.status==="closed")row.closedAt=new Date().toISOString();workspace.incidentUpdates.unshift({id:`demo-update-${Date.now()}`,incidentId,updateType:["resolved","closed"].includes(values.status)?"resolution":"status",body:values.updateBody,statusAfter:values.status,createdBy:this.state.session.user.id,createdAt:new Date().toISOString()});});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_update_incident_08i",{p_incident_id:incidentId,p_status:values.status,p_owner_user_id:values.ownerUserId||null,p_impact_summary:values.impactSummary||null,p_public_summary:values.publicSummary||null,p_update_body:values.updateBody});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async addIncidentUpdate(incidentId,updateType,body){
+    if(!hasPermission(this.state,"incidents.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{workspace.incidentUpdates.unshift({id:`demo-update-${Date.now()}`,incidentId,updateType,body,statusAfter:null,createdBy:this.state.session.user.id,createdAt:new Date().toISOString()});});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_add_incident_update_08i",{p_incident_id:incidentId,p_update_type:updateType,p_body:body});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async saveIncidentAction(actionId,incidentId,values){
+    if(!hasPermission(this.state,"incidents.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{let row=workspace.incidentActions.find(item=>item.id===actionId);const next={id:actionId||`demo-action-${Date.now()}`,incidentId,title:values.title,description:values.description||null,status:values.status,priority:values.priority,assignedTo:values.assignedTo||null,dueAt:values.dueAt||null,completedAt:values.status==="completed"?new Date().toISOString():null,updatedAt:new Date().toISOString()};if(row)Object.assign(row,next);else workspace.incidentActions.unshift(next);});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_incident_action_08i",{p_action_id:actionId||null,p_incident_id:incidentId,p_title:values.title,p_description:values.description||null,p_status:values.status,p_priority:values.priority,p_assigned_to:values.assignedTo||null,p_due_at:values.dueAt||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async saveBackupPlan(planId,values){
+    if(!hasPermission(this.state,"backups.manage"))throw new Error("Permissão insuficiente.");
+    if(values.responsibleUserId&&values.responsibleUserId===values.secondaryUserId)throw new Error("O responsável secundário deve ser diferente.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{let row=workspace.backupPlans.find(item=>item.id===planId);const next={id:planId||`demo-backup-${Date.now()}`,code:values.code,name:values.name,backupType:values.backupType,provider:values.provider,frequency:values.frequency,retentionDays:Number(values.retentionDays),targetRpoMinutes:values.targetRpoMinutes?Number(values.targetRpoMinutes):null,targetRtoMinutes:values.targetRtoMinutes?Number(values.targetRtoMinutes):null,status:values.status,instructionsReference:values.instructionsReference||null,responsibleUserId:values.responsibleUserId||null,secondaryUserId:values.secondaryUserId||null,lastSuccessfulAt:row?.lastSuccessfulAt||null,nextDueAt:values.nextDueAt||null,updatedAt:new Date().toISOString()};if(row)Object.assign(row,next);else workspace.backupPlans.push(next);});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_backup_plan_08i",{p_plan_id:planId||null,p_code:values.code,p_name:values.name,p_backup_type:values.backupType,p_provider:values.provider,p_frequency:values.frequency,p_retention_days:Number(values.retentionDays),p_target_rpo_minutes:values.targetRpoMinutes?Number(values.targetRpoMinutes):null,p_target_rto_minutes:values.targetRtoMinutes?Number(values.targetRtoMinutes):null,p_status:values.status,p_instructions_reference:values.instructionsReference||null,p_responsible_user_id:values.responsibleUserId||null,p_secondary_user_id:values.secondaryUserId||null,p_next_due_at:values.nextDueAt||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async recordBackupVerification(planId,values){
+    if(!hasPermission(this.state,"backups.verify"))throw new Error("Permissão insuficiente.");
+    if(["passed","partial","failed"].includes(values.status)&&!values.evidenceReference?.trim())throw new Error("A evidência é obrigatória.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{workspace.backupVerifications.unshift({id:`demo-verification-${Date.now()}`,planId,status:values.status,backupObservedAt:values.backupObservedAt||null,verifiedAt:new Date().toISOString(),restoreTested:Boolean(values.restoreTested),evidenceReference:values.evidenceReference||null,notes:values.notes||null,verifiedBy:this.state.session.user.id});if(values.status==="passed"){const plan=workspace.backupPlans.find(item=>item.id===planId);if(plan)plan.lastSuccessfulAt=values.backupObservedAt||new Date().toISOString();}});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_record_backup_verification_08i",{p_plan_id:planId,p_status:values.status,p_backup_observed_at:values.backupObservedAt||null,p_restore_tested:Boolean(values.restoreTested),p_evidence_reference:values.evidenceReference||null,p_notes:values.notes||null});
+    if(error)throw error;
+    await this.refreshOperations();
+  }
+
+  async saveContinuityExercise(exerciseId,values){
+    if(!hasPermission(this.state,"continuity.manage"))throw new Error("Permissão insuficiente.");
+    if(values.status==="completed"&&(!values.resultSummary?.trim()||!values.evidenceReference?.trim()))throw new Error("Um exercício concluído exige resultado e evidência.");
+    if(this.config.mode==="demo"){
+      this.demoOperationalUpdate(workspace=>{let row=workspace.continuityExercises.find(item=>item.id===exerciseId);const next={id:exerciseId||`demo-exercise-${Date.now()}`,title:values.title,scenario:values.scenario,status:values.status,objectives:values.objectives,scheduledAt:values.scheduledAt||null,startedAt:values.status==="running"?(row?.startedAt||new Date().toISOString()):row?.startedAt||null,completedAt:values.status==="completed"?(row?.completedAt||new Date().toISOString()):null,targetRtoMinutes:values.targetRtoMinutes?Number(values.targetRtoMinutes):null,targetRpoMinutes:values.targetRpoMinutes!==""?Number(values.targetRpoMinutes):null,actualRecoveryMinutes:values.actualRecoveryMinutes!==""?Number(values.actualRecoveryMinutes):null,resultSummary:values.resultSummary||null,evidenceReference:values.evidenceReference||null,coordinatorUserId:values.coordinatorUserId||null,updatedAt:new Date().toISOString()};if(row)Object.assign(row,next);else workspace.continuityExercises.unshift(next);});
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_continuity_exercise_08i",{p_exercise_id:exerciseId||null,p_title:values.title,p_scenario:values.scenario,p_status:values.status,p_objectives:values.objectives,p_scheduled_at:values.scheduledAt||null,p_target_rto_minutes:values.targetRtoMinutes?Number(values.targetRtoMinutes):null,p_target_rpo_minutes:values.targetRpoMinutes!==""?Number(values.targetRpoMinutes):null,p_actual_recovery_minutes:values.actualRecoveryMinutes!==""?Number(values.actualRecoveryMinutes):null,p_result_summary:values.resultSummary||null,p_evidence_reference:values.evidenceReference||null,p_coordinator_user_id:values.coordinatorUserId||null});
+    if(error)throw error;
+    await this.refreshOperations();
   }
 
   demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}
