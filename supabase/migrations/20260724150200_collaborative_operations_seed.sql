@@ -143,13 +143,13 @@ insert into public.collab_retention_policies(
   project_id,code,resource_type,name,retention_days,action,
   automatic_allowed,legal_hold_supported,risk,scope_description,status
 ) values
-(public.collab_project_id(),'expired-notifications','collab_notifications','Notificações expiradas',365,'delete',false,true,'low','Registos cujo expires_at já terminou.',active),
-(public.collab_project_id(),'notification-outbox-delivered','collab_notification_outbox','Outbox entregue ou cancelada',180,'delete',false,true,'low','Itens delivered ou cancelled mais antigos do que o prazo.',active),
-(public.collab_project_id(),'notification-deliveries','collab_notification_deliveries','Tentativas de entrega',365,'delete',false,true,'medium','Tentativas ligadas a outbox antiga.',active),
-(public.collab_project_id(),'operational-results','collab_operational_results','Resultados operacionais',730,'delete',false,true,'low','Resultados não bloqueantes de execuções antigas.',active),
-(public.collab_project_id(),'audit-log','collab_audit_log','Auditoria',2555,'export-only',false,true,'critical','Não é eliminada pela aplicação; apenas revisão e arquivo controlado.',active),
-(public.collab_project_id(),'incidents','collab_incidents','Incidentes e continuidade',2555,'manual-review',false,true,'critical','Revisão humana antes de qualquer anonimização ou arquivo.',active),
-(public.collab_project_id(),'community-contributions','collab_contributions','Contributos comunitários',0,'manual-review',false,true,'critical','Governado por consentimento, direitos e pedidos de retirada.',active)
+(public.collab_project_id(),'expired-notifications','collab_notifications','Notificações expiradas',365,'delete',false,true,'low','Registos cujo expires_at já terminou.','active'),
+(public.collab_project_id(),'notification-outbox-delivered','collab_notification_outbox','Outbox entregue ou cancelada',180,'delete',false,true,'low','Itens delivered ou cancelled mais antigos do que o prazo.','active'),
+(public.collab_project_id(),'notification-deliveries','collab_notification_deliveries','Tentativas de entrega',365,'delete',false,true,'medium','Tentativas ligadas a outbox antiga.','active'),
+(public.collab_project_id(),'operational-results','collab_operational_results','Resultados operacionais',730,'delete',false,true,'low','Resultados não bloqueantes de execuções antigas.','active'),
+(public.collab_project_id(),'audit-log','collab_audit_log','Auditoria',2555,'export-only',false,true,'critical','Não é eliminada pela aplicação; apenas revisão e arquivo controlado.','active'),
+(public.collab_project_id(),'incidents','collab_incidents','Incidentes e continuidade',2555,'manual-review',false,true,'critical','Revisão humana antes de qualquer anonimização ou arquivo.','active'),
+(public.collab_project_id(),'community-contributions','collab_contributions','Contributos comunitários',0,'manual-review',false,true,'critical','Governado por consentimento, direitos e pedidos de retirada.','active')
 on conflict(project_id,code) do update set
   resource_type=excluded.resource_type,name=excluded.name,
   retention_days=excluded.retention_days,action=excluded.action,
