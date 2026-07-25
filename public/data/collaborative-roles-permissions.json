@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "roles": [
     {
       "code": "master",
@@ -85,7 +85,17 @@
     "exhibitions.view-internal",
     "exhibitions.publish",
     "exhibitions.logistics",
-    "exhibitions.audit.view"
+    "exhibitions.audit.view",
+    "contributions.track-own",
+    "contributions.view-all",
+    "contributions.assign",
+    "contributions.review",
+    "contributions.decide",
+    "contributions.request-info",
+    "contributions.files.review",
+    "contributions.export",
+    "withdrawals.manage",
+    "rights.review"
   ],
   "rolePermissions": {
     "master": [
@@ -131,7 +141,17 @@
       "exhibitions.view-internal",
       "exhibitions.publish",
       "exhibitions.logistics",
-      "exhibitions.audit.view"
+      "exhibitions.audit.view",
+      "contributions.track-own",
+      "contributions.view-all",
+      "contributions.assign",
+      "contributions.review",
+      "contributions.decide",
+      "contributions.request-info",
+      "contributions.files.review",
+      "contributions.export",
+      "withdrawals.manage",
+      "rights.review"
     ],
     "volunteer": [
       "area.view",
@@ -147,7 +167,8 @@
       "tasks.apply",
       "tasks.progress",
       "tasks.time-log",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "contributions.track-own"
     ],
     "reviewer": [
       "area.view",
@@ -161,7 +182,12 @@
       "tasks.apply",
       "tasks.progress",
       "tasks.time-log",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "contributions.track-own",
+      "contributions.view-all",
+      "contributions.review",
+      "contributions.request-info",
+      "rights.review"
     ],
     "researcher": [
       "area.view",
@@ -177,7 +203,10 @@
       "tasks.apply",
       "tasks.progress",
       "tasks.time-log",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "contributions.track-own",
+      "contributions.view-all",
+      "contributions.review"
     ],
     "translator": [
       "area.view",
@@ -192,7 +221,8 @@
       "tasks.apply",
       "tasks.progress",
       "tasks.time-log",
-      "agenda.rsvp"
+      "agenda.rsvp",
+      "contributions.track-own"
     ],
     "partner": [
       "area.view",

@@ -14,11 +14,15 @@ try{for(const path of [
 "/src/views/collaborative-tasks.js",
 "/src/views/collaborative-exhibitions.js",
 "/src/views/exhibitions-public.js",
+"/src/views/collaborative-contributions.js",
+"/src/views/contributions-public.js",
 "/public/config/collaborative-area.runtime.json",
 "/public/data/collaborative-modules.json",
 "/public/data/collaborative-task-model.json",
 "/public/data/collaborative-exhibition-model.json",
 "/public/data/exhibitions-public.json",
+"/public/data/collaborative-contribution-model.json",
+"/public/data/contributions-public-summary.json",
 "/public/data/memories.json",
 "/public/media/museum/generated/MM202601/card.webp"
 ]){const response=await fetch(`http://127.0.0.1:4187${path}`);if(!response.ok)throw new Error(`Smoke falhou em ${path}: ${response.status}`)}console.log("Smoke HTTP concluído.")}finally{child.kill("SIGTERM")}

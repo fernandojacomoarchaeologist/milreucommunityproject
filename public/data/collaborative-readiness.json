@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.15.0",
-  "status": "agenda-exhibitions-ready",
+  "version": "0.16.0",
+  "status": "community-contributions-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -17,24 +17,32 @@
     "member-invitations",
     "agenda",
     "venue-management",
-    "exhibition-management"
+    "exhibition-management",
+    "contributions",
+    "contribution-moderation"
   ],
   "skeletonModules": [
-    "contributions",
     "library",
     "training",
     "museum-review"
   ],
   "nextActions": [
-    "apply-08d-migrations-to-local-and-staging",
-    "test-exhibition-lifecycle-with-coordinator-and-volunteer",
-    "register-first-real-exhibition-and-venue",
-    "review-public-visibility-and-contact-data",
-    "test-conflict-detection",
-    "test-logistics-task-generation",
-    "plan-08e-community-contributions"
+    "apply-08e-migrations-to-local-and-staging",
+    "deploy-community-contribution-intake-edge-function",
+    "configure-rate-limit-salt-and-allowed-origins",
+    "test-public-text-only-submission",
+    "test-private-file-upload-and-signed-download",
+    "test-member-submission",
+    "test-moderation-and-withdrawal",
+    "review-consent-text-with-dpo",
+    "plan-08f-museum-editorial-review"
   ],
   "memberManagementReady": true,
   "volunteeringTasksReady": true,
-  "agendaExhibitionsReady": true
+  "agendaExhibitionsReady": true,
+  "communityContributionsReady": true,
+  "publicIntakeReady": true,
+  "privateFileIntakeReady": true,
+  "moderationReady": true,
+  "canonicalAutoUpdate": false
 }

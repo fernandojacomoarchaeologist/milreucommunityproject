@@ -1,0 +1,3 @@
+# Public intake is intentionally available without a JWT.
+# Authentication is validated manually for member-only actions.
+verify_jwt = false

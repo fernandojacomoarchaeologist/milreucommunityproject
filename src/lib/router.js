@@ -16,6 +16,9 @@ export function getRoute() {
   if (initiative) return { name:"initiative", slug:initiative[1] };
   if (path === "/conhecimento") return { name:"knowledge" };
   if (path === "/participar") return { name:"participate" };
+  if (path === "/participar/contribuir") return { name:"public-contribution-new" };
+  if (path === "/participar/contribuir/acompanhar") return { name:"public-contribution-track" };
+  if (path === "/participar/retirada") return { name:"public-contribution-withdrawal" };
   if (path === "/sobre") return { name:"about" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
 
@@ -29,10 +32,16 @@ export function getRoute() {
   if (collabTask) return { name:"collab-task-detail", taskId:decodeURIComponent(collabTask[1]) };
   if (path === "/area-colaborativa/disponibilidade") return { name:"collab-availability" };
   if (path === "/area-colaborativa/contributos") return { name:"collab-contributions" };
+  if (path === "/area-colaborativa/contributos/novo") return { name:"collab-contribution-new" };
+  const collabContribution = path.match(/^\/area-colaborativa\/contributos\/([^/]+)$/);
+  if (collabContribution) return { name:"collab-contribution-detail", contributionId:decodeURIComponent(collabContribution[1]) };
   if (path === "/area-colaborativa/agenda") return { name:"collab-agenda", query };
   if (path === "/area-colaborativa/biblioteca") return { name:"collab-library" };
   if (path === "/area-colaborativa/formacao") return { name:"collab-training" };
   if (path === "/area-colaborativa/revisao-museu") return { name:"collab-museum-review" };
+  if (path === "/area-colaborativa/gestao/contributos") return { name:"collab-contribution-moderation", query };
+  const collabContributionModeration = path.match(/^\/area-colaborativa\/gestao\/contributos\/([^/]+)$/);
+  if (collabContributionModeration) return { name:"collab-contribution-moderation-detail", contributionId:decodeURIComponent(collabContributionModeration[1]) };
   if (path === "/area-colaborativa/gestao/perfis") return { name:"collab-profile-management" };
   const collabMember = path.match(/^\/area-colaborativa\/gestao\/perfis\/([^/]+)$/);
   if (collabMember) return { name:"collab-member-detail", userId:decodeURIComponent(collabMember[1]) };

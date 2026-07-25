@@ -1,25 +1,25 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08D"
+package: "08E"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Manifesto do Pacote 08D
+# Manifesto do Pacote 08E
 
-- Versão: 0.15.0
-- Base: 08C
+- Versão: 0.16.0
+- Base: 08D
 - Tipo: cumulativo e executável
-- Módulos colaborativos: 14
-- Permissões colaborativas: 42
+- Módulos colaborativos: 15
+- Permissões colaborativas: 52
 - Migrations novas: 3
+- Edge Functions novas: 1
 - Teste SQL novo: 1
-- Agenda interna: ativa
-- Gestão de locais: ativa
-- Gestão de exposições: ativa
-- Página pública da itinerância: ativa
-- Snapshot público inicial: vazio
-- Dados reais inventados: não
-- Integração com tarefas: sim, em rascunho
-- Google Calendar: não integrado
-- Publicação automática: não
+- Tipos de contributo: 7
+- Bucket privado: sim
+- Acompanhamento público: sim
+- Retirada pública: sim
+- Moderação: ativa
+- Alteração canónica automática: não
+- Antivírus integrado: não
+- Dados reais de demonstração: não

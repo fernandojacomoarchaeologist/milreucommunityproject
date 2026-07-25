@@ -20,7 +20,7 @@ if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
 
 const config = {
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.15.0",
+  version:"0.16.0",
   mode:url && publishableKey ? "supabase" : "demo",
   supabaseUrl:url || null,
   supabasePublishableKey:publishableKey || null,
@@ -35,6 +35,14 @@ const config = {
     openAccessRequests:true,
     requireApproval:true,
     requiredFields:["displayName","email","primaryProfileType"]
+  },
+  contributions:{
+    functionName:"community-contribution-intake",
+    publicIntakeEnabled:true,
+    maxFiles:5,
+    maxFileSizeBytes:26214400,
+    turnstileSiteKey:process.env.MILREU_TURNSTILE_SITE_KEY?.trim()||null,
+    privateBucket:"community-contributions-private"
   },
   security:{
     serviceRoleInBrowser:false,
