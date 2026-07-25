@@ -1,0 +1,295 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.15.0",
+  "notice": "Catálogo operacional. Os dados de demonstração não representam locais, eventos ou compromissos reais.",
+  "exhibitionTypes": [
+    {
+      "code": "fixed",
+      "name": "Fixa"
+    },
+    {
+      "code": "itinerant",
+      "name": "Itinerante"
+    },
+    {
+      "code": "temporary",
+      "name": "Temporária"
+    },
+    {
+      "code": "digital",
+      "name": "Digital"
+    }
+  ],
+  "exhibitionStatuses": [
+    {
+      "code": "planning",
+      "name": "Em planeamento"
+    },
+    {
+      "code": "ready",
+      "name": "Preparada"
+    },
+    {
+      "code": "active",
+      "name": "Em circulação"
+    },
+    {
+      "code": "paused",
+      "name": "Pausada"
+    },
+    {
+      "code": "completed",
+      "name": "Concluída"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelada"
+    },
+    {
+      "code": "archived",
+      "name": "Arquivada"
+    }
+  ],
+  "venueTypes": [
+    {
+      "code": "museum",
+      "name": "Museu"
+    },
+    {
+      "code": "school",
+      "name": "Escola"
+    },
+    {
+      "code": "library",
+      "name": "Biblioteca"
+    },
+    {
+      "code": "cultural-centre",
+      "name": "Centro cultural"
+    },
+    {
+      "code": "public-space",
+      "name": "Espaço público"
+    },
+    {
+      "code": "university",
+      "name": "Universidade"
+    },
+    {
+      "code": "heritage-site",
+      "name": "Sítio patrimonial"
+    },
+    {
+      "code": "other",
+      "name": "Outro"
+    }
+  ],
+  "scheduleStatuses": [
+    {
+      "code": "planned",
+      "name": "Planeada"
+    },
+    {
+      "code": "confirmed",
+      "name": "Confirmada"
+    },
+    {
+      "code": "installed",
+      "name": "Instalada"
+    },
+    {
+      "code": "open",
+      "name": "Aberta ao público"
+    },
+    {
+      "code": "closed",
+      "name": "Encerrada no local"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelada"
+    }
+  ],
+  "installationStatuses": [
+    {
+      "code": "not-started",
+      "name": "Não iniciada"
+    },
+    {
+      "code": "preparing",
+      "name": "Em preparação"
+    },
+    {
+      "code": "installed",
+      "name": "Instalada"
+    },
+    {
+      "code": "checked",
+      "name": "Verificada"
+    },
+    {
+      "code": "dismantled",
+      "name": "Desmontada"
+    }
+  ],
+  "logisticsStatuses": [
+    {
+      "code": "not-started",
+      "name": "Não iniciada"
+    },
+    {
+      "code": "in-progress",
+      "name": "Em curso"
+    },
+    {
+      "code": "ready",
+      "name": "Preparada"
+    },
+    {
+      "code": "completed",
+      "name": "Concluída"
+    },
+    {
+      "code": "blocked",
+      "name": "Bloqueada"
+    }
+  ],
+  "eventTypes": [
+    {
+      "code": "meeting",
+      "name": "Reunião"
+    },
+    {
+      "code": "workshop",
+      "name": "Oficina"
+    },
+    {
+      "code": "visit",
+      "name": "Visita"
+    },
+    {
+      "code": "talk",
+      "name": "Conversa ou apresentação"
+    },
+    {
+      "code": "collection-session",
+      "name": "Sessão de recolha"
+    },
+    {
+      "code": "installation",
+      "name": "Montagem"
+    },
+    {
+      "code": "dismantling",
+      "name": "Desmontagem"
+    },
+    {
+      "code": "opening",
+      "name": "Abertura da exposição"
+    },
+    {
+      "code": "volunteer-action",
+      "name": "Ação de voluntariado"
+    },
+    {
+      "code": "other",
+      "name": "Outro"
+    }
+  ],
+  "eventStatuses": [
+    {
+      "code": "draft",
+      "name": "Rascunho"
+    },
+    {
+      "code": "planned",
+      "name": "Planeado"
+    },
+    {
+      "code": "confirmed",
+      "name": "Confirmado"
+    },
+    {
+      "code": "completed",
+      "name": "Concluído"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelado"
+    }
+  ],
+  "visibilityOptions": [
+    {
+      "code": "internal",
+      "name": "Coordenação"
+    },
+    {
+      "code": "members",
+      "name": "Membros"
+    },
+    {
+      "code": "public",
+      "name": "Público"
+    }
+  ],
+  "rsvpStatuses": [
+    {
+      "code": "interested",
+      "name": "Tenho interesse"
+    },
+    {
+      "code": "attending",
+      "name": "Vou participar"
+    },
+    {
+      "code": "not-attending",
+      "name": "Não vou participar"
+    },
+    {
+      "code": "waitlist",
+      "name": "Lista de espera"
+    },
+    {
+      "code": "attended",
+      "name": "Participou"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelou"
+    }
+  ],
+  "checklistCategories": [
+    {
+      "code": "transport",
+      "name": "Transporte"
+    },
+    {
+      "code": "installation",
+      "name": "Montagem"
+    },
+    {
+      "code": "materials",
+      "name": "Materiais"
+    },
+    {
+      "code": "accessibility",
+      "name": "Acessibilidade"
+    },
+    {
+      "code": "communication",
+      "name": "Comunicação"
+    },
+    {
+      "code": "insurance",
+      "name": "Seguros e autorizações"
+    },
+    {
+      "code": "condition",
+      "name": "Estado e conservação"
+    },
+    {
+      "code": "other",
+      "name": "Outro"
+    }
+  ]
+}

@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -22,13 +22,21 @@ import { text } from "./lib/i18n.js";
 import { collaborative } from "./collab/controller.js";
 import {
   collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView,
-  collaborativeProfileView, collaborativeSkeletonView, collaborativeAgendaView,
-  collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView, collaborativeExhibitionManagementView
+  collaborativeProfileView, collaborativeSkeletonView,
+  collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView
 } from "./views/collaborative.js";
 import {
   collaborativeTasksView, collaborativeTaskDetailView, collaborativeAvailabilityView,
   collaborativeTaskManagementView, collaborativeTaskEditorView
 } from "./views/collaborative-tasks.js";
+import {
+  collaborativeAgendaView, collaborativeExhibitionManagementView,
+  collaborativeVenueManagementView, collaborativeVenueEditorView,
+  collaborativeExhibitionEditorView, collaborativeExhibitionDetailView,
+  collaborativeScheduleEditorView, collaborativeScheduleDetailView,
+  collaborativeAgendaEventEditorView
+} from "./views/collaborative-exhibitions.js";
+import { publicExhibitionsView } from "./views/exhibitions-public.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -37,6 +45,7 @@ const state = {
   homeCarousel: null,
   homeCarouselIndex: 0,
   homeCarouselPaused: false,
+  publicExhibitions: null,
   collections: [],
   museumIndex: [],
   audit: null,
@@ -44,6 +53,7 @@ const state = {
   channelRecords: [],
   collab: {ready:false,authenticated:false,mode:"demo"},
   collabTaskFilters: {query:"",category:"",location:""},
+  collabAgendaFilters: {view:"list",month:""},
   lang: localStorage.getItem("milreu-language") || "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
@@ -193,7 +203,7 @@ function renderCollaborativeRoute(route) {
     case "collab-contributions":
       return collaborativeSkeletonView(context,"contributions");
     case "collab-agenda":
-      return collaborativeAgendaView(context);
+      return collaborativeAgendaView(context,{...state.collabAgendaFilters,...(route.query||{})});
     case "collab-library":
       return collaborativeSkeletonView(context,"library");
     case "collab-training":
@@ -216,6 +226,26 @@ function renderCollaborativeRoute(route) {
       return collaborativeTaskDetailView(context,route.taskId,true);
     case "collab-exhibition-management":
       return collaborativeExhibitionManagementView(context);
+    case "collab-venue-management":
+      return collaborativeVenueManagementView(context);
+    case "collab-venue-new":
+      return collaborativeVenueEditorView(context,null);
+    case "collab-venue-edit":
+      return collaborativeVenueEditorView(context,route.venueId);
+    case "collab-exhibition-new":
+      return collaborativeExhibitionEditorView(context,null);
+    case "collab-exhibition-edit":
+      return collaborativeExhibitionEditorView(context,route.exhibitionId);
+    case "collab-exhibition-detail":
+      return collaborativeExhibitionDetailView(context,route.exhibitionId);
+    case "collab-schedule-new":
+      return collaborativeScheduleEditorView(context,route.exhibitionId,route.query?.schedule||null);
+    case "collab-schedule-detail":
+      return collaborativeScheduleDetailView(context,route.scheduleId);
+    case "collab-agenda-event-new":
+      return collaborativeAgendaEventEditorView(context,null,route.query||{});
+    case "collab-agenda-event-edit":
+      return collaborativeAgendaEventEditorView(context,route.eventId,route.query||{});
     default:
       return collaborativeDashboardView(context);
   }
@@ -417,6 +447,95 @@ function bindPage() {
   document.querySelectorAll("[data-task-verify]").forEach(button=>button.addEventListener("click",async()=>{const note=prompt("Nota de validação ou correção (opcional):","")||"";button.disabled=true;try{await collaborative.verifyTask(button.dataset.taskId,button.dataset.userId,button.dataset.taskVerify==="accept",note);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
 
 
+
+  document.querySelector("[data-venue-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    values.publicVisibility=Boolean(form.elements.publicVisibility?.checked);
+    setCollaborativeFeedback("A guardar local…");
+    try{
+      await collaborative.saveVenue(form.dataset.venueId||null,values);
+      go("/area-colaborativa/gestao/locais");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-exhibition-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    values.publicVisibility=Boolean(form.elements.publicVisibility?.checked);
+    values.publishNow=Boolean(form.elements.publishNow?.checked);
+    setCollaborativeFeedback("A guardar exposição…");
+    try{
+      await collaborative.saveExhibition(form.dataset.exhibitionId||null,values);
+      go("/area-colaborativa/gestao/exposicoes");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-schedule-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    values.publicVisibility=Boolean(form.elements.publicVisibility?.checked);
+    values.publishNow=Boolean(form.elements.publishNow?.checked);
+    const conflictsTarget=document.querySelector("[data-schedule-conflicts]");
+    setCollaborativeFeedback("A verificar datas e guardar…");
+    try{
+      const conflicts=await collaborative.saveSchedule(form.dataset.scheduleId||null,values);
+      if(conflicts?.venueWarnings?.length&&conflictsTarget){
+        conflictsTarget.innerHTML=`<div class="schedule-warning"><strong>Período guardado com aviso</strong><p>Existem ${conflicts.venueWarnings.length} ocupações sobrepostas no mesmo local. Confirme com o responsável do espaço.</p></div>`;
+        setCollaborativeFeedback("Período guardado. Reveja o aviso de ocupação.");
+      }else{
+        go("/area-colaborativa/gestao/exposicoes");
+      }
+    }catch(error){
+      if(conflictsTarget&&String(error.message).includes("overlap"))conflictsTarget.innerHTML='<div class="schedule-error"><strong>Conflito de itinerância</strong><p>A mesma exposição já possui um período sobreposto.</p></div>';
+      setCollaborativeFeedback(error.message,true);
+    }
+  });
+
+  document.querySelector("[data-agenda-event-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    values.registrationRequired=Boolean(form.elements.registrationRequired?.checked);
+    setCollaborativeFeedback("A guardar atividade…");
+    try{
+      await collaborative.saveAgendaEvent(form.dataset.eventId||null,values);
+      go("/area-colaborativa/agenda");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-agenda-rsvp]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      await collaborative.rsvpEvent(button.dataset.eventId,button.dataset.agendaRsvp);
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-checklist-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    setCollaborativeFeedback("A guardar item…");
+    try{
+      await collaborative.saveChecklistItem(null,form.dataset.scheduleId,values);
+      form.reset();
+      setCollaborativeFeedback("Item adicionado.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-schedule-publish]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      await collaborative.publishSchedule(button.dataset.schedulePublish,button.dataset.publish==="true");
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-schedule-generate-tasks]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      await collaborative.generateLogisticsTasks(button.dataset.scheduleGenerateTasks);
+      alert("Tarefas de montagem e desmontagem preparadas em rascunho.");
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
   const form = document.querySelector("[data-filters]");
   if (form) {
     form.addEventListener("input", () => {
@@ -567,6 +686,16 @@ function render(scroll=true) {
     case "collab-task-edit":
     case "collab-task-manage-detail":
     case "collab-exhibition-management":
+    case "collab-venue-management":
+    case "collab-venue-new":
+    case "collab-venue-edit":
+    case "collab-exhibition-new":
+    case "collab-exhibition-edit":
+    case "collab-exhibition-detail":
+    case "collab-schedule-new":
+    case "collab-schedule-detail":
+    case "collab-agenda-event-new":
+    case "collab-agenda-event-edit":
       html=renderCollaborativeRoute(route);
       setMetadata("Área Colaborativa");
       break;
@@ -578,6 +707,7 @@ function render(scroll=true) {
     case "knowledge": html = knowledgeView(state.portal,state.lang); setMetadata(text(state.lang,"knowledge")); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
+    case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
     case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
     case "panel-preview": html = panelPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Painel ${route.id}`); break;
@@ -611,8 +741,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "roles": [
     {
       "code": "master",
@@ -78,7 +78,14 @@
     "tasks.assign",
     "tasks.verify",
     "tasks.cancel",
-    "tasks.audit.view"
+    "tasks.audit.view",
+    "agenda.rsvp",
+    "agenda.manage",
+    "venues.manage",
+    "exhibitions.view-internal",
+    "exhibitions.publish",
+    "exhibitions.logistics",
+    "exhibitions.audit.view"
   ],
   "rolePermissions": {
     "master": [
@@ -117,7 +124,14 @@
       "tasks.assign",
       "tasks.verify",
       "tasks.cancel",
-      "tasks.audit.view"
+      "tasks.audit.view",
+      "agenda.rsvp",
+      "agenda.manage",
+      "venues.manage",
+      "exhibitions.view-internal",
+      "exhibitions.publish",
+      "exhibitions.logistics",
+      "exhibitions.audit.view"
     ],
     "volunteer": [
       "area.view",
@@ -132,7 +146,8 @@
       "availability.self.manage",
       "tasks.apply",
       "tasks.progress",
-      "tasks.time-log"
+      "tasks.time-log",
+      "agenda.rsvp"
     ],
     "reviewer": [
       "area.view",
@@ -145,7 +160,8 @@
       "availability.self.manage",
       "tasks.apply",
       "tasks.progress",
-      "tasks.time-log"
+      "tasks.time-log",
+      "agenda.rsvp"
     ],
     "researcher": [
       "area.view",
@@ -160,7 +176,8 @@
       "availability.self.manage",
       "tasks.apply",
       "tasks.progress",
-      "tasks.time-log"
+      "tasks.time-log",
+      "agenda.rsvp"
     ],
     "translator": [
       "area.view",
@@ -174,19 +191,22 @@
       "availability.self.manage",
       "tasks.apply",
       "tasks.progress",
-      "tasks.time-log"
+      "tasks.time-log",
+      "agenda.rsvp"
     ],
     "partner": [
       "area.view",
       "profile.self.manage",
       "agenda.view",
-      "library.view"
+      "library.view",
+      "agenda.rsvp"
     ],
     "observer": [
       "area.view",
       "profile.self.manage",
       "agenda.view",
-      "library.view"
+      "library.view",
+      "agenda.rsvp"
     ]
   }
 }

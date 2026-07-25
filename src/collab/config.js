@@ -22,12 +22,13 @@ export async function loadCollaborativeConfig() {
 }
 
 export async function loadCollaborativeFoundationData() {
-  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, demo] = await Promise.all([
+  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, demo] = await Promise.all([
     fetchJson("public/data/collaborative-profile-types.json"),
     fetchJson("public/data/collaborative-roles-permissions.json"),
     fetchJson("public/data/collaborative-modules.json"),
     fetchJson("public/data/collaborative-member-catalog.json"),
     fetchJson("public/data/collaborative-task-model.json"),
+    fetchJson("public/data/collaborative-exhibition-model.json"),
     fetchJson("public/data/collaborative-demo.json")
   ]);
   return {
@@ -38,6 +39,7 @@ export async function loadCollaborativeFoundationData() {
     modules: modules.modules,
     memberCatalog,
     taskModel,
+    exhibitionModel,
     demo
   };
 }

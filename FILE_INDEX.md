@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08C"
+package: "08D"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -9,9 +9,17 @@ rights: "Consultar RIGHTS.md no repositório principal"
 
 - `.claude/agents/collaborative-product-reviewer.md`
 - `.claude/agents/collaborative-security-reviewer.md`
+- `.claude/agents/exhibition-operations-reviewer.md`
+- `.claude/agents/public-agenda-privacy-reviewer.md`
 - `.claude/agents/volunteer-operations-reviewer.md`
 - `.claude/rules/07d1-ui-editorial-fixes.md`
 - `.claude/rules/07d2-home-carousel-and-immersive.md`
+- `.claude/rules/08d-agenda-rsvp-privacy.md`
+- `.claude/rules/08d-exhibition-conflict-policy.md`
+- `.claude/rules/08d-exhibition-publication-gated.md`
+- `.claude/rules/08d-logistics-tasks-draft-only.md`
+- `.claude/rules/08d-no-fake-exhibition-data.md`
+- `.claude/rules/08d-public-exhibition-fields-only.md`
 - `.claude/rules/blocked-mm202617.md`
 - `.claude/rules/collaborative-rls-required.md`
 - `.claude/rules/derived-navigation-transparency.md`
@@ -49,12 +57,16 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/close-technical-mvp/SKILL.md`
 - `.claude/skills/close-volunteer-task/SKILL.md`
 - `.claude/skills/configure-google-oauth/SKILL.md`
+- `.claude/skills/create-agenda-event/SKILL.md`
 - `.claude/skills/create-derived-collection/SKILL.md`
+- `.claude/skills/create-exhibition-record/SKILL.md`
 - `.claude/skills/create-volunteer-task/SKILL.md`
 - `.claude/skills/export-multichannel-content/SKILL.md`
+- `.claude/skills/export-public-itinerary/SKILL.md`
 - `.claude/skills/generate-final-qr/SKILL.md`
 - `.claude/skills/import-museum-images/SKILL.md`
 - `.claude/skills/manage-collaborative-member/SKILL.md`
+- `.claude/skills/manage-exhibition-logistics/SKILL.md`
 - `.claude/skills/plan-next-collaborative-module/SKILL.md`
 - `.claude/skills/preauthorize-google-member/SKILL.md`
 - `.claude/skills/prepare-07b-handoff/SKILL.md`
@@ -62,11 +74,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/prepare-07d-handoff/SKILL.md`
 - `.claude/skills/prepare-pages-deployment/SKILL.md`
 - `.claude/skills/protect-immersive-mode/SKILL.md`
+- `.claude/skills/publish-itinerary-stop/SKILL.md`
 - `.claude/skills/regenerate-image-variants/SKILL.md`
+- `.claude/skills/register-exhibition-venue/SKILL.md`
 - `.claude/skills/review-07d1-fixes/SKILL.md`
 - `.claude/skills/review-07d2-fixes/SKILL.md`
 - `.claude/skills/review-collaborative-rls/SKILL.md`
 - `.claude/skills/review-digital-interventions/SKILL.md`
+- `.claude/skills/review-exhibition-conflicts/SKILL.md`
 - `.claude/skills/review-exhibition-foundation/SKILL.md`
 - `.claude/skills/review-museum-record/SKILL.md`
 - `.claude/skills/review-panel-preview/SKILL.md`
@@ -77,6 +92,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.claude/skills/review-vertical-slice/SKILL.md`
 - `.claude/skills/review-volunteer-availability/SKILL.md`
 - `.claude/skills/run-07a-locally/SKILL.md`
+- `.claude/skills/schedule-itinerary-stop/SKILL.md`
 - `.claude/skills/test-immersive-experience/SKILL.md`
 - `.claude/skills/update-portal-content/SKILL.md`
 - `.claude/skills/verify-task-completion/SKILL.md`
@@ -87,10 +103,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.github/workflows/08b-database-tests.yml`
 - `.github/workflows/08c-ci.yml`
 - `.github/workflows/08c-database-tests.yml`
+- `.github/workflows/08d-ci.yml`
+- `.github/workflows/08d-database-tests.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
-- `CONTEXT_ATE_08C.md`
+- `CONTEXT_ATE_08D.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_MANIFEST.md`
 - `PROMPT_CLAUDE.md`
@@ -108,25 +126,35 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/channels/PHYSICAL_PRODUCTION_BOUNDARY.md`
 - `docs/channels/QR_STRATEGY.md`
 - `docs/channels/TOTEM_PREVIEW_SPEC.md`
+- `docs/collaborative/AGENDA_EVENTS_AND_RSVP.md`
+- `docs/collaborative/AGENDA_EXHIBITION_ARCHITECTURE.md`
 - `docs/collaborative/ARCHITECTURE.md`
 - `docs/collaborative/AVAILABILITY_MODEL.md`
 - `docs/collaborative/DEMO_MODE_08C.md`
+- `docs/collaborative/EXHIBITION_ACCESSIBILITY_AND_PRIVACY.md`
 - `docs/collaborative/EXHIBITION_CALENDAR_FOUNDATION.md`
+- `docs/collaborative/EXHIBITION_CONFLICT_POLICY.md`
+- `docs/collaborative/EXHIBITION_ITINERARY_LIFECYCLE.md`
 - `docs/collaborative/GOOGLE_OAUTH_SETUP.md`
 - `docs/collaborative/GOOGLE_PREAUTHORIZATION.md`
+- `docs/collaborative/LOGISTICS_TASK_INTEGRATION.md`
 - `docs/collaborative/MASTER_BOOTSTRAP.md`
 - `docs/collaborative/MASTER_SAFEGUARDS.md`
 - `docs/collaborative/MEMBER_MANAGEMENT.md`
 - `docs/collaborative/MODULE_ROADMAP.md`
 - `docs/collaborative/NEXT_STEPS_AFTER_08C.md`
+- `docs/collaborative/NEXT_STEPS_AFTER_08D.md`
 - `docs/collaborative/OPEN_DECISIONS.md`
 - `docs/collaborative/OPEN_DECISIONS_08C.md`
 - `docs/collaborative/PROFILE_ROLE_PERMISSION_MODEL.md`
+- `docs/collaborative/PUBLIC_EXHIBITION_BOUNDARIES.md`
+- `docs/collaborative/ROLLBACK_PLAN_08D.md`
 - `docs/collaborative/SECURITY_AND_AUDIT_08C.md`
 - `docs/collaborative/SECURITY_AND_RLS.md`
 - `docs/collaborative/TASK_ASSIGNMENT_AND_CAPACITY.md`
 - `docs/collaborative/TASK_LIFECYCLE.md`
 - `docs/collaborative/TIME_LOGGING_AND_RECOGNITION.md`
+- `docs/collaborative/VENUE_DATA_SPEC.md`
 - `docs/collaborative/VOLUNTEERING_TASK_MODEL.md`
 - `docs/content/EDITORIAL_PREVIEW_POLICY.md`
 - `docs/deployment/GITHUB_PAGES.md`
@@ -143,6 +171,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/references/TECHNICAL_REFERENCES_08A.md`
 - `docs/references/TECHNICAL_REFERENCES_08B.md`
 - `docs/references/TECHNICAL_REFERENCES_08C.md`
+- `docs/references/TECHNICAL_REFERENCES_08D.md`
 - `docs/references/TECHNICAL_STANDARDS.md`
 - `docs/release/GITHUB_PAGES_DEPLOYMENT.md`
 - `docs/release/PUBLICATION_GATES.md`
@@ -174,6 +203,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
 - `public/data/collaborative-demo.json`
+- `public/data/collaborative-exhibition-model.json`
 - `public/data/collaborative-member-catalog.json`
 - `public/data/collaborative-modules.json`
 - `public/data/collaborative-profile-types.json`
@@ -181,6 +211,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/collaborative-roles-permissions.json`
 - `public/data/collaborative-task-model.json`
 - `public/data/editorial-decisions/MM202617-unlock-review.json`
+- `public/data/exhibitions-public.json`
 - `public/data/home-carousel.json`
 - `public/data/media-manifest.json`
 - `public/data/memories.json`
@@ -381,6 +412,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_08A_v0.12.0.md`
 - `releases/PACKAGE_08B_v0.13.0.md`
 - `releases/PACKAGE_08C_v0.14.0.md`
+- `releases/PACKAGE_08D_v0.15.0.md`
 - `requirements-media.txt`
 - `requirements-qr.txt`
 - `scripts/admin/bootstrap-master.mjs`
@@ -391,10 +423,12 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/channels/validate-channels.mjs`
 - `scripts/collab/build-runtime-config.mjs`
 - `scripts/collab/status.mjs`
+- `scripts/collab/validate-agenda-exhibitions.mjs`
 - `scripts/collab/validate-foundation.mjs`
 - `scripts/collab/validate-member-management.mjs`
 - `scripts/collab/validate-volunteering-tasks.mjs`
 - `scripts/dev-server.mjs`
+- `scripts/exhibitions/export-public.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
 - `scripts/museum/audit-content.mjs`
@@ -431,11 +465,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/styles/components.css`
 - `src/styles/tokens.css`
 - `src/views/channels.js`
+- `src/views/collaborative-exhibitions.js`
 - `src/views/collaborative-tasks.js`
 - `src/views/collaborative.js`
+- `src/views/exhibitions-public.js`
 - `src/views/museum.js`
 - `src/views/portal.js`
 - `supabase/README_08A.md`
+- `supabase/README_08D.md`
 - `supabase/config.toml`
 - `supabase/migrations/20260723080000_collaborative_foundation.sql`
 - `supabase/migrations/20260723080100_collaborative_seed.sql`
@@ -446,12 +483,20 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/migrations/20260723090100_collaborative_member_management_rpc.sql`
 - `supabase/migrations/20260724080000_collaborative_volunteering_tasks.sql`
 - `supabase/migrations/20260724080100_collaborative_volunteering_tasks_rpc.sql`
+- `supabase/migrations/20260724100000_collaborative_agenda_exhibitions.sql`
+- `supabase/migrations/20260724100100_collaborative_agenda_exhibitions_rpc.sql`
+- `supabase/migrations/20260724100200_collaborative_agenda_exhibitions_seed.sql`
 - `supabase/seed.sql`
 - `supabase/tests/008a_collaborative_foundation.test.sql`
 - `supabase/tests/008b_member_management.test.sql`
 - `supabase/tests/008c_volunteering_tasks.test.sql`
+- `supabase/tests/008d_agenda_exhibitions.test.sql`
 - `tests/app.test.mjs`
 - `tests/channels-07d.test.mjs`
+- `tests/collaborative-agenda-controller-08d.test.mjs`
+- `tests/collaborative-agenda-data-08d.test.mjs`
+- `tests/collaborative-agenda-database-08d.test.mjs`
+- `tests/collaborative-agenda-ui-08d.test.mjs`
 - `tests/collaborative-data-08a.test.mjs`
 - `tests/collaborative-database-08a.test.mjs`
 - `tests/collaborative-invitations-08b.test.mjs`
@@ -474,6 +519,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/museum-regression.test.mjs`
 - `tests/physical-preview-07d.test.mjs`
 - `tests/portal.test.mjs`
+- `tests/public-exhibitions-08d.test.mjs`
 - `tests/release-07d.test.mjs`
 - `tests/rights-07c.test.mjs`
 - `tests/structured-07d.test.mjs`

@@ -17,6 +17,7 @@ export function getRoute() {
   if (path === "/conhecimento") return { name:"knowledge" };
   if (path === "/participar") return { name:"participate" };
   if (path === "/sobre") return { name:"about" };
+  if (path === "/exposicoes") return { name:"public-exhibitions" };
 
 
   if (path === "/entrar") return { name:"collab-login" };
@@ -28,7 +29,7 @@ export function getRoute() {
   if (collabTask) return { name:"collab-task-detail", taskId:decodeURIComponent(collabTask[1]) };
   if (path === "/area-colaborativa/disponibilidade") return { name:"collab-availability" };
   if (path === "/area-colaborativa/contributos") return { name:"collab-contributions" };
-  if (path === "/area-colaborativa/agenda") return { name:"collab-agenda" };
+  if (path === "/area-colaborativa/agenda") return { name:"collab-agenda", query };
   if (path === "/area-colaborativa/biblioteca") return { name:"collab-library" };
   if (path === "/area-colaborativa/formacao") return { name:"collab-training" };
   if (path === "/area-colaborativa/revisao-museu") return { name:"collab-museum-review" };
@@ -42,7 +43,25 @@ export function getRoute() {
   if (collabTaskEdit) return { name:"collab-task-edit", taskId:decodeURIComponent(collabTaskEdit[1]) };
   const collabTaskManage = path.match(/^\/area-colaborativa\/gestao\/tarefas\/([^/]+)$/);
   if (collabTaskManage) return { name:"collab-task-manage-detail", taskId:decodeURIComponent(collabTaskManage[1]) };
+  if (path === "/area-colaborativa/gestao/agenda/novo") return { name:"collab-agenda-event-new", query };
+  const collabAgendaEvent = path.match(/^\/area-colaborativa\/gestao\/agenda\/([^/]+)$/);
+  if (collabAgendaEvent) return { name:"collab-agenda-event-edit", eventId:decodeURIComponent(collabAgendaEvent[1]), query };
+
+  if (path === "/area-colaborativa/gestao/locais") return { name:"collab-venue-management" };
+  if (path === "/area-colaborativa/gestao/locais/novo") return { name:"collab-venue-new" };
+  const collabVenue = path.match(/^\/area-colaborativa\/gestao\/locais\/([^/]+)$/);
+  if (collabVenue) return { name:"collab-venue-edit", venueId:decodeURIComponent(collabVenue[1]) };
+
   if (path === "/area-colaborativa/gestao/exposicoes") return { name:"collab-exhibition-management" };
+  if (path === "/area-colaborativa/gestao/exposicoes/nova") return { name:"collab-exhibition-new" };
+  const collabScheduleDetail = path.match(/^\/area-colaborativa\/gestao\/exposicoes\/agendamentos\/([^/]+)$/);
+  if (collabScheduleDetail) return { name:"collab-schedule-detail", scheduleId:decodeURIComponent(collabScheduleDetail[1]) };
+  const collabExhibitionEdit = path.match(/^\/area-colaborativa\/gestao\/exposicoes\/([^/]+)\/editar$/);
+  if (collabExhibitionEdit) return { name:"collab-exhibition-edit", exhibitionId:decodeURIComponent(collabExhibitionEdit[1]) };
+  const collabExhibitionSchedule = path.match(/^\/area-colaborativa\/gestao\/exposicoes\/([^/]+)\/agendar$/);
+  if (collabExhibitionSchedule) return { name:"collab-schedule-new", exhibitionId:decodeURIComponent(collabExhibitionSchedule[1]), query };
+  const collabExhibition = path.match(/^\/area-colaborativa\/gestao\/exposicoes\/([^/]+)$/);
+  if (collabExhibition) return { name:"collab-exhibition-detail", exhibitionId:decodeURIComponent(collabExhibition[1]) };
 
   if (path === "/laboratorio/canais") return { name:"channel-lab" };
   const totemPreview = path.match(/^\/laboratorio\/totem\/(MM\d{6})$/);

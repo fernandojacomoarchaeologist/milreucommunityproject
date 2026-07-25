@@ -7,14 +7,43 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v3";
+const DEMO_KEY="milreu-collaborative-demo-context-v4";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
 function emptyTaskWorkspace(){return{tasks:[],assignments:[],requiredSkills:[],preferences:null,availability:[],timeEntries:[],updates:[]};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyExhibitionWorkspace(){return{venues:[],exhibitions:[],schedules:[],events:[],participants:[],checklist:[],conflicts:[]};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
+
+function dateFromNow(days){return daysFromNow(days,12).slice(0,10);}
+function createDemoExhibitionWorkspace(){
+  const venues=[
+    {id:"demo-venue-cultural",project_id:"demo-project",name:"Espaço Cultural de demonstração",slug:"espaco-cultural-demonstracao",venue_type:"cultural-centre",municipality:"Faro",locality:"Localidade de demonstração",address_text:"Morada fictícia para avaliação",country_code:"PT",postal_code:null,public_email:null,public_phone:null,public_url:null,opening_hours:"Horário de demonstração",public_description:"Local fictício utilizado apenas para testar a gestão da itinerância.",accessibility_summary:"Informação de acessibilidade por validar.",accessibility_notes:"Dado de demonstração.",internal_notes:"Não corresponde a um local real.",status:"active",public_visibility:true,active:true},
+    {id:"demo-venue-school",project_id:"demo-project",name:"Escola de demonstração",slug:"escola-demonstracao",venue_type:"school",municipality:"Faro",locality:"Localidade de demonstração",address_text:null,country_code:"PT",postal_code:null,public_description:null,accessibility_summary:null,internal_notes:"Local de demonstração ainda em contacto.",status:"draft",public_visibility:false,active:true}
+  ];
+  const exhibitions=[
+    {id:"demo-exhibition-itinerant",project_id:"demo-project",title:"Entre Ruínas e Memórias — demonstração",slug:"entre-ruinas-memorias-demonstracao",subtitle:"Exposição comunitária itinerante",exhibition_type:"itinerant",description:"Registo fictício para avaliar o fluxo de itinerância.",public_summary:"Exposição de demonstração sem correspondência com datas ou locais reais.",internal_objectives:"Testar calendário, publicação, logística e voluntariado.",status:"active",default_duration_days:14,public_visibility:true,published_at:new Date().toISOString()}
+  ];
+  const schedules=[
+    {id:"demo-schedule-current",project_id:"demo-project",exhibition_id:"demo-exhibition-itinerant",venue_id:"demo-venue-cultural",slug:"demonstracao-local-atual",starts_on:dateFromNow(-3),ends_on:dateFromNow(7),status:"open",installation_at:daysFromNow(-4,9),dismantling_at:daysFromNow(8,9),public_title:"Exposição em local de demonstração",public_summary:"Período fictício para avaliação do calendário.",public_notes:"Não corresponde a uma exposição real.",internal_notes:"Validar a experiência de coordenação.",public_visibility:true,published_at:new Date().toISOString(),opening_hours:"Horário de demonstração",public_contact:null,registration_url:null,installation_status:"checked",logistics_status:"in-progress",transport_notes:"Notas fictícias.",condition_report_before:"Verificação de demonstração concluída.",condition_report_after:null},
+    {id:"demo-schedule-future",project_id:"demo-project",exhibition_id:"demo-exhibition-itinerant",venue_id:"demo-venue-school",slug:"demonstracao-proximo-local",starts_on:dateFromNow(30),ends_on:dateFromNow(44),status:"planned",installation_at:daysFromNow(29,9),dismantling_at:daysFromNow(45,9),public_title:null,public_summary:null,public_notes:null,internal_notes:"Período ainda não confirmado.",public_visibility:false,published_at:null,opening_hours:null,public_contact:null,registration_url:null,installation_status:"not-started",logistics_status:"not-started",transport_notes:null,condition_report_before:null,condition_report_after:null}
+  ];
+  const events=[
+    {id:"demo-event-opening",project_id:"demo-project",exhibition_schedule_id:"demo-schedule-current",venue_id:"demo-venue-cultural",title:"Abertura de demonstração",description:"Evento fictício para testar confirmações de participação.",event_type:"opening",status:"confirmed",visibility:"public",starts_at:daysFromNow(1,18),ends_at:daysFromNow(1,20),location_text:"Espaço Cultural de demonstração",capacity:30,registration_required:false,registration_url:null,public_contact:null},
+    {id:"demo-event-dismantling",project_id:"demo-project",exhibition_schedule_id:"demo-schedule-current",venue_id:"demo-venue-cultural",title:"Apoio à desmontagem — demonstração",description:"Atividade interna fictícia.",event_type:"dismantling",status:"confirmed",visibility:"members",starts_at:daysFromNow(8,9),ends_at:daysFromNow(8,13),location_text:"Espaço Cultural de demonstração",capacity:6,registration_required:true,registration_url:null,public_contact:null}
+  ];
+  const participants=[
+    {event_id:"demo-event-opening",user_id:"demo-volunteer",status:"attending",notes:null,responded_at:new Date().toISOString()}
+  ];
+  const checklist=[
+    {id:"demo-check-transport",project_id:"demo-project",schedule_id:"demo-schedule-current",category:"transport",title:"Confirmar transporte dos painéis",description:"Item fictício.",status:"in-progress",assigned_to:"demo-master",due_at:daysFromNow(6,18),sort_order:10},
+    {id:"demo-check-accessibility",project_id:"demo-project",schedule_id:"demo-schedule-current",category:"accessibility",title:"Verificar circulação e altura dos textos",description:"Item fictício.",status:"pending",assigned_to:null,due_at:daysFromNow(6,18),sort_order:20},
+    {id:"demo-check-condition",project_id:"demo-project",schedule_id:"demo-schedule-current",category:"condition",title:"Registar estado antes da desmontagem",description:"Item fictício.",status:"pending",assigned_to:null,due_at:daysFromNow(7,18),sort_order:30}
+  ];
+  return{venues,exhibitions,schedules,events,participants,checklist,conflicts:[]};
+}
 
 function createDemoTaskWorkspace(){
   const tasks=[
@@ -54,7 +83,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -63,7 +92,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),tasks:[],exhibitions:[],error:null});}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),tasks:[],exhibitions:[],error:null});}
 
   async loadRemoteContext(session){
     this.state.session={user:{id:session.user.id,email:session.user.email,user_metadata:session.user.user_metadata||{}}};this.state.authenticated=true;
@@ -115,15 +144,37 @@ class CollaborativeController{
     this.state.taskWorkspace={tasks:tasks.data||[],assignments:assignments.data||[],requiredSkills:requiredSkills.data||[],preferences:preferences.data?.[0]||null,availability:availability.data||[],timeEntries:timeEntries.data||[],updates:updates.data||[]};this.state.tasks=this.state.taskWorkspace.tasks;
   }
 
-  async loadRemoteExhibitions(){const{data,error}=await this.client.from("collab_exhibition_schedule").select("id,starts_on,ends_on,status,public_notes,collab_exhibitions(title,exhibition_type),collab_venues(name,municipality,locality)").order("starts_on",{ascending:true});if(!error)this.state.exhibitions=data||[];}
+  async loadRemoteExhibitions(){
+    const jobs=[
+      this.client.from("collab_venues").select("*").order("name"),
+      this.client.from("collab_exhibitions").select("*").order("title"),
+      this.client.from("collab_exhibition_schedule").select("*").order("starts_on"),
+      this.client.from("collab_agenda_events").select("*").order("starts_at"),
+      this.client.from("collab_event_participants").select("*").order("responded_at",{ascending:false}),
+      this.client.from("collab_exhibition_logistics_checklist").select("*").order("sort_order").order("due_at")
+    ];
+    const[venues,exhibitions,schedules,events,participants,checklist]=await Promise.all(jobs);
+    const error=[venues,exhibitions,schedules,events,participants,checklist].find(item=>item.error)?.error;
+    if(error){this.state.error=error.message;return;}
+    this.state.exhibitionWorkspace={
+      venues:venues.data||[],
+      exhibitions:exhibitions.data||[],
+      schedules:schedules.data||[],
+      events:events.data||[],
+      participants:participants.data||[],
+      checklist:checklist.data||[],
+      conflicts:[]
+    };
+    this.state.exhibitions=this.state.exhibitionWorkspace.schedules;
+  }
 
   loadDemoContext(){const stored=localStorage.getItem(DEMO_KEY);if(stored){try{this.applyDemoContext(JSON.parse(stored));return;}catch{localStorage.removeItem(DEMO_KEY);}}}
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitions=demo.exhibitions||[];this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitions:this.state.exhibitions,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
   async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
@@ -131,9 +182,9 @@ class CollaborativeController{
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitions:[],management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -166,6 +217,72 @@ class CollaborativeController{
   async verifyTask(taskId,userId,accept,note=""){if(this.config.mode==="demo"){this.demoWorkspaceUpdate(workspace=>{const assignment=workspace.assignments.find(x=>x.task_id===taskId&&x.user_id===userId&&x.status==="submitted");if(!assignment)throw new Error("Submissão não encontrada.");assignment.status=accept?"completed":"in-progress";assignment.manager_note=note;assignment.verified_at=accept?new Date().toISOString():null;workspace.timeEntries.filter(x=>x.task_id===taskId&&x.user_id===userId&&x.status==="pending").forEach(x=>x.status=accept?"approved":"rejected");this.addDemoTaskUpdate(workspace,taskId,accept?"verified":"reopened",note,userId);});return;}const{error}=await this.client.rpc("collab_verify_task_08c",{p_task_id:taskId,p_user_id:userId,p_accept:Boolean(accept),p_note:note||null});if(error)throw error;await this.refreshTasks();}
   async withdrawTask(taskId,note=""){if(this.config.mode==="demo"){this.demoWorkspaceUpdate(workspace=>{const assignment=workspace.assignments.find(x=>x.task_id===taskId&&x.user_id===this.state.session.user.id&&!['completed','withdrawn','cancelled'].includes(x.status));if(!assignment)throw new Error("Participação não pode ser retirada.");assignment.status="withdrawn";assignment.withdrawn_at=new Date().toISOString();assignment.completion_note=note;this.addDemoTaskUpdate(workspace,taskId,"withdrawn",note);});return;}const{error}=await this.client.rpc("collab_withdraw_task_08c",{p_task_id:taskId,p_note:note||null});if(error)throw error;await this.refreshTasks();}
   async logTaskTime(taskId,activityDate,minutes,note=""){if(this.config.mode==="demo"){this.demoWorkspaceUpdate(workspace=>{workspace.timeEntries.unshift({id:`demo-time-${Date.now()}`,project_id:"demo-project",task_id:taskId,user_id:this.state.session.user.id,activity_date:activityDate,minutes:Number(minutes),note,status:"pending",created_at:new Date().toISOString()});this.addDemoTaskUpdate(workspace,taskId,"time-log",note,{minutes:Number(minutes)});});return;}const{error}=await this.client.rpc("collab_log_task_time_08c",{p_task_id:taskId,p_activity_date:activityDate,p_minutes:Number(minutes),p_note:note||null});if(error)throw error;await this.refreshTasks();}
+
+
+  demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}
+  async refreshExhibitions(){if(this.config.mode==="supabase"){await this.loadRemoteExhibitions();this.emit();}}
+
+  async saveVenue(venueId,payload){
+    if(!hasPermission(this.state,"venues.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const id=venueId||`demo-venue-${Date.now()}`;let row=workspace.venues.find(item=>item.id===id);const next={id,project_id:"demo-project",...payload,name:payload.name?.trim(),venue_type:payload.venueType||"other",address_text:payload.addressText||null,country_code:payload.countryCode||"PT",postal_code:payload.postalCode||null,contact_name:payload.contactName||null,contact_email:payload.contactEmail||null,public_email:payload.publicEmail||null,public_phone:payload.publicPhone||null,public_url:payload.publicUrl||null,opening_hours:payload.openingHours||null,public_description:payload.publicDescription||null,accessibility_notes:payload.accessibilityNotes||null,accessibility_summary:payload.accessibilitySummary||null,internal_notes:payload.internalNotes||null,public_visibility:Boolean(payload.publicVisibility),active:payload.status!=="archived",updated_at:new Date().toISOString()};if(!next.name)throw new Error("Nome do local é obrigatório.");if(row)Object.assign(row,next);else workspace.venues.push(next);});return;}
+    const{error}=await this.client.rpc("collab_upsert_venue_08d",{p_venue_id:venueId||null,p_payload:payload});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async saveExhibition(exhibitionId,payload){
+    if(!hasPermission(this.state,"exhibitions.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const id=exhibitionId||`demo-exhibition-${Date.now()}`;let row=workspace.exhibitions.find(item=>item.id===id);const next={id,project_id:"demo-project",...payload,title:payload.title?.trim(),exhibition_type:payload.exhibitionType||"itinerant",public_summary:payload.publicSummary||null,internal_objectives:payload.internalObjectives||null,default_duration_days:payload.defaultDurationDays?Number(payload.defaultDurationDays):null,public_visibility:Boolean(payload.publicVisibility),published_at:payload.publicVisibility&&payload.publishNow?(row?.published_at||new Date().toISOString()):row?.published_at||null,updated_at:new Date().toISOString()};if(!next.title)throw new Error("Título da exposição é obrigatório.");if(row)Object.assign(row,next);else workspace.exhibitions.push(next);});return;}
+    const{error}=await this.client.rpc("collab_upsert_exhibition_08d",{p_exhibition_id:exhibitionId||null,p_payload:payload});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async checkScheduleConflicts(scheduleId,payload){
+    if(this.config.mode==="demo"){
+      const workspace=this.state.exhibitionWorkspace;
+      const overlap=(row)=>row.id!==scheduleId&&row.status!=="cancelled"&&row.starts_on<=payload.endsOn&&row.ends_on>=payload.startsOn;
+      return{
+        exhibitionOverlaps:workspace.schedules.filter(row=>row.exhibition_id===payload.exhibitionId&&overlap(row)),
+        venueWarnings:workspace.schedules.filter(row=>row.venue_id===payload.venueId&&overlap(row))
+      };
+    }
+    const{data,error}=await this.client.rpc("collab_schedule_conflicts_08d",{p_schedule_id:scheduleId||null,p_exhibition_id:payload.exhibitionId,p_venue_id:payload.venueId,p_starts_on:payload.startsOn,p_ends_on:payload.endsOn});if(error)throw error;return data;
+  }
+
+  async saveSchedule(scheduleId,payload){
+    if(!hasPermission(this.state,"exhibitions.manage"))throw new Error("Permissão insuficiente.");
+    const conflicts=await this.checkScheduleConflicts(scheduleId,payload);
+    if(conflicts.exhibitionOverlaps?.length)throw new Error("A exposição já possui outro período que se sobrepõe.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const id=scheduleId||`demo-schedule-${Date.now()}`;let row=workspace.schedules.find(item=>item.id===id);const next={id,project_id:"demo-project",...payload,exhibition_id:payload.exhibitionId,venue_id:payload.venueId,starts_on:payload.startsOn,ends_on:payload.endsOn,installation_at:payload.installationAt||null,dismantling_at:payload.dismantlingAt||null,public_title:payload.publicTitle||null,public_summary:payload.publicSummary||null,public_notes:payload.publicNotes||null,internal_notes:payload.internalNotes||null,public_visibility:Boolean(payload.publicVisibility),published_at:payload.publicVisibility&&payload.publishNow?(row?.published_at||new Date().toISOString()):row?.published_at||null,opening_hours:payload.openingHours||null,public_contact:payload.publicContact||null,registration_url:payload.registrationUrl||null,installation_status:payload.installationStatus||"not-started",logistics_status:payload.logisticsStatus||"not-started",transport_notes:payload.transportNotes||null,condition_report_before:payload.conditionReportBefore||null,condition_report_after:payload.conditionReportAfter||null,updated_at:new Date().toISOString()};if(row)Object.assign(row,next);else workspace.schedules.push(next);workspace.conflicts=conflicts.venueWarnings||[];});return conflicts;}
+    const{data,error}=await this.client.rpc("collab_upsert_schedule_08d",{p_schedule_id:scheduleId||null,p_payload:payload});if(error)throw error;await this.refreshExhibitions();return data?.conflicts||conflicts;
+  }
+
+  async saveAgendaEvent(eventId,payload){
+    if(!hasPermission(this.state,"agenda.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const id=eventId||`demo-event-${Date.now()}`;let row=workspace.events.find(item=>item.id===id);const next={id,project_id:"demo-project",...payload,exhibition_schedule_id:payload.exhibitionScheduleId||null,task_id:payload.taskId||null,venue_id:payload.venueId||null,event_type:payload.eventType||"other",starts_at:payload.startsAt,ends_at:payload.endsAt,location_text:payload.locationText||null,registration_required:Boolean(payload.registrationRequired),registration_url:payload.registrationUrl||null,public_contact:payload.publicContact||null,updated_at:new Date().toISOString()};if(!next.title?.trim())throw new Error("Título do evento é obrigatório.");if(row)Object.assign(row,next);else workspace.events.push(next);});return;}
+    const{error}=await this.client.rpc("collab_upsert_agenda_event_08d",{p_event_id:eventId||null,p_payload:payload});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async rsvpEvent(eventId,status,notes=""){
+    if(!hasPermission(this.state,"agenda.rsvp"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{let row=workspace.participants.find(item=>item.event_id===eventId&&item.user_id===this.state.session.user.id);const event=workspace.events.find(item=>item.id===eventId);if(!event||event.status!=="confirmed")throw new Error("Evento indisponível.");let nextStatus=status;if(status==="attending"&&event.capacity){const count=workspace.participants.filter(item=>item.event_id===eventId&&["attending","attended"].includes(item.status)&&item.user_id!==this.state.session.user.id).length;if(count>=event.capacity)nextStatus="waitlist";}const next={event_id:eventId,user_id:this.state.session.user.id,status:nextStatus,notes,responded_at:new Date().toISOString()};if(row)Object.assign(row,next);else workspace.participants.push(next);});return;}
+    const{error}=await this.client.rpc("collab_rsvp_event_08d",{p_event_id:eventId,p_status:status,p_notes:notes||null});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async saveChecklistItem(itemId,scheduleId,payload){
+    if(!(hasPermission(this.state,"exhibitions.logistics")||hasPermission(this.state,"exhibitions.manage")))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const id=itemId||`demo-check-${Date.now()}`;let row=workspace.checklist.find(item=>item.id===id);const next={id,project_id:"demo-project",schedule_id:scheduleId,...payload,assigned_to:payload.assignedTo||null,due_at:payload.dueAt||null,sort_order:Number(payload.sortOrder||0),completed_at:payload.status==="completed"?new Date().toISOString():null,updated_at:new Date().toISOString()};if(!next.title?.trim())throw new Error("Título do item é obrigatório.");if(row)Object.assign(row,next);else workspace.checklist.push(next);});return;}
+    const{error}=await this.client.rpc("collab_upsert_checklist_item_08d",{p_item_id:itemId||null,p_schedule_id:scheduleId,p_payload:payload});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async publishSchedule(scheduleId,publish){
+    if(!hasPermission(this.state,"exhibitions.publish"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoExhibitionUpdate(workspace=>{const row=workspace.schedules.find(item=>item.id===scheduleId);if(!row||!["confirmed","installed","open","closed"].includes(row.status))throw new Error("Período ainda não publicável.");row.public_visibility=Boolean(publish);row.published_at=publish?(row.published_at||new Date().toISOString()):null;});return;}
+    const{error}=await this.client.rpc("collab_publish_schedule_08d",{p_schedule_id:scheduleId,p_publish:Boolean(publish)});if(error)throw error;await this.refreshExhibitions();
+  }
+
+  async generateLogisticsTasks(scheduleId){
+    if(!(hasPermission(this.state,"exhibitions.logistics")&&hasPermission(this.state,"tasks.manage")))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){const workspace=structuredClone(this.state.taskWorkspace),exhibitions=this.state.exhibitionWorkspace,schedule=exhibitions.schedules.find(item=>item.id===scheduleId),exhibition=exhibitions.exhibitions.find(item=>item.id===schedule?.exhibition_id),venue=exhibitions.venues.find(item=>item.id===schedule?.venue_id);if(!schedule)throw new Error("Agendamento não encontrado.");for(const type of ["Montagem","Desmontagem"]){const title=`${type} — ${exhibition?.title||"Exposição"}`;if(!workspace.tasks.some(item=>item.source_entity_id===scheduleId&&item.title===title))workspace.tasks.push({id:`demo-task-logistics-${type}-${Date.now()}`,project_id:"demo-project",title,summary:`${type} em ${venue?.name||"local por definir"}.`,description:"Tarefa gerada pela gestão da exposição.",category:"exhibition-setup",category_code:"exhibition-setup",status:"draft",priority:"high",assignment_mode:"approval",location_mode:"on-site",location_name:venue?.name||null,starts_at:type==="Montagem"?schedule.installation_at:schedule.dismantling_at,due_at:type==="Montagem"?schedule.installation_at:schedule.dismantling_at,estimated_minutes:180,source_entity_type:"exhibition_schedule",source_entity_id:scheduleId,created_by:this.state.session.user.id,updated_at:new Date().toISOString()});}this.persistDemo({taskWorkspace:workspace});return;}
+    const{error}=await this.client.rpc("collab_generate_logistics_tasks_08d",{p_schedule_id:scheduleId});if(error)throw error;await Promise.all([this.refreshTasks(),this.refreshExhibitions()]);
+  }
 
   async approveAccess(userId,roleCodes=["volunteer"],notes=""){const member=this.state.management.members.find(x=>x.user_id===userId);return this.manageMember({userId,primaryProfileType:member?.primary_profile_type||"volunteer",roleCodes,status:"active",note:notes});}
   async signOut(){if(this.config.mode==="demo"){localStorage.removeItem(DEMO_KEY);this.resetAuthentication();this.emit();return;}const{error}=await this.client.auth.signOut();if(error)throw error;this.resetAuthentication();this.emit();}
