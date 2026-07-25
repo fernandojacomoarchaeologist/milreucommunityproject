@@ -1,11 +1,11 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração — 08G
+# Checklist de integração — 08H
 
 ## Contexto
 
@@ -13,106 +13,107 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - [ ] dependências
 - [ ] superfícies
 - [ ] recuperação
-- [ ] relatório 08F
+- [ ] relatório 08G
 - [ ] registo de impacto
 
-## Código
+## Centro interno
 
-- [ ] módulo de homologação
-- [ ] rota de gestão
-- [ ] detalhe da execução
-- [ ] controller
-- [ ] demo
-- [ ] preflight
-- [ ] OAuth checker
-- [ ] remote smoke
-- [ ] master status
-- [ ] bootstrap literal
+- [ ] módulo
+- [ ] badge
+- [ ] contador
+- [ ] lista
+- [ ] filtros
+- [ ] marcar lida
+- [ ] marcar não lida
+- [ ] arquivar
+- [ ] ler todas
+- [ ] link contextual
+- [ ] prioridades
+- [ ] categorias
 
-## Ambientes
+## Preferências
 
-- [ ] local identificado
-- [ ] staging criado
-- [ ] produção criada
-- [ ] referências diferentes
-- [ ] SITE_URL
-- [ ] callbacks
-- [ ] HTTPS
-- [ ] demo desativada fora de local
-- [ ] produção sem reset
+- [ ] 20 eventos
+- [ ] avisos obrigatórios
+- [ ] e-mail opcional
+- [ ] horário silencioso
+- [ ] timezone
+- [ ] idioma
+- [ ] canal desativado comunicado
 
-## Google OAuth
+## Eventos automáticos
 
-- [ ] projeto Google
-- [ ] consent screen
-- [ ] client web
-- [ ] callback Supabase local
-- [ ] callback Supabase staging
-- [ ] callback Supabase produção
-- [ ] provider local
-- [ ] provider staging
-- [ ] provider produção
-- [ ] callback da aplicação
-- [ ] pré-autorização
-- [ ] tokens não armazenados
-- [ ] logout
-- [ ] expiração
+- [ ] membership
+- [ ] tarefas
+- [ ] contributos
+- [ ] Museu
+- [ ] formação
+- [ ] agenda
+- [ ] logística
+- [ ] retirada
+- [ ] homologação
+- [ ] deduplicação
 
-## Master
+## Templates
 
-- [ ] utilizador autenticado pelo Google
-- [ ] e-mail definido em secret
-- [ ] confirmação literal
-- [ ] bootstrap
-- [ ] master ativo
-- [ ] proteção do último master
-- [ ] segundo responsável definido para contingência
+- [ ] 20 templates
+- [ ] pt-PT
+- [ ] tokens
+- [ ] texto simples
+- [ ] HTML escapado
+- [ ] aprovação
+- [ ] imutabilidade
+- [ ] versionamento
+- [ ] preview
+
+## E-mail
+
+- [ ] provider disabled
+- [ ] webhook
+- [ ] worker secret
+- [ ] from
+- [ ] domínio
+- [ ] função
+- [ ] claim
+- [ ] entrega
+- [ ] retry
+- [ ] dead-letter
+- [ ] cancelamento
+- [ ] sem logs de e-mail
+- [ ] sem payload no admin
+
+## Convites
+
+- [ ] ação explícita
+- [ ] convite pendente
+- [ ] canal ativo obrigatório
+- [ ] template aprovado
+- [ ] dedupe
+- [ ] endereço mascarado
+
+## Segurança
+
+- [ ] RLS
+- [ ] outbox privada
+- [ ] deliveries privadas
+- [ ] service role only
+- [ ] secrets fora do Git
+- [ ] worker sem JWT público
+- [ ] segredo customizado
+- [ ] payload reduzido
+- [ ] retenção
+- [ ] cleanup
 
 ## Banco
 
-- [ ] migrations 08A–08G
-- [ ] `db push --dry-run`
-- [ ] RLS
+- [ ] migrations 08A–08H
+- [ ] 7 tabelas
 - [ ] RPCs
-- [ ] 24 checks
+- [ ] triggers
 - [ ] teste SQL
 - [ ] local
 - [ ] staging
 - [ ] rollback
-
-## Perfis
-
-- [ ] master
-- [ ] coordinator
-- [ ] volunteer
-- [ ] reviewer
-- [ ] researcher
-- [ ] translator
-- [ ] partner
-- [ ] observer
-- [ ] utilizadores isolados
-- [ ] não autorizado
-
-## Storage e contributos
-
-- [ ] bucket privado
-- [ ] upload assinado
-- [ ] download assinado
-- [ ] isolamento
-- [ ] retirada
-- [ ] ausência de URL pública
-- [ ] procedimento de verificação de ficheiros
-
-## Homologação
-
-- [ ] 24 checks
-- [ ] evidências
-- [ ] bloqueios
-- [ ] conclusão
-- [ ] aprovação staging
-- [ ] versão e SHA
-- [ ] produção bloqueada sem staging
-- [ ] confirmação literal
 
 ## Qualidade
 
@@ -120,8 +121,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - [ ] tests
 - [ ] build
 - [ ] smoke
-- [ ] 375 px
-- [ ] 768 px
-- [ ] 1280 px
+- [ ] 375
+- [ ] 768
+- [ ] 1280
 - [ ] teclado
 - [ ] leitor de ecrã

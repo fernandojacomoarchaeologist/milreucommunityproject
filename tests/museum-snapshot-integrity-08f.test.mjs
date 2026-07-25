@@ -18,3 +18,10 @@ test("exportação e aplicação validam divulgação substantiva de IA",()=>{
   assert.match(exporter,/ai-substantive-intervention/);
   assert.match(apply,/Divulgação obrigatória de IA ausente/);
 });
+
+test("snapshot vazio termina antes de validar o hash do dataset",()=>{
+  assert.ok(
+    apply.indexOf('if(!snapshot.records.length)') <
+    apply.indexOf('snapshot.sourceDatasetHash&&snapshot.sourceDatasetHash!==sha(memoriesBuffer)')
+  );
+});

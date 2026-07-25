@@ -1,7 +1,6 @@
 -- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-25):
--- Os `delete from ...` são redefinição de skills da tarefa e da própria disponibilidade do voluntário: apagam só as linhas do alvo e reinserem as
--- novas (set-operation scoped sob RLS/RPC). Não é exclusão massiva, não altera
--- schema, é reversível e não toca dados canónicos do Museu. Marcador após revisão.
+-- Os `delete from` redefinem skills da tarefa e a própria disponibilidade do voluntário (set-operation scoped sob RLS).
+-- Não altera schema nem toca dados canónicos do Museu. Marcador após revisão.
 
 -- 08C — RPCs transacionais e auditadas para tarefas e disponibilidade.
 

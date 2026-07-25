@@ -33,7 +33,7 @@ function setPointer(target,path,value){
   current[parts.at(-1)]=value;
 }
 function validateSnapshot(snapshot){
-  if(snapshot.version!=="0.18.0")throw new Error("Versão de snapshot inválida.");
+  if(snapshot.version!=="0.19.0")throw new Error("Versão de snapshot inválida.");
   if(!Array.isArray(snapshot.records))throw new Error("Registos ausentes.");
   for(const item of snapshot.records){
     if(!item.approvals?.editorialApprovedAt||!item.approvals?.rightsApprovedAt||!item.approvals?.publicationApprovedAt){
@@ -47,12 +47,12 @@ const memories=JSON.parse(memoriesBuffer);
 const snapshot=JSON.parse(await readFile(approvedPath,"utf8"));
 validateSnapshot(snapshot);
 
-if(snapshot.sourceDatasetHash&&snapshot.sourceDatasetHash!==sha(memoriesBuffer)){
-  throw new Error("O hash do dataset canónico mudou. Reexporte ou reconcilie o snapshot antes de aplicar.");
-}
 if(!snapshot.records.length){
   console.log("Nenhuma memória aprovada no snapshot. Nada a aplicar.");
   process.exit(0);
+}
+if(snapshot.sourceDatasetHash&&snapshot.sourceDatasetHash!==sha(memoriesBuffer)){
+  throw new Error("O hash do dataset canónico mudou. Reexporte ou reconcilie o snapshot antes de aplicar.");
 }
 
 const byId=new Map(memories.records.map(record=>[record.id,record]));
@@ -72,7 +72,7 @@ for(const item of snapshot.records){
   changed.push({memoryId:item.memoryId,patchCount:item.patches.length});
 }
 
-const next={...memories,version:"0.18.0",generatedAt:new Date().toISOString(),editorialNotice:"Conteúdo atualizado através de snapshot editorial aprovado, validado e aplicado por processo controlado.",records:memories.records};
+const next={...memories,version:"0.19.0",generatedAt:new Date().toISOString(),editorialNotice:"Conteúdo atualizado através de snapshot editorial aprovado, validado e aplicado por processo controlado.",records:memories.records};
 const output=JSON.stringify(next,null,2)+"\n";
 
 console.log(JSON.stringify({mode:writeMode?"apply":"dry-run",changed},null,2));
@@ -92,7 +92,7 @@ for(const effect of snapshot.effects||[]){
 }
 await writeFile(effectsPath,JSON.stringify({
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.18.0",
+  version:"0.19.0",
   generatedAt:new Date().toISOString(),
   sourceCycle:snapshot.cycleCode,
   slots,

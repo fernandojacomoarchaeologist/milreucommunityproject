@@ -88,3 +88,7 @@ Propostas, comentários e snapshots não transferem direitos nem criam autoriza�
 ## Implantação e autenticação — Pacote 08G
 
 Credenciais, tokens, passwords, secrets do Google, service role e o e-mail master não fazem parte dos artefactos públicos. Evidências de homologação não devem incluir dados pessoais desnecessários.
+
+## Notificações e comunicação — Pacote 08H
+
+Notificações devem conter apenas o contexto mínimo. Endereços, tokens, payloads, mensagens do fornecedor e dados pessoais não devem entrar em ficheiros públicos, screenshots ou relatórios sem necessidade. O e-mail não transfere direitos nem substitui consentimentos formais.

@@ -1,0 +1,213 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.19.0",
+  "templates": [
+    {
+      "eventType": "membership.approved",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Acesso aprovado — {{project_name}}",
+      "titleTemplate": "O seu acesso foi aprovado",
+      "bodyTextTemplate": "Olá {{display_name}}. O seu acesso à Área Colaborativa do {{project_name}} foi aprovado. Aceda em {{action_url}}."
+    },
+    {
+      "eventType": "membership.rejected",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Atualização do pedido de acesso — {{project_name}}",
+      "titleTemplate": "Pedido de acesso atualizado",
+      "bodyTextTemplate": "Olá {{display_name}}. O pedido de acesso à Área Colaborativa foi atualizado. Consulte a informação disponível em {{action_url}}."
+    },
+    {
+      "eventType": "membership.suspended",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Acesso suspenso — {{project_name}}",
+      "titleTemplate": "O seu acesso foi suspenso",
+      "bodyTextTemplate": "Olá {{display_name}}. O seu acesso à Área Colaborativa foi suspenso. Para esclarecimentos, utilize os canais institucionais definidos pelo projeto."
+    },
+    {
+      "eventType": "invitation.created",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Convite para colaborar — {{project_name}}",
+      "titleTemplate": "Convite para a Área Colaborativa",
+      "bodyTextTemplate": "Foi criado um convite para participar no {{project_name}} com o perfil {{role}}. Inicie sessão com esta conta Google em {{action_url}}."
+    },
+    {
+      "eventType": "task.assigned",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Nova tarefa atribuída — {{title}}",
+      "titleTemplate": "Recebeu uma tarefa",
+      "bodyTextTemplate": "Foi-lhe atribuída a tarefa “{{title}}”. Consulte prazo e instruções em {{action_url}}."
+    },
+    {
+      "eventType": "task.status-changed",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Atualização da tarefa — {{title}}",
+      "titleTemplate": "A tarefa foi atualizada",
+      "bodyTextTemplate": "O estado da tarefa “{{title}}” passou para {{status}}. Consulte os detalhes em {{action_url}}."
+    },
+    {
+      "eventType": "contribution.assigned",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Contributo atribuído — {{reference}}",
+      "titleTemplate": "Novo contributo para revisão",
+      "bodyTextTemplate": "O contributo {{reference}} foi-lhe atribuído. Consulte a fila de moderação em {{action_url}}."
+    },
+    {
+      "eventType": "contribution.needs-info",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Informação necessária — {{reference}}",
+      "titleTemplate": "O contributo necessita de informação",
+      "bodyTextTemplate": "É necessária informação adicional sobre o contributo {{reference}}. Consulte a mensagem e responda em {{action_url}}."
+    },
+    {
+      "eventType": "contribution.decision",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Decisão sobre o contributo {{reference}}",
+      "titleTemplate": "O contributo foi revisto",
+      "bodyTextTemplate": "O contributo {{reference}} recebeu uma decisão: {{status}}. Consulte a mensagem em {{action_url}}."
+    },
+    {
+      "eventType": "museum-review.assigned",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Revisão atribuída — {{reference}}",
+      "titleTemplate": "Memória atribuída para revisão",
+      "bodyTextTemplate": "A memória {{reference}} foi-lhe atribuída para {{role}}. Aceda ao registo em {{action_url}}."
+    },
+    {
+      "eventType": "museum-review.blocking-comment",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Bloqueio editorial — {{reference}}",
+      "titleTemplate": "Existe um comentário bloqueante",
+      "bodyTextTemplate": "A memória {{reference}} possui um comentário bloqueante que requer atenção. Consulte-o em {{action_url}}."
+    },
+    {
+      "eventType": "training.assessment-pending",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Avaliação de formação pendente",
+      "titleTemplate": "Formação a aguardar avaliação",
+      "bodyTextTemplate": "O percurso “{{title}}” foi concluído e aguarda avaliação. Consulte a formação em {{action_url}}."
+    },
+    {
+      "eventType": "training.completed",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Formação concluída — {{title}}",
+      "titleTemplate": "Percurso concluído",
+      "bodyTextTemplate": "Concluiu o percurso “{{title}}”. O estado foi atualizado na Área Colaborativa."
+    },
+    {
+      "eventType": "agenda.changed",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Atividade atualizada — {{title}}",
+      "titleTemplate": "Uma atividade foi alterada",
+      "bodyTextTemplate": "A atividade “{{title}}”, prevista para {{starts_at}}, foi atualizada. Consulte os detalhes em {{action_url}}."
+    },
+    {
+      "eventType": "agenda.cancelled",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Atividade cancelada — {{title}}",
+      "titleTemplate": "Uma atividade foi cancelada",
+      "bodyTextTemplate": "A atividade “{{title}}” foi cancelada. Consulte a agenda em {{action_url}}."
+    },
+    {
+      "eventType": "agenda.upcoming",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Lembrete — {{title}}",
+      "titleTemplate": "Atividade próxima",
+      "bodyTextTemplate": "A atividade “{{title}}” começa em {{starts_at}}. Consulte localização e detalhes em {{action_url}}."
+    },
+    {
+      "eventType": "exhibition.logistics-assigned",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Ação logística atribuída — {{title}}",
+      "titleTemplate": "Ação de exposição atribuída",
+      "bodyTextTemplate": "Foi-lhe atribuída a ação logística “{{title}}”, com prazo {{due_at}}. Consulte os detalhes em {{action_url}}."
+    },
+    {
+      "eventType": "withdrawal.submitted",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Pedido de retirada recebido — {{reference}}",
+      "titleTemplate": "Novo pedido de retirada",
+      "bodyTextTemplate": "Foi recebido um pedido de retirada relacionado com {{reference}}. Este evento é prioritário e deve ser tratado em {{action_url}}."
+    },
+    {
+      "eventType": "withdrawal.status-changed",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Pedido de retirada atualizado — {{reference}}",
+      "titleTemplate": "Pedido de retirada atualizado",
+      "bodyTextTemplate": "O estado do pedido de retirada {{reference}} passou para {{status}}."
+    },
+    {
+      "eventType": "homologation.blocked",
+      "channel": "email",
+      "language": "pt-PT",
+      "version": 1,
+      "status": "approved",
+      "subjectTemplate": "Homologação bloqueada — {{environment}}",
+      "titleTemplate": "A homologação foi bloqueada",
+      "bodyTextTemplate": "A homologação do ambiente {{environment}} foi bloqueada. Consulte checks e evidências em {{action_url}}."
+    }
+  ],
+  "rules": {
+    "plainTextSource": true,
+    "htmlGeneratedByDispatcher": true,
+    "arbitraryHtmlAllowed": false,
+    "unknownTokensRejected": true,
+    "approvedTemplateRequiredForEmail": true
+  }
+}

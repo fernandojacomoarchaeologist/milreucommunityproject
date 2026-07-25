@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.18.0",
-  "status": "deployment-foundation-ready",
+  "version": "0.19.0",
+  "status": "notification-foundation-ready",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -24,18 +24,21 @@
     "museum-review-management",
     "venue-management",
     "exhibition-management",
-    "deployment-homologation"
+    "deployment-homologation",
+    "notifications",
+    "notification-management"
   ],
   "skeletonModules": [],
   "nextActions": [
-    "configure-supabase-local",
-    "run-08a-through-08g-database-tests",
-    "create-separate-staging-project",
-    "configure-google-oauth-local-and-staging",
-    "authenticate-and-bootstrap-master",
-    "run-role-and-rls-matrix",
-    "complete-24-homologation-checks",
-    "approve-staging-before-production"
+    "run-08a-through-08h-database-tests",
+    "test-notification-triggers-in-local-supabase",
+    "review-20-portuguese-templates",
+    "validate-notification-privacy-and-retention",
+    "choose-email-provider-only-if-needed",
+    "configure-webhook-and-sender-in-staging",
+    "test-outbox-retry-and-dead-letter",
+    "keep-automatic-schedule-disabled",
+    "continue-to-08i-operational-governance"
   ],
   "memberManagementReady": true,
   "volunteeringTasksReady": true,
@@ -51,5 +54,11 @@
   "allRegisteredModulesActive": true,
   "deploymentHomologationReady": true,
   "stagingConfigured": false,
-  "productionConfigured": false
+  "productionConfigured": false,
+  "notificationsReady": true,
+  "notificationCenterReady": true,
+  "transactionalEmailPrepared": true,
+  "transactionalEmailEnabled": false,
+  "notificationProviderConfigured": false,
+  "notificationScheduleEnabled": false
 }

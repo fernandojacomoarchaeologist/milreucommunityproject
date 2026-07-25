@@ -11,6 +11,7 @@ const esc = value => String(value ?? "").replace(/[&<>"]/g,char => ({"&":"&amp;"
 export function collaborativeHeader(context) {
   const profile = context.profile || {};
   const modeLabel = context.mode === "demo" ? "Demonstração" : "Ligado ao Supabase";
+  const unread=Number(context.notificationWorkspace?.summary?.unreadCount||0);
   return `<header class="collab-header">
     <a class="collab-brand" href="#/area-colaborativa">
       <img src="${assetUrl("public/brand/symbol.webp")}" alt="">
@@ -19,6 +20,7 @@ export function collaborativeHeader(context) {
     <div class="collab-header__actions">
       <span class="collab-mode collab-mode--${esc(context.mode)}">${modeLabel}</span>
       ${context.authenticated ? `
+        ${hasPermission(context,"notifications.view")?`<a class="collab-notification-bell" href="#/area-colaborativa/notificacoes" aria-label="${unread?`${unread} notificações não lidas`:"Notificações"}"><span aria-hidden="true">●</span>${unread?`<b>${unread>99?"99+":unread}</b>`:""}</a>`:""}
         <span class="collab-user">
           ${profile.avatar_url ? `<img src="${esc(profile.avatar_url)}" alt="">` : `<span>${esc((profile.display_name || profile.email || "?").slice(0,1).toUpperCase())}</span>`}
           <b>${esc(profile.display_name || profile.email || "Membro")}</b>
@@ -54,12 +56,14 @@ export function collaborativeShell(context,currentRoute,content) {
           || hasPermission(context,"contributions.moderate")
           || hasPermission(context,"museum.review.manage")
           || hasPermission(context,"homologation.view")
+          || hasPermission(context,"notifications.manage")
         ) ? `<div class="collab-sidebar__admin"><span>Gestão</span>
           ${hasPermission(context,"memberships.manage")?`<a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a>`:""}
           ${hasPermission(context,"tasks.manage")?`<a href="#/area-colaborativa/gestao/tarefas">Tarefas</a>`:""}
           ${hasPermission(context,"contributions.moderate")?`<a href="#/area-colaborativa/gestao/contributos">Contributos</a>`:""}
           ${hasPermission(context,"museum.review.manage")?`<a href="#/area-colaborativa/gestao/revisao-museu">Revisão do Museu</a>`:""}
           ${hasPermission(context,"homologation.view")?`<a href="#/area-colaborativa/gestao/homologacao">Implantação e homologação</a>`:""}
+          ${hasPermission(context,"notifications.manage")?`<a href="#/area-colaborativa/gestao/notificacoes">Notificações</a>`:""}
           ${hasPermission(context,"exhibitions.manage")?`<a href="#/area-colaborativa/gestao/exposicoes">Exposições</a>`:""}
           ${hasPermission(context,"venues.manage")?`<a href="#/area-colaborativa/gestao/locais">Locais</a>`:""}
           ${hasPermission(context,"agenda.manage")?`<a href="#/area-colaborativa/gestao/agenda/novo">Nova atividade</a>`:""}
@@ -77,7 +81,7 @@ export function collaborativePublicFrame(context,content) {
 export function statusPill(status) {
   const labels = {
     pending:"Pendente",active:"Ativo",suspended:"Suspenso",archived:"Arquivado",
-    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação",draft:"Rascunho",planning:"Em planeamento",ready:"Preparada",paused:"Pausada",completed:"Concluída",cancelled:"Cancelada",planned:"Planeada",confirmed:"Confirmada",installed:"Instalada",open:"Aberta",closed:"Encerrada","in-progress":"Em curso",blocked:"Bloqueada",submitted:"Submetido",triage:"Em triagem","needs-info":"Aguardar informação","under-review":"Em revisão",accepted:"Aceite","partially-accepted":"Parcialmente aceite",rejected:"Não aceite",withdrawn:"Retirado",incorporated:"Incorporado","upload-pending":"Aguardar envio",uploaded:"Recebido","scan-pending":"Aguardar verificação",deleted:"Eliminado","not-started":"Não iniciada","assessment-pending":"Avaliação pendente",expired:"Expirada","needs-changes":"Necessita alterações","ready-editorial":"Pronta para decisão","editorial-approved":"Editorialmente aprovada","rights-approved":"Direitos aprovados","publication-approved":"Publicação aprovada",incorporated:"Incorporada",validated:"Validado",applied:"Aplicado",superseded:"Substituído","not-applicable":"Não aplicável",passed:"Aprovado",failed:"Falhou",unconfigured:"Não configurado",configured:"Configurado",testing:"Em teste",homologated:"Homologado",retired:"Retirado",running:"Em execução"
+    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação",draft:"Rascunho",planning:"Em planeamento",ready:"Preparada",paused:"Pausada",completed:"Concluída",cancelled:"Cancelada",planned:"Planeada",confirmed:"Confirmada",installed:"Instalada",open:"Aberta",closed:"Encerrada","in-progress":"Em curso",blocked:"Bloqueada",submitted:"Submetido",triage:"Em triagem","needs-info":"Aguardar informação","under-review":"Em revisão",accepted:"Aceite","partially-accepted":"Parcialmente aceite",rejected:"Não aceite",withdrawn:"Retirado",incorporated:"Incorporado","upload-pending":"Aguardar envio",uploaded:"Recebido","scan-pending":"Aguardar verificação",deleted:"Eliminado","not-started":"Não iniciada","assessment-pending":"Avaliação pendente",expired:"Expirada","needs-changes":"Necessita alterações","ready-editorial":"Pronta para decisão","editorial-approved":"Editorialmente aprovada","rights-approved":"Direitos aprovados","publication-approved":"Publicação aprovada",incorporated:"Incorporada",validated:"Validado",applied:"Aplicado",superseded:"Substituído","not-applicable":"Não aplicável",passed:"Aprovado",failed:"Falhou",unconfigured:"Não configurado",configured:"Configurado",testing:"Em teste",homologated:"Homologado",retired:"Retirado",running:"Em execução",unread:"Não lida",read:"Lida",delivered:"Entregue",claimed:"Em processamento","dead-letter":"Intervenção necessária",disabled:"Desativado"
   };
   return `<span class="collab-status collab-status--${esc(status)}">${esc(labels[status] || status || "—")}</span>`;
 }

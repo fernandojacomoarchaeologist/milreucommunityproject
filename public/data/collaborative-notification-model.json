@@ -1,0 +1,379 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.19.0",
+  "channels": [
+    {
+      "code": "in-app",
+      "name": "Centro interno",
+      "status": "active",
+      "mandatorySupported": true
+    },
+    {
+      "code": "email",
+      "name": "E-mail transacional",
+      "status": "disabled",
+      "mandatorySupported": false
+    }
+  ],
+  "categories": [
+    {
+      "code": "membership",
+      "name": "Acesso e membros"
+    },
+    {
+      "code": "tasks",
+      "name": "Tarefas"
+    },
+    {
+      "code": "contributions",
+      "name": "Contributos"
+    },
+    {
+      "code": "museum-review",
+      "name": "Revisão do Museu"
+    },
+    {
+      "code": "training",
+      "name": "Formação"
+    },
+    {
+      "code": "agenda",
+      "name": "Agenda"
+    },
+    {
+      "code": "exhibitions",
+      "name": "Exposições"
+    },
+    {
+      "code": "withdrawals",
+      "name": "Retirada e direitos"
+    },
+    {
+      "code": "security",
+      "name": "Segurança"
+    },
+    {
+      "code": "operations",
+      "name": "Operação"
+    }
+  ],
+  "eventTypes": [
+    {
+      "code": "membership.approved",
+      "category": "membership",
+      "name": "Acesso aprovado",
+      "severity": "success",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa"
+    },
+    {
+      "code": "membership.rejected",
+      "category": "membership",
+      "name": "Pedido de acesso recusado",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa"
+    },
+    {
+      "code": "membership.suspended",
+      "category": "security",
+      "name": "Acesso suspenso",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa"
+    },
+    {
+      "code": "invitation.created",
+      "category": "membership",
+      "name": "Convite de acesso",
+      "severity": "info",
+      "mandatoryInApp": false,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 180,
+      "routeTemplate": "/area-colaborativa"
+    },
+    {
+      "code": "task.assigned",
+      "category": "tasks",
+      "name": "Tarefa atribuída",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/tarefas"
+    },
+    {
+      "code": "task.status-changed",
+      "category": "tasks",
+      "name": "Estado de tarefa alterado",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/tarefas"
+    },
+    {
+      "code": "contribution.assigned",
+      "category": "contributions",
+      "name": "Contributo atribuído",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/gestao/contributos"
+    },
+    {
+      "code": "contribution.needs-info",
+      "category": "contributions",
+      "name": "Contributo necessita informação",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/contributos"
+    },
+    {
+      "code": "contribution.decision",
+      "category": "contributions",
+      "name": "Decisão sobre contributo",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/contributos"
+    },
+    {
+      "code": "museum-review.assigned",
+      "category": "museum-review",
+      "name": "Revisão do Museu atribuída",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/revisao-museu"
+    },
+    {
+      "code": "museum-review.blocking-comment",
+      "category": "museum-review",
+      "name": "Comentário editorial bloqueante",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/revisao-museu"
+    },
+    {
+      "code": "training.assessment-pending",
+      "category": "training",
+      "name": "Avaliação de formação pendente",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/formacao"
+    },
+    {
+      "code": "training.completed",
+      "category": "training",
+      "name": "Formação concluída",
+      "severity": "success",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/formacao"
+    },
+    {
+      "code": "agenda.changed",
+      "category": "agenda",
+      "name": "Atividade alterada",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 180,
+      "routeTemplate": "/area-colaborativa/agenda"
+    },
+    {
+      "code": "agenda.cancelled",
+      "category": "agenda",
+      "name": "Atividade cancelada",
+      "severity": "warning",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/agenda"
+    },
+    {
+      "code": "agenda.upcoming",
+      "category": "agenda",
+      "name": "Atividade próxima",
+      "severity": "info",
+      "mandatoryInApp": false,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 90,
+      "routeTemplate": "/area-colaborativa/agenda"
+    },
+    {
+      "code": "exhibition.logistics-assigned",
+      "category": "exhibitions",
+      "name": "Logística de exposição atribuída",
+      "severity": "info",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 365,
+      "routeTemplate": "/area-colaborativa/agenda"
+    },
+    {
+      "code": "withdrawal.submitted",
+      "category": "withdrawals",
+      "name": "Pedido de retirada recebido",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 1095,
+      "routeTemplate": "/area-colaborativa/gestao/contributos"
+    },
+    {
+      "code": "withdrawal.status-changed",
+      "category": "withdrawals",
+      "name": "Pedido de retirada atualizado",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 1095,
+      "routeTemplate": "/area-colaborativa/contributos"
+    },
+    {
+      "code": "homologation.blocked",
+      "category": "operations",
+      "name": "Homologação bloqueada",
+      "severity": "critical",
+      "mandatoryInApp": true,
+      "emailAllowed": true,
+      "defaultEmail": false,
+      "retentionDays": 730,
+      "routeTemplate": "/area-colaborativa/gestao/homologacao"
+    }
+  ],
+  "notificationStatuses": [
+    {
+      "code": "unread",
+      "name": "Não lida"
+    },
+    {
+      "code": "read",
+      "name": "Lida"
+    },
+    {
+      "code": "archived",
+      "name": "Arquivada"
+    }
+  ],
+  "outboxStatuses": [
+    {
+      "code": "pending",
+      "name": "Pendente"
+    },
+    {
+      "code": "claimed",
+      "name": "Em processamento"
+    },
+    {
+      "code": "delivered",
+      "name": "Entregue"
+    },
+    {
+      "code": "failed",
+      "name": "Falhou"
+    },
+    {
+      "code": "cancelled",
+      "name": "Cancelado"
+    },
+    {
+      "code": "dead-letter",
+      "name": "Intervenção necessária"
+    }
+  ],
+  "deliveryStatuses": [
+    {
+      "code": "started",
+      "name": "Iniciada"
+    },
+    {
+      "code": "delivered",
+      "name": "Entregue"
+    },
+    {
+      "code": "failed",
+      "name": "Falhou"
+    },
+    {
+      "code": "skipped",
+      "name": "Ignorada"
+    }
+  ],
+  "preferenceRules": {
+    "mandatoryInAppCannotBeDisabled": true,
+    "emailOptIn": true,
+    "defaultLanguage": "pt-PT",
+    "defaultTimezone": "Europe/Lisbon",
+    "quietHoursOptional": true
+  },
+  "templateTokens": [
+    "display_name",
+    "project_name",
+    "title",
+    "status",
+    "reference",
+    "action_url",
+    "due_at",
+    "starts_at",
+    "role",
+    "reason",
+    "environment"
+  ],
+  "dispatch": {
+    "providerModes": [
+      "disabled",
+      "webhook"
+    ],
+    "defaultProvider": "disabled",
+    "maxBatch": 25,
+    "maxAttempts": 5,
+    "claimMinutes": 10,
+    "retryMinutes": [
+      5,
+      30,
+      120,
+      720,
+      1440
+    ],
+    "serviceRoleOnly": true,
+    "automaticScheduleEnabled": false
+  }
+}
