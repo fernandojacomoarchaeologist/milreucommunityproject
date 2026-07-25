@@ -1,0 +1,298 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.16.0",
+  "notice": "Os contributos não alteram automaticamente o Museu, o Portal ou a Experiência Proteus.",
+  "contributionTypes": [
+    {
+      "code": "photograph",
+      "name": "Fotografia",
+      "description": "Fotografia histórica, familiar, do território ou de uma atividade."
+    },
+    {
+      "code": "testimony",
+      "name": "Testemunho ou memória",
+      "description": "Relato, lembrança, história oral ou memória pessoal."
+    },
+    {
+      "code": "correction",
+      "name": "Correção",
+      "description": "Correção de título, data, identificação, local, crédito ou contexto."
+    },
+    {
+      "code": "document",
+      "name": "Documento",
+      "description": "Cartaz, recorte, carta, mapa, publicação ou outro documento."
+    },
+    {
+      "code": "reference",
+      "name": "Referência",
+      "description": "Livro, artigo, arquivo, ligação ou indicação de fonte."
+    },
+    {
+      "code": "rights-credit",
+      "name": "Direitos ou crédito",
+      "description": "Questão sobre autoria, titularidade, crédito ou autorização."
+    },
+    {
+      "code": "other",
+      "name": "Outro contributo",
+      "description": "Contributo que não se enquadra nas categorias anteriores."
+    }
+  ],
+  "statuses": [
+    {
+      "code": "draft",
+      "name": "Rascunho"
+    },
+    {
+      "code": "submitted",
+      "name": "Submetido"
+    },
+    {
+      "code": "triage",
+      "name": "Em triagem"
+    },
+    {
+      "code": "needs-info",
+      "name": "Aguardar informação"
+    },
+    {
+      "code": "under-review",
+      "name": "Em revisão"
+    },
+    {
+      "code": "accepted",
+      "name": "Aceite"
+    },
+    {
+      "code": "partially-accepted",
+      "name": "Parcialmente aceite"
+    },
+    {
+      "code": "rejected",
+      "name": "Não aceite"
+    },
+    {
+      "code": "withdrawn",
+      "name": "Retirado"
+    },
+    {
+      "code": "incorporated",
+      "name": "Incorporado"
+    },
+    {
+      "code": "archived",
+      "name": "Arquivado"
+    }
+  ],
+  "attributionPreferences": [
+    {
+      "code": "full-name",
+      "name": "Usar o meu nome completo"
+    },
+    {
+      "code": "first-name",
+      "name": "Usar apenas o primeiro nome"
+    },
+    {
+      "code": "anonymous",
+      "name": "Manter anónimo"
+    },
+    {
+      "code": "discuss",
+      "name": "Decidir comigo antes da publicação"
+    }
+  ],
+  "usageScopes": [
+    {
+      "code": "review-only",
+      "name": "Apenas análise interna"
+    },
+    {
+      "code": "digital-project",
+      "name": "Portal, Museu e canais digitais do projeto"
+    },
+    {
+      "code": "exhibition",
+      "name": "Exposições físicas do projeto"
+    },
+    {
+      "code": "research",
+      "name": "Investigação e produção académica"
+    },
+    {
+      "code": "all-project",
+      "name": "Todas as utilizações do projeto, mediante crédito e contexto"
+    }
+  ],
+  "targetTypes": [
+    {
+      "code": "general",
+      "name": "Projeto em geral"
+    },
+    {
+      "code": "museum-memory",
+      "name": "Memória do Museu"
+    },
+    {
+      "code": "initiative",
+      "name": "Iniciativa"
+    },
+    {
+      "code": "proteus-record",
+      "name": "Registo Proteus"
+    },
+    {
+      "code": "exhibition",
+      "name": "Exposição"
+    },
+    {
+      "code": "portal-page",
+      "name": "Página do Portal"
+    }
+  ],
+  "targetRelations": [
+    {
+      "code": "supports",
+      "name": "Apoia ou complementa"
+    },
+    {
+      "code": "corrects",
+      "name": "Corrige"
+    },
+    {
+      "code": "identifies",
+      "name": "Identifica pessoa, local ou data"
+    },
+    {
+      "code": "questions",
+      "name": "Questiona ou contesta"
+    },
+    {
+      "code": "rights",
+      "name": "Direitos ou crédito"
+    },
+    {
+      "code": "contextualises",
+      "name": "Acrescenta contexto"
+    }
+  ],
+  "fileStatuses": [
+    {
+      "code": "declared",
+      "name": "Declarado"
+    },
+    {
+      "code": "upload-pending",
+      "name": "Aguardar envio"
+    },
+    {
+      "code": "uploaded",
+      "name": "Recebido"
+    },
+    {
+      "code": "scan-pending",
+      "name": "Aguardar verificação"
+    },
+    {
+      "code": "accepted",
+      "name": "Aceite"
+    },
+    {
+      "code": "rejected",
+      "name": "Rejeitado"
+    },
+    {
+      "code": "deleted",
+      "name": "Eliminado"
+    }
+  ],
+  "decisionTypes": [
+    {
+      "code": "accept",
+      "name": "Aceitar"
+    },
+    {
+      "code": "partial",
+      "name": "Aceitar parcialmente"
+    },
+    {
+      "code": "reject",
+      "name": "Não aceitar"
+    },
+    {
+      "code": "request-info",
+      "name": "Solicitar informação"
+    },
+    {
+      "code": "withdraw",
+      "name": "Retirar"
+    },
+    {
+      "code": "incorporate",
+      "name": "Marcar como incorporado"
+    }
+  ],
+  "incorporationDestinations": [
+    {
+      "code": "museum",
+      "name": "Museu de Memórias"
+    },
+    {
+      "code": "proteus",
+      "name": "Experiência Proteus"
+    },
+    {
+      "code": "portal",
+      "name": "Portal público"
+    },
+    {
+      "code": "research",
+      "name": "Investigação"
+    },
+    {
+      "code": "exhibition",
+      "name": "Exposição"
+    },
+    {
+      "code": "archive",
+      "name": "Arquivo interno"
+    }
+  ],
+  "withdrawalStatuses": [
+    {
+      "code": "submitted",
+      "name": "Submetido"
+    },
+    {
+      "code": "under-review",
+      "name": "Em análise"
+    },
+    {
+      "code": "approved",
+      "name": "Aprovado"
+    },
+    {
+      "code": "rejected",
+      "name": "Não aprovado"
+    },
+    {
+      "code": "completed",
+      "name": "Concluído"
+    }
+  ],
+  "consentVersion": "2026-08E-v1",
+  "limits": {
+    "maxFiles": 5,
+    "maxFileSizeBytes": 26214400,
+    "acceptedMimeTypes": [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+      "image/tiff",
+      "application/pdf",
+      "text/plain",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
--- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-24):
+-- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-25):
 -- Os `delete from ...` são reatribuição de funções (collab_member_roles) por membro em RPCs: apagam só as linhas do alvo e reinserem as
 -- novas (set-operation scoped sob RLS/RPC). Não é exclusão massiva, não altera
 -- schema, é reversível e não toca dados canónicos do Museu. Marcador após revisão.

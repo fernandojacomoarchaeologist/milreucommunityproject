@@ -74,3 +74,9 @@ A disponibilidade, as notas de tarefa e os registos de tempo são dados internos
 O modo de demonstração utiliza locais, eventos e datas explicitamente fictícios. Nenhum destes dados deve ser confundido com a agenda real do projeto.
 
 A publicação pública depende de confirmação editorial e operacional. Contactos internos, participantes, notas logísticas e relatórios de condição permanecem restritos.
+
+## Contributos comunitários — Pacote 08E
+
+A pessoa que submete um contributo não transfere automaticamente direitos de autor ou outros direitos ao projeto. A utilização depende do âmbito autorizado, da revisão de direitos, da forma de crédito acordada e da decisão editorial.
+
+Os ficheiros permanecem privados durante a análise. Dados de identificação, contactos, notas internas, pedidos de retirada e decisões não devem ser publicados. O modo de demonstração contém apenas dados fictícios.

@@ -1,118 +1,105 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08D"
+package: "08E"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração — 08D
+# Checklist de integração — 08E
 
 ## Não regressão
 
 - [ ] Portal
 - [ ] Museu
-- [ ] modo imersivo
-- [ ] carrossel da Home
-- [ ] Experiência Proteus
-- [ ] autenticação Google
-- [ ] gestão de membros
-- [ ] tarefas e voluntariado
 - [ ] MM202617
+- [ ] Proteus
+- [ ] Google Auth
+- [ ] membros
+- [ ] tarefas
+- [ ] agenda
+- [ ] exposições
 
-## Agenda
+## Banco
 
-- [ ] lista de próximas atividades
-- [ ] calendário mensal
-- [ ] itinerância
-- [ ] mudança de mês
-- [ ] RSVP interessado
-- [ ] RSVP participante
-- [ ] RSVP não participante
-- [ ] capacidade e lista de espera
-- [ ] privacidade dos participantes
+- [ ] migrations 08E
+- [ ] consentimento ativo
+- [ ] RLS em todas as tabelas
+- [ ] bucket privado
+- [ ] sem insert anon direto
+- [ ] RPC pública apenas service role
+- [ ] tracking limitado
+- [ ] retirada
+- [ ] proposta de incorporação
+- [ ] teste SQL
 
-## Locais
+## Edge Function
 
-- [ ] criar
-- [ ] editar
-- [ ] rascunho
-- [ ] ativo
-- [ ] arquivado
-- [ ] dados públicos
-- [ ] contacto interno
-- [ ] acessibilidade
-- [ ] impedir ID de outro projeto
-
-## Exposições
-
-- [ ] criar
-- [ ] editar
-- [ ] tipo fixa
-- [ ] tipo itinerante
-- [ ] tipo temporária
-- [ ] tipo digital
-- [ ] estado
-- [ ] resumo público
-- [ ] objetivos internos
-
-## Agendamentos
-
-- [ ] associar exposição e local
-- [ ] datas válidas
-- [ ] montagem
-- [ ] desmontagem
-- [ ] bloquear sobreposição da mesma exposição
-- [ ] avisar sobre ocupação simultânea do local
-- [ ] estado da instalação
-- [ ] estado da logística
-- [ ] notas públicas
-- [ ] notas internas
-- [ ] publicar
-- [ ] retirar da publicação
-
-## Logística
-
-- [ ] checklist
-- [ ] prazo
-- [ ] responsável
-- [ ] concluir item
-- [ ] bloquear item
-- [ ] gerar tarefa de montagem
-- [ ] gerar tarefa de desmontagem
-- [ ] tarefas em rascunho
-- [ ] ligação ao agendamento
+- [ ] deploy
+- [ ] RATE_LIMIT_SALT
+- [ ] ALLOWED_ORIGINS
+- [ ] Turnstile opcional
+- [ ] CORS
+- [ ] rate limit
+- [ ] honeypot
+- [ ] upload assinado
+- [ ] confirmação de upload
+- [ ] download assinado
+- [ ] service role apenas no servidor
 
 ## Público
 
-- [ ] `#/exposicoes`
-- [ ] empty state sem datas fictícias
-- [ ] local atual
-- [ ] próximos locais
-- [ ] histórico
-- [ ] atividades públicas
+- [ ] formulário
+- [ ] fotografia
+- [ ] testemunho
+- [ ] correção
+- [ ] documento
+- [ ] referência
+- [ ] direitos
+- [ ] máximo 5 ficheiros
+- [ ] máximo 25 MB
+- [ ] tipos permitidos
+- [ ] código de acompanhamento
+- [ ] acompanhamento com código e e-mail
+- [ ] pedido de retirada
 - [ ] sem notas internas
-- [ ] sem contactos internos
-- [ ] sem relatórios de condição
+- [ ] sem ficheiros públicos
 
-## Supabase
+## Área Colaborativa
 
-- [ ] migrations 08D
-- [ ] RLS
-- [ ] RPCs
-- [ ] constraint de sobreposição
-- [ ] bloqueio entre projetos
-- [ ] lock de capacidade do RSVP
-- [ ] teste SQL 08D
-- [ ] staging
-- [ ] rollback documentado
+- [ ] lista própria
+- [ ] nova submissão
+- [ ] detalhe próprio
+- [ ] fila de moderação
+- [ ] filtros
+- [ ] atribuição
+- [ ] triagem
+- [ ] pedido de informação
+- [ ] decisão
+- [ ] revisão de direitos
+- [ ] ficheiros
+- [ ] proposta de incorporação
+- [ ] retirada
+
+## Segurança e direitos
+
+- [ ] texto revisto pelo DPO
+- [ ] versão do consentimento
+- [ ] preferência de crédito
+- [ ] âmbito autorizado
+- [ ] declaração de legitimidade
+- [ ] não transferência automática
+- [ ] mecanismo de retirada
+- [ ] histórico de auditoria
+- [ ] antivírus ou procedimento técnico definido
 
 ## Qualidade
 
-- [ ] `npm run exhibitions:export`
 - [ ] `npm run validate`
 - [ ] `npm test`
 - [ ] `npm run build`
 - [ ] `npm run smoke`
-- [ ] 1280 px
-- [ ] 768 px
-- [ ] 375 px
+- [ ] Supabase local
+- [ ] staging
+- [ ] desktop
+- [ ] tablet
+- [ ] telemóvel

@@ -7,12 +7,14 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v4";
+const DEMO_KEY="milreu-collaborative-demo-context-v5";
+const PUBLIC_CONTRIBUTION_DEMO_KEY="milreu-public-contributions-demo-v1";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
 function emptyTaskWorkspace(){return{tasks:[],assignments:[],requiredSkills:[],preferences:null,availability:[],timeEntries:[],updates:[]};}
 function emptyExhibitionWorkspace(){return{venues:[],exhibitions:[],schedules:[],events:[],participants:[],checklist:[],conflicts:[]};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyContributionWorkspace(){return{contributions:[],submitters:[],consents:[],files:[],targets:[],assignments:[],events:[],decisions:[],proposals:[],withdrawals:[]};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -43,6 +45,37 @@ function createDemoExhibitionWorkspace(){
     {id:"demo-check-condition",project_id:"demo-project",schedule_id:"demo-schedule-current",category:"condition",title:"Registar estado antes da desmontagem",description:"Item fictício.",status:"pending",assigned_to:null,due_at:daysFromNow(7,18),sort_order:30}
   ];
   return{venues,exhibitions,schedules,events,participants,checklist,conflicts:[]};
+}
+
+
+function createDemoContributionWorkspace(){
+  const now=new Date().toISOString();
+  const submitters=[
+    {id:"demo-submitter-volunteer",project_id:"demo-project",user_id:"demo-volunteer",display_name:"Voluntário de demonstração",email:"voluntario@local.invalid",locality:"Faro",preferred_contact:"email",contact_allowed:true},
+    {id:"demo-submitter-public",project_id:"demo-project",user_id:null,display_name:"Participante de demonstração",email:"participante@local.invalid",locality:"Estoi",preferred_contact:"email",contact_allowed:true},
+    {id:"demo-submitter-correction",project_id:"demo-project",user_id:null,display_name:"Colaborador de demonstração",email:"correcao@local.invalid",locality:"Faro",preferred_contact:"email",contact_allowed:true}
+  ];
+  const contributions=[
+    {id:"demo-contribution-photo",project_id:"demo-project",submitter_id:"demo-submitter-volunteer",submitter_user_id:"demo-volunteer",contribution_type:"photograph",title:"Fotografia familiar de demonstração",summary:"Fotografia fictícia para testar o acompanhamento.",content:"A imagem de demonstração representaria uma visita familiar a Milreu.",historical_context:"Contexto fictício.",place_text:"Milreu",date_text:"Década de demonstração",source_context:"Arquivo familiar fictício.",attribution_preference:"discuss",requested_usage_scope:"review-only",rights_declaration:"Declaração fictícia para avaliação.",status:"submitted",priority:"normal",public_reference:"MILREU-DEMO-001",public_message:"Contributo recebido.",assigned_to:null,submitted_at:now,updated_at:now,trackingCode:"DEMO-PHOTO-001"},
+    {id:"demo-contribution-testimony",project_id:"demo-project",submitter_id:"demo-submitter-public",submitter_user_id:null,contribution_type:"testimony",title:"Memória comunitária de demonstração",summary:"Testemunho fictício.",content:"Relato criado apenas para testar a fila de moderação.",historical_context:null,place_text:"Estoi",date_text:null,source_context:"Memória oral fictícia.",attribution_preference:"anonymous",requested_usage_scope:"digital-project",rights_declaration:"Declaração fictícia.",status:"triage",priority:"normal",public_reference:"MILREU-DEMO-002",public_message:"O contributo está em triagem.",assigned_to:"demo-master",submitted_at:daysFromNow(-2),triaged_at:daysFromNow(-1),updated_at:now,trackingCode:"DEMO-TESTIMONY-002"},
+    {id:"demo-contribution-correction",project_id:"demo-project",submitter_id:"demo-submitter-correction",submitter_user_id:null,contribution_type:"correction",title:"Correção de identificação — demonstração",summary:"Proposta fictícia ligada a MM202603.",content:"A pessoa identificada na legenda deverá ser revista.",historical_context:"Sem prova documental nesta demonstração.",place_text:null,date_text:null,source_context:"Conhecimento local fictício.",attribution_preference:"discuss",requested_usage_scope:"review-only",rights_declaration:"Declaração fictícia.",status:"under-review",priority:"high",public_reference:"MILREU-DEMO-003",public_message:"A informação está em revisão.",assigned_to:"demo-master",submitted_at:daysFromNow(-5),reviewed_at:daysFromNow(-1),updated_at:now,trackingCode:"DEMO-CORRECTION-003"}
+  ];
+  const files=[
+    {id:"demo-file-photo",project_id:"demo-project",contribution_id:"demo-contribution-photo",storage_bucket:"community-contributions-private",storage_path:"demo/private/photo.jpg",original_filename:"fotografia-demonstracao.jpg",mime_type:"image/jpeg",size_bytes:1200000,status:"scan-pending",rights_note:"Ficheiro fictício; não existe no armazenamento.",created_at:now},
+    {id:"demo-file-reference",project_id:"demo-project",contribution_id:"demo-contribution-correction",storage_bucket:"community-contributions-private",storage_path:"demo/private/reference.pdf",original_filename:"referencia-demonstracao.pdf",mime_type:"application/pdf",size_bytes:240000,status:"uploaded",rights_note:"Documento fictício.",created_at:now}
+  ];
+  const targets=[
+    {id:"demo-target-correction",project_id:"demo-project",contribution_id:"demo-contribution-correction",target_type:"museum-memory",target_identifier:"MM202603",relation_type:"corrects",note:"Relação fictícia."}
+  ];
+  const assignments=[
+    {id:"demo-assignment-testimony",project_id:"demo-project",contribution_id:"demo-contribution-testimony",reviewer_user_id:"demo-master",assignment_role:"triage",status:"active",assigned_by:"demo-master",assigned_at:daysFromNow(-1)},
+    {id:"demo-assignment-correction",project_id:"demo-project",contribution_id:"demo-contribution-correction",reviewer_user_id:"demo-master",assignment_role:"reviewer",status:"active",assigned_by:"demo-master",assigned_at:daysFromNow(-1)}
+  ];
+  const events=contributions.map(item=>({id:`demo-event-${item.id}`,project_id:"demo-project",contribution_id:item.id,actor_user_id:item.submitter_user_id,event_type:"contribution.submitted",from_status:null,to_status:"submitted",note:"Contributo submetido.",visible_to_submitter:true,metadata:{},created_at:item.submitted_at}));
+  events.push({id:"demo-event-triage",project_id:"demo-project",contribution_id:"demo-contribution-testimony",actor_user_id:"demo-master",event_type:"contribution.moderated",from_status:"submitted",to_status:"triage",note:"Triagem de demonstração.",visible_to_submitter:false,metadata:{action:"triage"},created_at:daysFromNow(-1)});
+  const consents=contributions.map(item=>({id:`demo-consent-${item.id}`,project_id:"demo-project",contribution_id:item.id,consent_version:"2026-08E-v1",privacy_accepted:true,rights_confirmed:true,project_use_authorised:true,contact_authorised:true,public_attribution_authorised:false,accepted_at:item.submitted_at}));
+  const withdrawals=[{id:"demo-withdrawal",project_id:"demo-project",contribution_id:"demo-contribution-photo",public_reference:"MILREU-DEMO-001",requester_user_id:"demo-volunteer",requester_name:"Voluntário de demonstração",requester_email:"voluntario@local.invalid",reason:"Pedido fictício para avaliar o fluxo.",status:"submitted",submitted_at:now}];
+  return{contributions,submitters,consents,files,targets,assignments,events,decisions:[],proposals:[],withdrawals};
 }
 
 function createDemoTaskWorkspace(){
@@ -83,7 +116,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -92,7 +125,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),tasks:[],exhibitions:[],error:null});}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),tasks:[],exhibitions:[],error:null});}
 
   async loadRemoteContext(session){
     this.state.session={user:{id:session.user.id,email:session.user.email,user_metadata:session.user.user_metadata||{}}};this.state.authenticated=true;
@@ -103,6 +136,12 @@ class CollaborativeController{
     if(hasPermission(this.state,"memberships.view")||hasPermission(this.state,"memberships.manage"))await this.loadRemoteManagement();
     if(hasPermission(this.state,"tasks.view")||hasPermission(this.state,"tasks.manage"))await this.loadRemoteTasks();
     if(hasPermission(this.state,"agenda.view"))await this.loadRemoteExhibitions();
+    if(
+      hasPermission(this.state,"contributions.view-own")
+      ||hasPermission(this.state,"contributions.submit")
+      ||hasPermission(this.state,"contributions.view-all")
+      ||hasPermission(this.state,"contributions.moderate")
+    )await this.loadRemoteContributions();
   }
 
   async loadRemoteOwnPreferences(){
@@ -168,13 +207,44 @@ class CollaborativeController{
     this.state.exhibitions=this.state.exhibitionWorkspace.schedules;
   }
 
+
+  async loadRemoteContributions(){
+    const jobs=[
+      this.client.from("collab_contributions").select("*").order("submitted_at",{ascending:false}),
+      this.client.from("collab_contribution_submitters").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_contribution_consents").select("*").order("accepted_at",{ascending:false}),
+      this.client.from("collab_contribution_files").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_contribution_targets").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_contribution_assignments").select("*").order("assigned_at",{ascending:false}),
+      this.client.from("collab_contribution_events").select("*").order("created_at",{ascending:false}).limit(800),
+      this.client.from("collab_contribution_decisions").select("*").order("decided_at",{ascending:false}),
+      this.client.from("collab_contribution_incorporation_proposals").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_withdrawal_requests").select("*").order("submitted_at",{ascending:false})
+    ];
+    const[contributions,submitters,consents,files,targets,assignments,events,decisions,proposals,withdrawals]=await Promise.all(jobs);
+    const error=[contributions,submitters,consents,files,targets,assignments,events,decisions,proposals,withdrawals].find(item=>item.error)?.error;
+    if(error){this.state.error=error.message;return;}
+    this.state.contributionWorkspace={
+      contributions:contributions.data||[],
+      submitters:submitters.data||[],
+      consents:consents.data||[],
+      files:files.data||[],
+      targets:targets.data||[],
+      assignments:assignments.data||[],
+      events:events.data||[],
+      decisions:decisions.data||[],
+      proposals:proposals.data||[],
+      withdrawals:withdrawals.data||[]
+    };
+  }
+
   loadDemoContext(){const stored=localStorage.getItem(DEMO_KEY);if(stored){try{this.applyDemoContext(JSON.parse(stored));return;}catch{localStorage.removeItem(DEMO_KEY);}}}
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
   async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
@@ -182,9 +252,9 @@ class CollaborativeController{
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -218,6 +288,117 @@ class CollaborativeController{
   async withdrawTask(taskId,note=""){if(this.config.mode==="demo"){this.demoWorkspaceUpdate(workspace=>{const assignment=workspace.assignments.find(x=>x.task_id===taskId&&x.user_id===this.state.session.user.id&&!['completed','withdrawn','cancelled'].includes(x.status));if(!assignment)throw new Error("Participação não pode ser retirada.");assignment.status="withdrawn";assignment.withdrawn_at=new Date().toISOString();assignment.completion_note=note;this.addDemoTaskUpdate(workspace,taskId,"withdrawn",note);});return;}const{error}=await this.client.rpc("collab_withdraw_task_08c",{p_task_id:taskId,p_note:note||null});if(error)throw error;await this.refreshTasks();}
   async logTaskTime(taskId,activityDate,minutes,note=""){if(this.config.mode==="demo"){this.demoWorkspaceUpdate(workspace=>{workspace.timeEntries.unshift({id:`demo-time-${Date.now()}`,project_id:"demo-project",task_id:taskId,user_id:this.state.session.user.id,activity_date:activityDate,minutes:Number(minutes),note,status:"pending",created_at:new Date().toISOString()});this.addDemoTaskUpdate(workspace,taskId,"time-log",note,{minutes:Number(minutes)});});return;}const{error}=await this.client.rpc("collab_log_task_time_08c",{p_task_id:taskId,p_activity_date:activityDate,p_minutes:Number(minutes),p_note:note||null});if(error)throw error;await this.refreshTasks();}
 
+
+
+  demoContributionUpdate(mutator){const contributionWorkspace=structuredClone(this.state.contributionWorkspace);mutator(contributionWorkspace);this.persistDemo({contributionWorkspace});}
+  async refreshContributions(){if(this.config.mode==="supabase"){await this.loadRemoteContributions();this.emit();}}
+
+  demoPublicContributions(){
+    try{return JSON.parse(localStorage.getItem(PUBLIC_CONTRIBUTION_DEMO_KEY)||"[]");}
+    catch{return[];}
+  }
+
+  saveDemoPublicContributions(items){
+    localStorage.setItem(PUBLIC_CONTRIBUTION_DEMO_KEY,JSON.stringify(items));
+  }
+
+  async invokeContributionFunction(body){
+    if(this.config.mode!=="supabase"||!this.client)throw new Error("A infraestrutura remota de contributos ainda não está configurada.");
+    const{data,error}=await this.client.functions.invoke(this.config.contributions?.functionName||"community-contribution-intake",{body});
+    if(error)throw error;
+    if(!data?.ok)throw new Error(data?.error||"contribution_function_failed");
+    return data.data;
+  }
+
+  async submitContribution(payload,files=[]){
+    const metadata=files.map(file=>({name:file.name,mimeType:file.type||"application/octet-stream",sizeBytes:file.size,rightsNote:payload.fileRightsNote||null}));
+    const contributionPayload={...payload,files:metadata,language:"pt-PT"};
+    if(this.config.mode==="demo"){
+      const trackingCode=`DEMO-${crypto.randomUUID().replaceAll("-","").slice(0,16).toUpperCase()}`;
+      const publicReference=`MILREU-DEMO-${String(Date.now()).slice(-8)}`;
+      const id=`demo-public-contribution-${Date.now()}`;
+      const row={id,project_id:"demo-project",submitter_id:`demo-submitter-${Date.now()}`,submitter_user_id:this.state.authenticated?this.state.session?.user?.id:null,contribution_type:payload.contributionType,title:payload.title,summary:payload.summary||null,content:payload.content,historical_context:payload.historicalContext||null,place_text:payload.placeText||null,date_text:payload.dateText||null,source_context:payload.sourceContext||null,attribution_preference:payload.attributionPreference||"discuss",requested_usage_scope:payload.requestedUsageScope||"review-only",rights_declaration:payload.rightsDeclaration,status:"submitted",priority:"normal",public_reference:publicReference,public_message:"Contributo recebido. Será analisado pela equipa do projeto.",assigned_to:null,submitted_at:new Date().toISOString(),updated_at:new Date().toISOString(),trackingCode};
+      const submitter={id:row.submitter_id,project_id:"demo-project",user_id:row.submitter_user_id,display_name:payload.displayName,email:String(payload.email||"").toLowerCase(),phone:payload.phone||null,locality:payload.locality||null,preferred_contact:payload.preferredContact||"email",contact_allowed:Boolean(payload.contactAllowed)};
+      const fileRows=metadata.map((file,index)=>({id:`demo-file-${Date.now()}-${index}`,project_id:"demo-project",contribution_id:id,storage_bucket:"community-contributions-private",storage_path:`demo/private/${file.name}`,original_filename:file.name,mime_type:file.mimeType,size_bytes:file.sizeBytes,status:"declared",rights_note:file.rightsNote,created_at:new Date().toISOString()}));
+      if(this.state.authenticated){
+        this.demoContributionUpdate(workspace=>{workspace.contributions.unshift(row);workspace.submitters.unshift(submitter);workspace.files.unshift(...fileRows);workspace.consents.unshift({id:`demo-consent-${id}`,project_id:"demo-project",contribution_id:id,consent_version:"2026-08E-v1",privacy_accepted:true,rights_confirmed:true,project_use_authorised:true,contact_authorised:Boolean(payload.contactAllowed),public_attribution_authorised:Boolean(payload.publicAttributionAuthorised),accepted_at:new Date().toISOString()});workspace.events.unshift({id:`demo-event-${id}`,project_id:"demo-project",contribution_id:id,actor_user_id:row.submitter_user_id,event_type:"contribution.submitted",to_status:"submitted",note:"Contributo submetido.",visible_to_submitter:true,metadata:{},created_at:new Date().toISOString()});});
+      }else{
+        const items=this.demoPublicContributions();items.unshift({row,submitter,files:fileRows,withdrawal:null});this.saveDemoPublicContributions(items);
+      }
+      return{contributionId:id,publicReference,trackingCode,status:"submitted",uploads:[]};
+    }
+
+    const result=await this.invokeContributionFunction({action:"submit",payload:contributionPayload,website:payload.website||"",turnstileToken:payload.turnstileToken||null});
+    for(let index=0;index<(result.uploads||[]).length;index++){
+      const upload=result.uploads[index],file=files[index];
+      if(!file)continue;
+      const{error}=await this.client.storage.from("community-contributions-private").uploadToSignedUrl(upload.path,upload.token,file,{contentType:file.type||upload.mimeType});
+      if(error)throw error;
+      await this.invokeContributionFunction({action:"complete-file",fileId:upload.fileId,trackingCode:result.trackingCode,email:payload.email,sha256:null});
+    }
+    if(this.state.authenticated)await this.refreshContributions();
+    return result;
+  }
+
+  async trackContribution(trackingCode,email){
+    if(this.config.mode==="demo"){
+      const all=[...this.demoPublicContributions().map(item=>({...item.row,email:item.submitter.email})),...this.state.contributionWorkspace.contributions.map(row=>({...row,email:this.state.contributionWorkspace.submitters.find(item=>item.id===row.submitter_id)?.email}))];
+      const row=all.find(item=>item.trackingCode===trackingCode&&String(item.email||"").toLowerCase()===String(email||"").toLowerCase());
+      if(!row)throw new Error("Código ou e-mail não encontrado.");
+      const withdrawal=this.state.contributionWorkspace.withdrawals.find(item=>item.contribution_id===row.id)||this.demoPublicContributions().find(item=>item.row.id===row.id)?.withdrawal;
+      return{publicReference:row.public_reference,contributionType:row.contribution_type,title:row.title,status:row.status,publicMessage:row.public_message,submittedAt:row.submitted_at,updatedAt:row.updated_at,withdrawalStatus:withdrawal?.status||null};
+    }
+    return this.invokeContributionFunction({action:"track",trackingCode,email});
+  }
+
+  async requestContributionWithdrawal(values){
+    if(this.config.mode==="demo"){
+      const publicItems=this.demoPublicContributions(),publicItem=publicItems.find(item=>item.row.trackingCode===values.trackingCode&&item.submitter.email===String(values.email).toLowerCase());
+      if(publicItem){publicItem.withdrawal={id:`demo-withdrawal-${Date.now()}`,contribution_id:publicItem.row.id,public_reference:publicItem.row.public_reference,requester_name:values.name,requester_email:values.email,status:"submitted",reason:values.reason,submitted_at:new Date().toISOString()};this.saveDemoPublicContributions(publicItems);return publicItem.withdrawal;}
+      const row=this.state.contributionWorkspace.contributions.find(item=>item.trackingCode===values.trackingCode);
+      const submitter=this.state.contributionWorkspace.submitters.find(item=>item.id===row?.submitter_id);
+      if(!row||submitter?.email!==String(values.email).toLowerCase())throw new Error("Código ou e-mail não encontrado.");
+      const request={id:`demo-withdrawal-${Date.now()}`,project_id:"demo-project",contribution_id:row.id,public_reference:row.public_reference,requester_user_id:this.state.session?.user?.id||null,requester_name:values.name,requester_email:values.email,status:"submitted",reason:values.reason,submitted_at:new Date().toISOString()};
+      this.demoContributionUpdate(workspace=>workspace.withdrawals.unshift(request));return request;
+    }
+    return this.invokeContributionFunction({action:"withdraw",...values});
+  }
+
+  async assignContribution(contributionId,reviewerUserId,assignmentRole="reviewer",note=""){
+    if(!hasPermission(this.state,"contributions.assign"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoContributionUpdate(workspace=>{workspace.assignments.unshift({id:`demo-assignment-${Date.now()}`,project_id:"demo-project",contribution_id:contributionId,reviewer_user_id:reviewerUserId,assignment_role:assignmentRole,status:"active",assigned_by:this.state.session.user.id,assigned_at:new Date().toISOString()});const row=workspace.contributions.find(item=>item.id===contributionId);if(row){row.assigned_to=reviewerUserId;if(row.status==="submitted")row.status="triage";row.updated_at=new Date().toISOString();}});return;}
+    const{error}=await this.client.rpc("collab_assign_contribution_08e",{p_contribution_id:contributionId,p_reviewer_user_id:reviewerUserId,p_assignment_role:assignmentRole,p_note:note||null});if(error)throw error;await this.refreshContributions();
+  }
+
+  async moderateContribution(contributionId,action,rationale,publicMessage=""){
+    if(!hasPermission(this.state,"contributions.moderate")&&!hasPermission(this.state,"contributions.decide"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){const mapping={triage:"triage",review:"under-review","request-info":"needs-info",accept:"accepted",partial:"partially-accepted",reject:"rejected",withdraw:"withdrawn",incorporate:"incorporated",archive:"archived"};this.demoContributionUpdate(workspace=>{const row=workspace.contributions.find(item=>item.id===contributionId);if(!row)throw new Error("Contributo não encontrado.");const previous=row.status;row.status=mapping[action]||row.status;row.public_message=publicMessage||row.public_message;row.updated_at=new Date().toISOString();workspace.events.unshift({id:`demo-event-${Date.now()}`,project_id:"demo-project",contribution_id:contributionId,actor_user_id:this.state.session.user.id,event_type:"contribution.moderated",from_status:previous,to_status:row.status,note:rationale,visible_to_submitter:["request-info","accept","partial","reject","withdraw","incorporate"].includes(action),metadata:{action,publicMessage},created_at:new Date().toISOString()});if(["accept","partial","reject","request-info","withdraw","incorporate"].includes(action))workspace.decisions.unshift({id:`demo-decision-${Date.now()}`,project_id:"demo-project",contribution_id:contributionId,decision_type:action,rationale,public_message:publicMessage,decided_by:this.state.session.user.id,decided_at:new Date().toISOString()});});return;}
+    const{error}=await this.client.rpc("collab_moderate_contribution_08e",{p_contribution_id:contributionId,p_action:action,p_rationale:rationale,p_public_message:publicMessage||null});if(error)throw error;await this.refreshContributions();
+  }
+
+  async createIncorporationProposal(contributionId,destination,targetIdentifier,summary){
+    if(!hasPermission(this.state,"contributions.review"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoContributionUpdate(workspace=>workspace.proposals.unshift({id:`demo-proposal-${Date.now()}`,project_id:"demo-project",contribution_id:contributionId,destination,target_identifier:targetIdentifier||null,proposal_summary:summary,status:"pending",proposed_by:this.state.session.user.id,created_at:new Date().toISOString()}));return;}
+    const{error}=await this.client.rpc("collab_create_incorporation_proposal_08e",{p_contribution_id:contributionId,p_destination:destination,p_target_identifier:targetIdentifier||null,p_summary:summary});if(error)throw error;await this.refreshContributions();
+  }
+
+  async reviewContributionFile(fileId,status,note=""){
+    if(!hasPermission(this.state,"contributions.files.review"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoContributionUpdate(workspace=>{const file=workspace.files.find(item=>item.id===fileId);if(!file)throw new Error("Ficheiro não encontrado.");file.status=status;file.technical_note=note;file.reviewed_at=new Date().toISOString();file.reviewed_by=this.state.session.user.id;});return;}
+    const{error}=await this.client.rpc("collab_review_contribution_file_08e",{p_file_id:fileId,p_status:status,p_note:note||null});if(error)throw error;await this.refreshContributions();
+  }
+
+
+  async resolveWithdrawal(requestId,status,note=""){
+    if(!hasPermission(this.state,"withdrawals.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){this.demoContributionUpdate(workspace=>{const request=workspace.withdrawals.find(item=>item.id===requestId);if(!request)throw new Error("Pedido não encontrado.");request.status=status;request.reviewer_note=note;request.reviewed_by=this.state.session.user.id;request.reviewed_at=new Date().toISOString();if(status==="completed")request.completed_at=new Date().toISOString();if(["approved","completed"].includes(status)){const row=workspace.contributions.find(item=>item.id===request.contribution_id);if(row){row.status="withdrawn";row.public_message="O pedido de retirada foi aprovado.";row.withdrawn_at=new Date().toISOString();row.updated_at=new Date().toISOString();}}});return;}
+    const{error}=await this.client.rpc("collab_resolve_withdrawal_request_08e",{p_request_id:requestId,p_status:status,p_note:note||null});if(error)throw error;await this.refreshContributions();
+  }
+
+  async getContributionFileLink(fileId){
+    if(this.config.mode==="demo")throw new Error("O modo de demonstração não contém ficheiros reais.");
+    return this.invokeContributionFunction({action:"file-link",fileId});
+  }
 
   demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}
   async refreshExhibitions(){if(this.config.mode==="supabase"){await this.loadRemoteExhibitions();this.emit();}}

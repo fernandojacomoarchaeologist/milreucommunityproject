@@ -273,7 +273,11 @@ export function participateView(content, lang) {
       <div class="participation-grid">
         ${content.participation.methods.map(item => `<article><img src="${assetUrl("public/icons/community.svg")}" alt=""><h2>${esc(localised(item.title,lang).value)}</h2><p>${esc(localised(item.description,lang).value)}</p></article>`).join("")}
       </div>
-      <div class="pending-contact" role="status"><strong>${text(lang,"contactPending")}</strong><p>Não foi criado um endereço fictício nem um formulário sem infraestrutura de moderação.</p></div>
+      <section class="participation-contribution-cta">
+        <div><span>Contributos comunitários</span><h2>Partilhe uma fotografia, memória, documento ou correção</h2><p>O material será recebido em área privada, sujeito a triagem, direitos, consentimento e revisão antes de qualquer utilização.</p></div>
+        <div class="participation-contribution-actions"><a class="ml-button ml-button--primary" href="#/participar/contribuir">Partilhar contributo</a><a class="ml-button ml-button--secondary" href="#/participar/contribuir/acompanhar">Acompanhar submissão</a><a href="#/participar/retirada">Pedir correção ou retirada</a></div>
+      </section>
+      <div class="pending-contact" role="status"><strong>Contacto público geral ainda por definir</strong><p>Os formulários acima destinam-se exclusivamente a contributos, acompanhamento e retirada. Não substituem um contacto institucional geral do projeto.</p></div>
     </section>
   </main>${footer(lang)}`;
 }

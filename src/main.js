@@ -37,6 +37,13 @@ import {
   collaborativeAgendaEventEditorView
 } from "./views/collaborative-exhibitions.js";
 import { publicExhibitionsView } from "./views/exhibitions-public.js";
+import {
+  collaborativeContributionsView, collaborativeContributionNewView,
+  collaborativeContributionDetailView, collaborativeContributionModerationView
+} from "./views/collaborative-contributions.js";
+import {
+  publicContributionFormView, publicContributionTrackingView, publicWithdrawalView
+} from "./views/contributions-public.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -54,6 +61,10 @@ const state = {
   collab: {ready:false,authenticated:false,mode:"demo"},
   collabTaskFilters: {query:"",category:"",location:""},
   collabAgendaFilters: {view:"list",month:""},
+  collabContributionFilters: {query:"",status:"",type:"",assignee:""},
+  contributionSubmissionResult: null,
+  contributionTrackingResult: null,
+  contributionWithdrawalResult: null,
   lang: localStorage.getItem("milreu-language") || "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
@@ -160,6 +171,52 @@ function setCollaborativeFeedback(message,isError=false) {
   target.dataset.error=String(Boolean(isError));
 }
 
+
+function setPublicContributionFeedback(message,isError=false) {
+  const target=document.querySelector("[data-public-contribution-feedback]");
+  if(!target)return;
+  target.textContent=message;
+  target.dataset.error=String(Boolean(isError));
+}
+
+function contributionFormPayload(form) {
+  const values=formValues(form);
+  const bool=name=>Boolean(form.elements[name]?.checked);
+  const payload={
+    contributionType:values.contributionType,
+    title:values.title?.trim(),
+    summary:values.summary?.trim()||null,
+    content:values.content?.trim(),
+    historicalContext:values.historicalContext?.trim()||null,
+    placeText:values.placeText?.trim()||null,
+    dateText:values.dateText?.trim()||null,
+    sourceContext:values.sourceContext?.trim()||null,
+    displayName:values.displayName?.trim(),
+    email:values.email?.trim().toLowerCase(),
+    phone:values.phone?.trim()||null,
+    locality:values.locality?.trim()||null,
+    preferredContact:values.preferredContact||"email",
+    attributionPreference:values.attributionPreference||"discuss",
+    requestedUsageScope:values.requestedUsageScope||"review-only",
+    rightsDeclaration:values.rightsDeclaration?.trim(),
+    fileRightsNote:values.fileRightsNote?.trim()||null,
+    privacyAccepted:bool("privacyAccepted"),
+    rightsConfirmed:bool("rightsConfirmed"),
+    projectUseAuthorised:bool("projectUseAuthorised"),
+    contactAllowed:bool("contactAllowed"),
+    publicAttributionAuthorised:bool("publicAttributionAuthorised"),
+    website:values.website||"",
+    target:{
+      targetType:values.targetType||"general",
+      targetIdentifier:values.targetIdentifier?.trim()||null,
+      relationType:values.relationType||"supports",
+      note:values.targetNote?.trim()||null
+    }
+  };
+  const files=[...(form.elements.files?.files||[])];
+  return{payload,files};
+}
+
 function formValues(form) {
   const data=new FormData(form);
   return Object.fromEntries(data.entries());
@@ -201,7 +258,15 @@ function renderCollaborativeRoute(route) {
     case "collab-availability":
       return collaborativeAvailabilityView(context);
     case "collab-contributions":
-      return collaborativeSkeletonView(context,"contributions");
+      return collaborativeContributionsView(context);
+    case "collab-contribution-new":
+      return collaborativeContributionNewView(context);
+    case "collab-contribution-detail":
+      return collaborativeContributionDetailView(context,route.contributionId,false);
+    case "collab-contribution-moderation":
+      return collaborativeContributionModerationView(context,{...state.collabContributionFilters,...(route.query||{})});
+    case "collab-contribution-moderation-detail":
+      return collaborativeContributionDetailView(context,route.contributionId,true);
     case "collab-agenda":
       return collaborativeAgendaView(context,{...state.collabAgendaFilters,...(route.query||{})});
     case "collab-library":
@@ -536,6 +601,123 @@ function bindPage() {
     }catch(error){alert(error.message);}finally{button.disabled=false;}
   }));
 
+
+  for(const form of document.querySelectorAll("[data-public-contribution-form],[data-member-contribution-form]")){
+    form.addEventListener("submit",async event=>{
+      event.preventDefault();
+      const publicForm=form.hasAttribute("data-public-contribution-form");
+      const feedback=publicForm?setPublicContributionFeedback:setCollaborativeFeedback;
+      const{payload,files}=contributionFormPayload(form);
+      if(files.length>(state.collab.contributionModel?.limits?.maxFiles||5)){
+        feedback("O número máximo de ficheiros foi ultrapassado.",true);return;
+      }
+      feedback("A submeter o contributo e preparar os ficheiros…");
+      try{
+        const result=await collaborative.submitContribution(payload,files);
+        if(publicForm){
+          state.contributionSubmissionResult=result;
+          render(false);
+        }else{
+          go(`/area-colaborativa/contributos/${result.contributionId}`);
+        }
+      }catch(error){feedback(error.message,true);}
+    });
+  }
+
+  document.querySelector("[data-public-contribution-track-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const values=formValues(event.currentTarget);
+    setPublicContributionFeedback("A consultar…");
+    try{
+      state.contributionTrackingResult=await collaborative.trackContribution(values.trackingCode?.trim(),values.email?.trim());
+      render(false);
+    }catch(error){state.contributionTrackingResult=null;setPublicContributionFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-public-withdrawal-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const values=formValues(event.currentTarget);
+    setPublicContributionFeedback("A enviar o pedido…");
+    try{
+      state.contributionWithdrawalResult=await collaborative.requestContributionWithdrawal({
+        trackingCode:values.trackingCode?.trim(),
+        email:values.email?.trim().toLowerCase(),
+        name:values.name?.trim(),
+        reason:values.reason?.trim(),
+        turnstileToken:null
+      });
+      render(false);
+    }catch(error){setPublicContributionFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-contribution-moderation-filters]")?.addEventListener("submit",event=>{
+    event.preventDefault();
+    const values=formValues(event.currentTarget);
+    state.collabContributionFilters={
+      query:values.query||"",
+      status:values.status||"",
+      type:values.type||"",
+      assignee:values.assignee||""
+    };
+    const query=new URLSearchParams(Object.entries(state.collabContributionFilters).filter(([,value])=>value));
+    go(`/area-colaborativa/gestao/contributos${query.toString()?`?${query}`:""}`);
+  });
+
+  document.querySelector("[data-contribution-assignment-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    setCollaborativeFeedback("A atribuir…");
+    try{
+      await collaborative.assignContribution(form.dataset.contributionId,values.reviewerUserId,values.assignmentRole,values.note||"");
+      setCollaborativeFeedback("Atribuição guardada.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-contribution-moderation-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    setCollaborativeFeedback("A registar a ação…");
+    try{
+      await collaborative.moderateContribution(form.dataset.contributionId,values.action,values.rationale,values.publicMessage||"");
+      setCollaborativeFeedback("Ação registada.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-incorporation-proposal-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget,values=formValues(form);
+    setCollaborativeFeedback("A criar proposta…");
+    try{
+      await collaborative.createIncorporationProposal(form.dataset.contributionId,values.destination,values.targetIdentifier||"",values.summary);
+      setCollaborativeFeedback("Proposta criada. O conteúdo canónico não foi alterado.");
+      form.reset();
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-contribution-file-link]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      const result=await collaborative.getContributionFileLink(button.dataset.contributionFileLink);
+      window.open(result.url,"_blank","noopener,noreferrer");
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-contribution-file-review]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      const note=prompt("Nota técnica opcional:")||"";
+      await collaborative.reviewContributionFile(button.dataset.fileId,button.dataset.contributionFileReview,note);
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-withdrawal-resolve]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{
+      const note=prompt("Registe a fundamentação desta decisão:")||"";
+      await collaborative.resolveWithdrawal(button.dataset.requestId,button.dataset.withdrawalResolve,note);
+    }catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
   const form = document.querySelector("[data-filters]");
   if (form) {
     form.addEventListener("input", () => {
@@ -674,6 +856,10 @@ function render(scroll=true) {
     case "collab-task-detail":
     case "collab-availability":
     case "collab-contributions":
+    case "collab-contribution-new":
+    case "collab-contribution-detail":
+    case "collab-contribution-moderation":
+    case "collab-contribution-moderation-detail":
     case "collab-agenda":
     case "collab-library":
     case "collab-training":
@@ -706,6 +892,9 @@ function render(scroll=true) {
     case "initiative": html = initiativeDetailView(findInitiative(state.portal,route.slug),state.lang); setMetadata(route.slug); break;
     case "knowledge": html = knowledgeView(state.portal,state.lang); setMetadata(text(state.lang,"knowledge")); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
+    case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
+    case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
+    case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;

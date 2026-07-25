@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "modules": [
     {
       "code": "dashboard",
@@ -42,9 +42,9 @@
       "code": "contributions",
       "name": "Contributos",
       "route": "/area-colaborativa/contributos",
-      "status": "skeleton",
+      "status": "active",
       "permission": "contributions.view-own",
-      "description": "Fotografias, memórias, correções, referências e documentos submetidos.",
+      "description": "Submeter e acompanhar fotografias, testemunhos, correções, documentos e referências.",
       "sortOrder": 40
     },
     {
@@ -109,6 +109,15 @@
       "permission": "memberships.manage",
       "sortOrder": 95,
       "description": "Pré-autorizar um e-mail Google com perfil e funções, sem enviar mensagem automaticamente."
+    },
+    {
+      "code": "contribution-moderation",
+      "name": "Moderação de contributos",
+      "route": "/area-colaborativa/gestao/contributos",
+      "status": "active",
+      "permission": "contributions.moderate",
+      "description": "Triagem, atribuição, revisão, direitos, decisões e encaminhamento editorial.",
+      "sortOrder": 95
     },
     {
       "code": "venue-management",

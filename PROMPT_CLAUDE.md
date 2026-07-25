@@ -1,47 +1,44 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08D"
+package: "08E"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08D
+# Prompt de integração — Pacote 08E
 
-Integra cumulativamente o Pacote 08D sobre o 08C.
+Integra cumulativamente o 08E sobre o 08D.
 
 ## Objetivo
 
-Ativar agenda, locais, exposições e itinerância sem regressão do Portal, Museu, Proteus ou módulos colaborativos anteriores.
+Ativar contributos comunitários e moderação sem publicar automaticamente conteúdo, ficheiros ou dados pessoais.
 
 ## Preservar
 
-- autenticação Google e RLS;
-- gestão de membros;
-- voluntariado e tarefas;
 - Portal e Museu;
 - MM202617 em revisão;
-- gates de publicação;
-- separação entre dados públicos e internos.
+- Proteus;
+- autenticação Google;
+- membros;
+- tarefas;
+- agenda e exposições;
+- RLS;
+- gates de lançamento;
+- separação entre público e interno.
 
 ## Integrar
 
-1. Mesclar as três migrations 08D.
-2. Preservar migrations anteriores.
-3. Integrar:
-   - modelo de exposições;
-   - snapshot público;
-   - controller;
-   - rotas;
-   - views;
-   - estilos;
-   - exportador;
-   - workflows;
-   - testes.
-4. Executar:
+1. Mesclar as três migrations 08E.
+2. Integrar a Edge Function `community-contribution-intake`.
+3. Integrar modelo, rotas, views, controller, estilos, testes e workflows.
+4. Preservar o bucket como privado.
+5. Configurar secrets apenas no ambiente Supabase.
+6. Executar:
 
 ```bash
 npm ci
 npm run collab:config
+npm run contributions:demo-export
 npm run exhibitions:export
 npm run channels:export
 npm run museum:index
@@ -52,51 +49,59 @@ npm run build
 npm run smoke
 ```
 
-5. Executar o workflow ou os testes SQL em Supabase local.
-6. Testar os perfis:
-   - master;
-   - coordenador;
-   - voluntário;
-   - observador;
-   - utilizador pendente.
+7. Executar os testes SQL cumulativos.
+8. Testar a Edge Function em staging.
 
-## Regras funcionais
+## Regras
 
-- uma exposição é separada dos seus períodos;
-- uma passagem por um local é um agendamento;
-- a mesma exposição não pode ter períodos sobrepostos;
-- conflito do mesmo local entre exposições diferentes gera aviso;
-- só períodos confirmados, instalados, abertos ou encerrados podem ser publicados;
-- tarefas logísticas são geradas em rascunho;
-- RSVP não expõe a lista de participantes ao público;
-- não inventar locais, datas, contactos ou horários.
+- visitante não consulta tabelas diretamente;
+- anon não recebe permissão de insert nas tabelas;
+- entrada pública passa pela Edge Function;
+- ficheiros permanecem privados;
+- URLs de upload e download expiram;
+- service role existe apenas na Edge Function;
+- notas internas não são devolvidas no acompanhamento;
+- nomes de participantes não são publicados;
+- contribuição aceite gera proposta, não alteração canónica;
+- retirada mantém histórico de auditoria;
+- não declarar ficheiro como seguro apenas por ter sido recebido.
 
-## Segurança
+## Testes manuais
 
-- não usar `service_role` no browser ou no exportador;
-- manter RLS;
-- manter funções `security definer` com validação de projeto e permissão;
-- preservar a separação entre contacto interno e público;
-- não exportar notas internas, transporte ou relatórios de condição.
+### Público
 
-## Revisão manual
+- texto sem ficheiro;
+- fotografia;
+- cinco ficheiros;
+- ficheiro acima do limite;
+- tipo não permitido;
+- honeypot;
+- limite de pedidos;
+- acompanhamento correto;
+- acompanhamento com e-mail incorreto;
+- retirada;
+- código inválido.
 
-Testar:
+### Membro
 
-- lista da agenda;
-- calendário mensal;
-- itinerância;
-- RSVP;
-- criação e edição de locais;
-- criação e edição de exposições;
-- agendamento;
-- conflito bloqueante da mesma exposição;
-- aviso do mesmo local;
-- publicação e retirada;
-- checklist;
-- geração de tarefas;
-- página pública vazia;
-- página pública com snapshot de staging;
-- desktop, tablet e telemóvel.
+- submissão autenticada;
+- acompanhamento;
+- ficheiros próprios;
+- isolamento entre membros.
+
+### Moderação
+
+- triagem;
+- atribuição;
+- pedido de informação;
+- revisão de direitos;
+- aceitação parcial;
+- recusa;
+- proposta Museu;
+- proposta Proteus;
+- retirada;
+- ficheiro aceite e rejeitado;
+- URL temporária;
+- ausência de atualização canónica.
 
 Não publicar automaticamente o projeto.

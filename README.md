@@ -1,166 +1,158 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08D"
+package: "08E"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08D — Agenda, Locais e Exposição Itinerante
+# Pacote 08E — Contributos Comunitários e Moderação
 
-**Versão:** 0.15.0  
-**Base cumulativa:** Pacote 08C.
+**Versão:** 0.16.0  
+**Base cumulativa:** Pacote 08D.
 
-Este pacote transforma os esqueletos de agenda e exposições em módulos funcionais da Área Colaborativa.
+Este pacote ativa a recolha estruturada de fotografias, testemunhos, correções, documentos, referências e questões de direitos.
 
-## Executar em demonstração
+## Rotas públicas
+
+```text
+#/participar/contribuir
+#/participar/contribuir/acompanhar
+#/participar/retirada
+```
+
+## Rotas da Área Colaborativa
+
+```text
+#/area-colaborativa/contributos
+#/area-colaborativa/contributos/novo
+#/area-colaborativa/contributos/:id
+#/area-colaborativa/gestao/contributos
+#/area-colaborativa/gestao/contributos/:id
+```
+
+## Tipos de contributo
+
+- fotografia;
+- testemunho ou memória;
+- correção;
+- documento;
+- referência;
+- direitos ou crédito;
+- outro.
+
+## Fluxo
+
+```text
+submitted
+→ triage
+→ under-review
+→ accepted | partially-accepted | rejected
+→ incorporation proposal
+→ incorporated
+```
+
+Também existem:
+
+- `needs-info`;
+- `withdrawn`;
+- `archived`.
+
+## Ficheiros
+
+Os ficheiros são guardados num bucket privado:
+
+```text
+community-contributions-private
+```
+
+O acesso ocorre por URLs temporárias assinadas. O frontend nunca recebe `service_role`.
+
+Estados de ficheiro:
+
+```text
+upload-pending
+→ scan-pending
+→ accepted | rejected | deleted
+```
+
+O pacote não inclui motor antivírus. `scan-pending` indica que a verificação técnica continua pendente.
+
+## Consentimento e direitos
+
+Cada submissão regista:
+
+- versão do consentimento;
+- aceitação de privacidade;
+- declaração de legitimidade;
+- âmbito inicialmente autorizado;
+- preferência de crédito;
+- autorização de contacto;
+- autorização de atribuição pública.
+
+A submissão:
+
+- não transfere automaticamente direitos;
+- não garante publicação;
+- não altera conteúdo canónico;
+- pode receber pedido de informação;
+- pode ser objeto de correção ou retirada.
+
+## Edge Function
+
+A entrada pública utiliza:
+
+```text
+supabase/functions/community-contribution-intake
+```
+
+A função suporta:
+
+- submissão;
+- URLs assinadas para upload;
+- confirmação de upload;
+- acompanhamento;
+- retirada;
+- URL temporária para ficheiros autorizados.
+
+## Configuração
+
+```bash
+supabase secrets set   RATE_LIMIT_SALT="..."   ALLOWED_ORIGINS="http://localhost:4173,https://dominio-publico"
+```
+
+Opcionalmente:
+
+```bash
+supabase secrets set TURNSTILE_SECRET_KEY="..."
+```
+
+No frontend:
+
+```bash
+MILREU_TURNSTILE_SITE_KEY="..." npm run collab:config
+```
+
+A integração visual do widget Turnstile permanece condicionada à decisão de ativá-lo.
+
+## Demonstração
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrir:
+Os dados demonstrativos:
 
-```text
-http://localhost:4173/#/area-colaborativa
-```
-
-Entrar como master ou voluntário de demonstração.
-
-## Rotas principais
-
-### Membros
-
-```text
-#/area-colaborativa/agenda
-```
-
-A agenda permite:
-
-- próximas atividades;
-- calendário mensal;
-- percurso da exposição;
-- confirmação de interesse ou participação.
-
-### Coordenação
-
-```text
-#/area-colaborativa/gestao/locais
-#/area-colaborativa/gestao/exposicoes
-#/area-colaborativa/gestao/agenda/novo
-```
-
-### Público
-
-```text
-#/exposicoes
-```
-
-A página pública usa exclusivamente o snapshot aprovado em:
-
-```text
-public/data/exhibitions-public.json
-```
-
-## Funcionalidades
-
-### Locais
-
-- museu;
-- escola;
-- biblioteca;
-- centro cultural;
-- universidade;
-- espaço público;
-- sítio patrimonial;
-- outro.
-
-Dados públicos e internos são mantidos separadamente.
-
-### Exposições
-
-Tipos:
-
-- fixa;
-- itinerante;
-- temporária;
-- digital.
-
-A exposição é criada uma vez. Cada passagem por um local é um agendamento separado.
-
-### Itinerância
-
-Cada período pode incluir:
-
-- local;
-- início e fim;
-- montagem;
-- desmontagem;
-- estado;
-- horário;
-- contacto público;
-- ligação de inscrição;
-- notas públicas;
-- notas internas;
-- estado da instalação;
-- estado da logística;
-- relatórios de condição.
-
-### Conflitos
-
-- a mesma exposição não pode estar em dois locais durante períodos sobrepostos;
-- uma ocupação simultânea do mesmo local por exposições diferentes gera aviso, não bloqueio automático;
-- a decisão permanece auditável.
-
-### Agenda
-
-Eventos suportados:
-
-- reunião;
-- oficina;
-- visita;
-- conversa;
-- sessão de recolha;
-- montagem;
-- desmontagem;
-- abertura;
-- ação de voluntariado;
-- outro.
-
-### Logística
-
-- checklist por período;
-- transporte;
-- montagem;
-- materiais;
-- acessibilidade;
-- comunicação;
-- seguros e autorizações;
-- conservação;
-- geração de tarefas de montagem e desmontagem em rascunho.
-
-## Exportação pública
-
-Sem Supabase configurado:
-
-```bash
-npm run exhibitions:export
-```
-
-preserva o snapshot existente.
-
-Com Supabase:
-
-```bash
-MILREU_SUPABASE_URL="..." MILREU_SUPABASE_PUBLISHABLE_KEY="..." npm run exhibitions:export
-```
-
-A exportação usa apenas a chave publicável e uma RPC que retorna campos aprovados para publicação. A `service_role` é ignorada pelo exportador.
+- usam e-mails `.invalid`;
+- são locais;
+- não representam pessoas ou documentos reais;
+- não criam ficheiros no Supabase.
 
 ## Validação
 
 ```bash
 npm run collab:config
+npm run contributions:demo-export
 npm run exhibitions:export
 npm run channels:export
 npm run museum:index
@@ -171,16 +163,4 @@ npm run build
 npm run smoke
 ```
 
-## Limites
-
-O 08D não inclui:
-
-- sincronização com Google Calendar;
-- notificações por e-mail ou WhatsApp;
-- locais ou datas reais;
-- inventário físico completo;
-- gestão de empréstimos;
-- arte final de impressão;
-- publicação automática sem aprovação.
-
-As migrations devem ser executadas num Supabase local ou staging antes do uso remoto.
+As migrations e a Edge Function devem ser testadas em Supabase local ou staging antes de qualquer uso público.
