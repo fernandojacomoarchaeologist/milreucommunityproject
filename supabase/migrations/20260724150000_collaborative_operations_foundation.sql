@@ -399,7 +399,7 @@ create table if not exists public.collab_lifecycle_runs (
 );
 
 create index if not exists collab_lifecycle_runs_idx
-on public.collab_lifecycle_runs(project_id,created_at desc);
+on public.collab_lifecycle_runs(project_id,previewed_at desc);
 
 -- Incidentes e ações corretivas.
 
