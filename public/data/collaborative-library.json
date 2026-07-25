@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "resources": [
     {
       "code": "project-context-ledger",
@@ -188,6 +188,63 @@
       "status": "active",
       "content": "# Matriz de RLS e perfis\n\nTestar no mínimo:\n\n- master;\n- coordinator;\n- volunteer;\n- reviewer;\n- researcher;\n- translator;\n- partner;\n- observer;\n- autenticado sem membership;\n- anónimo.\n\nPara cada perfil:\n\n- rotas visíveis;\n- tabelas legíveis;\n- RPCs permitidas;\n- RPCs proibidas;\n- dados próprios;\n- dados de terceiros;\n- storage;\n- gestão;\n- auditoria.\n\nUsar utilizadores de teste separados. Não reutilizar a sessão do master.",
       "summary": "Testar no mínimo:",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "notification-architecture",
+      "title": "Arquitetura de notificações",
+      "category": "operations",
+      "path": "docs/notifications/NOTIFICATION_ARCHITECTURE_08H.md",
+      "audience": [
+        "all"
+      ],
+      "status": "active",
+      "content": "# Arquitetura de notificações\n\n```text\nevento de domínio\n→ trigger\n→ preferência\n→ centro interno\n→ outbox opcional\n→ worker\n→ webhook\n→ delivery\n```\n\n## Fronteiras\n\n- o centro interno é funcional sem e-mail;\n- o navegador lê apenas as próprias notificações;\n- outbox e deliveries são privadas;\n- o worker utiliza service role;\n- o webhook utiliza secret próprio;\n- o fornecedor é substituível;\n- convites são enfileirados explicitamente.",
+      "summary": "```text",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "notification-template-guide",
+      "title": "Guia de templates transacionais",
+      "category": "communication",
+      "path": "docs/notifications/NOTIFICATION_TEMPLATE_GUIDE_08H.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "translator"
+      ],
+      "status": "active",
+      "content": "# Guia de templates\n\nFonte:\n\n- assunto;\n- título;\n- corpo em texto simples.\n\nO worker cria HTML escapado. HTML arbitrário não é permitido.\n\nTokens:\n\n```text\ndisplay_name\nproject_name\ntitle\nstatus\nreference\naction_url\ndue_at\nstarts_at\nrole\nreason\nenvironment\n```\n\nTemplates aprovados são imutáveis. Uma correção cria versão nova.",
+      "summary": "Fonte:",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "notification-privacy",
+      "title": "Privacidade e retenção das notificações",
+      "category": "rights",
+      "path": "docs/notifications/NOTIFICATION_PRIVACY_RETENTION_08H.md",
+      "audience": [
+        "coordinator",
+        "reviewer",
+        "researcher"
+      ],
+      "status": "active",
+      "content": "# Privacidade e retenção\n\n- não incluir informação sensível desnecessária;\n- não incluir testemunhos, documentos ou decisões completas no e-mail;\n- utilizar link para a Área Colaborativa;\n- mascarar endereço no painel;\n- não expor payload;\n- apagar notificações após a retenção do evento;\n- apagar outbox entregue ou cancelada após 180 dias;\n- preservar delivery suficiente para auditoria operacional;\n- pedidos de retirada mantêm retenção superior.",
+      "summary": "- não incluir informação sensível desnecessária;",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "notification-runbook",
+      "title": "Runbook operacional de notificações",
+      "category": "operations",
+      "path": "docs/notifications/NOTIFICATION_OPERATIONS_RUNBOOK_08H.md",
+      "audience": [
+        "coordinator",
+        "reviewer"
+      ],
+      "status": "active",
+      "content": "# Runbook operacional\n\n## Todos os dias de operação\n\n- verificar canal;\n- verificar pending;\n- verificar failed;\n- verificar dead-letter;\n- rever pedidos de retirada;\n- validar worker.\n\n## Falha\n\n1. pausar canal;\n2. preservar outbox;\n3. verificar webhook;\n4. verificar domínio/remetente;\n5. corrigir secret;\n6. testar em staging;\n7. repetir apenas itens elegíveis;\n8. documentar incidente.\n\n## Dead-letter\n\nNão repetir em massa sem compreender a falha.",
+      "summary": "- verificar canal;",
       "visibility": "member-reference-not-confidential"
     }
   ]

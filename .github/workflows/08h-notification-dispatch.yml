@@ -1,0 +1,35 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08H Manual Notification Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Escreva DISPATCH_MILREU_NOTIFICATIONS_STAGING"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milreu-notification-dispatch-staging
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    if: ${{ inputs.confirmation == 'DISPATCH_MILREU_NOTIFICATIONS_STAGING' }}
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Dispatch one controlled batch
+        env:
+          FUNCTION_URL: ${{ secrets.STAGING_NOTIFICATION_FUNCTION_URL }}
+          WORKER_SECRET: ${{ secrets.MILREU_NOTIFICATION_WORKER_SECRET }}
+        run: |
+          test -n "$FUNCTION_URL"
+          test -n "$WORKER_SECRET"
+          curl --fail-with-body --silent --show-error             --request POST             --header "x-milreu-worker-secret: $WORKER_SECRET"             --header "content-type: application/json"             --data '{}'             "$FUNCTION_URL"

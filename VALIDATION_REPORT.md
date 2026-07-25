@@ -1,153 +1,182 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Relatório de validação — Pacote 08G
+# Relatório de validação — Pacote 08H
 
-## Resultado técnico
+## Resultado geral
 
-- Versão: 0.18.0
-- Testes automatizados: 208
-- Testes aprovados: 208
+- Versão: 0.19.0
+- Testes automatizados: 246
+- Testes aprovados: 246
 - Testes falhados: 0
+- Validação cumulativa: concluída
 - Build: concluído
-- Smoke HTTP local: concluído
-- YAML dos três workflows 08G: válido
-- Integridade do ZIP: validada após compactação
+- Smoke HTTP: concluído
+- TypeScript do worker: verificado com shim local de Deno
+- YAML dos workflows 08H: válido
 - Revisão visual humana em navegador: pendente
-- Execução real das migrations no Supabase: pendente
+- Execução real das migrations: pendente
+- Execução real do worker em Deno/Supabase: pendente
 
-## Estado operacional real
+## Área Colaborativa
 
-O pacote foi validado em modo local e de demonstração. O preflight terminou corretamente como **blocked**, porque os dados externos não foram inventados.
+- Módulos registados: 19
+- Módulos ativos: 19
+- Permissões: 94
+- Recursos de biblioteca: 17
+- Novos módulos:
+  - `notifications`;
+  - `notification-management`.
 
-Bloqueios atuais:
+## Centro interno
+
+- Estado inicial: ativo
+- Eventos: 20
+- Categorias: 10
+- Estados: não lida, lida e arquivada
+- Badge no cabeçalho: incluído
+- Filtros: pesquisa, estado e categoria
+- Preferências por evento: incluídas
+- Horário silencioso: incluído
+- Fuso horário: validado
+- Eventos críticos obrigatórios: preservados
+- Inbox e preferências: estritamente self-service por RLS
+- Polling: mínimo de 30 segundos
+
+## E-mail transacional
+
+- Estado inicial: desativado
+- Provider inicial: `disabled`
+- Provider suportado: `webhook`
+- Templates pt-PT: 20
+- Templates aprovados imutáveis: sim
+- Correções por nova versão: sim
+- Opt-in explícito: sim
+- Eventos com e-mail ativo por padrão: 0
+- Convites automáticos: não
+- Agendamento automático: não
+- Ativação lógica exige:
+
+```text
+ACTIVATE_MILREU_TRANSACTIONAL_EMAIL
+```
+
+## Outbox e worker
+
+- Outbox privada: sim
+- Deliveries privadas: sim
+- Claim por browser: não
+- Claim por service role: sim
+- Retry: limitado
+- Dead-letter: incluído
+- Cancelamento manual: incluído
+- Deduplicação: notificações e outbox
+- Worker secret customizado: obrigatório
+- Provider response body retido: não
+- Destinatário resolvido no servidor: sim
+- Destinatário completo no painel: não
+- Payload no painel: não
+- HTML arbitrário em templates: não
+- HTML gerado a partir de texto escapado: sim
+
+## Eventos operacionais
+
+Triggers incluídos para:
+
+1. memberships;
+2. tarefas;
+3. atribuição de contributos;
+4. estado de contributos;
+5. atribuição de revisão do Museu;
+6. comentários bloqueantes;
+7. formação;
+8. agenda;
+9. logística da exposição;
+10. retirada;
+11. homologação.
+
+A atribuição inicial de tarefa utiliza corretamente o estado `assigned`.
+
+## Banco de dados
+
+- Migrations novas: 3
+- Tabelas novas: 7
+- RPCs/funções na migration operacional: 31
+- Triggers operacionais: 11
+- RLS: ativa nas sete tabelas
+- Escrita direta autenticada: bloqueada
+- Teste SQL: `supabase/tests/008h_notifications.test.sql`
+
+Novas migrations:
+
+- `20260724140000_collaborative_notifications_foundation.sql`
+- `20260724140100_collaborative_notifications_rpc.sql`
+- `20260724140200_collaborative_notifications_seed.sql`
+
+Este ambiente não possui Supabase CLI, PostgreSQL, Docker ou Deno. As migrations e o worker foram validados estruturalmente, mas precisam de execução em Supabase local e staging.
+
+## Edge Function
+
+```text
+supabase/functions/dispatch-collab-notifications/
+```
+
+- TypeScript verificado com `tsc` e declarações locais de compatibilidade;
+- execução real em Deno não realizada;
+- `verify_jwt=false` acompanhado de segredo customizado;
+- provider desativado não reclama itens;
+- service role apenas no servidor;
+- corpo da resposta do fornecedor não é persistido.
+
+## Workflows
+
+- `08h-ci.yml`
+- `08h-database-tests.yml`
+- `08h-notification-dispatch.yml`
+- `08h-notification-worker-deploy.yml`
+
+Todos foram analisados como YAML válido.
+
+Não existe agendamento recorrente. Publicação do worker e dispatch em staging são manuais e exigem confirmações literais.
+
+## Preflight herdado do 08G
+
+Estado: **blocked**
+
+Bloqueios externos preservados:
 
 - MILREU_SITE_URL não está definido.
 - MILREU_SUPABASE_URL não está definido.
 - Google OAuth ainda não foi marcado como configurado.
 - MILREU_MASTER_EMAIL ainda não está definido.
 
-Consequentemente:
-
-- Google OAuth remoto não está configurado;
-- o e-mail master não está definido;
-- o master não foi criado;
-- staging não foi criado nem homologado;
-- produção não foi configurada;
-- remote smoke foi ignorado por falta de URL;
-- a consulta remota da contagem de masters foi ignorada por falta de credenciais seguras.
-
-## Área Colaborativa
-
-- Módulos registados: 17
-- Módulos ativos: 17
-- Permissões: 82
-- Recursos de biblioteca: 13
-- Novo módulo: `deployment-homologation`
-- Rota de gestão: `#/area-colaborativa/gestao/homologacao`
-
-## Homologação
-
-- Ambientes modelados: 3
-- Checks obrigatórios/recomendados: 24
-- Checks bloqueantes: 23
-- Migrations novas: 3
-- Workflows novos: 3
-- Relatório local inicial gerado: sim
-
-Fluxo protegido:
-
-```text
-local
-→ staging separado
-→ 24 checks
-→ staging aprovado
-→ produção futuramente autorizada
-```
-
-A produção exige a confirmação literal:
-
-```text
-APPROVE_MILREU_PRODUCTION_RELEASE
-```
-
-## Google OAuth e master
-
-- Provider Google preparado no `supabase/config.toml`
-- Provider ativado por padrão: não
-- Pré-autorização obrigatória: sim
-- Armazenamento de tokens do Google: não
-- Secret do Google no frontend: não
-- Service role no frontend: não
-- Domínios permitidos: configuráveis
-- E-mail master incluído no pacote: não
-- Bootstrap do master: protegido por literal
-- Proteção do último master: preservada
-
-Literal de bootstrap:
-
-```text
-BOOTSTRAP_MILREU_MASTER
-```
-
-## Segurança de implantação
-
-- Demo somente local
-- HTTPS obrigatório fora do local
-- Staging e produção devem usar projetos distintos
-- Escritas de produção desativadas no preflight
-- Dry-run de migrations obrigatório
-- Remote smoke de produção limitado a GET e confirmação literal
-- Escrita nas tabelas 08G apenas por RPC
-- RLS preparada nas cinco novas tabelas
-- Relatórios não expõem e-mail master
-- Artefactos públicos não contêm valores reais de secrets
-
-## Banco de dados
-
-Novas migrations:
-
-- `20260724130000_collaborative_deployment_homologation.sql`
-- `20260724130100_collaborative_deployment_homologation_rpc.sql`
-- `20260724130200_collaborative_deployment_homologation_seed.sql`
-
-Novo teste:
-
-```text
-supabase/tests/008g_deployment_homologation.test.sql
-```
-
-Este ambiente não possui Supabase CLI, PostgreSQL ou Docker. As migrations, RLS e RPCs foram validadas estruturalmente, mas precisam ser executadas em Supabase local e depois em staging.
-
-## Workflows
-
-- `08g-ci.yml`
-- `08g-database-tests.yml`
-- `08g-staging-homologation.yml`
-
-O workflow de staging é manual. O dry-run é executado antes de qualquer aplicação, enquanto migrations e Edge Functions dependem de inputs explícitos e do ambiente GitHub protegido.
+Nenhum URL, projeto Supabase, credencial Google ou e-mail master foi inventado.
 
 ## Build
 
-- Versão do manifest: 0.18.0
-- Páginas estáticas das memórias: 30
-- JSONs individuais das memórias: 30
-- Checksum do perfil de implantação: sim
-- Checksum do readiness: sim
-- Checksum do modelo de homologação: sim
-- Checksum do modelo editorial 08F: sim
+- Manifest version: 0.19.0
+- Páginas estáticas de memórias: 30
+- JSONs individuais de memórias: 30
+- Checksum do modelo de notificações: sim
+- Checksum dos templates: sim
+- Checksum do runtime: sim
+- Checksum do modelo editorial: sim
 - Checksum do registo de impacto: sim
-- `dist/` removido do ZIP para evitar duplicação das imagens
+- `dist/` removido do ZIP para evitar duplicação de imagens
 
 ## Comandos concluídos
 
 - `npm run deploy:profile`
 - `npm run deploy:preflight`
 - `npm run deploy:oauth-check`
+- `npm run notifications:config`
+- `npm run notifications:preview`
+- `npm run notifications:test-payload`
+- `npm run notifications:dispatch-status`
 - `npm run collab:config`
 - `npm run museum:review-export`
 - `npm run museum:review-apply`
@@ -160,19 +189,9 @@ O workflow de staging é manual. O dry-run é executado antes de qualquer aplica
 - `npm test`
 - `npm run build`
 - `npm run smoke`
-- `npm run deploy:homologation-report`
-- `npm run deploy:master-status`
-- `npm run deploy:remote-smoke`
 
-## Próxima ação real
+O snapshot editorial permanece vazio; a aplicação terminou corretamente sem alterar memórias.
 
-1. integrar o 08G;
-2. executar Supabase local;
-3. executar os testes SQL 08A–08G;
-4. criar um projeto de staging separado;
-5. configurar Google OAuth local e em staging;
-6. autenticar o utilizador que será master;
-7. fornecer o e-mail master por secret;
-8. executar o bootstrap com confirmação literal;
-9. homologar os perfis e os 24 checks;
-10. manter produção bloqueada.
+## Próxima fronteira
+
+O próximo pacote recomendado é o **08I — Administração, auditoria, retenção, backups e continuidade operacional**.

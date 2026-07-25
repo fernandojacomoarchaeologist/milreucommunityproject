@@ -22,7 +22,7 @@ export async function loadCollaborativeConfig() {
 }
 
 export async function loadCollaborativeFoundationData() {
-  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, museumReviewModel, trainingTrails, library, reviewSeed, homologationModel, deploymentProfile, deploymentReadiness, demo] = await Promise.all([
+  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, museumReviewModel, trainingTrails, library, reviewSeed, homologationModel, deploymentProfile, deploymentReadiness, notificationModel, notificationTemplates, notificationRuntime, demo] = await Promise.all([
     fetchJson("public/data/collaborative-profile-types.json"),
     fetchJson("public/data/collaborative-roles-permissions.json"),
     fetchJson("public/data/collaborative-modules.json"),
@@ -37,6 +37,9 @@ export async function loadCollaborativeFoundationData() {
     fetchJson("public/data/collaborative-homologation-model.json"),
     fetchJson("public/config/deployment-profile.runtime.json"),
     fetchJson("public/data/deployment-readiness.json"),
+    fetchJson("public/data/collaborative-notification-model.json"),
+    fetchJson("public/data/collaborative-notification-templates.json"),
+    fetchJson("public/config/notifications.runtime.json"),
     fetchJson("public/data/collaborative-demo.json")
   ]);
   return {
@@ -56,6 +59,9 @@ export async function loadCollaborativeFoundationData() {
     homologationModel,
     deploymentProfile,
     deploymentReadiness,
+    notificationModel,
+    notificationTemplates,
+    notificationRuntime,
     demo
   };
 }

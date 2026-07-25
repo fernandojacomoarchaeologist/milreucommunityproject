@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "modules": [
     {
       "code": "dashboard",
@@ -19,6 +19,15 @@
       "permission": "profile.self.manage",
       "description": "Nome, e-mail, perfil principal e preferências básicas.",
       "sortOrder": 20
+    },
+    {
+      "code": "notifications",
+      "name": "Notificações",
+      "route": "/area-colaborativa/notificacoes",
+      "status": "active",
+      "permission": "notifications.view",
+      "description": "Centro interno, estado de leitura e preferências de comunicação.",
+      "sortOrder": 22
     },
     {
       "code": "availability",
@@ -127,6 +136,15 @@
       "permission": "museum.review.manage",
       "description": "Ciclos, atribuições, gates, snapshots, efeitos públicos e incorporação controlada.",
       "sortOrder": 96
+    },
+    {
+      "code": "notification-management",
+      "name": "Gestão de notificações",
+      "route": "/area-colaborativa/gestao/notificacoes",
+      "status": "active",
+      "permission": "notifications.manage",
+      "description": "Templates, canais, outbox, entregas, testes e operação transacional.",
+      "sortOrder": 97
     },
     {
       "code": "venue-management",

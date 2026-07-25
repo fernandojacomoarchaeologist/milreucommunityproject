@@ -1,124 +1,148 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08G — Implantação, Google OAuth e Homologação
+# Pacote 08H — Notificações, Comunicação e Operação
 
-**Versão:** 0.18.0  
-**Base cumulativa:** Pacote 08F.
+**Versão:** 0.19.0  
+**Base cumulativa:** Pacote 08G.
 
-O 08G não cria uma nova experiência pública. Ele prepara a Área Colaborativa para funcionar fora da demonstração, com ambientes separados, Google OAuth, master configurável, testes de RLS, storage privado e homologação por perfil.
+O 08H ativa um centro interno de notificações e prepara a comunicação transacional por e-mail sem selecionar ou ativar automaticamente um fornecedor externo.
 
-## Ambientes
+## Rotas
 
 ```text
-local
-→ staging
-→ produção
+#/area-colaborativa/notificacoes
+#/area-colaborativa/notificacoes/preferencias
+#/area-colaborativa/gestao/notificacoes
+#/area-colaborativa/gestao/notificacoes/templates
 ```
 
-Regras:
+## Centro interno
 
-- staging e produção usam projetos Supabase distintos;
-- demonstração só existe em local;
-- staging e produção exigem HTTPS;
-- produção não aceita reset;
-- migrations passam por dry-run;
-- produção exige homologação aprovada em staging para a mesma versão;
-- nenhuma escrita de produção é ativada pelo preflight.
+O centro interno é o canal canónico para membros autenticados.
 
-## Configuração local
+Inclui:
+
+- não lidas, lidas e arquivadas;
+- prioridade;
+- categoria;
+- link para o contexto;
+- marcação individual;
+- marcação coletiva;
+- filtros;
+- badge no cabeçalho;
+- preferências.
+
+Avisos críticos e obrigatórios não podem ser desativados dentro da aplicação.
+
+## Eventos
+
+O pacote possui 20 eventos, incluindo:
+
+- acesso;
+- tarefas;
+- contributos;
+- revisão do Museu;
+- formação;
+- agenda;
+- exposição;
+- retirada;
+- homologação.
+
+Triggers de banco criam avisos a partir das alterações operacionais existentes.
+
+## E-mail transacional
+
+Estado inicial:
+
+```text
+provider=disabled
+channel=disabled
+automaticScheduleEnabled=false
+```
+
+Fornecedor suportado pelo contrato:
+
+```text
+webhook
+```
+
+O Edge Function envia um payload genérico para um webhook configurado no servidor. O pacote não seleciona Resend, SendGrid, Mailgun ou outro fornecedor.
+
+Variáveis:
+
+```text
+MILREU_NOTIFICATION_PROVIDER
+MILREU_NOTIFICATION_WEBHOOK_URL
+MILREU_NOTIFICATION_WEBHOOK_TOKEN
+MILREU_NOTIFICATION_WORKER_SECRET
+MILREU_NOTIFICATION_FROM_NAME
+MILREU_NOTIFICATION_FROM_EMAIL
+MILREU_PUBLIC_SITE_URL
+```
+
+Nenhum desses valores é gravado no runtime público.
+
+## Ativação do e-mail
+
+A ativação lógica no Supabase exige:
+
+```text
+ACTIVATE_MILREU_TRANSACTIONAL_EMAIL
+```
+
+Antes da ativação:
+
+1. fornecedor aprovado;
+2. domínio/remetente validados;
+3. política de privacidade revista;
+4. webhook testado;
+5. templates aprovados;
+6. worker secret configurado;
+7. staging homologado;
+8. rollback documentado.
+
+## Outbox
+
+```text
+evento
+→ preferência
+→ template aprovado
+→ outbox
+→ claim por service role
+→ webhook
+→ delivery
+→ entregue / retry / dead-letter
+```
+
+O navegador não reclama nem entrega mensagens.
+
+## Convites
+
+Convites por e-mail são explícitos. A criação da pré-autorização não envia automaticamente mensagem.
+
+## Comandos
 
 ```bash
-cp .env.example .env
-npm install
+npm run notifications:config
+npm run notifications:preview
+npm run notifications:test-payload
+npm run notifications:dispatch-status
+npm run notifications:validate
+```
+
+Validação cumulativa:
+
+```bash
 npm run deploy:profile
 npm run deploy:preflight
 npm run deploy:oauth-check
+npm run notifications:config
 npm run collab:config
-npm run dev
-```
-
-## Google OAuth local
-
-O ficheiro `supabase/config.toml` contém a secção:
-
-```toml
-[auth.external.google]
-enabled = false
-client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
-secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET)"
-redirect_uri = "http://127.0.0.1:54321/auth/v1/callback"
-skip_nonce_check = false
-```
-
-Para testar localmente, configure as variáveis e ative o provider. O callback registado no Google é o callback do Supabase. A aplicação regressa depois a:
-
-```text
-http://localhost:4173/auth/callback/
-```
-
-## Master
-
-O e-mail master não está incluído no pacote.
-
-Consulta segura:
-
-```bash
-MILREU_SUPABASE_URL="..." SUPABASE_SERVICE_ROLE_KEY="..." npm run deploy:master-status
-```
-
-Bootstrap explícito:
-
-```bash
-MILREU_SUPABASE_URL="..." SUPABASE_SERVICE_ROLE_KEY="..." MILREU_MASTER_EMAIL="..." MILREU_BOOTSTRAP_MASTER_CONFIRM="BOOTSTRAP_MILREU_MASTER" npm run collab:bootstrap-master
-```
-
-A chave administrativa permanece apenas no terminal seguro ou secret store.
-
-## Homologação
-
-Nova rota:
-
-```text
-#/area-colaborativa/gestao/homologacao
-```
-
-Permite:
-
-- configurar metadados dos ambientes;
-- rever política lógica de Google OAuth;
-- iniciar execução;
-- preencher 24 checks;
-- anexar evidências;
-- concluir;
-- homologar staging;
-- bloquear produção sem staging aprovado.
-
-## Staging
-
-O workflow `08g-staging-homologation.yml` é manual.
-
-Por padrão:
-
-- executa preflight;
-- valida OAuth;
-- liga o projeto de staging;
-- executa `supabase db push --dry-run`;
-- não aplica migrations;
-- não publica functions.
-
-As escritas exigem inputs manuais e ambiente GitHub protegido.
-
-## Validação
-
-```bash
-npm run deploy:profile
-npm run deploy:preflight
-npm run deploy:oauth-check
 npm run museum:review-export
 npm run museum:review-apply
 npm run contributions:demo-export
@@ -132,4 +156,4 @@ npm run build
 npm run smoke
 ```
 
-As migrations devem ser executadas em Supabase local e staging antes de homologar o ambiente.
+As migrations e o worker devem ser testados em Supabase local e staging.

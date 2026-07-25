@@ -7,7 +7,7 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v7";
+const DEMO_KEY="milreu-collaborative-demo-context-v8";
 const PUBLIC_CONTRIBUTION_DEMO_KEY="milreu-public-contributions-demo-v1";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
@@ -16,7 +16,8 @@ function emptyExhibitionWorkspace(){return{venues:[],exhibitions:[],schedules:[]
 function emptyContributionWorkspace(){return{contributions:[],submitters:[],consents:[],files:[],targets:[],assignments:[],events:[],decisions:[],proposals:[],withdrawals:[]};}
 function emptyMuseumReviewWorkspace(){return{cycles:[],records:[],proposals:[],comments:[],assignments:[],checks:[],decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:[],lessonProgress:[],assessments:[]};}
 function emptyDeploymentWorkspace(){return{environments:[],authPolicy:null,runs:[],checks:[],catalog:[],readiness:null};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyNotificationWorkspace(){return{notifications:[],preferences:[],channels:[],templates:[],summary:{unreadCount:0,criticalUnreadCount:0,byCategory:{}},operations:{channels:[],outboxCounts:{},recentOutbox:[],deliveryCounts:{},templates:[]}};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},notificationModel:{channels:[],categories:[],eventTypes:[],notificationStatuses:[],outboxStatuses:[],deliveryStatuses:[],preferenceRules:{},templateTokens:[],dispatch:{}},notificationTemplates:{templates:[],rules:{}},notificationRuntime:{inApp:{enabled:true,pollIntervalSeconds:60,pageSize:30},email:{provider:"disabled",enabled:false}},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -107,7 +108,7 @@ function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deplo
   const local=environments.find(item=>item.code==="local");
   const run={
     id:"demo-homologation-local",project_id:"demo-project",environment_id:local.id,
-    version:"0.18.0",commit_sha:null,status:master?"in-progress":"planned",
+    version:"0.19.0",commit_sha:null,status:master?"in-progress":"planned",
     summary:"Execução local de demonstração.",started_by:master?"demo-master":null,
     started_at:master?now:null,created_at:now,updated_at:now
   };
@@ -131,6 +132,50 @@ function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deplo
     },
     runs:[run],checks,catalog:homologationModel.requiredChecks||[],
     readiness:deploymentReadiness
+  };
+}
+
+
+function createDemoNotificationWorkspace(notificationModel,notificationTemplates,notificationRuntime,userId,master=false,volunteer=false){
+  const now=Date.now();
+  const samples=master?[
+    {id:"demo-notification-homologation",event_type:"homologation.blocked",entity_type:"homologation-run",entity_id:"demo-homologation-local",title:"Homologação bloqueada",body:"A execução local possui checks bloqueantes por concluir.",action_url:"#/area-colaborativa/gestao/homologacao/demo-homologation-local",severity:"critical",status:"unread",created_at:new Date(now-10*60*1000).toISOString()},
+    {id:"demo-notification-withdrawal",event_type:"withdrawal.submitted",entity_type:"withdrawal-request",entity_id:"demo-withdrawal-01",title:"Novo pedido de retirada",body:"Foi recebido um pedido de retirada que requer tratamento prioritário.",action_url:"#/area-colaborativa/gestao/contributos",severity:"critical",status:"unread",created_at:new Date(now-45*60*1000).toISOString()},
+    {id:"demo-notification-contribution",event_type:"contribution.assigned",entity_type:"contribution",entity_id:"demo-contribution-01",title:"Contributo atribuído",body:"O contributo DEMO-001 foi-lhe atribuído para revisão.",action_url:"#/area-colaborativa/gestao/contributos",severity:"info",status:"read",read_at:new Date(now-30*60*1000).toISOString(),created_at:new Date(now-2*60*60*1000).toISOString()},
+    {id:"demo-notification-training",event_type:"training.assessment-pending",entity_type:"training",entity_id:"rights-credits-ai",title:"Avaliação de formação pendente",body:"O percurso de direitos, créditos e IA aguarda avaliação.",action_url:"#/area-colaborativa/formacao/rights-credits-ai",severity:"warning",status:"unread",created_at:new Date(now-5*60*60*1000).toISOString()},
+    {id:"demo-notification-agenda",event_type:"agenda.changed",entity_type:"agenda-event",entity_id:"demo-event-01",title:"Atividade atualizada",body:"A sessão comunitária teve o horário atualizado.",action_url:"#/area-colaborativa/agenda",severity:"info",status:"read",read_at:new Date(now-24*60*60*1000).toISOString(),created_at:new Date(now-30*60*60*1000).toISOString()}
+  ]:volunteer?[
+    {id:"demo-notification-task",event_type:"task.assigned",entity_type:"task",entity_id:"demo-task-01",title:"Nova tarefa atribuída",body:"Foi-lhe atribuída uma tarefa de digitalização.",action_url:"#/area-colaborativa/tarefas",severity:"info",status:"unread",created_at:new Date(now-25*60*1000).toISOString()},
+    {id:"demo-notification-agenda-volunteer",event_type:"agenda.changed",entity_type:"agenda-event",entity_id:"demo-event-01",title:"Atividade atualizada",body:"A atividade de voluntariado teve o horário atualizado.",action_url:"#/area-colaborativa/agenda",severity:"info",status:"unread",created_at:new Date(now-3*60*60*1000).toISOString()},
+    {id:"demo-notification-training-complete",event_type:"training.completed",entity_type:"training",entity_id:"project-foundations",title:"Formação concluída",body:"Concluiu o percurso Fundamentos do projeto.",action_url:"#/area-colaborativa/formacao/project-foundations",severity:"success",status:"read",read_at:new Date(now-24*60*60*1000).toISOString(),created_at:new Date(now-2*24*60*60*1000).toISOString()}
+  ]:[];
+  const notifications=samples.map(item=>({...item,project_id:"demo-project",user_id:userId,metadata:{demo:true},expires_at:new Date(now+365*24*60*60*1000).toISOString()}));
+  const preferences=(notificationModel.eventTypes||[]).map(item=>({
+    project_id:"demo-project",user_id:userId,event_type:item.code,
+    in_app_enabled:true,email_enabled:Boolean(item.defaultEmail)&&false,
+    quiet_hours_start:null,quiet_hours_end:null,timezone:"Europe/Lisbon",
+    language:"pt-PT",updated_at:new Date(now).toISOString()
+  }));
+  const channels=[
+    {project_id:"demo-project",channel:"in-app",status:"active",provider:"disabled",from_name:"Projeto Comunitário de Milreu",from_email:null,settings:{pollIntervalSeconds:60},updated_at:new Date(now).toISOString()},
+    {project_id:"demo-project",channel:"email",status:"disabled",provider:"disabled",from_name:"Projeto Comunitário de Milreu",from_email:null,settings:{automaticScheduleEnabled:false},updated_at:new Date(now).toISOString()}
+  ];
+  const summary={
+    unreadCount:notifications.filter(item=>item.status==="unread").length,
+    criticalUnreadCount:notifications.filter(item=>item.status==="unread"&&item.severity==="critical").length,
+    byCategory:notifications.filter(item=>item.status==="unread").reduce((acc,item)=>{const category=(notificationModel.eventTypes||[]).find(event=>event.code===item.event_type)?.category||"other";acc[category]=(acc[category]||0)+1;return acc;},{})
+  };
+  return{
+    notifications,preferences,channels,
+    templates:notificationTemplates.templates||[],summary,
+    operations:{
+      channels:channels.map(channel=>({...channel,fromEmailConfigured:Boolean(channel.from_email)})),
+      outboxCounts:{pending:0,failed:0,delivered:0,"dead-letter":0},
+      recentOutbox:[],
+      deliveryCounts:{delivered:0,failed:0},
+      templates:notificationTemplates.templates||[]
+    },
+    runtime:notificationRuntime
   };
 }
 
@@ -164,7 +209,7 @@ function createDemoTaskWorkspace(){
 }
 
 class CollaborativeController{
-  constructor(){this.state=emptyContext();this.listeners=new Set();this.config=null;this.foundation=null;this.client=null;this.authSubscription=null;}
+  constructor(){this.state=emptyContext();this.listeners=new Set();this.config=null;this.foundation=null;this.client=null;this.authSubscription=null;this.notificationPoller=null;}
   getState(){return structuredClone(this.state);}
   subscribe(listener){this.listeners.add(listener);return()=>this.listeners.delete(listener);}
   emit(){const snapshot=this.getState();for(const listener of this.listeners)listener(snapshot);}
@@ -172,7 +217,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed,homologationModel:this.foundation.homologationModel,deploymentProfile:this.foundation.deploymentProfile,deploymentReadiness:this.foundation.deploymentReadiness};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed,homologationModel:this.foundation.homologationModel,deploymentProfile:this.foundation.deploymentProfile,deploymentReadiness:this.foundation.deploymentReadiness,notificationModel:this.foundation.notificationModel,notificationTemplates:this.foundation.notificationTemplates,notificationRuntime:this.foundation.notificationRuntime};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -181,7 +226,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),tasks:[],exhibitions:[],error:null});}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),tasks:[],exhibitions:[],error:null});this.stopNotificationPolling();}
 
   async loadRemoteContext(session){
     const email=String(session.user.email||"").toLowerCase();
@@ -220,6 +265,8 @@ class CollaborativeController{
       ||hasPermission(this.state,"homologation.run")
       ||hasPermission(this.state,"auth.policy.view")
     )await this.loadRemoteDeployment();
+    if(hasPermission(this.state,"notifications.view"))await this.loadRemoteNotifications();
+    this.startNotificationPolling();
   }
 
   async loadRemoteOwnPreferences(){
@@ -340,6 +387,47 @@ class CollaborativeController{
     };
   }
 
+
+  async loadRemoteNotifications(){
+    const jobs=[
+      this.client.from("collab_notifications").select("*").order("created_at",{ascending:false}).limit(this.foundation.notificationRuntime?.inApp?.pageSize||30),
+      this.client.from("collab_notification_preferences").select("*").order("event_type"),
+      this.client.from("collab_notification_channels").select("*").order("channel"),
+      this.client.from("collab_notification_templates").select("*").eq("status","approved").order("event_type"),
+      this.client.rpc("collab_notification_summary_08h")
+    ];
+    const[notifications,preferences,channels,templates,summary]=await Promise.all(jobs);
+    const error=[notifications,preferences,channels,templates,summary].find(item=>item.error)?.error;
+    if(error){this.state.error=error.message;return;}
+    let operations={channels:[],outboxCounts:{},recentOutbox:[],deliveryCounts:{},templates:[]};
+    if(hasPermission(this.state,"notifications.manage")||hasPermission(this.state,"notifications.outbox.view")){
+      const response=await this.client.rpc("collab_notification_operations_08h",{p_limit:50});
+      if(!response.error&&response.data)operations=response.data;
+    }
+    this.state.notificationWorkspace={
+      notifications:notifications.data||[],
+      preferences:preferences.data||[],
+      channels:channels.data||[],
+      templates:templates.data||[],
+      summary:summary.data||{unreadCount:0,criticalUnreadCount:0,byCategory:{}},
+      operations,
+      runtime:this.foundation.notificationRuntime
+    };
+  }
+
+  startNotificationPolling(){
+    this.stopNotificationPolling();
+    if(this.config?.mode!=="supabase"||!this.state.authenticated||!hasPermission(this.state,"notifications.view"))return;
+    const seconds=Math.max(30,Number(this.foundation.notificationRuntime?.inApp?.pollIntervalSeconds||60));
+    this.notificationPoller=setInterval(async()=>{
+      try{await this.loadRemoteNotifications();this.emit();}catch{/* polling must not break the session */}
+    },seconds*1000);
+  }
+
+  stopNotificationPolling(){
+    if(this.notificationPoller){clearInterval(this.notificationPoller);this.notificationPoller=null;}
+  }
+
   async loadRemoteContributions(){
     const jobs=[
       this.client.from("collab_contributions").select("*").order("submitted_at",{ascending:false}),
@@ -374,9 +462,9 @@ class CollaborativeController{
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.deploymentWorkspace=demo.deploymentWorkspace||emptyDeploymentWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.deploymentWorkspace=demo.deploymentWorkspace||emptyDeploymentWorkspace();this.state.notificationWorkspace=demo.notificationWorkspace||emptyNotificationWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,deploymentWorkspace:this.state.deploymentWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,deploymentWorkspace:this.state.deploymentWorkspace,notificationWorkspace:this.state.notificationWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
   async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");if(this.config.auth?.googleOAuthEnabled!==true)throw new Error("Google OAuth ainda não foi homologado neste ambiente.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
@@ -384,9 +472,9 @@ class CollaborativeController{
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);const deploymentWorkspace=createDemoDeploymentWorkspace(this.foundation.homologationModel,this.foundation.deploymentProfile,this.foundation.deploymentReadiness,master);
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);const deploymentWorkspace=createDemoDeploymentWorkspace(this.foundation.homologationModel,this.foundation.deploymentProfile,this.foundation.deploymentReadiness,master);const notificationWorkspace=createDemoNotificationWorkspace(this.foundation.notificationModel,this.foundation.notificationTemplates,this.foundation.notificationRuntime,master?"demo-master":volunteer?"demo-volunteer":"demo-pending",master,volunteer);
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,deploymentWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,deploymentWorkspace,notificationWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -677,7 +765,7 @@ class CollaborativeController{
     const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
   }
 
-  async generateMuseumReviewSnapshot(cycleId,version="0.18.0"){
+  async generateMuseumReviewSnapshot(cycleId,version="0.19.0"){
     if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
     if(this.config.mode==="demo"){
       const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");
@@ -886,6 +974,299 @@ class CollaborativeController{
     });
     if(error)throw error;
     await this.refreshDeployment();
+  }
+
+
+  demoNotificationUpdate(mutator){
+    const notificationWorkspace=structuredClone(this.state.notificationWorkspace);
+    mutator(notificationWorkspace);
+    notificationWorkspace.summary={
+      unreadCount:notificationWorkspace.notifications.filter(item=>item.status==="unread").length,
+      criticalUnreadCount:notificationWorkspace.notifications.filter(item=>item.status==="unread"&&item.severity==="critical").length,
+      byCategory:notificationWorkspace.notifications.filter(item=>item.status==="unread").reduce((acc,item)=>{
+        const category=this.state.notificationModel.eventTypes.find(event=>event.code===item.event_type)?.category||"other";
+        acc[category]=(acc[category]||0)+1;return acc;
+      },{})
+    };
+    this.persistDemo({notificationWorkspace});
+  }
+
+  async refreshNotifications(){
+    if(this.config.mode==="supabase"){await this.loadRemoteNotifications();this.emit();}
+  }
+
+  async markNotification(notificationId,action){
+    if(!hasPermission(this.state,"notifications.mark"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        const row=workspace.notifications.find(item=>item.id===notificationId);
+        if(!row)throw new Error("Notificação não encontrada.");
+        if(action==="read"){row.status="read";row.read_at=row.read_at||new Date().toISOString();row.archived_at=null;}
+        else if(action==="unread"){row.status="unread";row.read_at=null;row.archived_at=null;}
+        else if(action==="archive"){row.status="archived";row.archived_at=new Date().toISOString();}
+        else throw new Error("Ação inválida.");
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_mark_notification_08h",{p_notification_id:notificationId,p_action:action});
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async markAllNotificationsRead(){
+    if(!hasPermission(this.state,"notifications.mark"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        for(const row of workspace.notifications){
+          if(row.status==="unread"){row.status="read";row.read_at=new Date().toISOString();}
+        }
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_mark_all_notifications_read_08h");
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+
+  async saveNotificationPreferences(valuesList){
+    if(!hasPermission(this.state,"notifications.preferences"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        for(const values of valuesList){
+          const event=this.state.notificationModel.eventTypes.find(item=>item.code===values.eventType);
+          if(!event)throw new Error(`Tipo de notificação não encontrado: ${values.eventType}`);
+          if(event.mandatoryInApp&&!values.inAppEnabled)throw new Error("Um aviso obrigatório foi desativado.");
+          let row=workspace.preferences.find(item=>item.event_type===values.eventType&&item.user_id===this.state.session.user.id);
+          const next={
+            project_id:"demo-project",user_id:this.state.session.user.id,event_type:values.eventType,
+            in_app_enabled:event.mandatoryInApp?true:Boolean(values.inAppEnabled),
+            email_enabled:Boolean(values.emailEnabled),
+            quiet_hours_start:values.quietHoursStart||null,
+            quiet_hours_end:values.quietHoursEnd||null,
+            timezone:values.timezone||"Europe/Lisbon",
+            language:values.language||"pt-PT",updated_at:new Date().toISOString()
+          };
+          if(row)Object.assign(row,next);else workspace.preferences.push(next);
+        }
+      });
+      return;
+    }
+    for(const values of valuesList){
+      const{error}=await this.client.rpc("collab_update_notification_preference_08h",{
+        p_event_type:values.eventType,
+        p_in_app_enabled:Boolean(values.inAppEnabled),
+        p_email_enabled:Boolean(values.emailEnabled),
+        p_quiet_hours_start:values.quietHoursStart||null,
+        p_quiet_hours_end:values.quietHoursEnd||null,
+        p_timezone:values.timezone||"Europe/Lisbon",
+        p_language:values.language||"pt-PT"
+      });
+      if(error)throw error;
+    }
+    await this.refreshNotifications();
+  }
+
+  async saveNotificationPreference(values){
+    if(!hasPermission(this.state,"notifications.preferences"))throw new Error("Permissão insuficiente.");
+    const event=this.state.notificationModel.eventTypes.find(item=>item.code===values.eventType);
+    if(!event)throw new Error("Tipo de notificação não encontrado.");
+    if(event.mandatoryInApp&&!values.inAppEnabled)throw new Error("Este aviso interno é obrigatório.");
+    if(values.emailEnabled&&!event.emailAllowed)throw new Error("O e-mail não está disponível para este evento.");
+    if(Boolean(values.quietHoursStart)!==Boolean(values.quietHoursEnd))throw new Error("Defina o início e o fim do horário silencioso.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        let row=workspace.preferences.find(item=>item.event_type===values.eventType&&item.user_id===this.state.session.user.id);
+        const next={
+          project_id:"demo-project",user_id:this.state.session.user.id,event_type:values.eventType,
+          in_app_enabled:event.mandatoryInApp?true:Boolean(values.inAppEnabled),
+          email_enabled:Boolean(values.emailEnabled),
+          quiet_hours_start:values.quietHoursStart||null,
+          quiet_hours_end:values.quietHoursEnd||null,
+          timezone:values.timezone||"Europe/Lisbon",
+          language:values.language||"pt-PT",updated_at:new Date().toISOString()
+        };
+        if(row)Object.assign(row,next);else workspace.preferences.push(next);
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_update_notification_preference_08h",{
+      p_event_type:values.eventType,
+      p_in_app_enabled:Boolean(values.inAppEnabled),
+      p_email_enabled:Boolean(values.emailEnabled),
+      p_quiet_hours_start:values.quietHoursStart||null,
+      p_quiet_hours_end:values.quietHoursEnd||null,
+      p_timezone:values.timezone||"Europe/Lisbon",
+      p_language:values.language||"pt-PT"
+    });
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async saveNotificationTemplate(templateId,values){
+    if(!hasPermission(this.state,"notifications.templates.manage"))throw new Error("Permissão insuficiente.");
+    const allowedTokens=this.state.notificationModel.templateTokens||[];
+    const combined=`${values.subjectTemplate} ${values.titleTemplate} ${values.bodyTextTemplate}`;
+    const used=[...combined.matchAll(/\{\{([a-z_][a-z0-9_]*)\}\}/g)].map(match=>match[1]);
+    const unknown=used.filter(token=>!allowedTokens.includes(token));
+    if(unknown.length)throw new Error(`Tokens não permitidos: ${[...new Set(unknown)].join(", ")}`);
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        if(templateId){
+          const existing=workspace.operations.templates.find(item=>item.id===templateId);
+          if(!existing)throw new Error("Template não encontrado.");
+          if(["approved","retired"].includes(existing.status))throw new Error("Templates publicados são imutáveis.");
+          Object.assign(existing,{
+            subjectTemplate:values.subjectTemplate,titleTemplate:values.titleTemplate,
+            bodyTextTemplate:values.bodyTextTemplate,allowedTokens,status:values.status,
+            updatedAt:new Date().toISOString()
+          });
+        }else{
+          const previous=workspace.operations.templates.filter(item=>item.eventType===values.eventType&&item.language===values.language);
+          if(values.status==="approved")for(const item of previous)if(item.status==="approved")item.status="retired";
+          workspace.operations.templates.push({
+            id:`demo-template-${Date.now()}`,eventType:values.eventType,channel:"email",
+            language:values.language||"pt-PT",version:Math.max(0,...previous.map(item=>item.version||0))+1,
+            status:values.status,subjectTemplate:values.subjectTemplate,titleTemplate:values.titleTemplate,
+            bodyTextTemplate:values.bodyTextTemplate,allowedTokens,updatedAt:new Date().toISOString()
+          });
+        }
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_notification_template_08h",{
+      p_template_id:templateId||null,
+      p_event_type:values.eventType,
+      p_language:values.language||"pt-PT",
+      p_subject_template:values.subjectTemplate,
+      p_title_template:values.titleTemplate,
+      p_body_text_template:values.bodyTextTemplate,
+      p_allowed_tokens:allowedTokens,
+      p_status:values.status
+    });
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async updateNotificationChannel(values){
+    if(!hasPermission(this.state,"notifications.channel.manage"))throw new Error("Permissão insuficiente.");
+    if(values.channel==="email"&&values.status==="active"){
+      if(values.provider==="disabled")throw new Error("Configure um fornecedor antes de ativar o e-mail.");
+      if(values.confirmation!=="ACTIVATE_MILREU_TRANSACTIONAL_EMAIL")throw new Error("Confirmação literal obrigatória.");
+      if(!values.fromEmail)throw new Error("O remetente é obrigatório.");
+    }
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        let row=workspace.channels.find(item=>item.channel===values.channel);
+        const next={
+          project_id:"demo-project",channel:values.channel,status:values.status,
+          provider:values.provider,from_name:values.fromName||null,
+          from_email:values.fromEmail||null,settings:values.settings||{},
+          updated_at:new Date().toISOString()
+        };
+        if(row)Object.assign(row,next);else workspace.channels.push(next);
+        workspace.operations.channels=workspace.channels.map(channel=>({
+          ...channel,fromEmailConfigured:Boolean(channel.from_email),from_email:undefined
+        }));
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_update_notification_channel_08h",{
+      p_channel:values.channel,p_status:values.status,p_provider:values.provider,
+      p_from_name:values.fromName||null,p_from_email:values.fromEmail||null,
+      p_settings:values.settings||{},p_confirmation:values.confirmation||null
+    });
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async sendTestNotification(targetUserId,eventType="task.assigned",includeEmail=false){
+    if(!hasPermission(this.state,"notifications.test"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        if(targetUserId!==this.state.session.user.id&&targetUserId!=="demo-master"&&targetUserId!=="demo-volunteer")throw new Error("Membro de teste não encontrado.");
+        if(targetUserId===this.state.session.user.id){
+          workspace.notifications.unshift({
+            id:`demo-notification-${Date.now()}`,project_id:"demo-project",user_id:targetUserId,
+            event_type:eventType,entity_type:"test",entity_id:"08H",
+            title:"Notificação de teste",body:"Esta notificação confirma o funcionamento do centro interno.",
+            action_url:"#/area-colaborativa/notificacoes",severity:"info",status:"unread",
+            metadata:{demo:true},created_at:new Date().toISOString(),
+            expires_at:new Date(Date.now()+365*24*60*60*1000).toISOString()
+          });
+        }
+        if(includeEmail){
+          const channel=workspace.channels.find(item=>item.channel==="email");
+          if(channel?.status!=="active")throw new Error("O canal de e-mail não está ativo.");
+          workspace.operations.recentOutbox.unshift({
+            id:`demo-outbox-${Date.now()}`,eventType,recipientKind:"user",
+            recipient:`membro:${String(targetUserId).slice(0,8)}`,status:"pending",
+            attempts:0,maxAttempts:5,availableAt:new Date().toISOString(),
+            lastError:null,createdAt:new Date().toISOString()
+          });
+          workspace.operations.outboxCounts.pending=(workspace.operations.outboxCounts.pending||0)+1;
+        }
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_send_test_notification_08h",{
+      p_target_user_id:targetUserId,p_event_type:eventType,p_include_email:Boolean(includeEmail)
+    });
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async queueInvitationEmail(invitationId){
+    if(!hasPermission(this.state,"notifications.invitation-email"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        const channel=workspace.channels.find(item=>item.channel==="email");
+        if(channel?.status!=="active")throw new Error("O canal de e-mail não está ativo.");
+        workspace.operations.recentOutbox.unshift({
+          id:`demo-invitation-outbox-${Date.now()}`,eventType:"invitation.created",
+          recipientKind:"email",recipient:"c***@local.invalid",status:"pending",
+          attempts:0,maxAttempts:5,availableAt:new Date().toISOString(),
+          lastError:null,createdAt:new Date().toISOString()
+        });
+        workspace.operations.outboxCounts.pending=(workspace.operations.outboxCounts.pending||0)+1;
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_queue_invitation_email_08h",{p_invitation_id:invitationId});
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async retryNotificationOutbox(outboxId){
+    if(!hasPermission(this.state,"notifications.outbox.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        const row=workspace.operations.recentOutbox.find(item=>item.id===outboxId);
+        if(!row||!["failed","dead-letter"].includes(row.status))throw new Error("Entrega não disponível para repetição.");
+        row.status="pending";row.availableAt=new Date().toISOString();row.lastError=null;
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_retry_notification_outbox_08h",{p_outbox_id:outboxId});
+    if(error)throw error;
+    await this.refreshNotifications();
+  }
+
+  async cancelNotificationOutbox(outboxId,reason){
+    if(!hasPermission(this.state,"notifications.outbox.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoNotificationUpdate(workspace=>{
+        const row=workspace.operations.recentOutbox.find(item=>item.id===outboxId);
+        if(!row)throw new Error("Entrega não encontrada.");
+        row.status="cancelled";row.lastError=`Cancelado: ${reason}`;
+      });
+      return;
+    }
+    const{error}=await this.client.rpc("collab_cancel_notification_outbox_08h",{
+      p_outbox_id:outboxId,p_reason:reason
+    });
+    if(error)throw error;
+    await this.refreshNotifications();
   }
 
   demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}

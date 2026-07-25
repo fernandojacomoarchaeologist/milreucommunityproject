@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.18.0",
-  "currentPackage": "08G",
+  "version": "0.19.0",
+  "currentPackage": "08H",
   "surfaces": [
     {
       "code": "portal-home",
@@ -83,6 +83,33 @@
         "supabase/migrations/20260724130000_collaborative_deployment_homologation.sql"
       ],
       "integration": "check-registry"
+    },
+    {
+      "code": "notification-center",
+      "owner": "collaborative-communications",
+      "files": [
+        "src/views/collaborative-notifications.js",
+        "src/components/collaborative-layout.js"
+      ],
+      "integration": "member-inbox"
+    },
+    {
+      "code": "notification-events",
+      "owner": "collaborative-domain",
+      "files": [
+        "public/data/collaborative-notification-model.json",
+        "supabase/migrations/20260724140100_collaborative_notifications_rpc.sql"
+      ],
+      "integration": "database-triggers"
+    },
+    {
+      "code": "notification-outbox",
+      "owner": "collaborative-operations",
+      "files": [
+        "supabase/functions/dispatch-collab-notifications/index.ts",
+        "scripts/notifications/"
+      ],
+      "integration": "service-role-worker"
     }
   ],
   "futurePackageRules": [
@@ -93,6 +120,9 @@
     "Não inventar contactos, domínios, traduções, direitos, datas ou aprovações.",
     "Preservar staging e produção como projetos distintos.",
     "Não gravar secrets ou o e-mail master em artefactos públicos.",
-    "Executar produção apenas após homologação aprovada."
+    "Executar produção apenas após homologação aprovada.",
+    "Preservar o centro interno independentemente do fornecedor externo.",
+    "Não ativar e-mail, convites automáticos ou agenda do worker por inferência.",
+    "Não introduzir chat sem pacote e decisão próprios."
   ]
 }

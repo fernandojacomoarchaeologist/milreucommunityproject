@@ -36,6 +36,8 @@ export function getRoute() {
   const collabContribution = path.match(/^\/area-colaborativa\/contributos\/([^/]+)$/);
   if (collabContribution) return { name:"collab-contribution-detail", contributionId:decodeURIComponent(collabContribution[1]) };
   if (path === "/area-colaborativa/agenda") return { name:"collab-agenda", query };
+  if (path === "/area-colaborativa/notificacoes") return { name:"collab-notifications", query };
+  if (path === "/area-colaborativa/notificacoes/preferencias") return { name:"collab-notification-preferences" };
   if (path === "/area-colaborativa/biblioteca") return { name:"collab-library", query };
   const collabLibraryResource = path.match(/^\/area-colaborativa\/biblioteca\/([^/]+)$/);
   if (collabLibraryResource) return { name:"collab-library-resource", resourceCode:decodeURIComponent(collabLibraryResource[1]) };
@@ -47,6 +49,8 @@ export function getRoute() {
   if (collabMuseumReviewPreview) return { name:"collab-museum-review-preview", memoryId:decodeURIComponent(collabMuseumReviewPreview[1]) };
   const collabMuseumReviewDetail = path.match(/^\/area-colaborativa\/revisao-museu\/([^/]+)$/);
   if (collabMuseumReviewDetail) return { name:"collab-museum-review-detail", memoryId:decodeURIComponent(collabMuseumReviewDetail[1]) };
+  if (path === "/area-colaborativa/gestao/notificacoes") return { name:"collab-notification-management" };
+  if (path === "/area-colaborativa/gestao/notificacoes/templates") return { name:"collab-notification-templates" };
   if (path === "/area-colaborativa/gestao/homologacao") return { name:"collab-deployment-homologation" };
   const collabHomologationRun = path.match(/^\/area-colaborativa\/gestao\/homologacao\/([^/]+)$/);
   if (collabHomologationRun) return { name:"collab-homologation-run", runId:decodeURIComponent(collabHomologationRun[1]) };

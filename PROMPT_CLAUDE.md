@@ -1,15 +1,15 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08G
+# Prompt de integração — Pacote 08H
 
-Integra cumulativamente o 08G sobre o 08F.
+Integra cumulativamente o 08H sobre o 08G.
 
-## Antes de alterar
+## Contexto obrigatório
 
 Ler:
 
@@ -17,73 +17,80 @@ Ler:
 - `PACKAGE_DEPENDENCY_MAP.md`;
 - `CHANGE_SURFACE_REGISTRY.md`;
 - `CONTEXT_RECOVERY_PROTOCOL.md`;
-- `docs/deployment/ENVIRONMENT_STRATEGY_08G.md`;
-- `docs/deployment/STAGING_HOMOLOGATION_08G.md`.
+- `docs/notifications/NOTIFICATION_ARCHITECTURE_08H.md`;
+- `docs/notifications/NOTIFICATION_OPERATIONS_RUNBOOK_08H.md`;
+- `docs/notifications/NOTIFICATION_PRIVACY_RETENTION_08H.md`.
 
 ## Objetivo
 
-Preparar a implantação real da Área Colaborativa, sem configurar segredos ou publicar produção automaticamente.
+Ativar notificações internas e preparar e-mail transacional controlado.
 
 ## Integrar
 
-1. migrations `20260724130000`–`130200`;
-2. modelos e perfis de ambiente;
-3. controller, rotas, view e estilos;
-4. scripts de preflight, OAuth, smoke e master;
-5. workflows;
-6. testes;
-7. documentação e contexto.
+1. migrations `20260724140000`–`140200`;
+2. Edge Function `dispatch-collab-notifications`;
+3. modelos, templates e runtime;
+4. controller;
+5. views, rotas, badge e estilos;
+6. scripts;
+7. workflows;
+8. testes;
+9. documentação e contexto.
 
-## Regras obrigatórias
+## Regras
 
-- não inventar o e-mail master;
-- não gravar secrets no Git;
-- `service_role` somente em terminal seguro, CI protegido ou função de servidor;
-- Google OAuth com pré-autorização;
-- tokens do provider não armazenados;
-- demo apenas local;
-- staging separado de produção;
-- HTTPS fora do local;
-- produção sem reset;
-- dry-run antes de migrations remotas;
-- staging aprovado antes de produção;
-- aprovação de produção com literal;
-- remote smoke de produção apenas read-only;
-- não executar `db reset --linked` em produção;
-- não executar produção durante a integração.
+- centro interno ativo;
+- e-mail desativado por padrão;
+- sem fornecedor inventado;
+- sem envio automático de convites;
+- sem agenda automática do worker;
+- service role apenas no servidor;
+- worker secret obrigatório;
+- e-mails e payloads não aparecem nos relatórios administrativos;
+- templates aprovados são imutáveis;
+- correções criam nova versão;
+- HTML é gerado pelo worker a partir de texto escapado;
+- tokens são limitados;
+- eventos obrigatórios não podem ser desativados no centro interno;
+- pedidos de retirada são prioritários;
+- e-mail exige confirmação literal;
+- dead-letter não é reenviado sem ação;
+- staging antes de produção.
 
-## Comandos
+## Validação
 
 ```bash
 npm ci
-npm run deploy:profile
-npm run deploy:preflight
-npm run deploy:oauth-check
-npm run collab:config
+npm run notifications:config
+npm run notifications:preview
+npm run notifications:test-payload
+npm run notifications:dispatch-status
 npm run validate
 npm test
 npm run build
 npm run smoke
 ```
 
-Executar os testes SQL 08A–08G em Supabase local.
+Executar os testes SQL 08A–08H em Supabase local.
 
-## Verificação manual
+## Revisão manual
 
-- login Google;
-- callback;
-- conta sem pré-autorização;
-- convite autorizado;
-- aprovação de membro;
-- master;
-- último master;
-- logout;
-- expiração;
-- perfis;
-- RLS;
-- storage;
-- 24 checks;
-- staging;
+- badge;
+- inbox;
+- filtros;
+- leitura;
+- arquivo;
+- preferências;
+- aviso obrigatório;
+- horário silencioso;
+- templates;
+- canal;
+- teste interno;
+- convite explícito;
+- outbox;
+- retry;
+- cancelamento;
+- dead-letter;
 - 375, 768 e 1280 px.
 
-Não afirmar que o Google OAuth ou staging estão configurados até existirem evidências reais.
+Não ativar o e-mail durante a integração.

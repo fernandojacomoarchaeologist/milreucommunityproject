@@ -1,7 +1,6 @@
 -- MILREU-DESTRUCTIVE-REVIEWED (revisão de integração 2026-07-25):
--- Os `delete from ...` são reatribuição de funções (collab_member_roles) por membro em RPCs: apagam só as linhas do alvo e reinserem as
--- novas (set-operation scoped sob RLS/RPC). Não é exclusão massiva, não altera
--- schema, é reversível e não toca dados canónicos do Museu. Marcador após revisão.
+-- Os `delete from collab_member_roles` são reatribuição de funções scoped por membro sob RLS/RPC (apagar+reinserir), reversíveis.
+-- Não altera schema nem toca dados canónicos do Museu. Marcador após revisão.
 
 -- Contexto do utilizador, gestão de membros e bootstrap do master.
 

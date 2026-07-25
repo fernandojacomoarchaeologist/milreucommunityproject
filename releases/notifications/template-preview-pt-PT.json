@@ -1,0 +1,148 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.19.0",
+  "generatedAt": "2026-07-25T17:48:42.972Z",
+  "recipient": "test@example.invalid",
+  "previews": [
+    {
+      "eventType": "membership.approved",
+      "language": "pt-PT",
+      "subject": "Acesso aprovado — Projeto Comunitário de Milreu",
+      "title": "O seu acesso foi aprovado",
+      "body": "Olá Membro de teste. O seu acesso à Área Colaborativa do Projeto Comunitário de Milreu foi aprovado. Aceda em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "membership.rejected",
+      "language": "pt-PT",
+      "subject": "Atualização do pedido de acesso — Projeto Comunitário de Milreu",
+      "title": "Pedido de acesso atualizado",
+      "body": "Olá Membro de teste. O pedido de acesso à Área Colaborativa foi atualizado. Consulte a informação disponível em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "membership.suspended",
+      "language": "pt-PT",
+      "subject": "Acesso suspenso — Projeto Comunitário de Milreu",
+      "title": "O seu acesso foi suspenso",
+      "body": "Olá Membro de teste. O seu acesso à Área Colaborativa foi suspenso. Para esclarecimentos, utilize os canais institucionais definidos pelo projeto."
+    },
+    {
+      "eventType": "invitation.created",
+      "language": "pt-PT",
+      "subject": "Convite para colaborar — Projeto Comunitário de Milreu",
+      "title": "Convite para a Área Colaborativa",
+      "body": "Foi criado um convite para participar no Projeto Comunitário de Milreu com o perfil revisor. Inicie sessão com esta conta Google em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "task.assigned",
+      "language": "pt-PT",
+      "subject": "Nova tarefa atribuída — Exemplo de atividade",
+      "title": "Recebeu uma tarefa",
+      "body": "Foi-lhe atribuída a tarefa “Exemplo de atividade”. Consulte prazo e instruções em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "task.status-changed",
+      "language": "pt-PT",
+      "subject": "Atualização da tarefa — Exemplo de atividade",
+      "title": "A tarefa foi atualizada",
+      "body": "O estado da tarefa “Exemplo de atividade” passou para em revisão. Consulte os detalhes em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "contribution.assigned",
+      "language": "pt-PT",
+      "subject": "Contributo atribuído — MM202601",
+      "title": "Novo contributo para revisão",
+      "body": "O contributo MM202601 foi-lhe atribuído. Consulte a fila de moderação em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "contribution.needs-info",
+      "language": "pt-PT",
+      "subject": "Informação necessária — MM202601",
+      "title": "O contributo necessita de informação",
+      "body": "É necessária informação adicional sobre o contributo MM202601. Consulte a mensagem e responda em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "contribution.decision",
+      "language": "pt-PT",
+      "subject": "Decisão sobre o contributo MM202601",
+      "title": "O contributo foi revisto",
+      "body": "O contributo MM202601 recebeu uma decisão: em revisão. Consulte a mensagem em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "museum-review.assigned",
+      "language": "pt-PT",
+      "subject": "Revisão atribuída — MM202601",
+      "title": "Memória atribuída para revisão",
+      "body": "A memória MM202601 foi-lhe atribuída para revisor. Aceda ao registo em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "museum-review.blocking-comment",
+      "language": "pt-PT",
+      "subject": "Bloqueio editorial — MM202601",
+      "title": "Existe um comentário bloqueante",
+      "body": "A memória MM202601 possui um comentário bloqueante que requer atenção. Consulte-o em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "training.assessment-pending",
+      "language": "pt-PT",
+      "subject": "Avaliação de formação pendente",
+      "title": "Formação a aguardar avaliação",
+      "body": "O percurso “Exemplo de atividade” foi concluído e aguarda avaliação. Consulte a formação em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "training.completed",
+      "language": "pt-PT",
+      "subject": "Formação concluída — Exemplo de atividade",
+      "title": "Percurso concluído",
+      "body": "Concluiu o percurso “Exemplo de atividade”. O estado foi atualizado na Área Colaborativa."
+    },
+    {
+      "eventType": "agenda.changed",
+      "language": "pt-PT",
+      "subject": "Atividade atualizada — Exemplo de atividade",
+      "title": "Uma atividade foi alterada",
+      "body": "A atividade “Exemplo de atividade”, prevista para 31/07/2026, 10:00, foi atualizada. Consulte os detalhes em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "agenda.cancelled",
+      "language": "pt-PT",
+      "subject": "Atividade cancelada — Exemplo de atividade",
+      "title": "Uma atividade foi cancelada",
+      "body": "A atividade “Exemplo de atividade” foi cancelada. Consulte a agenda em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "agenda.upcoming",
+      "language": "pt-PT",
+      "subject": "Lembrete — Exemplo de atividade",
+      "title": "Atividade próxima",
+      "body": "A atividade “Exemplo de atividade” começa em 31/07/2026, 10:00. Consulte localização e detalhes em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "exhibition.logistics-assigned",
+      "language": "pt-PT",
+      "subject": "Ação logística atribuída — Exemplo de atividade",
+      "title": "Ação de exposição atribuída",
+      "body": "Foi-lhe atribuída a ação logística “Exemplo de atividade”, com prazo 31/07/2026. Consulte os detalhes em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "withdrawal.submitted",
+      "language": "pt-PT",
+      "subject": "Pedido de retirada recebido — MM202601",
+      "title": "Novo pedido de retirada",
+      "body": "Foi recebido um pedido de retirada relacionado com MM202601. Este evento é prioritário e deve ser tratado em https://example.invalid/#/area-colaborativa."
+    },
+    {
+      "eventType": "withdrawal.status-changed",
+      "language": "pt-PT",
+      "subject": "Pedido de retirada atualizado — MM202601",
+      "title": "Pedido de retirada atualizado",
+      "body": "O estado do pedido de retirada MM202601 passou para em revisão."
+    },
+    {
+      "eventType": "homologation.blocked",
+      "language": "pt-PT",
+      "subject": "Homologação bloqueada — staging",
+      "title": "A homologação foi bloqueada",
+      "body": "A homologação do ambiente staging foi bloqueada. Consulte checks e evidências em https://example.invalid/#/area-colaborativa."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -173,9 +173,13 @@ Revisão das 31 memórias, formação, biblioteca, gates, snapshots e efeitos or
 
 Ambientes local, staging e produção; Google OAuth; master configurável; preflight; RLS; storage; 24 checks e gates de produção.
 
-## Estado funcional após 08G
+### 08H — Notificações e operação
 
-Todos os 17 módulos do registo colaborativo possuem implementação ativa:
+Centro interno, preferências, 20 eventos, templates transacionais, outbox, worker webhook, retries, dead-letter e convites explícitos.
+
+## Estado funcional após 08H
+
+Todos os 19 módulos do registo colaborativo possuem implementação ativa:
 
 - dashboard;
 - perfil;
@@ -193,10 +197,13 @@ Todos os 17 módulos do registo colaborativo possuem implementação ativa:
 - locais;
 - exposições;
 - gestão da revisão;
-- implantação e homologação.
+- implantação e homologação;
+- notificações;
+- gestão de notificações.
 
 ## Próximas fronteiras
 
+- Pacote 08I: administração, auditoria, retenção, backups e continuidade operacional;
 - execução real das migrations em local e staging;
 - configuração do Google OAuth;
 - bootstrap do master;
@@ -209,3 +216,14 @@ Todos os 17 módulos do registo colaborativo possuem implementação ativa:
 - acessibilidade final;
 - impressão física;
 - notificações apenas quando justificadas.
+
+## Invariantes de comunicação
+
+- o centro interno é o canal canónico;
+- e-mail desativado por padrão;
+- fornecedor não é escolhido por inferência;
+- convites não são enviados automaticamente;
+- templates aprovados são imutáveis;
+- service role e worker secret ficam no servidor;
+- pedidos de retirada são prioritários;
+- chat interno não faz parte do escopo.

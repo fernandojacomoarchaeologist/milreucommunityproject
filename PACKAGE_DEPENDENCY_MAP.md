@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -16,7 +16,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
                               ↓
 07A → 07B → 07C → 07D → 07D.1 → 07D.2 → 07D.3
                                       ↓
-08A → 08B → 08C → 08D → 08E → 08F → 08G
+08A → 08B → 08C → 08D → 08E → 08F → 08G → 08H
 ```
 
 ## Dependências críticas do 08F
@@ -59,3 +59,24 @@ Pacotes futuros devem alterar páginas públicas através dos contratos e slots 
 - execuções de homologação;
 - checks e evidências;
 - gates de staging e produção.
+
+## Dependências críticas do 08H
+
+- 08A/08B: utilizadores, memberships, perfis e convites;
+- 08C: tarefas;
+- 08D: agenda e exposições;
+- 08E: contributos e retirada;
+- 08F: formação e revisão do Museu;
+- 08G: ambientes, homologação e secrets.
+
+## Saídas do 08H
+
+- centro interno;
+- preferências;
+- eventos;
+- templates;
+- outbox;
+- deliveries;
+- worker webhook;
+- runbook;
+- fronteiras para o 08I.

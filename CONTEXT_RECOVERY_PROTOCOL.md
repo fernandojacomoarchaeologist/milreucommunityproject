@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08G"
+package: "08H"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -75,3 +75,17 @@ Quando faltar uma destas bases, indicar claramente:
 - o que ficará bloqueado.
 
 Não preencher lacunas com inferências convincentes.
+
+### Notificações
+
+Localizar:
+
+- `collaborative-notification-model.json`;
+- `collaborative-notification-templates.json`;
+- `notifications.runtime.json`;
+- migrations 08H;
+- Edge Function;
+- relatório de outbox;
+- decisão sobre fornecedor e domínio.
+
+Nunca inferir que o canal de e-mail está ativo.

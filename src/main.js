@@ -52,6 +52,10 @@ import {
 import {
   collaborativeDeploymentHomologationView, collaborativeHomologationRunView
 } from "./views/collaborative-deployment.js";
+import {
+  collaborativeNotificationsView, collaborativeNotificationPreferencesView,
+  collaborativeNotificationManagementView
+} from "./views/collaborative-notifications.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -73,6 +77,7 @@ const state = {
   collabContributionFilters: {query:"",status:"",type:"",assignee:""},
   collabLibraryFilters: {query:"",category:""},
   collabMuseumReviewFilters: {query:"",status:""},
+  collabNotificationFilters: {query:"",status:"",category:""},
   contributionSubmissionResult: null,
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
@@ -294,6 +299,14 @@ function renderCollaborativeRoute(route) {
       return collaborativeContributionDetailView(context,route.contributionId,true);
     case "collab-agenda":
       return collaborativeAgendaView(context,{...state.collabAgendaFilters,...(route.query||{})});
+    case "collab-notifications":
+      return collaborativeNotificationsView(context,{...state.collabNotificationFilters,...(route.query||{})});
+    case "collab-notification-preferences":
+      return collaborativeNotificationPreferencesView(context);
+    case "collab-notification-management":
+      return collaborativeNotificationManagementView(context,"overview");
+    case "collab-notification-templates":
+      return collaborativeNotificationManagementView(context,"templates");
     case "collab-library":
       return collaborativeLibraryView(context,{...state.collabLibraryFilters,...(route.query||{})});
     case "collab-library-resource":
@@ -751,6 +764,111 @@ function bindPage() {
     catch(error){alert(error.message);}finally{button.disabled=false;}
   }));
 
+
+  document.querySelector("[data-notification-filters]")?.addEventListener("submit",event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);
+    state.collabNotificationFilters={
+      query:values.query||"",status:values.status||"",category:values.category||""
+    };
+    const query=new URLSearchParams(Object.entries(state.collabNotificationFilters).filter(([,value])=>value));
+    go(`/area-colaborativa/notificacoes${query.toString()?`?${query}`:""}`);
+  });
+
+  document.querySelectorAll("[data-notification-action]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{await collaborative.markNotification(button.dataset.notificationId,button.dataset.notificationAction);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-notification-mark-all]")?.addEventListener("click",async event=>{
+    event.currentTarget.disabled=true;
+    try{await collaborative.markAllNotificationsRead();}
+    catch(error){alert(error.message);}finally{event.currentTarget.disabled=false;}
+  });
+
+  document.querySelector("[data-notification-preferences-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    const start=values.quietHoursStart||"",end=values.quietHoursEnd||"";
+    if(Boolean(start)!==Boolean(end)){setCollaborativeFeedback("Defina o início e o fim do horário silencioso.",true);return;}
+    setCollaborativeFeedback("A guardar preferências…");
+    try{
+      const preferences=state.collab.notificationModel.eventTypes.map(eventType=>{
+        const inApp=form.elements[`inApp:${eventType.code}`];
+        const email=form.elements[`email:${eventType.code}`];
+        return{
+          eventType:eventType.code,
+          inAppEnabled:eventType.mandatoryInApp?true:Boolean(inApp?.checked),
+          emailEnabled:Boolean(email?.checked),
+          quietHoursStart:start||null,quietHoursEnd:end||null,
+          timezone:values.timezone||"Europe/Lisbon",language:values.language||"pt-PT"
+        };
+      });
+      await collaborative.saveNotificationPreferences(preferences);
+      setCollaborativeFeedback("Preferências guardadas.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-notification-template-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar template…");
+    try{
+      await collaborative.saveNotificationTemplate(form.dataset.templateId||null,{
+        eventType:values.eventType,language:values.language||"pt-PT",
+        subjectTemplate:values.subjectTemplate,titleTemplate:values.titleTemplate,
+        bodyTextTemplate:values.bodyTextTemplate,status:values.status
+      });
+      setCollaborativeFeedback("Template guardado como nova versão ou rascunho.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-notification-channel-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A guardar canal…");
+    try{
+      await collaborative.updateNotificationChannel({
+        channel:values.channel,status:values.status,provider:values.provider,
+        fromName:values.fromName||null,fromEmail:values.fromEmail||null,
+        confirmation:values.confirmation||null,
+        settings:{automaticScheduleEnabled:false,maxBatch:25,maxAttempts:5}
+      });
+      setCollaborativeFeedback("Canal atualizado.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-notification-test-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A criar teste…");
+    try{
+      await collaborative.sendTestNotification(
+        values.targetUserId,values.eventType||"task.assigned",
+        Boolean(form.elements.includeEmail?.checked)
+      );
+      setCollaborativeFeedback("Teste criado.");
+    }catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-notification-invitation-email]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{await collaborative.queueInvitationEmail(button.dataset.notificationInvitationEmail);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-notification-outbox-retry]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{await collaborative.retryNotificationOutbox(button.dataset.notificationOutboxRetry);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-notification-outbox-cancel]").forEach(button=>button.addEventListener("click",async()=>{
+    const reason=prompt("Fundamente o cancelamento:","")||"";
+    if(!reason.trim())return;button.disabled=true;
+    try{await collaborative.cancelNotificationOutbox(button.dataset.notificationOutboxCancel,reason);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-notification-refresh]")?.addEventListener("click",async event=>{
+    event.currentTarget.disabled=true;
+    try{await collaborative.refreshNotifications();}
+    catch(error){alert(error.message);}finally{event.currentTarget.disabled=false;}
+  });
+
   document.querySelector("[data-venue-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
     const form=event.currentTarget,values=formValues(form);
@@ -1099,6 +1217,10 @@ function render(scroll=true) {
     case "collab-contribution-moderation":
     case "collab-contribution-moderation-detail":
     case "collab-agenda":
+    case "collab-notifications":
+    case "collab-notification-preferences":
+    case "collab-notification-management":
+    case "collab-notification-templates":
     case "collab-library":
     case "collab-library-resource":
     case "collab-training":
