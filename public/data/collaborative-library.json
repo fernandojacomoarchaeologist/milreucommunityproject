@@ -1,0 +1,137 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.17.0",
+  "resources": [
+    {
+      "code": "project-context-ledger",
+      "title": "Contexto consolidado do projeto",
+      "category": "governance",
+      "path": "PROJECT_CONTEXT_LEDGER.md",
+      "audience": [
+        "all"
+      ],
+      "status": "active",
+      "summary": "Este ficheiro é cumulativo. Não deve ser substituído por um resumo apenas do pacote mais recente.",
+      "content": "# Ledger de contexto do Projeto Comunitário de Milreu\n\nEste ficheiro é cumulativo. Não deve ser substituído por um resumo apenas do pacote mais recente.\n\n## Identidade e objetivo\n\nO **Projeto Comunitário de Milreu** é o programa principal de Arqueologia Pública e Comunitária em Estoi e Faro.\n\nObjetivo:\n\n> Resgatar a memória e o valor histórico de Milreu para a população de Estoi e também de Faro.\n\nPrincípios públicos:\n\n1. Comunicação;\n2. Mutualidade;\n3. Pertinência Social e Política.\n\nRegra interpretativa interna:\n\n> A comunidade fala primeiro; a instituição funciona como contexto e moldura.\n\n## Camadas\n\n### Portal público\n\nNavegação, contexto, metodologia, iniciativas, participação, agenda, conhecimento e acesso ao Museu.\n\n### Museu de Memórias\n\nExploração visual e imersiva das memórias. Possui 31 registos visíveis no ambiente de revisão.\n\n### Milreu Proteus\n\nBase de conhecimento, proveniência, relações, dados e exports. Não é a marca principal.\n\n### Área Colaborativa\n\nEspaço autenticado para coordenação, voluntários, investigadores, revisores, tradutores, parceiros e colaboradores comunitários.\n\n### Canais físicos\n\nTotens e painéis permanecem dependentes do Pacote 14 e de especificações finais de impressão.\n\n## Invariantes editoriais\n\n- `pt-PT` é a língua-fonte.\n- `en`, `es` e `fr` dependem de revisão.\n- Conteúdo preliminar não é aprovado por inferência.\n- Direitos, créditos, fontes, intervenções digitais e pedidos de retirada devem permanecer rastreáveis.\n- Regra operacional: não publicar automaticamente.\n- Não inventar contactos, domínios, datas, traduções, autorizações ou direitos.\n- GitHub guarda código, documentação e snapshots públicos aprovados.\n- Supabase guarda operação, rascunhos, membros, tarefas, contributos e decisões.\n- `service_role` nunca entra no browser.\n\n## MM202617\n\nMM202617 pode permanecer visível para revisão. Deve declarar claramente que houve **retoque substantivo com inteligência artificial**.\n\nO registo:\n\n- não deve ser apresentado como imagem original não alterada;\n- permanece inelegível para lançamento público enquanto os gates editoriais não forem concluídos;\n- pode ser aprovado posteriormente apenas com direitos, crédito e divulgação adequados.\n\n## Histórico dos pacotes\n\n### 01 — Fundação, governança e escopo\n\nDefiniu identidade, objetivos, princípios, estados e fronteiras.\n\n### 02 — Sistema de design e guia vivo\n\nDefiniu tokens, tipografia, grids, acessibilidade e linguagem visual.\n\n### 03 — Modelo de dados do Museu\n\nDefiniu memória, fonte, direitos, media, relações, canais e localização.\n\n### 04 — Auditoria e migração preliminar\n\nMapeou o legado e os estados de revisão.\n\n### 05A — Auditoria visual da fonte primária\n\nAnalisou o livro privado de Hauschild e Teichner sem o publicar.\n\n### 05B — Fundações visuais de produção\n\nConsolidou tokens visuais.\n\n### 05C — Catálogo visual interativo\n\nCriou a referência de componentes e padrões.\n\n### 05D — Componentes e padrões museológicos\n\nDefiniu comportamento do Portal e Museu.\n\n### 05E — Identidade, logo e iconografia\n\nCriou derivados técnicos do logótipo, sujeitos a revisão humana.\n\n### 05F — Infraestrutura, persistência e skills\n\nAprovou Supabase, GitHub Pages, migrations protegidas, skills e agentes.\n\n### 06 — Arquitetura do Portal e Museu\n\nDefiniu rotas, páginas, fluxos e matrizes.\n\n### 07A — Base executável e imagens\n\nCriou a aplicação estática e pipeline das 31 imagens.\n\n### 07B — Portal público\n\nAtivou páginas institucionais e iniciativas.\n\n### 07C — Museu digital\n\nAtivou pesquisa, filtros, coleções, timeline, detalhe e imersivo.\n\n### 07D — Multicanal e MVP\n\nCriou exports, JSON-LD, laboratório e gates de release.\n\n### 07D.1 — Conteúdo, navegação e slideshow\n\nCorrigiu pilares, menus, CTA e imersivo.\n\n### 07D.2 — Imersivo e carrossel da Home\n\nCorrigiu saída, encaixe de imagem e carrossel Museu/Proteus/Inquérito.\n\n### 07D.3 — MM202617\n\nDesbloqueou o registo para revisão com divulgação explícita de retoque substantivo por IA, mantendo o bloqueio de lançamento.\n\n### 08A — Fundação da Área Colaborativa\n\nGoogle Auth, perfis, permissões, master e módulos.\n\n### 08B — Membros e perfis\n\nGestão de membros, funções, interesses, competências e pré-autorizações.\n\n### 08C — Voluntariado e tarefas\n\nDisponibilidade, tarefas, candidaturas, progresso e tempo.\n\n### 08D — Agenda e exposição itinerante\n\nLocais, períodos, eventos, RSVP, logística e página pública.\n\n### 08E — Contributos comunitários\n\nSubmissão, ficheiros privados, consentimento, moderação, direitos e retirada.\n\n### 08F — Revisão editorial e curatorial\n\nRevisão das 31 memórias, formação, biblioteca, gates, snapshots e efeitos orgânicos nas páginas principais.\n\n## Estado funcional após 08F\n\nTodos os 16 módulos do registo colaborativo possuem implementação ativa:\n\n- dashboard;\n- perfil;\n- disponibilidade;\n- tarefas;\n- contributos;\n- agenda;\n- biblioteca;\n- formação;\n- revisão do Museu;\n- gestão de tarefas;\n- membros;\n- convites;\n- moderação;\n- locais;\n- exposições;\n- gestão da revisão.\n\n## Próximas fronteiras\n\n- aplicação humana das revisões;\n- traduções;\n- lançamento público;\n- domínio;\n- contacto público;\n- acessibilidade final;\n- impressão física;\n- notificações apenas quando justificadas.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "museum-review-manual",
+      "title": "Manual de revisão editorial do Museu",
+      "category": "museum-review",
+      "path": "docs/collaborative/MUSEUM_EDITORIAL_REVIEW_MANUAL.md",
+      "audience": [
+        "reviewer",
+        "researcher",
+        "translator",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "1. ler o registo completo;",
+      "content": "# Manual de revisão editorial do Museu\n\n## Ordem\n\n1. ler o registo completo;\n2. verificar imagem e intervenção digital;\n3. rever título e descrições;\n4. rever datação e classificação;\n5. rever lugares;\n6. rever fontes;\n7. rever direitos e crédito;\n8. rever relações;\n9. rever traduções;\n10. rever publicação.\n\nCada mudança deve ser uma proposta por campo, com fundamento e fonte quando aplicável.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "field-map",
+      "title": "Mapa de campos e decisões",
+      "category": "museum-review",
+      "path": "docs/collaborative/MUSEUM_FIELD_REVIEW_MAP.md",
+      "audience": [
+        "reviewer",
+        "researcher",
+        "translator",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "O modelo contém 22 campos ou grupos editáveis.",
+      "content": "# Mapa de campos\n\nO modelo contém 22 campos ou grupos editáveis.\n\nCampos textuais utilizam texto direto. Objetos e listas utilizam JSON válido. Não substituir o registo completo.\n\nCaminhos seguem JSON Pointer, por exemplo:\n\n```text\n/title/pt-PT\n/description/objective/pt-PT\n/date/precision\n/sources\n/rights\n```",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "rights-guide",
+      "title": "Guia de direitos, créditos e intervenções digitais",
+      "category": "rights",
+      "path": "docs/collaborative/MUSEUM_RIGHTS_REVIEW_08F.md",
+      "audience": [
+        "reviewer",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "Verificar separadamente:",
+      "content": "# Direitos, créditos e intervenções\n\nVerificar separadamente:\n\n- autor;\n- titular;\n- cedente;\n- fonte;\n- crédito;\n- condição de uso;\n- âmbito;\n- retirada;\n- intervenção digital;\n- uso de IA.\n\nMM202617 exige divulgação clara de retoque substantivo com IA.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "sources-guide",
+      "title": "Guia de fontes, citações e proveniência",
+      "category": "research",
+      "path": "docs/collaborative/MUSEUM_SOURCES_PROVENANCE_08F.md",
+      "audience": [
+        "reviewer",
+        "researcher",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "Uma fonte deve indicar tipo, citação, localização e acesso.",
+      "content": "# Fontes e proveniência\n\nUma fonte deve indicar tipo, citação, localização e acesso.\n\nDistinguir:\n\n- documentação do projeto;\n- testemunho oral;\n- arquivo;\n- publicação;\n- inferência visual;\n- investigação no local.\n\nNão transformar probabilidade em certeza.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "translation-guide",
+      "title": "Guia de tradução e localização",
+      "category": "translation",
+      "path": "docs/collaborative/MUSEUM_TRANSLATION_REVIEW_08F.md",
+      "audience": [
+        "translator",
+        "reviewer",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "O português europeu é a fonte.",
+      "content": "# Tradução e localização\n\nO português europeu é a fonte.\n\nEstados:\n\n```text\nmissing → draft → reviewed → approved\n```\n\nA tradução não pode corrigir silenciosamente o texto-fonte. Questões devem regressar à revisão editorial.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "accessibility-checklist",
+      "title": "Checklist de escrita e acessibilidade",
+      "category": "accessibility",
+      "path": "docs/collaborative/MUSEUM_ACCESSIBILITY_REVIEW_08F.md",
+      "audience": [
+        "reviewer",
+        "translator",
+        "coordinator"
+      ],
+      "status": "active",
+      "summary": "Rever:",
+      "content": "# Acessibilidade\n\nRever:\n\n- clareza;\n- extensão;\n- estrutura;\n- texto alternativo;\n- contraste;\n- linguagem não excludente;\n- leitura em telemóvel;\n- divulgação de incerteza;\n- divulgação de intervenção digital.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "publication-gates",
+      "title": "Gates de aprovação e publicação",
+      "category": "publication",
+      "path": "docs/collaborative/MUSEUM_PUBLICATION_GATES_08F.md",
+      "audience": [
+        "coordinator",
+        "reviewer"
+      ],
+      "status": "active",
+      "summary": "- editorial;",
+      "content": "# Gates de publicação\n\n## Editorial\n\n- editorial;\n- fontes;\n- relações;\n- acessibilidade.\n\n## Direitos\n\n- direitos;\n- intervenção digital.\n\n## Publicação\n\n- publicação;\n- tradução.\n\nTodos exigem ausência de bloqueios e de propostas ainda submetidas. A formação aplicável deve estar concluída.",
+      "visibility": "member-reference-not-confidential"
+    },
+    {
+      "code": "context-recovery",
+      "title": "Protocolo de recuperação de contexto",
+      "category": "governance",
+      "path": "CONTEXT_RECOVERY_PROTOCOL.md",
+      "audience": [
+        "all"
+      ],
+      "status": "active",
+      "summary": "Interromper a implementação quando houver risco elevado de:",
+      "content": "# Protocolo de recuperação de contexto\n\n## Quando interromper e pedir contexto\n\nInterromper a implementação quando houver risco elevado de:\n\n- redefinir a identidade do projeto;\n- contradizer uma decisão anterior;\n- inventar conteúdo editorial;\n- substituir um fluxo já integrado;\n- alterar direitos, créditos ou autorizações;\n- publicar uma memória sem aprovação;\n- perder decisões da Área Colaborativa;\n- alterar a Home sem conhecer os slots e integrações atuais.\n\n## Conjunto mínimo necessário\n\nPara retomar com segurança, solicitar ou localizar:\n\n1. o ZIP do pacote cumulativo mais recente;\n2. `PROJECT_CONTEXT_LEDGER.md`;\n3. `PACKAGE_DEPENDENCY_MAP.md`;\n4. `CHANGE_SURFACE_REGISTRY.md`;\n5. `public/data/package-impact-registry.json`;\n6. `VALIDATION_REPORT.md`;\n7. a mensagem de integração do Claude/GitHub com PRs e problemas;\n8. ficheiros ou imagens novos explicitamente citados pelo utilizador.\n\n## Informação adicional conforme o risco\n\n### Museu\n\n- `memories.json`;\n- `museum-editorial-approved.json`;\n- imagens e direitos;\n- decisão específica sobre MM202617.\n\n### Página principal\n\n- `portal.js`;\n- `museum.js`;\n- `public-content-effects.json`;\n- `home-carousel.json`.\n\n### Supabase\n\n- migrations mais recentes;\n- políticas RLS;\n- funções RPC;\n- resultados do workflow local/staging.\n\n### Conteúdo\n\n- texto-fonte;\n- fontes;\n- grau de certeza;\n- crédito;\n- autorização;\n- língua e estado da tradução.\n\n## Resposta ao utilizador\n\nQuando faltar uma destas bases, indicar claramente:\n\n- qual decisão está em risco;\n- qual ficheiro ou confirmação é necessário;\n- o que pode continuar sem risco;\n- o que ficará bloqueado.\n\nNão preencher lacunas com inferências convincentes.",
+      "visibility": "member-reference-not-confidential"
+    }
+  ]
+}

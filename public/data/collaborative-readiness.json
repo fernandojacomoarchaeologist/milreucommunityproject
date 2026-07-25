@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.16.0",
-  "status": "community-contributions-ready",
+  "version": "0.17.0",
+  "status": "collaborative-area-functionally-complete",
   "remoteAuthConfigured": false,
   "googleOAuthConfigured": false,
   "masterBootstrapped": false,
@@ -12,30 +12,28 @@
     "profile",
     "availability",
     "tasks",
+    "contributions",
+    "agenda",
+    "library",
+    "training",
+    "museum-review",
     "task-management",
     "profile-management",
     "member-invitations",
-    "agenda",
+    "contribution-moderation",
+    "museum-review-management",
     "venue-management",
-    "exhibition-management",
-    "contributions",
-    "contribution-moderation"
+    "exhibition-management"
   ],
-  "skeletonModules": [
-    "library",
-    "training",
-    "museum-review"
-  ],
+  "skeletonModules": [],
   "nextActions": [
-    "apply-08e-migrations-to-local-and-staging",
-    "deploy-community-contribution-intake-edge-function",
-    "configure-rate-limit-salt-and-allowed-origins",
-    "test-public-text-only-submission",
-    "test-private-file-upload-and-signed-download",
-    "test-member-submission",
-    "test-moderation-and-withdrawal",
-    "review-consent-text-with-dpo",
-    "plan-08f-museum-editorial-review"
+    "apply-08f-migrations-to-local-and-staging",
+    "test-training-gates",
+    "review-31-memories-field-by-field",
+    "review-mm202617-ai-disclosure",
+    "export-first-approved-snapshot",
+    "run-dry-apply-and-review-diff",
+    "continue-translations-and-public-launch-blockers"
   ],
   "memberManagementReady": true,
   "volunteeringTasksReady": true,
@@ -44,5 +42,9 @@
   "publicIntakeReady": true,
   "privateFileIntakeReady": true,
   "moderationReady": true,
-  "canonicalAutoUpdate": false
+  "canonicalAutoUpdate": false,
+  "museumReviewReady": true,
+  "trainingReady": true,
+  "libraryReady": true,
+  "allRegisteredModulesActive": true
 }

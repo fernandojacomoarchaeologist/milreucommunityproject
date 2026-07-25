@@ -89,3 +89,7 @@ export function suggestedMemories(records, record, limit=4) {
 export async function loadPublicExhibitions() {
   return loadJson("public/data/exhibitions-public.json");
 }
+
+export async function loadPublicContentEffects() {
+  return loadJson("public/data/public-content-effects.json");
+}

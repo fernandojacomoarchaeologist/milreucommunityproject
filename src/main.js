@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -44,6 +44,11 @@ import {
 import {
   publicContributionFormView, publicContributionTrackingView, publicWithdrawalView
 } from "./views/contributions-public.js";
+import {
+  collaborativeLibraryView, collaborativeLibraryResourceView, collaborativeTrainingView, collaborativeTrainingTrailView,
+  collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView,
+  collaborativeMuseumReviewPreviewView, collaborativeMuseumReviewManagementView
+} from "./views/collaborative-museum-review.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -53,6 +58,7 @@ const state = {
   homeCarouselIndex: 0,
   homeCarouselPaused: false,
   publicExhibitions: null,
+  publicContentEffects: null,
   collections: [],
   museumIndex: [],
   audit: null,
@@ -62,6 +68,8 @@ const state = {
   collabTaskFilters: {query:"",category:"",location:""},
   collabAgendaFilters: {view:"list",month:""},
   collabContributionFilters: {query:"",status:"",type:"",assignee:""},
+  collabLibraryFilters: {query:"",category:""},
+  collabMuseumReviewFilters: {query:"",status:""},
   contributionSubmissionResult: null,
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
@@ -217,6 +225,20 @@ function contributionFormPayload(form) {
   return{payload,files};
 }
 
+
+function parseMuseumProposalValue(raw,baseValue) {
+  const value=String(raw??"");
+  if(typeof baseValue==="string")return value;
+  if(baseValue===null){
+    const trimmed=value.trim();
+    if(!trimmed)return null;
+    try{return JSON.parse(trimmed);}catch{return value;}
+  }
+  try{return JSON.parse(value);}catch{
+    throw new Error("O novo valor deve ser JSON válido para este campo.");
+  }
+}
+
 function formValues(form) {
   const data=new FormData(form);
   return Object.fromEntries(data.entries());
@@ -231,7 +253,7 @@ function isCollaborativeRoute(route) {
 }
 
 function renderCollaborativeRoute(route) {
-  const context=state.collab;
+  const context={...state.collab,canonicalRecords:state.records,publicContentEffects:state.publicContentEffects};
   if (!context?.ready) {
     return `<main class="collab-loading"><p>A preparar a Área Colaborativa…</p></main>`;
   }
@@ -270,11 +292,27 @@ function renderCollaborativeRoute(route) {
     case "collab-agenda":
       return collaborativeAgendaView(context,{...state.collabAgendaFilters,...(route.query||{})});
     case "collab-library":
-      return collaborativeSkeletonView(context,"library");
+      return collaborativeLibraryView(context,{...state.collabLibraryFilters,...(route.query||{})});
+    case "collab-library-resource":
+      return collaborativeLibraryResourceView(context,route.resourceCode);
     case "collab-training":
-      return collaborativeSkeletonView(context,"training");
+      return collaborativeTrainingView(context);
+    case "collab-training-trail":
+      return collaborativeTrainingTrailView(context,route.trailCode);
     case "collab-museum-review":
-      return collaborativeSkeletonView(context,"museum-review");
+      return collaborativeMuseumReviewView(context,{...state.collabMuseumReviewFilters,...(route.query||{})},false);
+    case "collab-museum-review-detail":
+      return collaborativeMuseumReviewDetailView(context,route.memoryId,false);
+    case "collab-museum-review-preview":
+      return collaborativeMuseumReviewPreviewView(context,route.memoryId,false);
+    case "collab-museum-review-management":
+      return collaborativeMuseumReviewManagementView(context,"overview");
+    case "collab-museum-review-management-detail":
+      return collaborativeMuseumReviewDetailView(context,route.memoryId,true);
+    case "collab-museum-review-management-preview":
+      return collaborativeMuseumReviewPreviewView(context,route.memoryId,true);
+    case "collab-museum-review-releases":
+      return collaborativeMuseumReviewManagementView(context,"releases");
     case "collab-profile-management":
       return collaborativeProfileManagementView(context);
     case "collab-member-detail":
@@ -512,6 +550,130 @@ function bindPage() {
   document.querySelectorAll("[data-task-verify]").forEach(button=>button.addEventListener("click",async()=>{const note=prompt("Nota de validação ou correção (opcional):","")||"";button.disabled=true;try{await collaborative.verifyTask(button.dataset.taskId,button.dataset.userId,button.dataset.taskVerify==="accept",note);}catch(error){alert(error.message);}finally{button.disabled=false;}}));
 
 
+
+
+  document.querySelector("[data-library-filters]")?.addEventListener("submit",event=>{
+    event.preventDefault();const values=formValues(event.currentTarget);
+    state.collabLibraryFilters={query:values.query||"",category:values.category||""};
+    const query=new URLSearchParams(Object.entries(state.collabLibraryFilters).filter(([,value])=>value));
+    go(`/area-colaborativa/biblioteca${query.toString()?`?${query}`:""}`);
+  });
+
+  document.querySelectorAll("[data-training-lesson-complete]").forEach(button=>button.addEventListener("click",async()=>{
+    button.disabled=true;
+    try{await collaborative.completeTrainingLesson(button.dataset.trailCode,button.dataset.trainingLessonComplete);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-training-assessment-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A registar avaliação…");
+    try{await collaborative.assessTraining(values.userId,values.trailCode,Number(values.score));setCollaborativeFeedback("Avaliação registada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-museum-review-filters]")?.addEventListener("submit",event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    state.collabMuseumReviewFilters={query:values.query||"",status:values.status||""};
+    const query=new URLSearchParams(Object.entries(state.collabMuseumReviewFilters).filter(([,value])=>value));
+    const base=form.dataset.management==="true"?"/area-colaborativa/gestao/revisao-museu":"/area-colaborativa/revisao-museu";
+    go(`${base}${query.toString()?`?${query}`:""}`);
+  });
+
+  document.querySelectorAll("[data-museum-proposal-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);
+    let baseValue;
+    try{baseValue=JSON.parse(values.baseValue);}catch{baseValue=values.baseValue;}
+    let proposedValue;
+    try{proposedValue=parseMuseumProposalValue(values.proposedValue,baseValue);}
+    catch(error){setCollaborativeFeedback(error.message,true);return;}
+    const payload={
+      fieldPath:values.fieldPath,
+      baseValue,
+      proposedValue,
+      rationale:values.rationale,
+      sourceIds:String(values.sourceIds||"").split(",").map(value=>value.trim()).filter(Boolean),
+      contributionIds:String(values.contributionIds||"").split(",").map(value=>value.trim()).filter(Boolean),
+      submit:Boolean(form.elements.submit?.checked)
+    };
+    setCollaborativeFeedback("A guardar proposta…");
+    try{await collaborative.saveMuseumProposal(form.dataset.proposalId||null,form.dataset.reviewRecordId,payload);setCollaborativeFeedback("Proposta guardada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelectorAll("[data-museum-proposal-review]").forEach(button=>button.addEventListener("click",async()=>{
+    const note=prompt("Fundamente a decisão sobre esta proposta:","")||"";
+    if(!note.trim())return;button.disabled=true;
+    try{await collaborative.reviewMuseumProposal(button.dataset.proposalId,button.dataset.museumProposalReview,note);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+
+  document.querySelectorAll("[data-museum-proposal-supersede]").forEach(button=>button.addEventListener("click",async()=>{
+    const rationale=prompt("Explique por que a proposta aceite deve ser substituída:","")||"";
+    if(!rationale.trim())return;button.disabled=true;
+    try{await collaborative.supersedeMuseumProposal(button.dataset.museumProposalSupersede,rationale);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-museum-comment-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A guardar comentário…");
+    try{await collaborative.addMuseumReviewComment(form.dataset.reviewRecordId,{fieldPath:values.fieldPath||null,commentType:values.commentType,body:values.body,blocking:Boolean(form.elements.blocking?.checked)});setCollaborativeFeedback("Comentário guardado.");form.reset();}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-museum-comment-resolve]").forEach(button=>button.addEventListener("click",async()=>{
+    const resolution=prompt("Registe como o comentário foi resolvido:","")||"";
+    if(!resolution.trim())return;button.disabled=true;
+    try{await collaborative.resolveMuseumReviewComment(button.dataset.museumCommentResolve,resolution);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelectorAll("[data-museum-check-form]").forEach(form=>form.addEventListener("submit",async event=>{
+    event.preventDefault();const values=formValues(form);setCollaborativeFeedback("A guardar check…");
+    try{await collaborative.setMuseumReviewCheck(form.dataset.reviewRecordId,form.dataset.checkType,values.status,values.note||"");setCollaborativeFeedback("Check atualizado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  }));
+
+  document.querySelector("[data-museum-assignment-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A atribuir…");
+    try{await collaborative.assignMuseumReview(form.dataset.reviewRecordId,values.userId,values.assignmentRole);setCollaborativeFeedback("Atribuição guardada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-museum-contribution-link-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A relacionar contributo…");
+    try{await collaborative.linkContributionToMuseumReview(form.dataset.reviewRecordId,values.contributionId,values.linkType,values.note||"");setCollaborativeFeedback("Contributo relacionado.");form.reset();}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-museum-decision-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    if(!values.decisionType){setCollaborativeFeedback("Selecione uma decisão.",true);return;}
+    setCollaborativeFeedback("A validar gates e registar decisão…");
+    try{await collaborative.decideMuseumReview(form.dataset.reviewRecordId,values.decisionType,values.rationale);setCollaborativeFeedback("Decisão registada.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelector("[data-museum-snapshot-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A gerar snapshot…");
+    try{await collaborative.generateMuseumReviewSnapshot(form.dataset.cycleId,values.version);setCollaborativeFeedback("Snapshot validado gerado.");}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+
+  document.querySelectorAll("[data-museum-snapshot-approve]").forEach(button=>button.addEventListener("click",async()=>{
+    const confirmation=prompt('Escreva exatamente "APPROVE_MUSEUM_EDITORIAL_SNAPSHOT" para aprovar:','')||"";
+    button.disabled=true;
+    try{await collaborative.approveMuseumReviewSnapshot(button.dataset.museumSnapshotApprove,confirmation);}
+    catch(error){alert(error.message);}finally{button.disabled=false;}
+  }));
+
+  document.querySelector("[data-public-effect-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    const payload={cycleId:values.cycleId||null,effectCode:values.effectCode,slotCode:values.slotCode,effectType:values.effectType,title:{"pt-PT":values.titlePt},description:{"pt-PT":values.descriptionPt||null},memoryIds:String(values.memoryIds||"").split(",").map(value=>value.trim()).filter(Boolean),status:values.status,enabled:Boolean(form.elements.enabled?.checked),startsAt:null,endsAt:null};
+    setCollaborativeFeedback("A guardar efeito…");
+    try{await collaborative.savePublicContentEffect(null,payload);setCollaborativeFeedback("Efeito guardado. Só chegará às páginas públicas através do snapshot aprovado.");form.reset();}
+    catch(error){setCollaborativeFeedback(error.message,true);}
+  });
 
   document.querySelector("[data-venue-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
@@ -862,8 +1024,16 @@ function render(scroll=true) {
     case "collab-contribution-moderation-detail":
     case "collab-agenda":
     case "collab-library":
+    case "collab-library-resource":
     case "collab-training":
+    case "collab-training-trail":
     case "collab-museum-review":
+    case "collab-museum-review-detail":
+    case "collab-museum-review-preview":
+    case "collab-museum-review-management":
+    case "collab-museum-review-management-detail":
+    case "collab-museum-review-management-preview":
+    case "collab-museum-review-releases":
     case "collab-profile-management":
     case "collab-member-detail":
     case "collab-invitations":
@@ -885,7 +1055,7 @@ function render(scroll=true) {
       html=renderCollaborativeRoute(route);
       setMetadata("Área Colaborativa");
       break;
-    case "home": html = homeView(state.records,state.portal,state.homeCarousel,state.lang,{index:state.homeCarouselIndex,paused:state.homeCarouselPaused}); setMetadata(text(state.lang,"homeTitle")); break;
+    case "home": html = homeView(state.records,state.portal,state.homeCarousel,state.lang,{index:state.homeCarouselIndex,paused:state.homeCarouselPaused},state.publicContentEffects); setMetadata(text(state.lang,"homeTitle")); break;
     case "project": html = projectView(state.portal,state.lang); setMetadata(text(state.lang,"project")); break;
     case "methodology": html = methodologyView(state.portal,state.lang); setMetadata(text(state.lang,"methodology")); break;
     case "initiatives": html = initiativesView(state.portal,state.lang); setMetadata(text(state.lang,"initiatives")); break;
@@ -900,7 +1070,7 @@ function render(scroll=true) {
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
     case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
     case "panel-preview": html = panelPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Painel ${route.id}`); break;
-    case "museum-home": html = museumHome(state.records,state.collections,state.audit,state.lang); setMetadata(text(state.lang,"museumTitle")); break;
+    case "museum-home": html = museumHome(state.records,state.collections,state.audit,state.lang,state.publicContentEffects); setMetadata(text(state.lang,"museumTitle")); break;
     case "gallery": html = galleryView(state.records,state.museumIndex,state.lang,state.filters); setMetadata(text(state.lang,"gallery")); break;
     case "timeline": html = timelineView(state.records,state.lang); setMetadata(text(state.lang,"timeline")); break;
     case "collections": html = collectionsView(state.records,state.collections,state.lang); setMetadata(text(state.lang,"collectionsLabel")); break;
@@ -930,8 +1100,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

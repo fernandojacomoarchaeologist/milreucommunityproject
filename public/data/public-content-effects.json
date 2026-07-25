@@ -1,0 +1,15 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.17.0",
+  "slots": {
+    "portal.home.after-featured": [],
+    "museum.home.after-opening": []
+  },
+  "rules": {
+    "enabledOnly": true,
+    "approvedOnly": true,
+    "canonicalReferencesOnly": true,
+    "maximumItemsPerEffect": 3
+  },
+  "notice": "O registo prepara efeitos orgânicos nas páginas principais. Nenhum efeito editorial está ativo."
+}

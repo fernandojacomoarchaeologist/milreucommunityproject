@@ -1,103 +1,133 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08E"
+package: "08F"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Relatório de validação — Pacote 08E
+# Relatório de validação — Pacote 08F
 
 ## Resultado
 
 - Resultado geral: sucesso
-- Versão: 0.16.0
-- Testes automatizados: 144
-- Testes aprovados: 144
+- Versão: 0.17.0
+- Testes automatizados: 180
+- Testes aprovados: 180
 - Testes falhados: 0
+- Build: concluído
+- Smoke HTTP: concluído
 - Revisão visual humana em navegador: pendente
-- Publicação pública automática: desativada
+- Execução real das migrations no Supabase: pendente
+- Aplicação canónica automática: desativada
 
-## Fundação colaborativa
+## Área Colaborativa
 
-- Módulos totais: 15
-- Módulos ativos: 12
-- Permissões: 52
-- Tipos de contributo: 7
-- Estados editoriais: 11
-- Destinos de incorporação: 6
-- Limite de ficheiros por submissão: 5
-- Limite por ficheiro: 26214400 bytes
+- Módulos registados: 16
+- Módulos ativos: 16
+- Módulos esqueleto: 0
+- Permissões: 70
+- Trilhas de formação: 5
+- Lições: 15
+- Recursos de biblioteca: 9
 
-## Fluxo de contributos
+## Revisão editorial e curatorial
 
-- Formulário público: incluído
-- Submissão autenticada: incluída
-- Acompanhamento por código e e-mail: incluído
-- Pedido de retirada: incluído
-- Área de contributos do membro: incluída
-- Fila de moderação: incluída
-- Atribuição de revisores: incluída
-- Revisão de direitos: incluída
-- Decisões fundamentadas: incluídas
-- Propostas de incorporação: incluídas
-- Alteração automática do Museu/Portal/Proteus: não
-- Consentimento versionado: incluído
+- Memórias no ciclo inicial: 31
+- Memórias únicas: 31
+- Campos ou grupos de revisão: 22
+- Tipos de checks: 8
+- Tipos de decisão: 6
+- Memórias inicialmente aprovadas: 0
+- Efeitos públicos inicialmente ativos: 0
+- Slots públicos: 2
+- Proposta por JSON Pointer: ativa
+- Comentários bloqueantes: suportados
+- Atribuições especializadas: suportadas
+- Comparação canónico/candidato: suportada
+- Sequência editorial → direitos → publicação: obrigatória
+- Snapshot aprovado antes da aplicação: obrigatório
+- Confirmação literal para aprovação do snapshot: obrigatória
+- Dry-run antes da aplicação: suportado
+- Backup antes da alteração canónica: suportado
 
-## Ficheiros e segurança
+## Formação e segurança
 
-- Bucket privado: `community-contributions-private`
-- Upload por URL assinada: incluído
-- Download por URL assinada: incluído
-- Service role no navegador: não
-- Service role na Edge Function: sim, como fronteira de servidor
-- Rate limit atómico: incluído
-- CORS por origens permitidas: incluído
-- Honeypot: incluído
-- Turnstile: opcional/configurável
-- Antivírus integrado: não
-- Estado inicial após upload: `scan-pending`
-- Acesso público direto aos ficheiros: não
-- Insert anónimo direto nas tabelas: não
+- Escrita direta do progresso pelo browser: bloqueada
+- Progresso de formação: apenas por RPC auditada
+- Avaliação de formação: apenas por RPC autorizada
+- Aprovações especializadas: condicionadas à formação
+- Campos editoriais: limitados a whitelist
+- Contributos associados: limitados a aceites, parcialmente aceites ou incorporados
+- Propostas aceites: imutáveis
+- Substituição de proposta aceite: ação explícita e auditada
+- `service_role` no browser: não
+- Exportação do snapshot: JWT de utilizador autorizado
+- Hash do dataset: obrigatório
+- Hash do registo: obrigatório
+- RLS: preparada nas tabelas 08F
 
-## Edge Function e banco
+## MM202617
 
-- Edge Function: presente
+- Visível para revisão: true
+- Elegível para lançamento de origem: false
+- Divulgação de IA obrigatória: true
+- Publicação futura exige proposta explícita em `/publication`: sim
+- Divulgação `ai-substantive-intervention` deve ser preservada: sim
+- Exportação e aplicação validam a divulgação de IA: sim
+
+## Continuidade de contexto
+
+Incluídos e validados:
+
+- `PROJECT_CONTEXT_LEDGER.md`;
+- `PACKAGE_DEPENDENCY_MAP.md`;
+- `CHANGE_SURFACE_REGISTRY.md`;
+- `CONTEXT_RECOVERY_PROTOCOL.md`;
+- `public/data/package-impact-registry.json`.
+
+As páginas principais foram preparadas para evolução orgânica por slots:
+
+```text
+portal.home.after-featured
+museum.home.after-opening
+```
+
+Nenhum conteúdo editorial foi inventado para esses slots.
+
+## Banco de dados
+
 - Migrations novas: 3
-- Teste SQL 08E: presente
-- Workflow cumulativo 08A–08E: presente
-- RLS: presente
-- RPC pública de submissão: limitada a `service_role`
-- Acompanhamento e retirada: passam pela Edge Function
-- Participante pode escolher estado editorial: não
-- Execução PostgreSQL/Supabase nesta geração: não
+- Teste SQL novo: `supabase/tests/008f_museum_review.test.sql`
+- Workflow cumulativo 08A–08F: incluído
+- Supabase CLI disponível neste ambiente: não
+- PostgreSQL disponível neste ambiente: não
+- Docker disponível neste ambiente: não
 
-As migrations, as políticas RLS e a Edge Function foram validadas estruturalmente. Este ambiente não possui Supabase CLI, PostgreSQL ou Docker; portanto, a execução real deve ocorrer no workflow, num Supabase local ou em staging.
+As migrations, RPCs e políticas foram validadas estruturalmente. A execução real deve ocorrer no workflow, em Supabase local ou em staging.
 
-## Snapshot e build
+## Build
 
-- Resumo público de contributos: 0 submetidos, 0 em revisão, 0 aceites e 0 incorporados
-- Dados pessoais no resumo público: não
-- View pública no build: sim
-- View colaborativa no build: sim
-- Modelo de contributos no build: sim
-- Resumo público no build: sim
-- Checksum do modelo: sim
-- Checksum do resumo: sim
-- Callback Google no build: sim
-- Páginas estáticas do Museu preservadas: 30
-- JSONs individuais do Museu preservados: 30
-- Build removido do ZIP para evitar duplicação de imagens
+- Páginas estáticas das memórias: 30
+- JSONs individuais das memórias: 30
+- Checksum do modelo de revisão: sim
+- Checksum das trilhas: sim
+- Checksum da biblioteca: sim
+- Checksum do snapshot editorial: sim
+- Checksum dos efeitos públicos: sim
+- Checksum do registo de impacto: sim
+- `dist/` removido do ZIP para evitar duplicação das imagens
 
-## Comandos
+## Comandos concluídos
 
-- `npm run collab:config`: sucesso
-- `npm run collab:status`: sucesso
-- `npm run contributions:demo-export`: sucesso
-- `npm run exhibitions:export`: sucesso
-- `npm run channels:export`: sucesso
-- `npm run museum:index`: sucesso
-- `npm run museum:audit`: sucesso
-- `npm run validate`: sucesso
-- `npm test`: sucesso
-- `npm run build`: sucesso
-- `npm run smoke`: sucesso
+- `npm run collab:config`
+- `npm run museum:review-export`
+- `npm run museum:review-apply`
+- `npm run contributions:demo-export`
+- `npm run exhibitions:export`
+- `npm run channels:export`
+- `npm run museum:index`
+- `npm run museum:audit`
+- `npm run validate`
+- `npm test`
+- `npm run build`
+- `npm run smoke`

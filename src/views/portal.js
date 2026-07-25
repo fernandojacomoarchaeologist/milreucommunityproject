@@ -5,6 +5,7 @@
  */
 import { portalHeader, footer } from "../components/layout.js";
 import { memoryCard } from "../components/memory-card.js";
+import { renderPublicContentEffects } from "../components/public-content-effects.js";
 import { assetUrl } from "../lib/data.js";
 import { localised, text } from "../lib/i18n.js";
 
@@ -136,7 +137,7 @@ function homeCarousel(records,carousel,lang,state={}) {
 }
 
 
-export function homeView(records, content, carousel, lang, carouselState={}) {
+export function homeView(records, content, carousel, lang, carouselState={}, publicEffects=null) {
   const featured = records.filter(x => x.publication.siteVisible).slice(0,3);
   const initiatives = content.initiatives.slice(0,3);
 
@@ -161,6 +162,8 @@ export function homeView(records, content, carousel, lang, carouselState={}) {
       <div class="memory-grid">${featured.map(x => memoryCard(x,lang)).join("")}</div>
       <p class="section-action"><a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"viewAll")}</a></p>
     </section>
+
+    ${renderPublicContentEffects(publicEffects,"portal.home.after-featured",records,lang)}
   </main>${footer(lang)}`;
 }
 

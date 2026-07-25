@@ -1,166 +1,107 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08E"
+package: "08F"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Pacote 08E — Contributos Comunitários e Moderação
+# Pacote 08F — Revisão Editorial e Curatorial do Museu
 
-**Versão:** 0.16.0  
-**Base cumulativa:** Pacote 08D.
+**Versão:** 0.17.0  
+**Base cumulativa:** Pacote 08E.
 
-Este pacote ativa a recolha estruturada de fotografias, testemunhos, correções, documentos, referências e questões de direitos.
+## Escopo
 
-## Rotas públicas
+- revisão das 31 memórias;
+- propostas campo a campo;
+- comparação canónica/candidata;
+- fontes e contributos;
+- comentários bloqueantes;
+- checks;
+- aprovações editoriais, de direitos e publicação;
+- snapshots;
+- aplicação local protegida;
+- formação;
+- biblioteca;
+- efeitos orgânicos na Home do Portal e do Museu;
+- preservação formal de contexto.
 
-```text
-#/participar/contribuir
-#/participar/contribuir/acompanhar
-#/participar/retirada
-```
-
-## Rotas da Área Colaborativa
-
-```text
-#/area-colaborativa/contributos
-#/area-colaborativa/contributos/novo
-#/area-colaborativa/contributos/:id
-#/area-colaborativa/gestao/contributos
-#/area-colaborativa/gestao/contributos/:id
-```
-
-## Tipos de contributo
-
-- fotografia;
-- testemunho ou memória;
-- correção;
-- documento;
-- referência;
-- direitos ou crédito;
-- outro.
-
-## Fluxo
+## Rotas
 
 ```text
-submitted
-→ triage
-→ under-review
-→ accepted | partially-accepted | rejected
-→ incorporation proposal
-→ incorporated
+#/area-colaborativa/biblioteca
+#/area-colaborativa/formacao
+#/area-colaborativa/formacao/:trilha
+#/area-colaborativa/revisao-museu
+#/area-colaborativa/revisao-museu/:memoria
+#/area-colaborativa/revisao-museu/:memoria/preview
+#/area-colaborativa/gestao/revisao-museu
+#/area-colaborativa/gestao/revisao-museu/:memoria
+#/area-colaborativa/gestao/revisao-museu/releases
 ```
 
-Também existem:
+## Formação
 
-- `needs-info`;
-- `withdrawn`;
-- `archived`.
+Percursos:
 
-## Ficheiros
+1. Fundamentos do projeto;
+2. Revisão editorial e evidência;
+3. Direitos, créditos e IA;
+4. Tradução e localização;
+5. Escrita pública e acessibilidade.
 
-Os ficheiros são guardados num bucket privado:
+Aprovações utilizam gates de formação.
 
-```text
-community-contributions-private
-```
-
-O acesso ocorre por URLs temporárias assinadas. O frontend nunca recebe `service_role`.
-
-Estados de ficheiro:
-
-```text
-upload-pending
-→ scan-pending
-→ accepted | rejected | deleted
-```
-
-O pacote não inclui motor antivírus. `scan-pending` indica que a verificação técnica continua pendente.
-
-## Consentimento e direitos
-
-Cada submissão regista:
-
-- versão do consentimento;
-- aceitação de privacidade;
-- declaração de legitimidade;
-- âmbito inicialmente autorizado;
-- preferência de crédito;
-- autorização de contacto;
-- autorização de atribuição pública.
-
-A submissão:
-
-- não transfere automaticamente direitos;
-- não garante publicação;
-- não altera conteúdo canónico;
-- pode receber pedido de informação;
-- pode ser objeto de correção ou retirada.
-
-## Edge Function
-
-A entrada pública utiliza:
-
-```text
-supabase/functions/community-contribution-intake
-```
-
-A função suporta:
-
-- submissão;
-- URLs assinadas para upload;
-- confirmação de upload;
-- acompanhamento;
-- retirada;
-- URL temporária para ficheiros autorizados.
-
-## Configuração
+## Snapshot
 
 ```bash
-supabase secrets set   RATE_LIMIT_SALT="..."   ALLOWED_ORIGINS="http://localhost:4173,https://dominio-publico"
+npm run museum:review-export
 ```
 
-Opcionalmente:
+Sem configuração remota, o comando valida e preserva o snapshot local.
+
+Para exportar:
 
 ```bash
-supabase secrets set TURNSTILE_SECRET_KEY="..."
+MILREU_SUPABASE_URL="..." MILREU_SUPABASE_PUBLISHABLE_KEY="..." MILREU_SUPABASE_ACCESS_TOKEN="JWT_DE_UTILIZADOR" MILREU_MUSEUM_REVIEW_SNAPSHOT_ID="..." npm run museum:review-export
 ```
 
-No frontend:
+## Aplicação
+
+Dry-run:
 
 ```bash
-MILREU_TURNSTILE_SITE_KEY="..." npm run collab:config
+npm run museum:review-apply
 ```
 
-A integração visual do widget Turnstile permanece condicionada à decisão de ativá-lo.
-
-## Demonstração
+Aplicação real:
 
 ```bash
-npm install
-npm run dev
+MILREU_APPLY_EDITORIAL_SNAPSHOT="I_CONFIRM_APPLY_APPROVED_MUSEUM_REVIEW" npm run museum:review-apply
 ```
 
-Os dados demonstrativos:
-
-- usam e-mails `.invalid`;
-- são locais;
-- não representam pessoas ou documentos reais;
-- não criam ficheiros no Supabase.
-
-## Validação
+Depois:
 
 ```bash
-npm run collab:config
-npm run contributions:demo-export
-npm run exhibitions:export
-npm run channels:export
 npm run museum:index
 npm run museum:audit
+npm run channels:export
 npm run validate
 npm test
 npm run build
 npm run smoke
 ```
 
-As migrations e a Edge Function devem ser testadas em Supabase local ou staging antes de qualquer uso público.
+A aplicação cria backup e deve seguir para PR. Não publica automaticamente.
+
+## Contexto
+
+Ficheiros cumulativos:
+
+- `PROJECT_CONTEXT_LEDGER.md`;
+- `PACKAGE_DEPENDENCY_MAP.md`;
+- `CHANGE_SURFACE_REGISTRY.md`;
+- `CONTEXT_RECOVERY_PROTOCOL.md`;
+- `package-impact-registry.json`.
+
+Esses ficheiros devem acompanhar todos os próximos pacotes.

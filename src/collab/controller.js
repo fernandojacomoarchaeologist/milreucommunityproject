@@ -7,14 +7,15 @@ import { loadCollaborativeConfig, loadCollaborativeFoundationData, callbackUrl }
 import { createCollaborativeSupabaseClient } from "./supabase-client.js";
 import { expandRolePermissions, visibleModules, hasPermission } from "./permissions.js";
 
-const DEMO_KEY="milreu-collaborative-demo-context-v5";
+const DEMO_KEY="milreu-collaborative-demo-context-v6";
 const PUBLIC_CONTRIBUTION_DEMO_KEY="milreu-public-contributions-demo-v1";
 
 function emptyManagement(){return{members:[],requests:[],invitations:[],notes:[],audit:[]};}
 function emptyTaskWorkspace(){return{tasks:[],assignments:[],requiredSkills:[],preferences:null,availability:[],timeEntries:[],updates:[]};}
 function emptyExhibitionWorkspace(){return{venues:[],exhibitions:[],schedules:[],events:[],participants:[],checklist:[],conflicts:[]};}
 function emptyContributionWorkspace(){return{contributions:[],submitters:[],consents:[],files:[],targets:[],assignments:[],events:[],decisions:[],proposals:[],withdrawals:[]};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyMuseumReviewWorkspace(){return{cycles:[],records:[],proposals:[],comments:[],assignments:[],checks:[],decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:[],lessonProgress:[],assessments:[]};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -78,6 +79,17 @@ function createDemoContributionWorkspace(){
   return{contributions,submitters,consents,files,targets,assignments,events,decisions:[],proposals:[],withdrawals};
 }
 
+
+function createDemoMuseumReviewWorkspace(reviewSeed,trainingTrails,master=false){
+  const cycle={id:"demo-review-cycle",project_id:"demo-project",code:reviewSeed.cycle.code,title:reviewSeed.cycle.title,description:"Ciclo local de demonstração, sem alterações canónicas.",status:"active",source_dataset_version:reviewSeed.cycle.sourceDatasetVersion,source_dataset_hash:"demo-source-hash",started_at:new Date().toISOString(),created_at:new Date().toISOString()};
+  const records=reviewSeed.records.map((item,index)=>({id:`demo-review-${item.memoryId}`,project_id:"demo-project",cycle_id:cycle.id,memory_id:item.memoryId,status:index===0&&master?"in-progress":"not-started",source_record_hash:item.baseHash,source_editorial_status:item.sourceEditorialStatus,source_site_visible:item.siteVisible,public_release_eligible:item.publicReleaseEligible,requires_ai_disclosure:Boolean(item.requiresAiDisclosure),assigned_editor:index===0&&master?"demo-master":null,assigned_researcher:null,assigned_rights_reviewer:null,assigned_translator:null,blocking_comment_count:0,accepted_proposal_count:0,linked_contribution_count:0,editorial_approved_at:null,rights_approved_at:null,publication_approved_at:null,incorporated_at:null,created_at:new Date().toISOString(),updated_at:new Date().toISOString()}));
+  const checks=records.flatMap(record=>["editorial","source","rights","digital-intervention","accessibility","translation","relations","publication"].map(type=>({id:`demo-check-${record.memory_id}-${type}`,project_id:"demo-project",review_record_id:record.id,check_type:type,status:"pending",note:null,checked_by:null,checked_at:null,updated_at:new Date().toISOString()})));
+  const enrolments=(trainingTrails.trails||[]).map(trail=>({id:`demo-enrolment-${trail.code}`,project_id:"demo-project",user_id:master?"demo-master":"demo-volunteer",trail_code:trail.code,status:master?"completed":trail.code==="project-foundations"?"in-progress":"not-started",progress_percent:master?100:trail.code==="project-foundations"?33:0,started_at:master||trail.code==="project-foundations"?new Date().toISOString():null,completed_at:master?new Date().toISOString():null,expires_at:null,updated_at:new Date().toISOString()}));
+  const lessonProgress=master?(trainingTrails.trails||[]).flatMap(trail=>trail.lessons.map(lesson=>({id:`demo-progress-${trail.code}-${lesson.code}`,enrolment_id:`demo-enrolment-${trail.code}`,lesson_code:lesson.code,status:"completed",completed_at:new Date().toISOString(),updated_at:new Date().toISOString()}))):[];
+  const assessments=master?(trainingTrails.trails||[]).map(trail=>({id:`demo-assessment-${trail.code}`,project_id:"demo-project",user_id:"demo-master",trail_code:trail.code,attempt_number:1,score:100,passed:true,answers:{demo:true},assessed_at:new Date().toISOString(),assessed_by:"demo-master"})):[];
+  return{cycles:[cycle],records,proposals:[],comments:[],assignments:[],checks,decisions:[],contributionLinks:[],snapshots:[],effects:[],trainingEnrolments:enrolments,lessonProgress,assessments};
+}
+
 function createDemoTaskWorkspace(){
   const tasks=[
     {id:"demo-task-digitisation",project_id:"demo-project",title:"Digitalizar fotografias do arquivo comunitário",summary:"Preparar imagens e verificar nomes de ficheiros para futura catalogação.",description:"Digitalização e controlo técnico de um pequeno conjunto de fotografias de demonstração.",instructions:"Utilizar apenas os materiais indicados pela coordenação. Não publicar ficheiros fora do projeto.",category:"digitisation",category_code:"digitisation",status:"open",priority:"high",assignment_mode:"approval",location_mode:"hybrid",location_name:"Área Colaborativa",municipality:"Faro",starts_at:daysFromNow(2,9),due_at:daysFromNow(14,18),application_deadline:daysFromNow(7,18),estimated_minutes:240,capacity:3,minimum_participants:1,visibility:"members",recognition_eligible:true,created_by:"demo-master",updated_at:new Date().toISOString()},
@@ -116,7 +128,7 @@ class CollaborativeController{
   async init(){
     this.config=await loadCollaborativeConfig();
     this.foundation=await loadCollaborativeFoundationData();
-    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel};
+    this.state={...emptyContext(),ready:false,mode:this.config.mode,profileTypes:this.foundation.profileTypes,moduleRegistry:this.foundation.modules,roleRegistry:this.foundation.roles,permissionRegistry:this.foundation.permissions,memberCatalog:this.foundation.memberCatalog,taskModel:this.foundation.taskModel,exhibitionModel:this.foundation.exhibitionModel,contributionModel:this.foundation.contributionModel,museumReviewModel:this.foundation.museumReviewModel,trainingTrails:this.foundation.trainingTrails,library:this.foundation.library,reviewSeed:this.foundation.reviewSeed};
     if(this.config.mode==="supabase"){
       this.client=await createCollaborativeSupabaseClient(this.config);
       const{data,error}=await this.client.auth.getSession();if(error)this.state.error=error.message;if(data?.session)await this.loadRemoteContext(data.session);
@@ -125,7 +137,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),tasks:[],exhibitions:[],error:null});}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),tasks:[],exhibitions:[],error:null});}
 
   async loadRemoteContext(session){
     this.state.session={user:{id:session.user.id,email:session.user.email,user_metadata:session.user.user_metadata||{}}};this.state.authenticated=true;
@@ -142,6 +154,13 @@ class CollaborativeController{
       ||hasPermission(this.state,"contributions.view-all")
       ||hasPermission(this.state,"contributions.moderate")
     )await this.loadRemoteContributions();
+    if(
+      hasPermission(this.state,"training.view")
+      ||hasPermission(this.state,"library.view")
+      ||hasPermission(this.state,"museum.review")
+      ||hasPermission(this.state,"museum.review.view")
+      ||hasPermission(this.state,"museum.review.manage")
+    )await this.loadRemoteMuseumReview();
   }
 
   async loadRemoteOwnPreferences(){
@@ -208,6 +227,35 @@ class CollaborativeController{
   }
 
 
+
+  async loadRemoteMuseumReview(){
+    const jobs=[
+      this.client.from("collab_museum_review_cycles").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_museum_review_records").select("*").order("memory_id"),
+      this.client.from("collab_museum_review_field_proposals").select("*").order("proposed_at",{ascending:false}),
+      this.client.from("collab_museum_review_comments").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_museum_review_assignments").select("*").order("assigned_at",{ascending:false}),
+      this.client.from("collab_museum_review_checks").select("*").order("check_type"),
+      this.client.from("collab_museum_review_decisions").select("*").order("decided_at",{ascending:false}),
+      this.client.from("collab_museum_review_contribution_links").select("*").order("linked_at",{ascending:false}),
+      this.client.from("collab_museum_review_snapshots").select("*").order("generated_at",{ascending:false}),
+      this.client.from("collab_public_content_effects").select("*").order("created_at",{ascending:false}),
+      this.client.from("collab_training_enrolments").select("*").order("updated_at",{ascending:false}),
+      this.client.from("collab_training_lesson_progress").select("*").order("updated_at",{ascending:false}),
+      this.client.from("collab_training_assessments").select("*").order("assessed_at",{ascending:false})
+    ];
+    const[cycles,records,proposals,comments,assignments,checks,decisions,links,snapshots,effects,enrolments,lessonProgress,assessments]=await Promise.all(jobs);
+    const error=[cycles,records,proposals,comments,assignments,checks,decisions,links,snapshots,effects,enrolments,lessonProgress,assessments].find(item=>item.error)?.error;
+    if(error){this.state.error=error.message;return;}
+    this.state.museumReviewWorkspace={
+      cycles:cycles.data||[],records:records.data||[],proposals:proposals.data||[],
+      comments:comments.data||[],assignments:assignments.data||[],checks:checks.data||[],
+      decisions:decisions.data||[],contributionLinks:links.data||[],snapshots:snapshots.data||[],
+      effects:effects.data||[],trainingEnrolments:enrolments.data||[],
+      lessonProgress:lessonProgress.data||[],assessments:assessments.data||[]
+    };
+  }
+
   async loadRemoteContributions(){
     const jobs=[
       this.client.from("collab_contributions").select("*").order("submitted_at",{ascending:false}),
@@ -242,9 +290,9 @@ class CollaborativeController{
   applyDemoContext(demo){
     const roleCodes=demo.roles||[],permissions=expandRolePermissions(roleCodes,this.foundation.rolePermissions,this.foundation.permissions);
     this.state.authenticated=true;this.state.session={user:{id:demo.userId,email:demo.email,user_metadata:{full_name:demo.displayName}}};this.state.profile={user_id:demo.userId,email:demo.email,display_name:demo.displayName,avatar_url:null,primary_profile_type:demo.primaryProfileType||null,locale:"pt-PT",bio:demo.bio||"",phone:"",organization_name:demo.organizationName||"",languages:demo.languages||["pt-PT"],interests:demo.interests||[],skills:demo.skills||[],public_recognition_opt_in:false};
-    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
+    this.state.membership={status:demo.status||"pending",primary_profile_type:demo.primaryProfileType||null};this.state.accessRequest=demo.accessRequest||null;this.state.roles=roleCodes;this.state.permissions=permissions;this.state.modules=visibleModules(this.state,this.foundation.modules);this.state.taskWorkspace=demo.taskWorkspace||emptyTaskWorkspace();this.state.tasks=this.state.taskWorkspace.tasks;this.state.exhibitionWorkspace=demo.exhibitionWorkspace||emptyExhibitionWorkspace();this.state.exhibitions=this.state.exhibitionWorkspace.schedules;this.state.contributionWorkspace=demo.contributionWorkspace||emptyContributionWorkspace();this.state.museumReviewWorkspace=demo.museumReviewWorkspace||emptyMuseumReviewWorkspace();this.state.management=demo.management||emptyManagement();this.state.notice="Modo de demonstração local — não utiliza contas, membros ou dados reais.";
   }
-  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
+  persistDemo(partial){const current=this.state.session?.user?{userId:this.state.session.user.id,email:this.state.session.user.email,displayName:this.state.profile?.display_name||"",primaryProfileType:this.state.profile?.primary_profile_type||null,status:this.state.membership?.status||"pending",roles:this.state.roles,accessRequest:this.state.accessRequest,bio:this.state.profile?.bio||"",organizationName:this.state.profile?.organization_name||"",languages:this.state.profile?.languages||["pt-PT"],interests:this.state.profile?.interests||[],skills:this.state.profile?.skills||[],taskWorkspace:this.state.taskWorkspace,exhibitionWorkspace:this.state.exhibitionWorkspace,contributionWorkspace:this.state.contributionWorkspace,museumReviewWorkspace:this.state.museumReviewWorkspace,management:this.state.management}:{};const next={...current,...partial};localStorage.setItem(DEMO_KEY,JSON.stringify(next));this.applyDemoContext(next);this.emit();}
 
   async signInGoogle(){if(this.config.mode!=="supabase"||!this.client)throw new Error("Configure o Supabase e o Google OAuth para utilizar este botão.");const{error}=await this.client.auth.signInWithOAuth({provider:this.config.googleProvider||"google",options:{redirectTo:callbackUrl(this.config),scopes:"openid email profile"}});if(error)throw error;}
 
@@ -252,9 +300,9 @@ class CollaborativeController{
     if(!this.config.allowDemo)throw new Error("Modo de demonstração desativado.");const master=kind==="master",volunteer=kind==="volunteer",now=new Date().toISOString();
     const members=[{user_id:"demo-master",email:"demo.master@local.invalid",display_name:"Master de demonstração",primary_profile_type:"coordinator",organization_name:"Projeto Comunitário de Milreu",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["master"],interests:["museum-memories","events"],skills:["cataloguing"]},{user_id:"demo-volunteer",email:"voluntario@local.invalid",display_name:"Voluntário de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"active",approved_at:now},roles:["volunteer"],interests:["photography","events"],skills:["digitisation","event-support","transcription"]},{user_id:"demo-request",email:"pedido@local.invalid",display_name:"Pedido de demonstração",primary_profile_type:"volunteer",languages:["pt-PT"],membership:{status:"pending",requested_at:now},roles:[],interests:[],skills:[]},{user_id:"demo-suspended",email:"investigador@local.invalid",display_name:"Investigador suspenso",primary_profile_type:"researcher",languages:["pt-PT","en"],membership:{status:"suspended",suspended_at:now},roles:["researcher"],interests:["research"],skills:["historical-research"]}];
     const management=master?{members,requests:[{id:"demo-request-id",user_id:"demo-request",requested_profile_type:"volunteer",motivation:"Quero apoiar a recolha e digitalização de fotografias.",status:"pending",submitted_at:now}],invitations:[{id:"demo-invite",email:"convidado@local.invalid",intended_profile_type:"reviewer",role_codes:["reviewer"],status:"pending",created_at:now,expires_at:null}],notes:[],audit:[demoAudit("system.master_bootstrapped","demo-master"),demoAudit("membership.suspended","demo-suspended")]}:emptyManagement();
-    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();
+    const workspace=createDemoTaskWorkspace();const exhibitionWorkspace=createDemoExhibitionWorkspace();const contributionWorkspace=createDemoContributionWorkspace();const museumReviewWorkspace=createDemoMuseumReviewWorkspace(this.foundation.reviewSeed,this.foundation.trainingTrails,master);
     if(volunteer){workspace.tasks=workspace.tasks.filter(task=>task.status!=="draft");workspace.requiredSkills=workspace.requiredSkills.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));workspace.updates=workspace.updates.filter(item=>workspace.tasks.some(task=>task.id===item.task_id));}
-    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
+    const demo={userId:master?"demo-master":volunteer?"demo-volunteer":"demo-pending",email:master?"demo.master@local.invalid":volunteer?"voluntario@local.invalid":"demo.user@local.invalid",displayName:master?"Master de demonstração":volunteer?"Voluntário de demonstração":"Utilizador de demonstração",primaryProfileType:master?"coordinator":volunteer?"volunteer":null,status:(master||volunteer)?"active":"pending",roles:master?["master"]:volunteer?["volunteer"]:[],accessRequest:(master||volunteer)?{status:"approved"}:null,taskWorkspace:workspace,exhibitionWorkspace,contributionWorkspace,museumReviewWorkspace,management,languages:["pt-PT"],interests:master?["museum-memories","events"]:volunteer?["photography","events"]:[],skills:master?["cataloguing"]:volunteer?["digitisation","event-support","transcription"]:[]};
     localStorage.setItem(DEMO_KEY,JSON.stringify(demo));this.applyDemoContext(demo);this.emit();
   }
 
@@ -398,6 +446,171 @@ class CollaborativeController{
   async getContributionFileLink(fileId){
     if(this.config.mode==="demo")throw new Error("O modo de demonstração não contém ficheiros reais.");
     return this.invokeContributionFunction({action:"file-link",fileId});
+  }
+
+
+  demoMuseumReviewUpdate(mutator){const museumReviewWorkspace=structuredClone(this.state.museumReviewWorkspace);mutator(museumReviewWorkspace);this.persistDemo({museumReviewWorkspace});}
+  async refreshMuseumReview(){if(this.config.mode==="supabase"){await this.loadRemoteMuseumReview();this.emit();}}
+
+  trainingCompleted(trailCode,userId=this.state.session?.user?.id){
+    return this.state.museumReviewWorkspace.trainingEnrolments.some(item=>item.user_id===userId&&item.trail_code===trailCode&&item.status==="completed");
+  }
+
+  requiredTraining(action){
+    return this.state.museumReviewModel.requiredTrainingByAction?.[action]||[];
+  }
+
+  assertDemoTraining(action){
+    const missing=this.requiredTraining(action).filter(code=>!this.trainingCompleted(code));
+    if(missing.length)throw new Error(`Formação obrigatória por concluir: ${missing.join(", ")}`);
+  }
+
+  async completeTrainingLesson(trailCode,lessonCode){
+    if(!hasPermission(this.state,"training.complete"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{
+        let enrolment=workspace.trainingEnrolments.find(item=>item.user_id===this.state.session.user.id&&item.trail_code===trailCode);
+        if(!enrolment){enrolment={id:`demo-enrolment-${trailCode}-${Date.now()}`,project_id:"demo-project",user_id:this.state.session.user.id,trail_code:trailCode,status:"in-progress",progress_percent:0,started_at:new Date().toISOString(),completed_at:null,expires_at:null,updated_at:new Date().toISOString()};workspace.trainingEnrolments.push(enrolment);}
+        let progress=workspace.lessonProgress.find(item=>item.enrolment_id===enrolment.id&&item.lesson_code===lessonCode);
+        if(progress){progress.status="completed";progress.completed_at=new Date().toISOString();progress.updated_at=new Date().toISOString();}
+        else workspace.lessonProgress.push({id:`demo-progress-${Date.now()}`,enrolment_id:enrolment.id,lesson_code:lessonCode,status:"completed",completed_at:new Date().toISOString(),updated_at:new Date().toISOString()});
+        const trail=this.state.trainingTrails.trails.find(item=>item.code===trailCode);
+        const total=trail?.lessons?.length||1;
+        const completed=workspace.lessonProgress.filter(item=>item.enrolment_id===enrolment.id&&item.status==="completed").length;
+        enrolment.progress_percent=Math.round(completed*100/total);enrolment.status=enrolment.progress_percent===100?"assessment-pending":"in-progress";enrolment.updated_at=new Date().toISOString();
+      });return;
+    }
+    const{error}=await this.client.rpc("collab_complete_training_lesson_08f",{p_trail_code:trailCode,p_lesson_code:lessonCode});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async assessTraining(userId,trailCode,score){
+    if(!(hasPermission(this.state,"training.assess")||hasPermission(this.state,"training.manage")))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{
+        const enrolment=workspace.trainingEnrolments.find(item=>item.user_id===userId&&item.trail_code===trailCode);if(!enrolment||enrolment.progress_percent!==100)throw new Error("As lições ainda não foram concluídas.");
+        const trail=this.state.trainingTrails.trails.find(item=>item.code===trailCode),passed=Number(score)>=(trail?.assessment?.passingScore||80);
+        workspace.assessments.unshift({id:`demo-assessment-${Date.now()}`,project_id:"demo-project",user_id:userId,trail_code:trailCode,attempt_number:workspace.assessments.filter(item=>item.user_id===userId&&item.trail_code===trailCode).length+1,score:Number(score),passed,answers:{demo:true},assessed_at:new Date().toISOString(),assessed_by:this.state.session.user.id});
+        enrolment.status=passed?"completed":"assessment-pending";enrolment.completed_at=passed?new Date().toISOString():null;enrolment.updated_at=new Date().toISOString();
+      });return;
+    }
+    const{error}=await this.client.rpc("collab_record_training_assessment_08f",{p_user_id:userId,p_trail_code:trailCode,p_score:Number(score),p_answers:{}});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async saveMuseumProposal(proposalId,reviewRecordId,payload){
+    if(!hasPermission(this.state,"museum.review.edit"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.assertDemoTraining("edit");
+      this.demoMuseumReviewUpdate(workspace=>{
+        const id=proposalId||`demo-proposal-${Date.now()}`;let row=workspace.proposals.find(item=>item.id===id);
+        const next={id,project_id:"demo-project",review_record_id:reviewRecordId,field_path:payload.fieldPath,base_value:payload.baseValue,proposed_value:payload.proposedValue,rationale:payload.rationale,source_ids:payload.sourceIds||[],contribution_ids:payload.contributionIds||[],status:payload.submit?"submitted":"draft",proposed_by:this.state.session.user.id,proposed_at:row?.proposed_at||new Date().toISOString(),updated_at:new Date().toISOString()};
+        if(row)Object.assign(row,next);else workspace.proposals.unshift(next);
+        const record=workspace.records.find(item=>item.id===reviewRecordId);if(record&&record.status==="not-started")record.status="in-progress";
+      });return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_museum_review_proposal_08f",{p_proposal_id:proposalId||null,p_review_record_id:reviewRecordId,p_field_path:payload.fieldPath,p_base_value:payload.baseValue,p_proposed_value:payload.proposedValue,p_rationale:payload.rationale,p_source_ids:payload.sourceIds||[],p_contribution_ids:payload.contributionIds||[],p_submit:Boolean(payload.submit)});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async reviewMuseumProposal(proposalId,status,note){
+    if(!hasPermission(this.state,"museum.review.check"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{const row=workspace.proposals.find(item=>item.id===proposalId);if(!row||row.status!=="submitted")throw new Error("Proposta indisponível.");row.status=status;row.reviewed_by=this.state.session.user.id;row.reviewed_at=new Date().toISOString();const record=workspace.records.find(item=>item.id===row.review_record_id);if(record)record.accepted_proposal_count=workspace.proposals.filter(item=>item.review_record_id===record.id&&item.status==="accepted").length;workspace.comments.unshift({id:`demo-comment-${Date.now()}`,project_id:"demo-project",review_record_id:row.review_record_id,field_path:row.field_path,comment_type:"note",body:note,blocking:false,resolved:false,created_by:this.state.session.user.id,created_at:new Date().toISOString()});});return;
+    }
+    const{error}=await this.client.rpc("collab_review_museum_proposal_08f",{p_proposal_id:proposalId,p_status:status,p_note:note});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+
+  async supersedeMuseumProposal(proposalId,rationale){
+    if(!hasPermission(this.state,"museum.review.check"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{const row=workspace.proposals.find(item=>item.id===proposalId&&item.status==="accepted");if(!row)throw new Error("Proposta aceite não encontrada.");row.status="superseded";row.reviewed_by=this.state.session.user.id;row.reviewed_at=new Date().toISOString();const record=workspace.records.find(item=>item.id===row.review_record_id);if(record){record.accepted_proposal_count=workspace.proposals.filter(item=>item.review_record_id===record.id&&item.status==="accepted").length;if(["editorial-approved","rights-approved","publication-approved"].includes(record.status)){record.status="needs-changes";record.editorial_approved_at=null;record.rights_approved_at=null;record.publication_approved_at=null;}}workspace.comments.unshift({id:`demo-comment-${Date.now()}`,project_id:"demo-project",review_record_id:row.review_record_id,field_path:row.field_path,comment_type:"note",body:`Proposta substituída: ${rationale}`,blocking:false,resolved:false,created_by:this.state.session.user.id,created_at:new Date().toISOString()});});return;
+    }
+    const{error}=await this.client.rpc("collab_supersede_museum_proposal_08f",{p_proposal_id:proposalId,p_rationale:rationale});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async addMuseumReviewComment(reviewRecordId,payload){
+    if(!hasPermission(this.state,"museum.review.comment"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{workspace.comments.unshift({id:`demo-comment-${Date.now()}`,project_id:"demo-project",review_record_id:reviewRecordId,field_path:payload.fieldPath||null,comment_type:payload.commentType||"note",body:payload.body,blocking:Boolean(payload.blocking)||payload.commentType==="blocking",resolved:false,created_by:this.state.session.user.id,created_at:new Date().toISOString()});const record=workspace.records.find(item=>item.id===reviewRecordId);if(record){record.blocking_comment_count=workspace.comments.filter(item=>item.review_record_id===reviewRecordId&&item.blocking&&!item.resolved).length;if(payload.blocking||payload.commentType==="blocking")record.status="needs-changes";}});return;
+    }
+    const{error}=await this.client.rpc("collab_add_museum_review_comment_08f",{p_review_record_id:reviewRecordId,p_field_path:payload.fieldPath||null,p_comment_type:payload.commentType||"note",p_body:payload.body,p_blocking:Boolean(payload.blocking)});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async resolveMuseumReviewComment(commentId,resolution){
+    if(!hasPermission(this.state,"museum.review.comment"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{const comment=workspace.comments.find(item=>item.id===commentId);if(!comment)throw new Error("Comentário não encontrado.");comment.resolved=true;comment.resolved_by=this.state.session.user.id;comment.resolved_at=new Date().toISOString();comment.body+=`\\n\\nResolução: ${resolution}`;const record=workspace.records.find(item=>item.id===comment.review_record_id);if(record)record.blocking_comment_count=workspace.comments.filter(item=>item.review_record_id===record.id&&item.blocking&&!item.resolved).length;});return;
+    }
+    const{error}=await this.client.rpc("collab_resolve_museum_review_comment_08f",{p_comment_id:commentId,p_resolution:resolution});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async assignMuseumReview(reviewRecordId,userId,assignmentRole){
+    if(!hasPermission(this.state,"museum.review.assign"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{workspace.assignments.unshift({id:`demo-review-assignment-${Date.now()}`,project_id:"demo-project",review_record_id:reviewRecordId,user_id:userId,assignment_role:assignmentRole,status:"active",assigned_by:this.state.session.user.id,assigned_at:new Date().toISOString()});const record=workspace.records.find(item=>item.id===reviewRecordId);if(record){if(assignmentRole==="editorial")record.assigned_editor=userId;if(assignmentRole==="research")record.assigned_researcher=userId;if(assignmentRole==="rights")record.assigned_rights_reviewer=userId;if(assignmentRole==="translation")record.assigned_translator=userId;if(record.status==="not-started")record.status="in-progress";}});return;
+    }
+    const{error}=await this.client.rpc("collab_assign_museum_review_08f",{p_review_record_id:reviewRecordId,p_user_id:userId,p_assignment_role:assignmentRole});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async setMuseumReviewCheck(reviewRecordId,checkType,status,note=""){
+    if(!hasPermission(this.state,"museum.review.check"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{const row=workspace.checks.find(item=>item.review_record_id===reviewRecordId&&item.check_type===checkType);if(!row)throw new Error("Check não encontrado.");row.status=status;row.note=note;row.checked_by=this.state.session.user.id;row.checked_at=["passed","failed","not-applicable"].includes(status)?new Date().toISOString():null;row.updated_at=new Date().toISOString();});return;
+    }
+    const{error}=await this.client.rpc("collab_set_museum_review_check_08f",{p_review_record_id:reviewRecordId,p_check_type:checkType,p_status:status,p_note:note||null});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  demoReviewGates(reviewRecordId,decisionType){
+    const mapping={"editorial-approve":["editorial","source","relations","accessibility"],"rights-approve":["rights","digital-intervention"],"publication-approve":["publication","translation"]};
+    const missing=(mapping[decisionType]||[]).filter(type=>!this.state.museumReviewWorkspace.checks.some(item=>item.review_record_id===reviewRecordId&&item.check_type===type&&["passed","not-applicable"].includes(item.status)));
+    const blockers=this.state.museumReviewWorkspace.comments.filter(item=>item.review_record_id===reviewRecordId&&item.blocking&&!item.resolved).length;
+    const submitted=this.state.museumReviewWorkspace.proposals.filter(item=>item.review_record_id===reviewRecordId&&["draft","submitted"].includes(item.status)).length;
+    return{missingChecks:missing,blockingComments:blockers,openProposals:submitted,passed:!missing.length&&!blockers&&!submitted};
+  }
+
+  async decideMuseumReview(reviewRecordId,decisionType,rationale){
+    const permission={"editorial-approve":"museum.review.editorial-approve","rights-approve":"museum.review.rights-approve","publication-approve":"museum.review.publication-approve",incorporate:"museum.review.apply"}[decisionType]||"museum.review.check";
+    if(!hasPermission(this.state,permission))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      if(["editorial-approve","rights-approve","publication-approve"].includes(decisionType)){this.assertDemoTraining(decisionType);const gates=this.demoReviewGates(reviewRecordId,decisionType);if(!gates.passed)throw new Error(`Gates pendentes: ${[...gates.missingChecks,gates.blockingComments?"comentários bloqueantes":"",gates.openProposals?"propostas abertas":""].filter(Boolean).join(", ")}`);}
+      this.demoMuseumReviewUpdate(workspace=>{const row=workspace.records.find(item=>item.id===reviewRecordId);if(!row)throw new Error("Registo não encontrado.");if(decisionType==="rights-approve"&&!row.editorial_approved_at)throw new Error("Aprovação editorial necessária.");if(decisionType==="publication-approve"&&!row.rights_approved_at)throw new Error("Aprovação de direitos necessária.");if(decisionType==="publication-approve"){const publicationProposal=workspace.proposals.find(item=>item.review_record_id===reviewRecordId&&item.field_path==="/publication"&&item.status==="accepted");const eligible=row.public_release_eligible||publicationProposal?.proposed_value?.publicReleaseEligible===true;const disclosureOk=!row.requires_ai_disclosure||(publicationProposal?.proposed_value?.reviewNotice==="ai-substantive-intervention"&&publicationProposal?.proposed_value?.publicReleaseEligible===true);if(!eligible||!disclosureOk)throw new Error("Elegibilidade pública e divulgação de IA ainda não foram aprovadas.");}if(decisionType==="incorporate"&&!row.publication_approved_at)throw new Error("Aprovação de publicação necessária.");const next={"editorial-approve":"editorial-approved","rights-approve":"rights-approved","publication-approve":"publication-approved","request-changes":"needs-changes",reopen:"in-progress",incorporate:"incorporated"}[decisionType];row.status=next;if(decisionType==="editorial-approve")row.editorial_approved_at=new Date().toISOString();if(decisionType==="rights-approve")row.rights_approved_at=new Date().toISOString();if(decisionType==="publication-approve")row.publication_approved_at=new Date().toISOString();if(decisionType==="incorporate")row.incorporated_at=new Date().toISOString();row.updated_at=new Date().toISOString();workspace.decisions.unshift({id:`demo-decision-${Date.now()}`,project_id:"demo-project",review_record_id:reviewRecordId,decision_type:decisionType,rationale,decision_data:{demo:true},decided_by:this.state.session.user.id,decided_at:new Date().toISOString()});});return;
+    }
+    const{error}=await this.client.rpc("collab_decide_museum_review_08f",{p_review_record_id:reviewRecordId,p_decision_type:decisionType,p_rationale:rationale});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async linkContributionToMuseumReview(reviewRecordId,contributionId,linkType,note=""){
+    if(!hasPermission(this.state,"museum.review.link-contribution"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{workspace.contributionLinks.push({id:`demo-link-${Date.now()}`,project_id:"demo-project",review_record_id:reviewRecordId,contribution_id:contributionId,link_type:linkType,note,linked_by:this.state.session.user.id,linked_at:new Date().toISOString()});const row=workspace.records.find(item=>item.id===reviewRecordId);if(row)row.linked_contribution_count=workspace.contributionLinks.filter(item=>item.review_record_id===reviewRecordId).length;});return;
+    }
+    const{error}=await this.client.rpc("collab_link_contribution_to_museum_review_08f",{p_review_record_id:reviewRecordId,p_contribution_id:contributionId,p_link_type:linkType,p_note:note||null});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async savePublicContentEffect(effectId,payload){
+    if(!hasPermission(this.state,"museum.review.effects.manage"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      this.demoMuseumReviewUpdate(workspace=>{const id=effectId||`demo-effect-${Date.now()}`,row=workspace.effects.find(item=>item.id===id),next={id,project_id:"demo-project",cycle_id:payload.cycleId||null,effect_code:payload.effectCode,slot_code:payload.slotCode,effect_type:payload.effectType||"memory-highlight",title:payload.title||{},description:payload.description||{},memory_ids:payload.memoryIds||[],enabled:Boolean(payload.enabled),status:payload.status||"draft",starts_at:payload.startsAt||null,ends_at:payload.endsAt||null,created_by:this.state.session.user.id,created_at:row?.created_at||new Date().toISOString(),updated_at:new Date().toISOString()};if(next.enabled&&!["approved","published"].includes(next.status))throw new Error("O efeito precisa estar aprovado.");for(const memoryId of next.memory_ids){if(!workspace.records.some(item=>item.memory_id===memoryId&&item.publication_approved_at))throw new Error(`Memória sem aprovação de publicação: ${memoryId}`);}if(row)Object.assign(row,next);else workspace.effects.unshift(next);});return;
+    }
+    const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
+  }
+
+  async generateMuseumReviewSnapshot(cycleId,version="0.17.0"){
+    if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");
+      const records=workspace.records.filter(item=>item.cycle_id===cycleId&&item.publication_approved_at).map(record=>({memoryId:record.memory_id,baseHash:record.source_record_hash,status:record.status,patches:workspace.proposals.filter(item=>item.review_record_id===record.id&&item.status==="accepted").map(item=>({path:item.field_path,value:item.proposed_value,rationale:item.rationale,sourceIds:item.source_ids,contributionIds:item.contribution_ids})),approvals:{editorialApprovedAt:record.editorial_approved_at,rightsApprovedAt:record.rights_approved_at,publicationApprovedAt:record.publication_approved_at}}));
+      const payload={version,cycleCode:cycle.code,generatedAt:new Date().toISOString(),sourceDatasetVersion:cycle.source_dataset_version,sourceDatasetHash:cycle.source_dataset_hash,completeCycle:workspace.records.every(item=>["publication-approved","incorporated","closed"].includes(item.status)),records,effects:workspace.effects.filter(item=>item.cycle_id===cycleId&&["approved","published"].includes(item.status)).map(item=>({effectCode:item.effect_code,slotCode:item.slot_code,effectType:item.effect_type,title:item.title,description:item.description,memoryIds:item.memory_ids,enabled:item.enabled,status:item.status,startsAt:item.starts_at,endsAt:item.ends_at}))};
+      const snapshot={id:`demo-snapshot-${Date.now()}`,project_id:"demo-project",cycle_id:cycleId,version,source_dataset_hash:cycle.source_dataset_hash,payload,payload_hash:`demo-${Date.now()}`,status:"validated",generated_by:this.state.session.user.id,generated_at:new Date().toISOString()};this.demoMuseumReviewUpdate(current=>current.snapshots.unshift(snapshot));return snapshot;
+    }
+    const{data,error}=await this.client.rpc("collab_generate_museum_review_snapshot_08f",{p_cycle_id:cycleId,p_version:version});if(error)throw error;await this.refreshMuseumReview();return data;
+  }
+
+  async approveMuseumReviewSnapshot(snapshotId,confirmation){
+    if(!hasPermission(this.state,"museum.review.apply"))throw new Error("Permissão insuficiente.");
+    if(this.config.mode==="demo"){
+      if(confirmation!=="APPROVE_MUSEUM_EDITORIAL_SNAPSHOT")throw new Error("Confirmação literal obrigatória.");
+      this.demoMuseumReviewUpdate(workspace=>{const row=workspace.snapshots.find(item=>item.id===snapshotId&&item.status==="validated");if(!row)throw new Error("Snapshot indisponível.");row.status="approved";row.approved_by=this.state.session.user.id;row.approved_at=new Date().toISOString();});return;
+    }
+    const{error}=await this.client.rpc("collab_approve_museum_review_snapshot_08f",{p_snapshot_id:snapshotId,p_confirmation:confirmation});if(error)throw error;await this.refreshMuseumReview();
   }
 
   demoExhibitionUpdate(mutator){const exhibitionWorkspace=structuredClone(this.state.exhibitionWorkspace);mutator(exhibitionWorkspace);this.persistDemo({exhibitionWorkspace});}
