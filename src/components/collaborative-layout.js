@@ -53,11 +53,13 @@ export function collaborativeShell(context,currentRoute,content) {
           || hasPermission(context,"agenda.manage")
           || hasPermission(context,"contributions.moderate")
           || hasPermission(context,"museum.review.manage")
+          || hasPermission(context,"homologation.view")
         ) ? `<div class="collab-sidebar__admin"><span>Gestão</span>
           ${hasPermission(context,"memberships.manage")?`<a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a>`:""}
           ${hasPermission(context,"tasks.manage")?`<a href="#/area-colaborativa/gestao/tarefas">Tarefas</a>`:""}
           ${hasPermission(context,"contributions.moderate")?`<a href="#/area-colaborativa/gestao/contributos">Contributos</a>`:""}
           ${hasPermission(context,"museum.review.manage")?`<a href="#/area-colaborativa/gestao/revisao-museu">Revisão do Museu</a>`:""}
+          ${hasPermission(context,"homologation.view")?`<a href="#/area-colaborativa/gestao/homologacao">Implantação e homologação</a>`:""}
           ${hasPermission(context,"exhibitions.manage")?`<a href="#/area-colaborativa/gestao/exposicoes">Exposições</a>`:""}
           ${hasPermission(context,"venues.manage")?`<a href="#/area-colaborativa/gestao/locais">Locais</a>`:""}
           ${hasPermission(context,"agenda.manage")?`<a href="#/area-colaborativa/gestao/agenda/novo">Nova atividade</a>`:""}
@@ -75,7 +77,7 @@ export function collaborativePublicFrame(context,content) {
 export function statusPill(status) {
   const labels = {
     pending:"Pendente",active:"Ativo",suspended:"Suspenso",archived:"Arquivado",
-    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação",draft:"Rascunho",planning:"Em planeamento",ready:"Preparada",paused:"Pausada",completed:"Concluída",cancelled:"Cancelada",planned:"Planeada",confirmed:"Confirmada",installed:"Instalada",open:"Aberta",closed:"Encerrada","in-progress":"Em curso",blocked:"Bloqueada",submitted:"Submetido",triage:"Em triagem","needs-info":"Aguardar informação","under-review":"Em revisão",accepted:"Aceite","partially-accepted":"Parcialmente aceite",rejected:"Não aceite",withdrawn:"Retirado",incorporated:"Incorporado","upload-pending":"Aguardar envio",uploaded:"Recebido","scan-pending":"Aguardar verificação",deleted:"Eliminado","not-started":"Não iniciada","assessment-pending":"Avaliação pendente",expired:"Expirada","needs-changes":"Necessita alterações","ready-editorial":"Pronta para decisão","editorial-approved":"Editorialmente aprovada","rights-approved":"Direitos aprovados","publication-approved":"Publicação aprovada",incorporated:"Incorporada",validated:"Validado",applied:"Aplicado",superseded:"Substituído","not-applicable":"Não aplicável",passed:"Aprovado",failed:"Falhou"
+    rejected:"Recusado",approved:"Aprovado",foundation:"Fundação",skeleton:"Em preparação",draft:"Rascunho",planning:"Em planeamento",ready:"Preparada",paused:"Pausada",completed:"Concluída",cancelled:"Cancelada",planned:"Planeada",confirmed:"Confirmada",installed:"Instalada",open:"Aberta",closed:"Encerrada","in-progress":"Em curso",blocked:"Bloqueada",submitted:"Submetido",triage:"Em triagem","needs-info":"Aguardar informação","under-review":"Em revisão",accepted:"Aceite","partially-accepted":"Parcialmente aceite",rejected:"Não aceite",withdrawn:"Retirado",incorporated:"Incorporado","upload-pending":"Aguardar envio",uploaded:"Recebido","scan-pending":"Aguardar verificação",deleted:"Eliminado","not-started":"Não iniciada","assessment-pending":"Avaliação pendente",expired:"Expirada","needs-changes":"Necessita alterações","ready-editorial":"Pronta para decisão","editorial-approved":"Editorialmente aprovada","rights-approved":"Direitos aprovados","publication-approved":"Publicação aprovada",incorporated:"Incorporada",validated:"Validado",applied:"Aplicado",superseded:"Substituído","not-applicable":"Não aplicável",passed:"Aprovado",failed:"Falhou",unconfigured:"Não configurado",configured:"Configurado",testing:"Em teste",homologated:"Homologado",retired:"Retirado",running:"Em execução"
   };
   return `<span class="collab-status collab-status--${esc(status)}">${esc(labels[status] || status || "—")}</span>`;
 }

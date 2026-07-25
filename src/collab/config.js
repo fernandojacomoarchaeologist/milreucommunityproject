@@ -22,7 +22,7 @@ export async function loadCollaborativeConfig() {
 }
 
 export async function loadCollaborativeFoundationData() {
-  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, museumReviewModel, trainingTrails, library, reviewSeed, demo] = await Promise.all([
+  const [profileTypes, rolesPermissions, modules, memberCatalog, taskModel, exhibitionModel, contributionModel, museumReviewModel, trainingTrails, library, reviewSeed, homologationModel, deploymentProfile, deploymentReadiness, demo] = await Promise.all([
     fetchJson("public/data/collaborative-profile-types.json"),
     fetchJson("public/data/collaborative-roles-permissions.json"),
     fetchJson("public/data/collaborative-modules.json"),
@@ -34,6 +34,9 @@ export async function loadCollaborativeFoundationData() {
     fetchJson("public/data/collaborative-training-trails.json"),
     fetchJson("public/data/collaborative-library.json"),
     fetchJson("public/data/museum-review-seed.json"),
+    fetchJson("public/data/collaborative-homologation-model.json"),
+    fetchJson("public/config/deployment-profile.runtime.json"),
+    fetchJson("public/data/deployment-readiness.json"),
     fetchJson("public/data/collaborative-demo.json")
   ]);
   return {
@@ -50,6 +53,9 @@ export async function loadCollaborativeFoundationData() {
     trainingTrails,
     library,
     reviewSeed,
+    homologationModel,
+    deploymentProfile,
+    deploymentReadiness,
     demo
   };
 }
@@ -58,6 +64,13 @@ function validateConfig(config) {
   if (!config || typeof config !== "object") throw new Error("Configuração colaborativa inválida.");
   if (config.security?.serviceRoleInBrowser !== false) {
     throw new Error("A configuração não pode permitir service_role no navegador.");
+  }
+  const environment=config.environment||"local";
+  if(!["local","staging","production"].includes(environment)){
+    throw new Error("Ambiente colaborativo inválido.");
+  }
+  if(environment!=="local"&&config.allowDemo!==false){
+    throw new Error("A demonstração deve estar desativada fora do ambiente local.");
   }
   const hasRemote = Boolean(config.supabaseUrl && config.supabasePublishableKey);
   return {

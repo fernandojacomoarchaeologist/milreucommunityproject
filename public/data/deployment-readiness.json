@@ -1,0 +1,28 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.18.0",
+  "environment": "local",
+  "generatedAt": "2026-07-25T17:00:36.924Z",
+  "status": "blocked",
+  "checks": {
+    "supabaseConfigured": false,
+    "siteUrlConfigured": false,
+    "googleOAuthConfigured": false,
+    "masterEmailConfigured": false,
+    "stagingProjectConfigured": false,
+    "productionProjectConfigured": false,
+    "separateRemoteProjects": true,
+    "serviceRoleInFrontend": false,
+    "demoDisabledForStaging": true,
+    "demoDisabledForProduction": true,
+    "httpsValid": true,
+    "productionWritesDisabled": true
+  },
+  "blockingItems": [
+    "MILREU_SITE_URL não está definido.",
+    "MILREU_SUPABASE_URL não está definido.",
+    "Google OAuth ainda não foi marcado como configurado.",
+    "MILREU_MASTER_EMAIL ainda não está definido."
+  ],
+  "notice": "O preflight valida contratos e configuração. Não executa migrations, não configura o Google e não altera produção."
+}

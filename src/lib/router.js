@@ -47,6 +47,9 @@ export function getRoute() {
   if (collabMuseumReviewPreview) return { name:"collab-museum-review-preview", memoryId:decodeURIComponent(collabMuseumReviewPreview[1]) };
   const collabMuseumReviewDetail = path.match(/^\/area-colaborativa\/revisao-museu\/([^/]+)$/);
   if (collabMuseumReviewDetail) return { name:"collab-museum-review-detail", memoryId:decodeURIComponent(collabMuseumReviewDetail[1]) };
+  if (path === "/area-colaborativa/gestao/homologacao") return { name:"collab-deployment-homologation" };
+  const collabHomologationRun = path.match(/^\/area-colaborativa\/gestao\/homologacao\/([^/]+)$/);
+  if (collabHomologationRun) return { name:"collab-homologation-run", runId:decodeURIComponent(collabHomologationRun[1]) };
   if (path === "/area-colaborativa/gestao/revisao-museu") return { name:"collab-museum-review-management", query };
   if (path === "/area-colaborativa/gestao/revisao-museu/releases") return { name:"collab-museum-review-releases" };
   const collabMuseumReviewManagementPreview = path.match(/^\/area-colaborativa\/gestao\/revisao-museu\/([^/]+)\/preview$/);

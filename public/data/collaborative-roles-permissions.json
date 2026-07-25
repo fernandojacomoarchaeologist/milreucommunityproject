@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "roles": [
     {
       "code": "master",
@@ -113,7 +113,19 @@
     "museum.review.manage",
     "museum.review.audit.view",
     "museum.review.link-contribution",
-    "museum.review.effects.manage"
+    "museum.review.effects.manage",
+    "deployment.view",
+    "deployment.manage",
+    "deployment.audit.view",
+    "homologation.view",
+    "homologation.run",
+    "homologation.check",
+    "homologation.approve",
+    "homologation.cancel",
+    "auth.policy.view",
+    "auth.policy.manage",
+    "auth.audit.view",
+    "master.status.view"
   ],
   "rolePermissions": {
     "master": [
@@ -187,7 +199,19 @@
       "museum.review.manage",
       "museum.review.audit.view",
       "museum.review.link-contribution",
-      "museum.review.effects.manage"
+      "museum.review.effects.manage",
+      "deployment.view",
+      "deployment.manage",
+      "deployment.audit.view",
+      "homologation.view",
+      "homologation.run",
+      "homologation.check",
+      "homologation.approve",
+      "homologation.cancel",
+      "auth.policy.view",
+      "auth.policy.manage",
+      "auth.audit.view",
+      "master.status.view"
     ],
     "volunteer": [
       "area.view",
@@ -235,7 +259,12 @@
       "museum.review.check",
       "museum.review.preview",
       "museum.review.link-contribution",
-      "museum.review.audit.view"
+      "museum.review.audit.view",
+      "deployment.view",
+      "homologation.view",
+      "homologation.check",
+      "auth.policy.view",
+      "master.status.view"
     ],
     "researcher": [
       "area.view",
@@ -262,7 +291,12 @@
       "museum.review.check",
       "museum.review.preview",
       "museum.review.link-contribution",
-      "museum.review.audit.view"
+      "museum.review.audit.view",
+      "deployment.view",
+      "homologation.view",
+      "homologation.check",
+      "auth.policy.view",
+      "master.status.view"
     ],
     "translator": [
       "area.view",
@@ -284,7 +318,12 @@
       "museum.review.edit",
       "museum.review.comment",
       "museum.review.check",
-      "museum.review.preview"
+      "museum.review.preview",
+      "deployment.view",
+      "homologation.view",
+      "homologation.check",
+      "auth.policy.view",
+      "master.status.view"
     ],
     "partner": [
       "area.view",
@@ -303,7 +342,12 @@
       "library.view",
       "agenda.rsvp",
       "training.complete",
-      "museum.review.view"
+      "museum.review.view",
+      "deployment.view",
+      "homologation.view",
+      "homologation.check",
+      "auth.policy.view",
+      "master.status.view"
     ]
   }
 }

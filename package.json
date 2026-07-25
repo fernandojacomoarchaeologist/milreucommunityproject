@@ -1,6 +1,6 @@
 {
   "name": "milreu-community-project",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "private": true,
   "description": "Infraestrutura, dados e Design System do Projeto Comunitário de Milreu.",
   "license": "SEE RIGHTS.md",
@@ -25,7 +25,7 @@
     "architecture:test": "node --test tests/architecture/*.test.mjs",
     "architecture:prototype:serve": "python3 -m http.server 8080 -d apps/architecture-prototype",
     "dev": "node scripts/collab/build-runtime-config.mjs && node scripts/dev-server.mjs --root . --port 4173",
-    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs && node scripts/channels/validate-channels.mjs && node scripts/structured/validate-structured-data.mjs && node scripts/quality/validate-performance.mjs && node scripts/quality/validate-accessibility.mjs && node scripts/validate-07d.mjs && node scripts/validate-07d1-fixes.mjs && node scripts/validate-07d2-fixes.mjs && node scripts/validate-07d3-mm202617.mjs && node scripts/collab/validate-foundation.mjs && node scripts/collab/validate-member-management.mjs && node scripts/collab/validate-volunteering-tasks.mjs && node scripts/collab/validate-agenda-exhibitions.mjs && node scripts/collab/validate-community-contributions.mjs && node scripts/collab/validate-museum-review.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/validate-portal.mjs && node scripts/validate-museum-regression.mjs && node scripts/validate-museum-07c.mjs && node scripts/validate-immersive-07c.mjs && node scripts/channels/validate-channels.mjs && node scripts/structured/validate-structured-data.mjs && node scripts/quality/validate-performance.mjs && node scripts/quality/validate-accessibility.mjs && node scripts/validate-07d.mjs && node scripts/validate-07d1-fixes.mjs && node scripts/validate-07d2-fixes.mjs && node scripts/validate-07d3-mm202617.mjs && node scripts/collab/validate-foundation.mjs && node scripts/collab/validate-member-management.mjs && node scripts/collab/validate-volunteering-tasks.mjs && node scripts/collab/validate-agenda-exhibitions.mjs && node scripts/collab/validate-community-contributions.mjs && node scripts/collab/validate-museum-review.mjs && node scripts/deploy/validate-deployment-homologation.mjs",
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/collab/build-runtime-config.mjs && node scripts/build.mjs",
     "preview": "node scripts/dev-server.mjs --root dist --port 4173",
@@ -72,7 +72,15 @@
     "museum:review-validate": "node scripts/collab/validate-museum-review.mjs",
     "context:validate": "node scripts/context/validate-context-ledger.mjs",
     "validate:08f": "node scripts/collab/validate-museum-review.mjs",
-    "collab:validate:08f": "node scripts/collab/validate-museum-review.mjs"
+    "collab:validate:08f": "node scripts/collab/validate-museum-review.mjs",
+    "deploy:profile": "node scripts/deploy/build-deployment-profile.mjs",
+    "deploy:preflight": "node scripts/deploy/preflight.mjs",
+    "deploy:oauth-check": "node scripts/deploy/google-oauth-contract.mjs",
+    "deploy:remote-smoke": "node scripts/deploy/remote-smoke.mjs",
+    "deploy:homologation-report": "node scripts/deploy/homologation-report.mjs",
+    "deploy:master-status": "node scripts/admin/master-status.mjs",
+    "deploy:validate": "node scripts/deploy/validate-deployment-homologation.mjs",
+    "validate:08g": "node scripts/deploy/validate-deployment-homologation.mjs"
   },
   "devDependencies": {
     "supabase": "2.109.1"

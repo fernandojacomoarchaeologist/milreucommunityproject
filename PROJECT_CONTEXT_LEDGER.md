@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -169,9 +169,13 @@ Submissão, ficheiros privados, consentimento, moderação, direitos e retirada.
 
 Revisão das 31 memórias, formação, biblioteca, gates, snapshots e efeitos orgânicos nas páginas principais.
 
-## Estado funcional após 08F
+### 08G — Implantação e homologação
 
-Todos os 16 módulos do registo colaborativo possuem implementação ativa:
+Ambientes local, staging e produção; Google OAuth; master configurável; preflight; RLS; storage; 24 checks e gates de produção.
+
+## Estado funcional após 08G
+
+Todos os 17 módulos do registo colaborativo possuem implementação ativa:
 
 - dashboard;
 - perfil;
@@ -188,10 +192,15 @@ Todos os 16 módulos do registo colaborativo possuem implementação ativa:
 - moderação;
 - locais;
 - exposições;
-- gestão da revisão.
+- gestão da revisão;
+- implantação e homologação.
 
 ## Próximas fronteiras
 
+- execução real das migrations em local e staging;
+- configuração do Google OAuth;
+- bootstrap do master;
+- homologação por perfil;
 - aplicação humana das revisões;
 - traduções;
 - lançamento público;

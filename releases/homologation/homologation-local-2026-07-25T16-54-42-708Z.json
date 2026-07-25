@@ -1,0 +1,232 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.18.0",
+  "generatedAt": "2026-07-25T16:54:42.708Z",
+  "environment": "local",
+  "status": "blocked",
+  "blockingItems": [
+    "MILREU_SITE_URL não está definido.",
+    "MILREU_SUPABASE_URL não está definido.",
+    "Google OAuth ainda não foi marcado como configurado.",
+    "MILREU_MASTER_EMAIL ainda não está definido."
+  ],
+  "checks": [
+    {
+      "code": "env-config",
+      "category": "environment",
+      "title": "Variáveis e perfil do ambiente",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "separate-staging",
+      "category": "environment",
+      "title": "Staging separado de produção",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "migration-dry-run",
+      "category": "database",
+      "title": "Dry-run das migrations",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "database-tests",
+      "category": "database",
+      "title": "Testes SQL 08A–08G",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "google-provider",
+      "category": "auth",
+      "title": "Provider Google ativo",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "google-callback",
+      "category": "auth",
+      "title": "Callback do Google/Supabase validado",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "app-callback",
+      "category": "auth",
+      "title": "Callback da aplicação validado",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "preauthorization",
+      "category": "auth",
+      "title": "Pré-autorização e aprovação de membros",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "master-bootstrap",
+      "category": "master",
+      "title": "Master configurado",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "last-master-protection",
+      "category": "master",
+      "title": "Proteção do último master",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "role-matrix",
+      "category": "rls",
+      "title": "Matriz de perfis e permissões",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "cross-user-isolation",
+      "category": "rls",
+      "title": "Isolamento entre utilizadores",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "private-contribution-files",
+      "category": "storage",
+      "title": "Ficheiros comunitários privados",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "signed-links",
+      "category": "storage",
+      "title": "Links temporários assinados",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "collaborative-flows",
+      "category": "functional",
+      "title": "Fluxos 08A–08F",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "session-expiry",
+      "category": "auth",
+      "title": "Logout e expiração de sessão",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "mobile-375",
+      "category": "accessibility",
+      "title": "Homologação a 375 px",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "tablet-768",
+      "category": "accessibility",
+      "title": "Homologação a 768 px",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "desktop-1280",
+      "category": "accessibility",
+      "title": "Homologação a 1280 px",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "keyboard-screen-reader",
+      "category": "accessibility",
+      "title": "Teclado e leitor de ecrã",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "performance-budget",
+      "category": "performance",
+      "title": "Budgets de desempenho",
+      "blocking": false,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "rollback-tested",
+      "category": "recovery",
+      "title": "Rollback documentado e ensaiado",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "backup-tested",
+      "category": "recovery",
+      "title": "Backup e restauração testados",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    },
+    {
+      "code": "consent-privacy-review",
+      "category": "privacy",
+      "title": "Consentimentos e privacidade revistos",
+      "blocking": true,
+      "status": "pending",
+      "evidence": null,
+      "note": null
+    }
+  ],
+  "notice": "Relatório local inicial. Resultados reais devem ser registados na Área Colaborativa ou no Supabase de staging."
+}

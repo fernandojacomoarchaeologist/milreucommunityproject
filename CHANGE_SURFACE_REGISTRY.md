@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08F"
+package: "08G"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -64,3 +64,22 @@ Quando um pacote tocar numa destas superfícies, deve:
 3. executar testes de não regressão;
 4. documentar o efeito público;
 5. preservar os slots existentes.
+
+## Implantação e autenticação
+
+Ficheiros:
+
+- `public/config/deployment-profile.runtime.json`;
+- `public/data/deployment-readiness.json`;
+- `public/data/collaborative-homologation-model.json`;
+- `scripts/deploy/`;
+- `supabase/migrations/20260724130*.sql`;
+- `.github/workflows/08g-*.yml`.
+
+Alterações futuras devem preservar:
+
+- staging separado;
+- demo apenas local;
+- pré-autorização;
+- service role fora do browser;
+- homologação antes de produção.

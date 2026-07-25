@@ -879,3 +879,52 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .collab-reference-content p,.collab-reference-content li{max-width:68ch;line-height:1.7}
 .collab-reference-visibility{max-width:70rem;padding:.7rem;background:#f1e8d7;border-left:4px solid #a83227;font-size:.72rem}
 .training-lessons details{margin-top:.45rem}.training-lessons details summary{cursor:pointer;font-size:.7rem;font-weight:900;color:#7e251c}.training-lesson-content{padding:.65rem;background:#f1ece3}.training-lesson-content h1{font-size:1.2rem}.training-lesson-content h2,.training-lesson-content h3{font-size:1rem}.training-lesson-content p,.training-lesson-content li{font-size:.74rem;line-height:1.6}
+
+
+/* 08G — Implantação, autenticação Google e homologação */
+.deployment-preflight{display:grid;grid-template-columns:minmax(18rem,.7fr) minmax(0,1.3fr);gap:1.5rem;margin-bottom:2rem;padding:clamp(1rem,3vw,2rem);background:#fffefa;border:1px solid #d5cabd;border-top:7px solid #cc9a1f}
+.deployment-preflight--preflight-passed{border-top-color:#3f6b4c}.deployment-preflight--blocked{border-top-color:#9b3d32}
+.deployment-preflight>div>span{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}.deployment-preflight h2{margin:.25rem 0;font:500 2.5rem var(--ml-font-display)}
+.deployment-preflight ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin:0;padding:0;list-style:none}
+.deployment-preflight li{display:grid;grid-template-columns:1.7rem minmax(0,1fr) auto;gap:.45rem;align-items:center;padding:.55rem;background:#f1ece3}
+.deployment-preflight li>span{display:grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:50%;font-weight:900}
+.deployment-preflight .readiness-pass>span{color:white;background:#3f6b4c}.deployment-preflight .readiness-block>span{color:white;background:#9b3d32}
+.deployment-preflight li small{font-size:.6rem}.deployment-preflight details{grid-column:1/-1;padding:.7rem;background:#fff0e8}.deployment-preflight summary{cursor:pointer;font-weight:900}
+
+.deployment-environments{margin-top:2rem}.deployment-environment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.deployment-environment{display:grid;gap:.8rem;padding:1rem;background:#fffefa;border:1px solid #d5cabd;border-top:6px solid #85786c}
+.deployment-environment--local{border-top-color:#61704d}.deployment-environment--staging{border-top-color:#cc9a1f}.deployment-environment--production{border-top-color:#7e251c}
+.deployment-environment__head{display:flex;justify-content:space-between;gap:1rem;align-items:start}.deployment-environment__head span:first-child{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}
+.deployment-environment h2{margin:.2rem 0;font:500 2rem var(--ml-font-display)}
+.deployment-environment dl{display:grid;gap:.45rem}.deployment-environment dl div{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:.5rem;padding:.35rem 0;border-bottom:1px solid #e2d9cd}.deployment-environment dt{font-size:.6rem;font-weight:900;text-transform:uppercase}.deployment-environment dd{margin:0;overflow-wrap:anywhere;font-size:.75rem}
+.deployment-latest-run{display:grid;grid-template-columns:auto 1fr auto;gap:.45rem;align-items:center;margin-top:auto;padding:.65rem;background:#f1ece3}.deployment-latest-run>span{grid-column:1/-1;font-size:.6rem;font-weight:900;text-transform:uppercase}.deployment-latest-run>a{font-weight:900;color:#7e251c}
+.deployment-editors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1rem}.deployment-editor{background:#fffefa;border:1px solid #d5cabd}.deployment-editor>summary{padding:.75rem;cursor:pointer;font-weight:900}.deployment-editor[open]>summary{border-bottom:1px solid #d5cabd}
+
+.deployment-auth-policy,.homologation-start,.homologation-history,.deployment-command-guide{margin-top:2.5rem}
+.deployment-auth-policy>h2,.homologation-start>h2,.homologation-history>h2,.deployment-command-guide>h2{font:500 2rem var(--ml-font-display)}
+.deployment-auth-contract{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}.deployment-auth-contract article{display:grid;min-height:7rem;padding:1rem;background:#fffefa;border-top:5px solid #a83227}.deployment-auth-contract strong{font-size:.65rem;text-transform:uppercase}.deployment-auth-contract span{margin-top:auto;font:500 1.2rem var(--ml-font-display)}
+.deployment-auth-form{max-width:58rem;margin-top:1rem}
+
+.homologation-run-list{display:grid;gap:.65rem}.homologation-run-list article{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.7fr) 7rem;gap:1rem;align-items:center;padding:.85rem;background:#fffefa;border:1px solid #d5cabd;border-left:6px solid #85786c}
+.homologation-run-list article>div:first-child{display:grid}.homologation-run-list article>div:first-child>span{font-size:.62rem;font-weight:900;text-transform:uppercase;color:#7e251c}.homologation-run-list article>div:first-child>strong{font:500 1.7rem var(--ml-font-display)}
+.homologation-run-list article>div:nth-child(2){display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}.homologation-run-list article small,.homologation-run-list article time{font-size:.66rem}.homologation-run-list article>a{font-weight:900;color:#7e251c}
+
+.homologation-run-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-bottom:2rem}.homologation-run-summary article{display:grid;align-content:center;min-height:8rem;padding:1rem;background:#fffefa;border-top:5px solid #a83227}.homologation-run-summary article>span:first-child{font-size:.62rem;font-weight:900;text-transform:uppercase}.homologation-run-summary strong{font:500 2.5rem var(--ml-font-display)}
+.homologation-check-group{display:grid;gap:.6rem;margin-top:2rem}.homologation-check-group>h2{font:500 2rem var(--ml-font-display)}
+.homologation-check{display:grid;gap:.55rem;padding:.8rem;background:#fffefa;border:1px solid #d5cabd;border-left:6px solid #85786c}.homologation-check--passed{border-left-color:#3f6b4c}.homologation-check--failed,.homologation-check--blocked{border-left-color:#9b3d32}.homologation-check--running{border-left-color:#cc9a1f}
+.homologation-check>div:first-child{display:grid;grid-template-columns:8rem minmax(0,1fr) auto;gap:.6rem;align-items:center}.homologation-check>div:first-child>span:first-child{font-size:.6rem;font-weight:900;text-transform:uppercase}.homologation-check h3{margin:0;font:500 1.25rem var(--ml-font-display)}
+.homologation-check p{margin:0;font-size:.78rem}.homologation-check-form{display:grid;grid-template-columns:10rem minmax(12rem,1fr) minmax(12rem,1fr) auto;gap:.45rem}.homologation-check-form select,.homologation-check-form input{padding:.55rem;border:1px solid #9a8f84}.homologation-check-form button{font-weight:900}.homologation-check-form [data-collab-feedback]{grid-column:1/-1}
+.homologation-complete-form{max-width:48rem;margin-top:2rem}.homologation-approval{margin-top:2rem;padding:1rem;color:white;background:#1e1a17;border-left:7px solid #3f6b4c}.homologation-approval h2{font:500 2rem var(--ml-font-display)}.homologation-approval button{padding:.65rem .9rem;background:#fff;color:#1e1a17;border:0;font-weight:900;cursor:pointer}
+.homologation-cancel{margin-top:1rem;padding:.6rem .8rem;background:#fff0e8;border:1px solid #9b3d32;color:#7e251c;font-weight:900;cursor:pointer}
+.deployment-command-guide{padding:1rem;background:#f1ece3;border-left:5px solid #a83227}.deployment-command-guide code{padding:.15rem .3rem;background:#1e1a17;color:white}
+
+@media(max-width:80rem){
+  .deployment-environment-grid,.deployment-editors,.deployment-auth-contract{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .homologation-run-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:60rem){
+  .deployment-preflight,.deployment-environment-grid,.deployment-editors,.deployment-auth-contract,.homologation-run-summary{grid-template-columns:1fr}
+  .deployment-preflight ul{grid-template-columns:1fr}
+  .homologation-run-list article{grid-template-columns:1fr}
+  .homologation-check>div:first-child,.homologation-check-form{grid-template-columns:1fr}
+}
