@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "modules": [
     {
       "code": "dashboard",
@@ -208,6 +208,15 @@
       "permission": "pilot.view",
       "description": "Participação, sessões, feedback, evidências e gates do piloto controlado em staging.",
       "sortOrder": 104
+    },
+    {
+      "code": "continuous-participation",
+      "name": "Participação contínua",
+      "route": "/area-colaborativa/participacao",
+      "status": "active",
+      "permission": "participation.view",
+      "description": "Percursos, próximos passos e continuidade da participação.",
+      "sortOrder": 105
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "roles": [
     {
       "code": "master",
@@ -170,7 +170,20 @@
     "pilot.evidence.manage",
     "pilot.metrics.view",
     "pilot.gates.evaluate",
-    "pilot.approve"
+    "pilot.approve",
+    "participation.view",
+    "participation.manage",
+    "participation.enrol",
+    "participation.progress.update",
+    "public-integration.view",
+    "public-integration.propose",
+    "public-integration.review",
+    "public-integration.preview",
+    "public-integration.activate",
+    "public-integration.rollback",
+    "evolution.view",
+    "evolution.manage",
+    "evolution.decide"
   ],
   "rolePermissions": {
     "master": [
@@ -300,7 +313,17 @@
       "pilot.feedback.manage",
       "pilot.evidence.manage",
       "pilot.metrics.view",
-      "pilot.gates.evaluate"
+      "pilot.gates.evaluate",
+      "participation.view",
+      "participation.manage",
+      "participation.enrol",
+      "participation.progress.update",
+      "public-integration.view",
+      "public-integration.propose",
+      "public-integration.review",
+      "public-integration.preview",
+      "evolution.view",
+      "evolution.manage"
     ],
     "volunteer": [
       "area.view",
@@ -325,7 +348,10 @@
       "notifications.mark",
       "notifications.preferences",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ],
     "reviewer": [
       "area.view",
@@ -371,7 +397,10 @@
       "continuity.view",
       "health.view",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ],
     "researcher": [
       "area.view",
@@ -416,7 +445,10 @@
       "continuity.view",
       "health.view",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ],
     "translator": [
       "area.view",
@@ -448,7 +480,10 @@
       "notifications.mark",
       "notifications.preferences",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ],
     "partner": [
       "area.view",
@@ -463,7 +498,10 @@
       "notifications.mark",
       "notifications.preferences",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ],
     "observer": [
       "area.view",
@@ -482,7 +520,10 @@
       "notifications.mark",
       "notifications.preferences",
       "pilot.view",
-      "pilot.feedback.submit"
+      "pilot.feedback.submit",
+      "participation.view",
+      "participation.enrol",
+      "participation.progress.update"
     ]
   }
 }

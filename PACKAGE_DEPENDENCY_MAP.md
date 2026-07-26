@@ -121,3 +121,7 @@ Pacotes futuros devem alterar páginas públicas através dos contratos e slots 
 ## 08K → depende de 08J (v0.21.0)
 
 O 08K assenta na release candidate técnica do 08J e integra-se com a homologação (08G), operações/auditoria/incidentes (08I), tarefas (08C) e notificações internas (08H). Não cria migrations sobre as anteriores; adiciona `20260726080000/080100/080200`. Não ativa infraestrutura remota nem aprova staging por teste local.
+
+## 08L → depende de 08K (v0.22.0)
+
+O 08L assenta no piloto (08K) e integra-se com homologação (08G), operações/auditoria (08I), tarefas/formação (08C) e notificações internas (08H). Adiciona migrations `20260726090000/090100/090200`. Não ativa efeitos públicos nem produção.

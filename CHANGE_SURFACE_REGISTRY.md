@@ -158,3 +158,10 @@ Contratos:
 - Efeitos públicos: nenhum. Escritas de produção: desativadas.
 - Tabelas `collab_pilot_*` (9) sob RLS; escrita apenas por RPC auditada.
 - Não altera conteúdo canónico do Museu nem os slots públicos.
+
+## Superfícies novas — continuous-participation e public-integration (08L)
+
+- Rotas: `/area-colaborativa/participacao`, `/area-colaborativa/gestao/integracao-publica`; superfície pública via slots em `/participar` (vazios).
+- Efeitos públicos: 0 ativos. Escritas de produção: desativadas.
+- Tabelas `collab_publication_*`, `collab_participation_*`, `collab_evolution_*` sob RLS; leitura anon só de snapshots ativos.
+- Não altera Portal, Museu nem conteúdo canónico.
