@@ -1028,3 +1028,20 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 /* Pacote 08J — release candidate, qualidade e acessibilidade */
 .rc-notice{padding:var(--ml-space-4);border-left:4px solid var(--ml-color-red-700);background:var(--ml-surface-reading);margin-bottom:var(--ml-space-5)}.rc-notice p{margin:.35rem 0 0}.rc-state-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ml-space-4);margin-bottom:var(--ml-space-6)}.rc-state-card{padding:var(--ml-space-5);border:1px solid var(--ml-border-subtle);border-radius:var(--ml-radius-lg);background:var(--ml-surface-reading)}.rc-state-card>div{display:flex;justify-content:space-between;gap:var(--ml-space-3);align-items:flex-start}.rc-state-card>strong{display:block;font-size:1.5rem;margin-top:var(--ml-space-3)}.rc-state-card p{margin:.4rem 0}.rc-state-card--blocked{border-top:4px solid var(--ml-color-red-700)}.rc-state-card--ready{border-top:4px solid var(--ml-color-green-700,#315d4d)}.rc-section{margin:var(--ml-space-6) 0}.rc-check-grid,.rc-gate-list{display:grid;gap:var(--ml-space-3)}.rc-check-grid article,.rc-gate-list article{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--ml-space-4);padding:var(--ml-space-4);border:1px solid var(--ml-border-subtle);border-radius:var(--ml-radius-md);background:var(--ml-surface-reading)}.rc-check-grid article>span{font-weight:700;font-size:1.25rem}.rc-check-grid p,.rc-gate-list p{margin:.2rem 0 0}.rc-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--ml-space-3)}.rc-metrics div{padding:var(--ml-space-4);background:var(--ml-surface-reading);border:1px solid var(--ml-border-subtle);border-radius:var(--ml-radius-md)}.rc-metrics dt{font-size:.85rem}.rc-metrics dd{margin:0;font-size:1.6rem;font-weight:700}.rc-command pre{overflow:auto;padding:var(--ml-space-4);background:#1e1a17;color:#fff;border-radius:var(--ml-radius-md)}
 @media(max-width:900px){.rc-state-grid,.rc-metrics{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.rc-state-card,.rc-check-grid article,.rc-gate-list article{transition:none!important}}
+
+/* 08K — Piloto controlado */
+.pilot-gate-banner{border:1px solid var(--ml-color-border,#d8cfc4);background:var(--ml-color-surface-muted,#f6f1ea);border-radius:8px;padding:1rem 1.25rem;margin:1rem 0}
+.pilot-gate-banner code{font-size:.85em}
+.pilot-section{margin:1.5rem 0}
+.pilot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem}
+.pilot-form{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.pilot-form h3{margin:0 0 .25rem}
+.pilot-form label{display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
+.pilot-form input,.pilot-form select,.pilot-form textarea{min-height:44px;padding:.5rem;border:1px solid var(--ml-color-border,#d8cfc4);border-radius:6px}
+.pilot-form--danger{border-color:#a83227}
+.pilot-form--approve{border-color:var(--ml-color-accent,#7e251c)}
+.pilot-empty,.pilot-note,.pilot-hint{color:var(--ml-color-text-muted,#6b6058);font-size:.9rem}
+.pilot-participation-card,.pilot-cycle-list li,.pilot-observation-list li{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:.75rem 1rem;margin:.5rem 0}
+.pilot-gate-table{width:100%;border-collapse:collapse}
+.pilot-gate-table th,.pilot-gate-table td{text-align:left;padding:.5rem;border-bottom:1px solid var(--ml-color-border,#d8cfc4)}
+@media (max-width:375px){.pilot-gate-table{display:block;overflow-x:auto}}

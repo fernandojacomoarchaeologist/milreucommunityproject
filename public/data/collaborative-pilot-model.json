@@ -1,0 +1,127 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.22.0",
+  "package": "08K",
+  "module": {
+    "code": "pilot",
+    "name": "Piloto e homologação operacional",
+    "route": "/area-colaborativa/piloto",
+    "managementRoute": "/area-colaborativa/gestao/piloto"
+  },
+  "cycleStatuses": [
+    "draft",
+    "preparing",
+    "ready",
+    "running",
+    "paused",
+    "evaluating",
+    "completed",
+    "blocked",
+    "cancelled"
+  ],
+  "phases": [
+    "preparation",
+    "staging-activation",
+    "internal-smoke",
+    "role-based-pilot",
+    "assisted-community-pilot",
+    "evaluation",
+    "closure"
+  ],
+  "participantStatuses": [
+    "invited",
+    "confirmed",
+    "active",
+    "withdrawn",
+    "completed",
+    "removed"
+  ],
+  "participantRoles": [
+    "participant",
+    "facilitator",
+    "observer"
+  ],
+  "sessionStatuses": [
+    "scheduled",
+    "in-progress",
+    "completed",
+    "blocked",
+    "cancelled"
+  ],
+  "completionStatuses": [
+    "pending",
+    "passed",
+    "failed",
+    "blocked",
+    "not-applicable"
+  ],
+  "supportLevels": [
+    "independent",
+    "assisted",
+    "facilitated"
+  ],
+  "observationTypes": [
+    "functional",
+    "usability",
+    "accessibility",
+    "content",
+    "rights",
+    "privacy",
+    "performance",
+    "support",
+    "security",
+    "other"
+  ],
+  "severities": [
+    "info",
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ],
+  "observationStatuses": [
+    "new",
+    "triaged",
+    "accepted",
+    "planned",
+    "resolved",
+    "rejected",
+    "duplicate"
+  ],
+  "evidenceTypes": [
+    "screenshot",
+    "log",
+    "document",
+    "export",
+    "approval",
+    "metric",
+    "video",
+    "audio",
+    "other"
+  ],
+  "sensitivities": [
+    "internal",
+    "restricted",
+    "personal"
+  ],
+  "redactionStatuses": [
+    "not-required",
+    "pending",
+    "redacted",
+    "rejected"
+  ],
+  "gateStatuses": [
+    "pending",
+    "passed",
+    "failed",
+    "blocked",
+    "waived",
+    "not-applicable"
+  ],
+  "environmentRule": "staging-only",
+  "publicEffectsEnabled": false,
+  "productionWritesEnabled": false,
+  "emailEnabled": false,
+  "chatEnabled": false,
+  "recordingEnabledByDefault": false
+}

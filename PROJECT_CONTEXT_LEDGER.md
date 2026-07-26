@@ -294,3 +294,9 @@ Continuam fora dessa aprovação:
 - E2E local não prova infraestrutura remota;
 - secrets nunca entram no browser, ZIP ou chat;
 - gates sem evidência permanecem bloqueados ou pendentes.
+
+## Pacote 08K — Piloto controlado e homologação operacional (v0.22.0)
+
+Implementa o sistema de piloto controlado da Área Colaborativa, restrito a **staging**. Novo módulo `pilot` (rotas `/area-colaborativa/piloto` e `/area-colaborativa/gestao/piloto`), 10 permissões novas (total 127), 9 tabelas sob RLS, RPCs auditadas, cenários (modelos sem resultados), sessões, observações/feedback, evidências privadas (referência, nunca binário), métricas internas e gates.
+
+**Invariantes preservados:** produção bloqueada; escrita pública automática proibida; efeitos públicos (`portal.home.after-featured`, `museum.home.after-opening`) permanecem vazios; e-mail e chat desativados; `service_role` fora do browser; MM202617 continua bloqueada; participante vê apenas o próprio contexto (isolamento por RLS); evidências privadas nunca expostas a participantes; homologação de staging exige gates aprovados **e** a confirmação literal `APPROVE_MILREU_STAGING_HOMOLOGATION`, que nunca substitui a evidência. Estados honestos: `technicalCandidate: ready`, `pilotReadiness: blocked`, `stagingHomologation: blocked`, `productionApproval: blocked`. O 08L não é antecipado.
