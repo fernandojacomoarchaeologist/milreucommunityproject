@@ -21,6 +21,7 @@ export function getRoute() {
   if (path === "/participar/retirada") return { name:"public-contribution-withdrawal" };
   if (path === "/sobre") return { name:"about" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
+  if (path === "/transparencia") return { name:"public-transparency" };
 
 
   if (path === "/entrar") return { name:"collab-login" };
@@ -53,6 +54,8 @@ export function getRoute() {
   if (path === "/area-colaborativa/gestao/piloto") return { name:"collab-pilot-management" };
   if (path === "/area-colaborativa/participacao") return { name:"collab-participation" };
   if (path === "/area-colaborativa/gestao/integracao-publica") return { name:"collab-public-integration" };
+  if (path === "/area-colaborativa/gestao/operacao") return { name:"collab-operations-governance" };
+  if (path === "/area-colaborativa/gestao/governanca") return { name:"collab-governance" };
   if (path === "/area-colaborativa/gestao/sistema") return { name:"collab-system-administration" };
   if (path === "/area-colaborativa/gestao/auditoria") return { name:"collab-audit-governance", query };
   if (path === "/area-colaborativa/gestao/incidentes") return { name:"collab-incidents-continuity" };

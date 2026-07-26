@@ -1,0 +1,35 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08M Operations Governance CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run operations:validate
+      - run: npm run operations:continuity
+      - run: npm run operations:readiness
+      - run: npm run operations:health
+      - run: npm run operations:transparency
+      - run: npm run operations:decommission
+      - run: npm run validate:08m
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke

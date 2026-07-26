@@ -74,6 +74,8 @@ export function collaborativeShell(context,currentRoute,content) {
           ${hasPermission(context,"incidents.view")?`<a href="#/area-colaborativa/gestao/incidentes">Incidentes e continuidade</a>`:""}
           ${hasPermission(context,"pilot.manage")?`<a href="#/area-colaborativa/gestao/piloto">Piloto e homologação</a>`:""}
           ${hasPermission(context,"public-integration.view")?`<a href="#/area-colaborativa/gestao/integracao-publica">Integração pública</a>`:""}
+          ${hasPermission(context,"operations.view")?`<a href="#/area-colaborativa/gestao/operacao">Operação e governação</a>`:""}
+          ${hasPermission(context,"governance.view")?`<a href="#/area-colaborativa/gestao/governanca">Governação</a>`:""}
           ${hasPermission(context,"exhibitions.manage")?`<a href="#/area-colaborativa/gestao/exposicoes">Exposições</a>`:""}
           ${hasPermission(context,"venues.manage")?`<a href="#/area-colaborativa/gestao/locais">Locais</a>`:""}
           ${hasPermission(context,"agenda.manage")?`<a href="#/area-colaborativa/gestao/agenda/novo">Nova atividade</a>`:""}

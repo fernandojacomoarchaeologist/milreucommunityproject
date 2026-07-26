@@ -1059,3 +1059,20 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .participation-empty,.public-integration-empty,.participation-hint,.public-integration-hint,.public-integration-note{color:var(--ml-color-text-muted,#6b6058);font-size:.9rem}
 .participation-list li,.public-integration-list li{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:.75rem 1rem;margin:.5rem 0}
 .public-participation--empty{color:var(--ml-color-text-muted,#6b6058)}
+
+/* 08M — Operação, governação e transparência */
+.opgov-banner{border:1px solid var(--ml-color-border,#d8cfc4);background:var(--ml-color-surface-muted,#f6f1ea);border-radius:8px;padding:1rem 1.25rem;margin:1rem 0}
+.opgov-banner code,.opgov-note code,.opgov-hint code{font-size:.85em}
+.opgov-section{margin:1.5rem 0}
+.opgov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem}
+.opgov-form{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.opgov-form h3{margin:0 0 .25rem}
+.opgov-form label{display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
+.opgov-form input,.opgov-form select,.opgov-form textarea{min-height:44px;padding:.5rem;border:1px solid var(--ml-color-border,#d8cfc4);border-radius:6px}
+.opgov-form--approve{border-color:var(--ml-color-accent,#7e251c)}
+.opgov-empty,.opgov-note,.opgov-hint{color:var(--ml-color-text-muted,#6b6058);font-size:.9rem}
+.opgov-list li{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:.75rem 1rem;margin:.5rem 0}
+.public-transparency--empty{color:var(--ml-color-text-muted,#6b6058)}
+.public-transparency__table{width:100%;border-collapse:collapse}
+.public-transparency__table th,.public-transparency__table td{text-align:left;padding:.5rem;border-bottom:1px solid var(--ml-color-border,#d8cfc4)}
+@media (max-width:375px){.public-transparency__table{display:block;overflow-x:auto}}

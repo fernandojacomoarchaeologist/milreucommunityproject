@@ -66,6 +66,9 @@ import {
 } from "./views/collaborative-pilot.js";
 import { collaborativeParticipationView } from "./views/collaborative-participation.js";
 import { collaborativePublicIntegrationView } from "./views/public-integration-management.js";
+import { operationsGovernanceDashboardView } from "./views/operations-dashboard.js";
+import { governanceManagementView } from "./views/governance-management.js";
+import { publicTransparencyView } from "./views/public-transparency.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -322,6 +325,10 @@ function renderCollaborativeRoute(route) {
       return collaborativeParticipationView(context);
     case "collab-public-integration":
       return collaborativePublicIntegrationView(context);
+    case "collab-operations-governance":
+      return operationsGovernanceDashboardView(context);
+    case "collab-governance":
+      return governanceManagementView(context);
     case "collab-system-administration":
       return collaborativeSystemAdministrationView(context);
     case "collab-audit-governance":
@@ -1022,6 +1029,13 @@ function bindPage() {
       catch(error){setCollaborativeFeedback(error.message,true);}
     });
   }
+  for(const [selector,kind] of [["[data-support-submit-form]","support-submit"],["[data-operating-cycle-form]","cycle"],["[data-continuity-form]","continuity"],["[data-governance-form]","governance"],["[data-governance-decide-form]","decide"],["[data-transparency-publish-form]","transparency"]]){
+    document.querySelector(selector)?.addEventListener("submit",async event=>{
+      event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A processar operação/governação…");
+      try{await collaborative.operationsGovernanceAction(kind,values);setCollaborativeFeedback("Ação de operação/governação registada.");}
+      catch(error){setCollaborativeFeedback(error.message,true);}
+    });
+  }
 
   document.querySelector("[data-incident-update-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A atualizar incidente…");
@@ -1450,6 +1464,7 @@ function render(scroll=true) {
     case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
+    case "public-transparency": html = publicTransparencyView(state.publicTransparency||{}); setMetadata("Transparência"); break;
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
     case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
     case "panel-preview": html = panelPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Painel ${route.id}`); break;

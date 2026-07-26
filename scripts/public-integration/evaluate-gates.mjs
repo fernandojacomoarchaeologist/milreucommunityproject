@@ -12,7 +12,7 @@ const gates = [
   "revisao-acessibilidade", "processo-de-ativacao-aprovado"
 ];
 const report = {
-  version: "0.23.0",
+  version: "0.24.0",
   pilotEvidence: ev.pilotEvidence,
   publicIntegrationCandidate: ev.publicIntegrationCandidate,
   stagingPreview: ev.stagingPreview,

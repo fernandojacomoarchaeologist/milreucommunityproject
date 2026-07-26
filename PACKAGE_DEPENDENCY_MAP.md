@@ -125,3 +125,7 @@ O 08K assenta na release candidate técnica do 08J e integra-se com a homologaç
 ## 08L → depende de 08K (v0.22.0)
 
 O 08L assenta no piloto (08K) e integra-se com homologação (08G), operações/auditoria (08I), tarefas/formação (08C) e notificações internas (08H). Adiciona migrations `20260726090000/090100/090200`. Não ativa efeitos públicos nem produção.
+
+## 08M → depende de 08J, 08K, 08L
+
+O 08M assenta na release candidate (08J), piloto (08K) e integração pública (08L). Integra-se com operações/auditoria/incidentes (08I), tarefas (08C) e notificações (08H). Migrations `20260726100000/100100/100200`. Não ativa operação, transparência pública nem produção reais.

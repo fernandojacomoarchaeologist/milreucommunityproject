@@ -37,17 +37,17 @@ const retentionPlan=readFileSync("scripts/operations/generate-retention-plan.mjs
 const build=readFileSync("scripts/build.mjs","utf8");
 const smoke=readFileSync("scripts/smoke.mjs","utf8");
 
-if(pkg.version!=="0.23.0")throw new Error("Versão 08I incorreta.");
+if(pkg.version!=="0.24.0")throw new Error("Versão 08I incorreta.");
 for(const item of [model,retention,runtime,readiness,impact]){
-  if(item.version!=="0.23.0")throw new Error("Contrato 08I desatualizado.");
+  if(item.version!=="0.24.0")throw new Error("Contrato 08I desatualizado.");
 }
-if(impact.currentPackage!=="08L")throw new Error("Registo de impacto não aponta para 08L.");
+if(impact.currentPackage!=="08M")throw new Error("Registo de impacto não aponta para 08M.");
 
-if(modules.length!==24||modules.some(item=>item.status!=="active"))throw new Error("08I deve manter 22 módulos ativos.");
+if(modules.length!==25||modules.some(item=>item.status!=="active"))throw new Error("08I deve manter 22 módulos ativos.");
 for(const code of ["system-administration","audit-governance","incident-continuity"]){
   if(!modules.some(item=>item.code===code))throw new Error(`Módulo 08I ausente: ${code}`);
 }
-if(roles.permissions.length!==140)throw new Error("O catálogo acumulado deve conter 117 permissões.");
+if(roles.permissions.length!==149)throw new Error("O catálogo acumulado deve conter 117 permissões.");
 for(const permission of [
   "operations.view","operations.manage","operations.settings.manage",
   "health.view","health.run","health.check",
