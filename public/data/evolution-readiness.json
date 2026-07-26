@@ -1,0 +1,24 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08L",
+  "version": "0.23.0",
+  "generatedAt": null,
+  "technicalCandidate": "ready",
+  "pilotEvidence": "blocked",
+  "publicIntegrationCandidate": "blocked",
+  "continuousParticipationCandidate": "not-evaluated",
+  "stagingPreview": "blocked",
+  "activePublicEffects": 0,
+  "productionApproval": "blocked",
+  "blockingItems": [
+    "Confirmar integração do 08J.",
+    "Confirmar integração do 08K.",
+    "Configurar e homologar staging.",
+    "Executar o piloto ou registar explicitamente a ausência de evidência.",
+    "Definir percursos, responsáveis e regras de conclusão.",
+    "Aprovar conteúdo institucional da página /participar.",
+    "Concluir revisões editorial, direitos, privacidade, tradução e acessibilidade.",
+    "Aprovar processo de ativação pública."
+  ],
+  "notice": "Não representa piloto concluído, publicação ou autorização de produção."
+}

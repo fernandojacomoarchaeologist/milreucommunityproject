@@ -64,6 +64,8 @@ import {
 import {
   collaborativePilotView, collaborativePilotManagementView
 } from "./views/collaborative-pilot.js";
+import { collaborativeParticipationView } from "./views/collaborative-participation.js";
+import { collaborativePublicIntegrationView } from "./views/public-integration-management.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -316,6 +318,10 @@ function renderCollaborativeRoute(route) {
       return collaborativePilotView(context);
     case "collab-pilot-management":
       return collaborativePilotManagementView(context);
+    case "collab-participation":
+      return collaborativeParticipationView(context);
+    case "collab-public-integration":
+      return collaborativePublicIntegrationView(context);
     case "collab-system-administration":
       return collaborativeSystemAdministrationView(context);
     case "collab-audit-governance":
@@ -999,6 +1005,20 @@ function bindPage() {
     document.querySelector(selector)?.addEventListener("submit",async event=>{
       event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A processar ação do piloto…");
       try{await collaborative.pilotAction(kind,values);setCollaborativeFeedback("Ação do piloto registada.");}
+      catch(error){setCollaborativeFeedback(error.message,true);}
+    });
+  }
+  for(const [selector,kind] of [["[data-participation-enrol-form]","enrol"],["[data-participation-progress-form]","progress"],["[data-participation-programme-form]","programme"]]){
+    document.querySelector(selector)?.addEventListener("submit",async event=>{
+      event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A processar participação…");
+      try{await collaborative.participationAction(kind,values);setCollaborativeFeedback("Ação de participação registada.");}
+      catch(error){setCollaborativeFeedback(error.message,true);}
+    });
+  }
+  for(const [selector,kind] of [["[data-public-proposal-form]","proposal"],["[data-public-activation-form]","activation"],["[data-evolution-proposal-form]","evolution"]]){
+    document.querySelector(selector)?.addEventListener("submit",async event=>{
+      event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A processar integração pública…");
+      try{await collaborative.publicIntegrationAction(kind,values);setCollaborativeFeedback("Ação de integração pública registada.");}
       catch(error){setCollaborativeFeedback(error.message,true);}
     });
   }

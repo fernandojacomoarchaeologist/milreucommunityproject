@@ -1,0 +1,61 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08L",
+  "version": "0.23.0",
+  "module": {
+    "code": "continuous-participation",
+    "name": "Participação contínua",
+    "route": "/area-colaborativa/participacao"
+  },
+  "programmeStatuses": [
+    "draft",
+    "available",
+    "active",
+    "paused",
+    "completed",
+    "archived",
+    "withdrawn"
+  ],
+  "visibility": [
+    "public",
+    "members",
+    "restricted"
+  ],
+  "stepTypes": [
+    "training",
+    "opportunity",
+    "task",
+    "event",
+    "contribution",
+    "review",
+    "reading",
+    "orientation",
+    "custom-reference"
+  ],
+  "enrolmentStatuses": [
+    "enrolled",
+    "active",
+    "paused",
+    "completed",
+    "withdrawn",
+    "removed"
+  ],
+  "progressStatuses": [
+    "not-started",
+    "available",
+    "in-progress",
+    "completed",
+    "blocked",
+    "skipped",
+    "not-applicable"
+  ],
+  "completionSources": [
+    "system-event",
+    "coordinator-confirmation",
+    "participant-declaration",
+    "imported-evidence"
+  ],
+  "rankingEnabled": false,
+  "gamificationRequired": false,
+  "automaticRoleGrant": false
+}

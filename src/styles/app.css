@@ -1045,3 +1045,17 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .pilot-gate-table{width:100%;border-collapse:collapse}
 .pilot-gate-table th,.pilot-gate-table td{text-align:left;padding:.5rem;border-bottom:1px solid var(--ml-color-border,#d8cfc4)}
 @media (max-width:375px){.pilot-gate-table{display:block;overflow-x:auto}}
+
+/* 08L — Participação contínua e integração pública */
+.public-integration-banner{border:1px solid var(--ml-color-border,#d8cfc4);background:var(--ml-color-surface-muted,#f6f1ea);border-radius:8px;padding:1rem 1.25rem;margin:1rem 0}
+.public-integration-banner code,.public-integration-hint code,.public-integration-note code{font-size:.85em}
+.participation-section,.public-integration-section{margin:1.5rem 0}
+.participation-grid,.public-integration-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem}
+.participation-form,.public-integration-form{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.participation-form h3,.public-integration-form h3{margin:0 0 .25rem}
+.participation-form label,.public-integration-form label{display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
+.participation-form input,.participation-form select,.public-integration-form input,.public-integration-form select{min-height:44px;padding:.5rem;border:1px solid var(--ml-color-border,#d8cfc4);border-radius:6px}
+.public-integration-form--approve{border-color:var(--ml-color-accent,#7e251c)}
+.participation-empty,.public-integration-empty,.participation-hint,.public-integration-hint,.public-integration-note{color:var(--ml-color-text-muted,#6b6058);font-size:.9rem}
+.participation-list li,.public-integration-list li{border:1px solid var(--ml-color-border,#d8cfc4);border-radius:8px;padding:.75rem 1rem;margin:.5rem 0}
+.public-participation--empty{color:var(--ml-color-text-muted,#6b6058)}

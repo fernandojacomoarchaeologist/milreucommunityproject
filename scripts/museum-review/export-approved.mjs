@@ -17,7 +17,7 @@ const snapshotId=process.env.MILREU_MUSEUM_REVIEW_SNAPSHOT_ID?.trim();
 function hash(value){return createHash("sha256").update(value).digest("hex");}
 function assertSnapshot(snapshot){
   if(!snapshot||typeof snapshot!=="object")throw new Error("Snapshot editorial inválido.");
-  if(snapshot.version!=="0.22.0")throw new Error("Versão editorial inesperada.");
+  if(snapshot.version!=="0.23.0")throw new Error("Versão editorial inesperada.");
   if(!Array.isArray(snapshot.records)||snapshot.records.length>31)throw new Error("Registos editoriais inválidos.");
   if(!Array.isArray(snapshot.effects))throw new Error("Efeitos editoriais inválidos.");
   for(const record of snapshot.records){
@@ -64,7 +64,7 @@ function effectsRegistry(snapshot){
   }
   return{
     _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-    version:"0.22.0",
+    version:"0.23.0",
     generatedAt:snapshot.generatedAt,
     sourceCycle:snapshot.cycleCode,
     slots,
@@ -103,7 +103,7 @@ if(result.status!=="approved")throw new Error("O snapshot remoto não está apro
 
 const snapshot={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.22.0",
+  version:"0.23.0",
   snapshotId:result.snapshotId,
   payloadHash:result.payloadHash,
   approvedAt:result.approvedAt,

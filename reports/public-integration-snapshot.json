@@ -1,0 +1,21 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": 1,
+  "schemaVersion": "1.0.0",
+  "checksum": "9585d78bbd630366c8d61fa3f3006d1be463f37c94d3e7909fed7c6ec520340d",
+  "status": "generated",
+  "activated": false,
+  "payload": {
+    "schemaVersion": "1.0.0",
+    "surface": "portal",
+    "slot": "portal.home.after-featured",
+    "status": "example",
+    "languages": {
+      "pt-PT": {
+        "title": "Exemplo estrutural",
+        "body": "Sem conteúdo real."
+      }
+    },
+    "references": []
+  }
+}

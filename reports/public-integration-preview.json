@@ -1,0 +1,19 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "generatedAt": "2026-07-26T11:55:36.907Z",
+  "publicReadsSnapshotsOnly": true,
+  "activePublicEffects": 0,
+  "slots": [
+    {
+      "slot": "portal.home.after-featured",
+      "status": "empty",
+      "preview": null
+    },
+    {
+      "slot": "museum.home.after-opening",
+      "status": "empty",
+      "preview": null
+    }
+  ],
+  "note": "Pré-visualização não ativa efeitos públicos. Ativação exige proposta aprovada, snapshot e gates humanos."
+}

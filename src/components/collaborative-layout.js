@@ -61,6 +61,7 @@ export function collaborativeShell(context,currentRoute,content) {
           || hasPermission(context,"audit.search")
           || hasPermission(context,"incidents.view")
           || hasPermission(context,"pilot.manage")
+          || hasPermission(context,"public-integration.view")
         ) ? `<div class="collab-sidebar__admin"><span>Gestão</span>
           ${hasPermission(context,"memberships.manage")?`<a href="#/area-colaborativa/gestao/perfis">Membros e perfis</a><a href="#/area-colaborativa/gestao/convites">Pré-autorizações</a>`:""}
           ${hasPermission(context,"tasks.manage")?`<a href="#/area-colaborativa/gestao/tarefas">Tarefas</a>`:""}
@@ -72,6 +73,7 @@ export function collaborativeShell(context,currentRoute,content) {
           ${hasPermission(context,"audit.search")?`<a href="#/area-colaborativa/gestao/auditoria">Auditoria e retenção</a>`:""}
           ${hasPermission(context,"incidents.view")?`<a href="#/area-colaborativa/gestao/incidentes">Incidentes e continuidade</a>`:""}
           ${hasPermission(context,"pilot.manage")?`<a href="#/area-colaborativa/gestao/piloto">Piloto e homologação</a>`:""}
+          ${hasPermission(context,"public-integration.view")?`<a href="#/area-colaborativa/gestao/integracao-publica">Integração pública</a>`:""}
           ${hasPermission(context,"exhibitions.manage")?`<a href="#/area-colaborativa/gestao/exposicoes">Exposições</a>`:""}
           ${hasPermission(context,"venues.manage")?`<a href="#/area-colaborativa/gestao/locais">Locais</a>`:""}
           ${hasPermission(context,"agenda.manage")?`<a href="#/area-colaborativa/gestao/agenda/novo">Nova atividade</a>`:""}

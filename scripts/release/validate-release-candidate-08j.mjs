@@ -2,9 +2,9 @@
 import { readFileSync } from "node:fs";
 const read=path=>JSON.parse(readFileSync(path,"utf8"));
 const pkg=read("package.json"),model=read("public/data/collaborative-release-candidate-model.json"),matrix=read("public/data/e2e-scenarios-08j.json"),modules=read("public/data/collaborative-modules.json"),roles=read("public/data/collaborative-roles-permissions.json"),readiness=read("public/data/release-candidate-readiness.json");
-if(pkg.version!=="0.22.0"||model.version!==pkg.version||matrix.version!==pkg.version||modules.version!==pkg.version)throw new Error("Versões 08J divergentes.");
-if((modules.modules||[]).length!==23||(modules.modules||[]).some(item=>item.status!=="active"))throw new Error("O 08J deve preservar 22 módulos ativos.");
-if((roles.permissions||[]).length!==127)throw new Error(`Permissões alteradas sem decisão: ${(roles.permissions||[]).length}`);
+if(pkg.version!=="0.23.0"||model.version!==pkg.version||matrix.version!==pkg.version||modules.version!==pkg.version)throw new Error("Versões 08J divergentes.");
+if((modules.modules||[]).length!==24||(modules.modules||[]).some(item=>item.status!=="active"))throw new Error("O 08J deve preservar 22 módulos ativos.");
+if((roles.permissions||[]).length!==140)throw new Error(`Permissões alteradas sem decisão: ${(roles.permissions||[]).length}`);
 if(model.releaseLayers.some(layer=>layer.code==="production-approved"&&layer.mayBeReadyWithoutRemoteSecrets))throw new Error("Produção não pode ser aprovada sem recursos remotos.");
 if(readiness.productionApproval?.approved)throw new Error("Produção foi aprovada indevidamente.");
 if(readiness.stagingHomologation?.approved)throw new Error("Staging foi homologado sem evidência.");
