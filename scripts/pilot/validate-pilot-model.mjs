@@ -9,7 +9,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08K modelo do piloto: ${m}`); };
 
 const model = read("public/data/collaborative-pilot-model.json");
-if (model.version !== "0.23.0") fail("versão do modelo incorreta.");
+if (model.version !== "0.24.0") fail("versão do modelo incorreta.");
 if (model.module?.code !== "pilot") fail("módulo pilot ausente.");
 if (model.environmentRule !== "staging-only") fail("regra de ambiente deve ser staging-only.");
 for (const flag of ["publicEffectsEnabled", "productionWritesEnabled", "emailEnabled", "chatEnabled", "recordingEnabledByDefault"]) {
@@ -28,7 +28,7 @@ if (!modArr.some((m) => m.code === "pilot" && m.route === "/area-colaborativa/pi
 const rp = read("public/data/collaborative-roles-permissions.json");
 const pilotPerms = ["pilot.view", "pilot.manage", "pilot.participants.manage", "pilot.sessions.manage", "pilot.feedback.submit", "pilot.feedback.manage", "pilot.evidence.manage", "pilot.metrics.view", "pilot.gates.evaluate", "pilot.approve"];
 for (const p of pilotPerms) if (!rp.permissions.includes(p)) fail(`permissão ${p} ausente.`);
-if (rp.permissions.length !== 140) fail(`esperadas 127 permissões, encontradas ${rp.permissions.length}.`);
+if (rp.permissions.length !== 149) fail(`esperadas 127 permissões, encontradas ${rp.permissions.length}.`);
 if (rp.rolePermissions.coordinator.includes("pilot.approve")) fail("coordinator não pode ter pilot.approve.");
 for (const p of pilotPerms.filter((x) => x !== "pilot.approve")) {
   if (!rp.rolePermissions.coordinator.includes(p)) fail(`coordinator sem ${p}.`);

@@ -20,8 +20,9 @@ function emptyNotificationWorkspace(){return{notifications:[],preferences:[],cha
 function emptyPilotWorkspace(){return{authenticated:false,canManage:false,productionWrites:false,publicEffects:false,cycles:[],myParticipation:[],myObservations:[],gates:[]};}
 function emptyParticipationWorkspace(){return{authenticated:false,canManage:false,programmes:[],myEnrolments:[]};}
 function emptyPublicIntegrationWorkspace(){return{authenticated:false,activePublicEffects:0,productionWrites:false,proposals:[],snapshots:[],evolutionProposals:[]};}
+function emptyOperationsGovernanceWorkspace(){return{authenticated:false,canManage:false,activeOperatingCycles:0,operatingCycles:[],mySupport:[],governanceDecisions:[]};}
 function emptyOperationalWorkspace(){return{settings:[],retentionPolicies:[],legalHolds:[],lifecycleRuns:[],incidents:[],incidentUpdates:[],incidentActions:[],backupPlans:[],backupVerifications:[],continuityExercises:[],checkCatalog:[],operationalRuns:[],operationalResults:[],summary:{openCriticalIncidents:0,activeLegalHolds:0,failedBackupVerifications:0,latestOperationalStatus:"not-run",auditEvents30Days:0},audit:{total:0,limit:100,offset:0,rows:[]},integrity:null};}
-function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},notificationModel:{channels:[],categories:[],eventTypes:[],notificationStatuses:[],outboxStatuses:[],deliveryStatuses:[],preferenceRules:{},templateTokens:[],dispatch:{}},notificationTemplates:{templates:[],rules:{}},notificationRuntime:{inApp:{enabled:true,pollIntervalSeconds:60,pageSize:30},email:{provider:"disabled",enabled:false}},operationalGovernanceModel:{modules:[],operationalChecks:[],incident:{},backup:{},continuity:{},retention:{},audit:{},safety:{}},retentionModel:{policies:[],rules:{}},operationsRuntime:{environment:"local",dashboard:{pollIntervalSeconds:120}},releaseCandidateModel:{candidate:"RC1",scenarioCounts:{},externalGates:[],humanGates:[]},releaseCandidateReadiness:{technicalCandidate:{status:"not-evaluated",approved:false,checks:[],blockers:[]},stagingHomologation:{status:"blocked",approved:false,blockers:[]},productionApproval:{status:"blocked",approved:false,blockers:[]}},accessibilityAuditModel:{},e2eScenarios:{scenarios:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),pilotWorkspace:emptyPilotWorkspace(),participationWorkspace:emptyParticipationWorkspace(),publicIntegrationWorkspace:emptyPublicIntegrationWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
+function emptyContext(){return{ready:false,mode:"demo",authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],profileTypes:[],moduleRegistry:[],roleRegistry:[],permissionRegistry:[],memberCatalog:{interestAreas:[],skills:[],languages:[]},taskModel:{categories:[],taskStatuses:[],assignmentStatuses:[],assignmentModes:[],locationModes:[],priorities:[],availabilityModes:[],weekdays:[]},exhibitionModel:{exhibitionTypes:[],exhibitionStatuses:[],venueTypes:[],scheduleStatuses:[],installationStatuses:[],logisticsStatuses:[],eventTypes:[],eventStatuses:[],visibilityOptions:[],rsvpStatuses:[],checklistCategories:[]},contributionModel:{contributionTypes:[],statuses:[],attributionPreferences:[],usageScopes:[],targetTypes:[],targetRelations:[],fileStatuses:[],decisionTypes:[],incorporationDestinations:[],withdrawalStatuses:[],limits:{}},museumReviewModel:{reviewStatuses:[],proposalStatuses:[],commentTypes:[],checkTypes:[],decisionTypes:[],assignmentRoles:[],fieldGroups:[],fields:[],requiredTrainingByAction:{}},trainingTrails:{trails:[]},library:{resources:[]},reviewSeed:{cycle:null,records:[]},homologationModel:{environments:[],runStatuses:[],checkStatuses:[],checkCategories:[],requiredChecks:[],productionGates:{}},deploymentProfile:{environment:"local"},deploymentReadiness:{status:"configuration-pending",checks:{},blockingItems:[]},notificationModel:{channels:[],categories:[],eventTypes:[],notificationStatuses:[],outboxStatuses:[],deliveryStatuses:[],preferenceRules:{},templateTokens:[],dispatch:{}},notificationTemplates:{templates:[],rules:{}},notificationRuntime:{inApp:{enabled:true,pollIntervalSeconds:60,pageSize:30},email:{provider:"disabled",enabled:false}},operationalGovernanceModel:{modules:[],operationalChecks:[],incident:{},backup:{},continuity:{},retention:{},audit:{},safety:{}},retentionModel:{policies:[],rules:{}},operationsRuntime:{environment:"local",dashboard:{pollIntervalSeconds:120}},releaseCandidateModel:{candidate:"RC1",scenarioCounts:{},externalGates:[],humanGates:[]},releaseCandidateReadiness:{technicalCandidate:{status:"not-evaluated",approved:false,checks:[],blockers:[]},stagingHomologation:{status:"blocked",approved:false,blockers:[]},productionApproval:{status:"blocked",approved:false,blockers:[]}},accessibilityAuditModel:{},e2eScenarios:{scenarios:[]},management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),pilotWorkspace:emptyPilotWorkspace(),participationWorkspace:emptyParticipationWorkspace(),publicIntegrationWorkspace:emptyPublicIntegrationWorkspace(),operationsGovernanceWorkspace:emptyOperationsGovernanceWorkspace(),tasks:[],exhibitions:[],error:null,notice:null};}
 function demoAudit(action,userId,actor="demo-master",metadata={}){return{id:`demo-audit-${Date.now()}-${Math.random()}`,actor_user_id:actor,action,entity_type:"membership",entity_id:userId,metadata,created_at:new Date().toISOString()};}
 function daysFromNow(days,hour=10){const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.toISOString();}
 function demoTaskUpdate(taskId,userId,type,note="",metadata={}){return{id:`demo-update-${Date.now()}-${Math.random()}`,project_id:"demo-project",task_id:taskId,user_id:userId,update_type:type,note,metadata,created_at:new Date().toISOString()};}
@@ -112,7 +113,7 @@ function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deplo
   const local=environments.find(item=>item.code==="local");
   const run={
     id:"demo-homologation-local",project_id:"demo-project",environment_id:local.id,
-    version:"0.23.0",commit_sha:null,status:master?"in-progress":"planned",
+    version:"0.24.0",commit_sha:null,status:master?"in-progress":"planned",
     summary:"Execução local de demonstração.",started_by:master?"demo-master":null,
     started_at:master?now:null,created_at:now,updated_at:now
   };
@@ -229,7 +230,7 @@ function createDemoOperationalWorkspace(model,retentionModel,runtime,master=fals
     ...item,evidence_required:item.evidenceRequired,sort_order:(index+1)*10,active:true
   }));
   const operationalRuns=[
-    {id:"demo-operational-run",environment:"local",version:"0.23.0",commitSha:null,status:"running",summary:null,startedAt:iso(-2*3600000),completedAt:null}
+    {id:"demo-operational-run",environment:"local",version:"0.24.0",commitSha:null,status:"running",summary:null,startedAt:iso(-2*3600000),completedAt:null}
   ];
   const operationalResults=checkCatalog.map((check,index)=>({
     id:`demo-result-${check.code}`,runId:"demo-operational-run",checkCode:check.code,
@@ -301,7 +302,7 @@ class CollaborativeController{
     this.state.ready=true;this.emit();return this.getState();
   }
 
-  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),pilotWorkspace:emptyPilotWorkspace(),participationWorkspace:emptyParticipationWorkspace(),publicIntegrationWorkspace:emptyPublicIntegrationWorkspace(),tasks:[],exhibitions:[],error:null});this.stopNotificationPolling();this.stopOperationsPolling();}
+  resetAuthentication(){Object.assign(this.state,{authenticated:false,session:null,profile:null,membership:null,accessRequest:null,roles:[],permissions:[],modules:[],management:emptyManagement(),taskWorkspace:emptyTaskWorkspace(),exhibitionWorkspace:emptyExhibitionWorkspace(),contributionWorkspace:emptyContributionWorkspace(),museumReviewWorkspace:emptyMuseumReviewWorkspace(),deploymentWorkspace:emptyDeploymentWorkspace(),notificationWorkspace:emptyNotificationWorkspace(),operationalWorkspace:emptyOperationalWorkspace(),pilotWorkspace:emptyPilotWorkspace(),participationWorkspace:emptyParticipationWorkspace(),publicIntegrationWorkspace:emptyPublicIntegrationWorkspace(),operationsGovernanceWorkspace:emptyOperationsGovernanceWorkspace(),tasks:[],exhibitions:[],error:null});this.stopNotificationPolling();this.stopOperationsPolling();}
 
   async loadRemoteParticipation(){
     if(!this.client)return;
@@ -340,6 +341,33 @@ class CollaborativeController{
     }
     const{error}=await this.client.rpc(rpc,params);
     if(error)throw new Error(error.message);
+  }
+
+  async loadRemoteOperationsGovernance(){
+    if(!this.client)return;
+    if(!hasPermission(this.state,"operations.view"))return;
+    const{data,error}=await this.client.rpc("collab_operations_governance_workspace");
+    if(error){this.state.error=error.message;return;}
+    if(data&&data.authenticated){this.state.operationsGovernanceWorkspace={...emptyOperationsGovernanceWorkspace(),...data};}
+  }
+
+  async operationsGovernanceAction(kind,values={}){
+    const perms={"support-submit":"support.submit",cycle:"operations.manage",continuity:"continuity.manage",governance:"governance.manage",decide:"governance.decide",transparency:"impact.manage"};
+    if(!perms[kind]||!hasPermission(this.state,perms[kind]))throw new Error("Permissão insuficiente para a ação de operação/governação.");
+    if(this.config?.mode==="demo")throw new Error("A operação e governação operam apenas em staging real; a demonstração não cria ciclos, decisões nem indicadores.");
+    let rpc,params;
+    switch(kind){
+      case "support-submit":rpc="collab_support_submit";params={p_category:values.category,p_summary:values.summary,p_description:values.description,p_priority:values.priority||"normal"};break;
+      case "cycle":rpc="collab_operating_cycle_upsert";params={p_cycle_id:null,p_code:values.code,p_title:values.title,p_cycle_type:"operations",p_status:"draft"};break;
+      case "continuity":rpc="collab_continuity_upsert";params={p_review_id:null,p_review_type:values.reviewType,p_status:values.status||"in-review",p_single_person_risk:Boolean(values.singlePersonRisk),p_findings:values.findings||null};break;
+      case "governance":rpc="collab_governance_upsert";params={p_decision_id:null,p_decision_type:values.decisionType,p_title:values.title,p_context:values.context,p_authority:values.authority,p_status:"draft"};break;
+      case "decide":rpc="collab_governance_decide";params={p_decision_id:values.decisionId,p_decision:values.decision,p_rationale:values.rationale,p_conditions:values.conditions||null};break;
+      case "transparency":rpc="collab_indicator_publish_snapshot";params={p_snapshot_id:values.snapshotId,p_confirmation:values.confirmation};break;
+      default:throw new Error("Ação de operação/governação desconhecida.");
+    }
+    const{error}=await this.client.rpc(rpc,params);
+    if(error)throw new Error(error.message);
+    await this.loadRemoteOperationsGovernance();
   }
 
   async loadRemotePilot(cycleId=null){
@@ -957,7 +985,7 @@ class CollaborativeController{
     const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
   }
 
-  async generateMuseumReviewSnapshot(cycleId,version="0.23.0"){
+  async generateMuseumReviewSnapshot(cycleId,version="0.24.0"){
     if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
     if(this.config.mode==="demo"){
       const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");

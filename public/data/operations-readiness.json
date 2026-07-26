@@ -1,0 +1,25 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08M",
+  "version": "0.24.0",
+  "generatedAt": null,
+  "technicalCandidate": "ready",
+  "operationsCandidate": "not-evaluated",
+  "activeOperatingCycles": 0,
+  "assignedCriticalResponsibilities": 0,
+  "publicTransparency": "blocked",
+  "publishedIndicators": 0,
+  "continuity": "blocked",
+  "productionApproval": "blocked",
+  "blockingItems": [
+    "Confirmar integração de 08J, 08K e 08L.",
+    "Definir responsáveis operacionais.",
+    "Definir suporte e autoridade de moderação.",
+    "Definir governação e autoridade de decisão.",
+    "Definir indicadores e metodologias.",
+    "Configurar monitorização, backup e continuidade.",
+    "Aprovar transparência pública.",
+    "Aprovar produção por processo próprio."
+  ],
+  "notice": "Não representa operação, responsáveis, indicadores ou continuidade reais."
+}

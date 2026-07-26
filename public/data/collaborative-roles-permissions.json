@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "roles": [
     {
       "code": "master",
@@ -183,7 +183,16 @@
     "public-integration.rollback",
     "evolution.view",
     "evolution.manage",
-    "evolution.decide"
+    "evolution.decide",
+    "responsibilities.manage",
+    "support.submit",
+    "support.manage",
+    "moderation.manage",
+    "content-review.manage",
+    "governance.view",
+    "governance.manage",
+    "governance.decide",
+    "impact.manage"
   ],
   "rolePermissions": {
     "master": [
@@ -323,7 +332,15 @@
       "public-integration.review",
       "public-integration.preview",
       "evolution.view",
-      "evolution.manage"
+      "evolution.manage",
+      "responsibilities.manage",
+      "support.submit",
+      "support.manage",
+      "moderation.manage",
+      "content-review.manage",
+      "governance.view",
+      "governance.manage",
+      "impact.manage"
     ],
     "volunteer": [
       "area.view",
@@ -351,7 +368,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ],
     "reviewer": [
       "area.view",
@@ -400,7 +418,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ],
     "researcher": [
       "area.view",
@@ -448,7 +467,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ],
     "translator": [
       "area.view",
@@ -483,7 +503,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ],
     "partner": [
       "area.view",
@@ -501,7 +522,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ],
     "observer": [
       "area.view",
@@ -523,7 +545,8 @@
       "pilot.feedback.submit",
       "participation.view",
       "participation.enrol",
-      "participation.progress.update"
+      "participation.progress.update",
+      "support.submit"
     ]
   }
 }

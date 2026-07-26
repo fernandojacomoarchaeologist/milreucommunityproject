@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.23.0",
-  "currentPackage": "08L",
+  "version": "0.24.0",
+  "currentPackage": "08M",
   "surfaces": [
     {
       "code": "portal-home",
@@ -211,6 +211,19 @@
       "publicEffects": "snapshots-only-gated",
       "productionWrites": "disabled",
       "note": "Leitura pública apenas de snapshots aprovados; 0 efeitos ativos por omissão."
+    },
+    {
+      "code": "operations-governance",
+      "package": "08M",
+      "module": "operations-governance",
+      "routes": [
+        "/area-colaborativa/gestao/operacao",
+        "/area-colaborativa/gestao/governanca",
+        "/transparencia"
+      ],
+      "publicEffects": "snapshots-only-gated",
+      "productionWrites": "disabled",
+      "note": "Operação, governação, indicadores. Transparência pública desativada por omissão; público lê só snapshots aprovados."
     }
   ],
   "futurePackageRules": [

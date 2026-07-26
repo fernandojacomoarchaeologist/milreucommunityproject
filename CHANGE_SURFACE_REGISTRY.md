@@ -165,3 +165,10 @@ Contratos:
 - Efeitos públicos: 0 ativos. Escritas de produção: desativadas.
 - Tabelas `collab_publication_*`, `collab_participation_*`, `collab_evolution_*` sob RLS; leitura anon só de snapshots ativos.
 - Não altera Portal, Museu nem conteúdo canónico.
+
+## Superfície nova — operations-governance (08M)
+
+- Rotas internas: `/area-colaborativa/gestao/operacao`, `/area-colaborativa/gestao/governanca`; superfície pública opcional `/transparencia` (só snapshots aprovados; desativada por omissão).
+- Efeitos públicos: 0 ativos. Escritas de produção: desativadas.
+- Tabelas `collab_operating_cycles`, `collab_service_requests`, `collab_moderation_cases`, `collab_governance_decisions`, `collab_impact_*`, `collab_continuity_reviews` etc. sob RLS; leitura anon só de snapshots `published`.
+- Não altera Portal, Museu nem conteúdo canónico.

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "modules": [
     {
       "code": "dashboard",
@@ -217,6 +217,15 @@
       "permission": "participation.view",
       "description": "Percursos, próximos passos e continuidade da participação.",
       "sortOrder": 105
+    },
+    {
+      "code": "operations-governance",
+      "name": "Operação e governação",
+      "route": "/area-colaborativa/gestao/operacao",
+      "status": "active",
+      "permission": "operations.view",
+      "description": "Ciclos operacionais, suporte, moderação, governação, indicadores e continuidade.",
+      "sortOrder": 106
     }
   ]
 }

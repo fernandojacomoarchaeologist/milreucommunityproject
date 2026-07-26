@@ -1,0 +1,22 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.24.0",
+  "generatedAt": "2026-07-26T13:02:14.259Z",
+  "operationsCandidate": "not-evaluated",
+  "activeOperatingCycles": 0,
+  "openSupport": 0,
+  "openModeration": 0,
+  "overdueContentReviews": 0,
+  "continuity": "blocked",
+  "gaps": [
+    "Confirmar integração de 08J, 08K e 08L.",
+    "Definir responsáveis operacionais.",
+    "Definir suporte e autoridade de moderação.",
+    "Definir governação e autoridade de decisão.",
+    "Definir indicadores e metodologias.",
+    "Configurar monitorização, backup e continuidade.",
+    "Aprovar transparência pública.",
+    "Aprovar produção por processo próprio."
+  ],
+  "note": "Sem operação real, o relatório de saúde reporta estado bloqueado e lacunas."
+}

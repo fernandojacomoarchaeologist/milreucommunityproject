@@ -1,0 +1,16 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "generatedAt": "2026-07-26T13:02:14.289Z",
+  "mode": "read-only-and-safe-shutdown",
+  "steps": [
+    "Registar decisão de governação para arquivo/desativação.",
+    "Colocar áreas em modo somente leitura.",
+    "Exportar snapshots aprovados e auditoria (redigidos).",
+    "Confirmar backup e retenção legal.",
+    "Suspender efeitos públicos e transparência.",
+    "Preservar histórico necessário; não eliminar sem retenção protegida.",
+    "Comunicar handover e responsáveis."
+  ],
+  "productionApproval": "blocked",
+  "note": "Desativação segura preserva histórico e não elimina dados sem retenção protegida."
+}
