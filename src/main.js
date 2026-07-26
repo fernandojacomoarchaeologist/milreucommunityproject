@@ -61,6 +61,9 @@ import {
   collaborativeSystemAdministrationView, collaborativeAuditGovernanceView,
   collaborativeIncidentsContinuityView, collaborativeIncidentDetailView
 } from "./views/collaborative-operations.js";
+import {
+  collaborativePilotView, collaborativePilotManagementView
+} from "./views/collaborative-pilot.js";
 
 const app = document.querySelector("#app");
 const state = {
@@ -309,6 +312,10 @@ function renderCollaborativeRoute(route) {
       return collaborativeNotificationsView(context,{...state.collabNotificationFilters,...(route.query||{})});
     case "collab-notification-preferences":
       return collaborativeNotificationPreferencesView(context);
+    case "collab-pilot":
+      return collaborativePilotView(context);
+    case "collab-pilot-management":
+      return collaborativePilotManagementView(context);
     case "collab-system-administration":
       return collaborativeSystemAdministrationView(context);
     case "collab-audit-governance":
@@ -987,6 +994,14 @@ function bindPage() {
     try{await collaborative.createIncident({title:values.title,description:values.description,category:values.category,severity:values.severity,environment:values.environment,impactSummary:values.impactSummary||null,ownerUserId:values.ownerUserId||null});setCollaborativeFeedback("Incidente aberto.");}
     catch(error){setCollaborativeFeedback(error.message,true);}
   });
+
+  for(const [selector,kind] of [["[data-pilot-confirm-form]","confirm"],["[data-pilot-feedback-form]","feedback"],["[data-pilot-withdraw-form]","withdraw"],["[data-pilot-cycle-form]","cycle"],["[data-pilot-enrol-form]","enrol"],["[data-pilot-gate-form]","gate"],["[data-pilot-approve-form]","approve"]]){
+    document.querySelector(selector)?.addEventListener("submit",async event=>{
+      event.preventDefault();const values=formValues(event.currentTarget);setCollaborativeFeedback("A processar ação do piloto…");
+      try{await collaborative.pilotAction(kind,values);setCollaborativeFeedback("Ação do piloto registada.");}
+      catch(error){setCollaborativeFeedback(error.message,true);}
+    });
+  }
 
   document.querySelector("[data-incident-update-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();const form=event.currentTarget,values=formValues(form);setCollaborativeFeedback("A atualizar incidente…");

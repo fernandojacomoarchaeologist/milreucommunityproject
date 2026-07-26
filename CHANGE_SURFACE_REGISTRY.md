@@ -151,3 +151,10 @@ Contratos:
 - E2E local sem alegação remota;
 - evidência reproduzível;
 - sem secrets ou mutação de produção.
+
+## Superfície nova — pilot (08K)
+
+- Rotas: `/area-colaborativa/piloto`, `/area-colaborativa/gestao/piloto`.
+- Efeitos públicos: nenhum. Escritas de produção: desativadas.
+- Tabelas `collab_pilot_*` (9) sob RLS; escrita apenas por RPC auditada.
+- Não altera conteúdo canónico do Museu nem os slots públicos.

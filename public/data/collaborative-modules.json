@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "modules": [
     {
       "code": "dashboard",
@@ -199,6 +199,15 @@
       "permission": "incidents.view",
       "description": "Registo de incidentes, ações corretivas, exercícios e continuidade operacional.",
       "sortOrder": 103
+    },
+    {
+      "code": "pilot",
+      "name": "Piloto e homologação operacional",
+      "route": "/area-colaborativa/piloto",
+      "status": "active",
+      "permission": "pilot.view",
+      "description": "Participação, sessões, feedback, evidências e gates do piloto controlado em staging.",
+      "sortOrder": 104
     }
   ]
 }

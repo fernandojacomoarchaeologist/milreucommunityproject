@@ -117,3 +117,7 @@ Pacotes futuros devem alterar páginas públicas através dos contratos e slots 
 - runner Chromium/CDP;
 - relatório técnico reproduzível;
 - gates externos e humanos preservados.
+
+## 08K → depende de 08J (v0.21.0)
+
+O 08K assenta na release candidate técnica do 08J e integra-se com a homologação (08G), operações/auditoria/incidentes (08I), tarefas (08C) e notificações internas (08H). Não cria migrations sobre as anteriores; adiciona `20260726080000/080100/080200`. Não ativa infraestrutura remota nem aprova staging por teste local.

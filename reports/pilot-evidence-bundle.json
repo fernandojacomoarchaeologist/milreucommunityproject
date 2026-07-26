@@ -1,0 +1,45 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.22.0",
+  "generatedAt": "2026-07-26T09:24:42.567Z",
+  "release": {
+    "version": "0.22.0",
+    "commit": "recorded-at-runtime"
+  },
+  "environment": {
+    "code": "staging",
+    "secretsIncluded": false
+  },
+  "cycle": null,
+  "coverageMatrix": [],
+  "results": [],
+  "gates": {
+    "pilotReadiness": "blocked",
+    "stagingHomologation": "blocked",
+    "productionApproval": "blocked"
+  },
+  "referencedIncidents": [],
+  "referencedTasks": [],
+  "metricsSummary": {},
+  "approvals": [],
+  "gaps": [
+    "Confirmar integração do 08J no main.",
+    "Configurar Supabase staging e projeto de produção separado.",
+    "Configurar Google OAuth e callbacks.",
+    "Configurar e validar o master.",
+    "Aplicar e testar migrations em staging.",
+    "Validar RLS e storage privado.",
+    "Registar backup e evidência de restauração.",
+    "Definir coorte, datas, responsáveis e notice.",
+    "Executar revisão humana de acessibilidade."
+  ],
+  "excluded": [
+    "tokens",
+    "secrets",
+    "signed-urls",
+    "full-emails",
+    "personal-files",
+    "private-content",
+    "unauthorized-recordings"
+  ]
+}

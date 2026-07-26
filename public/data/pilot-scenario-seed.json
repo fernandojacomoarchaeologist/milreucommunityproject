@@ -1,0 +1,349 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.22.0",
+  "package": "08K",
+  "notice": "Modelos de cenário do piloto. Não contêm participantes, datas nem resultados reais.",
+  "scenarioCount": 34,
+  "scenarios": [
+    {
+      "code": "PILOT-AUTH-01",
+      "title": "Login Google",
+      "targetProfileType": "anonymous",
+      "moduleCode": "auth",
+      "flow": "Login Google",
+      "expectedOutcome": "Callback correto sem acesso automático ao piloto",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-AUTH-02",
+      "title": "Pedido de acesso",
+      "targetProfileType": "pending",
+      "moduleCode": "auth",
+      "flow": "Pedido de acesso",
+      "expectedOutcome": "Estado pendente, sem módulos internos",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-MEM-01",
+      "title": "Pré-autorização",
+      "targetProfileType": "coordinator",
+      "moduleCode": "members",
+      "flow": "Pré-autorização",
+      "expectedOutcome": "E-mail verificado associa o vínculo previsto",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-MEM-02",
+      "title": "Último master",
+      "targetProfileType": "master",
+      "moduleCode": "members",
+      "flow": "Último master",
+      "expectedOutcome": "Remoção/despromoção do último master bloqueada",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-PROF-01",
+      "title": "Perfil",
+      "targetProfileType": "participant",
+      "moduleCode": "members",
+      "flow": "Perfil",
+      "expectedOutcome": "Atualiza apenas campos permitidos",
+      "riskLevel": "low",
+      "required": true
+    },
+    {
+      "code": "PILOT-AVL-01",
+      "title": "Disponibilidade",
+      "targetProfileType": "volunteer",
+      "moduleCode": "tasks",
+      "flow": "Disponibilidade",
+      "expectedOutcome": "Registo próprio persistido e isolado",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-TASK-01",
+      "title": "Candidatura",
+      "targetProfileType": "volunteer",
+      "moduleCode": "tasks",
+      "flow": "Candidatura",
+      "expectedOutcome": "Oportunidade visível e candidatura auditada",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-TASK-02",
+      "title": "Atribuição",
+      "targetProfileType": "coordinator",
+      "moduleCode": "tasks",
+      "flow": "Atribuição",
+      "expectedOutcome": "Atribuição respeita capacidade e permissões",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-TASK-03",
+      "title": "Progresso e validação",
+      "targetProfileType": "volunteer",
+      "moduleCode": "tasks",
+      "flow": "Progresso e validação",
+      "expectedOutcome": "Horas e conclusão passam pelo fluxo previsto",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-AGENDA-01",
+      "title": "RSVP",
+      "targetProfileType": "participant",
+      "moduleCode": "agenda",
+      "flow": "RSVP",
+      "expectedOutcome": "Participação própria atualizada",
+      "riskLevel": "low",
+      "required": true
+    },
+    {
+      "code": "PILOT-CONTRIB-01",
+      "title": "Submissão",
+      "targetProfileType": "volunteer",
+      "moduleCode": "contributions",
+      "flow": "Submissão",
+      "expectedOutcome": "Código de acompanhamento e consentimento registados",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-CONTRIB-02",
+      "title": "Ficheiro privado",
+      "targetProfileType": "reviewer",
+      "moduleCode": "contributions",
+      "flow": "Ficheiro privado",
+      "expectedOutcome": "Acesso por URL assinada e negação cruzada",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-CONTRIB-03",
+      "title": "Pedido de informação",
+      "targetProfileType": "coordinator",
+      "moduleCode": "contributions",
+      "flow": "Pedido de informação",
+      "expectedOutcome": "Estado e notificação interna",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-CONTRIB-04",
+      "title": "Retirada",
+      "targetProfileType": "participant",
+      "moduleCode": "contributions",
+      "flow": "Retirada",
+      "expectedOutcome": "Pedido prioritário e auditado",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-TRAIN-01",
+      "title": "Formação",
+      "targetProfileType": "reviewer",
+      "moduleCode": "museum-review",
+      "flow": "Formação",
+      "expectedOutcome": "Gate impede ação não autorizada sem formação",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-MUSEUM-01",
+      "title": "Proposta campo a campo",
+      "targetProfileType": "reviewer",
+      "moduleCode": "museum-review",
+      "flow": "Proposta campo a campo",
+      "expectedOutcome": "Proposta não altera o canónico automaticamente",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-MUSEUM-02",
+      "title": "Tradução",
+      "targetProfileType": "translator",
+      "moduleCode": "museum-review",
+      "flow": "Tradução",
+      "expectedOutcome": "Permanece rascunho/revisão, sem publicar",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-MUSEUM-03",
+      "title": "MM202617",
+      "targetProfileType": "master",
+      "moduleCode": "museum-review",
+      "flow": "MM202617",
+      "expectedOutcome": "Continua bloqueada para lançamento público",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-NOTIF-01",
+      "title": "Centro interno",
+      "targetProfileType": "participant",
+      "moduleCode": "notifications",
+      "flow": "Centro interno",
+      "expectedOutcome": "Notificação legível, marcável e com preferências",
+      "riskLevel": "low",
+      "required": true
+    },
+    {
+      "code": "PILOT-AUDIT-01",
+      "title": "Auditoria",
+      "targetProfileType": "coordinator",
+      "moduleCode": "operations",
+      "flow": "Auditoria",
+      "expectedOutcome": "Pesquisa redigida e íntegra",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-INC-01",
+      "title": "Incidente",
+      "targetProfileType": "coordinator",
+      "moduleCode": "incident-continuity",
+      "flow": "Incidente",
+      "expectedOutcome": "Observação crítica liga e bloqueia",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-PILOT-01",
+      "title": "Inscrição",
+      "targetProfileType": "participant",
+      "moduleCode": "pilot",
+      "flow": "Inscrição",
+      "expectedOutcome": "Apenas membro ativo explicitamente inscrito",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-PILOT-02",
+      "title": "Sessão",
+      "targetProfileType": "participant",
+      "moduleCode": "pilot",
+      "flow": "Sessão",
+      "expectedOutcome": "Vê apenas as próprias sessões",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-PILOT-03",
+      "title": "Feedback",
+      "targetProfileType": "participant",
+      "moduleCode": "pilot",
+      "flow": "Feedback",
+      "expectedOutcome": "Submete e acompanha feedback próprio",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-PILOT-04",
+      "title": "Triagem",
+      "targetProfileType": "coordinator",
+      "moduleCode": "pilot",
+      "flow": "Triagem",
+      "expectedOutcome": "Liga observação a tarefa ou incidente",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-PILOT-05",
+      "title": "Gates",
+      "targetProfileType": "master",
+      "moduleCode": "pilot",
+      "flow": "Gates",
+      "expectedOutcome": "Aprovação negada com bloqueador presente",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-ACC-01",
+      "title": "Teclado",
+      "targetProfileType": "all",
+      "moduleCode": "pilot",
+      "flow": "Teclado",
+      "expectedOutcome": "Fluxos obrigatórios utilizáveis sem rato",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-ACC-02",
+      "title": "Leitor de ecrã",
+      "targetProfileType": "all",
+      "moduleCode": "pilot",
+      "flow": "Leitor de ecrã",
+      "expectedOutcome": "Estrutura e mensagens compreensíveis",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-RESP-01",
+      "title": "375/768/1280",
+      "targetProfileType": "all",
+      "moduleCode": "pilot",
+      "flow": "375/768/1280",
+      "expectedOutcome": "Sem perda funcional ou overflow crítico",
+      "riskLevel": "medium",
+      "required": true
+    },
+    {
+      "code": "PILOT-SEC-01",
+      "title": "Isolamento",
+      "targetProfileType": "participant",
+      "moduleCode": "pilot",
+      "flow": "Isolamento",
+      "expectedOutcome": "A não lê B por UI, API ou storage",
+      "riskLevel": "critical",
+      "required": true
+    },
+    {
+      "code": "PILOT-REC-01",
+      "title": "Backup/restauração",
+      "targetProfileType": "coordinator",
+      "moduleCode": "operations",
+      "flow": "Backup/restauração",
+      "expectedOutcome": "Evidência real registada",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-PUBLIC-01",
+      "title": "Regressão pública",
+      "targetProfileType": "anonymous",
+      "moduleCode": "pilot",
+      "flow": "Regressão pública",
+      "expectedOutcome": "Portal/Museu preservados",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-PUBLIC-02",
+      "title": "Efeitos públicos",
+      "targetProfileType": "coordinator",
+      "moduleCode": "pilot",
+      "flow": "Efeitos públicos",
+      "expectedOutcome": "Slots permanecem vazios",
+      "riskLevel": "high",
+      "required": true
+    },
+    {
+      "code": "PILOT-PROD-01",
+      "title": "Produção",
+      "targetProfileType": "coordinator",
+      "moduleCode": "pilot",
+      "flow": "Produção",
+      "expectedOutcome": "Escritas e aprovação continuam bloqueadas",
+      "riskLevel": "critical",
+      "required": true
+    }
+  ]
+}
