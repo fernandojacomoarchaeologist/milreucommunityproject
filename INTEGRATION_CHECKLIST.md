@@ -1,117 +1,91 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Checklist de integração — 08I
-
-## Contexto
-
-- [ ] ledger
-- [ ] dependências
-- [ ] superfícies
-- [ ] recuperação
-- [ ] relatório 08H
-- [ ] registo de impacto
-
-## Administração
-
-- [ ] módulo sistema
-- [ ] dashboard
-- [ ] 20 checks
-- [ ] iniciar execução
-- [ ] guardar evidência
-- [ ] concluir execução
-- [ ] configurações sem secrets
-- [ ] polling mínimo
-
-## Auditoria
-
-- [ ] acesso direto revogado
-- [ ] pesquisa RPC
-- [ ] ator sem e-mail
-- [ ] changed keys
-- [ ] redacção
-- [ ] cadeia de hashes
-- [ ] imutabilidade
-- [ ] integridade
-- [ ] CSV
-- [ ] limite 5000
-- [ ] Edge Function com JWT
-- [ ] sem service role na exportação
-
-## Retenção
-
-- [ ] 7 políticas
-- [ ] manual-review
-- [ ] export-only
-- [ ] preview
-- [ ] hash de candidatos
-- [ ] legal holds
-- [ ] aprovação literal
-- [ ] service role apply
-- [ ] literal de produção
-- [ ] revalidação antes de aplicar
-- [ ] sem agenda automática
-- [ ] browser não aplica
-
-## Incidentes
-
-- [ ] referência
-- [ ] severidade
-- [ ] estados
-- [ ] ambiente
-- [ ] responsável
-- [ ] atualizações
-- [ ] ações
-- [ ] fecho
-- [ ] resumo público opcional
-- [ ] notificações
-
-## Backups
-
-- [ ] planos
-- [ ] provider unconfigured
-- [ ] evidência
-- [ ] restauração
-- [ ] RPO/RTO
-- [ ] principal
-- [ ] secundário
-- [ ] falha notificada
-- [ ] sem alegação automática
+# Checklist de integração — 08J
 
 ## Continuidade
 
-- [ ] exercícios
-- [ ] cenários
-- [ ] objetivos
-- [ ] evidência
-- [ ] tempo real
-- [ ] runbook
-- [ ] responsáveis
+- [x] base 08I v0.20.0 confirmada
+- [x] ledger lido e preservado
+- [x] dependências lidas e preservadas
+- [x] superfícies lidas e preservadas
+- [x] 22 módulos preservados
+- [x] 117 permissões preservadas
+- [x] nenhuma decisão editorial alterada
 
-## Banco
+## Fecho funcional
 
-- [ ] migrations 08A–08I
-- [ ] 13 tabelas
-- [ ] audit alter
-- [ ] RLS
-- [ ] RPCs
-- [ ] teste SQL
-- [ ] local
-- [ ] staging
+- [x] rotas públicas
+- [x] Museu
+- [x] modo imersivo
+- [x] entrada
+- [x] membro pendente
+- [x] voluntário
+- [x] master
+- [x] negação de administração
+- [x] estados vazio, loading, erro e bloqueado representados na matriz
+- [x] regressão da Home
+- [x] regressão do Museu
 
-## Qualidade
+## Acessibilidade
 
-- [ ] validate
-- [ ] tests
-- [ ] TypeScript Edge
-- [ ] build
-- [ ] smoke
-- [ ] 375
-- [ ] 768
-- [ ] 1280
-- [ ] teclado
-- [ ] leitor de ecrã
+- [x] baseline automática
+- [x] reflow a 375 px
+- [x] reflow a 768 px
+- [x] reflow a 1280 px
+- [x] skip link
+- [x] foco visível no contrato e no browser
+- [ ] ordem integral de foco — revisão humana
+- [x] labels
+- [x] nomes de botões e links
+- [x] movimento reduzido
+- [ ] zoom a 200% — revisão humana
+- [ ] leitor de ecrã — revisão humana
+- [ ] contraste visual final — revisão humana
+- [ ] revisão humana registada
+
+## E2E
+
+- [x] Chromium disponível
+- [x] runtime integral em memória gerado
+- [x] cenários públicos
+- [x] cenários de voluntário
+- [x] cenários master
+- [x] erros de consola verificados
+- [x] relatório JSON
+- [x] falhas identificadas corrigidas e retestadas
+
+## Release candidate
+
+- [x] vista `release-candidate`
+- [x] RC técnica avaliada
+- [x] staging continua bloqueado sem evidência
+- [x] produção continua bloqueada sem evidência
+- [x] relatório gerado
+- [x] sem secrets
+
+## Ambientes externos
+
+- [ ] Supabase staging
+- [ ] Supabase produção
+- [ ] Google OAuth
+- [ ] master seguro
+- [ ] migrations reais
+- [ ] Edge Functions reais
+- [ ] RLS por perfil em ambiente real
+- [ ] backup real
+- [ ] restauração testada
+
+## Qualidade final
+
+- [x] `npm run validate:08j`
+- [x] `npm run validate`
+- [x] `npm test`
+- [x] `npm run e2e:08j`
+- [x] `npm run build`
+- [x] `npm run smoke`
+- [x] `npm run rc:evaluate`

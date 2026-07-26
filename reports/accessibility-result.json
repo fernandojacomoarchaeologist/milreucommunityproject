@@ -1,0 +1,91 @@
+{
+  "version": "0.21.0",
+  "standard": "WCAG 2.2",
+  "target": "AA",
+  "generatedAt": "2026-07-26T08:09:22.065Z",
+  "scope": "baseline-source-contract",
+  "passed": true,
+  "checks": [
+    {
+      "code": "document-language",
+      "pass": true,
+      "detail": "Idioma-fonte definido no documento.",
+      "criterion": "3.1.1"
+    },
+    {
+      "code": "viewport",
+      "pass": true,
+      "detail": "Viewport responsivo configurado.",
+      "criterion": "1.4.10"
+    },
+    {
+      "code": "skip-link",
+      "pass": true,
+      "detail": "Atalho para o conteúdo principal.",
+      "criterion": "2.4.1"
+    },
+    {
+      "code": "main-landmark",
+      "pass": true,
+      "detail": "Landmark principal disponível nas superfícies.",
+      "criterion": "1.3.1"
+    },
+    {
+      "code": "live-regions",
+      "pass": true,
+      "detail": "Feedback dinâmico anunciado.",
+      "criterion": "4.1.3"
+    },
+    {
+      "code": "current-navigation",
+      "pass": true,
+      "detail": "Navegação identifica a página atual.",
+      "criterion": "2.4.8"
+    },
+    {
+      "code": "focus-visible",
+      "pass": true,
+      "detail": "Estilo de foco disponível.",
+      "criterion": "2.4.7"
+    },
+    {
+      "code": "reduced-motion",
+      "pass": true,
+      "detail": "Movimento reduzido respeitado.",
+      "criterion": "2.3.3"
+    },
+    {
+      "code": "immersive-exit",
+      "pass": true,
+      "detail": "Modo imersivo possui saída por teclado.",
+      "criterion": "2.1.1"
+    },
+    {
+      "code": "image-containment",
+      "pass": true,
+      "detail": "Imagem imersiva não é cortada.",
+      "criterion": "1.4.10"
+    },
+    {
+      "code": "form-feedback",
+      "pass": true,
+      "detail": "Formulários principais possuem feedback anunciado.",
+      "criterion": "3.3.1"
+    },
+    {
+      "code": "no-secret-browser",
+      "pass": true,
+      "detail": "Service role ausente do código do browser.",
+      "criterion": "4.1.2"
+    }
+  ],
+  "humanReviewRequired": [
+    "leitor de ecrã",
+    "contraste final",
+    "ordem de foco",
+    "zoom a 200%",
+    "alvos táteis",
+    "mensagens de erro",
+    "revisão cognitiva"
+  ]
+}

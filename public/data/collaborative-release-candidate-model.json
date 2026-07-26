@@ -1,0 +1,233 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.21.0",
+  "package": "08J",
+  "candidate": "RC1",
+  "releaseLayers": [
+    {
+      "code": "technical-rc",
+      "name": "Release candidate técnica",
+      "mayBeReadyWithoutRemoteSecrets": true,
+      "meaning": "Código, contratos, testes automatizados, build e E2E local aprovados."
+    },
+    {
+      "code": "staging-homologated",
+      "name": "Release homologada em staging",
+      "mayBeReadyWithoutRemoteSecrets": false,
+      "meaning": "Migrations, OAuth, RLS, storage, Edge Functions e perfis verificados no projeto de staging."
+    },
+    {
+      "code": "production-approved",
+      "name": "Release aprovada para produção",
+      "mayBeReadyWithoutRemoteSecrets": false,
+      "meaning": "Aprovações humanas, direitos, acessibilidade final, backup/restauração e gates de produção concluídos."
+    }
+  ],
+  "qualityPillars": [
+    {
+      "code": "functional-closure",
+      "name": "Fecho funcional",
+      "blocking": true
+    },
+    {
+      "code": "access-control",
+      "name": "Perfis e fronteiras de acesso",
+      "blocking": true
+    },
+    {
+      "code": "accessibility",
+      "name": "WCAG 2.2 AA e validação humana",
+      "blocking": true
+    },
+    {
+      "code": "browser-e2e",
+      "name": "E2E em Chromium",
+      "blocking": true
+    },
+    {
+      "code": "public-regression",
+      "name": "Não regressão do Portal e Museu",
+      "blocking": true
+    },
+    {
+      "code": "deployment-honesty",
+      "name": "Gates externos representados sem inferência",
+      "blocking": true
+    },
+    {
+      "code": "evidence",
+      "name": "Relatórios e evidências reproduzíveis",
+      "blocking": true
+    }
+  ],
+  "profiles": [
+    {
+      "code": "anonymous",
+      "name": "Visitante não autenticado",
+      "expectation": "Apenas superfícies públicas e ecrã de entrada."
+    },
+    {
+      "code": "pending",
+      "name": "Membro pendente",
+      "expectation": "Onboarding e estado do pedido, sem módulos internos."
+    },
+    {
+      "code": "volunteer",
+      "name": "Voluntário",
+      "expectation": "Perfil, disponibilidade, tarefas, contributos, agenda, biblioteca, formação e notificações."
+    },
+    {
+      "code": "reviewer",
+      "name": "Revisor",
+      "expectation": "Revisão editorial dentro das permissões e formação exigida."
+    },
+    {
+      "code": "translator",
+      "name": "Tradutor",
+      "expectation": "Traduções como rascunho/revisão, nunca publicação automática."
+    },
+    {
+      "code": "coordinator",
+      "name": "Coordenador",
+      "expectation": "Gestão operacional sem poderes reservados ao master."
+    },
+    {
+      "code": "master",
+      "name": "Master",
+      "expectation": "Governação completa, preservando confirmações literais e fronteiras de produção."
+    }
+  ],
+  "viewports": [
+    {
+      "code": "mobile",
+      "width": 375,
+      "height": 812,
+      "required": true
+    },
+    {
+      "code": "tablet",
+      "width": 768,
+      "height": 1024,
+      "required": true
+    },
+    {
+      "code": "desktop",
+      "width": 1280,
+      "height": 800,
+      "required": true
+    }
+  ],
+  "assistiveTechnology": [
+    {
+      "code": "keyboard",
+      "name": "Teclado",
+      "automatedBaseline": true,
+      "humanRequired": true
+    },
+    {
+      "code": "screen-reader",
+      "name": "Leitor de ecrã",
+      "automatedBaseline": false,
+      "humanRequired": true
+    },
+    {
+      "code": "zoom",
+      "name": "Zoom e reflow",
+      "automatedBaseline": true,
+      "humanRequired": true
+    },
+    {
+      "code": "reduced-motion",
+      "name": "Movimento reduzido",
+      "automatedBaseline": true,
+      "humanRequired": true
+    }
+  ],
+  "scenarioCounts": {
+    "total": 42,
+    "automated": 32,
+    "human": 6,
+    "external": 4
+  },
+  "externalGates": [
+    {
+      "code": "supabase-staging",
+      "status": "blocked",
+      "reason": "Projeto, URL e project ref não configurados."
+    },
+    {
+      "code": "supabase-production",
+      "status": "blocked",
+      "reason": "Projeto, URL e project ref não configurados."
+    },
+    {
+      "code": "google-oauth",
+      "status": "blocked",
+      "reason": "Client ID e secret não configurados em ambiente protegido."
+    },
+    {
+      "code": "master-bootstrap",
+      "status": "blocked",
+      "reason": "MILREU_MASTER_EMAIL não definido em variável segura."
+    },
+    {
+      "code": "database-execution",
+      "status": "blocked",
+      "reason": "Migrations ainda não executadas em Supabase/PostgreSQL real."
+    },
+    {
+      "code": "edge-functions",
+      "status": "blocked",
+      "reason": "Edge Functions ainda não executadas em Deno/Supabase."
+    },
+    {
+      "code": "backup-restore",
+      "status": "blocked",
+      "reason": "Fornecedor, backup e teste de restauração sem evidência real."
+    }
+  ],
+  "humanGates": [
+    {
+      "code": "visual-review",
+      "status": "pending",
+      "reason": "Revisão visual humana nos três viewports."
+    },
+    {
+      "code": "keyboard-review",
+      "status": "pending",
+      "reason": "Percurso integral por teclado."
+    },
+    {
+      "code": "screen-reader-review",
+      "status": "pending",
+      "reason": "Teste com leitor de ecrã por pessoa competente."
+    },
+    {
+      "code": "editorial-review",
+      "status": "pending",
+      "reason": "31 memórias revistas campo a campo."
+    },
+    {
+      "code": "rights-credits",
+      "status": "pending",
+      "reason": "Direitos e créditos aprovados."
+    },
+    {
+      "code": "translation-review",
+      "status": "pending",
+      "reason": "Traduções revistas por humanos."
+    },
+    {
+      "code": "public-domain-contact",
+      "status": "pending",
+      "reason": "Domínio e contacto oficial definidos."
+    }
+  ],
+  "safetyRules": [
+    "A RC técnica não equivale a homologação de staging.",
+    "Homologação de staging não equivale a aprovação de produção.",
+    "Nenhum secret pode ser incluído no ZIP, browser ou relatório.",
+    "Gates externos e humanos mantêm estado bloqueado ou pendente até evidência real.",
+    "Não publicar automaticamente conteúdo, traduções, direitos ou efeitos públicos."
+  ]
+}

@@ -276,7 +276,7 @@ export function immersiveView(records,record,lang,state={}) {
   const slideshowSpeed = Number(state.slideshowSpeed || 0);
   const title = escapeHtml(localised(record.title,lang).value);
 
-  return `<div class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${title}">
+  return `<main id="main" class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${title}">
     <a class="immersive-return-fixed" href="#/museu/memorias/${record.id}" data-close-immersive>
       <img src="${assetUrl("public/icons/back.svg")}" alt="">
       <span>Voltar ao Museu</span>
@@ -308,7 +308,7 @@ export function immersiveView(records,record,lang,state={}) {
       <div class="immersive-frame"><img src="${assetUrl(record.media.variants.immersive)}" alt="${title}"></div>
       <a class="immersive-side immersive-side--next" href="#/museu/imersivo/${next.id}" aria-label="${text(lang,"next")}"><img src="${assetUrl("public/icons/forward.svg")}" alt=""></a>
       <aside class="immersive-info-panel">
-        <h2>${title}</h2>
+        <h1>${title}</h1>
         <p>${escapeHtml(localised(record.channels.museum.introduction,lang).value)}</p>
         <dl>
           <dt>${text(lang,"dateAndPlace")}</dt><dd>${escapeHtml(localised(record.date.display,lang).value || text(lang,"undated"))}</dd>
@@ -323,7 +323,7 @@ export function immersiveView(records,record,lang,state={}) {
       <div class="immersive-filmstrip">${neighbors.map(item => `<a href="#/museu/imersivo/${item.id}" aria-current="${item.id===record.id ? "true" : "false"}"><img src="${assetUrl(item.media.variants.thumbnail)}" alt=""><span>${item.id}</span></a>`).join("")}</div>
       <div class="immersive-keyboard-help">${text(lang,"keyboardHelp")}</div>
     </div>
-  </div>`;
+  </main>`;
 }
 
 export function timelineView(records,lang) {
@@ -347,7 +347,7 @@ function collectionCard(collection,records,lang) {
   const title = localised(collection.title,lang);
   const description = localised(collection.description,lang);
   return `<article class="museum-collection-card">
-    <a class="museum-collection-card__media" href="#/museu/colecoes/${collection.slug}">${member ? `<img src="${assetUrl(member.media.variants.card)}" alt="">` : ""}</a>
+    <a class="museum-collection-card__media" href="#/museu/colecoes/${collection.slug}" aria-label="${escapeHtml(title.value)}">${member ? `<img src="${assetUrl(member.media.variants.card)}" alt="">` : ""}</a>
     <div><span>${collection.memberCount} ${text(lang,"collectionMembers")}</span><h3><a href="#/museu/colecoes/${collection.slug}">${escapeHtml(title.value)}</a></h3><p>${escapeHtml(description.value)}</p></div>
   </article>`;
 }

@@ -1,13 +1,13 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Prompt de integração — Pacote 08I
+# Prompt de integração — Pacote 08J
 
-Integra cumulativamente o 08I sobre o 08H.
+Integra cumulativamente o 08J sobre o 08I v0.20.0.
 
 ## Ler primeiro
 
@@ -15,83 +15,71 @@ Integra cumulativamente o 08I sobre o 08H.
 - `PACKAGE_DEPENDENCY_MAP.md`;
 - `CHANGE_SURFACE_REGISTRY.md`;
 - `CONTEXT_RECOVERY_PROTOCOL.md`;
-- `docs/operations/OPERATIONAL_GOVERNANCE_08I.md`;
-- `docs/operations/AUDIT_INTEGRITY_08I.md`;
-- `docs/operations/RETENTION_LIFECYCLE_08I.md`;
-- `docs/operations/BACKUP_RESTORE_RUNBOOK_08I.md`;
-- `docs/operations/INCIDENT_RESPONSE_08I.md`.
+- `docs/quality/FUNCTIONAL_CLOSURE_08J.md`;
+- `docs/quality/ACCESSIBILITY_08J.md`;
+- `docs/quality/E2E_08J.md`;
+- `docs/quality/RELEASE_CANDIDATE_08J.md`;
+- `VALIDATION_REPORT.md`.
 
 ## Objetivo
 
-Ativar a administração operacional sem executar ações irreversíveis ou afirmar recursos remotos não comprovados.
+Produzir uma release candidate técnica reproduzível, sem transformar ausência de infraestrutura, credenciais ou decisão humana em aprovação fictícia.
 
 ## Integrar
 
-1. migrations `20260724150000`–`150200`;
-2. Edge Function `export-collab-audit`;
-3. modelos e runtime;
-4. controller;
-5. views, rotas, navegação e estilos;
-6. notificações orgânicas do 08I;
-7. scripts;
-8. workflows;
-9. testes;
-10. documentação e contexto.
+1. modelos de RC, acessibilidade e cenários;
+2. carregamento dos novos contratos no controller;
+3. subrota e vista da release candidate;
+4. navegação dentro da homologação existente;
+5. scripts de acessibilidade;
+6. runner E2E Chromium/CDP;
+7. avaliação e relatório da RC;
+8. testes unitários e de contrato;
+9. workflow CI 08J;
+10. documentação, ledger e registo de impactos.
 
 ## Regras obrigatórias
 
-- não editar nem apagar a auditoria;
-- não devolver `before_data` ou `after_data` brutos;
-- manter e-mail e identificadores sensíveis fora da exportação;
-- não configurar secrets como settings;
-- não afirmar backup sem evidência;
-- não criar backup fictício;
-- não aplicar retenção pelo navegador;
-- não habilitar retenção automática;
-- preview antes de aprovação;
-- legal holds antes da aplicação;
-- hash dos candidatos deve permanecer igual;
-- aplicação apenas com service role;
-- confirmação adicional para produção;
-- contributos, auditoria, incidentes e direitos em revisão humana;
-- não executar produção durante a integração;
-- manter Google OAuth, staging e master bloqueados quando não configurados.
+- preservar 22 módulos e 117 permissões;
+- não criar migration, tabela ou Edge Function sem necessidade;
+- não ativar e-mail, fornecedor, convites automáticos ou chat;
+- não alterar conteúdo canónico do Museu;
+- não aprovar MM202617;
+- não publicar tradução automática;
+- não inserir URL, project ref, client secret ou e-mail master fictícios;
+- não declarar migrations ou Edge Functions executadas sem ambiente real;
+- não declarar backup ou restauração sem evidência;
+- não declarar revisão visual, teclado ou leitor de ecrã concluídos sem execução humana;
+- não declarar staging homologado com base em E2E local;
+- não declarar produção aprovada com base na RC técnica.
 
 ## Validação
 
 ```bash
 npm ci
-npm run operations:config
-npm run operations:report
-npm run operations:backup-evidence
-npm run operations:retention-plan
-npm run operations:audit-status
-npm run validate
+npm run validate:08j
 npm test
+npm run e2e:08j
 npm run build
 npm run smoke
+npm run rc:evaluate
 ```
 
-Executar o teste SQL 08I após os testes 08A–08H.
+O `rc:evaluate` pode aprovar apenas `technicalCandidate`. `stagingHomologation` e `productionApproval` devem continuar bloqueados até evidência real.
 
 ## Revisão manual
 
-- dashboard;
-- check run;
-- evidência;
-- configuração sem secret;
-- pesquisa de auditoria;
-- integridade;
-- exportação;
-- preview de retenção;
-- aprovação;
-- legal hold;
-- incidente;
-- ação corretiva;
-- backup;
-- verificação;
-- exercício;
 - 375, 768 e 1280 px;
-- teclado e leitor de ecrã.
+- teclado integral;
+- leitor de ecrã;
+- zoom a 200%;
+- contraste e alvos;
+- mensagens de erro;
+- todos os perfis;
+- 31 memórias;
+- direitos, créditos e traduções;
+- Supabase staging;
+- OAuth e RLS;
+- backup e restauração.
 
-Não executar o workflow de aplicação da retenção sem dados reais, backup e aprovação.
+Nunca pedir que segredos sejam colados no chat.

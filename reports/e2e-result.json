@@ -1,0 +1,1983 @@
+{
+  "version": "0.21.0",
+  "candidate": "RC1",
+  "generatedAt": "2026-07-26T07:49:25.221Z",
+  "browser": "/usr/bin/chromium",
+  "total": 394,
+  "passedCount": 394,
+  "failedCount": 0,
+  "passed": true,
+  "results": [
+    {
+      "id": "home-mobile-title",
+      "pass": true,
+      "detail": "Título: Projeto Comunitário de Milreu | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "home-mobile-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "home-mobile-h1",
+      "pass": true,
+      "detail": "3 H1"
+    },
+    {
+      "id": "home-mobile-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "home-mobile-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "home-mobile-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "home-mobile-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "home-mobile-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "home-mobile-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "home-mobile-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "home-mobile-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "home-tablet-title",
+      "pass": true,
+      "detail": "Título: Projeto Comunitário de Milreu | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "home-tablet-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "home-tablet-h1",
+      "pass": true,
+      "detail": "3 H1"
+    },
+    {
+      "id": "home-tablet-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "home-tablet-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "home-tablet-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "home-tablet-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "home-tablet-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "home-tablet-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "home-tablet-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "home-tablet-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px · [{\"tag\":\"article\",\"className\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"parent\":\"home-carousel__viewport\",\"text\":\"Entre Ruínas e Memórias\\n        Museu de Memórias de Milreu\\n        Fotografias,\",\"left\":-3,\"right\":756,\"width\":759},{\"tag\":\"div\",\"className\":\"home-carousel__media\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"\",\"left\":-3,\"right\":756,\"width\":759},{\"tag\":\"img\",\"className\":\"\",\"parent\":\"home-carousel__media\",\"text\":\"\",\"left\":-3,\"right\":756,\"width\":759},{\"tag\":\"div\",\"className\":\"home-carousel__overlay\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"\",\"left\":-3,\"right\":756,\"width\":759},{\"tag\":\"div\",\"className\":\"home-carousel__content\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"Entre Ruínas e Memórias\\n        Museu de Memórias de Milreu\\n        Fotografias,\",\"left\":-3,\"right\":756,\"width\":759}]"
+    },
+    {
+      "id": "home-desktop-title",
+      "pass": true,
+      "detail": "Título: Projeto Comunitário de Milreu | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "home-desktop-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "home-desktop-h1",
+      "pass": true,
+      "detail": "3 H1"
+    },
+    {
+      "id": "home-desktop-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "home-desktop-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "home-desktop-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "home-desktop-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "home-desktop-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "home-desktop-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "home-desktop-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "home-desktop-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px · [{\"tag\":\"article\",\"className\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"parent\":\"home-carousel__viewport\",\"text\":\"Entre Ruínas e Memórias\\n        Museu de Memórias de Milreu\\n        Fotografias,\",\"left\":-5,\"right\":1270,\"width\":1275},{\"tag\":\"div\",\"className\":\"home-carousel__media\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"\",\"left\":-5,\"right\":1270,\"width\":1275},{\"tag\":\"img\",\"className\":\"\",\"parent\":\"home-carousel__media\",\"text\":\"\",\"left\":-5,\"right\":1270,\"width\":1275},{\"tag\":\"div\",\"className\":\"home-carousel__overlay\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"\",\"left\":-5,\"right\":1270,\"width\":1275},{\"tag\":\"div\",\"className\":\"home-carousel__content\",\"parent\":\"home-carousel__slide home-carousel__slide--image home-carousel__slide--active\",\"text\":\"Entre Ruínas e Memórias\\n        Museu de Memórias de Milreu\\n        Fotografias,\",\"left\":-5,\"right\":1205,\"width\":1210}]"
+    },
+    {
+      "id": "museum-title",
+      "pass": true,
+      "detail": "Título: Museu de Memórias de Milreu | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "museum-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "museum-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "museum-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "museum-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "museum-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "museum-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "museum-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "museum-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "museum-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "museum-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "gallery-title",
+      "pass": true,
+      "detail": "Título: Memórias | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "gallery-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "gallery-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "gallery-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "gallery-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "gallery-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "gallery-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "gallery-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "gallery-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "gallery-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "gallery-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "memory-title",
+      "pass": true,
+      "detail": "Título: Um aspecto do cortejo da Festa da Pinha, em Estoi | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "memory-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "memory-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "memory-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "memory-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "memory-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "memory-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "memory-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "memory-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "memory-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "memory-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "immersive-title",
+      "pass": true,
+      "detail": "Título: Um aspecto do cortejo da Festa da Pinha, em Estoi | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "immersive-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "immersive-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "immersive-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "immersive-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "immersive-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "immersive-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "immersive-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "immersive-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "immersive-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "immersive-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "participate-title",
+      "pass": true,
+      "detail": "Título: Participar | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "participate-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "participate-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "participate-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "participate-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "participate-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "participate-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "participate-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "participate-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "participate-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "participate-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "contribution-title",
+      "pass": true,
+      "detail": "Título: Partilhar contributo | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "contribution-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "contribution-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "contribution-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "contribution-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "contribution-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "contribution-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "contribution-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "contribution-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "contribution-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "contribution-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px · [{\"tag\":\"input\",\"className\":\"contribution-honeypot\",\"parent\":\"public-contribution-form\",\"text\":\"\",\"left\":-10000,\"right\":-9974,\"width\":26}]"
+    },
+    {
+      "id": "exhibitions-title",
+      "pass": true,
+      "detail": "Título: Agenda da exposição | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "exhibitions-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "exhibitions-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "exhibitions-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "exhibitions-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "exhibitions-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "exhibitions-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "exhibitions-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "exhibitions-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "exhibitions-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "exhibitions-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "immersive-exit",
+      "pass": true,
+      "detail": "Modo imersivo possui saída e estado ativo."
+    },
+    {
+      "id": "auth-entry-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "auth-entry-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "auth-entry-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "auth-entry-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "auth-entry-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "auth-entry-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "auth-entry-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "auth-entry-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "auth-entry-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "auth-entry-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "auth-entry-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "auth-entry-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "auth-demo-options",
+      "pass": true,
+      "detail": "3 perfis de demonstração"
+    },
+    {
+      "id": "pending-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "pending-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "pending-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "pending-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "pending-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "pending-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "pending-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "pending-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "pending-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "pending-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "pending-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "pending-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "pending-no-sidebar",
+      "pass": true,
+      "detail": "Membro pendente não recebe navegação interna."
+    },
+    {
+      "id": "volunteer-dashboard-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-dashboard-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-dashboard-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-dashboard-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-dashboard-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-dashboard-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-dashboard-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-dashboard-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-dashboard-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-dashboard-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-dashboard-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-dashboard-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-profile-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-profile-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-profile-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-profile-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-profile-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-profile-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-profile-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-profile-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-profile-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-profile-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-profile-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-profile-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-availability-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-availability-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-availability-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-availability-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-availability-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-availability-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-availability-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-availability-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-availability-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-availability-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-availability-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-availability-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-tasks-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-tasks-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-tasks-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-tasks-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-tasks-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-tasks-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-tasks-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-tasks-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-tasks-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-tasks-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-tasks-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-tasks-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-contributions-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-contributions-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-contributions-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-contributions-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-contributions-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-contributions-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-contributions-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-contributions-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-contributions-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-contributions-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-contributions-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-contributions-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-agenda-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-agenda-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-agenda-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-agenda-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-agenda-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-agenda-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-agenda-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-agenda-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-agenda-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-agenda-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-agenda-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-agenda-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-library-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-library-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-library-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-library-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-library-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-library-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-library-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-library-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-library-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-library-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-library-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-library-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-training-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-training-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-training-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-training-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-training-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-training-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-training-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-training-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-training-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-training-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-training-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-training-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-notifications-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-notifications-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-notifications-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-notifications-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-notifications-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-notifications-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-notifications-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-notifications-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-notifications-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-notifications-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-notifications-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-notifications-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-admin-denied-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "volunteer-admin-denied-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "volunteer-admin-denied-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "volunteer-admin-denied-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "volunteer-admin-denied-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "volunteer-admin-denied-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "volunteer-admin-denied-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "volunteer-admin-denied-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "volunteer-admin-denied-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "volunteer-admin-denied-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "volunteer-admin-denied-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "volunteer-admin-denied-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "volunteer-admin-denied-forbidden",
+      "pass": true,
+      "detail": "Acesso condicionado apresentado"
+    },
+    {
+      "id": "master-dashboard-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-dashboard-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-dashboard-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-dashboard-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-dashboard-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-dashboard-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-dashboard-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-dashboard-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-dashboard-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-dashboard-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-dashboard-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-dashboard-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-members-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-members-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-members-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-members-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-members-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-members-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-members-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-members-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-members-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-members-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-members-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-members-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-tasks-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-tasks-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-tasks-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-tasks-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-tasks-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-tasks-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-tasks-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-tasks-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-tasks-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-tasks-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-tasks-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-tasks-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-contributions-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-contributions-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-contributions-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-contributions-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-contributions-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-contributions-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-contributions-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-contributions-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-contributions-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-contributions-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-contributions-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-contributions-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-review-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-review-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-review-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-review-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-review-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-review-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-review-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-review-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-review-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-review-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-review-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-review-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-homologation-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-homologation-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-homologation-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-homologation-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-homologation-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-homologation-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-homologation-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-homologation-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-homologation-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-homologation-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-homologation-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-homologation-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-rc-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-rc-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-rc-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-rc-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-rc-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-rc-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-rc-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-rc-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-rc-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-rc-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-rc-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-rc-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-notifications-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-notifications-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-notifications-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-notifications-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-notifications-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-notifications-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-notifications-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-notifications-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-notifications-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-notifications-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-notifications-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-notifications-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-system-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-system-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-system-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-system-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-system-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-system-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-system-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-system-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-system-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-system-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-system-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-system-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-audit-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-audit-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-audit-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-audit-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-audit-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-audit-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-audit-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-audit-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-audit-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-audit-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-audit-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-audit-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-incidents-title",
+      "pass": true,
+      "detail": "Título: Área Colaborativa | Projeto Comunitário de Milreu"
+    },
+    {
+      "id": "master-incidents-lang",
+      "pass": true,
+      "detail": "Idioma: pt-PT"
+    },
+    {
+      "id": "master-incidents-h1",
+      "pass": true,
+      "detail": "1 H1"
+    },
+    {
+      "id": "master-incidents-main",
+      "pass": true,
+      "detail": "1 landmark principal"
+    },
+    {
+      "id": "master-incidents-no-app-error",
+      "pass": true,
+      "detail": "Sem app-error"
+    },
+    {
+      "id": "master-incidents-ids",
+      "pass": true,
+      "detail": "IDs duplicados: nenhum"
+    },
+    {
+      "id": "master-incidents-alt",
+      "pass": true,
+      "detail": "Imagens sem alt: 0"
+    },
+    {
+      "id": "master-incidents-buttons",
+      "pass": true,
+      "detail": "Botões sem nome: 0"
+    },
+    {
+      "id": "master-incidents-links",
+      "pass": true,
+      "detail": "Links sem nome: 0"
+    },
+    {
+      "id": "master-incidents-labels",
+      "pass": true,
+      "detail": "Campos sem label: 0"
+    },
+    {
+      "id": "master-incidents-reflow",
+      "pass": true,
+      "detail": "Overflow horizontal: 0px"
+    },
+    {
+      "id": "master-incidents-shell",
+      "pass": true,
+      "detail": "Shell colaborativa presente"
+    },
+    {
+      "id": "master-rc-honesty",
+      "pass": true,
+      "detail": "RC distingue técnica, staging e produção."
+    },
+    {
+      "id": "keyboard-skip-link",
+      "pass": true,
+      "detail": "Skip link recebe foco."
+    },
+    {
+      "id": "reduced-motion",
+      "pass": true,
+      "detail": "Media query de movimento reduzido ativa."
+    },
+    {
+      "id": "runtime-errors",
+      "pass": true,
+      "detail": "Sem exceções ou erros de consola significativos."
+    }
+  ],
+  "runtimeErrors": []
+}

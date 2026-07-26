@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -128,3 +128,26 @@ Contratos:
 - backup com evidência;
 - incidentes auditados;
 - sem mutação operacional automática.
+
+
+## Qualidade, acessibilidade e release candidate — 08J
+
+Ficheiros:
+
+- `public/data/collaborative-release-candidate-model.json`;
+- `public/data/release-candidate-readiness.json`;
+- `public/data/accessibility-audit-model-08j.json`;
+- `public/data/e2e-scenarios-08j.json`;
+- `src/views/collaborative-release-candidate.js`;
+- `scripts/accessibility/`;
+- `scripts/e2e/`;
+- `scripts/release/`.
+
+Contratos:
+
+- preservar 22 módulos e 117 permissões;
+- RC técnica separada de staging e produção;
+- acessibilidade automática com gate humano;
+- E2E local sem alegação remota;
+- evidência reproduzível;
+- sem secrets ou mutação de produção.

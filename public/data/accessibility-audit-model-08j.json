@@ -1,0 +1,146 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.21.0",
+  "standard": "WCAG 2.2",
+  "target": "AA",
+  "automatedBaseline": [
+    {
+      "code": "document-language",
+      "criterion": "3.1.1",
+      "blocking": true
+    },
+    {
+      "code": "page-title",
+      "criterion": "2.4.2",
+      "blocking": true
+    },
+    {
+      "code": "main-landmark",
+      "criterion": "1.3.1",
+      "blocking": true
+    },
+    {
+      "code": "heading",
+      "criterion": "1.3.1",
+      "blocking": true
+    },
+    {
+      "code": "image-alt",
+      "criterion": "1.1.1",
+      "blocking": true
+    },
+    {
+      "code": "form-label",
+      "criterion": "1.3.1",
+      "blocking": true
+    },
+    {
+      "code": "button-name",
+      "criterion": "4.1.2",
+      "blocking": true
+    },
+    {
+      "code": "link-name",
+      "criterion": "2.4.4",
+      "blocking": true
+    },
+    {
+      "code": "duplicate-id",
+      "criterion": "4.1.1",
+      "blocking": true
+    },
+    {
+      "code": "keyboard-focus",
+      "criterion": "2.4.7",
+      "blocking": true
+    },
+    {
+      "code": "skip-link",
+      "criterion": "2.4.1",
+      "blocking": true
+    },
+    {
+      "code": "reduced-motion",
+      "criterion": "2.3.3",
+      "blocking": true
+    },
+    {
+      "code": "reflow",
+      "criterion": "1.4.10",
+      "blocking": true
+    }
+  ],
+  "humanRequired": [
+    {
+      "code": "screen-reader-navigation",
+      "criteria": [
+        "1.3.1",
+        "2.4.3",
+        "4.1.2"
+      ]
+    },
+    {
+      "code": "contrast-final",
+      "criteria": [
+        "1.4.3",
+        "1.4.11"
+      ]
+    },
+    {
+      "code": "zoom-200",
+      "criteria": [
+        "1.4.4",
+        "1.4.10"
+      ]
+    },
+    {
+      "code": "focus-order",
+      "criteria": [
+        "2.4.3",
+        "2.4.11"
+      ]
+    },
+    {
+      "code": "target-size",
+      "criteria": [
+        "2.5.8"
+      ]
+    },
+    {
+      "code": "error-identification",
+      "criteria": [
+        "3.3.1",
+        "3.3.3"
+      ]
+    },
+    {
+      "code": "cognitive-review",
+      "criteria": [
+        "3.2.3",
+        "3.2.4",
+        "3.3.2"
+      ]
+    }
+  ],
+  "viewports": [
+    {
+      "code": "mobile",
+      "width": 375,
+      "height": 812,
+      "required": true
+    },
+    {
+      "code": "tablet",
+      "width": 768,
+      "height": 1024,
+      "required": true
+    },
+    {
+      "code": "desktop",
+      "width": 1280,
+      "height": 800,
+      "required": true
+    }
+  ],
+  "rule": "Automação reduz risco, mas não substitui revisão humana de acessibilidade."
+}

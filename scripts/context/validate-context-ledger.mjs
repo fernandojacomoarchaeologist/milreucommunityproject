@@ -13,7 +13,7 @@ const required=[
 for(const file of required)if(!existsSync(file))throw new Error(`Contexto obrigatório ausente: ${file}`);
 
 const ledger=readFileSync("PROJECT_CONTEXT_LEDGER.md","utf8");
-for(const packageCode of ["01","02","03","04","05A","05B","05C","05D","05E","05F","06","07A","07B","07C","07D","07D.1","07D.2","07D.3","08A","08B","08C","08D","08E","08F","08G","08H","08I"]){
+for(const packageCode of ["01","02","03","04","05A","05B","05C","05D","05E","05F","06","07A","07B","07C","07D","07D.1","07D.2","07D.3","08A","08B","08C","08D","08E","08F","08G","08H","08I","08J"]){
   if(!ledger.includes(packageCode))throw new Error(`Pacote ausente do ledger: ${packageCode}`);
 }
 for(const invariant of [
@@ -25,11 +25,11 @@ for(const invariant of [
 }
 
 const registry=JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8"));
-if(registry.version!=="0.20.0"||registry.currentPackage!=="08I")throw new Error("Registo de impacto desatualizado.");
-for(const surface of ["portal-home","museum-home","museum-canonical-data","collaborative-navigation","training","library","deployment-profile","google-oauth","homologation","notification-center","notification-events","notification-outbox","system-administration","audit-integrity","retention-lifecycle","incident-continuity"]){
+if(registry.version!=="0.21.0"||registry.currentPackage!=="08J")throw new Error("Registo de impacto desatualizado.");
+for(const surface of ["portal-home","museum-home","museum-canonical-data","collaborative-navigation","training","library","deployment-profile","google-oauth","homologation","notification-center","notification-events","notification-outbox","system-administration","audit-integrity","retention-lifecycle","incident-continuity","accessibility-baseline","browser-e2e","release-candidate"]){
   if(!registry.surfaces.some(item=>item.code===surface))throw new Error(`Superfície não registada: ${surface}`);
 }
 if(!readFileSync("CONTEXT_RECOVERY_PROTOCOL.md","utf8").includes("mínimo necessário")){
   throw new Error("Protocolo de recuperação sem conjunto mínimo.");
 }
-console.log("Contexto 08I validado: ledger, dependências, superfícies e recuperação.");
+console.log("Contexto 08J validado: ledger, dependências, superfícies e recuperação.");

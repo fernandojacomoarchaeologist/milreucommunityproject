@@ -52,6 +52,7 @@ import {
 import {
   collaborativeDeploymentHomologationView, collaborativeHomologationRunView
 } from "./views/collaborative-deployment.js";
+import { collaborativeReleaseCandidateView } from "./views/collaborative-release-candidate.js";
 import {
   collaborativeNotificationsView, collaborativeNotificationPreferencesView,
   collaborativeNotificationManagementView
@@ -346,6 +347,8 @@ function renderCollaborativeRoute(route) {
       return collaborativeDeploymentHomologationView(context);
     case "collab-homologation-run":
       return collaborativeHomologationRunView(context,route.runId);
+    case "collab-release-candidate":
+      return collaborativeReleaseCandidateView(context);
     case "collab-profile-management":
       return collaborativeProfileManagementView(context);
     case "collab-member-detail":
@@ -1378,6 +1381,7 @@ function render(scroll=true) {
     case "collab-museum-review-releases":
     case "collab-deployment-homologation":
     case "collab-homologation-run":
+    case "collab-release-candidate":
     case "collab-profile-management":
     case "collab-member-detail":
     case "collab-invitations":

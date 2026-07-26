@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -245,3 +245,52 @@ Todos os 22 módulos do registo colaborativo possuem implementação ativa:
 - backup só é considerado verificado com evidência;
 - incidentes usam o mínimo de dados pessoais;
 - contributos, auditoria e direitos permanecem fora de eliminação automática.
+
+### 08J — Fecho funcional, acessibilidade, E2E e release candidate
+
+Fechou transversalmente a Área Colaborativa sem criar um novo domínio funcional.
+
+Preserva:
+
+- 22 módulos ativos;
+- 117 permissões;
+- 25 eventos e templates;
+- 20 checks operacionais;
+- 7 políticas de retenção;
+- todos os gates editoriais e de produção.
+
+Introduz:
+
+- baseline WCAG 2.2 AA;
+- checklist humano obrigatório;
+- matriz de cenários por perfil;
+- E2E em Chromium por CDP;
+- subrota de release candidate;
+- evidência em JSON e Markdown;
+- separação entre RC técnica, staging e produção.
+
+## Estado funcional após 08J
+
+A Área Colaborativa encontra-se fechada como **release candidate técnica**, desde que validações, testes, E2E, build e smoke sejam executados com sucesso.
+
+Continuam fora dessa aprovação:
+
+- Supabase real;
+- Google OAuth;
+- bootstrap do master;
+- migrations e Edge Functions em staging;
+- RLS por perfil em ambiente real;
+- backup e restauração;
+- revisão visual, teclado e leitor de ecrã por humanos;
+- revisão editorial das 31 memórias;
+- direitos, créditos e traduções;
+- domínio, contacto e produção.
+
+## Invariantes de release do 08J
+
+- RC técnica não equivale a staging homologado;
+- staging homologado não equivale a produção aprovada;
+- automação não substitui acessibilidade humana;
+- E2E local não prova infraestrutura remota;
+- secrets nunca entram no browser, ZIP ou chat;
+- gates sem evidência permanecem bloqueados ou pendentes.
