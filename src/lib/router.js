@@ -57,6 +57,7 @@ export function getRoute() {
   if (path === "/area-colaborativa/gestao/notificacoes") return { name:"collab-notification-management" };
   if (path === "/area-colaborativa/gestao/notificacoes/templates") return { name:"collab-notification-templates" };
   if (path === "/area-colaborativa/gestao/homologacao") return { name:"collab-deployment-homologation" };
+  if (path === "/area-colaborativa/gestao/homologacao/release-candidate") return { name:"collab-release-candidate" };
   const collabHomologationRun = path.match(/^\/area-colaborativa\/gestao\/homologacao\/([^/]+)$/);
   if (collabHomologationRun) return { name:"collab-homologation-run", runId:decodeURIComponent(collabHomologationRun[1]) };
   if (path === "/area-colaborativa/gestao/revisao-museu") return { name:"collab-museum-review-management", query };

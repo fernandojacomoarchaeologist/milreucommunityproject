@@ -1,11 +1,13 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
 # Índice de ficheiros
+
+Este índice descreve o conteúdo entregue no Pacote 08J v0.21.0. O diretório `dist/` não integra o ZIP para evitar duplicação de assets; pode ser reconstruído com `npm run build`.
 
 - `.claude/agents/audit-integrity-reviewer.md`
 - `.claude/agents/backup-continuity-reviewer.md`
@@ -225,12 +227,15 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `.github/workflows/08i-ci.yml`
 - `.github/workflows/08i-database-tests.yml`
 - `.github/workflows/08i-retention-apply.yml`
+- `.github/workflows/08j-ci.yml`
 - `.gitignore.fragment`
 - `.nojekyll`
 - `404.html`
 - `CHANGE_SURFACE_REGISTRY.md`
 - `CONTEXT_ATE_08I.md`
+- `CONTEXT_ATE_08J.md`
 - `CONTEXT_RECOVERY_PROTOCOL.md`
+- `FILE_INDEX.md`
 - `INTEGRATION_CHECKLIST.md`
 - `PACKAGE_DEPENDENCY_MAP.md`
 - `PACKAGE_MANIFEST.md`
@@ -343,6 +348,10 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `docs/operations/OPERATIONS_PRIVACY_08I.md`
 - `docs/operations/PRODUCTION_RETENTION_GATE_08I.md`
 - `docs/operations/RETENTION_LIFECYCLE_08I.md`
+- `docs/quality/ACCESSIBILITY_08J.md`
+- `docs/quality/E2E_08J.md`
+- `docs/quality/FUNCTIONAL_CLOSURE_08J.md`
+- `docs/quality/RELEASE_CANDIDATE_08J.md`
 - `docs/references/TECHNICAL_REFERENCES_08A.md`
 - `docs/references/TECHNICAL_REFERENCES_08B.md`
 - `docs/references/TECHNICAL_REFERENCES_08C.md`
@@ -395,6 +404,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/config/notifications.runtime.json`
 - `public/config/operations.example.json`
 - `public/config/operations.runtime.json`
+- `public/data/accessibility-audit-model-08j.json`
 - `public/data/channels/channel-config.json`
 - `public/data/channels/channel-records.json`
 - `public/data/channels/qr-targets.json`
@@ -411,12 +421,14 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/collaborative-operational-governance-model.json`
 - `public/data/collaborative-profile-types.json`
 - `public/data/collaborative-readiness.json`
+- `public/data/collaborative-release-candidate-model.json`
 - `public/data/collaborative-retention-model.json`
 - `public/data/collaborative-roles-permissions.json`
 - `public/data/collaborative-task-model.json`
 - `public/data/collaborative-training-trails.json`
 - `public/data/contributions-public-summary.json`
 - `public/data/deployment-readiness.json`
+- `public/data/e2e-scenarios-08j.json`
 - `public/data/editorial-decisions/MM202617-unlock-review.json`
 - `public/data/exhibitions-public.json`
 - `public/data/home-carousel.json`
@@ -431,6 +443,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `public/data/performance-budgets.json`
 - `public/data/portal-content.json`
 - `public/data/public-content-effects.json`
+- `public/data/release-candidate-readiness.json`
 - `public/data/release-readiness.json`
 - `public/data/rights-register.json`
 - `public/data/structured/README.md`
@@ -629,14 +642,21 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `releases/PACKAGE_08G_v0.18.0.md`
 - `releases/PACKAGE_08H_v0.19.0.md`
 - `releases/PACKAGE_08I_v0.20.0.md`
+- `releases/PACKAGE_08J_v0.21.0.md`
 - `releases/homologation/homologation-local-2026-07-25T16-54-42-708Z.json`
 - `releases/notifications/template-preview-pt-PT.json`
 - `releases/notifications/webhook-test-payload.json`
 - `releases/operations/backup-evidence-template.json`
 - `releases/operations/operations-foundation-report.json`
 - `releases/operations/retention-plan.json`
+- `reports/ACCESSIBILITY_HUMAN_CHECKLIST_08J.md`
+- `reports/RELEASE_CANDIDATE_08J.md`
+- `reports/accessibility-result.json`
+- `reports/e2e-result.json`
 - `requirements-media.txt`
 - `requirements-qr.txt`
+- `scripts/accessibility/audit-source-08j.mjs`
+- `scripts/accessibility/generate-human-checklist-08j.mjs`
 - `scripts/admin/bootstrap-master.mjs`
 - `scripts/admin/master-status.mjs`
 - `scripts/build.mjs`
@@ -661,6 +681,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/deploy/remote-smoke.mjs`
 - `scripts/deploy/validate-deployment-homologation.mjs`
 - `scripts/dev-server.mjs`
+- `scripts/e2e/run-browser-e2e-08j.mjs`
+- `scripts/e2e/validate-scenario-matrix-08j.mjs`
 - `scripts/exhibitions/export-public.mjs`
 - `scripts/media/generate_variants.py`
 - `scripts/media/import_legacy_archive.py`
@@ -681,7 +703,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `scripts/operations/validate-operations.mjs`
 - `scripts/quality/validate-accessibility.mjs`
 - `scripts/quality/validate-performance.mjs`
+- `scripts/release/build-release-candidate-08j.mjs`
 - `scripts/release/check-readiness.mjs`
+- `scripts/release/validate-release-candidate-08j.mjs`
 - `scripts/smoke.mjs`
 - `scripts/structured/static-record-builder.mjs`
 - `scripts/structured/validate-structured-data.mjs`
@@ -718,6 +742,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `src/views/collaborative-museum-review.js`
 - `src/views/collaborative-notifications.js`
 - `src/views/collaborative-operations.js`
+- `src/views/collaborative-release-candidate.js`
 - `src/views/collaborative-tasks.js`
 - `src/views/collaborative.js`
 - `src/views/contributions-public.js`
@@ -775,6 +800,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `supabase/tests/008g_deployment_homologation.test.sql`
 - `supabase/tests/008h_notifications.test.sql`
 - `supabase/tests/008i_operations_governance.test.sql`
+- `tests/accessibility-08j.test.mjs`
 - `tests/app.test.mjs`
 - `tests/audit-export-edge-08i.test.mjs`
 - `tests/audit-integrity-08i.test.mjs`
@@ -811,6 +837,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/deployment-profile-08g.test.mjs`
 - `tests/deployment-scripts-security-08g.test.mjs`
 - `tests/deployment-ui-08g.test.mjs`
+- `tests/e2e-matrix-08j.test.mjs`
 - `tests/fixes-07d1.test.mjs`
 - `tests/fixes-07d2.test.mjs`
 - `tests/immersive-07c.test.mjs`
@@ -841,6 +868,8 @@ rights: "Consultar RIGHTS.md no repositório principal"
 - `tests/public-content-effects-08f.test.mjs`
 - `tests/public-exhibitions-08d.test.mjs`
 - `tests/release-07d.test.mjs`
+- `tests/release-candidate-08j.test.mjs`
+- `tests/release-ui-08j.test.mjs`
 - `tests/retention-gates-08i.test.mjs`
 - `tests/rights-07c.test.mjs`
 - `tests/structured-07d.test.mjs`

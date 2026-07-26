@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.20.0",
-  "currentPackage": "08I",
+  "version": "0.21.0",
+  "currentPackage": "08J",
   "surfaces": [
     {
       "code": "portal-home",
@@ -146,6 +146,37 @@
         "docs/operations/INCIDENT_RESPONSE_08I.md"
       ],
       "integration": "incident-action-exercise"
+    },
+    {
+      "code": "accessibility-baseline",
+      "owner": "quality-accessibility",
+      "files": [
+        "public/data/accessibility-audit-model-08j.json",
+        "scripts/accessibility/",
+        "reports/ACCESSIBILITY_HUMAN_CHECKLIST_08J.md"
+      ],
+      "integration": "automated-baseline-plus-human-gate"
+    },
+    {
+      "code": "browser-e2e",
+      "owner": "quality-e2e",
+      "files": [
+        "public/data/e2e-scenarios-08j.json",
+        "scripts/e2e/run-browser-e2e-08j.mjs",
+        "reports/e2e-result.json"
+      ],
+      "integration": "chromium-cdp-evidence"
+    },
+    {
+      "code": "release-candidate",
+      "owner": "release-governance",
+      "files": [
+        "public/data/collaborative-release-candidate-model.json",
+        "public/data/release-candidate-readiness.json",
+        "src/views/collaborative-release-candidate.js",
+        "reports/RELEASE_CANDIDATE_08J.md"
+      ],
+      "integration": "three-layer-release-gate"
     }
   ],
   "futurePackageRules": [
@@ -163,6 +194,10 @@
     "Preservar a imutabilidade e a redacção da auditoria.",
     "Não permitir aplicação de retenção pelo navegador.",
     "Não tratar um plano de backup como evidência de backup.",
-    "Não publicar resumos de incidente automaticamente."
+    "Não publicar resumos de incidente automaticamente.",
+    "Não confundir release candidate técnica com homologação de staging.",
+    "Não confundir homologação de staging com aprovação de produção.",
+    "Acessibilidade automática não substitui revisão humana com teclado e leitor de ecrã.",
+    "E2E local não comprova Supabase, OAuth, RLS, Edge Functions, backup ou restauração remotos."
   ]
 }

@@ -25,7 +25,7 @@ Esta autorização:
 
 ## Restrição editorial
 
-`MM202617` permanece no repositório para auditoria, mas não é exibido no site. Trata-se de uma imagem com intervenção substantiva por inteligência artificial que não deve ser apresentada como documento original.
+`MM202617` permanece no repositório e pode ser exibido apenas no ambiente de revisão, com identificação obrigatória da intervenção substantiva por inteligência artificial. Não é elegível, sem nova decisão explícita, para lançamento público definitivo, QR, totem ou painel, nem pode ser apresentada como documento original.
 
 ## Livro Milreu: Ruínas
 
@@ -96,3 +96,12 @@ Notificações devem conter apenas o contexto mínimo. Endereços, tokens, paylo
 ## Administração, auditoria e continuidade — Pacote 08I
 
 Exportações de auditoria, evidências de backup, incidentes e exercícios são materiais internos. Devem evitar dados pessoais desnecessários e permanecer em armazenamento privado. A política de retenção não substitui consentimentos, pedidos de retirada, obrigações institucionais ou avaliação ética.
+
+## Fecho funcional, acessibilidade e release candidate — Pacote 08J
+
+Os relatórios de qualidade, resultados E2E, evidências de acessibilidade e estados de release candidate são artefactos técnicos internos. Não devem incorporar credenciais, tokens, e-mails pessoais, payloads remotos, dados pessoais desnecessários ou provas de infraestrutura que não tenham sido fornecidas por canais protegidos.
+
+Uma aprovação automática da baseline de acessibilidade não equivale a conformidade humana integral. Percurso por teclado, leitor de ecrã, contraste final, zoom, revisão cognitiva e decisão de publicação permanecem sujeitos a evidência e aprovação humanas.
+
+O estado `ready` da RC técnica local não concede autorização editorial, de direitos, institucional ou operacional para staging ou produção.
+

@@ -1,0 +1,41 @@
+name: 08J Quality and Release Candidate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "src/**"
+      - "public/**"
+      - "scripts/**"
+      - "tests/**"
+      - "package*.json"
+      - ".github/workflows/08j-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:08j
+      - run: npm test
+      - run: npm run e2e:08j
+      - run: npm run build
+      - run: npm run smoke
+      - name: Evaluate technical release candidate
+        run: npm run rc:evaluate
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: milreu-08j-quality-evidence
+          path: |
+            reports/
+            public/data/release-candidate-readiness.json
+          if-no-files-found: warn

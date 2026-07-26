@@ -1,0 +1,92 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.21.0",
+  "candidate": "RC1",
+  "generatedAt": "2026-07-26T08:13:42.593Z",
+  "technicalCandidate": {
+    "status": "ready",
+    "approved": true,
+    "checks": [
+      {
+        "code": "version",
+        "passed": true,
+        "detail": "0.21.0"
+      },
+      {
+        "code": "modules",
+        "passed": true,
+        "detail": "22 ativos"
+      },
+      {
+        "code": "permissions",
+        "passed": true,
+        "detail": "117 preservadas"
+      },
+      {
+        "code": "e2e-browser",
+        "passed": true,
+        "detail": "394/394"
+      },
+      {
+        "code": "accessibility-baseline",
+        "passed": true,
+        "detail": "12/12"
+      },
+      {
+        "code": "production-writes",
+        "passed": true,
+        "detail": "escritas de produção desativadas"
+      },
+      {
+        "code": "service-role-browser",
+        "passed": true,
+        "detail": "service role fora do frontend"
+      },
+      {
+        "code": "external-gates-honest",
+        "passed": true,
+        "detail": "bloqueios externos preservados"
+      },
+      {
+        "code": "human-gates-honest",
+        "passed": true,
+        "detail": "revisões humanas pendentes"
+      }
+    ],
+    "blockers": []
+  },
+  "stagingHomologation": {
+    "status": "blocked",
+    "approved": false,
+    "blockers": [
+      "supabase-staging",
+      "supabase-production",
+      "google-oauth",
+      "master-bootstrap",
+      "database-execution",
+      "edge-functions",
+      "backup-restore"
+    ]
+  },
+  "productionApproval": {
+    "status": "blocked",
+    "approved": false,
+    "blockers": [
+      "supabase-staging",
+      "supabase-production",
+      "google-oauth",
+      "master-bootstrap",
+      "database-execution",
+      "edge-functions",
+      "backup-restore",
+      "visual-review",
+      "keyboard-review",
+      "screen-reader-review",
+      "editorial-review",
+      "rights-credits",
+      "translation-review",
+      "public-domain-contact"
+    ]
+  },
+  "notice": "Aprovação técnica local não equivale a homologação de staging nem a aprovação de produção."
+}

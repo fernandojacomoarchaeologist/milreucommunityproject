@@ -10,6 +10,7 @@ import { extname, join, resolve, sep } from "node:path";
 const args = process.argv.slice(2);
 const rootArg = args.includes("--root") ? args[args.indexOf("--root") + 1] : ".";
 const portArg = args.includes("--port") ? Number(args[args.indexOf("--port") + 1]) : 4173;
+const hostArg = args.includes("--host") ? args[args.indexOf("--host") + 1] : "127.0.0.1";
 const root = resolve(rootArg);
 const mime = {
   ".html": "text/html; charset=utf-8",
@@ -54,6 +55,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(portArg, "127.0.0.1", () => {
-  console.log(`Milreu 08F: http://127.0.0.1:${portArg}`);
+server.listen(portArg, hostArg, () => {
+  console.log(`Milreu 08J: http://${hostArg}:${portArg}`);
 });

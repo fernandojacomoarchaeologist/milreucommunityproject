@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -16,7 +16,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
                               ↓
 07A → 07B → 07C → 07D → 07D.1 → 07D.2 → 07D.3
                                       ↓
-08A → 08B → 08C → 08D → 08E → 08F → 08G → 08H → 08I
+08A → 08B → 08C → 08D → 08E → 08F → 08G → 08H → 08I → 08J
 ```
 
 ## Dependências críticas do 08F
@@ -99,3 +99,21 @@ Pacotes futuros devem alterar páginas públicas através dos contratos e slots 
 - backups declarativos;
 - exercícios;
 - 20 checks operacionais.
+
+
+## Dependências críticas do 08J
+
+- 07B–07D.3: Portal, Museu, imersivo e regressão pública;
+- 08A–08F: módulos, perfis, jornadas e gates editoriais;
+- 08G: ambientes e homologação;
+- 08H: notificações;
+- 08I: administração, auditoria, retenção e continuidade.
+
+## Saídas do 08J
+
+- modelo da release candidate;
+- matriz E2E;
+- baseline e checklist de acessibilidade;
+- runner Chromium/CDP;
+- relatório técnico reproduzível;
+- gates externos e humanos preservados.

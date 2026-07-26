@@ -1,7 +1,7 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
@@ -106,3 +106,18 @@ Localizar:
 - lifecycle runs.
 
 Nunca inferir que backup, restauração, staging ou produção foram validados.
+
+
+### Qualidade e release 08J
+
+Localizar:
+
+- `collaborative-release-candidate-model.json`;
+- `release-candidate-readiness.json`;
+- `accessibility-audit-model-08j.json`;
+- `e2e-scenarios-08j.json`;
+- `reports/e2e-result.json`;
+- `reports/accessibility-result.json`;
+- `reports/RELEASE_CANDIDATE_08J.md`.
+
+Nunca inferir que uma RC técnica representa staging homologado ou produção aprovada.

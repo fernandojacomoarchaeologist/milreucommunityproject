@@ -1,218 +1,190 @@
 ---
 copyright: "© 2026 Fernando Rodrigues de Jácomo"
 project: "Projeto Comunitário de Milreu"
-package: "08I"
+package: "08J"
 rights: "Consultar RIGHTS.md no repositório principal"
 ---
 
-# Relatório de validação — Pacote 08I
+# Relatório de validação — Pacote 08J
 
 ## Resultado geral
 
-- Versão: 0.20.0
-- Base cumulativa: 08H
-- Testes automatizados: 286
-- Testes aprovados: 286
-- Testes falhados: 0
-- Validação cumulativa: concluída
+- Versão: **0.21.0**
+- Candidata: **RC1**
+- Base cumulativa: **08I v0.20.0**
+- Testes unitários e de contrato: **307/307 aprovados**
+- Verificações E2E em Chromium: **394/394 aprovadas**
+- Baseline automática de acessibilidade: **12/12 aprovada**
+- Matriz de qualidade: **42 cenários**
+  - 32 automáticos;
+  - 6 humanos;
+  - 4 externos.
+- Validação cumulativa 01–08J: concluída
 - Build: concluído
 - Smoke HTTP: concluído
-- TypeScript das duas Edge Functions: verificado com shim local de Deno
-- YAML dos workflows 08I: válido
-- Revisão visual humana em navegador: pendente
-- Execução real das migrations em PostgreSQL/Supabase: pendente
-- Execução real das Edge Functions em Deno/Supabase: pendente
+- Release candidate técnica local: **ready**
+- Homologação de staging: **blocked**
+- Aprovação de produção: **blocked**
 
-## Área Colaborativa
+## Escopo preservado
 
-- Módulos registados: 22
-- Módulos ativos: 22
-- Permissões acumuladas: 117
-- Recursos de biblioteca: 22
-- Novos módulos:
-  - `system-administration`;
-  - `audit-governance`;
-  - `incident-continuity`.
+- Módulos colaborativos: **22 ativos**
+- Módulos novos: **0**
+- Permissões: **117 preservadas**
+- Permissões novas: **0**
+- Eventos de notificação: **25 preservados**
+- Templates de notificação: **25 preservados**
+- Checks operacionais: **20 preservados**
+- Políticas de retenção: **7 preservadas**
+- Migrations novas: **0**
+- Tabelas novas: **0**
+- Edge Functions novas: **0**
+- Dependências npm novas: **0**
 
-## Administração e saúde operacional
+O 08J é um pacote de fecho transversal. Não cria uma nova área funcional nem altera decisões editoriais, de direitos, autenticação, retenção ou operação remota.
 
-- Checks operacionais: 20
-- Categorias cobertas: banco, autenticação, auditoria, storage, notificações, backup, retenção, incidentes, publicação, staging, produção, segurança e continuidade
-- Evidência obrigatória para checks configurados: sim
-- Execuções por ambiente: local, staging e produção
-- Conclusão bloqueada enquanto existem checks pendentes: sim
-- Configurações sensíveis no painel: bloqueadas
-- Polling operacional mínimo: 60 segundos
+## Fecho funcional e regressão
 
-## Auditoria
+Foram verificados no browser e por testes de contrato:
 
-- Acesso direto da função `authenticated` à tabela: revogado
-- Pesquisa via RPC redigida: incluída
-- Cadeia de hashes: incluída
-- Redacção recursiva: incluída
-- Update/delete por utilizadores da aplicação: bloqueados
-- Categorias e severidades: incluídas
-- Correlação e request hash: incluídos
-- Exportação CSV: limitada a 5000 linhas
-- Exportação com service role: não
-- `before_data`/`after_data` brutos na exportação: não
-- Cache da exportação: `no-store`
+- Home e Portal público;
+- Museu, galeria, memória individual e modo imersivo;
+- entrada na Área Colaborativa;
+- estado de membro pendente;
+- perfil de voluntário;
+- perfil master;
+- fronteiras de autorização e negação de administração;
+- navegação para a subrota da release candidate;
+- ausência de erros JavaScript fatais;
+- nomes acessíveis de botões, links e campos;
+- landmarks, títulos e idioma do documento;
+- reflow nos viewports de 375, 768 e 1280 px;
+- skip link, foco e preferência por movimento reduzido.
 
-## Retenção
+## Correções resultantes do E2E
 
-- Políticas: 7
-- Aplicação automática: false
-- Agendamento automático: false
-- Aplicação pelo navegador: false
-- Preview antes da aprovação: sim
-- Legal holds: incluídos
-- Hash do conjunto de candidatos: incluído
-- Revalidação antes da aplicação: incluída
-- Aplicação: exclusiva do service role
-- Confirmação de aprovação: `APPROVE_MILREU_RETENTION_RUN`
-- Confirmação de aplicação: `APPLY_MILREU_RETENTION_POLICY`
-- Confirmação adicional de produção: `APPLY_MILREU_PRODUCTION_RETENTION`
-- Contributos comunitários, auditoria e incidentes: fora da eliminação automática
+O ciclo E2E identificou e corrigiu problemas reais na base cumulativa:
 
-## Incidentes e continuidade
+- substituição de `String.casefold()` por `toLocaleLowerCase("pt-PT")`;
+- nomes acessíveis nos links de media das coleções do Museu;
+- inclusão de `main#main` e `h1` no modo imersivo;
+- tratamento correto do honeypot oculto na auditoria automática;
+- labels nos checks operacionais e no seletor de ambiente;
+- correção do grid dos filtros da galeria para evitar overflow;
+- wrapping seguro em cartões de relações longas;
+- troca de persona E2E através do fluxo real de logout.
 
-- Severidades: SEV-1 a SEV-4
-- Estados operacionais: incluídos
-- Referência anual: `INC-AAAA-NNN`
-- Linha temporal: incluída
-- Ações corretivas: incluídas
-- Responsável: incluído
-- Resumo público opcional: incluído
-- Exercícios de continuidade: incluídos
-- Cenários: perda de dados, storage, login, fornecedor, credenciais, publicação acidental e retirada
-- Exercício concluído sem resultado/evidência: bloqueado
+## Acessibilidade
 
-## Backups
+Baseline programática:
 
-- Tipos de plano: base de dados, storage, código, configuração e auditoria
-- Provider inicial: `unconfigured`
-- Backup remoto confirmado: false
-- RPO/RTO: incluídos
-- Responsáveis principal e secundário: incluídos
-- Evidência de verificação: obrigatória
-- Restauração testada: registável
-- Falha de verificação: gera notificação interna
-- Um plano é tratado como prova de backup: não
+- idioma do documento;
+- viewport responsivo;
+- skip link;
+- landmark principal;
+- live regions;
+- navegação atual;
+- foco visível;
+- movimento reduzido;
+- saída do modo imersivo;
+- contenção da imagem imersiva;
+- feedback de formulários;
+- ausência de `service_role` no browser.
 
-## Notificações orgânicas do 08I
+A baseline automática **não substitui** revisão humana. Permanecem pendentes:
 
-- Eventos acumulados: 25
-- Templates acumulados: 25
-- Novos eventos:
-  - `incident.opened`;
-  - `incident.assigned`;
-  - `incident.resolved`;
-  - `backup.verification-failed`;
-  - `retention.run-approved`.
-- E-mail ativo por padrão: não
+- percurso integral por teclado;
+- leitor de ecrã;
+- contraste visual final;
+- zoom a 200%;
+- alvos táteis;
+- mensagens de erro em contexto;
+- revisão cognitiva e visual.
 
-## Banco de dados
+## E2E em Chromium
 
-- Migrations novas: 3
-- Tabelas novas: 13
-- Funções/RPCs novas ou substituídas: 29
-- Triggers novos na fundação: 9
-- RLS nas novas tabelas: sim
-- Escrita direta autenticada nas novas tabelas: não
-- Teste SQL: `supabase/tests/008i_operations_governance.test.sql`
+O runner executa a aplicação real no Chromium via CDP, sem novas dependências npm. Como o ambiente possui uma política empresarial que bloqueia origens locais e fictícias, o runtime E2E é montado integralmente em memória a partir dos módulos e fixtures do repositório.
 
-Migrations:
+Isto permite testar o frontend real sem:
 
-- `20260724150000_collaborative_operations_foundation.sql`
-- `20260724150100_collaborative_operations_rpc.sql`
-- `20260724150200_collaborative_operations_seed.sql`
+- rede externa;
+- credenciais;
+- projeto Supabase;
+- ficheiros locais expostos ao browser;
+- escrita em staging ou produção.
 
-Este ambiente não possui Supabase CLI, PostgreSQL, Docker ou Deno. As migrations foram verificadas estruturalmente e possuem teste SQL preparado, mas a execução real continua obrigatória em Supabase local e staging.
+Resultado: **394 verificações, 394 aprovadas, 0 falhadas**.
 
-## Edge Functions
+## Release candidate
 
-- `dispatch-collab-notifications` preservada do 08H
-- `export-collab-audit` adicionada no 08I
-- TypeScript verificado com `tsc` e declarações locais de compatibilidade
-- Exportação de auditoria exige JWT
-- Service role não utilizada pela exportação
-- Execução real em Deno não realizada
+A subrota criada é:
 
-## Workflows 08I
+```text
+#/area-colaborativa/gestao/homologacao/release-candidate
+```
 
-- `08i-audit-export-deploy.yml`
-- `08i-ci.yml`
-- `08i-database-tests.yml`
-- `08i-retention-apply.yml`
+Ela reutiliza a permissão existente:
 
-Características:
+```text
+homologation.view
+```
 
-- CI cumulativa;
-- testes locais de banco;
-- deploy manual da exportação em staging;
-- aplicação manual de uma execução de retenção aprovada;
-- GitHub Environment protegido;
-- dois literais para produção;
-- nenhum agendamento recorrente.
+Estado produzido:
 
-## Preflight herdado do 08G
+```text
+Release candidate técnica local: ready
+Homologação de staging: blocked
+Aprovação de produção: blocked
+```
 
-Estado: **blocked**
+A RC técnica prova apenas a qualidade reproduzível do repositório. Não prova a operação remota.
 
-Bloqueios externos preservados:
+## Bloqueios externos preservados
 
-- MILREU_SITE_URL não está definido.
-- MILREU_SUPABASE_URL não está definido.
-- Google OAuth ainda não foi marcado como configurado.
-- MILREU_MASTER_EMAIL ainda não está definido.
+- projeto Supabase de staging;
+- projeto Supabase de produção;
+- URLs e project refs;
+- Google OAuth configurado em ambiente protegido;
+- `MILREU_MASTER_EMAIL` seguro;
+- bootstrap real do master;
+- migrations em PostgreSQL/Supabase real;
+- Edge Functions em Deno/Supabase;
+- RLS validada por perfil em ambiente real;
+- fornecedor e evidência de backup;
+- teste de restauração;
+- domínio e contacto oficiais.
 
-Nenhum URL, projeto Supabase, credencial Google, e-mail master, fornecedor de backup ou evidência remota foi inventado.
+## Gates humanos preservados
 
-## Build
+- revisão visual humana;
+- revisão integral por teclado;
+- leitor de ecrã;
+- revisão campo a campo das 31 memórias;
+- aprovação de direitos e créditos;
+- revisão humana das traduções;
+- aprovação formal para publicação.
 
-- Manifest version: 0.20.0
-- Modo: `editorial-preview-noindex`
-- Páginas estáticas de memórias: 30
-- JSONs individuais de memórias: 30
-- Checksum do modelo operacional: sim
-- Checksum do modelo de retenção: sim
-- Checksum do runtime operacional: sim
-- Checksum das notificações: sim
-- Checksum do modelo editorial: sim
-- `dist/` removido do ZIP para evitar duplicação das imagens
+Nenhum recurso, credencial, contacto, aprovação ou evidência externa foi inventado.
 
 ## Comandos concluídos
 
-- `npm run deploy:profile`
-- `npm run deploy:preflight`
-- `npm run deploy:oauth-check`
-- `npm run notifications:config`
-- `npm run operations:config`
-- `npm run operations:report`
-- `npm run operations:backup-evidence`
-- `npm run operations:retention-plan`
-- `npm run operations:audit-status`
-- `npm run collab:config`
-- `npm run museum:review-export`
-- `npm run museum:review-apply`
-- `npm run contributions:demo-export`
-- `npm run exhibitions:export`
-- `npm run channels:export`
-- `npm run museum:index`
-- `npm run museum:audit`
+- `npm run validate:08j`
 - `npm run validate`
 - `npm test`
+- `npm run e2e:08j`
 - `npm run build`
 - `npm run smoke`
+- `npm run rc:evaluate`
 
-## Estado de prontidão
+## Artefactos de evidência
 
-- Governação operacional preparada: true
-- Operação remota validada: false
-- Integridade remota da auditoria validada: false
-- Backup remoto confirmado: false
-- Restauração confirmada: false
+- `reports/e2e-result.json`
+- `reports/accessibility-result.json`
+- `reports/ACCESSIBILITY_HUMAN_CHECKLIST_08J.md`
+- `reports/RELEASE_CANDIDATE_08J.md`
+- `public/data/release-candidate-readiness.json`
+- `public/data/e2e-scenarios-08j.json`
 
-## Próxima fronteira
+## Conclusão
 
-O próximo pacote recomendado é o **08J — Fecho funcional, acessibilidade, testes E2E e release candidate da Área Colaborativa**.
+O Pacote 08J fecha a **release candidate técnica local RC1** da Área Colaborativa. A aplicação não deve ser apresentada como homologada em staging ou aprovada para produção enquanto os gates externos e humanos permanecerem sem evidência.

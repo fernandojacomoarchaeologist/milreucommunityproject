@@ -67,7 +67,7 @@ export function findCollection(collections, slug) {
 export function suggestedMemories(records, record, limit=4) {
   if (!record) return [];
   const explicit = new Set(record.relations || []);
-  const tags = new Set((record.classification.tags || []).map(tag => String(tag).casefold()));
+  const tags = new Set((record.classification.tags || []).map(tag => String(tag).toLocaleLowerCase("pt-PT")));
   return records
     .filter(candidate =>
       candidate.id !== record.id &&
@@ -76,7 +76,7 @@ export function suggestedMemories(records, record, limit=4) {
     )
     .map(candidate => {
       const score = (candidate.classification.tags || [])
-        .map(tag => String(tag).casefold())
+        .map(tag => String(tag).toLocaleLowerCase("pt-PT"))
         .filter(tag => tags.has(tag)).length;
       return { candidate, score };
     })
