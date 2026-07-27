@@ -118,7 +118,8 @@ const add=(id,pass,detail,meta={})=>{results.push({id,pass:Boolean(pass),detail,
 const assert=(id,condition,detail,meta={})=>add(id,condition,detail,meta);
 
 try{
-  await waitHttp(`http://127.0.0.1:${DEBUG_PORT}/json/version`);
+  // Runners frios podem demorar >15s a abrir o porto DevTools; espera até 45s para evitar flakes de arranque.
+  await waitHttp(`http://127.0.0.1:${DEBUG_PORT}/json/version`,45000);
   const targetResponse=await fetch(`http://127.0.0.1:${DEBUG_PORT}/json/new?${encodeURIComponent("about:blank")}`,{method:"PUT"});
   const target=await targetResponse.json();
   cdp=new CDP(target.webSocketDebuggerUrl);await cdp.connect();
