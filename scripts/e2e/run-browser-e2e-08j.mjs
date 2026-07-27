@@ -264,6 +264,11 @@ try{
 } finally {
   cdp?.close();
   browser.kill("SIGTERM");
-  await sleep(250);
-  rmSync(profile,{recursive:true,force:true});
+  await sleep(1000);
+  // Limpeza do perfil temporário do Chromium é best-effort: uma race de libertação
+  // do user-data-dir (ENOTEMPTY) não pode derrubar um run cujas asserções passaram.
+  for(let attempt=0;attempt<5;attempt++){
+    try{rmSync(profile,{recursive:true,force:true});break;}
+    catch(error){if(attempt===4){console.warn(`Aviso: perfil temporário não removido (${error.code||error.message}).`);break;}await sleep(500);}
+  }
 }
