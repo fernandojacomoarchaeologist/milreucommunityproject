@@ -172,6 +172,29 @@ try{
     await viewport(width,height);await navigate("/");await auditPage(`home-${name}`);
   }
 
+  // 08O: carrossel da Home em browser real — caixa canónica, navegação manual e auto-play de relógio real.
+  const CAROUSEL_INTERVAL_MS=9000, CAROUSEL_WAIT=CAROUSEL_INTERVAL_MS+2000;
+  const carouselShape=await evaluate(`(()=>{const slides=document.querySelectorAll('.home-carousel__slide');const vp=document.querySelector('.home-carousel__viewport');return{count:slides.length,active:document.querySelectorAll('.home-carousel__slide--active').length,index:document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null,height:vp?Math.round(vp.getBoundingClientRect().height):0};})()`);
+  assert("carousel-slide-count",carouselShape.count===3,`${carouselShape.count} slides`);
+  assert("carousel-single-active",carouselShape.active===1,`${carouselShape.active} slide ativo`);
+  // Navegação manual + paridade de caixa canónica (≤1 CSS px, sem layout shift).
+  await evaluate(`document.querySelector('[data-home-carousel-next]').click()`);await sleep(900);
+  const afterNext=await evaluate(`(()=>{const vp=document.querySelector('.home-carousel__viewport');return{index:document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null,height:vp?Math.round(vp.getBoundingClientRect().height):0};})()`);
+  assert("carousel-manual-advance",afterNext.index!==carouselShape.index,`Índice ${carouselShape.index}→${afterNext.index}`);
+  assert("carousel-canonical-box",Math.abs(afterNext.height-carouselShape.height)<=1,`Altura ${carouselShape.height}→${afterNext.height}px`);
+  // Auto-play de relógio real: aguarda o intervalo real e confirma a mudança do slide.
+  const autoBefore=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  await sleep(CAROUSEL_WAIT);
+  const autoAfter=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  assert("carousel-autoplay-advances",autoAfter!==autoBefore&&autoAfter!==null,`Índice ${autoBefore}→${autoAfter} após intervalo real`);
+  // Pausa em hover: com o rato sobre o carrossel o slide mantém-se durante um intervalo completo.
+  await evaluate(`document.querySelector('[data-home-carousel]').dispatchEvent(new MouseEvent('mouseenter',{bubbles:true}))`);
+  const hoverBefore=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  await sleep(CAROUSEL_WAIT);
+  const hoverAfter=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  assert("carousel-hover-pauses",hoverAfter===hoverBefore,`Índice mantém-se ${hoverBefore} sob hover`);
+  await evaluate(`document.querySelector('[data-home-carousel]').dispatchEvent(new MouseEvent('mouseleave',{bubbles:true}))`);
+
   // Regressão pública e Museu.
   await viewport(1280,800);
   for(const [code,route] of [["museum","/museu"],["gallery","/museu/explorar"],["memory","/museu/memorias/MM202601"],["immersive","/museu/imersivo/MM202601"],["participate","/participar"],["contribution","/participar/contribuir"],["exhibitions","/exposicoes"]]){
@@ -222,12 +245,18 @@ try{
   await cdp.send("Emulation.setEmulatedMedia",{features:[{name:"prefers-reduced-motion",value:"reduce"}]});
   const reduced=await evaluate(`matchMedia("(prefers-reduced-motion: reduce)").matches`);
   assert("reduced-motion",reduced,"Media query de movimento reduzido ativa.");
+  // 08O: com movimento reduzido, o auto-play do carrossel não deve avançar.
+  await navigate("/");
+  const rmBefore=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  await sleep(11000);
+  const rmAfter=await evaluate(`document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null`);
+  assert("carousel-reduced-motion",rmAfter===rmBefore,`Sem avanço sob movimento reduzido (${rmBefore}).`);
 
   const significantErrors=runtimeErrors.filter(item=>!item.text.includes("favicon")&&!item.text.includes("net::ERR_ABORTED"));
   assert("runtime-errors",significantErrors.length===0,significantErrors.length?significantErrors.map(item=>item.text).join(" | "):"Sem exceções ou erros de consola significativos.");
 
   const failed=results.filter(item=>!item.pass);
-  const report={version:"0.25.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
+  const report={version:"0.26.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
   mkdirSync("reports",{recursive:true});writeFileSync("reports/e2e-result.json",JSON.stringify(report,null,2)+"\n");
   console.log(`E2E Chromium 08J: ${report.passedCount}/${report.total}.`);
   if(failed.length)process.exitCode=1;

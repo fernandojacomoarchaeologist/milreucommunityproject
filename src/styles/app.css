@@ -278,8 +278,9 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0;color:var(--ml
 .section-heading--stacked p{display:block;max-width:54rem}
 
 .home-carousel{position:relative;color:white;background:var(--ml-surface-inverse);overflow:hidden}
-.home-carousel__viewport{position:relative;min-height:72vh}
-.home-carousel__slide{display:none;position:relative;min-height:72vh;overflow:hidden}
+/* 08O: caixa canónica fixa (fonte = Museu de Memórias) partilhada pelos 3 slides, sem variação de altura. */
+.home-carousel__viewport{position:relative;height:72vh}
+.home-carousel__slide{display:none;position:relative;height:72vh;overflow:hidden}
 .home-carousel__slide--active{display:grid;animation:homeCarouselFade .65s ease both}
 .home-carousel__slide--image{align-items:end}
 .home-carousel__media,.home-carousel__overlay{position:absolute;inset:0}
@@ -321,8 +322,8 @@ background-size:3rem 3rem;overflow:hidden}
 .home-carousel__survey-copy h1{max-width:10ch}
 /* 08N: preenchimento consistente (72vh como os outros slides) e crop do topo
    para remover a linha azul do cartaz do Inquérito 2026, sem distorção. */
-.home-carousel__survey-image{position:relative;min-height:72vh;overflow:hidden;background:#d3c2a9}
-.home-carousel__survey-image img{width:100%;height:100%;min-height:72vh;object-fit:cover;object-position:center 24%}
+.home-carousel__survey-image{position:relative;height:100%;overflow:hidden;background:#d3c2a9}
+.home-carousel__survey-image img{width:100%;height:100%;object-fit:cover;object-position:center 24%}
 
 .museum-dashboard{display:none!important}
 .museum-opening+ .museum-section{border-top:0}
@@ -355,7 +356,7 @@ background-size:3rem 3rem;overflow:hidden}
 }
 
 @media(max-width:50rem){
-  .home-carousel__viewport,.home-carousel__slide{min-height:80vh}
+  .home-carousel__viewport,.home-carousel__slide{height:80vh}
   .home-carousel__content,.home-carousel__survey-copy{padding:5rem 1.2rem 6rem}
   .home-carousel__content h1,.home-carousel__survey-copy h1{font-size:clamp(2.7rem,14vw,4.6rem)}
   .home-carousel__arrow{top:auto;bottom:1rem;width:2.7rem;height:2.7rem;transform:none}

@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.25.0",
-  "currentPackage": "08N",
+  "version": "0.26.0",
+  "currentPackage": "08O",
   "surfaces": [
     {
       "code": "portal-home",
@@ -239,6 +239,17 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Refino de UX: secções do voluntário, formação (1 percurso visível), anexos até 10 MB, home com pendências, carrossel e retorno do imersivo. Sem novos módulos/permissões/tabelas."
+    },
+    {
+      "code": "carousel-post-merge-08o",
+      "package": "08O",
+      "module": null,
+      "routes": [
+        "/"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Fixes pós-merge: asset do Inquérito 2026, caixa canónica partilhada pelos três slides e auto-play definitivo (timer único, loop, pausa em hover/foco/document.hidden, reduced motion). Auditoria pós-merge da Área Colaborativa sem novos módulos/permissões/tabelas."
     }
   ],
   "futurePackageRules": [

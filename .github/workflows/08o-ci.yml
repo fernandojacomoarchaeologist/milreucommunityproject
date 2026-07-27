@@ -1,0 +1,51 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08O Post-merge Fixes CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run carousel:validate
+      - run: npm run audit:collaborative
+      - run: npm run fixtures:validate
+      - run: npm run validate:08o
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
+
+  carousel-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # ubuntu-latest inclui google-chrome-stable; o runner deteta /usr/bin/google-chrome.
+      - name: E2E do carrossel em browser real (relógio real)
+        run: npm run e2e:08o
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: milreu-08o-carousel-e2e
+          path: reports/e2e-result.json
+          if-no-files-found: warn
