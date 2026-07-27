@@ -20,7 +20,7 @@ const runtimeBuilder=readFileSync("scripts/collab/build-runtime-config.mjs","utf
 const bootstrap=readFileSync("scripts/admin/bootstrap-master.mjs","utf8");
 const css=readFileSync("src/styles/app.css","utf8");
 
-if(pkg.version!=="0.27.0") throw new Error("Versão do pacote 08A incorreta.");
+if(pkg.version!=="0.28.0") throw new Error("Versão do pacote 08A incorreta.");
 if(config.security.serviceRoleInBrowser!==false||example.security.serviceRoleInBrowser!==false){
   throw new Error("service_role não pode ser permitida no navegador.");
 }

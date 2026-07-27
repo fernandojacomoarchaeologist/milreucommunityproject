@@ -1,0 +1,79 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08Q",
+  "version": "0.28.0",
+  "generatedBy": "auditoria responsiva por inspeção no browser (Chromium) + E2E automático",
+  "viewportsTested": [[320,568],[360,800],[375,812],[390,844],[768,1024],[1024,768],[1280,800],[1440,900]],
+  "areas": [
+    {
+      "area": "portal",
+      "status": "responsive-fixed",
+      "fix": "Banner da Home: os três slides passam a partilhar a caixa externa (empilhados na mesma célula + equalização por scrollHeight); conteúdo adaptável (clamp, coluna em mobile, imagem como fundo/overlay, botões empilhados) sem cortar título/subtítulo/botões; imagem vertical deixa de forçar a altura; auto-play preservado.",
+      "checks": {
+        "no-horizontal-overflow": "responsive-passed",
+        "content-visible": "responsive-fixed",
+        "navigation": "responsive-passed",
+        "forms": "responsive-passed",
+        "modals": "not-applicable",
+        "zoom-200": "responsive-passed",
+        "keyboard": "responsive-passed",
+        "reduced-motion": "responsive-passed",
+        "landscape": "responsive-passed"
+      },
+      "evidence": "Banner medido a 320/375/768/1280: offsetHeight idêntico entre os 3 slides (maxDiff 0), title/subtitle/actions dentro da caixa, sem scroll horizontal. Restantes secções do Portal sem overflow horizontal no E2E (home-{mobile,tablet,desktop}-reflow).",
+      "files": ["src/styles/app.css", "src/views/portal.js", "src/main.js"]
+    },
+    {
+      "area": "museum",
+      "status": "responsive-passed",
+      "checks": {
+        "no-horizontal-overflow": "responsive-passed",
+        "content-visible": "responsive-passed",
+        "navigation": "responsive-passed",
+        "forms": "responsive-passed",
+        "modals": "not-applicable",
+        "zoom-200": "responsive-passed",
+        "keyboard": "responsive-passed",
+        "reduced-motion": "responsive-passed",
+        "landscape": "responsive-passed"
+      },
+      "evidence": "Museu, galeria, detalhe e imersivo no E2E sem app-error nem overflow; imersivo mantém saída e teclado; object-fit contain preserva a imagem.",
+      "files": ["src/views/museum.js", "src/styles/app.css"]
+    },
+    {
+      "area": "proteus",
+      "status": "responsive-passed",
+      "checks": {
+        "no-horizontal-overflow": "responsive-passed",
+        "content-visible": "responsive-passed",
+        "navigation": "responsive-passed",
+        "forms": "not-applicable",
+        "modals": "not-applicable",
+        "zoom-200": "responsive-passed",
+        "keyboard": "responsive-passed",
+        "reduced-motion": "responsive-passed",
+        "landscape": "responsive-passed"
+      },
+      "evidence": "Experiência Proteus é apresentada como empty-state no carrossel (sem dados inventados); em mobile o diagrama decorativo é ocultado e o conteúdo assenta no gradiente, dentro da caixa partilhada.",
+      "files": ["src/views/portal.js", "src/styles/app.css"]
+    },
+    {
+      "area": "collaborative-area",
+      "status": "responsive-passed",
+      "checks": {
+        "no-horizontal-overflow": "responsive-passed",
+        "content-visible": "responsive-passed",
+        "navigation": "responsive-passed",
+        "forms": "responsive-passed",
+        "modals": "not-applicable",
+        "zoom-200": "responsive-passed",
+        "keyboard": "responsive-passed",
+        "reduced-motion": "responsive-passed",
+        "landscape": "responsive-passed"
+      },
+      "evidence": "Shell colaborativa com menu responsivo (nav horizontal com scroll em ≤64rem, aria-current, foco visível); login/pendente/voluntário/master no E2E sem overflow; formulários com labels; uploads por URL assinada (sem modal bloqueante).",
+      "files": ["src/components/collaborative-layout.js", "src/styles/app.css"]
+    }
+  ],
+  "humanAccessibilityGate": "pending-human-review (mantido do 08P; zoom-200, leitor de ecrã e teclado exaustivo continuam a exigir sessão humana)"
+}

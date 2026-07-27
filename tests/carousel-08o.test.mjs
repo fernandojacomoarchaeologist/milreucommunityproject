@@ -32,7 +32,7 @@ test("o asset antigo webp foi removido e desreferenciado", () => {
 
 test("o contrato pós-merge fixa fonte canónica, tolerância e auto-play", () => {
   const model = read("public/data/carousel-post-merge-model.json");
-  assert.equal(model.version, "0.27.0");
+  assert.equal(model.version, "0.28.0");
   assert.equal(model.canonicalSizeSource, "museu-de-memorias");
   assert.equal(model.maxBoundingBoxDifferenceCssPixels, 1);
   assert.equal(model.imageFit, "cover");
@@ -43,17 +43,19 @@ test("o contrato pós-merge fixa fonte canónica, tolerância e auto-play", () =
   assert.deepEqual(model.breakpointsToTest, [375, 768, 1280]);
 });
 
-test("os três slides usam a caixa canónica com altura fixa e cover", () => {
+test("os três slides partilham a caixa canónica (empilhados) com crop só na media (08Q)", () => {
   const css = readFileSync("src/styles/app.css", "utf8");
-  assert.match(css, /\.home-carousel__viewport\{[^}]*height:72vh/);
-  assert.match(css, /\.home-carousel__slide\{[^}]*height:72vh/);
-  assert.doesNotMatch(css, /\.home-carousel__viewport\{[^}]*min-height:72vh/);
+  assert.match(css, /\.home-carousel__viewport\{[^}]*min-height:72vh/);
+  // slides empilhados na mesma célula → caixa idêntica; sem overflow:hidden no slide
+  assert.match(css, /\.home-carousel__slide\{[^}]*grid-area:1\/1/);
+  assert.doesNotMatch(css, /\.home-carousel__slide\{[^}]*overflow:hidden/);
+  assert.match(css, /\.home-carousel__media\{[^}]*overflow:hidden/);
   assert.match(css, /object-fit:cover/);
 });
 
 test("o carrossel tem 3 slides: Museu (canónico), Proteus (sem imagem) e Inquérito (asset)", () => {
   const c = read("public/data/home-carousel.json");
-  assert.equal(c.version, "0.27.0");
+  assert.equal(c.version, "0.28.0");
   assert.equal(c.slides.length, 3);
   assert.equal(c.slides[0].kind, "museum-memory");
   assert.equal(c.slides[1].kind, "empty-state");

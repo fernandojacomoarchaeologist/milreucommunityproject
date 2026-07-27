@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.27.0",
-  "currentPackage": "08P",
+  "version": "0.28.0",
+  "currentPackage": "08Q",
   "surfaces": [
     {
       "code": "portal-home",
@@ -261,6 +261,17 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Fecho funcional transversal: primeiro acesso com estados distintos (suspenso/removido/recusado), biblioteca com finalidade/fonte/audiência, matriz de acesso por perfil derivada de permissões reais e gate de acessibilidade humana pendente. Sem novos módulos/permissões/migrations; produção bloqueada."
+    },
+    {
+      "code": "home-banner-responsive-08q",
+      "package": "08Q",
+      "module": null,
+      "routes": [
+        "/"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Hotfix do banner da Home: os três slides partilham a caixa externa (empilhados na mesma célula + equalização por scrollHeight); conteúdo adaptável sem cortar título/subtítulo/botões; imagem vertical deixa de forçar a altura; auto-play preservado. Auditoria responsiva transversal (Portal, Museu, Proteus, Área Colaborativa) sem novos módulos/permissões/migrations."
     }
   ],
   "futurePackageRules": [
