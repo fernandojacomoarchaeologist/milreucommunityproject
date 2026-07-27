@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "notice": "Os contributos não alteram automaticamente o Museu, o Portal ou a Experiência Proteus.",
   "contributionTypes": [
     {
@@ -284,7 +284,7 @@
   "consentVersion": "2026-08E-v1",
   "limits": {
     "maxFiles": 5,
-    "maxFileSizeBytes": 26214400,
+    "maxFileSizeBytes": 10485760,
     "acceptedMimeTypes": [
       "image/jpeg",
       "image/png",

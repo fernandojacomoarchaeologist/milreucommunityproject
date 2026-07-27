@@ -60,7 +60,7 @@ export function publicContributionFormView(model,lang="pt-PT",result=null){
         <fieldset><legend>3. Ficheiros</legend>
           <label>Fotografias ou documentos
             <input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp,.tif,.tiff,.pdf,.txt,.docx">
-            <small>Até ${esc(model?.limits?.maxFiles||5)} ficheiros, com máximo de 25 MB cada. Os ficheiros permanecem privados durante a análise.</small>
+            <small>Até ${esc(model?.limits?.maxFiles||5)} ficheiros, com máximo de 10 MB cada. Os ficheiros permanecem privados durante a análise.</small>
           </label>
           <label>Direitos dos ficheiros<textarea name="fileRightsNote" rows="3" placeholder="Indique autoria, origem, proprietário ou autorização conhecida."></textarea></label>
         </fieldset>

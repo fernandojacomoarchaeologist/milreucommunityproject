@@ -37,9 +37,9 @@ const smoke=readFileSync("scripts/smoke.mjs","utf8");
 const impact=JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8"));
 const collaborativeReadiness=JSON.parse(readFileSync("public/data/collaborative-readiness.json","utf8"));
 
-if(pkg.version!=="0.24.0")throw new Error("Versão 08G incorreta.");
-if(profile.version!=="0.24.0"||profileExample.version!=="0.24.0")throw new Error("Perfil de implantação desatualizado.");
-if(readiness.version!=="0.24.0"||model.version!=="0.24.0")throw new Error("Modelo/readiness 08G desatualizado.");
+if(pkg.version!=="0.25.0")throw new Error("Versão 08G incorreta.");
+if(profile.version!=="0.25.0"||profileExample.version!=="0.25.0")throw new Error("Perfil de implantação desatualizado.");
+if(readiness.version!=="0.25.0"||model.version!=="0.25.0")throw new Error("Modelo/readiness 08G desatualizado.");
 if(model.environments.length!==3)throw new Error("Ambientes 08G incompletos.");
 if(model.requiredChecks.length!==24)throw new Error("Catálogo de homologação deve conter 24 checks.");
 const library=JSON.parse(readFileSync("public/data/collaborative-library.json","utf8"));
@@ -174,7 +174,7 @@ for(const asset of [
 ]){
   if(!smoke.includes(asset))throw new Error(`Smoke 08G incompleto: ${asset}`);
 }
-if(impact.currentPackage!=="08M"||impact.version!=="0.24.0")throw new Error("Registo de impacto 08G desatualizado.");
+if(impact.currentPackage!=="08N"||impact.version!=="0.25.0")throw new Error("Registo de impacto 08G desatualizado.");
 if(!collaborativeReadiness.functionalModules.includes("deployment-homologation")){
   throw new Error("Readiness colaborativa não inclui 08G.");
 }

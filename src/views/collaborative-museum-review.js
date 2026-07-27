@@ -87,11 +87,15 @@ export function collaborativeLibraryResourceView(context,resourceCode){
   `);
 }
 
+// 08N: na UI do voluntário mostra-se apenas o percurso Fundamentos.
+// Os restantes permanecem no backend (dados/gates intactos), ocultos só aqui.
+const VOLUNTEER_VISIBLE_TRAINING_CODES=["project-foundations"];
 export function collaborativeTrainingView(context){
   if(!hasPermission(context,"training.view"))return forbidden(context);
-  const trails=context.trainingTrails?.trails||[];
+  const allTrails=context.trainingTrails?.trails||[];
+  const trails=allTrails.filter(trail=>VOLUNTEER_VISIBLE_TRAINING_CODES.includes(trail.code));
   return collaborativeShell(context,"/area-colaborativa/formacao",`
-    ${heading("Formação","Percursos de formação","Os percursos apoiam tarefas especializadas e funcionam como gate para aprovações editoriais, de direitos e publicação.")}
+    ${heading("Formação","Percurso de formação","Nesta fase está visível apenas o percurso Fundamentos do Projeto Comunitário de Milreu. Os restantes percursos permanecem no sistema e serão disponibilizados mais tarde.")}
     <div class="training-trail-grid">${trails.map(trail=>{
       const progress=trailProgress(context,trail.code);
       return `<article class="training-trail-card">
@@ -217,7 +221,7 @@ export function collaborativeMuseumReviewManagementView(context,section="overvie
     return collaborativeShell(context,"/area-colaborativa/gestao/revisao-museu/releases",`
       ${heading("Gestão editorial","Ciclos, snapshots e efeitos públicos","A aplicação no Git permanece separada da aprovação no banco.",`<a class="ml-button ml-button--secondary" href="#/area-colaborativa/gestao/revisao-museu">Voltar à fila</a>`)}
       <section class="review-cycle-summary"><article><span>Ciclo</span><strong>${esc(cycle?.title||"Sem ciclo")}</strong>${cycle?statusPill(cycle.status):""}</article><article><span>Publicação aprovada</span><strong>${workspace.records.filter(item=>item.publication_approved_at).length}/31</strong></article><article><span>Snapshots</span><strong>${workspace.snapshots.length}</strong></article><article><span>Efeitos</span><strong>${workspace.effects.length}</strong></article></section>
-      ${cycle&&hasPermission(context,"museum.review.export")?`<form class="collab-form compact-form snapshot-generator" data-museum-snapshot-form data-cycle-id="${esc(cycle.id)}"><label>Versão<input name="version" value="0.24.0" required></label><button type="submit">Gerar snapshot validado</button><p data-collab-feedback></p></form>`:""}
+      ${cycle&&hasPermission(context,"museum.review.export")?`<form class="collab-form compact-form snapshot-generator" data-museum-snapshot-form data-cycle-id="${esc(cycle.id)}"><label>Versão<input name="version" value="0.25.0" required></label><button type="submit">Gerar snapshot validado</button><p data-collab-feedback></p></form>`:""}
       <section class="snapshot-list"><h2>Snapshots</h2>${workspace.snapshots.length?workspace.snapshots.map(item=>`<article><div><strong>${esc(item.version)}</strong><code>${esc(item.payload_hash||"")}</code><time>${esc(date(item.generated_at))}</time></div>${statusPill(item.status)}${item.status==="validated"&&hasPermission(context,"museum.review.apply")?`<button type="button" data-museum-snapshot-approve="${esc(item.id)}">Aprovar snapshot</button>`:""}</article>`).join(""):`<p class="collab-empty-line">Ainda não existem snapshots.</p>`}</section>
       <section class="public-effect-management"><h2>Efeitos nas páginas principais</h2><p>Os efeitos são registados por slot e só podem referenciar memórias com aprovação de publicação.</p>
       ${workspace.effects.length?workspace.effects.map(item=>`<article><strong>${esc(item.effect_code)}</strong><span>${esc(item.slot_code)}</span>${statusPill(item.status)}<span>${item.enabled?"Ativo":"Inativo"}</span></article>`).join(""):""}

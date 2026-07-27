@@ -55,7 +55,7 @@ function contributionForm(context,member=true){
       <div class="form-grid-2"><label>Área<select name="targetType">${options(context.contributionModel?.targetTypes,"general","Selecione")}</select></label><label>Identificador<input name="targetIdentifier" placeholder="Ex.: MM202603"></label><label>Relação<select name="relationType">${options(context.contributionModel?.targetRelations,"supports","Selecione")}</select></label></div>
       <label>Nota<textarea name="targetNote" rows="3"></textarea></label>
     </fieldset>
-    <fieldset><legend>Ficheiros</legend><label>Fotografias ou documentos<input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp,.tif,.tiff,.pdf,.txt,.docx"><small>Até 5 ficheiros, 25 MB cada. Permanecem privados durante a análise.</small></label><label>Direitos dos ficheiros<textarea name="fileRightsNote" rows="3"></textarea></label></fieldset>
+    <fieldset><legend>Ficheiros</legend><label>Fotografias ou documentos<input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp,.tif,.tiff,.pdf,.txt,.docx"><small>Até 5 ficheiros, 10 MB cada. Permanecem privados durante a análise.</small></label><label>Direitos dos ficheiros<textarea name="fileRightsNote" rows="3"></textarea></label></fieldset>
     <fieldset><legend>Crédito e utilização</legend>
       <div class="form-grid-2"><label>Crédito<select name="attributionPreference" required>${options(context.contributionModel?.attributionPreferences,"discuss","Selecione")}</select></label><label>Âmbito autorizado<select name="requestedUsageScope" required>${options(context.contributionModel?.usageScopes,"review-only","Selecione")}</select></label></div>
       <label>Declaração de direitos<textarea name="rightsDeclaration" rows="4" required></textarea></label>

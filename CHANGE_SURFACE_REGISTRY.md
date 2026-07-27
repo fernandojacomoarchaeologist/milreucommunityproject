@@ -172,3 +172,9 @@ Contratos:
 - Efeitos públicos: 0 ativos. Escritas de produção: desativadas.
 - Tabelas `collab_operating_cycles`, `collab_service_requests`, `collab_moderation_cases`, `collab_governance_decisions`, `collab_impact_*`, `collab_continuity_reviews` etc. sob RLS; leitura anon só de snapshots `published`.
 - Não altera Portal, Museu nem conteúdo canónico.
+
+## Superfície de refino — 08N
+
+- Secções do voluntário (estrutura orientadora na home), Formação (1 percurso visível na UI), Contributos (10 MB), home (ações pendentes), carrossel público, imersivo (retorno ao Portal).
+- Efeitos públicos: 0. Escritas de produção: desativadas. Sem novos módulos/permissões/tabelas.
+- 1 migration nova aperta a constraint de tamanho de ficheiro (25→10 MB); não edita migrations aplicadas.

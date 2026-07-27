@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.24.0",
-  "currentPackage": "08M",
+  "version": "0.25.0",
+  "currentPackage": "08N",
   "surfaces": [
     {
       "code": "portal-home",
@@ -224,6 +224,21 @@
       "publicEffects": "snapshots-only-gated",
       "productionWrites": "disabled",
       "note": "Operação, governação, indicadores. Transparência pública desativada por omissão; público lê só snapshots aprovados."
+    },
+    {
+      "code": "site-refinement-08n",
+      "package": "08N",
+      "module": null,
+      "routes": [
+        "/",
+        "/museu/imersivo/:id",
+        "/area-colaborativa",
+        "/area-colaborativa/contributos",
+        "/area-colaborativa/formacao"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Refino de UX: secções do voluntário, formação (1 percurso visível), anexos até 10 MB, home com pendências, carrossel e retorno do imersivo. Sem novos módulos/permissões/tabelas."
     }
   ],
   "futurePackageRules": [

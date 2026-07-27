@@ -1,0 +1,36 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08N",
+  "version": "0.25.0",
+  "sections": [
+    "inicio",
+    "perfil",
+    "notificacoes",
+    "disponibilidade",
+    "tarefas",
+    "contributos",
+    "agenda-exposicoes",
+    "biblioteca",
+    "formacao",
+    "revisao-museu"
+  ],
+  "requiredEditorialBlocks": [
+    "objective",
+    "expectedActions",
+    "quickGuide",
+    "details"
+  ],
+  "homePendingActionsEnabled": true,
+  "visibleTrainingCards": [
+    "project-foundations"
+  ],
+  "hiddenTrainingCardsUntilFurtherInstruction": [
+    "museum-editorial-evidence",
+    "rights-credits-ai",
+    "translation-localisation",
+    "accessible-public-writing"
+  ],
+  "newPermissionsExpected": 0,
+  "newModulesExpected": 0,
+  "trainingNote": "Códigos reais do repositório. O slug da spec (fundamentos-projeto-comunitario-de-milreu) mapeia para project-foundations."
+}
