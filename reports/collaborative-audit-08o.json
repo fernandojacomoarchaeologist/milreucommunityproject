@@ -1,0 +1,132 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08O",
+  "version": "0.26.0",
+  "generatedBy": "auditoria pós-merge por inspeção de código (não gerado automaticamente)",
+  "moduleCount": 25,
+  "permissionCount": 149,
+  "newModules": 0,
+  "newPermissions": 0,
+  "newMigrations": 0,
+  "items": [
+    {
+      "code": "continuous-participation",
+      "status": "passed",
+      "evidence": "Rota collab-participation → collaborativeParticipationView com guarda participation.view; participation.manage gere. Em modo demo a criação de percursos/inscrições é recusada (controller: 'a participação contínua opera apenas em staging real'). Sem percursos, a view apresenta estado próprio; acesso direto por URL passa pelo mesmo guard.",
+      "files": [
+        "src/main.js",
+        "src/views/collaborative-participation.js",
+        "src/collab/controller.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Percursos/inscrições: participationWorkspace via RPC Supabase (staging real); nunca fixtures em produção."
+    },
+    {
+      "code": "museum-review-route-guard-and-rls",
+      "status": "passed",
+      "evidence": "collaborativeMuseumReviewView e Detail verificam hasPermission('museum.review.view') || hasPermission('museum.review'); caso contrário forbidden(). A migration 20260724120000_collaborative_museum_review_foundation.sql ativa RLS em todas as tabelas (16 'enable row level security') e não concede acesso a anon (0 ocorrências). Memórias restritas não são expostas publicamente.",
+      "files": [
+        "src/views/collaborative-museum-review.js",
+        "supabase/migrations/20260724120000_collaborative_museum_review_foundation.sql",
+        "supabase/migrations/20260724120100_collaborative_museum_review_rpc.sql"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Revisão do Museu: museumReviewWorkspace via RPC autenticada; leitura pública inexistente (sem grant anon)."
+    },
+    {
+      "code": "support-entry-point",
+      "status": "passed",
+      "evidence": "Submissão de suporte via formulário data-support-submit-form → controller 'support-submit' → RPC collab_support_submit com permissão support.submit. Suporte é próprio e privado (não é chat livre). Estado e confirmação retornados ao próprio.",
+      "files": [
+        "src/main.js",
+        "src/collab/controller.js",
+        "src/views/collaborative-operations.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Suporte: operationalWorkspace/RPC collab_support_submit (staging real); privado, sem PII pública."
+    },
+    {
+      "code": "sidebar-navigation",
+      "status": "passed",
+      "evidence": "collaborative-layout.js gera <nav class='collab-nav' aria-label='Área Colaborativa'> com aria-current='page' no item ativo; foco visível via :hover/[aria-current]; responsivo (app.css @media max-width:64rem: layout em bloco, nav horizontal com scroll min-width:max-content). Itens condicionais dependem de hasPermission.",
+      "files": [
+        "src/components/collaborative-layout.js",
+        "src/styles/app.css"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Menu: context.modules (registo de módulos) filtrado por permissão; sem fixtures."
+    },
+    {
+      "code": "single-visible-training-path",
+      "status": "passed",
+      "evidence": "collaborativeTrainingView filtra VOLUNTEER_VISIBLE_TRAINING_CODES=['project-foundations'] (introduzido no 08N). Os 4 percursos restantes permanecem no backend (dados/gates intactos) e não vazam: nem a home (homePendingActions) nem a dashboard renderizam percursos; não existe secção de recomendações de formação. A evidência do pacote (cinco percursos) corresponde ao estado anterior ao 08N.",
+      "files": [
+        "src/views/collaborative-museum-review.js",
+        "src/views/collaborative.js",
+        "public/data/collaborative-training-trails.json"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Formação: context.trainingTrails (5 percursos reais no backend); apresentação limitada a 1 na UI do voluntário."
+    },
+    {
+      "code": "contribution-file-upload",
+      "status": "passed",
+      "evidence": "Limite de 10 MB por ficheiro no cliente + config + constraint CHECK (10485760) da migration 20260726110000_contributions_file_limit_10mb.sql; validador em scripts/collab/validate-community-contributions.mjs (maxFileSizeBytes 10485760). Upload por URL assinada via Edge Function community-contribution-intake para bucket privado community-contributions-private. src/collab/config.js lança erro se service_role no navegador.",
+      "files": [
+        "src/collab/config.js",
+        "supabase/migrations/20260726110000_contributions_file_limit_10mb.sql",
+        "scripts/collab/validate-community-contributions.mjs",
+        "public/data/collaborative-contribution-model.json"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Contributos/ficheiros: contributionWorkspace via RPC + Storage privado assinado; sem service_role no browser."
+    },
+    {
+      "code": "activity-proposal",
+      "status": "passed",
+      "evidence": "As propostas (participação/integração pública) seguem fluxo rascunho→revisão→decisão. A decisão formal exige permissão de decisão reservada ao master/dono do projeto (governance.decide, evolution.decide, public-integration.activate); os validadores emitem parecer sem decidir. Não há conversão automática em atividade nem ativação de efeitos: exige confirmação literal (ACTIVATE_MILREU_PUBLIC_EFFECT). Decisor da proposta inalterado neste pacote.",
+      "files": [
+        "src/views/public-integration-management.js",
+        "src/views/collaborative-participation.js",
+        "src/collab/controller.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Propostas: publicIntegrationWorkspace/participationWorkspace via RPC; decisão gated por permissão de master."
+    },
+    {
+      "code": "home-pending-actions",
+      "status": "passed",
+      "evidence": "homePendingActions deriva itens de dados reais (pedido de acesso pendente, notificações não lidas, perfil incompleto) com CTA e deep links; estado sem pendências mostra mensagem positiva 'Sem ações pendentes'. Não há fixtures apresentados como reais.",
+      "files": [
+        "src/views/collaborative.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Home/pendências: context.accessRequest, notificationWorkspace, profile — todos reais; sem invenção."
+    },
+    {
+      "code": "cross-cutting-ui-states",
+      "status": "passed",
+      "evidence": "Estados cobertos: forbidden() para sem-permissão; empty-state/collab-empty-line/collab-empty-state para vazio; feedback aria-live e mensagens de erro nos formulários; login gate para sessão não autenticada. O router encaminha rotas colaborativas sem sessão para a área pública de acesso.",
+      "files": [
+        "src/views/collaborative.js",
+        "src/views/collaborative-museum-review.js",
+        "src/views/collaborative-participation.js",
+        "src/main.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Estados derivados do próprio context (ready/authenticated/error/notice); sem dados fabricados."
+    },
+    {
+      "code": "real-data-vs-fixtures",
+      "status": "passed",
+      "evidence": "O modo demo é explícito (config.mode). As superfícies sensíveis recusam demo com erro claro ('opera apenas em staging real'). Não há fallback silencioso para demo após erro (sem this.config.mode='demo' em runtime). collaborative-demo.json está marcado como demonstração/fictício e a UI de login indica o modo de demonstração.",
+      "files": [
+        "src/collab/controller.js",
+        "src/collab/config.js",
+        "src/views/collaborative.js"
+      ],
+      "test": "tests/collaborative-audit-08o.test.mjs",
+      "sourceMapping": "Fontes: modo supabase = RPC canónicas; modo demo = collaborative-demo.json marcado; nunca misturados."
+    }
+  ]
+}

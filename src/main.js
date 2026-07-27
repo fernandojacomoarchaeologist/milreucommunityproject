@@ -128,12 +128,23 @@ function scheduleHomeCarousel() {
   const slides = state.homeCarousel?.slides || [];
   const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
-  if (route.name !== "home" || !config?.enabled || state.homeCarouselPaused || reducedMotion || slides.length < 2) return;
+  // 08O: pausa também quando o separador/página está oculto (document.hidden).
+  if (route.name !== "home" || !config?.enabled || state.homeCarouselPaused || reducedMotion || document.hidden || slides.length < 2) return;
 
+  // Um único temporizador; o intervalo vem do config (fallback 7000 ms).
   homeCarouselTimer = setTimeout(() => {
     state.homeCarouselIndex = (state.homeCarouselIndex + 1) % slides.length;
-    render(false);
-  }, Number(config.intervalMs || 9000));
+    render(false); // reagenda o temporizador ao fim do ciclo (loop) via bindPage.
+  }, Number(config.intervalMs || 7000));
+}
+
+// 08O: pausar/retomar o auto-play quando a visibilidade da página muda (uma vez).
+if (typeof document !== "undefined" && !globalThis.__milreuHomeCarouselVisibilityBound) {
+  globalThis.__milreuHomeCarouselVisibilityBound = true;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) clearHomeCarouselTimer();
+    else scheduleHomeCarousel();
+  });
 }
 
 function moveHomeCarousel(direction) {

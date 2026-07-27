@@ -13,7 +13,7 @@ const seed = read("public/data/pilot-scenario-seed.json");
 const registry = read("public/data/package-impact-registry.json");
 
 test("o pacote está na versão 0.22.0 com os scripts do piloto", () => {
-  assert.equal(pkg.version, "0.25.0");
+  assert.equal(pkg.version, "0.26.0");
   for (const s of ["pilot:validate", "pilot:readiness", "pilot:scenario-matrix", "pilot:gates", "validate:08k"]) {
     assert.ok(pkg.scripts[s], s);
   }
@@ -33,8 +33,8 @@ test("cenários críticos de isolamento, produção e MM202617 estão presentes"
 });
 
 test("o registo de impacto aponta para o 08K com a superfície do piloto", () => {
-  assert.equal(registry.currentPackage, "08N");
-  assert.equal(registry.version, "0.25.0");
+  assert.equal(registry.currentPackage, "08O");
+  assert.equal(registry.version, "0.26.0");
   const pilot = registry.surfaces.find((s) => s.code === "pilot");
   assert.ok(pilot);
   assert.equal(pilot.publicEffects, "none");

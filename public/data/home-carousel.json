@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.11.2",
+  "version": "0.26.0",
   "autoplay": {
     "enabled": true,
     "intervalMs": 9000,
@@ -73,7 +73,7 @@
       "description": {
         "pt-PT": "As ruínas, as histórias, as memórias, as festas, as pessoas, os caminhos e as fotografias antigas fazem parte desta história. Participar demora apenas alguns minutos e pode ajudar a construir futuras iniciativas culturais, exposições comunitárias e ações ligadas à memória e ao património local. A sua voz faz parte desta história."
       },
-      "image": "public/media/home/inquerito-2026.webp",
+      "image": "public/media/home/inquerito-2026-carousel.png",
       "imageAlt": {
         "pt-PT": "Cartaz do Inquérito 2026: O que Milreu significa para si?"
       },
@@ -87,6 +87,9 @@
     }
   ],
   "assets": {
-    "surveyWebpSha256": "fcff4e895417d4975f7b5623c5a5829f63447e2aa82838194673c36705256529"
+    "surveyAssetSha256": "ea58885f4c16dbcb524544ce80de46e93bb21bb594b68be6a991ec71f6ccebba",
+    "surveyAssetWidth": 1030,
+    "surveyAssetHeight": 1426,
+    "surveyAssetFormat": "PNG"
   }
 }

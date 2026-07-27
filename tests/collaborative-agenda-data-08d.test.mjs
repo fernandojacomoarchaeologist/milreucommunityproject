@@ -12,7 +12,7 @@ const modules=JSON.parse(readFileSync("public/data/collaborative-modules.json","
 const roles=JSON.parse(readFileSync("public/data/collaborative-roles-permissions.json","utf8"));
 
 test("catálogo cobre exposições, locais, agenda e logística",()=>{
-  assert.equal(model.version,"0.25.0");
+  assert.equal(model.version,"0.26.0");
   assert.ok(model.exhibitionTypes.some(item=>item.code==="itinerant"));
   assert.ok(model.venueTypes.some(item=>item.code==="heritage-site"));
   assert.ok(model.eventTypes.some(item=>item.code==="installation"));
