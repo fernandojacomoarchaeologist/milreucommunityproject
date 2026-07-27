@@ -281,6 +281,9 @@ export function immersiveView(records,record,lang,state={}) {
       <img src="${assetUrl("public/icons/back.svg")}" alt="">
       <span>Voltar ao Museu</span>
     </a>
+    <a class="immersive-return-portal" href="#/" data-immersive-portal>
+      <span>${text(lang,"backProject")}</span>
+    </a>
     <button type="button" class="immersive-close-fixed" data-close-immersive aria-label="${text(lang,"close")}">
       <img src="${assetUrl("public/icons/close.svg")}" alt="">
     </button>

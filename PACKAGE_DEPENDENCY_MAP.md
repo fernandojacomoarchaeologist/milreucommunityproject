@@ -129,3 +129,7 @@ O 08L assenta no piloto (08K) e integra-se com homologação (08G), operações/
 ## 08M → depende de 08J, 08K, 08L
 
 O 08M assenta na release candidate (08J), piloto (08K) e integração pública (08L). Integra-se com operações/auditoria/incidentes (08I), tarefas (08C) e notificações (08H). Migrations `20260726100000/100100/100200`. Não ativa operação, transparência pública nem produção reais.
+
+## 08N → depende de 08A–08M
+
+Refino de UX sobre a base cumulativa. Toca em contributos (08E), formação (08F/08C), home colaborativa, carrossel público (07D.2) e imersivo (07C). 1 migration nova (`20260726110000`, aperta limite de ficheiro para 10 MB). Sem novos módulos/permissões.

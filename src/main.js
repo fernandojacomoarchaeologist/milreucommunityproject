@@ -1159,6 +1159,11 @@ function bindPage() {
       if(files.length>(state.collab.contributionModel?.limits?.maxFiles||5)){
         feedback("O número máximo de ficheiros foi ultrapassado.",true);return;
       }
+      const maxFileBytes=Number(state.collab.contributionModel?.limits?.maxFileSizeBytes||10485760);
+      const tooLarge=files.find(file=>file.size>maxFileBytes);
+      if(tooLarge){
+        feedback(`O ficheiro "${tooLarge.name}" excede o limite de 10 MB. Reduza-o e tente novamente.`,true);return;
+      }
       feedback("A submeter o contributo e preparar os ficheiros…");
       try{
         const result=await collaborative.submitContribution(payload,files);
@@ -1330,6 +1335,15 @@ function bindPage() {
       event.preventDefault();
       const route = getRoute();
       if (route.name === "immersive") closeImmersive(route.id);
+    })
+  );
+
+  document.querySelectorAll("[data-immersive-portal]").forEach(control =>
+    control.addEventListener("click", async event => {
+      event.preventDefault();
+      stopSlideshow();
+      if (document.fullscreenElement) { try { await document.exitFullscreen(); } catch {} }
+      go("/");
     })
   );
 

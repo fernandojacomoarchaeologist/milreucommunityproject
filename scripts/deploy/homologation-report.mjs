@@ -11,7 +11,7 @@ const model=JSON.parse(await readFile("public/data/collaborative-homologation-mo
 const date=new Date().toISOString();
 const payload={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.24.0",
+  version:"0.25.0",
   generatedAt:date,
   environment:profile.environment,
   status:readiness.status,

@@ -1,0 +1,17 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08N",
+  "version": "0.25.0",
+  "carouselSlides": [
+    "museu-de-memorias",
+    "experiencia-proteus",
+    "inquerito-2026"
+  ],
+  "requiresConsistentSlideSizing": true,
+  "surveyImageNeedsTopBlueLineRemoval": true,
+  "carouselAutoplayEnabled": true,
+  "carouselManualControlsPreserved": true,
+  "carouselPauseOnInteractionPreferred": true,
+  "immersiveReturnRoutesMustWork": true,
+  "publicEffectsActive": 0
+}
