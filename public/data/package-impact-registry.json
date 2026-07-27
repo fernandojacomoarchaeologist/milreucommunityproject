@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.26.0",
-  "currentPackage": "08O",
+  "version": "0.27.0",
+  "currentPackage": "08P",
   "surfaces": [
     {
       "code": "portal-home",
@@ -250,6 +250,17 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Fixes pós-merge: asset do Inquérito 2026, caixa canónica partilhada pelos três slides e auto-play definitivo (timer único, loop, pausa em hover/foco/document.hidden, reduced motion). Auditoria pós-merge da Área Colaborativa sem novos módulos/permissões/tabelas."
+    },
+    {
+      "code": "functional-closure-08p",
+      "package": "08P",
+      "module": null,
+      "routes": [
+        "/area-colaborativa"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Fecho funcional transversal: primeiro acesso com estados distintos (suspenso/removido/recusado), biblioteca com finalidade/fonte/audiência, matriz de acesso por perfil derivada de permissões reais e gate de acessibilidade humana pendente. Sem novos módulos/permissões/migrations; produção bloqueada."
     }
   ],
   "futurePackageRules": [

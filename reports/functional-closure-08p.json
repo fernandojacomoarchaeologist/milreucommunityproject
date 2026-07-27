@@ -1,0 +1,105 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08P",
+  "version": "0.27.0",
+  "generatedBy": "auditoria transversal por inspeção de código (não gerado automaticamente)",
+  "moduleCount": 25,
+  "permissionCount": 149,
+  "newModules": 0,
+  "newPermissions": 0,
+  "newMigrations": 0,
+  "areas": [
+    {
+      "code": "first-access",
+      "status": "fixed",
+      "evidence": "O router (renderCollaborativeRoute) exige sessão e membership 'active' antes de qualquer módulo. A vista de onboarding passou a distinguir estados: sem membership (formulário de pedido), pendente (análise em curso), suspenso, removido/arquivado e recusado (bloqueio com suporte neutro, sem notas internas nem motivo).",
+      "fix": "Adicionadas as ramificações suspended/archived/rejected em collaborativeOnboardingView (antes um suspenso via o formulário de pedido de acesso).",
+      "files": ["src/main.js", "src/views/collaborative.js", "src/styles/app.css"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "Estado da membership vem do context real (Supabase/RPC); nada inventado."
+    },
+    {
+      "code": "profile-membership-lifecycle",
+      "status": "passed",
+      "evidence": "O perfil próprio edita nome, perfil principal, organização, bio, telefone, idiomas, interesses, competências e opt-in de reconhecimento; a função (papel) não é editável pelo utilizador (gerida em memberships.manage) e é visível na dashboard. Suspensão/arquivo preservam dados; retirada de contributos é auditada (08E).",
+      "files": ["src/views/collaborative.js", "src/collab/controller.js"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "Perfil e membership via RPC collab_update_my_profile_08b / collab_manage_member."
+    },
+    {
+      "code": "notifications-deep-links",
+      "status": "passed",
+      "evidence": "Centro de notificações gated por notifications.view; abrir uma notificação navega por hash e passa pelo gate de membership + hasPermission da vista alvo; entidades removidas mostram 'não encontrado'; marcar como lida via markNotification; e-mail desativado.",
+      "files": ["src/views/collaborative-notifications.js", "src/main.js"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "Notificações via notificationWorkspace/RPC; RLS é a fonte final; o link não concede acesso."
+    },
+    {
+      "code": "availability",
+      "status": "passed",
+      "evidence": "Disponibilidade própria (availability.self.manage) é indicação, não obrigação; atualização/remoção pelo próprio; não é publicada nem usada para pontuar. Persistida por collab_set_my_availability_08c.",
+      "files": ["src/views/collaborative-tasks.js", "src/collab/controller.js"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "taskWorkspace.availability via RPC; sem fixtures em staging/produção."
+    },
+    {
+      "code": "tasks",
+      "status": "passed",
+      "evidence": "Tarefas com instruções, estado, prazo, prioridade, capacidade; ciclo rascunho→publicada→em curso→entregue→concluída; candidatura/convite/entrada; registo de tempo sem ranking; transições auditadas por RPC com validação de estado/capacidade.",
+      "files": ["src/views/collaborative-tasks.js", "src/collab/controller.js"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "taskWorkspace via RPCs collab_*_task_08c; RLS obrigatória."
+    },
+    {
+      "code": "agenda",
+      "status": "passed",
+      "evidence": "Agenda com exposições/eventos, RSVP com privacidade (o próprio consulta a resposta; gestores consultam participantes; público não vê nomes), capacidade validada transacionalmente, estado vazio explícito.",
+      "files": ["src/views/collaborative.js", "src/collab/controller.js"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "exhibitionWorkspace via RPC; snapshot público separado (08D)."
+    },
+    {
+      "code": "library",
+      "status": "fixed",
+      "evidence": "Biblioteca gated por library.view/manage, com pesquisa, filtro por categoria, estado vazio e detalhe (recurso não encontrado tratado). Os cartões passaram a mostrar finalidade (resumo), fonte rotulada (caminho) e audiência/estado, deixando de ser uma lista sem contexto.",
+      "fix": "Enriquecido o cartão da biblioteca com summary, 'Fonte:' rotulada e pills de estado/audiência (sem inventar autoria; os recursos são documentos próprios do projeto).",
+      "files": ["src/views/collaborative-museum-review.js", "src/styles/app.css"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "context.library.resources (documentos internos do projeto); sem invenção de autoria externa."
+    },
+    {
+      "code": "role-access-matrix",
+      "status": "passed",
+      "evidence": "Matriz por perfil construída a partir das permissões REAIS do repositório (build-role-access-matrix.mjs → reports/role-access-matrix-08p.json): 13 perfis mapeados para estados/papéis reais, visibilidade de menu derivada de o papel possuir a permissão do módulo; perfis não-ativos (anónimo, sem membership, pendente, suspenso, removido) veem 0 módulos.",
+      "files": ["scripts/08p/build-role-access-matrix.mjs", "reports/role-access-matrix-08p.json"],
+      "test": "tests/role-access-matrix-08p.test.mjs",
+      "sourceMapping": "collaborative-modules.json + collaborative-roles-permissions.json (dados reais)."
+    },
+    {
+      "code": "human-accessibility",
+      "status": "blocked",
+      "blocker": "Requer sessões humanas reais (teclado, leitor de ecrã, zoom 200%, mobile, movimento reduzido); a automação não promove este gate a passed.",
+      "evidence": "A baseline automática de acessibilidade está verde (08J: 12/12) e o E2E verifica reduced-motion no carrossel, mas o gate humano permanece pending-human-review conforme public/data/human-accessibility-gate.json (automaticPromotionToPassed:false).",
+      "files": ["public/data/human-accessibility-gate.json"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "Gate humano independente; sem evidência humana registada."
+    },
+    {
+      "code": "operational-readiness-boundary",
+      "status": "passed",
+      "evidence": "Fronteira técnica/operação preservada: produção bloqueada, 0 efeitos públicos ativos, sem piloto ativado. package-08p-readiness.json declara stagingOperationalReadiness 'blocked-external' e productionApproval 'blocked'. Os bloqueadores externos são listados, não resolvidos pelo código.",
+      "files": ["public/data/package-08p-readiness.json"],
+      "test": "tests/functional-closure-08p.test.mjs",
+      "sourceMapping": "Sem responsáveis, coorte, domínio ou credenciais inventados."
+    }
+  ],
+  "externalBlockers": [
+    "Supabase real de staging e projeto de produção separado",
+    "Google OAuth, callbacks e master real",
+    "migrations aplicadas e storage privado configurado",
+    "backup e restauração verificados",
+    "domínio de staging e observabilidade mínima",
+    "responsáveis reais e coorte do piloto (08K)",
+    "revisão humana de acessibilidade (gate independente)"
+  ]
+}
