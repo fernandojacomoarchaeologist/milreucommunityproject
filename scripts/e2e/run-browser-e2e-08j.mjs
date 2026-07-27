@@ -168,9 +168,15 @@ try{
     if(allowForbidden)assert(`${prefix}-forbidden`,audit.forbidden,"Acesso condicionado apresentado");
   };
 
-  // Viewports públicos obrigatórios.
+  // Viewports públicos obrigatórios + geometria do banner (08Q).
   for(const [name,width,height] of [["mobile",375,812],["tablet",768,1024],["desktop",1280,800]]){
     await viewport(width,height);await navigate("/");await auditPage(`home-${name}`);
+    // 08Q: os três slides partilham a caixa (offsetHeight idêntico) e title/subtitle/actions
+    // ficam dentro da caixa de cada slide, sem scroll horizontal, neste viewport.
+    const banner=await evaluate(`(()=>{const slides=[...document.querySelectorAll('.home-carousel__slide')];const hs=slides.map(s=>s.offsetHeight);const contained=slides.every(s=>{const b=s.getBoundingClientRect();return ['.eyebrow','h1','p','.hero-actions .ml-button'].map(x=>s.querySelector(x)).filter(Boolean).every(e=>{const r=e.getBoundingClientRect();return r.top>=b.top-2&&r.bottom<=b.bottom+2&&r.left>=b.left-2&&r.right<=b.right+2;});});return{count:slides.length,maxDiff:Math.max(...hs)-Math.min(...hs),contained,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};})()`);
+    assert(`banner-${name}-equal-box`,banner.count===3&&banner.maxDiff<=1,`3 slides, diferença de caixa ${banner.maxDiff}px`);
+    assert(`banner-${name}-content-inside`,banner.contained,"title/subtitle/actions dentro da caixa");
+    assert(`banner-${name}-no-hscroll`,banner.overflow<=2,`overflow horizontal ${banner.overflow}px`);
   }
 
   // 08O: carrossel da Home em browser real — caixa canónica, navegação manual e auto-play de relógio real.
@@ -261,7 +267,7 @@ try{
   assert("runtime-errors",significantErrors.length===0,significantErrors.length?significantErrors.map(item=>item.text).join(" | "):"Sem exceções ou erros de consola significativos.");
 
   const failed=results.filter(item=>!item.pass);
-  const report={version:"0.27.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
+  const report={version:"0.28.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
   mkdirSync("reports",{recursive:true});writeFileSync("reports/e2e-result.json",JSON.stringify(report,null,2)+"\n");
   console.log(`E2E Chromium 08J: ${report.passedCount}/${report.total}.`);
   if(failed.length)process.exitCode=1;

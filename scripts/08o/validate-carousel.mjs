@@ -12,7 +12,7 @@ import { createHash } from "node:crypto";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08O carrossel: ${m}`); };
 
-const EXPECTED_VERSION = "0.27.0";
+const EXPECTED_VERSION = "0.28.0";
 const EXPECTED_ASSET = "public/media/home/inquerito-2026-carousel.png";
 const EXPECTED_SHA = "ea58885f4c16dbcb524544ce80de46e93bb21bb594b68be6a991ec71f6ccebba";
 
@@ -58,11 +58,12 @@ const css = readFileSync("src/styles/app.css", "utf8");
 if (existsSync("public/media/home/inquerito-2026.webp")) fail("asset antigo inquerito-2026.webp ainda presente.");
 if (css.includes("inquerito-2026.webp") || JSON.stringify(carousel).includes("inquerito-2026.webp")) fail("referência antiga inquerito-2026.webp ainda existe.");
 
-// 4. Caixa canónica partilhada: viewport e slide com altura fixa (não min-height variável)
-if (!/\.home-carousel__viewport\{[^}]*height:72vh/.test(css)) fail("viewport sem altura canónica fixa (72vh).");
-if (!/\.home-carousel__slide\{[^}]*height:72vh/.test(css)) fail("slide sem altura canónica fixa (72vh).");
-if (/\.home-carousel__viewport\{[^}]*min-height:72vh/.test(css)) fail("viewport ainda usa min-height (permite variação de altura).");
-if (/\.home-carousel__survey-image\{[^}]*min-height:72vh/.test(css)) fail("survey-image ainda usa min-height fixo em vez de preencher a caixa.");
+// 4. Caixa canónica partilhada (modelo 08Q): os slides são empilhados na mesma célula
+//    (grid-area:1/1) e a viewport tem a caixa canónica; o crop está só na camada de media.
+if (!/\.home-carousel__viewport\{[^}]*min-height:72vh/.test(css)) fail("viewport sem caixa canónica (min-height:72vh).");
+if (!/\.home-carousel__slide\{[^}]*grid-area:1\/1/.test(css)) fail("slides não empilhados na caixa canónica (grid-area:1/1).");
+if (/\.home-carousel__slide\{[^}]*overflow:hidden/.test(css)) fail("o slide não deve usar overflow:hidden (cortaria o conteúdo).");
+if (!/\.home-carousel__media\{[^}]*overflow:hidden/.test(css)) fail("o crop deve estar na camada de media.");
 if (!/object-fit:cover/.test(css)) fail("imagem do Inquérito deve usar object-fit:cover.");
 
 // 5. Auto-play definitivo no main.js

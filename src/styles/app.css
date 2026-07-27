@@ -278,12 +278,18 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0;color:var(--ml
 .section-heading--stacked p{display:block;max-width:54rem}
 
 .home-carousel{position:relative;color:white;background:var(--ml-surface-inverse);overflow:hidden}
-/* 08O: caixa canónica fixa (fonte = Museu de Memórias) partilhada pelos 3 slides, sem variação de altura. */
-.home-carousel__viewport{position:relative;height:72vh}
-.home-carousel__slide{display:none;position:relative;height:72vh;overflow:hidden}
-.home-carousel__slide--active{display:grid;animation:homeCarouselFade .65s ease both}
+/* 08Q: caixa canónica partilhada por MIN-height (fonte = Museu de Memórias). A caixa
+   cresce se o conteúdo precisar — nunca corta título/subtítulo/botões. O crop aplica-se
+   apenas à camada de media (imagem), não ao slide, para não rasterizar nem cortar texto. */
+/* 08Q: os três slides são empilhados na MESMA célula de grid (grid-area:1/1). A caixa do
+   carrossel passa a ser a do slide mais alto e TODOS os slides preenchem-na — caixa idêntica
+   em qualquer viewport (≤1px), sem layout shift e sem cortar conteúdo. A troca é por opacidade. */
+.home-carousel__viewport{position:relative;display:grid;align-items:stretch;min-height:72vh}
+.home-carousel__slide{grid-area:1/1;display:grid;position:relative;opacity:0;visibility:hidden;pointer-events:none}
+.home-carousel__slide--active{z-index:1;opacity:1;visibility:visible;pointer-events:auto;animation:homeCarouselFade .65s ease both}
 .home-carousel__slide--image{align-items:end}
 .home-carousel__media,.home-carousel__overlay{position:absolute;inset:0}
+.home-carousel__media{overflow:hidden}
 .home-carousel__media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04)}
 .home-carousel__overlay{background:linear-gradient(90deg,rgba(30,26,23,.94) 0%,rgba(30,26,23,.67) 46%,rgba(30,26,23,.2) 100%)}
 .home-carousel__content{position:relative;z-index:2;align-self:end;width:min(75rem,100%);padding:clamp(3.5rem,8vw,8rem) clamp(1rem,6vw,6rem) clamp(5rem,8vw,7rem)}
@@ -317,13 +323,19 @@ background-size:3rem 3rem;overflow:hidden}
 .proteus-node{position:absolute;z-index:4;padding:.45rem .65rem;color:white;background:rgb(30 26 23/.88);border:1px solid rgb(255 255 255/.32);font-size:.7rem;font-weight:800}
 .proteus-node--1{left:8%;top:14%}.proteus-node--2{right:8%;top:18%}.proteus-node--3{left:6%;bottom:17%}.proteus-node--4{right:9%;bottom:14%}.proteus-node--5{left:50%;top:7%;transform:translateX(-50%)}
 
-.home-carousel__slide--survey{grid-template-columns:minmax(0,1.05fr) minmax(24rem,.95fr);background:linear-gradient(135deg,#7e251c 0%,#1e1a17 72%)}
-.home-carousel__survey-copy{align-self:center;padding:clamp(3rem,7vw,7rem) clamp(1rem,5vw,5rem) clamp(5rem,8vw,7rem)}
-.home-carousel__survey-copy h1{max-width:10ch}
+.home-carousel__slide--survey{grid-template-columns:minmax(0,1.15fr) minmax(20rem,.85fr);background:linear-gradient(135deg,#7e251c 0%,#1e1a17 72%)}
+.home-carousel__survey-copy{align-self:center;padding:clamp(2rem,3.5vw,3rem) clamp(1rem,4vw,4rem)}
+/* 08Q: o Inquérito tem uma descrição longa; tipografia e espaçamento reduzidos com
+   clamp() para caber na mesma caixa dos outros slides, sem truncar o texto. */
+.home-carousel__survey-copy h1{max-width:18ch;font-size:clamp(1.9rem,3vw,2.9rem)}
+.home-carousel__survey-copy p{font-size:clamp(.92rem,1.05vw,1.05rem);line-height:1.45;max-width:60ch}
+.home-carousel__survey-copy .eyebrow{margin-bottom:.4rem}
 /* 08N: preenchimento consistente (72vh como os outros slides) e crop do topo
    para remover a linha azul do cartaz do Inquérito 2026, sem distorção. */
-.home-carousel__survey-image{position:relative;height:100%;overflow:hidden;background:#d3c2a9}
-.home-carousel__survey-image img{width:100%;height:100%;object-fit:cover;object-position:center 24%}
+.home-carousel__survey-image{position:relative;height:100%;min-height:0;overflow:hidden;background:#d3c2a9}
+/* 08Q: imagem absoluta para NÃO definir a altura do card (o cartaz é vertical); a caixa
+   é definida pelo copo/min-height e a imagem recorta com cover, sem forçar corte de texto. */
+.home-carousel__survey-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 24%}
 
 .museum-dashboard{display:none!important}
 .museum-opening+ .museum-section{border-top:0}
@@ -349,15 +361,27 @@ background-size:3rem 3rem;overflow:hidden}
 }
 
 @media(max-width:64rem){
-  .home-carousel__slide--proteus,.home-carousel__slide--survey{grid-template-columns:1fr}
-  .proteus-empty-state{min-height:24rem;margin:0 1rem 5rem}
-  .home-carousel__survey-image{min-height:30rem;padding:1rem 1rem 5rem}
-  .home-carousel__survey-image img{max-height:28rem}
+  /* 08Q: em coluna única, os três slides mantêm o padrão do Museu — a media é fundo
+     (overlay) e o conteúdo fica por cima com contraste, dentro da mesma caixa. Assim
+     não há empilhamento que dispare a altura, layout shift nem corte de texto/botões. */
+  .home-carousel__slide--proteus,.home-carousel__slide--survey{grid-template-columns:1fr;align-items:end}
+  /* Inquérito: cartaz como fundo recortado + gradiente para legibilidade do texto. */
+  .home-carousel__slide--survey{position:relative}
+  .home-carousel__survey-image{position:absolute;inset:0;height:auto;min-height:0}
+  .home-carousel__survey-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(30 26 23/.82) 0%,rgb(30 26 23/.5) 42%,rgb(126 37 28/.82) 100%)}
+  .home-carousel__survey-image img{max-height:none}
+  .home-carousel__survey-copy{position:relative;z-index:2;align-self:end}
+  /* Proteus não tem fotografia: o conteúdo assenta no gradiente do slide e o diagrama
+     decorativo é ocultado em ecrãs estreitos (não é conteúdo essencial). */
+  .proteus-empty-state{display:none}
+  .home-carousel__slide--proteus .home-carousel__content{align-self:end;padding-bottom:clamp(5rem,10vw,6rem)}
 }
 
 @media(max-width:50rem){
-  .home-carousel__viewport,.home-carousel__slide{height:80vh}
-  .home-carousel__content,.home-carousel__survey-copy{padding:5rem 1.2rem 6rem}
+  .home-carousel__viewport,.home-carousel__slide{min-height:80vh}
+  .home-carousel__content,.home-carousel__survey-copy{padding:4rem 1.2rem 5.5rem}
+  .hero-actions{width:100%}
+  .home-carousel__content .hero-actions .ml-button,.home-carousel__survey-copy .hero-actions .ml-button{flex:1 1 100%;text-align:center}
   .home-carousel__content h1,.home-carousel__survey-copy h1{font-size:clamp(2.7rem,14vw,4.6rem)}
   .home-carousel__arrow{top:auto;bottom:1rem;width:2.7rem;height:2.7rem;transform:none}
   .home-carousel__arrow--previous{left:1rem}.home-carousel__arrow--next{right:1rem}

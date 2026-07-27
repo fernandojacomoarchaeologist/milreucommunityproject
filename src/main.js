@@ -147,6 +147,29 @@ if (typeof document !== "undefined" && !globalThis.__milreuHomeCarouselVisibilit
   });
 }
 
+// 08Q: iguala a caixa dos três slides à do mais alto (todos empilhados na mesma célula).
+// Garante caixa idêntica entre slides (≤1px) sem cortar conteúdo, em qualquer viewport.
+function equalizeHomeCarousel() {
+  const viewport = document.querySelector("[data-home-carousel] .home-carousel__viewport");
+  if (!viewport) return;
+  viewport.style.minHeight = "";
+  const slides = [...viewport.querySelectorAll(".home-carousel__slide")];
+  // scrollHeight capta a altura real do conteúdo (inclui o que transbordaria a caixa),
+  // garantindo que a caixa partilhada acomoda o slide mais alto sem cortar nada.
+  const tallest = Math.max(0, ...slides.map(slide => slide.scrollHeight));
+  if (tallest > 0) viewport.style.minHeight = `${Math.ceil(tallest)}px`;
+}
+
+// Reequalizar após mudanças de dimensão da janela (a rota é reconstruída na navegação, não no resize).
+if (typeof window !== "undefined" && !globalThis.__milreuHomeCarouselResizeBound) {
+  globalThis.__milreuHomeCarouselResizeBound = true;
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(equalizeHomeCarousel, 150);
+  });
+}
+
 function moveHomeCarousel(direction) {
   const slides = state.homeCarousel?.slides || [];
   if (!slides.length) return;
@@ -1372,6 +1395,7 @@ function bindPage() {
 
   bindImmersiveKeyboard();
   scheduleSlideshow();
+  equalizeHomeCarousel();
   scheduleHomeCarousel();
 }
 

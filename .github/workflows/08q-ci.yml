@@ -1,0 +1,54 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 08Q Banner Hotfix and Responsive CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run banner:validate
+      - run: npm run responsive:audit
+      - run: npm run responsive:overflow
+      - run: npm run responsive:report
+      - run: npm run validate:08q
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
+
+  banner-geometry-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Geometria do banner em browser real (caixa igual, conteúdo dentro, sem h-scroll) por viewport.
+      - name: E2E de geometria do banner
+        run: npm run e2e:08q
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: milreu-08q-banner-e2e
+          path: |
+            reports/e2e-result.json
+            reports/responsive-audit-08q.json
+          if-no-files-found: warn
