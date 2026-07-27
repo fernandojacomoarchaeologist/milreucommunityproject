@@ -1,0 +1,271 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "08P",
+  "version": "0.27.0",
+  "generatedFrom": [
+    "public/data/collaborative-modules.json",
+    "public/data/collaborative-roles-permissions.json"
+  ],
+  "layers": [
+    "menu",
+    "route",
+    "action",
+    "api",
+    "rls",
+    "storage",
+    "deep-link",
+    "denial-message"
+  ],
+  "layerEnforcement": {
+    "menu": "src/components/collaborative-layout.js filtra módulos por hasPermission.",
+    "route": "src/main.js renderCollaborativeRoute exige sessão + membership active; cada vista chama hasPermission/forbidden.",
+    "action": "handlers em src/main.js e RPCs verificam permissão antes de mutar.",
+    "api": "RPCs security definer verificam permissão dentro da transação.",
+    "rls": "políticas RLS nas migrations são a fonte final; a UI escondida não substitui RLS.",
+    "storage": "bucket privado community-contributions-private via URL assinada; service_role fora do browser.",
+    "deep-link": "abrir uma notificação/URL passa pelo mesmo gate + hasPermission; entidade removida mostra estado 'não encontrado'.",
+    "denial-message": "forbidden()/collaborativeForbiddenView e estados bloqueados de membership sem expor notas internas."
+  },
+  "totals": {
+    "profiles": 13,
+    "modules": 25,
+    "permissions": 149
+  },
+  "matrix": [
+    {
+      "profile": "anonymous",
+      "mappedTo": "unauthenticated",
+      "gate": "login",
+      "menuModuleCount": 0,
+      "menuModules": [],
+      "note": null
+    },
+    {
+      "profile": "authenticated-without-membership",
+      "mappedTo": "no-membership",
+      "gate": "onboarding-request",
+      "menuModuleCount": 0,
+      "menuModules": [],
+      "note": null
+    },
+    {
+      "profile": "pending",
+      "mappedTo": "membership:pending",
+      "gate": "onboarding-pending",
+      "menuModuleCount": 0,
+      "menuModules": [],
+      "note": null
+    },
+    {
+      "profile": "volunteer",
+      "mappedTo": "role:volunteer",
+      "gate": "modules",
+      "menuModuleCount": 12,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": null
+    },
+    {
+      "profile": "reviewer",
+      "mappedTo": "role:reviewer",
+      "gate": "modules",
+      "menuModuleCount": 14,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "deployment-homologation",
+        "audit-governance",
+        "incident-continuity",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": null
+    },
+    {
+      "profile": "translator",
+      "mappedTo": "role:translator",
+      "gate": "modules",
+      "menuModuleCount": 12,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "deployment-homologation",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": null
+    },
+    {
+      "profile": "researcher",
+      "mappedTo": "role:researcher",
+      "gate": "modules",
+      "menuModuleCount": 15,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "deployment-homologation",
+        "audit-governance",
+        "incident-continuity",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": null
+    },
+    {
+      "profile": "partner",
+      "mappedTo": "role:partner",
+      "gate": "modules",
+      "menuModuleCount": 8,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "agenda",
+        "library",
+        "museum-review",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": null
+    },
+    {
+      "profile": "coordinator",
+      "mappedTo": "role:coordinator",
+      "gate": "modules",
+      "menuModuleCount": 25,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "task-management",
+        "profile-management",
+        "member-invitations",
+        "contribution-moderation",
+        "museum-review-management",
+        "notification-management",
+        "venue-management",
+        "deployment-homologation",
+        "exhibition-management",
+        "system-administration",
+        "audit-governance",
+        "incident-continuity",
+        "pilot",
+        "continuous-participation",
+        "operations-governance"
+      ],
+      "note": null
+    },
+    {
+      "profile": "project-owner",
+      "mappedTo": "role:master",
+      "gate": "modules",
+      "menuModuleCount": 25,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "task-management",
+        "profile-management",
+        "member-invitations",
+        "contribution-moderation",
+        "museum-review-management",
+        "notification-management",
+        "venue-management",
+        "deployment-homologation",
+        "exhibition-management",
+        "system-administration",
+        "audit-governance",
+        "incident-continuity",
+        "pilot",
+        "continuous-participation",
+        "operations-governance"
+      ],
+      "note": null
+    },
+    {
+      "profile": "optional-validator",
+      "mappedTo": "role:volunteer",
+      "gate": "modules",
+      "menuModuleCount": 12,
+      "menuModules": [
+        "dashboard",
+        "profile",
+        "notifications",
+        "availability",
+        "tasks",
+        "contributions",
+        "agenda",
+        "library",
+        "training",
+        "museum-review",
+        "pilot",
+        "continuous-participation"
+      ],
+      "note": "Parecer sobre proposta é concedido por atribuição pontual, não por papel; a base é a de membro."
+    },
+    {
+      "profile": "suspended",
+      "mappedTo": "membership:suspended",
+      "gate": "blocked-suspended",
+      "menuModuleCount": 0,
+      "menuModules": [],
+      "note": null
+    },
+    {
+      "profile": "removed",
+      "mappedTo": "membership:archived",
+      "gate": "blocked-archived",
+      "menuModuleCount": 0,
+      "menuModules": [],
+      "note": null
+    }
+  ]
+}

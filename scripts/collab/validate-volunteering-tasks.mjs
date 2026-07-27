@@ -17,8 +17,8 @@ const build=readFileSync("scripts/build.mjs","utf8");
 const migration=readFileSync("supabase/migrations/20260724080000_collaborative_volunteering_tasks.sql","utf8");
 const rpc=readFileSync("supabase/migrations/20260724080100_collaborative_volunteering_tasks_rpc.sql","utf8");
 
-if(pkg.version!=="0.26.0")throw new Error("Versão 08C incorreta.");
-if(model.version!=="0.26.0"||model.categories.length<12)throw new Error("Modelo de tarefas incompleto.");
+if(pkg.version!=="0.27.0")throw new Error("Versão 08C incorreta.");
+if(model.version!=="0.27.0"||model.categories.length<12)throw new Error("Modelo de tarefas incompleto.");
 for(const code of ["availability","tasks","task-management"]){const module=modules.find(item=>item.code===code);if(!module||module.status!=="active")throw new Error(`Módulo ativo ausente: ${code}`);}
 for(const permission of ["availability.self.manage","tasks.apply","tasks.progress","tasks.time-log","tasks.assign","tasks.verify","tasks.cancel","tasks.audit.view"]){if(!roles.permissions.includes(permission))throw new Error(`Permissão ausente: ${permission}`);}
 for(const route of ["collab-task-detail","collab-availability","collab-task-management","collab-task-new","collab-task-edit","collab-task-manage-detail"]){if(!router.includes(route))throw new Error(`Rota ausente: ${route}`);}

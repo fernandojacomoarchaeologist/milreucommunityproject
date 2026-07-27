@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 const read=(p)=>JSON.parse(readFileSync(p,"utf8"));
 const fail=(m)=>{throw new Error(`08N: ${m}`);};
 const model=read("public/data/volunteer-experience-model.json");
-if(model.version!=="0.26.0")fail("versão do modelo do voluntário incorreta.");
+if(model.version!=="0.27.0")fail("versão do modelo do voluntário incorreta.");
 if(model.newPermissionsExpected!==0||model.newModulesExpected!==0)fail("08N não cria módulos nem permissões.");
 for(const b of ["objective","expectedActions","quickGuide","details"])if(!model.requiredEditorialBlocks.includes(b))fail(`bloco editorial ${b} ausente.`);
 if(!model.visibleTrainingCards.includes("project-foundations")||model.visibleTrainingCards.length!==1)fail("Formação deve mostrar apenas o percurso Fundamentos (project-foundations).");

@@ -227,6 +227,10 @@ try{
   for(const [code,route] of [["volunteer-dashboard","/area-colaborativa"],["volunteer-profile","/area-colaborativa/perfil"],["volunteer-availability","/area-colaborativa/disponibilidade"],["volunteer-tasks","/area-colaborativa/tarefas"],["volunteer-contributions","/area-colaborativa/contributos"],["volunteer-agenda","/area-colaborativa/agenda"],["volunteer-library","/area-colaborativa/biblioteca"],["volunteer-training","/area-colaborativa/formacao"],["volunteer-notifications","/area-colaborativa/notificacoes"]]){
     await navigate(route);await auditPage(code,{expectCollaborative:true});
   }
+  // 08P: a Biblioteca mostra a fonte do recurso (finalidade/fonte/audiência), não apenas uma lista.
+  await navigate("/area-colaborativa/biblioteca");
+  const librarySource=await evaluate(`/Fonte:/.test(document.querySelector("#app")?.textContent||"")`);
+  assert("library-source-context",librarySource,"Biblioteca apresenta a fonte do recurso.");
   await navigate("/area-colaborativa/gestao/sistema");await auditPage("volunteer-admin-denied",{expectCollaborative:true,allowForbidden:true});
 
   // Master: rotas transversais e RC.
@@ -257,7 +261,7 @@ try{
   assert("runtime-errors",significantErrors.length===0,significantErrors.length?significantErrors.map(item=>item.text).join(" | "):"Sem exceções ou erros de consola significativos.");
 
   const failed=results.filter(item=>!item.pass);
-  const report={version:"0.26.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
+  const report={version:"0.27.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
   mkdirSync("reports",{recursive:true});writeFileSync("reports/e2e-result.json",JSON.stringify(report,null,2)+"\n");
   console.log(`E2E Chromium 08J: ${report.passedCount}/${report.total}.`);
   if(failed.length)process.exitCode=1;
