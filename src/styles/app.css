@@ -287,6 +287,9 @@ html{scroll-behavior:smooth}*{box-sizing:border-box}body{margin:0;color:var(--ml
 .home-carousel__viewport{position:relative;display:grid;align-items:stretch;min-height:72vh}
 .home-carousel__slide{grid-area:1/1;display:grid;position:relative;opacity:0;visibility:hidden;pointer-events:none}
 .home-carousel__slide--active{z-index:1;opacity:1;visibility:visible;pointer-events:auto;animation:homeCarouselFade .65s ease both}
+/* 09A: progressive enhancement — se o JS não marcar um slide ativo (falha/atraso),
+   o primeiro slide fica visível na mesma, evitando um carrossel em branco. */
+.home-carousel__viewport:not(:has(.home-carousel__slide--active)) .home-carousel__slide:first-child{opacity:1;visibility:visible;pointer-events:auto}
 .home-carousel__slide--image{align-items:end}
 .home-carousel__media,.home-carousel__overlay{position:absolute;inset:0}
 .home-carousel__media{overflow:hidden}
@@ -1122,3 +1125,15 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .collab-pending__list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 .collab-pending__list li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;padding:.85rem 1rem;background:var(--ml-surface-reading,#fff);border:1px solid var(--ml-border-subtle,#d8cfc4);border-left:4px solid var(--ml-surface-signature,#a83227);border-radius:8px}
 .collab-pending__list p{margin:.15rem 0 0;font-size:.85rem;color:var(--ml-text-secondary,#6b6058)}
+
+/* 09A: fallback estático sem JavaScript (renderizado por <noscript>). */
+.no-js-fallback{max-width:72rem;margin:auto;padding:clamp(2rem,6vw,5rem) clamp(1rem,5vw,3rem);color:var(--ml-text,#1e1a17)}
+.no-js-fallback__head{margin-bottom:2rem}
+.no-js-fallback__head h1{margin:.2em 0;font:500 clamp(2.4rem,6vw,4.5rem)/1 var(--ml-font-display)}
+.no-js-fallback__head p{max-width:60ch;font:clamp(1rem,1.6vw,1.25rem)/1.6 var(--ml-font-editorial)}
+.no-js-fallback__cards{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+.no-js-fallback__cards article{padding:1.25rem;background:#fffefa;border:1px solid #d5cabd;border-top:5px solid #a83227}
+.no-js-fallback__cards h2{margin:.35rem 0;font:500 1.6rem var(--ml-font-display)}
+.no-js-fallback__cards p{font:.95rem/1.55 var(--ml-font-editorial);color:#4a423b}
+.no-js-fallback__cards .ml-button{margin:.75rem .5rem 0 0}
+.no-js-fallback__note{margin-top:2rem;font-size:.85rem;color:#665f58}

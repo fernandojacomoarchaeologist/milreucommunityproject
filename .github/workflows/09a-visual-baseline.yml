@@ -1,0 +1,43 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+#
+# Estabelecimento explícito e revisável dos baselines de regressão visual, no MESMO
+# SO do CI (Linux), para coincidirem com o rendering do `visual-regression`. NUNCA
+# corre em pull_request/push (sem atualização automática de snapshots no CI). Gera os
+# baselines e sobe-os como artefacto para revisão e commit humano.
+
+name: 09A Visual Baseline (manual)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PLAYWRIGHT_VERSION: 1.49.1
+
+jobs:
+  generate-baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Instalar Playwright ad-hoc
+        run: |
+          npm install --no-save "@playwright/test@${PLAYWRIGHT_VERSION}"
+          npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Gerar baselines visuais (Linux) — passo explícito
+        run: npx playwright test --config playwright.visual.config.mjs --update-snapshots
+      - name: Subir baselines para revisão e commit humano
+        uses: actions/upload-artifact@v4
+        with:
+          name: milreu-09a-visual-baselines-linux
+          path: tests/visual/__screenshots__/
+          if-no-files-found: error

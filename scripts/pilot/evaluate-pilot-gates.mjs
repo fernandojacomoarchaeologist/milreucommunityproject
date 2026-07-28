@@ -26,7 +26,7 @@ const homologationGates = [
 const evaluate = (codes) => codes.map((code) => ({ code, status: "blocked", blocking: true, evidence: "requires-real-execution" }));
 
 const report = {
-  version: "0.28.0",
+  version: "0.29.0",
   pilotReadiness: readiness.pilotReadiness,
   stagingHomologation: readiness.stagingHomologation,
   productionApproval: "blocked",

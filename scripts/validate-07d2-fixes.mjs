@@ -11,7 +11,7 @@ const museum = readFileSync("src/views/museum.js","utf8");
 const main = readFileSync("src/main.js","utf8");
 const css = readFileSync("src/styles/app.css","utf8");
 
-if (carousel.version !== "0.28.0") throw new Error("Versão do carrossel inválida.");
+if (carousel.version !== "0.29.0") throw new Error("Versão do carrossel inválida.");
 if (carousel.slides.length !== 3) throw new Error("A Home deve possuir três destaques.");
 if (carousel.slides[0].id !== "museum") throw new Error("O Museu deve ser o primeiro destaque.");
 if (carousel.slides[1].kind !== "empty-state" || carousel.slides[1].id !== "proteus") {

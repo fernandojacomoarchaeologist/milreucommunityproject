@@ -21,7 +21,39 @@ Consultar RIGHTS.md.
 <body>
   <a class="skip-link" href="#main">Saltar para o conteúdo</a>
   <div id="app" aria-live="polite"></div>
-  <noscript>Esta pré-visualização necessita de JavaScript.</noscript>
+  <noscript>
+    <!-- 09A: fallback sem JavaScript — conteúdo essencial legível, sem cards sobrepostos,
+         com título, subtítulo e ações. A experiência interativa completa requer JavaScript. -->
+    <main id="main" class="no-js-fallback">
+      <header class="no-js-fallback__head">
+        <p class="eyebrow">Projeto Comunitário de Milreu</p>
+        <h1>Entre Ruínas e Memórias</h1>
+        <p>Arqueologia pública e comunitária associada às Ruínas Romanas de Milreu, em Estoi, Faro.</p>
+      </header>
+      <section class="no-js-fallback__cards" aria-label="Destaques">
+        <article>
+          <span class="eyebrow">Entre Ruínas e Memórias</span>
+          <h2>Museu de Memórias de Milreu</h2>
+          <p>Fotografias, narrativas, contexto e relações que aproximam a comunidade, Estoi, a paisagem e Milreu.</p>
+          <a class="ml-button ml-button--primary" href="#/museu">Entrar no Museu</a>
+          <a class="ml-button ml-button--secondary" href="#/museu/explorar">Explorar memórias</a>
+        </article>
+        <article>
+          <span class="eyebrow">Dados, relações e pesquisa</span>
+          <h2>Experiência Proteus</h2>
+          <p>Uma nova forma de cruzar memórias, lugares, fontes, estudos e dados sobre Milreu. A estrutura está preparada e será ampliada de forma progressiva e documentada.</p>
+          <a class="ml-button ml-button--primary" href="#/conhecimento">Abrir Experiência Proteus</a>
+        </article>
+        <article>
+          <span class="eyebrow">Inquérito 2026 · fase final</span>
+          <h2>O que significa Milreu para si?</h2>
+          <p>As ruínas, as histórias, as memórias, as festas, as pessoas e as fotografias antigas fazem parte desta história. Participar demora apenas alguns minutos.</p>
+          <a class="ml-button ml-button--primary" href="https://pt.surveymonkey.com/r/3CFG2MQ" rel="noopener noreferrer">Responder ao Inquérito 2026</a>
+        </article>
+      </section>
+      <p class="no-js-fallback__note">A versão interativa do Portal e do Museu de Memórias necessita de JavaScript ativado.</p>
+    </main>
+  </noscript>
   <script type="module" src="./src/main.js"></script>
 </body>
 </html>
