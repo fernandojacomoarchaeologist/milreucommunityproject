@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.28.0",
-  "currentPackage": "08Q",
+  "version": "0.29.0",
+  "currentPackage": "09A",
   "surfaces": [
     {
       "code": "portal-home",
@@ -272,6 +272,17 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Hotfix do banner da Home: os três slides partilham a caixa externa (empilhados na mesma célula + equalização por scrollHeight); conteúdo adaptável sem cortar título/subtítulo/botões; imagem vertical deixa de forçar a altura; auto-play preservado. Auditoria responsiva transversal (Portal, Museu, Proteus, Área Colaborativa) sem novos módulos/permissões/migrations."
+    },
+    {
+      "code": "portal-quality-foundation-09a",
+      "package": "09A",
+      "module": null,
+      "routes": [
+        "/"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Fundação de qualidade do Portal (Série 09): Playwright como harness E2E principal (migração incremental, harness legado preservado), regressão visual por screenshots (baselines estabelecidos por passo manual/revisável, sem auto-update no CI), asserções geométricas que apanham a classe 08O→08Q, cenário sem JavaScript com fallback <noscript> e progressive enhancement do carrossel. Sem módulos/permissões/migrations; sem alterar fontes, i18n, SEO, conteúdo ou dataset."
     }
   ],
   "futurePackageRules": [

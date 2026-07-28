@@ -22,8 +22,8 @@ const migration=readFileSync("supabase/migrations/20260724100000_collaborative_a
 const rpc=readFileSync("supabase/migrations/20260724100100_collaborative_agenda_exhibitions_rpc.sql","utf8");
 const seed=readFileSync("supabase/migrations/20260724100200_collaborative_agenda_exhibitions_seed.sql","utf8");
 
-if(pkg.version!=="0.28.0")throw new Error("Versão 08D incorreta.");
-if(model.version!=="0.28.0")throw new Error("Modelo de exposições desatualizado.");
+if(pkg.version!=="0.29.0")throw new Error("Versão 08D incorreta.");
+if(model.version!=="0.29.0")throw new Error("Modelo de exposições desatualizado.");
 for(const collection of ["exhibitionTypes","exhibitionStatuses","venueTypes","scheduleStatuses","eventTypes","visibilityOptions","rsvpStatuses","checklistCategories"]){
   if(!Array.isArray(model[collection])||!model[collection].length)throw new Error(`Catálogo ausente: ${collection}`);
 }

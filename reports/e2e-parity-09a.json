@@ -1,0 +1,97 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09A",
+  "version": "0.29.0",
+  "legacyHarness": "scripts/e2e/run-browser-e2e-08j.mjs",
+  "legacyHarnessPreserved": true,
+  "migrationMode": "incremental",
+  "primaryHarness": "playwright",
+  "scenarios": [
+    {
+      "area": "portal-home-carousel",
+      "legacyAssertions": ["banner-mobile-*", "banner-tablet-*", "banner-desktop-*", "carousel-slide-count", "carousel-manual-advance", "carousel-canonical-box"],
+      "newTest": "tests/e2e/portal/home-carousel.spec.mjs",
+      "status": "migrated",
+      "notes": "Caixa igual (≤1px), conteúdo dentro da caixa e sem overflow em 375/768/1280/1440; navegação manual; controlos. Apanha a classe de regressão 08O→08Q."
+    },
+    {
+      "area": "portal",
+      "legacyAssertions": ["home-{mobile,tablet,desktop}-*", "home-no-app-error"],
+      "newTest": "tests/e2e/portal/portal.spec.mjs",
+      "status": "migrated",
+      "notes": "Título, landmark, sem app-error, sem overflow por viewport, navegação Portal→Museu."
+    },
+    {
+      "area": "museum",
+      "legacyAssertions": ["museum-no-app-error", "gallery-no-app-error", "memory-no-app-error"],
+      "newTest": "tests/e2e/museum/museum.spec.mjs",
+      "status": "migrated",
+      "notes": "Museu, galeria e detalhe sem app-error nem overflow."
+    },
+    {
+      "area": "immersive",
+      "legacyAssertions": ["immersive-exit", "immersive-no-app-error"],
+      "newTest": "tests/e2e/immersive/immersive.spec.mjs",
+      "status": "migrated",
+      "notes": "Entrada, saída e estado is-immersive; retorno ao Museu."
+    },
+    {
+      "area": "proteus",
+      "legacyAssertions": ["carousel-single-active (proteus)"],
+      "newTest": "tests/e2e/proteus/proteus.spec.mjs",
+      "status": "migrated",
+      "notes": "Empty-state sem imagem inventada; rota Experiência Proteus sem app-error."
+    },
+    {
+      "area": "collaborative-login",
+      "legacyAssertions": ["auth-demo-options", "pending-no-sidebar"],
+      "newTest": "tests/e2e/collaborative/collaborative.spec.mjs",
+      "status": "migrated",
+      "notes": "3 perfis de demonstração; pendente sem sidebar."
+    },
+    {
+      "area": "collaborative-home",
+      "legacyAssertions": ["volunteer-*", "master-*", "volunteer-admin-denied"],
+      "newTest": "tests/e2e/collaborative/collaborative.spec.mjs",
+      "status": "migrated",
+      "notes": "Voluntário com sidebar + biblioteca com fonte; admin negado; master gere perfis."
+    },
+    {
+      "area": "training",
+      "legacyAssertions": ["volunteer-training-*"],
+      "newTest": "tests/e2e/collaborative/collaborative.spec.mjs",
+      "status": "partial",
+      "notes": "Coberto pelo fluxo do voluntário; asserção dedicada de Formação fica para migração posterior."
+    },
+    {
+      "area": "contributions",
+      "legacyAssertions": ["volunteer-contributions-*"],
+      "newTest": "tests/e2e/collaborative/collaborative.spec.mjs",
+      "status": "partial",
+      "notes": "Rota coberta pelo fluxo do voluntário; upload real depende de staging (fora do 09A)."
+    },
+    {
+      "area": "activity-proposal",
+      "legacyAssertions": ["participation/proposal flows"],
+      "newTest": "tests/e2e/collaborative/collaborative.spec.mjs",
+      "status": "partial",
+      "notes": "Decisão do dono depende de staging real; migração dedicada fica para pacote posterior."
+    },
+    {
+      "area": "reduced-motion",
+      "legacyAssertions": ["reduced-motion", "carousel-reduced-motion"],
+      "newTest": "tests/e2e/accessibility/reduced-motion.spec.mjs",
+      "status": "migrated",
+      "notes": "Sob movimento reduzido não há auto-play nem animação de fade."
+    },
+    {
+      "area": "no-javascript",
+      "legacyAssertions": ["(inexistente no harness legado)"],
+      "newTest": "tests/e2e/portal/no-js.spec.mjs",
+      "status": "new",
+      "notes": "Cenário novo: fallback <noscript> legível, com título/subtítulo/ações e sem overflow."
+    }
+  ],
+  "legacyRemovalAllowed": false,
+  "legacyRemovalCondition": "Só após paridade completa, estabilidade do CI e aprovação posterior."
+}

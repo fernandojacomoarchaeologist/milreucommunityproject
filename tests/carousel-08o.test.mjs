@@ -32,7 +32,7 @@ test("o asset antigo webp foi removido e desreferenciado", () => {
 
 test("o contrato pós-merge fixa fonte canónica, tolerância e auto-play", () => {
   const model = read("public/data/carousel-post-merge-model.json");
-  assert.equal(model.version, "0.28.0");
+  assert.equal(model.version, "0.29.0");
   assert.equal(model.canonicalSizeSource, "museu-de-memorias");
   assert.equal(model.maxBoundingBoxDifferenceCssPixels, 1);
   assert.equal(model.imageFit, "cover");
@@ -55,7 +55,7 @@ test("os três slides partilham a caixa canónica (empilhados) com crop só na m
 
 test("o carrossel tem 3 slides: Museu (canónico), Proteus (sem imagem) e Inquérito (asset)", () => {
   const c = read("public/data/home-carousel.json");
-  assert.equal(c.version, "0.28.0");
+  assert.equal(c.version, "0.29.0");
   assert.equal(c.slides.length, 3);
   assert.equal(c.slides[0].kind, "museum-memory");
   assert.equal(c.slides[1].kind, "empty-state");
