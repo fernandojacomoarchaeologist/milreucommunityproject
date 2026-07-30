@@ -12,7 +12,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`08Q banner: ${m}`); };
 
-const EXPECTED = "0.29.0";
+const EXPECTED = "0.30.0";
 const model = read("public/data/home-banner-responsive-model.json");
 if (model.version !== EXPECTED) fail("versão do contrato incorreta.");
 if (model.canonicalOuterBoxSource !== "museu-de-memorias") fail("fonte da caixa externa incorreta.");

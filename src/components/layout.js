@@ -3,12 +3,22 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  */
-import { text, languages } from "../lib/i18n.js";
+import { text, languages, languageAvailability, languageNames } from "../lib/i18n.js";
 import { assetUrl } from "../lib/data.js";
 
+// 09B: só pt-PT é selecionável; EN/ES/FR aparecem como "em preparação" (desativados),
+// sem navegação falsa nem fallback silencioso. Acessível a leitores de ecrã.
 export function languageSwitcher(lang) {
-  return `<div class="language-switcher" role="group" aria-label="Idioma">${
-    languages.map(code => `<button type="button" data-language="${code}" aria-pressed="${code===lang}">${code.replace("pt-PT","PT").toUpperCase()}</button>`).join("")
+  const inPrep = text(lang, "languageInPreparation");
+  return `<div class="language-switcher" role="group" aria-label="${text(lang, "languageLabel")}">${
+    languages.map(code => {
+      const label = code.replace("pt-PT", "PT").toUpperCase();
+      const enabled = languageAvailability[code]?.selectorEnabled;
+      if (enabled) {
+        return `<button type="button" class="language-switcher__option" data-language="${code}" ${code===lang?'aria-current="true"':''} aria-pressed="${code===lang}">${label}</button>`;
+      }
+      return `<button type="button" class="language-switcher__option language-switcher__option--preparation" data-language-disabled="${code}" disabled aria-disabled="true" aria-label="${languageNames[code]||label} — ${inPrep}" title="${languageNames[code]||label} — ${inPrep}"><span aria-hidden="true">${label}</span><small>${inPrep}</small></button>`;
+    }).join("")
   }</div>`;
 }
 
@@ -85,7 +95,7 @@ export function footer(lang="pt-PT") {
         <p>Fotografias: consultar créditos de cada memória.</p>
       </div>
       <div>
-        <p>Versão 08A · pré-visualização não indexável</p>
+        <p>Pré-visualização editorial · não indexável</p>
         <p><a href="#/museu">${text(lang,"museum")}</a> · <a href="#/participar">${text(lang,"participate")}</a></p>
       </div>
     </div>

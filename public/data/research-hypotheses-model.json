@@ -1,0 +1,10 @@
+{
+  "package": "09B",
+  "version": "0.30.0",
+  "status": "internal-research-hypotheses",
+  "scope": "Estoi, Faro e envolvente",
+  "nationalGeneralizationAllowed": false,
+  "worstCaseScenarioAllowedAsTestingInstrument": true,
+  "automaticEligibilityDecisionsAllowed": false,
+  "sensitiveAttributePersonalizationAllowed": false
+}

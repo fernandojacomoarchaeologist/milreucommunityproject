@@ -1,0 +1,25 @@
+{
+  "package": "09B",
+  "version": "0.30.0",
+  "sourceLocale": "pt-PT",
+  "locales": {
+    "pt-PT": {
+      "status": "published",
+      "selectorEnabled": true
+    },
+    "en": {
+      "status": "preparation",
+      "selectorEnabled": false
+    },
+    "es": {
+      "status": "preparation",
+      "selectorEnabled": false
+    },
+    "fr": {
+      "status": "preparation",
+      "selectorEnabled": false
+    }
+  },
+  "silentFallbackAllowed": false,
+  "automaticPublicationAllowed": false
+}

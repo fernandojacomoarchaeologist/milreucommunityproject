@@ -12,7 +12,7 @@ import { createHash } from "node:crypto";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08O carrossel: ${m}`); };
 
-const EXPECTED_VERSION = "0.29.0";
+const EXPECTED_VERSION = "0.30.0";
 const EXPECTED_ASSET = "public/media/home/inquerito-2026-carousel.png";
 const EXPECTED_SHA = "ea58885f4c16dbcb524544ce80de46e93bb21bb594b68be6a991ec71f6ccebba";
 

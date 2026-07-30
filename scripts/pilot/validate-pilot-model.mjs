@@ -9,7 +9,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08K modelo do piloto: ${m}`); };
 
 const model = read("public/data/collaborative-pilot-model.json");
-if (model.version !== "0.29.0") fail("versão do modelo incorreta.");
+if (model.version !== "0.30.0") fail("versão do modelo incorreta.");
 if (model.module?.code !== "pilot") fail("módulo pilot ausente.");
 if (model.environmentRule !== "staging-only") fail("regra de ambiente deve ser staging-only.");
 for (const flag of ["publicEffectsEnabled", "productionWritesEnabled", "emailEnabled", "chatEnabled", "recordingEnabledByDefault"]) {

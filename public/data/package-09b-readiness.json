@@ -1,0 +1,9 @@
+{
+  "package": "09B",
+  "version": "0.30.0",
+  "semanticAudit": "ready-to-run",
+  "languageSelectorInterimFix": "ready-to-implement",
+  "fullTranslationPipeline": "out-of-scope",
+  "designSystemGate": "unchanged",
+  "productionApproval": "blocked"
+}
