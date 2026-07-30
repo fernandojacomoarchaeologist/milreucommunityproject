@@ -59,7 +59,7 @@ if(process.env.SUPABASE_SERVICE_ROLE_KEY){
 const model=JSON.parse(await readFile("public/data/collaborative-homologation-model.json","utf8"));
 const profile={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.29.0",
+  version:"0.30.0",
   environment,
   deploymentMode:environment==="local"?"validation-only":"homologation",
   siteUrl:normalizedSite||null,
@@ -108,7 +108,7 @@ const profile={
 
 const readiness={
   _copyright:profile._copyright,
-  version:"0.29.0",
+  version:"0.30.0",
   environment,
   generatedAt:new Date().toISOString(),
   status:blockingItems.length?"blocked":"preflight-passed",

@@ -8,7 +8,7 @@ const readiness=read("public/data/release-candidate-readiness.json");
 const modules=read("public/data/collaborative-modules.json");
 const roles=read("public/data/collaborative-roles-permissions.json");
 
-test("08J mantém versão e candidata",()=>{assert.equal(model.version,"0.29.0");assert.equal(model.package,"08J");assert.equal(model.candidate,"RC1");});
+test("08J mantém versão e candidata",()=>{assert.equal(model.version,"0.30.0");assert.equal(model.package,"08J");assert.equal(model.candidate,"RC1");});
 test("08J preserva módulos e permissões",()=>{assert.equal(modules.modules.length,25);assert.ok(modules.modules.every(item=>item.status==="active"));assert.equal(roles.permissions.length,149);});
 test("camadas de release são distintas",()=>{assert.deepEqual(model.releaseLayers.map(item=>item.code),["technical-rc","staging-homologated","production-approved"]);assert.equal(model.releaseLayers[0].mayBeReadyWithoutRemoteSecrets,true);assert.equal(model.releaseLayers[1].mayBeReadyWithoutRemoteSecrets,false);assert.equal(model.releaseLayers[2].mayBeReadyWithoutRemoteSecrets,false);});
 test("gates externos permanecem bloqueados",()=>{assert.ok(model.externalGates.length>=7);assert.ok(model.externalGates.every(item=>item.status==="blocked"));assert.equal(readiness.stagingHomologation.approved,false);});

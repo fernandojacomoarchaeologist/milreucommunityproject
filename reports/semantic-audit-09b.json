@@ -1,0 +1,102 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09B",
+  "version": "0.30.0",
+  "method": "Auditoria semântica por inspeção do código real (i18n, portal-content, views). Cada elemento classificado; correções Tipo A aplicadas; Tipo B conservadoras; Tipo C propostas para revisão humana (ver editorial-decisions-09b.md).",
+  "summary": { "audited": 14, "fixed": 2, "proposalsPending": 5, "humanDecisionRequired": 5 },
+  "items": [
+    {
+      "route": "todas", "component": "seletor de idiomas", "audience": "público",
+      "current": "Botões PT/EN/ES/FR todos aparentemente clicáveis; EN/ES/FR trocavam a UI mas o conteúdo caía em pt-PT em silêncio.",
+      "classification": "internal-instruction-leak", "severity": "high",
+      "proposal": "pt-PT ativo; EN/ES/FR como 'em preparação' (desativados, aria-disabled, leitor de ecrã ouve 'Inglês — em preparação'); sem navegação falsa nem fallback silencioso.",
+      "action": "fixed", "humanReviewRequired": false
+    },
+    {
+      "route": "todas", "component": "footer", "audience": "público",
+      "current": "Versão 08A · pré-visualização não indexável",
+      "classification": "internal-instruction-leak", "severity": "medium",
+      "proposal": "Pré-visualização editorial · não indexável (remove o código de pacote).",
+      "action": "fixed", "humanReviewRequired": false
+    },
+    {
+      "route": "/", "component": "hero/lead", "audience": "público",
+      "current": "Memórias, conhecimento e participação em torno de Milreu.",
+      "classification": "clear-public-content", "severity": "low",
+      "proposal": null, "action": "kept", "humanReviewRequired": false
+    },
+    {
+      "route": "/", "component": "pilares (portalFeature/museumFeature/proteusFeature)", "audience": "público",
+      "current": "'O portal orienta / O museu imerge / Proteus estrutura' + textos.",
+      "classification": "technical-language", "severity": "low",
+      "proposal": "Reformular na sequência 'o que é Milreu → porquê importa → como participo' em vez de descrever a arquitetura interna (portal/museu/proteus). Proposta editorial, não aplicada.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/", "component": "proteusFeatureText", "audience": "público",
+      "current": "A mesma fonte de dados alimentará o site, os totens e futuras aplicações.",
+      "classification": "unsupported-promise", "severity": "medium",
+      "proposal": "Evitar prometer totens/futuras aplicações antes de existirem; focar no valor atual. Proposta editorial.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/conhecimento", "component": "knowledgeView (Proteus)", "audience": "público",
+      "current": "Cabeçalho 'Experiência Proteus' + cards 'Estrutura preparada · conteúdo futuro'.",
+      "classification": "clear-public-content", "severity": "low",
+      "proposal": "Já apresentado honestamente como futuro. Proposta menor: um rótulo explícito 'em desenvolvimento' no topo reforçaria a honestidade. Proposta editorial.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/participar", "component": "pending-contact", "audience": "público",
+      "current": "Contacto público geral ainda por definir — Os formulários acima destinam-se exclusivamente a contributos...",
+      "classification": "missing-information", "severity": "medium",
+      "proposal": "Honesto; manter. Quando existir contacto, substituir. Sem ação neste pacote (sem inventar contacto).",
+      "action": "kept", "humanReviewRequired": false
+    },
+    {
+      "route": "/participar", "component": "benefício/compromisso/público", "audience": "público",
+      "current": "Formas de participar (texto existente).",
+      "classification": "unclear-benefit", "severity": "medium",
+      "proposal": "Explicitar benefício, compromisso de tempo, para quem é e próximos passos (princípio de conteúdo do roteiro). Prepara o 09C (oportunidades). Proposta editorial.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/sobre", "component": "objetivo/método/parceiros/doutoramento", "audience": "público",
+      "current": "Texto institucional preliminar.",
+      "classification": "editorial-review-required", "severity": "medium",
+      "proposal": "Rever papel institucional, parceiros e enquadramento do doutoramento — decisão humana (Tipo C). Não alterado.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/museu", "component": "museumLead", "audience": "público",
+      "current": "Uma experiência visual sobre as relações entre pessoas, comunidade, paisagem, Estoi e Milreu.",
+      "classification": "clear-public-content", "severity": "low", "proposal": null, "action": "kept", "humanReviewRequired": false
+    },
+    {
+      "route": "/museu/memorias/:id", "component": "aiDisclosure / rights", "audience": "público",
+      "current": "Avisos de intervenção por IA e de direitos/retirada.",
+      "classification": "rights-review-required", "severity": "low",
+      "proposal": "Linguagem de direitos correta; qualquer alteração é decisão humana. Não alterado.",
+      "action": "kept", "humanReviewRequired": true
+    },
+    {
+      "route": "/museu/imersivo/:id", "component": "keyboardHelp/controls", "audience": "público",
+      "current": "Setas: navegar · I: informação · F: ecrã inteiro · Esc: fechar.",
+      "classification": "clear-public-content", "severity": "low", "proposal": null, "action": "kept", "humanReviewRequired": false
+    },
+    {
+      "route": "institucional", "component": "privacidade/acessibilidade/consentimento/contacto", "audience": "público",
+      "current": "Páginas institucionais dedicadas ainda não existem como rotas próprias.",
+      "classification": "missing-information", "severity": "medium",
+      "proposal": "Falta de páginas de privacidade/acessibilidade/contacto — a criar em pacote próprio (relacionado com 09F/lançamento). Registado, não inventado.",
+      "action": "proposed", "humanReviewRequired": true
+    },
+    {
+      "route": "/area-colaborativa (login/pendente/estados)", "component": "textos internos", "audience": "membros",
+      "current": "Textos da Área Colaborativa (login, pendente, estados) — auditados no 08P.",
+      "classification": "clear-public-content", "severity": "low",
+      "proposal": "Cobertos pela auditoria funcional do 08P; sem novos vazamentos públicos (a área é autenticada).",
+      "action": "kept", "humanReviewRequired": false
+    }
+  ]
+}

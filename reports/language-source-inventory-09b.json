@@ -1,0 +1,20 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09B",
+  "version": "0.30.0",
+  "sourceLocale": "pt-PT",
+  "summary": "As strings de interface (menus, botões, rótulos) estão traduzidas em pt-PT/en/es/fr no i18n. O CONTEÚDO (prosa do Portal, memórias do Museu, carrossel) existe revisto apenas em pt-PT; en/es/fr fariam fallback silencioso para pt-PT. Por isso o seletor só torna pt-PT selecionável até à revisão humana (09D).",
+  "surfaces": [
+    { "surface": "ui-strings", "file": "src/lib/i18n.js", "pt-PT": "complete", "en": "complete", "es": "complete", "fr": "complete", "note": "Chrome/UI traduzido e revisto para as 4 línguas; mantido em código." },
+    { "surface": "portal-content", "file": "public/data/portal-content.json", "pt-PT": "preliminary", "en": "missing", "es": "missing", "fr": "missing", "note": "editorialStatus: preliminary; objetos localizados só com chave pt-PT." },
+    { "surface": "home-carousel", "file": "public/data/home-carousel.json", "pt-PT": "present", "en": "missing", "es": "missing", "fr": "missing" },
+    { "surface": "museum-memories", "file": "public/data/memories.json", "pt-PT": "preliminary", "en": "missing", "es": "missing", "fr": "missing", "note": "31 memórias; title/description com pt-PT; en/es/fr null (dataset canónico 0.11.3, não alterado)." }
+  ],
+  "selectorPolicy": {
+    "pt-PT": "published/selectable",
+    "en": "preparation/not-selectable",
+    "es": "preparation/not-selectable",
+    "fr": "preparation/not-selectable"
+  },
+  "rules": ["sem fallback silencioso", "sem navegação para conteúdo null", "sem tradução automática publicada", "sem hreflang para idiomas não publicados"]
+}

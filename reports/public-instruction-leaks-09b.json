@@ -1,0 +1,35 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09B",
+  "version": "0.30.0",
+  "method": "Varredura de padrões de dev (código de pacote/versão, placeholders, TODO, referências internas) na superfície pública e semipública.",
+  "publicLeaks": [
+    {
+      "id": "leak-footer-package-version",
+      "route": "todas (footer do Portal)",
+      "component": "src/components/layout.js footer()",
+      "before": "Versão 08A · pré-visualização não indexável",
+      "problem": "internal-instruction-leak: expõe o código de pacote interno (08A) ao público.",
+      "severity": "medium",
+      "action": "fixed",
+      "after": "Pré-visualização editorial · não indexável"
+    }
+  ],
+  "internalOnlyReferences": [
+    {
+      "id": "ref-rc-package-code",
+      "route": "/area-colaborativa/gestao/homologacao/release-candidate",
+      "component": "src/views/collaborative-release-candidate.js",
+      "text": "Pacote 08J",
+      "problem": "Código de pacote numa vista INTERNA de gestão (release candidate). Não é público.",
+      "severity": "low",
+      "action": "kept",
+      "rationale": "Vista autenticada de gestão técnica; a referência ao pacote é legítima internamente. Registada para consideração editorial futura, não alterada neste pacote."
+    }
+  ],
+  "cleanSurfaces": [
+    "Nenhum lorem ipsum, TODO/FIXME, 'placeholder', ou referência a 'Claude'/'implementar' na prosa pública.",
+    "Proteus é apresentado honestamente (empty-state + 'Estrutura preparada · conteúdo futuro'), sem falsa promessa de funcionalidade pronta.",
+    "Contactos pendentes são declarados honestamente ('Contacto público geral ainda por definir'), não são placeholders enganosos."
+  ]
+}

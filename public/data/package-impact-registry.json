@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.29.0",
-  "currentPackage": "09A",
+  "version": "0.30.0",
+  "currentPackage": "09B",
   "surfaces": [
     {
       "code": "portal-home",
@@ -283,6 +283,17 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Fundação de qualidade do Portal (Série 09): Playwright como harness E2E principal (migração incremental, harness legado preservado), regressão visual por screenshots (baselines estabelecidos por passo manual/revisável, sem auto-update no CI), asserções geométricas que apanham a classe 08O→08Q, cenário sem JavaScript com fallback <noscript> e progressive enhancement do carrossel. Sem módulos/permissões/migrations; sem alterar fontes, i18n, SEO, conteúdo ou dataset."
+    },
+    {
+      "code": "semantic-language-audit-09b",
+      "package": "09B",
+      "module": null,
+      "routes": [
+        "/"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Auditoria semântica da linguagem pública + estado temporário dos idiomas: pt-PT selecionável, EN/ES/FR 'em preparação' (desativados, sem fallback silencioso nem navegação para null); correções Tipo A (seletor, footer sem código de pacote); propostas editoriais Tipo C para revisão humana; doc interno de hipóteses/personas. Sem módulos/permissões/migrations; sem tradução completa/SEO/fontes; dataset inalterado."
     }
   ],
   "futurePackageRules": [

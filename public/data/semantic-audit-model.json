@@ -1,0 +1,27 @@
+{
+  "package": "09B",
+  "version": "0.30.0",
+  "classifications": [
+    "clear-public-content",
+    "internal-instruction-leak",
+    "technical-language",
+    "unclear-purpose",
+    "unclear-benefit",
+    "unclear-action",
+    "missing-context",
+    "missing-information",
+    "redundant",
+    "outdated",
+    "unsupported-promise",
+    "placeholder",
+    "editorial-review-required",
+    "rights-review-required",
+    "translation-source-not-ready"
+  ],
+  "severity": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "automaticFullRewriteAllowed": false
+}

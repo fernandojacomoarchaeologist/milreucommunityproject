@@ -120,7 +120,7 @@ function startRunForm(context){
   return `<section class="homologation-start"><h2>Nova execução</h2>
     <form class="collab-form compact-form" data-homologation-start-form>
       <label>Ambiente<select name="environmentCode" required><option value="">Selecione</option>${environments.map(item=>`<option value="${esc(item.code)}">${esc(item.name)}</option>`).join("")}</select></label>
-      <label>Versão<input name="version" value="0.29.0" required></label>
+      <label>Versão<input name="version" value="0.30.0" required></label>
       <label>Commit SHA<input name="commitSha" pattern="[0-9a-fA-F]{7,64}" placeholder="Opcional"></label>
       <button type="submit">Iniciar homologação</button><p data-collab-feedback></p>
     </form>

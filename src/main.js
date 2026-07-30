@@ -18,7 +18,7 @@ import {
   collectionsView, collectionDetailView
 } from "./views/museum.js";
 import { channelLabView, totemPreviewView, panelPreviewView } from "./views/channels.js";
-import { text } from "./lib/i18n.js";
+import { text, isLocaleSelectable } from "./lib/i18n.js";
 import { collaborative } from "./collab/controller.js";
 import {
   collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView,
@@ -95,7 +95,7 @@ const state = {
   contributionSubmissionResult: null,
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
-  lang: localStorage.getItem("milreu-language") || "pt-PT",
+  lang: isLocaleSelectable(localStorage.getItem("milreu-language")) ? localStorage.getItem("milreu-language") : "pt-PT",
   filters: {
     query:"", period:"", type:"", dateKnown:"", intervention:"",
     sort:"catalog", layout:localStorage.getItem("milreu-gallery-layout") || "grid"
@@ -178,6 +178,8 @@ function moveHomeCarousel(direction) {
 }
 
 function setLanguage(lang) {
+  // 09B: só permite idiomas efetivamente selecionáveis (pt-PT). EN/ES/FR estão "em preparação".
+  if (!isLocaleSelectable(lang)) return;
   state.lang = lang;
   localStorage.setItem("milreu-language",lang);
   render(false);

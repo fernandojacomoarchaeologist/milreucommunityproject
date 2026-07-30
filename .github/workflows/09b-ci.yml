@@ -1,0 +1,32 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 09B Semantic Audit and Language States
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lang:validate
+      - run: npm run audit:public-copy
+      - run: npm run semantic:report
+      - run: npm run validate:09b
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
