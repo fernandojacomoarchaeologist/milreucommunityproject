@@ -21,6 +21,9 @@ export function getRoute() {
   if (path === "/participar/retirada") return { name:"public-contribution-withdrawal" };
   if (path === "/sobre") return { name:"about" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
+  if (path === "/oportunidades") return { name:"public-opportunities" };
+  const publicOpportunity = path.match(/^\/oportunidades\/([^/]+)$/);
+  if (publicOpportunity) return { name:"public-opportunity", slug: decodeURIComponent(publicOpportunity[1]) };
   if (path === "/transparencia") return { name:"public-transparency" };
 
 
@@ -28,6 +31,7 @@ export function getRoute() {
   if (path === "/auth/callback") return { name:"collab-callback" };
   if (path === "/area-colaborativa") return { name:"collab-dashboard" };
   if (path === "/area-colaborativa/perfil") return { name:"collab-profile" };
+  if (path === "/area-colaborativa/oportunidades") return { name:"collab-opportunities" };
   if (path === "/area-colaborativa/tarefas") return { name:"collab-tasks", query };
   const collabTask = path.match(/^\/area-colaborativa\/tarefas\/([^/]+)$/);
   if (collabTask) return { name:"collab-task-detail", taskId:decodeURIComponent(collabTask[1]) };

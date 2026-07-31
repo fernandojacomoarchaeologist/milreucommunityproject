@@ -1,0 +1,15 @@
+{
+  "package": "09C",
+  "version": "0.31.0",
+  "channels": [
+    "web-share-api",
+    "copy-link",
+    "facebook-intent",
+    "x-intent",
+    "mailto",
+    "instagram-native-or-copy-link"
+  ],
+  "automaticSocialPosting": false,
+  "socialOAuthRequired": false,
+  "transactionalEmailEnabled": false
+}

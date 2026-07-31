@@ -7,7 +7,7 @@ rights: "Consultar RIGHTS.md no repositório principal"
 
 # Release candidate técnica — 08J
 
-- Versão: 0.21.0
+- Versão: 0.31.0
 - Candidata: RC1
 - Estado técnico: **ready**
 - Staging: **blocked**
@@ -15,9 +15,9 @@ rights: "Consultar RIGHTS.md no repositório principal"
 
 ## Checks técnicos
 
-- [x] version: 0.21.0
-- [x] modules: 22 ativos
-- [x] permissions: 117 preservadas
+- [x] version: 0.31.0
+- [x] modules: 26 ativos
+- [x] permissions: 152 preservadas
 - [x] e2e-browser: 394/394
 - [x] accessibility-baseline: 12/12
 - [x] production-writes: escritas de produção desativadas

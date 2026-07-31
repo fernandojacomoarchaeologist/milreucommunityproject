@@ -10,9 +10,9 @@ const deployment=read("public/data/deployment-readiness.json");
 const e2e=safe("reports/e2e-result.json");
 const accessibility=safe("reports/accessibility-result.json");
 const technicalChecks=[
- {code:"version",passed:pkg.version==="0.30.0",detail:pkg.version},
- {code:"modules",passed:modules.modules.length===25&&modules.modules.every(item=>item.status==="active"),detail:`${modules.modules.length} ativos`},
- {code:"permissions",passed:roles.permissions.length===149,detail:`${roles.permissions.length} preservadas`},
+ {code:"version",passed:pkg.version==="0.31.0",detail:pkg.version},
+ {code:"modules",passed:modules.modules.length===26&&modules.modules.every(item=>item.status==="active"),detail:`${modules.modules.length} ativos`},
+ {code:"permissions",passed:roles.permissions.length===152,detail:`${roles.permissions.length} preservadas`},
  {code:"e2e-browser",passed:e2e?.passed===true,detail:e2e?`${e2e.passedCount}/${e2e.total}`:"não executado"},
  {code:"accessibility-baseline",passed:accessibility?.passed===true,detail:accessibility?`${accessibility.checks.filter(item=>item.pass).length}/${accessibility.checks.length}`:"não executado"},
  {code:"production-writes",passed:deployment.checks?.productionWritesDisabled===true,detail:"escritas de produção desativadas"},

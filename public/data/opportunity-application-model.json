@@ -1,0 +1,16 @@
+{
+  "package": "09C",
+  "version": "0.31.0",
+  "statuses": [
+    "submitted",
+    "accepted",
+    "not-selected",
+    "withdrawn",
+    "removed"
+  ],
+  "decisionOwner": "project-owner-master",
+  "duplicateApplicationAllowed": false,
+  "manualAdditionAllowed": true,
+  "automaticWaitlist": false,
+  "internalNotesVisibleToApplicant": false
+}

@@ -30,9 +30,14 @@ const leakPatterns = [
 ];
 
 const findings = [];
+// Remove comentários (não são texto visível ao público) antes de procurar fugas.
+const stripComments = (src, file) => file.endsWith(".js")
+  ? src.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:])\/\/.*$/gm, "$1")
+  : src;
+
 for (const file of targets) {
   let content;
-  try { content = text(file); } catch { continue; }
+  try { content = stripComments(text(file), file); } catch { continue; }
   for (const { re, label } of leakPatterns) {
     if (re.test(content)) {
       const line = content.split(/\n/).find((l) => re.test(l))?.trim().slice(0, 120);

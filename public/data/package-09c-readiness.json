@@ -1,0 +1,11 @@
+{
+  "package": "09C",
+  "version": "0.31.0",
+  "publicDiscovery": "ready-to-implement",
+  "minimumProfileGate": "ready-to-implement",
+  "applications": "ready-to-implement",
+  "masterManagement": "ready-to-implement",
+  "sharing": "ready-to-implement",
+  "minorParticipation": "blocked-until-policy",
+  "productionApproval": "blocked"
+}

@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "roles": [
     {
       "code": "master",
@@ -192,7 +192,10 @@
     "governance.view",
     "governance.manage",
     "governance.decide",
-    "impact.manage"
+    "impact.manage",
+    "opportunities.view",
+    "opportunities.apply",
+    "opportunities.manage"
   ],
   "rolePermissions": {
     "master": [
@@ -340,7 +343,10 @@
       "content-review.manage",
       "governance.view",
       "governance.manage",
-      "impact.manage"
+      "impact.manage",
+      "opportunities.view",
+      "opportunities.apply",
+      "opportunities.manage"
     ],
     "volunteer": [
       "area.view",
@@ -369,7 +375,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ],
     "reviewer": [
       "area.view",
@@ -419,7 +427,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ],
     "researcher": [
       "area.view",
@@ -468,7 +478,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ],
     "translator": [
       "area.view",
@@ -504,7 +516,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ],
     "partner": [
       "area.view",
@@ -523,7 +537,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ],
     "observer": [
       "area.view",
@@ -546,7 +562,9 @@
       "participation.view",
       "participation.enrol",
       "participation.progress.update",
-      "support.submit"
+      "support.submit",
+      "opportunities.view",
+      "opportunities.apply"
     ]
   }
 }
