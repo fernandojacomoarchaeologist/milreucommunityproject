@@ -46,11 +46,27 @@
   "silentFallbackAllowed": false,
   "hreflangGeneration": false,
   "productionApproval": "blocked",
-  "humanBlockers": [
-    "definir variantes de EN/ES/FR",
-    "designar revisores e aprovadores",
-    "decidir glossário arqueológico e nomes institucionais",
-    "definir prioridade editorial das páginas"
+  "editorialOwner": "Fernando Rodrigues de Jácomo",
+  "editorialPriority": [
+    "home",
+    "sobre-o-projeto",
+    "participar-oportunidades",
+    "museu-de-memorias",
+    "inquerito-2026",
+    "area-colaborativa",
+    "biblioteca-formacao",
+    "proteus"
   ],
-  "note": "Fundação multilíngue pronta. Nenhuma tradução automática publicada; revisão e publicação humanas continuam obrigatórias."
+  "decidedBlockers": [
+    "responsável editorial e aprovador final: Fernando Rodrigues de Jácomo (2026-08-03)",
+    "glossário: preservar formas oficiais em pt-PT; não traduzir nomes institucionais sem denominação oficial confirmada",
+    "prioridade editorial das páginas definida"
+  ],
+  "humanBlockers": [
+    "designar revisores linguísticos e institucionais",
+    "produzir e rever variantes de EN/ES/FR (permanecem 'missing' até revisão)",
+    "validar termos arqueológicos do glossário (assinalados 'pending')",
+    "definir políticas legais por idioma"
+  ],
+  "note": "Fundação multilíngue pronta. Decisões do responsável de 2026-08-03 registadas (ver docs/i18n/09d/OPEN_DECISIONS_09D.md). Nenhuma tradução automática publicada; revisão e publicação humanas continuam obrigatórias."
 }
