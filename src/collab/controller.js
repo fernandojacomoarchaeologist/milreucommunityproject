@@ -118,7 +118,7 @@ function createDemoDeploymentWorkspace(homologationModel,deploymentProfile,deplo
   const local=environments.find(item=>item.code==="local");
   const run={
     id:"demo-homologation-local",project_id:"demo-project",environment_id:local.id,
-    version:"0.33.0",commit_sha:null,status:master?"in-progress":"planned",
+    version:"0.34.0",commit_sha:null,status:master?"in-progress":"planned",
     summary:"Execução local de demonstração.",started_by:master?"demo-master":null,
     started_at:master?now:null,created_at:now,updated_at:now
   };
@@ -235,7 +235,7 @@ function createDemoOperationalWorkspace(model,retentionModel,runtime,master=fals
     ...item,evidence_required:item.evidenceRequired,sort_order:(index+1)*10,active:true
   }));
   const operationalRuns=[
-    {id:"demo-operational-run",environment:"local",version:"0.33.0",commitSha:null,status:"running",summary:null,startedAt:iso(-2*3600000),completedAt:null}
+    {id:"demo-operational-run",environment:"local",version:"0.34.0",commitSha:null,status:"running",summary:null,startedAt:iso(-2*3600000),completedAt:null}
   ];
   const operationalResults=checkCatalog.map((check,index)=>({
     id:`demo-result-${check.code}`,runId:"demo-operational-run",checkCode:check.code,
@@ -1019,7 +1019,7 @@ class CollaborativeController{
     const{error}=await this.client.rpc("collab_upsert_public_content_effect_08f",{p_effect_id:effectId||null,p_payload:payload});if(error)throw error;await this.refreshMuseumReview();
   }
 
-  async generateMuseumReviewSnapshot(cycleId,version="0.33.0"){
+  async generateMuseumReviewSnapshot(cycleId,version="0.34.0"){
     if(!hasPermission(this.state,"museum.review.export"))throw new Error("Permissão insuficiente.");
     if(this.config.mode==="demo"){
       const workspace=this.state.museumReviewWorkspace,cycle=workspace.cycles.find(item=>item.id===cycleId);if(!cycle)throw new Error("Ciclo não encontrado.");

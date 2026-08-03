@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "09B",
-  "version": "0.33.0",
+  "version": "0.34.0",
   "method": "Varredura de padrões de dev (código de pacote/versão, placeholders, TODO, referências internas) na superfície pública e semipública.",
   "publicLeaks": [
     {

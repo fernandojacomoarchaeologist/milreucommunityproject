@@ -1,0 +1,36 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09E",
+  "version": "0.34.0",
+  "generatedAt": "2026-08-03",
+  "environment": "local-node-static-analysis",
+  "measured": {
+    "bytes": {
+      "javascript": 92145,
+      "cssApp": 150457,
+      "cssComponents": 11622,
+      "indexHtml": 3162
+    },
+    "lcpCandidateImageBytes": {
+      "mobileHomeHero": 130354,
+      "desktopHomeHero": 284358,
+      "museumOpeningMobile": 130354
+    },
+    "responsiveStrategy": {
+      "homeCarouselHasSrcset": true,
+      "museumHeroHasSrcset": true,
+      "lcpNotLazy": true,
+      "offFoldThumbnailsLazy": true
+    }
+  },
+  "guardrailsStatic": {
+    "font404": 0,
+    "layoutImagesWithoutDimensions": 0
+  },
+  "fieldMetrics": {
+    "mobileLcpMs": "pending-local-browser-and-staging",
+    "cls": "pending-local-browser-and-staging",
+    "note": "LCP/CLS reais exigem browser controlado (Playwright/Lighthouse local) e, para utilizador real, staging. Não confundir com homologação. Medição comparável (3 rondas, mediana, cold cache) a registar no PR quando executada."
+  },
+  "note": "Baseline determinístico para comparação antes/depois no mesmo build. As imagens candidatas a LCP passam a servir variantes menores em ecrãs médios via srcset; o benefício de bytes é comprovável, o LCP de campo permanece observação separada."
+}

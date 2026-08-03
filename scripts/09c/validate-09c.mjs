@@ -13,7 +13,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09C: ${m}`); };
 
-const EXPECTED = "0.33.0";
+const EXPECTED = "0.34.0";
 
 // Contratos
 const opp = read("public/data/opportunity-model.json");

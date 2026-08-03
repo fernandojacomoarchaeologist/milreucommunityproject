@@ -32,7 +32,7 @@ export function museumHome(records,collections,audit,lang,publicEffects=null) {
   return `<div class="museum-shell">${museumHeader(lang)}
   <main id="main">
     <section class="museum-opening">
-      <div class="museum-opening__image"><img src="${assetUrl(hero.media.variants.immersive)}" alt="${escapeHtml(localised(hero.title,lang).value)}"></div>
+      <div class="museum-opening__image"><img src="${assetUrl(hero.media.variants.detail)}" srcset="${assetUrl(hero.media.variants.card)} 900w, ${assetUrl(hero.media.variants.detail)} 1600w, ${assetUrl(hero.media.variants.immersive)} 2400w" sizes="100vw" fetchpriority="high" decoding="async" alt="${escapeHtml(localised(hero.title,lang).value)}"></div>
       <div class="museum-opening__content">
         <span class="eyebrow">Entre Ruínas e Memórias</span>
         <h1>${text(lang,"museumTitle")}</h1>
@@ -308,7 +308,7 @@ export function immersiveView(records,record,lang,state={}) {
 
     <div class="immersive-stage">
       <a class="immersive-side immersive-side--previous" href="#/museu/imersivo/${prev.id}" aria-label="${text(lang,"previous")}"><img src="${assetUrl("public/icons/back.svg")}" alt=""></a>
-      <div class="immersive-frame"><img src="${assetUrl(record.media.variants.immersive)}" alt="${title}"></div>
+      <div class="immersive-frame"><img src="${assetUrl(record.media.variants.immersive)}" fetchpriority="high" decoding="async" alt="${title}"></div>
       <a class="immersive-side immersive-side--next" href="#/museu/imersivo/${next.id}" aria-label="${text(lang,"next")}"><img src="${assetUrl("public/icons/forward.svg")}" alt=""></a>
       <aside class="immersive-info-panel">
         <h1>${title}</h1>
@@ -323,7 +323,7 @@ export function immersiveView(records,record,lang,state={}) {
     </div>
 
     <div class="immersive-bottom">
-      <div class="immersive-filmstrip">${neighbors.map(item => `<a href="#/museu/imersivo/${item.id}" aria-current="${item.id===record.id ? "true" : "false"}"><img src="${assetUrl(item.media.variants.thumbnail)}" alt=""><span>${item.id}</span></a>`).join("")}</div>
+      <div class="immersive-filmstrip">${neighbors.map(item => `<a href="#/museu/imersivo/${item.id}" aria-current="${item.id===record.id ? "true" : "false"}"><img src="${assetUrl(item.media.variants.thumbnail)}" loading="lazy" decoding="async" alt=""><span>${item.id}</span></a>`).join("")}</div>
       <div class="immersive-keyboard-help">${text(lang,"keyboardHelp")}</div>
     </div>
   </main>`;
@@ -357,7 +357,7 @@ function collectionCard(collection,records,lang) {
 
 function compactRelationCard(record,lang) {
   return `<a class="relation-card" href="#/museu/memorias/${record.id}">
-    <img src="${assetUrl(record.media.variants.thumbnail)}" alt="">
+    <img src="${assetUrl(record.media.variants.thumbnail)}" loading="lazy" decoding="async" alt="">
     <span><small>${record.id}</small>${escapeHtml(localised(record.title,lang).value)}</span>
   </a>`;
 }

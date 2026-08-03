@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["path", "hash", "mime", "bytes", "classification", "isOriginal", "rightsStatus"],
+  "properties": {
+    "path": {"type": "string"}, "hash": {"type": "string"}, "mime": {"type": "string"}, "bytes": {"type": "integer"},
+    "width": {"type": ["integer", "null"]}, "height": {"type": ["integer", "null"]},
+    "classification": {"enum": ["historical-original", "historical-derivative", "documentary", "editorial", "interface", "poster", "unknown"]},
+    "isOriginal": {"type": "boolean"}, "sourceHash": {"type": ["string", "null"]},
+    "rightsStatus": {"enum": ["confirmed", "pending", "restricted", "unknown"]},
+    "credit": {"type": ["string", "null"]}, "digitalIntervention": {"type": ["string", "null"]},
+    "contexts": {"type": "array", "items": {"type": "string"}}
+  }, "additionalProperties": true
+}

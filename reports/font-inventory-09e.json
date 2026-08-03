@@ -1,0 +1,59 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09E",
+  "version": "0.34.0",
+  "generatedAt": "2026-08-03",
+  "summary": {
+    "fontFaceDeclarations": 0,
+    "fontFilesInRepo": 0,
+    "externalFontServiceDetected": false
+  },
+  "fontAssets": [],
+  "declaredFamilies": [
+    {
+      "role": "display",
+      "family": "Fraunces",
+      "stackFallback": "Iowan Old Style, Georgia, serif",
+      "declaredInStack": true,
+      "hasFontFace": false,
+      "selfHostedFilePresent": false,
+      "status": "declared-but-absent",
+      "licenseStatus": "pending",
+      "computedEvidence": "system-fallback",
+      "externalRequest": false
+    },
+    {
+      "role": "editorial/body",
+      "family": "Spectral",
+      "stackFallback": "Georgia, serif",
+      "declaredInStack": true,
+      "hasFontFace": false,
+      "selfHostedFilePresent": false,
+      "status": "declared-but-absent",
+      "licenseStatus": "pending",
+      "computedEvidence": "system-fallback",
+      "externalRequest": false
+    },
+    {
+      "role": "interface/utility",
+      "family": "Archivo",
+      "stackFallback": "Helvetica Neue, Arial, sans-serif",
+      "declaredInStack": true,
+      "hasFontFace": false,
+      "selfHostedFilePresent": false,
+      "status": "declared-but-absent",
+      "licenseStatus": "pending",
+      "computedEvidence": "system-fallback",
+      "externalRequest": false
+    }
+  ],
+  "humanDecision": {
+    "owner": "Fernando Rodrigues de Jácomo",
+    "pending": [
+      "confirmar famílias tipográficas finais (Fraunces/Spectral/Archivo ou alternativas) e licenças",
+      "decidir self-hosting versionado dos subconjuntos necessários (sem recolher dados de visitantes)"
+    ],
+    "note": "O projeto não distribui ficheiros de fonte no Git público. Enquanto não houver decisão de licença/self-hosting, não se declaram @font-face para ficheiros inexistentes (evita 404). A tipografia usa as pilhas com fallback de sistema legível."
+  },
+  "note": "Separação exigida pelo 09E — licença confirmada: 0; licença pendente: 3 (marca); declarada mas ausente: 3; presente mas não utilizada: 0."
+}

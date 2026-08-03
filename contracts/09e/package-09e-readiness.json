@@ -1,0 +1,14 @@
+{
+  "requiredBaseCommit": "5c6ebda",
+  "requiredBaseVersion": "0.34.0",
+  "requiredCurrentPackage": "09C.1",
+  "requiredBaseCi": "green",
+  "targetVersion": "0.34.0",
+  "targetCurrentPackage": "09E",
+  "newModules": 0,
+  "newPermissions": 0,
+  "newMigrations": 0,
+  "productionActivation": false,
+  "seoAllowed": false,
+  "realBackendHomologationInherited": "pending-human-staging-oauth"
+}
