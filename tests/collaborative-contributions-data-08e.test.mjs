@@ -12,7 +12,7 @@ const modules=JSON.parse(readFileSync("public/data/collaborative-modules.json","
 const roles=JSON.parse(readFileSync("public/data/collaborative-roles-permissions.json","utf8"));
 
 test("modelo cobre tipos, estados, direitos e destinos",()=>{
-  assert.equal(model.version,"0.35.0");
+  assert.equal(model.version,"0.36.0");
   for(const type of ["photograph","testimony","correction","document","reference","rights-credit"]){
     assert.ok(model.contributionTypes.some(item=>item.code===type),type);
   }

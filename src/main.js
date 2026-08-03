@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -1572,7 +1572,7 @@ function render(scroll=true) {
     case "methodology": html = methodologyView(state.portal,state.lang); setMetadata(text(state.lang,"methodology")); break;
     case "initiatives": html = initiativesView(state.portal,state.lang); setMetadata(text(state.lang,"initiatives")); break;
     case "initiative": html = initiativeDetailView(findInitiative(state.portal,route.slug),state.lang); setMetadata(route.slug); break;
-    case "knowledge": html = knowledgeView(state.portal,state.lang); setMetadata(text(state.lang,"knowledge")); break;
+    case "knowledge": html = knowledgeView(state.portal,state.lang,state.publicProteusOverview); setMetadata(text(state.lang,"knowledge")); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
     case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
@@ -1615,8 +1615,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

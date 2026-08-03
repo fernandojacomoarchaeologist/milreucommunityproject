@@ -256,10 +256,26 @@ export function initiativeDetailView(item, lang) {
   </main>${footer(lang)}`;
 }
 
-export function knowledgeView(content, lang) {
+export function knowledgeView(content, lang, proteus) {
   const knowledge = content.knowledge;
+  const p = proteus || null;
+  const overview = p ? `
+    <section class="content-section proteus-overview">
+      <div class="architecture-note"><h2>O que é a Experiência Proteus</h2><p>${esc(p.purpose)}</p>
+        <p class="fallback-note">${esc(p.availabilityNotice)}</p></div>
+      <h2 class="proteus-heading">Experiências previstas</h2>
+      <div class="knowledge-grid">
+        ${p.futureExperiences.map(x => `<article class="knowledge-card"><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p><span>Em preparação</span></article>`).join("")}
+      </div>
+      <h2 class="proteus-heading">Como o conhecimento é classificado</h2>
+      <ul class="proteus-classes">${p.knowledgeClasses.map(c => `<li><strong>${esc(c.label)}</strong> — ${esc(c.rule)}</li>`).join("")}</ul>
+      <div class="architecture-note"><h2>Direitos e proveniência</h2><p>${esc(p.rights.principle)}</p><p class="fallback-note">${esc(p.rights.antiSubstitution)}</p></div>
+      <div class="architecture-note"><h2>Recursos institucionais e visita virtual</h2><p>${esc(p.externalResourcesNote)}</p></div>
+      <div class="architecture-note"><h2>Consulta por agentes (MCP)</h2><p>${esc(p.futureMcp.note)}</p></div>
+    </section>` : "";
   return `${portalHeader(lang,"/conhecimento")}<main id="main">
     ${pageLead(text(lang,"structuredKnowledge"), knowledge.summary, lang, "Milreu Proteus")}
+    ${overview}
     <section class="content-section">
       <div class="knowledge-grid">
         ${knowledge.categories.map(item => `<article class="knowledge-card"><img src="${assetUrl("public/icons/knowledge.svg")}" alt=""><h2>${esc(localised(item.title,lang).value)}</h2><p>${esc(localised(item.description,lang).value)}</p><span>Estrutura preparada · conteúdo futuro</span></article>`).join("")}
