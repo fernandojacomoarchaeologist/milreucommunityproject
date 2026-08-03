@@ -48,6 +48,11 @@ const main = text("src/main.js");
 if (!/case "collab-opportunities":\s*[\r\n]/.test(main) && !/case "collab-opportunities":/.test(main)) fail("rota collab-opportunities não despachada no render principal.");
 // deve constar do grupo de fall-through que chama renderCollaborativeRoute
 if (!/case "collab-opportunities":/.test(main)) fail("collab-opportunities ausente do switch principal.");
+// Rotas colaborativas que existiam no router/vista mas estavam ausentes do switch de
+// render (rotas mortas); confirmadas presentes para não regredirem.
+for (const dead of ["collab-participation", "collab-pilot", "collab-pilot-management", "collab-public-integration", "collab-operations-governance"]) {
+  if (!new RegExp(`case "${dead}":`).test(main)) fail(`rota colaborativa ausente do switch de render: ${dead}.`);
+}
 for (const attr of ["data-opportunity-form", "data-opportunity-publish", "data-opportunity-decide", "data-opportunity-remove", "data-opportunity-apply", "data-opportunity-withdraw", "data-minimum-profile-form"]) {
   if (!main.includes(attr)) fail(`handler em falta no main.js: ${attr}.`);
 }

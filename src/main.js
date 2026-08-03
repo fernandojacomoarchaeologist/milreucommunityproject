@@ -1519,6 +1519,11 @@ function render(scroll=true) {
     case "collab-contribution-moderation-detail":
     case "collab-agenda":
     case "collab-opportunities":
+    case "collab-participation":
+    case "collab-pilot":
+    case "collab-pilot-management":
+    case "collab-public-integration":
+    case "collab-operations-governance":
     case "collab-notifications":
     case "collab-notification-preferences":
     case "collab-system-administration":

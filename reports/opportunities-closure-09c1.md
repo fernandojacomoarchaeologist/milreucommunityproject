@@ -39,7 +39,9 @@
 
 ## Correção de fecho funcional relevante
 
-A rota `collab-opportunities` existia no router e na vista do 09C, mas **não constava do switch principal de render** em `src/main.js` → a página colaborativa de oportunidades era uma **rota morta** (mostrava "Página não encontrada"). Corrigido (adicionada ao grupo que despacha `renderCollaborativeRoute`). Observação (fora de escopo): `collab-participation`, `collab-pilot`, `collab-public-integration` e `collab-operations-governance` também não constam desse switch — a registar para pacote futuro; não alterado aqui.
+A rota `collab-opportunities` existia no router e na vista do 09C, mas **não constava do switch principal de render** em `src/main.js` → a página colaborativa de oportunidades era uma **rota morta** (mostrava "Página não encontrada"). Corrigido (adicionada ao grupo que despacha `renderCollaborativeRoute`).
+
+Verificação subsequente (a pedido do responsável) encontrou o **mesmo defeito** em `collab-participation`, `collab-pilot`, `collab-pilot-management`, `collab-public-integration` e `collab-operations-governance`: existiam no router e na vista (e no switch interno de `renderCollaborativeRoute`) mas **estavam ausentes do switch principal** → rotas mortas. Como o único bloqueio era essa ausência (sem necessidade de recriar páginas, módulos ou permissões), foram **corrigidas no mesmo PR** e cobertas por **testes de render** (`tests/e2e/portal/collab-routes-render.spec.mjs` + verificação anti-regressão em `validate-09c1`). Confirmado no browser (master): renderizam "Participação contínua", "Piloto controlado", "Gestão do piloto", "Integração pública e evolução", "Operação e governação". As **ações** destes módulos continuam a operar apenas em staging real (padrão do 08L/08M); a homologação real permanece **pendência humana** (staging + OAuth).
 
 ## Bloqueadores humanos / decisões abertas (reportados, não simulados)
 
