@@ -12,8 +12,8 @@ import { bindCommon } from "./components/layout.js";
 import {
   homeView, projectView, methodologyView, initiativesView, initiativeDetailView,
   knowledgeView, participateView, aboutView, notFoundView
-import { proteusLibraryView, proteusWorkView, proteusAuthorView } from "./views/proteus-library.js";
 } from "./views/portal.js";
+import { proteusLibraryView, proteusWorkView, proteusAuthorView } from "./views/proteus-library.js";
 import {
   museumHome, galleryView, detailView, immersiveView, timelineView,
   collectionsView, collectionDetailView
