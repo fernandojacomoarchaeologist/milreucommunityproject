@@ -1,0 +1,23 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09F",
+  "version": "0.35.0",
+  "canonicalLocale": "pt-PT",
+  "note": "Título e descrição por rota pública, em pt-PT, descrevendo conteúdo efetivamente visível e publicado. Sem palavras-chave artificiais nem promessas não entregues. As rotas dinâmicas (memórias, coleções, iniciativas, oportunidades) recebem metadados a partir do respetivo conteúdo publicado.",
+  "routes": {
+    "home": { "title": "Projeto Comunitário de Milreu", "description": "Programa de Arqueologia Pública e Comunitária associado às Ruínas Romanas de Milreu, em Estoi, Faro. Portal, Museu de Memórias e formas de participação." },
+    "project": { "title": "O Projeto", "description": "Objetivos, princípios e percurso do Projeto Comunitário de Milreu: comunicação, mutualidade e pertinência social e política." },
+    "methodology": { "title": "Metodologia", "description": "Como o Projeto Comunitário de Milreu trabalha a arqueologia pública e comunitária, com a comunidade a falar primeiro e a instituição como contexto." },
+    "initiatives": { "title": "Iniciativas", "description": "Iniciativas em desenvolvimento no âmbito do Projeto Comunitário de Milreu." },
+    "knowledge": { "title": "Experiência Proteus", "description": "A camada técnica de dados e conhecimento do Projeto Comunitário de Milreu que alimentará o site, os totens e futuras aplicações." },
+    "participate": { "title": "Participar", "description": "Formas de participar no Projeto Comunitário de Milreu, incluindo a partilha de memórias e o Inquérito 2026." },
+    "about": { "title": "Sobre", "description": "Sobre o Projeto Comunitário de Milreu e o Museu de Memórias de Milreu." },
+    "public-exhibitions": { "title": "Agenda e exposições", "description": "Agenda pública de atividades e da exposição itinerante do Projeto Comunitário de Milreu." },
+    "public-opportunities": { "title": "Oportunidades", "description": "Cursos, eventos, voluntariado, oficinas e outras formas de participar em Milreu. A leitura é pública; candidatar-se exige entrar e completar um perfil mínimo." },
+    "public-transparency": { "title": "Transparência", "description": "Informação pública de transparência do Projeto Comunitário de Milreu." },
+    "museum-home": { "title": "Museu de Memórias de Milreu", "description": "Uma experiência visual sobre as relações entre pessoas, comunidade, paisagem, Estoi e Milreu, a partir de fotografias autorizadas." },
+    "gallery": { "title": "Explorar o Museu", "description": "Pesquise e explore as memórias do Museu de Memórias de Milreu por período, tipo e palavras-chave." },
+    "timeline": { "title": "Linha do tempo do Museu", "description": "As memórias do Museu de Memórias de Milreu organizadas por data conhecida ou intervalo." },
+    "collections": { "title": "Coleções do Museu", "description": "Coleções de navegação derivadas do Museu de Memórias de Milreu, identificadas como agrupamentos por semelhança, não como relações históricas confirmadas." }
+  }
+}

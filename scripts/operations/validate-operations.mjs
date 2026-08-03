@@ -37,11 +37,11 @@ const retentionPlan=readFileSync("scripts/operations/generate-retention-plan.mjs
 const build=readFileSync("scripts/build.mjs","utf8");
 const smoke=readFileSync("scripts/smoke.mjs","utf8");
 
-if(pkg.version!=="0.34.0")throw new Error("Versão 08I incorreta.");
+if(pkg.version!=="0.35.0")throw new Error("Versão 08I incorreta.");
 for(const item of [model,retention,runtime,readiness,impact]){
-  if(item.version!=="0.34.0")throw new Error("Contrato 08I desatualizado.");
+  if(item.version!=="0.35.0")throw new Error("Contrato 08I desatualizado.");
 }
-if(impact.currentPackage!=="09E")throw new Error("Registo de impacto não aponta para 09C.");
+if(impact.currentPackage!=="09F")throw new Error("Registo de impacto não aponta para 09C.");
 
 if(modules.length!==26||modules.some(item=>item.status!=="active"))throw new Error("08I deve manter 22 módulos ativos.");
 for(const code of ["system-administration","audit-governance","incident-continuity"]){

@@ -1,0 +1,32 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "09F",
+  "version": "0.35.0",
+  "note": "Configuração SEO validada por AMBIENTE. Não inventar domínio: a origem pública canónica ('publicOrigin') é decisão humana e permanece null até aprovação; enquanto for null, a indexação está desativada (robots Disallow) e não se emite sitemap nem canonical/hreflang absolutos. O build lê a origem de MILREU_PUBLIC_BASE_URL quando fornecida por ambiente aprovado.",
+  "environment": "preview",
+  "publicOrigin": null,
+  "originEnvVar": "MILREU_PUBLIC_BASE_URL",
+  "indexingAllowed": false,
+  "canonicalLocale": "pt-PT",
+  "publishedLocales": ["pt-PT"],
+  "candidateLocales": ["pt-PT", "en", "es", "fr"],
+  "xDefault": null,
+  "xDefaultDecision": "pending-human",
+  "defaultSocialImage": {
+    "path": "public/brand/logo-light.webp",
+    "rights": "Projeto Comunitário de Milreu (marca própria)",
+    "alt": "Projeto Comunitário de Milreu",
+    "note": "Imagem de marca própria (direitos confirmados) usada como partilha por omissão. A imagem social padrão definitiva é decisão editorial (OPEN_DECISIONS_09F #4)."
+  },
+  "organizationEntity": {
+    "status": "pending-human",
+    "note": "A entidade responsável e as relações institucionais para JSON-LD exigem confirmação (OPEN_DECISIONS_09F #3). Até lá, o JSON-LD limita-se a WebSite/Photograph factuais, sem Organization com relações não comprovadas."
+  },
+  "humanDecisions": [
+    "domínio/origem pública canónica por ambiente",
+    "x-default (se existe e qual entrada representa)",
+    "entidade responsável e relações institucionais para JSON-LD",
+    "imagem social padrão definitiva e créditos/direitos",
+    "quais memórias individuais podem ser indexadas (publicação, consentimento, direitos)"
+  ]
+}

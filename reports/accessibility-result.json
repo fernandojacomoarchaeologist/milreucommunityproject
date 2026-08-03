@@ -1,8 +1,8 @@
 {
-  "version": "0.34.0",
+  "version": "0.35.0",
   "standard": "WCAG 2.2",
   "target": "AA",
-  "generatedAt": "2026-08-03T14:13:34.615Z",
+  "generatedAt": "2026-08-03T16:26:27.770Z",
   "scope": "baseline-source-contract",
   "passed": true,
   "checks": [

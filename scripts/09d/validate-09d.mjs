@@ -18,7 +18,7 @@ const fail = (m) => { throw new Error(`09D: ${m}`); };
 // 1) Versão
 const pkg = read("package.json");
 if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
-if (pkg.currentPackage && pkg.currentPackage !== "09E") fail("currentPackage deve ser 09D.");
+if (pkg.currentPackage && pkg.currentPackage !== "09F") fail("currentPackage deve ser 09D.");
 
 // 2) Contratos do pacote
 const locModel = read("contracts/09d/locale-content-model.json");

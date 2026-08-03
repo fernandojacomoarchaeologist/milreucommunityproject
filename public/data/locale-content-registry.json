@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09D",
-  "version": "0.34.0",
+  "version": "0.35.0",
   "sourceLocale": "pt-PT",
   "targetLocales": ["en", "es", "fr"],
   "note": "Inventário editorial multilíngue. A fonte pt-PT está publicada; EN/ES/FR permanecem em estado 'missing' até rascunho, revisão humana e publicação explícita. Nenhuma tradução é inventada. Alterar 'sourceVersion' de uma unidade marca as traduções vinculadas como potencialmente desatualizadas (stale).",

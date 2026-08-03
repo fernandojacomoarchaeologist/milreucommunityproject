@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.34.0",
-  "currentPackage": "09E",
+  "version": "0.35.0",
+  "currentPackage": "09F",
   "surfaces": [
     {
       "code": "portal-home",
@@ -344,6 +344,15 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Otimização visual auditável: media responsiva (srcset/sizes no hero do Museu e banner do carrossel; LCP com fetchpriority alta e não-lazy; miniaturas fora da dobra lazy + decoding async), inventário de media (176 ativos: 31 originais + 124 derivados + 21 interface; classificação, direitos, proveniência, intervenção) e de fontes (Fraunces/Spectral/Archivo declaradas mas AUSENTES — sem @font-face nem ficheiros; fonte computada = fallback de sistema; licença/self-hosting = pendência humana), integridade dos 31 originais (sha256 == manifesto, byte a byte), baseline de desempenho (LCP mobile serve 'detail' 127KB vs 'immersive' 278KB = −54% bytes; LCP/CLS de campo = pendência de browser/staging). Sem ficheiros de fonte no Git; sem SEO/hreflang/OG/JSON-LD (reservado 09F); originais imutáveis; MM202617 preserva nota de IA; 09D e as 6 rotas colaborativas preservados. Sem novos módulos/permissões/migrations (26/152). Scripts scripts/09e/*, validate:09e, 09e-ci.yml, docs docs/visual/09e/, matriz reports/visual-closure-09e.md."
+    },
+    {
+      "code": "seo-metadata-sharing-hreflang-09f",
+      "package": "09F",
+      "module": null,
+      "routes": ["/", "/museu", "/museu/memorias/:id"],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Descoberta pública auditável: config SEO por AMBIENTE (public/config/seo.runtime.json) sem inventar domínio — publicOrigin=null (pendência humana) → indexação desativada, robots.txt Disallow: / (preview), sem sitemap (URLs absolutas exigem origem aprovada via MILREU_PUBLIC_BASE_URL). Inventário de indexabilidade (reports/seo-route-inventory-09f.json) classifica as 86 rotas do router exatamente uma vez: 18 index (público publicado) / 5 noindex (imersivo, laboratório, 404) / 63 blocked (colaborativas, auth, formulários com dados pessoais). Metadados por rota (public/data/seo-route-metadata.json, pt-PT factual); OG/Twitter/JSON-LD WebSite no index.html (noindex mantido) e OG/Twitter/JSON-LD Photograph+ImageObject com crédito real nas 30 páginas estáticas de memórias públicas (MM202617 excluída), com robots condicionado à origem. hreflang só pt-PT (self); EN/ES/FR NUNCA anunciados; x-default ausente (decisão humana). JSON-LD factual — sem Organization/Event/Offer/Review inventados. Preserva 31 originais (sha256==manifesto), 26/152, 0 migrations, 09D/09E/09C.1. scripts/09f/*, validate:09f, 09f-ci.yml, contratos contracts/09f/, docs docs/seo/09f/, relatórios reports/seo-{route-inventory,metadata-inventory,validation,closure}-09f.*. Pendências humanas: domínio, x-default, entidade JSON-LD, imagem social padrão, memórias indexáveis; indexação real em motores não verificada."
     }
   ],
   "futurePackageRules": [

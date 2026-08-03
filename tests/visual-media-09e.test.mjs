@@ -64,8 +64,7 @@ test("baseline: LCP mobile serve variante menor que a immersive (benefício de b
   assert.equal(b.fieldMetrics.mobileLcpMs, "pending-local-browser-and-staging");
 });
 
-test("09E não altera módulos/permissões nem introduz SEO", () => {
+test("09E não altera módulos/permissões (o SEO/OG é introduzido só a partir do 09F)", () => {
   assert.equal(read("public/data/collaborative-modules.json").modules.length, 26);
   assert.equal(read("public/data/collaborative-roles-permissions.json").permissions.length, 152);
-  assert.doesNotMatch(text("index.html"), /hreflang|og:|application\/ld\+json/i);
 });

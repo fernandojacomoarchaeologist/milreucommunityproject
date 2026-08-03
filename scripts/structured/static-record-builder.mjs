@@ -46,7 +46,19 @@ export async function buildStaticRecordPages(outputRoot="dist") {
 <html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escape(value(record.title))} | Projeto Comunitário de Milreu</title>
 <meta name="description" content="${escape(value(record.description.short))}">
-${canonical ? `<link rel="canonical" href="${escape(canonical)}">` : ""}
+<meta name="robots" content="${canonical ? "index,follow" : "noindex,nofollow"}">
+${canonical ? `<link rel="canonical" href="${escape(canonical)}">
+<link rel="alternate" hreflang="pt-PT" href="${escape(canonical)}">` : ""}
+<meta property="og:type" content="article">
+<meta property="og:title" content="${escape(value(record.title))} | Projeto Comunitário de Milreu">
+<meta property="og:description" content="${escape(value(record.description.short))}">
+<meta property="og:locale" content="pt-PT">
+${canonical ? `<meta property="og:url" content="${escape(canonical)}">` : ""}
+<meta property="og:image" content="${escape(canonical ? `${baseUrl}/${record.media.variants.detail}` : imagePath)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escape(value(record.title))}">
+<meta name="twitter:description" content="${escape(value(record.description.short))}">
+<meta name="twitter:image" content="${escape(canonical ? `${baseUrl}/${record.media.variants.detail}` : imagePath)}">
 <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g,"\\u003c")}</script>
 <style>body{margin:0;background:#f2ece0;color:#1e1a17;font:18px/1.65 Georgia,serif}main{max-width:74rem;margin:auto;padding:2rem 1rem 5rem}img{display:block;width:100%;max-height:75vh;object-fit:contain;background:#1e1a17}h1{font-size:clamp(2.4rem,6vw,5.5rem);line-height:1;margin:.4em 0}.meta{font:700 .75rem Arial,sans-serif;text-transform:uppercase}.notice{padding:1rem;background:#fff;border-left:5px solid #a83227}a{color:#7e251c}</style>
 </head><body><main>

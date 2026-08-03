@@ -1,0 +1,1122 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09F",
+  "version": "0.35.0",
+  "generatedAt": "2026-08-03",
+  "publicOrigin": null,
+  "indexingAllowed": false,
+  "canonicalLocale": "pt-PT",
+  "publishedLocales": [
+    "pt-PT"
+  ],
+  "counts": {
+    "total": 86,
+    "index": 18,
+    "noindex": 5,
+    "blocked": 63,
+    "inSitemap": 0
+  },
+  "note": "Cada nome de rota do router foi classificado exatamente uma vez. Sem origem aprovada, canonical/sitemap absolutos ficam nulos e a indexação está desativada (preview).",
+  "routes": [
+    {
+      "route": "/",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:home"
+      ]
+    },
+    {
+      "route": "/projeto",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:project"
+      ]
+    },
+    {
+      "route": "/metodologia",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:methodology"
+      ]
+    },
+    {
+      "route": "/iniciativas",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:initiatives"
+      ]
+    },
+    {
+      "route": "#route:initiative",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:initiative"
+      ]
+    },
+    {
+      "route": "/conhecimento",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:knowledge"
+      ]
+    },
+    {
+      "route": "/participar",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:participate"
+      ]
+    },
+    {
+      "route": "#route:public-contribution-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-contribution-new",
+        "policy:personal-data-form"
+      ]
+    },
+    {
+      "route": "#route:public-contribution-track",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-contribution-track",
+        "policy:personal-data-form"
+      ]
+    },
+    {
+      "route": "#route:public-contribution-withdrawal",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-contribution-withdrawal",
+        "policy:personal-data-form"
+      ]
+    },
+    {
+      "route": "/sobre",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:about"
+      ]
+    },
+    {
+      "route": "/exposicoes",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-exhibitions"
+      ]
+    },
+    {
+      "route": "/oportunidades",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-opportunities"
+      ]
+    },
+    {
+      "route": "#route:public-opportunity",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-opportunity"
+      ]
+    },
+    {
+      "route": "/transparencia",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:public-transparency"
+      ]
+    },
+    {
+      "route": "#route:collab-login",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-login",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-callback",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-callback",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-dashboard",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-dashboard",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-profile",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-profile",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-opportunities",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-opportunities",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-tasks",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-tasks",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-task-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-task-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-availability",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-availability",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-contributions",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-contributions",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-contribution-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-contribution-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-contribution-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-contribution-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-agenda",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-agenda",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-notifications",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-notifications",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-notification-preferences",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-notification-preferences",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-library",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-library",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-library-resource",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-library-resource",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-training",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-training",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-training-trail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-training-trail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-preview",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-preview",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-pilot",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-pilot",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-pilot-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-pilot-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-participation",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-participation",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-public-integration",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-public-integration",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-operations-governance",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-operations-governance",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-governance",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-governance",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-system-administration",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-system-administration",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-audit-governance",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-audit-governance",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-incidents-continuity",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-incidents-continuity",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-incident-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-incident-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-notification-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-notification-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-notification-templates",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-notification-templates",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-deployment-homologation",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-deployment-homologation",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-release-candidate",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-release-candidate",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-homologation-run",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-homologation-run",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-releases",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-releases",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-management-preview",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-management-preview",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-museum-review-management-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-museum-review-management-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-contribution-moderation",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-contribution-moderation",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-contribution-moderation-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-contribution-moderation-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-profile-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-profile-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-member-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-member-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-invitations",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-invitations",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-task-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-task-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-task-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-task-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-task-edit",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-task-edit",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-task-manage-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-task-manage-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-agenda-event-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-agenda-event-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-agenda-event-edit",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-agenda-event-edit",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-venue-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-venue-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-venue-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-venue-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-venue-edit",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-venue-edit",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-exhibition-management",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-exhibition-management",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-exhibition-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-exhibition-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-schedule-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-schedule-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-exhibition-edit",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-exhibition-edit",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-schedule-new",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-schedule-new",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:collab-exhibition-detail",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collab-exhibition-detail",
+        "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:channel-lab",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:channel-lab",
+        "policy:internal-or-404"
+      ]
+    },
+    {
+      "route": "#route:totem-preview",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:totem-preview",
+        "policy:internal-or-404"
+      ]
+    },
+    {
+      "route": "#route:panel-preview",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:panel-preview",
+        "policy:internal-or-404"
+      ]
+    },
+    {
+      "route": "/museu",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:museum-home"
+      ]
+    },
+    {
+      "route": "/museu/explorar",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:gallery"
+      ]
+    },
+    {
+      "route": "/museu/linha-do-tempo",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:timeline"
+      ]
+    },
+    {
+      "route": "/museu/colecoes",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collections"
+      ]
+    },
+    {
+      "route": "#route:collection",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:collection"
+      ]
+    },
+    {
+      "route": "#route:memory",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:memory"
+      ]
+    },
+    {
+      "route": "#route:immersive",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:immersive",
+        "policy:internal-or-404"
+      ]
+    },
+    {
+      "route": "#route:not-found",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:not-found",
+        "policy:internal-or-404"
+      ]
+    }
+  ]
+}

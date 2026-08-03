@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO route record 09F",
+  "type": "object",
+  "required": ["route", "locale", "editorialState", "indexability", "canonical", "inSitemap", "evidence"],
+  "properties": {
+    "route": {"type": "string", "pattern": "^/"},
+    "locale": {"enum": ["pt-PT", "en", "es", "fr"]},
+    "editorialState": {"type": "string"},
+    "indexability": {"enum": ["index", "noindex", "blocked"]},
+    "canonical": {"type": ["string", "null"]},
+    "inSitemap": {"type": "boolean"},
+    "hreflangTargets": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
