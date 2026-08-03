@@ -14,7 +14,7 @@ const roles = read("public/data/collaborative-roles-permissions.json");
 const readiness = read("public/data/pilot-readiness.json");
 
 test("modelo do piloto está na versão 0.22.0 e staging-only", () => {
-  assert.equal(model.version, "0.34.0");
+  assert.equal(model.version, "0.35.0");
   assert.equal(model.environmentRule, "staging-only");
 });
 

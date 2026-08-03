@@ -1,0 +1,8 @@
+{
+  "sitemapRequires": ["public", "published", "index", "http-200", "self-canonical"],
+  "neverIndex": ["authentication", "profile", "application", "management", "review", "demo", "preview", "staging", "error", "session-expired", "personal-data"],
+  "robotsIsPrivacyControl": false,
+  "canonicalize404ToHome": false,
+  "lastmodSource": "verified-content-change",
+  "trackingParametersCreateCanonicalPages": false
+}

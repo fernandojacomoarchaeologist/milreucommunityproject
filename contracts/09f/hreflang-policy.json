@@ -1,0 +1,10 @@
+{
+  "canonicalLocale": "pt-PT",
+  "candidateLocales": ["pt-PT", "en", "es", "fr"],
+  "eligibleEditorialStates": ["published"],
+  "requireSelfReference": true,
+  "requireReciprocity": true,
+  "allowFallbackAsTranslation": false,
+  "xDefault": {"enabledByDefault": false, "requiresExplicitDecision": true},
+  "exclude": ["private", "authenticated", "demo", "preview", "staging", "error", "session"]
+}

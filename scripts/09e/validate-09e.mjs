@@ -15,7 +15,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09E: ${m}`); };
-const EXPECTED = "0.34.0";
+const EXPECTED = "0.35.0";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
@@ -78,8 +78,8 @@ if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
 const migrations = readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql"));
 if (migrations.filter((f) => /202609|2026081/.test(f)).length) fail("09E não deve adicionar migrations.");
-const indexHtml = text("index.html");
-if (/hreflang|og:|twitter:|application\/ld\+json/i.test(indexHtml)) fail("SEO/hreflang/OG/JSON-LD ficam reservados ao 09F.");
+// Nota: o SEO (OG/Twitter/JSON-LD/hreflang) é introduzido pelo 09F; o 09E em si não o adiciona.
+// A partir do 09F, o index.html passa a conter estes metadados legitimamente.
 
 // 8) Originais imutáveis (delegado ao validador dedicado, aqui um cheque de coerência).
 if (media.counts.historicalDerivatives < 31 * 4) fail("inventário: derivados do Museu incompletos.");

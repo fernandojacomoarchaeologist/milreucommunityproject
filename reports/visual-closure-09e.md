@@ -2,7 +2,7 @@
 
 # Matriz de evidências — Pacote 09E (tipografia, media responsiva e desempenho visual)
 
-**Versão:** 0.34.0 · **Base:** `main@5c6ebda` (v0.33.0 / 09C.1), CI 46/46 verde.
+**Versão:** 0.35.0 · **Base:** `main@5c6ebda` (v0.33.0 / 09C.1), CI 46/46 verde.
 
 ## Rótulos de evidência (linguagem honesta)
 
