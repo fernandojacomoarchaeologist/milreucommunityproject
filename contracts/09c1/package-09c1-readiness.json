@@ -1,0 +1,23 @@
+{
+  "package": "09C.1",
+  "version": "0.33.0",
+  "requiredBase": {
+    "package09C": "merged",
+    "package09D": "merged-after-09C",
+    "baseCI": "green"
+  },
+  "functionalClosure": "required",
+  "uiAndRealTestBackendE2E": "required",
+  "multilingualFoundation": "preserve-09D",
+  "targetLocales": {
+    "pt-PT": "canonical",
+    "en": "not-required-to-publish",
+    "es": "not-required-to-publish",
+    "fr": "not-required-to-publish"
+  },
+  "minorParticipation": "blocked-until-policy",
+  "newModules": 0,
+  "newPermissions": 0,
+  "newMigrations": 0,
+  "productionApproval": "blocked"
+}

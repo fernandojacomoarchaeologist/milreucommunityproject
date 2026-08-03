@@ -1,0 +1,22 @@
+{
+  "anonymous": {
+    "readPublishedPublicOpportunity": true,
+    "readApplications": false,
+    "manageOpportunities": false
+  },
+  "candidate": {
+    "readPublishedPublicOpportunity": true,
+    "readOwnApplication": true,
+    "readOtherApplications": false,
+    "manageOpportunities": false
+  },
+  "volunteerWithoutManagement": {
+    "readOtherApplications": false,
+    "manageOpportunities": false
+  },
+  "authorizedMaster": {
+    "readOperationalApplications": true,
+    "manageOpportunities": true,
+    "publishUnapprovedTranslation": false
+  }
+}

@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.32.0",
-  "currentPackage": "09D",
+  "version": "0.33.0",
+  "currentPackage": "09C.1",
   "surfaces": [
     {
       "code": "portal-home",
@@ -322,6 +322,19 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Fundação multilíngue, tradução assistida e revisão humana: registo de conteúdo fonte pt-PT → tradução com estados editoriais (missing→draft/machine-draft→in-review→changes-requested/approved→published→archived), deteção de traduções desatualizadas (stale), disponibilidade por rota derivada do registo, seletor com fallback visível (mensagem + continuar em pt-PT, sem troca silenciosa, sem URL falsa, sem null), glossário-semente e templates de revisão. machine-draft nunca publica; publicação sempre explícita e humana; sem hreflang/SEO (fica 09F); EN/ES/FR permanecem 'missing'. Sem novos módulos/permissões/migrations; dataset e MM202617 inalterados; produção bloqueada."
+    },
+    {
+      "code": "opportunities-functional-closure-09c1",
+      "package": "09C.1",
+      "module": "opportunities",
+      "routes": [
+        "/oportunidades",
+        "/oportunidades/:slug",
+        "/area-colaborativa/oportunidades"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Fecho funcional e homologação pela interface (modo demonstração) da jornada de oportunidades do 09C, compatível com o 09D. Corrige a rota morta collab-opportunities (não estava no switch principal do render). Master: criar/editar rascunho, pré-visualizar, publicar, encerrar, cancelar, decidir (aceitar/não selecionar), remover participante com justificação interna, capacidade, duplicar (sem copiar candidaturas) e exportar lista minimizada. Candidato: perfil mínimo (só campos em falta, consentimento não pré-marcado, retorno validado), candidatar-se, resultado e retirada. Regras no módulo puro src/collab/opportunities-demo.js (transições submitted→accepted|not-selected|withdrawn; accepted→removed; candidatura única; capacidade; menores bloqueados; privacidade entre candidatos; notas internas nunca públicas) provadas por 16 testes unitários + E2E Playwright (demo) + verificações SQL/RLS no backend (009c1). Formação sem progresso/nota fictícios. 09D preservado (seletor/i18n/registo). Sem novos módulos/permissões/migrations (26/152); dataset 0.11.3; produção bloqueada. E2E com backend real via UI depende de staging+OAuth (bloqueador humano)."
     }
   ],
   "futurePackageRules": [

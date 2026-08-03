@@ -10,7 +10,7 @@ const deployment=read("public/data/deployment-readiness.json");
 const e2e=safe("reports/e2e-result.json");
 const accessibility=safe("reports/accessibility-result.json");
 const technicalChecks=[
- {code:"version",passed:pkg.version==="0.32.0",detail:pkg.version},
+ {code:"version",passed:pkg.version==="0.33.0",detail:pkg.version},
  {code:"modules",passed:modules.modules.length===26&&modules.modules.every(item=>item.status==="active"),detail:`${modules.modules.length} ativos`},
  {code:"permissions",passed:roles.permissions.length===152,detail:`${roles.permissions.length} preservadas`},
  {code:"e2e-browser",passed:e2e?.passed===true,detail:e2e?`${e2e.passedCount}/${e2e.total}`:"não executado"},

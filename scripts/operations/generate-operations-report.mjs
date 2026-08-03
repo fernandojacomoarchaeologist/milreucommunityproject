@@ -11,7 +11,7 @@ const runtime=JSON.parse(await readFile("public/config/operations.runtime.json",
 const readiness=JSON.parse(await readFile("public/data/collaborative-readiness.json","utf8"));
 const payload={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.32.0",
+  version:"0.33.0",
   generatedAt:new Date().toISOString(),
   environment:runtime.environment,
   modules:model.modules.map(item=>item.code),

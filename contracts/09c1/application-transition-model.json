@@ -1,0 +1,13 @@
+{
+  "package": "09C.1",
+  "initialState": "submitted",
+  "transitions": {
+    "submitted": ["accepted", "not-selected", "withdrawn"],
+    "accepted": ["removed"],
+    "not-selected": [],
+    "withdrawn": [],
+    "removed": []
+  },
+  "additionalTransitions": "only-if-already-proven-in-09c-domain",
+  "automaticWaitlist": false
+}

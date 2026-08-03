@@ -12,7 +12,7 @@ import { readFileSync, existsSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`09B relatório: ${m}`); };
 
-const EXPECTED = "0.32.0";
+const EXPECTED = "0.33.0";
 const model = read("public/data/semantic-audit-model.json");
 if (model.version !== EXPECTED) fail("versão do contrato incorreta.");
 if (model.automaticFullRewriteAllowed !== false) fail("o contrato não pode permitir reescrita total automática.");
