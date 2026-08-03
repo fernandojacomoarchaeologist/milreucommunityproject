@@ -1,0 +1,24 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09D",
+  "version": "0.32.0",
+  "sourceLocale": "pt-PT",
+  "status": "seed-requires-human-review",
+  "note": "Semente de glossário. As variantes de EN/ES/FR e a terminologia arqueológica dependem de decisão humana (ver OPEN_DECISIONS_09D). Regras: preserve-name = manter o nome tal como está; official-form-only = usar apenas a forma oficial; editorial-decision = aguarda decisão editorial; translate = traduzível com revisão.",
+  "terms": [
+    { "pt-PT": "Projeto Comunitário de Milreu", "rule": "preserve-name", "en": null, "es": null, "fr": null },
+    { "pt-PT": "Ruínas Romanas de Milreu", "rule": "official-form-only", "en": null, "es": null, "fr": null },
+    { "pt-PT": "Museu de Memórias", "rule": "editorial-decision", "en": null, "es": null, "fr": null },
+    { "pt-PT": "Milreu Proteus", "rule": "preserve-name", "en": null, "es": null, "fr": null },
+    { "pt-PT": "Estoi", "rule": "preserve-name", "en": null, "es": null, "fr": null },
+    { "pt-PT": "Faro", "rule": "preserve-name", "en": null, "es": null, "fr": null },
+    { "pt-PT": "arqueologia pública", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "arqueologia comunitária", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "proveniência", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "grau de certeza", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "intervenção digital", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "oportunidade", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "candidatura", "rule": "translate", "en": null, "es": null, "fr": null },
+    { "pt-PT": "contributo", "rule": "translate", "en": null, "es": null, "fr": null }
+  ]
+}

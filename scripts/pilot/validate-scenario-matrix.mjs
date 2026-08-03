@@ -9,7 +9,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08K matriz de cenários: ${m}`); };
 
 const seed = read("public/data/pilot-scenario-seed.json");
-if (seed.version !== "0.31.0") fail("versão incorreta.");
+if (seed.version !== "0.32.0") fail("versão incorreta.");
 const scenarios = seed.scenarios || [];
 if (scenarios.length !== 34) fail(`esperados 34 cenários, encontrados ${scenarios.length}.`);
 if (seed.scenarioCount !== scenarios.length) fail("scenarioCount não corresponde.");

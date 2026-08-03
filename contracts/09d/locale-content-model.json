@@ -1,0 +1,24 @@
+{
+  "package": "09D",
+  "version": "0.32.0",
+  "sourceLocale": "pt-PT",
+  "targetLocales": [
+    "en",
+    "es",
+    "fr"
+  ],
+  "statuses": [
+    "missing",
+    "draft",
+    "machine-draft",
+    "in-review",
+    "changes-requested",
+    "approved",
+    "published",
+    "archived"
+  ],
+  "automaticPublicationAllowed": false,
+  "silentFallbackAllowed": false,
+  "sourceVersionRequired": true,
+  "staleDetectionRequired": true
+}

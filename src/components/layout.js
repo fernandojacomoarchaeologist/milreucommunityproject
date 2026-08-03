@@ -6,11 +6,15 @@
 import { text, languages, languageAvailability, languageNames } from "../lib/i18n.js";
 import { assetUrl } from "../lib/data.js";
 
-// 09B: só pt-PT é selecionável; EN/ES/FR aparecem como "em preparação" (desativados),
-// sem navegação falsa nem fallback silencioso. Acessível a leitores de ecrã.
+// 09B/09D: só pt-PT é selecionável; EN/ES/FR aparecem como "em preparação" (desativados),
+// sem navegação falsa nem fallback silencioso. A disponibilidade real por rota vive em
+// public/data/locale-availability.json (ver localeAvailableForRoute). O grupo é descrito
+// por uma nota acessível que explica que o conteúdo continua em português e que não há
+// tradução automática publicada. Acessível a leitores de ecrã.
 export function languageSwitcher(lang) {
   const inPrep = text(lang, "languageInPreparation");
-  return `<div class="language-switcher" role="group" aria-label="${text(lang, "languageLabel")}">${
+  const note = text(lang, "languageInPreparationNote");
+  return `<div class="language-switcher" role="group" aria-label="${text(lang, "languageLabel")}" aria-describedby="language-switcher-note">${
     languages.map(code => {
       const label = code.replace("pt-PT", "PT").toUpperCase();
       const enabled = languageAvailability[code]?.selectorEnabled;
@@ -19,7 +23,7 @@ export function languageSwitcher(lang) {
       }
       return `<button type="button" class="language-switcher__option language-switcher__option--preparation" data-language-disabled="${code}" disabled aria-disabled="true" aria-label="${languageNames[code]||label} — ${inPrep}" title="${languageNames[code]||label} — ${inPrep}"><span aria-hidden="true">${label}</span><small>${inPrep}</small></button>`;
     }).join("")
-  }</div>`;
+  }<p id="language-switcher-note" class="language-switcher__note" data-locale-note>${note}</p></div>`;
 }
 
 export function portalHeader(lang, current="") {

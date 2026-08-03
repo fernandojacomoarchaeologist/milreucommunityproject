@@ -7,7 +7,7 @@ import { existsSync, readFileSync } from "node:fs";
 const read=(p)=>JSON.parse(readFileSync(p,"utf8"));
 const fail=(m)=>{throw new Error(`08M modelo: ${m}`);};
 const model=read("public/data/operations-governance-model.json");
-if(model.version!=="0.31.0")fail("versão incorreta.");
+if(model.version!=="0.32.0")fail("versão incorreta.");
 if(model.module?.code!=="operations-governance")fail("módulo ausente.");
 if(model.activeOperatingCyclesByDefault!==0)fail("ciclos ativos por omissão devem ser 0.");
 if(model.publicTransparencyEnabledByDefault!==false)fail("transparência pública deve estar off.");

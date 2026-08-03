@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.31.0",
-  "currentPackage": "09C",
+  "version": "0.32.0",
+  "currentPackage": "09D",
   "surfaces": [
     {
       "code": "portal-home",
@@ -307,6 +307,21 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Oportunidades públicas + candidaturas: descoberta pública (snapshot vazio honesto), CTA 'Tenho interesse'→login→perfil mínimo, decisão do dono do projeto, partilha client-side sem OAuth, candidatos privados (RLS: anon só lê public+published), menores bloqueados até política. Novo módulo opportunities (26), 3 permissões (152), 2 migrations com RLS/RPCs security definer."
+    },
+    {
+      "code": "multilingual-foundation-09d",
+      "package": "09D",
+      "module": null,
+      "routes": [
+        "/",
+        "/sobre",
+        "/participar",
+        "/oportunidades",
+        "/museu"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Fundação multilíngue, tradução assistida e revisão humana: registo de conteúdo fonte pt-PT → tradução com estados editoriais (missing→draft/machine-draft→in-review→changes-requested/approved→published→archived), deteção de traduções desatualizadas (stale), disponibilidade por rota derivada do registo, seletor com fallback visível (mensagem + continuar em pt-PT, sem troca silenciosa, sem URL falsa, sem null), glossário-semente e templates de revisão. machine-draft nunca publica; publicação sempre explícita e humana; sem hreflang/SEO (fica 09F); EN/ES/FR permanecem 'missing'. Sem novos módulos/permissões/migrations; dataset e MM202617 inalterados; produção bloqueada."
     }
   ],
   "futurePackageRules": [
