@@ -12,7 +12,7 @@ import { readFileSync, existsSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08P fecho funcional: ${m}`); };
 
-const EXPECTED_VERSION = "0.36.0";
+const EXPECTED_VERSION = "0.37.0";
 const contract = read("public/data/collaborative-functional-closure.json");
 if (contract.version !== EXPECTED_VERSION) fail("versão do contrato incorreta.");
 

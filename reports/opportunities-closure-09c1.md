@@ -2,7 +2,7 @@
 
 # Matriz de evidências — Pacote 09C.1 (fecho funcional das oportunidades)
 
-**Versão:** 0.36.0 · **Base:** 09C (#39) e 09D (#40) integrados no `main` (`0688e36`), CI verde.
+**Versão:** 0.37.0 · **Base:** 09C (#39) e 09D (#40) integrados no `main` (`0688e36`), CI verde.
 
 ## Rótulos de evidência (linguagem honesta)
 

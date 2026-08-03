@@ -6,7 +6,7 @@
 |---|---|
 | Base | `main@95776ed` · v0.34.0 · 09E |
 | SHA do ZIP | `fd33cc25…` ✅ |
-| Alvo | v0.36.0 · currentPackage 09F |
+| Alvo | v0.37.0 · currentPackage 09F |
 | Origem pública usada | **pendente** (siteUrl=null; não inventado) — por ambiente via `MILREU_PUBLIC_BASE_URL` |
 | Indexação | **desativada** (preview) · robots `Disallow: /` |
 | Rotas | 18 index / 5 noindex / 63 blocked (de 86) |

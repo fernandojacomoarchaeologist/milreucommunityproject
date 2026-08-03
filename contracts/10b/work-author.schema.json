@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/proteus/work-author-10b.json",
+  "title": "Proteus Work Author Relation",
+  "type": "object",
+  "required": ["workId", "authorId", "position", "role", "verified"],
+  "properties": {
+    "workId": {"type": "string", "minLength": 1},
+    "authorId": {"type": "string", "minLength": 1},
+    "position": {"type": "integer", "minimum": 1},
+    "role": {"enum": ["author", "editor", "translator", "compiler", "other"]},
+    "roleLabel": {"type": ["string", "null"]},
+    "verified": {"type": "boolean"},
+    "source": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

@@ -31,7 +31,7 @@ const fonts = existsSync("reports/font-inventory-09e.json") ? read("reports/font
 
 const report = {
   _copyright: "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
-  package: "09E", version: "0.36.0", generatedAt: new Date().toISOString().slice(0, 10),
+  package: "09E", version: "0.37.0", generatedAt: new Date().toISOString().slice(0, 10),
   environment: "local-node-static-analysis",
   measured: {
     bytes: {

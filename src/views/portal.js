@@ -267,6 +267,7 @@ export function knowledgeView(content, lang, proteus) {
       <div class="knowledge-grid">
         ${p.futureExperiences.map(x => `<article class="knowledge-card"><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p><span>Em preparação</span></article>`).join("")}
       </div>
+      <p class="section-action"><a class="ml-button ml-button--secondary" href="#/conhecimento/biblioteca">Abrir a Biblioteca (catálogo inicial)</a></p>
       <h2 class="proteus-heading">Como o conhecimento é classificado</h2>
       <ul class="proteus-classes">${p.knowledgeClasses.map(c => `<li><strong>${esc(c.label)}</strong> — ${esc(c.rule)}</li>`).join("")}</ul>
       <div class="architecture-note"><h2>Direitos e proveniência</h2><p>${esc(p.rights.principle)}</p><p class="fallback-note">${esc(p.rights.antiSubstitution)}</p></div>

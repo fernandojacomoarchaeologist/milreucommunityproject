@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.36.0",
-  "currentPackage": "10A",
+  "version": "0.37.0",
+  "currentPackage": "10B",
   "surfaces": [
     {
       "code": "portal-home",
@@ -363,6 +363,16 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Inaugura a Série 10 (Experiência Proteus) como FUNDAÇÃO DOCUMENTAL — política pública, direitos, confiança e contrato futuro do MCP. NÃO implementa biblioteca, ingestão, PDFs, OCR, embeddings, RAG, chat, API nem servidor MCP; não cria módulos/permissões/migrations. Contratos contracts/10a/ (rights-access-policy: 14 dimensões independentes + negação por defeito + unknown=denied; knowledge-assertion: 6 classes epistémicas facto/interpretação/hipótese/memória/inferência/desconhecido; public-answer: estados answered/limited/insufficient_evidence/rights_restricted/out_of_scope; external-resource: fornecedor+direitos separados; future-mcp-contract: future-not-implemented, sem acesso direto a BD/documentos restritos). Apresentação pública honesta na rota preexistente /conhecimento (knowledgeView + public/data/proteus-overview.json): propósito, 6 experiências futuras TODAS 'em preparação', classes de conhecimento, princípio de direitos (default deny + anti-substituição), recursos institucionais do Património Cultural 360 (visita virtual + 2D/3D) apenas contextualizados — URL/direitos/embed = decisão humana, sem apropriação — e MCP futuro. Nada disponível ainda (sem consulta/API/chat). Scans confirmam ausência de PDFs/fulltext/embeddings/segredos. docs docs/proteus/10a/, validate:10a, 10a-ci.yml. Preserva 09D/09E/09F/09C.1 (26/152, 0 migrations). Continuidade: 10B catálogo→10C afirmações→10D biblioteca/API→10E ingestão→10F Pergunte ao Proteus→10G aprendizagem→10H MCP público→10I MCP editorial. Decisões humanas: nome/entidade, política jurídica de obras restritas, direitos Património 360, licença dos dados, domínio Proteus, governança do MCP."
+    },
+    {
+      "code": "proteus-bibliographic-catalog-10b",
+      "package": "10B",
+      "series": "10 — Experiência Proteus",
+      "module": null,
+      "routes": ["/conhecimento/biblioteca", "/conhecimento/biblioteca/:slug", "/conhecimento/autores/:slug"],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Primeira Biblioteca Proteus (páginas públicas iniciais) em modo static-first. Contratos contracts/10b/ (work, author, work-author, rights-record, doi-import-draft, public-catalog-entry) com estados editorial e de acesso e negação por defeito. Snapshot público public/data/proteus-catalog-public.json começa VAZIO e honesto (0 obras, 0 autores; nenhuma pessoa real como demonstração — Hauschild/Teichner/Jácomo continuam candidatos do piloto, fora deste pacote). Vistas src/views/proteus-library.js (lista+pesquisa+filtros por tipo/acesso/idioma, ficha de obra, perfil de autor) com estados vazio/zero-resultados/404 honestos; só mostra 'published'; não mostra texto integral, notas internas nem URLs privadas. Importação DOI: adaptador PURO src/proteus/doi-import.mjs (normalizeDoi/normalizeOrcid com checksum, mapCrossrefToDraft→ImportDraft com publicationApproved:false e warnings incl. rights_not_evaluated, detectDuplicateCandidates conservador que NUNCA funde) — sem rede embutida (testes com mocks). SEO só para publicados: com catálogo vazio, nenhum JSON-LD/canonical/sitemap é emitido; rotas ficam noindex (09F preview). Ligação a partir de /conhecimento (10A). scripts/10b/validate-10b.mjs+validate:10b; tests/proteus-catalog-10b.test.mjs (9) + E2E tests/e2e/portal/proteus-library-10b.spec.mjs; 10b-ci.yml. **Backend/RLS = pendência CONDICIONAL:** a app é static-first (Supabase não ligado à app) e uma migration nova quebraria os validadores anteriores; a persistência real + RLS (anon lê só published; não-editor não altera; sem escalonamento pelo cliente) fica para quando a fundação Supabase Proteus for autorizada — mantido adapter+contratos, bloqueio relatado (o pacote autoriza). ZERO novos módulos/permissões/migrations (26/152). Preserva 09D/09E/09F/10A. Decisões humanas (OPEN_DECISIONS_10B): licença dos metadados, conselho editorial/SLA, obras/autores do piloto e fontes, tratamento de Hauschild/Teichner, fonte DOI principal e retenção, critério de homónimos, domínio/indexação."
     }
   ],
   "futurePackageRules": [

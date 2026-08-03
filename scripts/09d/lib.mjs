@@ -10,7 +10,7 @@ import { readFileSync } from "node:fs";
 export const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 export const text = (p) => readFileSync(p, "utf8");
 
-export const EXPECTED = "0.36.0";
+export const EXPECTED = "0.37.0";
 export const SOURCE_LOCALE = "pt-PT";
 export const TARGET_LOCALES = ["en", "es", "fr"];
 export const STATUSES = [

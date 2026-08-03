@@ -1,9 +1,9 @@
 {
   "requiredBaseCommit": "5c6ebda",
-  "requiredBaseVersion": "0.36.0",
+  "requiredBaseVersion": "0.37.0",
   "requiredCurrentPackage": "09C.1",
   "requiredBaseCi": "green",
-  "targetVersion": "0.36.0",
+  "targetVersion": "0.37.0",
   "targetCurrentPackage": "09E",
   "newModules": 0,
   "newPermissions": 0,
