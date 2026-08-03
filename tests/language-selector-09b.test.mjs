@@ -12,7 +12,7 @@ const text = (p) => readFileSync(p, "utf8");
 
 test("o contrato de idiomas mantém pt-PT selecionável e EN/ES/FR em preparação", () => {
   const m = read("public/data/language-availability-model.json");
-  assert.equal(m.version, "0.32.0");
+  assert.equal(m.version, "0.33.0");
   assert.equal(m.silentFallbackAllowed, false);
   assert.equal(m.locales["pt-PT"].selectorEnabled, true);
   for (const c of ["en", "es", "fr"]) {

@@ -181,6 +181,17 @@ function moveHomeCarousel(direction) {
 }
 
 // 09C: partilha de oportunidade iniciada pelo utilizador (sem OAuth nem publicação automática).
+// 09C.1 — na descoberta pública, junta as oportunidades publicadas em demonstração
+// ao snapshot estático (que permanece vazio e honesto). Em staging/produção a fonte
+// é o snapshot aprovado; publicDemoOpportunities() devolve [] fora do modo demo.
+function mergedPublicOpportunities() {
+  const base = state.publicOpportunities || { opportunities: [], notice: null };
+  let demo = [];
+  try { demo = collaborative.publicDemoOpportunities?.() || []; } catch { demo = []; }
+  if (!demo.length) return base;
+  return { ...base, opportunities: [...(base.opportunities || []), ...demo] };
+}
+
 function bindOpportunityShare() {
   const box = document.querySelector("[data-opportunity-share]");
   if (!box) return;
@@ -668,6 +679,28 @@ function bindPage() {
 
 
 
+
+  // 09C.1 — jornada de oportunidades (demo local; staging usa RPCs/RLS do 09C).
+  document.querySelector("[data-opportunity-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    const payload={id:form.dataset.opportunityId||null,title:values.title,summary:values.summary,description:values.description||"",opportunityType:values.opportunityType,visibility:values.visibility,locationText:values.locationText||"",startsAt:values.startsAt||null,endsAt:values.endsAt||null,applicationDeadline:values.applicationDeadline||null,capacityMode:values.capacityMode,capacity:values.capacity||null};
+    setCollaborativeFeedback("A guardar…");
+    try{await collaborative.opportunitySave(payload);setCollaborativeFeedback("Oportunidade guardada.");form.reset();}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
+  document.querySelectorAll("[data-opportunity-publish]").forEach(b=>b.addEventListener("click",async()=>{b.disabled=true;try{await collaborative.opportunitySetStatus(b.dataset.opportunityPublish,"published");}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-close]").forEach(b=>b.addEventListener("click",async()=>{if(!confirm("Encerrar candidaturas desta oportunidade?"))return;b.disabled=true;try{await collaborative.opportunitySetStatus(b.dataset.opportunityClose,"closed");}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-cancel]").forEach(b=>b.addEventListener("click",async()=>{const reason=prompt("Justificação interna do cancelamento (não é pública):","")||"";if(!confirm("Cancelar esta oportunidade? O histórico é preservado."))return;b.disabled=true;try{await collaborative.opportunitySetStatus(b.dataset.opportunityCancel,"cancelled",reason);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-duplicate]").forEach(b=>b.addEventListener("click",async()=>{b.disabled=true;try{await collaborative.opportunityDuplicate(b.dataset.opportunityDuplicate);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-decide]").forEach(b=>b.addEventListener("click",async()=>{b.disabled=true;try{await collaborative.opportunityDecide(b.dataset.opportunityDecide,b.dataset.decision);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-remove]").forEach(b=>b.addEventListener("click",async()=>{const reason=prompt("Justificação interna da remoção (obrigatória; não é pública):","")||"";if(!reason.trim())return;b.disabled=true;try{await collaborative.opportunityRemoveParticipant(b.dataset.opportunityRemove,reason);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-export]").forEach(b=>b.addEventListener("click",()=>{try{const rows=collaborative.opportunityExport(b.dataset.opportunityExport);const blob=new Blob([JSON.stringify(rows,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`oportunidade-${b.dataset.opportunityExport}-lista.json`;a.click();URL.revokeObjectURL(url);}catch(e){alert(e.message);}}));
+  document.querySelectorAll("[data-opportunity-apply]").forEach(b=>b.addEventListener("click",async()=>{b.disabled=true;try{await collaborative.opportunityApply(b.dataset.opportunityApply);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelectorAll("[data-opportunity-withdraw]").forEach(b=>b.addEventListener("click",async()=>{if(!confirm("Retirar a sua candidatura?"))return;b.disabled=true;try{await collaborative.opportunityWithdraw(b.dataset.opportunityWithdraw);}catch(e){alert(e.message);}finally{b.disabled=false;}}));
+  document.querySelector("[data-minimum-profile-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();const form=event.currentTarget,values=formValues(form);
+    setCollaborativeFeedback("A guardar perfil…");
+    try{await collaborative.saveMinimumProfile({displayName:values.displayName,preferredContact:values.preferredContact,interests:(values.interests||"").split(",").map(s=>s.trim()).filter(Boolean),availabilityNote:values.availabilityNote,consent:form.elements.consent?.checked===true});setCollaborativeFeedback("Perfil mínimo guardado. Já pode candidatar-se.");}catch(error){setCollaborativeFeedback(error.message,true);}
+  });
 
   document.querySelector("[data-library-filters]")?.addEventListener("submit",event=>{
     event.preventDefault();const values=formValues(event.currentTarget);
@@ -1485,6 +1518,7 @@ function render(scroll=true) {
     case "collab-contribution-moderation":
     case "collab-contribution-moderation-detail":
     case "collab-agenda":
+    case "collab-opportunities":
     case "collab-notifications":
     case "collab-notification-preferences":
     case "collab-system-administration":
@@ -1540,8 +1574,8 @@ function render(scroll=true) {
     case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
-    case "public-opportunities": html = opportunitiesListView(state.publicOpportunities,state.lang); setMetadata("Oportunidades"); break;
-    case "public-opportunity": html = opportunityDetailView(state.publicOpportunities,route.slug,state.lang); setMetadata("Oportunidade"); break;
+    case "public-opportunities": html = opportunitiesListView(mergedPublicOpportunities(),state.lang); setMetadata("Oportunidades"); break;
+    case "public-opportunity": html = opportunityDetailView(mergedPublicOpportunities(),route.slug,state.lang); setMetadata("Oportunidade"); break;
     case "public-transparency": html = publicTransparencyView(state.publicTransparency||{}); setMetadata("Transparência"); break;
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
     case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
