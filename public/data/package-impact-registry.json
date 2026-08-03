@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.33.0",
-  "currentPackage": "09C.1",
+  "version": "0.34.0",
+  "currentPackage": "09E",
   "surfaces": [
     {
       "code": "portal-home",
@@ -335,6 +335,15 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Fecho funcional e homologação pela interface (modo demonstração) da jornada de oportunidades do 09C, compatível com o 09D. Corrige a rota morta collab-opportunities (não estava no switch principal do render). Master: criar/editar rascunho, pré-visualizar, publicar, encerrar, cancelar, decidir (aceitar/não selecionar), remover participante com justificação interna, capacidade, duplicar (sem copiar candidaturas) e exportar lista minimizada. Candidato: perfil mínimo (só campos em falta, consentimento não pré-marcado, retorno validado), candidatar-se, resultado e retirada. Regras no módulo puro src/collab/opportunities-demo.js (transições submitted→accepted|not-selected|withdrawn; accepted→removed; candidatura única; capacidade; menores bloqueados; privacidade entre candidatos; notas internas nunca públicas) provadas por 16 testes unitários + E2E Playwright (demo) + verificações SQL/RLS no backend (009c1). Formação sem progresso/nota fictícios. 09D preservado (seletor/i18n/registo). Sem novos módulos/permissões/migrations (26/152); dataset 0.11.3; produção bloqueada. E2E com backend real via UI depende de staging+OAuth (bloqueador humano)."
+    },
+    {
+      "code": "visual-typography-media-performance-09e",
+      "package": "09E",
+      "module": null,
+      "routes": ["/", "/museu", "/museu/explorar", "/museu/imersivo/:id"],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Otimização visual auditável: media responsiva (srcset/sizes no hero do Museu e banner do carrossel; LCP com fetchpriority alta e não-lazy; miniaturas fora da dobra lazy + decoding async), inventário de media (176 ativos: 31 originais + 124 derivados + 21 interface; classificação, direitos, proveniência, intervenção) e de fontes (Fraunces/Spectral/Archivo declaradas mas AUSENTES — sem @font-face nem ficheiros; fonte computada = fallback de sistema; licença/self-hosting = pendência humana), integridade dos 31 originais (sha256 == manifesto, byte a byte), baseline de desempenho (LCP mobile serve 'detail' 127KB vs 'immersive' 278KB = −54% bytes; LCP/CLS de campo = pendência de browser/staging). Sem ficheiros de fonte no Git; sem SEO/hreflang/OG/JSON-LD (reservado 09F); originais imutáveis; MM202617 preserva nota de IA; 09D e as 6 rotas colaborativas preservados. Sem novos módulos/permissões/migrations (26/152). Scripts scripts/09e/*, validate:09e, 09e-ci.yml, docs docs/visual/09e/, matriz reports/visual-closure-09e.md."
     }
   ],
   "futurePackageRules": [

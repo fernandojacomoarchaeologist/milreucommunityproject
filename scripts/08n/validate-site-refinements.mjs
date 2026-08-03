@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 const read=(p)=>JSON.parse(readFileSync(p,"utf8"));
 const fail=(m)=>{throw new Error(`08N: ${m}`);};
 const model=read("public/data/site-refinement-model.json");
-if(model.version!=="0.33.0")fail("versão do modelo do site incorreta.");
+if(model.version!=="0.34.0")fail("versão do modelo do site incorreta.");
 if(model.publicEffectsActive!==0)fail("efeitos públicos ativos devem ser 0.");
 if(model.carouselAutoplayEnabled!==true)fail("autoplay do carrossel deve estar ativo.");
 const carousel=read("public/data/home-carousel.json");

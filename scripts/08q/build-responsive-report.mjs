@@ -11,7 +11,7 @@ import { readFileSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08Q relatório: ${m}`); };
 
-const EXPECTED = "0.33.0";
+const EXPECTED = "0.34.0";
 const readiness = read("public/data/package-08q-readiness.json");
 if (readiness.version !== EXPECTED) fail("versão do readiness incorreta.");
 if (readiness.newModulesExpected !== 0 || readiness.newPermissionsExpected !== 0 || readiness.newMigrationsExpected !== 0) {

@@ -1,0 +1,5 @@
+{
+  "measurement": {"runs": 3, "aggregation": "median", "cache": "cold", "profiles": ["mobile", "desktop"]},
+  "guardrails": {"mobileLcpMs": 2500, "cls": 0.10, "routeByteRegressionPercent": 5, "font404": 0, "layoutImagesWithoutDimensions": 0},
+  "rules": {"baselineRequired": true, "comparableEnvironmentRequired": true, "lcpMustNotBeLazy": true, "preloadRequiresEvidence": true, "exceptionsRequireReport": true}
+}

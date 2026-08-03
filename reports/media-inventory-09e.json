@@ -1,0 +1,3165 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09E",
+  "version": "0.34.0",
+  "generatedAt": "2026-08-03",
+  "sourceManifestVersion": "0.19.0",
+  "counts": {
+    "total": 176,
+    "historicalOriginals": 31,
+    "historicalDerivatives": 124,
+    "interface": 21,
+    "rightsPending": 0,
+    "unknown": 0
+  },
+  "note": "Inventário derivado do manifesto. Originais históricos são imutáveis (byte a byte). 'rightsStatus: pending' assinala crédito por confirmar; nada é publicado ou transformado por este inventário. MM202617 preserva a nota de intervenção por IA.",
+  "assets": [
+    {
+      "path": "public/media/museum/originals/MM202601.jpg",
+      "hash": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "mime": "image/jpeg",
+      "bytes": 939534,
+      "width": 2414,
+      "height": 1728,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202601"
+    },
+    {
+      "path": "public/media/museum/generated/MM202601/thumbnail.webp",
+      "hash": "bb70b362d4bd5803e409b7024514b97a553bc17a7a063aa23bf47c9d01a8762d",
+      "mime": "image/webp",
+      "bytes": 19604,
+      "width": 480,
+      "height": 344,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202601"
+    },
+    {
+      "path": "public/media/museum/generated/MM202601/card.webp",
+      "hash": "39ebc06a4a2c2a5c5ec252b65b9b88e8ed4cd9f9e3459666ee687b1c681ffe81",
+      "mime": "image/webp",
+      "bytes": 55868,
+      "width": 900,
+      "height": 644,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202601"
+    },
+    {
+      "path": "public/media/museum/generated/MM202601/detail.webp",
+      "hash": "5a2cdc8640f8ee37d1d30c4aa11058d2d52ef4323bcb2a4473d3640da013cb41",
+      "mime": "image/webp",
+      "bytes": 130354,
+      "width": 1600,
+      "height": 1145,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202601"
+    },
+    {
+      "path": "public/media/museum/generated/MM202601/immersive.webp",
+      "hash": "9b8881ee7fb4c3a0078a6d5c571aa5bd8fb734a81c2e4af2939d44d5ca73ef44",
+      "mime": "image/webp",
+      "bytes": 284358,
+      "width": 2400,
+      "height": 1718,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1262d930f9aba40bbf0ea1b5577abf89694bdfeb8b1f9b08d5cdfcb1adb2cdab",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. Código de referência: PT/TT/SAM/A/001/000016.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202601"
+    },
+    {
+      "path": "public/media/museum/originals/MM202602.jpg",
+      "hash": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "mime": "image/jpeg",
+      "bytes": 1797396,
+      "width": 2048,
+      "height": 2048,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202602"
+    },
+    {
+      "path": "public/media/museum/generated/MM202602/thumbnail.webp",
+      "hash": "284a84612328989db544ad3cb870aec2c54fabeaf8f76203905b875707bf1568",
+      "mime": "image/webp",
+      "bytes": 55260,
+      "width": 480,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202602"
+    },
+    {
+      "path": "public/media/museum/generated/MM202602/card.webp",
+      "hash": "0bcbfe9eab4ad255b7d94ff83257cc30ea2210a91fbb4fef3afd38fdedc47020",
+      "mime": "image/webp",
+      "bytes": 188710,
+      "width": 900,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202602"
+    },
+    {
+      "path": "public/media/museum/generated/MM202602/detail.webp",
+      "hash": "903b971565c00549a68d68452930ac13ad5a12f549caa5174d2ffc4b0d21765f",
+      "mime": "image/webp",
+      "bytes": 537954,
+      "width": 1600,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202602"
+    },
+    {
+      "path": "public/media/museum/generated/MM202602/immersive.webp",
+      "hash": "be6a404c896f197bd75d3232e4370a3a6eb876421bdfd96bd00133123f5f4a9b",
+      "mime": "image/webp",
+      "bytes": 1030104,
+      "width": 2048,
+      "height": 2048,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7c00ca9dfdea0f2b933afe96e90c92342fff29bcb207462b93d70d4ce15913e1",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202602"
+    },
+    {
+      "path": "public/media/museum/originals/MM202603.jpg",
+      "hash": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "mime": "image/jpeg",
+      "bytes": 1306511,
+      "width": 2384,
+      "height": 1792,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202603"
+    },
+    {
+      "path": "public/media/museum/generated/MM202603/thumbnail.webp",
+      "hash": "d7322b6e5fc436a5c35392a9eeb58d90847c6397495b2cfbf287c755647153db",
+      "mime": "image/webp",
+      "bytes": 38080,
+      "width": 480,
+      "height": 361,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202603"
+    },
+    {
+      "path": "public/media/museum/generated/MM202603/card.webp",
+      "hash": "08c9808d423b21b00ebe47a547f6c161cbe5bf0476a75e8759d0b799bc04a046",
+      "mime": "image/webp",
+      "bytes": 109490,
+      "width": 900,
+      "height": 677,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202603"
+    },
+    {
+      "path": "public/media/museum/generated/MM202603/detail.webp",
+      "hash": "0e942793745181bcef9a103ca91acf5d83515c742561ba4315f79c29f4e499de",
+      "mime": "image/webp",
+      "bytes": 263326,
+      "width": 1600,
+      "height": 1203,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202603"
+    },
+    {
+      "path": "public/media/museum/generated/MM202603/immersive.webp",
+      "hash": "1fd6ebc7e35e5f2b04b5b812101b6ef7a10d5f281cda402c9bf43098f51416b1",
+      "mime": "image/webp",
+      "bytes": 565302,
+      "width": 2384,
+      "height": 1792,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "3835443ed25530a4d56443ffb60277072900d3f27e2fcfeb4c21164f769c21a5",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202603"
+    },
+    {
+      "path": "public/media/museum/originals/MM202604.jpg",
+      "hash": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "mime": "image/jpeg",
+      "bytes": 725608,
+      "width": 2612,
+      "height": 1632,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202604"
+    },
+    {
+      "path": "public/media/museum/generated/MM202604/thumbnail.webp",
+      "hash": "d7283fa1b880ee58b7cdeb39e65115ed6f0042c94d62a431e6dbd3ec75f8b260",
+      "mime": "image/webp",
+      "bytes": 12654,
+      "width": 480,
+      "height": 300,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202604"
+    },
+    {
+      "path": "public/media/museum/generated/MM202604/card.webp",
+      "hash": "11f6de3dc2335763884f4d2dc6ad2eea26f6447fc3a06406daaa2f19479a7a5e",
+      "mime": "image/webp",
+      "bytes": 36256,
+      "width": 900,
+      "height": 562,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202604"
+    },
+    {
+      "path": "public/media/museum/generated/MM202604/detail.webp",
+      "hash": "3a82692ce4bbb5249bffcdba95a6aaf41ffa83b99f21e69058993b9cdfe112e7",
+      "mime": "image/webp",
+      "bytes": 82690,
+      "width": 1600,
+      "height": 1000,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202604"
+    },
+    {
+      "path": "public/media/museum/generated/MM202604/immersive.webp",
+      "hash": "f2957c5c40f069469cc4708a43507393aa5696072d5049c4d4b8aa1735d0bed1",
+      "mime": "image/webp",
+      "bytes": 166112,
+      "width": 2400,
+      "height": 1500,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "75ba7c9ddc9cf6576baed9c93bb024325adde59252cd8400151cb02db45c7ffb",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia cedida por Luís Barriga; descrição divulgada na página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202604"
+    },
+    {
+      "path": "public/media/museum/originals/MM202605.jpg",
+      "hash": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "mime": "image/jpeg",
+      "bytes": 1278431,
+      "width": 2400,
+      "height": 1792,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202605"
+    },
+    {
+      "path": "public/media/museum/generated/MM202605/thumbnail.webp",
+      "hash": "99676ce8141b4876d4f008214355cb318ca7dd86843e1248ecf520fdf3477ef2",
+      "mime": "image/webp",
+      "bytes": 40192,
+      "width": 480,
+      "height": 358,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "rightsStatus": "confirmed",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202605"
+    },
+    {
+      "path": "public/media/museum/generated/MM202605/card.webp",
+      "hash": "69e9e61d84cfecaffda0a327a95a7eb7807486183a3a33aba7f762cff4a57d4c",
+      "mime": "image/webp",
+      "bytes": 112728,
+      "width": 900,
+      "height": 672,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "rightsStatus": "confirmed",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202605"
+    },
+    {
+      "path": "public/media/museum/generated/MM202605/detail.webp",
+      "hash": "1582a9e478367f27fa53053583cfb9e891f8a3a0bc9dc87579daffbb3151ead8",
+      "mime": "image/webp",
+      "bytes": 252194,
+      "width": 1600,
+      "height": 1195,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "rightsStatus": "confirmed",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202605"
+    },
+    {
+      "path": "public/media/museum/generated/MM202605/immersive.webp",
+      "hash": "858d7711c790921878f55aa508e2ae142c94e38199924c5f381818e85cc58631",
+      "mime": "image/webp",
+      "bytes": 538516,
+      "width": 2400,
+      "height": 1792,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "4529fa8a44e8e13957ddfa2aef8f31efb1b95b92285117ad316b7e83ed37e9b5",
+      "rightsStatus": "confirmed",
+      "credit": "Ilustração Portuguesa, 2.ª série, n.º 368, 10 de março de 1913; Hemeroteca Digital; referência divulgada pela página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202605"
+    },
+    {
+      "path": "public/media/museum/originals/MM202606.jpg",
+      "hash": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "mime": "image/jpeg",
+      "bytes": 1682886,
+      "width": 2550,
+      "height": 1664,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202606"
+    },
+    {
+      "path": "public/media/museum/generated/MM202606/thumbnail.webp",
+      "hash": "407833354b78c2d2b54d57ae27a4ffe42017f90d91ce367267c152f038fbe9fe",
+      "mime": "image/webp",
+      "bytes": 38378,
+      "width": 480,
+      "height": 313,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202606"
+    },
+    {
+      "path": "public/media/museum/generated/MM202606/card.webp",
+      "hash": "e660e42fb906c95ffdad34b308252c46785bc9ad57e1b46355a95022a09bd607",
+      "mime": "image/webp",
+      "bytes": 126296,
+      "width": 900,
+      "height": 587,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202606"
+    },
+    {
+      "path": "public/media/museum/generated/MM202606/detail.webp",
+      "hash": "7244b12ee76b89413e8a69cdb93cd9637ebf4aa576af2252494bc61d1a6627d7",
+      "mime": "image/webp",
+      "bytes": 352346,
+      "width": 1600,
+      "height": 1044,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202606"
+    },
+    {
+      "path": "public/media/museum/generated/MM202606/immersive.webp",
+      "hash": "4c34b575bcf6254976605a05245530668c2658312e76d3b7ab0f820473f80ddc",
+      "mime": "image/webp",
+      "bytes": 790858,
+      "width": 2400,
+      "height": 1566,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "d560f4fbc3809a6c14172b0bf3232a6aef7f68943c88afa6cf2561f64027bf34",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202606"
+    },
+    {
+      "path": "public/media/museum/originals/MM202607.jpg",
+      "hash": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "mime": "image/jpeg",
+      "bytes": 1121284,
+      "width": 2416,
+      "height": 1760,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202607"
+    },
+    {
+      "path": "public/media/museum/generated/MM202607/thumbnail.webp",
+      "hash": "2ab5eb573cc1c472f3e848bc40dd9a0fd21140bd137c4236c87c95d5caf4e095",
+      "mime": "image/webp",
+      "bytes": 25884,
+      "width": 480,
+      "height": 350,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202607"
+    },
+    {
+      "path": "public/media/museum/generated/MM202607/card.webp",
+      "hash": "21205ae77bdf1c15bdde2154811dcbc651c684dda7fad463906084de27ccedec",
+      "mime": "image/webp",
+      "bytes": 83118,
+      "width": 900,
+      "height": 656,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202607"
+    },
+    {
+      "path": "public/media/museum/generated/MM202607/detail.webp",
+      "hash": "ae09e8e78e81031592a463b06cffbd98f994bbe1af16934577eff4ad0a129462",
+      "mime": "image/webp",
+      "bytes": 224496,
+      "width": 1600,
+      "height": 1166,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202607"
+    },
+    {
+      "path": "public/media/museum/generated/MM202607/immersive.webp",
+      "hash": "06d28722043e65b5b054a0707fb059d0e8f992ef78bb957533dc7cec3ee01701",
+      "mime": "image/webp",
+      "bytes": 478588,
+      "width": 2400,
+      "height": 1748,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "959ca3d3abb554dc9a71a5ad5e5f979caa0866c381a0b94233a241cab53fc316",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202607"
+    },
+    {
+      "path": "public/media/museum/originals/MM202608.jpg",
+      "hash": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "mime": "image/jpeg",
+      "bytes": 1712309,
+      "width": 2680,
+      "height": 1600,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202608"
+    },
+    {
+      "path": "public/media/museum/generated/MM202608/thumbnail.webp",
+      "hash": "4ef0713971adb95f89f92b34ce5ecd5d228a536db4c759bab233f4074bb1d2e6",
+      "mime": "image/webp",
+      "bytes": 28476,
+      "width": 480,
+      "height": 287,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202608"
+    },
+    {
+      "path": "public/media/museum/generated/MM202608/card.webp",
+      "hash": "ed88c5d29b2452c080f8554a9bec2e903e7e75091e60c18e7cab493eddc07841",
+      "mime": "image/webp",
+      "bytes": 105754,
+      "width": 900,
+      "height": 537,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202608"
+    },
+    {
+      "path": "public/media/museum/generated/MM202608/detail.webp",
+      "hash": "4f7f16cec62acaa1d25a006420663137cd3b16fed530fb2cae01f2e6db15bfc6",
+      "mime": "image/webp",
+      "bytes": 324386,
+      "width": 1600,
+      "height": 955,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202608"
+    },
+    {
+      "path": "public/media/museum/generated/MM202608/immersive.webp",
+      "hash": "8cc26e4584184fcad446f9623f4a1c32d4b3cd7ca5eed88dd5284b71597982b2",
+      "mime": "image/webp",
+      "bytes": 731774,
+      "width": 2400,
+      "height": 1433,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "99c4be2b9786cb2d79e5a28805bfa4d46ba22cd4d0044be6c7ca3728810c2995",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202608"
+    },
+    {
+      "path": "public/media/museum/originals/MM202609.jpg",
+      "hash": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "mime": "image/jpeg",
+      "bytes": 901525,
+      "width": 2052,
+      "height": 2048,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202609"
+    },
+    {
+      "path": "public/media/museum/generated/MM202609/thumbnail.webp",
+      "hash": "f47d82f6c9a6d65e0e022b60ee5834a03fdf5e4f1909fe7e771d87ee5e3cb476",
+      "mime": "image/webp",
+      "bytes": 27794,
+      "width": 480,
+      "height": 479,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202609"
+    },
+    {
+      "path": "public/media/museum/generated/MM202609/card.webp",
+      "hash": "931e81723a04bf77a6dbb90d3af9892cc1a4d43818b33fb67022fa7ae1a02ee8",
+      "mime": "image/webp",
+      "bytes": 74072,
+      "width": 900,
+      "height": 898,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202609"
+    },
+    {
+      "path": "public/media/museum/generated/MM202609/detail.webp",
+      "hash": "c380dafd0e9d2c151648e0223b90b388aa68243adf241449f06ceb9ce513a85f",
+      "mime": "image/webp",
+      "bytes": 173652,
+      "width": 1600,
+      "height": 1597,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202609"
+    },
+    {
+      "path": "public/media/museum/generated/MM202609/immersive.webp",
+      "hash": "48153dfe6c4d60b8f5b6f49ce949c483da5a02d4a28fd07a1e0bd9587b3050b5",
+      "mime": "image/webp",
+      "bytes": 310456,
+      "width": 2052,
+      "height": 2048,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "74f0ffea5490836e18bcc1f2d24cfd79ba5cf50eeaf6bf4db6d8fa34713a250b",
+      "rightsStatus": "confirmed",
+      "credit": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202609"
+    },
+    {
+      "path": "public/media/museum/originals/MM202610.jpg",
+      "hash": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "mime": "image/jpeg",
+      "bytes": 1172248,
+      "width": 1792,
+      "height": 2398,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de José António Paula Brito.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202610"
+    },
+    {
+      "path": "public/media/museum/generated/MM202610/thumbnail.webp",
+      "hash": "27b88756b0703f45ac03c146c4b4ee063e1e7c354e8b4f12923e61e6f1e69000",
+      "mime": "image/webp",
+      "bytes": 11160,
+      "width": 359,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de José António Paula Brito.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202610"
+    },
+    {
+      "path": "public/media/museum/generated/MM202610/card.webp",
+      "hash": "38a0ae8805e5f00be1b0fb54205988a5bae70517fe8c7192495c655a568cc684",
+      "mime": "image/webp",
+      "bytes": 29592,
+      "width": 673,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de José António Paula Brito.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202610"
+    },
+    {
+      "path": "public/media/museum/generated/MM202610/detail.webp",
+      "hash": "194ebfd8280af129f7ce043e5d911fd7722260dea67afb9e501037246ad09335",
+      "mime": "image/webp",
+      "bytes": 133068,
+      "width": 1196,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de José António Paula Brito.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202610"
+    },
+    {
+      "path": "public/media/museum/generated/MM202610/immersive.webp",
+      "hash": "b05572fff5c5447634179bbcf60c894c0c8174e78f925a842f7b3b135df62c0c",
+      "mime": "image/webp",
+      "bytes": 533706,
+      "width": 1792,
+      "height": 2398,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ebcf511f558d4fb62ea06a90bff8372e5facbceb7752607d8744d394e3099c38",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de José António Paula Brito.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202610"
+    },
+    {
+      "path": "public/media/museum/originals/MM202611.jpg",
+      "hash": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "mime": "image/jpeg",
+      "bytes": 999468,
+      "width": 1536,
+      "height": 2730,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202611"
+    },
+    {
+      "path": "public/media/museum/generated/MM202611/thumbnail.webp",
+      "hash": "61a0a4574f323e8066ee1e9f3510cff01a9a715df79a022a2c9a530eac1dedc3",
+      "mime": "image/webp",
+      "bytes": 9540,
+      "width": 270,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202611"
+    },
+    {
+      "path": "public/media/museum/generated/MM202611/card.webp",
+      "hash": "cc6971d5f325ebfbed2a368228abef446ad84ac4ad17c229ffe419c67a367f3a",
+      "mime": "image/webp",
+      "bytes": 23730,
+      "width": 506,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202611"
+    },
+    {
+      "path": "public/media/museum/generated/MM202611/detail.webp",
+      "hash": "d6c2f3c70d47fc5de0ce305ab627807c078e288c3e780af35dd1c62b68904bb9",
+      "mime": "image/webp",
+      "bytes": 77862,
+      "width": 900,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202611"
+    },
+    {
+      "path": "public/media/museum/generated/MM202611/immersive.webp",
+      "hash": "8fe4d619fa444c9f1e8c5fbfb2e5724661934d4587210f75867f39ad9848bfe7",
+      "mime": "image/webp",
+      "bytes": 290288,
+      "width": 1350,
+      "height": 2400,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "2764aaf873d48e827b0880f7483421fdda4b42935c5ef5f0653a9e10424ca7b6",
+      "rightsStatus": "confirmed",
+      "credit": "Arquivo digital associado à memória de Natalina Crispim.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202611"
+    },
+    {
+      "path": "public/media/museum/originals/MM202612.jpg",
+      "hash": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "mime": "image/jpeg",
+      "bytes": 146639,
+      "width": 1440,
+      "height": 810,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202612"
+    },
+    {
+      "path": "public/media/museum/generated/MM202612/thumbnail.webp",
+      "hash": "61cd553ed023a45443bd319b73fa543480128adb6b224f8baca0317d58f9fc0a",
+      "mime": "image/webp",
+      "bytes": 18790,
+      "width": 480,
+      "height": 270,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "rightsStatus": "confirmed",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202612"
+    },
+    {
+      "path": "public/media/museum/generated/MM202612/card.webp",
+      "hash": "4ef2c0b2b43f0bb71c3fd7677db1cacecf6ca4c00623613fc9fa2b94a9721281",
+      "mime": "image/webp",
+      "bytes": 58042,
+      "width": 900,
+      "height": 506,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "rightsStatus": "confirmed",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202612"
+    },
+    {
+      "path": "public/media/museum/generated/MM202612/detail.webp",
+      "hash": "7e2862dfe46d07415790d07ea119bde6541968e00dc8ace0641229745d9c5df4",
+      "mime": "image/webp",
+      "bytes": 126932,
+      "width": 1440,
+      "height": 810,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "rightsStatus": "confirmed",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202612"
+    },
+    {
+      "path": "public/media/museum/generated/MM202612/immersive.webp",
+      "hash": "d62df0aab9a85641fb2b5454eea56794dd8c4f3c47efbd1926997c124542cafc",
+      "mime": "image/webp",
+      "bytes": 152486,
+      "width": 1440,
+      "height": 810,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1264b310cc0379f19e99e486bc742dadb34cd955948fd0ff9208d98f2b920f6",
+      "rightsStatus": "confirmed",
+      "credit": "Partilha Alternativa; página de Facebook da Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202612"
+    },
+    {
+      "path": "public/media/museum/originals/MM202613.jpg",
+      "hash": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "mime": "image/jpeg",
+      "bytes": 1424062,
+      "width": 2626,
+      "height": 1600,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202613"
+    },
+    {
+      "path": "public/media/museum/generated/MM202613/thumbnail.webp",
+      "hash": "f884ddaa548f95986b438af89c819b37c9f7faf518757a84e9b734bf5c3b5226",
+      "mime": "image/webp",
+      "bytes": 20516,
+      "width": 480,
+      "height": 292,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202613"
+    },
+    {
+      "path": "public/media/museum/generated/MM202613/card.webp",
+      "hash": "7b62edf7049ff43b2436005dedf5c1fe2b445c451804739dfb6db713cfab651e",
+      "mime": "image/webp",
+      "bytes": 74458,
+      "width": 900,
+      "height": 548,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202613"
+    },
+    {
+      "path": "public/media/museum/generated/MM202613/detail.webp",
+      "hash": "3514d2dcb71a9920106183738b5d06fc8b6845f3af16bf0e6626174acccb0c08",
+      "mime": "image/webp",
+      "bytes": 223576,
+      "width": 1600,
+      "height": 975,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202613"
+    },
+    {
+      "path": "public/media/museum/generated/MM202613/immersive.webp",
+      "hash": "ad925e31701e384274e38ec719dea277cfebbfbd2bb3294759ce2ec629cb2467",
+      "mime": "image/webp",
+      "bytes": 552088,
+      "width": 2400,
+      "height": 1462,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "cbf6132f876225cc5156280e48b38d2b6b433dddcaf7a535a4ac127c30c43e75",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202613"
+    },
+    {
+      "path": "public/media/museum/originals/MM202614.jpg",
+      "hash": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "mime": "image/jpeg",
+      "bytes": 1334683,
+      "width": 2340,
+      "height": 1824,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202614"
+    },
+    {
+      "path": "public/media/museum/generated/MM202614/thumbnail.webp",
+      "hash": "9794f07d8377abc102b14f6d9331d4903701ea870181c1469c5786407c11ee10",
+      "mime": "image/webp",
+      "bytes": 28742,
+      "width": 480,
+      "height": 374,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202614"
+    },
+    {
+      "path": "public/media/museum/generated/MM202614/card.webp",
+      "hash": "c1335a6b14f3a39ad37672ff1c7eb7e14b927753a85eb59c72f29752fd80261d",
+      "mime": "image/webp",
+      "bytes": 96650,
+      "width": 900,
+      "height": 702,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202614"
+    },
+    {
+      "path": "public/media/museum/generated/MM202614/detail.webp",
+      "hash": "4d2b3a987e73a4b285ccb0f3394a0df9cf616292f7c9f03f2c2ec62858af632b",
+      "mime": "image/webp",
+      "bytes": 283872,
+      "width": 1600,
+      "height": 1247,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202614"
+    },
+    {
+      "path": "public/media/museum/generated/MM202614/immersive.webp",
+      "hash": "06246d0ea37792ead46741997290b4212eb6abb84efe7853824f98f332c96e5e",
+      "mime": "image/webp",
+      "bytes": 639240,
+      "width": 2340,
+      "height": 1824,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "ecfe8934ad1d17d96ea3e8e78ee8e5feaf11a6ba0e07b34726389382ba3310d2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta; associada à coleção de Maria de Lurdes Mendes Martins.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202614"
+    },
+    {
+      "path": "public/media/museum/originals/MM202615.jpg",
+      "hash": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "mime": "image/jpeg",
+      "bytes": 1031005,
+      "width": 2338,
+      "height": 1824,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202615"
+    },
+    {
+      "path": "public/media/museum/generated/MM202615/thumbnail.webp",
+      "hash": "4a7bea20f435298a9b01e8a723ce599a0b3c7e2f8e65f91a9cf0bd747d26f271",
+      "mime": "image/webp",
+      "bytes": 15744,
+      "width": 480,
+      "height": 374,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202615"
+    },
+    {
+      "path": "public/media/museum/generated/MM202615/card.webp",
+      "hash": "af01fc11b7457df067705f2e17ed057535d7dc6e7d8f5bdee6431dd0b3d4484b",
+      "mime": "image/webp",
+      "bytes": 50332,
+      "width": 900,
+      "height": 702,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202615"
+    },
+    {
+      "path": "public/media/museum/generated/MM202615/detail.webp",
+      "hash": "cf268f3bcf7b35b46b7efa5135f1c47f8863072989b302ba8ebe6b04f3a3e07e",
+      "mime": "image/webp",
+      "bytes": 163754,
+      "width": 1600,
+      "height": 1248,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202615"
+    },
+    {
+      "path": "public/media/museum/generated/MM202615/immersive.webp",
+      "hash": "3f374c7e31bb40cd47f481869ba035db5b6a1087da5c934e990fd59be95ae7f4",
+      "mime": "image/webp",
+      "bytes": 458370,
+      "width": 2338,
+      "height": 1824,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9d174c68d63f3dc0630ab0872bdfb2624ee412f9c5b8922b07bf88c4a52e2c25",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202615"
+    },
+    {
+      "path": "public/media/museum/originals/MM202616.jpg",
+      "hash": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "mime": "image/jpeg",
+      "bytes": 907306,
+      "width": 2438,
+      "height": 1728,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202616"
+    },
+    {
+      "path": "public/media/museum/generated/MM202616/thumbnail.webp",
+      "hash": "5e843d27eae8cbbf727d71866c8b39b8d1ef1320a489fb85d1d1479e5e1be53b",
+      "mime": "image/webp",
+      "bytes": 12956,
+      "width": 480,
+      "height": 340,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202616"
+    },
+    {
+      "path": "public/media/museum/generated/MM202616/card.webp",
+      "hash": "79080d60c74e495aba75a0a68bc670ef1387378312e1030a8231fd7a9b63355a",
+      "mime": "image/webp",
+      "bytes": 40122,
+      "width": 900,
+      "height": 638,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202616"
+    },
+    {
+      "path": "public/media/museum/generated/MM202616/detail.webp",
+      "hash": "02af8a9d5a32b910aee0b281ccfc5061eeb89b869a470ae68f43423ef31bea3a",
+      "mime": "image/webp",
+      "bytes": 120266,
+      "width": 1600,
+      "height": 1134,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202616"
+    },
+    {
+      "path": "public/media/museum/generated/MM202616/immersive.webp",
+      "hash": "fcae6bda60ce6684c0d263a5d6bc797fee38635b42e64150a8082dc0bf83bdb3",
+      "mime": "image/webp",
+      "bytes": 305992,
+      "width": 2400,
+      "height": 1701,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1fff9aff9fc9a2b6603c1653b1e8a28188fa91c8f9d765b8d0071091af64d817",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202616"
+    },
+    {
+      "path": "public/media/museum/originals/MM202617.jpg",
+      "hash": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "mime": "image/jpeg",
+      "bytes": 1693665,
+      "width": 2340,
+      "height": 1824,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202617"
+    },
+    {
+      "path": "public/media/museum/generated/MM202617/thumbnail.webp",
+      "hash": "fb6e1f43947e1abf1b5cbd9cf4ed28a1ff268822bb60eaabec9054a35a2fc69a",
+      "mime": "image/webp",
+      "bytes": 46164,
+      "width": 480,
+      "height": 374,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "rightsStatus": "confirmed",
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202617"
+    },
+    {
+      "path": "public/media/museum/generated/MM202617/card.webp",
+      "hash": "a7e95e35d754e76e5a81559c6d705a768a0d597fac927a0483eeb1334c398dea",
+      "mime": "image/webp",
+      "bytes": 149758,
+      "width": 900,
+      "height": 702,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "rightsStatus": "confirmed",
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202617"
+    },
+    {
+      "path": "public/media/museum/generated/MM202617/detail.webp",
+      "hash": "2d72a19123587049af32b283f83060687023b020d2e8ccbe2856fd4cb1c957ab",
+      "mime": "image/webp",
+      "bytes": 398736,
+      "width": 1600,
+      "height": 1247,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "rightsStatus": "confirmed",
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202617"
+    },
+    {
+      "path": "public/media/museum/generated/MM202617/immersive.webp",
+      "hash": "a1542f73eac0792b367d83ca796799434b648aec77be73e586f3afddec8bb726",
+      "mime": "image/webp",
+      "bytes": 863462,
+      "width": 2340,
+      "height": 1824,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "c1280a844a4c5b80c9ad1b27eb0e29aa7d0f1392208912c24081d9755bfadff2",
+      "rightsStatus": "confirmed",
+      "credit": "Imagem derivada de fotografia histórica, com retoque por inteligência artificial (Gemini). Não corresponde ao documento fotográfico original.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202617"
+    },
+    {
+      "path": "public/media/museum/originals/MM202618.jpg",
+      "hash": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "mime": "image/jpeg",
+      "bytes": 1122988,
+      "width": 1616,
+      "height": 2624,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202618"
+    },
+    {
+      "path": "public/media/museum/generated/MM202618/thumbnail.webp",
+      "hash": "4ee7bac17131044183f85b9cfa8379fbc73c8bb796bc033793d341359d6a5015",
+      "mime": "image/webp",
+      "bytes": 15278,
+      "width": 296,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202618"
+    },
+    {
+      "path": "public/media/museum/generated/MM202618/card.webp",
+      "hash": "a6cd89dc0b88729ab0ab379d17df90bbbf04d273bb87a9b27a381771d6d588d0",
+      "mime": "image/webp",
+      "bytes": 49532,
+      "width": 554,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202618"
+    },
+    {
+      "path": "public/media/museum/generated/MM202618/detail.webp",
+      "hash": "9816772cde2ecb4a94bb7fa321ba10ba019990e38ac866061c4a0e0fd32f558e",
+      "mime": "image/webp",
+      "bytes": 137154,
+      "width": 985,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202618"
+    },
+    {
+      "path": "public/media/museum/generated/MM202618/immersive.webp",
+      "hash": "0eea24c753437b045e6ac28767c99c39c580bc6fbd71b812a69f6e5a17d948f0",
+      "mime": "image/webp",
+      "bytes": 366402,
+      "width": 1478,
+      "height": 2400,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "b3d42c3edc78a523a37fa26249c5d6c207dfddcaa49b77b2d821eb46ab33ace8",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": "ai-assisted-enhancement",
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202618"
+    },
+    {
+      "path": "public/media/museum/originals/MM202619.jpg",
+      "hash": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "mime": "image/jpeg",
+      "bytes": 267472,
+      "width": 808,
+      "height": 1312,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": "ai-assisted-enhancement; other",
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202619"
+    },
+    {
+      "path": "public/media/museum/generated/MM202619/thumbnail.webp",
+      "hash": "81bc7829d9d647eadcaff28a6ae93cd6db8a3bb66350c68c54fd4f2d525c0966",
+      "mime": "image/webp",
+      "bytes": 9772,
+      "width": 296,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": "ai-assisted-enhancement; other",
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202619"
+    },
+    {
+      "path": "public/media/museum/generated/MM202619/card.webp",
+      "hash": "ef25e42aa9324c78173d3cc6887cfdc20b41fe8dda3f04080295d7a29a08e1fb",
+      "mime": "image/webp",
+      "bytes": 33316,
+      "width": 554,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": "ai-assisted-enhancement; other",
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202619"
+    },
+    {
+      "path": "public/media/museum/generated/MM202619/detail.webp",
+      "hash": "f59fe16a4bb0b38a1734d3ef87e2b4e9b3a04825fab7ed8472467321991cf7c8",
+      "mime": "image/webp",
+      "bytes": 75696,
+      "width": 808,
+      "height": 1312,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": "ai-assisted-enhancement; other",
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202619"
+    },
+    {
+      "path": "public/media/museum/generated/MM202619/immersive.webp",
+      "hash": "fe850e6029a798ce35376f8288591d99a3acfef4fadad5bdda2f9a23fb3bae9f",
+      "mime": "image/webp",
+      "bytes": 104738,
+      "width": 808,
+      "height": 1312,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "a88580429a4f91192ff6258fafd2d02df368a4951588bfbcc193d5734e8589d9",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": "ai-assisted-enhancement; other",
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202619"
+    },
+    {
+      "path": "public/media/museum/originals/MM202620.jpg",
+      "hash": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "mime": "image/jpeg",
+      "bytes": 905088,
+      "width": 2784,
+      "height": 1536,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202620"
+    },
+    {
+      "path": "public/media/museum/generated/MM202620/thumbnail.webp",
+      "hash": "764adeef5309fa66a27dcac3828db2d423ac83a4aac1dce2ba6c1fa3febd0cb4",
+      "mime": "image/webp",
+      "bytes": 15068,
+      "width": 480,
+      "height": 265,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202620"
+    },
+    {
+      "path": "public/media/museum/generated/MM202620/card.webp",
+      "hash": "365100cf5a46dcc01e78f3c492c468e307c1a3a788ac3cf9a060a063605b1f50",
+      "mime": "image/webp",
+      "bytes": 47914,
+      "width": 900,
+      "height": 497,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202620"
+    },
+    {
+      "path": "public/media/museum/generated/MM202620/detail.webp",
+      "hash": "c7b7b44b9f81a1884fad96fb6dea1231f110312c49b4ecbd7778f827f4418aa5",
+      "mime": "image/webp",
+      "bytes": 114442,
+      "width": 1600,
+      "height": 883,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202620"
+    },
+    {
+      "path": "public/media/museum/generated/MM202620/immersive.webp",
+      "hash": "74ce94c7866bf1b6b376eb4e53f953c2c95fb6b3a443dfef7b5210b7c3f9990f",
+      "mime": "image/webp",
+      "bytes": 252440,
+      "width": 2400,
+      "height": 1324,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "11256ecab43aef82eac83aa139c6a314e8bb62a33b5559ba595ee0752949c039",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202620"
+    },
+    {
+      "path": "public/media/museum/originals/MM202621.jpg",
+      "hash": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "mime": "image/jpeg",
+      "bytes": 789660,
+      "width": 2432,
+      "height": 1750,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202621"
+    },
+    {
+      "path": "public/media/museum/generated/MM202621/thumbnail.webp",
+      "hash": "a4311d2511d35a59aad721d98bee1571dccd47b2aeccf97538b1fb68fa2939f8",
+      "mime": "image/webp",
+      "bytes": 10702,
+      "width": 480,
+      "height": 345,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202621"
+    },
+    {
+      "path": "public/media/museum/generated/MM202621/card.webp",
+      "hash": "65f2665a19bb829a7074b861415d7bbd48c5707b05cd47d1342ef6124aaedb2d",
+      "mime": "image/webp",
+      "bytes": 32830,
+      "width": 900,
+      "height": 648,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202621"
+    },
+    {
+      "path": "public/media/museum/generated/MM202621/detail.webp",
+      "hash": "d82f0e311c508385f829064f5efd6dad51949e6dd6bb33a9bad2543f8e082d6b",
+      "mime": "image/webp",
+      "bytes": 91460,
+      "width": 1600,
+      "height": 1151,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202621"
+    },
+    {
+      "path": "public/media/museum/generated/MM202621/immersive.webp",
+      "hash": "f87b1ee8a157056f34da1d1a011650a74477136f135b5ec1bc150b38f8550095",
+      "mime": "image/webp",
+      "bytes": 255060,
+      "width": 2400,
+      "height": 1727,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1473b337e512964cc226040916e63aad984f534bd10f863a6af3e89b16f71938",
+      "rightsStatus": "confirmed",
+      "credit": "Coleção de Maria de Lurdes Mendes Martins; referência da página Partilha Alternativa.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202621"
+    },
+    {
+      "path": "public/media/museum/originals/MM202622.jpg",
+      "hash": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "mime": "image/jpeg",
+      "bytes": 775903,
+      "width": 2472,
+      "height": 1728,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202622"
+    },
+    {
+      "path": "public/media/museum/generated/MM202622/thumbnail.webp",
+      "hash": "f80c9acee1af403108870f1fb93b15c3791f9d33164005c4e305c92e6004038b",
+      "mime": "image/webp",
+      "bytes": 9214,
+      "width": 480,
+      "height": 336,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202622"
+    },
+    {
+      "path": "public/media/museum/generated/MM202622/card.webp",
+      "hash": "da4d6190de181d7b2aa63e9dc72ce774c7825d741cbe1f4fae699b4aead6affb",
+      "mime": "image/webp",
+      "bytes": 31384,
+      "width": 900,
+      "height": 629,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202622"
+    },
+    {
+      "path": "public/media/museum/generated/MM202622/detail.webp",
+      "hash": "96108ade83bff27418e765b0411205e0b15c66b1fa57d20fce625b4d365528b3",
+      "mime": "image/webp",
+      "bytes": 96750,
+      "width": 1600,
+      "height": 1118,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202622"
+    },
+    {
+      "path": "public/media/museum/generated/MM202622/immersive.webp",
+      "hash": "739fae163dab5950284ab664f11148165d13db1ef40505dd26d7666052ea155b",
+      "mime": "image/webp",
+      "bytes": 243338,
+      "width": 2400,
+      "height": 1678,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "71179e9875dd3a46d8194b0f1a0c280e2cf78405db6e76283a5b024efd97ada4",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202622"
+    },
+    {
+      "path": "public/media/museum/originals/MM202623.jpg",
+      "hash": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "mime": "image/jpeg",
+      "bytes": 1097970,
+      "width": 2272,
+      "height": 1872,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202623"
+    },
+    {
+      "path": "public/media/museum/generated/MM202623/thumbnail.webp",
+      "hash": "7f7b04231d4a4113a6f319eaa8d99995cb18d05129d48646dd5189add3126efd",
+      "mime": "image/webp",
+      "bytes": 18866,
+      "width": 480,
+      "height": 395,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202623"
+    },
+    {
+      "path": "public/media/museum/generated/MM202623/card.webp",
+      "hash": "051488ca47ee2531356688fea3adbce2a3d12bc62b2176957159b1a07865a683",
+      "mime": "image/webp",
+      "bytes": 56378,
+      "width": 900,
+      "height": 742,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202623"
+    },
+    {
+      "path": "public/media/museum/generated/MM202623/detail.webp",
+      "hash": "5b734e065020a2c917ec9738f1931bf07d2c97c66ff19a97b7b2349bddb90df9",
+      "mime": "image/webp",
+      "bytes": 166882,
+      "width": 1600,
+      "height": 1318,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202623"
+    },
+    {
+      "path": "public/media/museum/generated/MM202623/immersive.webp",
+      "hash": "369f92c78f66a62876cf586c077839b4e2ef14eaea2d690768175c3c064d6f22",
+      "mime": "image/webp",
+      "bytes": 438930,
+      "width": 2272,
+      "height": 1872,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8a1ca16b1b5e9700ce9cf962cefae84e083bad99557dc4cb1574242292ad5fbc",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202623"
+    },
+    {
+      "path": "public/media/museum/originals/MM202624.jpg",
+      "hash": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "mime": "image/jpeg",
+      "bytes": 807209,
+      "width": 1630,
+      "height": 2624,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202624"
+    },
+    {
+      "path": "public/media/museum/generated/MM202624/thumbnail.webp",
+      "hash": "4414c27dfa3bc49229bbd5dea396f2cf5e4c0197bbf318c3c2960a323261f55a",
+      "mime": "image/webp",
+      "bytes": 10548,
+      "width": 298,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202624"
+    },
+    {
+      "path": "public/media/museum/generated/MM202624/card.webp",
+      "hash": "cf7a9047ce4483ae7705c1280ddfbb8e68851d05cc02eec86cd1d65ade1e07a8",
+      "mime": "image/webp",
+      "bytes": 26674,
+      "width": 559,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202624"
+    },
+    {
+      "path": "public/media/museum/generated/MM202624/detail.webp",
+      "hash": "5ea05173862ff2c6338001a02e700e8de2f4709ca790b3e93db4e2d478b94db4",
+      "mime": "image/webp",
+      "bytes": 69842,
+      "width": 994,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202624"
+    },
+    {
+      "path": "public/media/museum/generated/MM202624/immersive.webp",
+      "hash": "07133f3546022594af7947b8b6fd6b3a01187f99d9ee755a923956bf1985e272",
+      "mime": "image/webp",
+      "bytes": 183820,
+      "width": 1491,
+      "height": 2400,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "afbd6dadcf1af87bc40e785da6b13247431d3316dd3c6bc7d4d36ba661c0a367",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202624"
+    },
+    {
+      "path": "public/media/museum/originals/MM202625.jpg",
+      "hash": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "mime": "image/jpeg",
+      "bytes": 900704,
+      "width": 2564,
+      "height": 1632,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202625"
+    },
+    {
+      "path": "public/media/museum/generated/MM202625/thumbnail.webp",
+      "hash": "f949462a7cf9ffcfcfff71839fc77de06b2196d55b85d5fbedbd7cf64ddad481",
+      "mime": "image/webp",
+      "bytes": 19188,
+      "width": 480,
+      "height": 306,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202625"
+    },
+    {
+      "path": "public/media/museum/generated/MM202625/card.webp",
+      "hash": "234bd8aac09f5092c55d3f8b3791dd438b98641e98040721635b2d66092147ed",
+      "mime": "image/webp",
+      "bytes": 60760,
+      "width": 900,
+      "height": 573,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202625"
+    },
+    {
+      "path": "public/media/museum/generated/MM202625/detail.webp",
+      "hash": "d036fcd381a10e6a334c38dd5723c15dbc99bf3505e57717d3aa534e3f611c18",
+      "mime": "image/webp",
+      "bytes": 153716,
+      "width": 1600,
+      "height": 1018,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202625"
+    },
+    {
+      "path": "public/media/museum/generated/MM202625/immersive.webp",
+      "hash": "da4ef384a2f690d85fbd546a535c4c8f8b3489c9924e24c55a78d9c1443e7af5",
+      "mime": "image/webp",
+      "bytes": 318584,
+      "width": 2400,
+      "height": 1528,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "028382895c09a66a97cd2d227d5f95ff53375eecb027a1e793ad6df78fde842c",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202625"
+    },
+    {
+      "path": "public/media/museum/originals/MM202626.jpg",
+      "hash": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "mime": "image/jpeg",
+      "bytes": 1013731,
+      "width": 2270,
+      "height": 1856,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202626"
+    },
+    {
+      "path": "public/media/museum/generated/MM202626/thumbnail.webp",
+      "hash": "5afed115283c38a4a1f8e2785873a287af041500c1c469db5746f0bf1865260f",
+      "mime": "image/webp",
+      "bytes": 25894,
+      "width": 480,
+      "height": 392,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202626"
+    },
+    {
+      "path": "public/media/museum/generated/MM202626/card.webp",
+      "hash": "6a22cf7d0a6d96d70974393c2055626a94edb0a8df6880d85a9170ef83ab0289",
+      "mime": "image/webp",
+      "bytes": 81774,
+      "width": 900,
+      "height": 736,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202626"
+    },
+    {
+      "path": "public/media/museum/generated/MM202626/detail.webp",
+      "hash": "e1806badabc089740183fdb449824bb14089ef2ac4c6c1adf6fb6a3af6fcd0d0",
+      "mime": "image/webp",
+      "bytes": 198208,
+      "width": 1600,
+      "height": 1308,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202626"
+    },
+    {
+      "path": "public/media/museum/generated/MM202626/immersive.webp",
+      "hash": "b43ec28bae0425b2ad31346527aea7e89acf648d4458fd37497f7c4596062027",
+      "mime": "image/webp",
+      "bytes": 426250,
+      "width": 2270,
+      "height": 1856,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "13fc2dc9500068d1fcc20cd803a1d7cadceb4a604d0a943d7d4c905c87d2a9a2",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202626"
+    },
+    {
+      "path": "public/media/museum/originals/MM202627.jpg",
+      "hash": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "mime": "image/jpeg",
+      "bytes": 718616,
+      "width": 2464,
+      "height": 1728,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202627"
+    },
+    {
+      "path": "public/media/museum/generated/MM202627/thumbnail.webp",
+      "hash": "109d8aac2114c2956f8926b7c6d771fb29a8c58340c50838fa24a6717762952c",
+      "mime": "image/webp",
+      "bytes": 9272,
+      "width": 480,
+      "height": 337,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202627"
+    },
+    {
+      "path": "public/media/museum/generated/MM202627/card.webp",
+      "hash": "c1cee0c6ea2a1797d668326cfabdb4ed1ac7e2a8aa2dda3cbe00755a431ca3f9",
+      "mime": "image/webp",
+      "bytes": 28122,
+      "width": 900,
+      "height": 631,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202627"
+    },
+    {
+      "path": "public/media/museum/generated/MM202627/detail.webp",
+      "hash": "258215e0bea9214f97f987e00b7aab290bd1084fd3a30a7374c187040e4c6d9c",
+      "mime": "image/webp",
+      "bytes": 78996,
+      "width": 1600,
+      "height": 1122,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202627"
+    },
+    {
+      "path": "public/media/museum/generated/MM202627/immersive.webp",
+      "hash": "7850809a43bbf01e401ccfeef56ff8c8374ed0086cdb03ea5b4fcbf16dca6c2f",
+      "mime": "image/webp",
+      "bytes": 196858,
+      "width": 2400,
+      "height": 1683,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "8b3e29fb7eac1b231ef2a002cdd213318542ba2ca21e8f57c2c7452dd203f7ae",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202627"
+    },
+    {
+      "path": "public/media/museum/originals/MM202628.jpg",
+      "hash": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "mime": "image/jpeg",
+      "bytes": 794707,
+      "width": 2240,
+      "height": 1918,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202628"
+    },
+    {
+      "path": "public/media/museum/generated/MM202628/thumbnail.webp",
+      "hash": "e45ead234c1dc2c7deb3a7ea3c38254db6eea7ff86bc7a29d8597ef9295ae473",
+      "mime": "image/webp",
+      "bytes": 12532,
+      "width": 480,
+      "height": 411,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202628"
+    },
+    {
+      "path": "public/media/museum/generated/MM202628/card.webp",
+      "hash": "206984d2de82023e27460ca308ec68c5de5e5156156bf8190161d46eeef92a37",
+      "mime": "image/webp",
+      "bytes": 34768,
+      "width": 900,
+      "height": 771,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202628"
+    },
+    {
+      "path": "public/media/museum/generated/MM202628/detail.webp",
+      "hash": "a402df60bc6a71038db1576c00059b456361dfd51f8101a192e5f2e1ec50a43a",
+      "mime": "image/webp",
+      "bytes": 94814,
+      "width": 1600,
+      "height": 1370,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202628"
+    },
+    {
+      "path": "public/media/museum/generated/MM202628/immersive.webp",
+      "hash": "5bf7abefc407b4298dd7d0e67933dbd9789dfe2f4ea4a782eb4048c7252a04ea",
+      "mime": "image/webp",
+      "bytes": 263922,
+      "width": 2240,
+      "height": 1918,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "35ff4697caa355f428b716b4388d2ce0ea23bc1798a1593b7b7c837abae34153",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202628"
+    },
+    {
+      "path": "public/media/museum/originals/MM202629.jpg",
+      "hash": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "mime": "image/jpeg",
+      "bytes": 826832,
+      "width": 2184,
+      "height": 1952,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202629"
+    },
+    {
+      "path": "public/media/museum/generated/MM202629/thumbnail.webp",
+      "hash": "05679d996584f0f6e9c79d0211530eb455358886e94d69b0ff098e9be2b21232",
+      "mime": "image/webp",
+      "bytes": 15200,
+      "width": 480,
+      "height": 429,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202629"
+    },
+    {
+      "path": "public/media/museum/generated/MM202629/card.webp",
+      "hash": "711b0dd0b37496453ad1bfd34855c3ac2d17acf5782ea0e3dd4e878c38f46508",
+      "mime": "image/webp",
+      "bytes": 40700,
+      "width": 900,
+      "height": 804,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202629"
+    },
+    {
+      "path": "public/media/museum/generated/MM202629/detail.webp",
+      "hash": "77dec56423f0ab49bc432f5a31b1b4541f499e42880edf6bc59585c47b748817",
+      "mime": "image/webp",
+      "bytes": 115044,
+      "width": 1600,
+      "height": 1430,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202629"
+    },
+    {
+      "path": "public/media/museum/generated/MM202629/immersive.webp",
+      "hash": "cfee5497bda98a0877fd19c981f7206cb47fd7215b454bf60831ae75c6cbe8be",
+      "mime": "image/webp",
+      "bytes": 285538,
+      "width": 2184,
+      "height": 1952,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "9573ac7707fa3238db3220f515d19af7178d6821271dd24ce92b4b5247c9d8ed",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202629"
+    },
+    {
+      "path": "public/media/museum/originals/MM202630.jpg",
+      "hash": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "mime": "image/jpeg",
+      "bytes": 768968,
+      "width": 1600,
+      "height": 2668,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202630"
+    },
+    {
+      "path": "public/media/museum/generated/MM202630/thumbnail.webp",
+      "hash": "646c29ac03ab492aaae3cf8a5c3176e09b9b9241f0af3bae0b88544430da470d",
+      "mime": "image/webp",
+      "bytes": 6446,
+      "width": 288,
+      "height": 480,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202630"
+    },
+    {
+      "path": "public/media/museum/generated/MM202630/card.webp",
+      "hash": "25ac3d147bceff504b3c92f16b80e682cdbe6aa9e0a48971ecc1532438d00790",
+      "mime": "image/webp",
+      "bytes": 19850,
+      "width": 540,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202630"
+    },
+    {
+      "path": "public/media/museum/generated/MM202630/detail.webp",
+      "hash": "82a4d4447a4920de6a052df60ec7b47ae4e4dfb40c56a62529c467c55c2824b9",
+      "mime": "image/webp",
+      "bytes": 61154,
+      "width": 960,
+      "height": 1600,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202630"
+    },
+    {
+      "path": "public/media/museum/generated/MM202630/immersive.webp",
+      "hash": "e828cf9af8c7816869b9670a66439ddaa4a3671581b6054e73275424e28e52cb",
+      "mime": "image/webp",
+      "bytes": 181268,
+      "width": 1439,
+      "height": 2400,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "1be85185dbc689a02428e40b4aa196957c35127f4a43ffd0eed7d9f0c9c98f9a",
+      "rightsStatus": "confirmed",
+      "credit": "Fotografia providenciada por Celeste Pimenta e Branca Pimenta, filhas de Dona Noémia Cruz.",
+      "digitalIntervention": null,
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202630"
+    },
+    {
+      "path": "public/media/museum/originals/MM202631.jpg",
+      "hash": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "mime": "image/jpeg",
+      "bytes": 897363,
+      "width": 2730,
+      "height": 1536,
+      "classification": "historical-original",
+      "isOriginal": true,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "digitalIntervention": "ai-assisted-enhancement; crop",
+      "contexts": [
+        "museum-original"
+      ],
+      "memoryId": "MM202631"
+    },
+    {
+      "path": "public/media/museum/generated/MM202631/thumbnail.webp",
+      "hash": "33a0918eb4e98ff3da734fcf1eeb10ab4a6e5e73124efc7d7fad28e0479fd867",
+      "mime": "image/webp",
+      "bytes": 12294,
+      "width": 480,
+      "height": 270,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "rightsStatus": "confirmed",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "digitalIntervention": "ai-assisted-enhancement; crop",
+      "contexts": [
+        "museum-thumbnail"
+      ],
+      "memoryId": "MM202631"
+    },
+    {
+      "path": "public/media/museum/generated/MM202631/card.webp",
+      "hash": "0ddca933421328268c8de4c427550fca7a9b86ef54c8edb3676bdc6938c5b39a",
+      "mime": "image/webp",
+      "bytes": 43192,
+      "width": 900,
+      "height": 506,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "rightsStatus": "confirmed",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "digitalIntervention": "ai-assisted-enhancement; crop",
+      "contexts": [
+        "museum-card"
+      ],
+      "memoryId": "MM202631"
+    },
+    {
+      "path": "public/media/museum/generated/MM202631/detail.webp",
+      "hash": "2ecb015238979e45baf7ec172d0c5c3462bcd4311baae25240eeb99e97ead4f8",
+      "mime": "image/webp",
+      "bytes": 135362,
+      "width": 1600,
+      "height": 900,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "rightsStatus": "confirmed",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "digitalIntervention": "ai-assisted-enhancement; crop",
+      "contexts": [
+        "museum-detail"
+      ],
+      "memoryId": "MM202631"
+    },
+    {
+      "path": "public/media/museum/generated/MM202631/immersive.webp",
+      "hash": "72ed63687958d1655a7ebe55983f2b928cdf0e44ab2d4e9327a822364e0066da",
+      "mime": "image/webp",
+      "bytes": 321678,
+      "width": 2400,
+      "height": 1350,
+      "classification": "historical-derivative",
+      "isOriginal": false,
+      "sourceHash": "7d0c171beb8bb5a9fd47feb45cd29748b6b3bd5bd781a6ee9cfcce7e0cb53e25",
+      "rightsStatus": "confirmed",
+      "credit": "Publicação em redes sociais por Património Cultural I.P.",
+      "digitalIntervention": "ai-assisted-enhancement; crop",
+      "contexts": [
+        "museum-immersive"
+      ],
+      "memoryId": "MM202631"
+    },
+    {
+      "path": "public/brand/logo-dark.webp",
+      "hash": "d160ff3be875601e8d29476a28e794cf80f89d7c69b1fb5f38a2b286c7ce5c5e",
+      "mime": "image/webp",
+      "bytes": 23776,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "brand"
+      ]
+    },
+    {
+      "path": "public/brand/logo-light.webp",
+      "hash": "d23c6d4757d7bd1973163c870053ffde8263aeefc3b2a93e54c06ac9e16e88ef",
+      "mime": "image/webp",
+      "bytes": 23642,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "brand"
+      ]
+    },
+    {
+      "path": "public/brand/symbol.webp",
+      "hash": "8a7d63224236ceb3f5197bc4f07a3828c07d6f02809112b77063c2062d9ab571",
+      "mime": "image/webp",
+      "bytes": 18518,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "brand"
+      ]
+    },
+    {
+      "path": "public/icons/back.svg",
+      "hash": "7b6894bb70a875a2e1ee82de92de2d2aa0c054d3f8be037d01493b26a7742951",
+      "mime": "image/svg+xml",
+      "bytes": 331,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/close.svg",
+      "hash": "282631ac89e15182020cd44e9b0aafcd8c4f6397bcea7b7e63235d3632e333f0",
+      "mime": "image/svg+xml",
+      "bytes": 338,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/community.svg",
+      "hash": "18b8032114ca9a6ccd91e771cec3f7ef5c217951efc81e2263d6bc77943fc58f",
+      "mime": "image/svg+xml",
+      "bytes": 468,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/filter.svg",
+      "hash": "c54340b38735a56012f6ac33eb839ebfa1fbb597b53464c4a3177156603085c7",
+      "mime": "image/svg+xml",
+      "bytes": 342,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/forward.svg",
+      "hash": "4d102b40399d91f1d4a16605cef870648d43e59141fcb68395f3d1e7accdda94",
+      "mime": "image/svg+xml",
+      "bytes": 333,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/fullscreen.svg",
+      "hash": "672769df4c2a8b5688d96ec4e612af37901854121b4a47977f7b059d0ec5b2bf",
+      "mime": "image/svg+xml",
+      "bytes": 361,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/info.svg",
+      "hash": "6041e2b94106d0d1c4cee2a3c22947be95a358caa374f19571c6b83967bd703d",
+      "mime": "image/svg+xml",
+      "bytes": 365,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/knowledge.svg",
+      "hash": "a7d2c002acdd43a63f893d04b11633dc19c813b8a1fcc1e0d6a378c053a4def3",
+      "mime": "image/svg+xml",
+      "bytes": 389,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/language.svg",
+      "hash": "3c0f39e9e338e66a1fe00d335849d1212355860eee8643c39acf31017cf0e3b3",
+      "mime": "image/svg+xml",
+      "bytes": 399,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/memory.svg",
+      "hash": "3abb63e26de184e5e0ed37de0317c2d07c59578fecbdbb40fb9f02d955d813e9",
+      "mime": "image/svg+xml",
+      "bytes": 364,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/menu.svg",
+      "hash": "6eceb7fa551bffb47c1d0a6e2c92b637c70b3bbaa25f4c2bc4b72148eeac6e1e",
+      "mime": "image/svg+xml",
+      "bytes": 340,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/photograph.svg",
+      "hash": "19551e009dcefdbad0d942b7dbbf6dcc61b1a027f7ced990de7dac19d9a342ad",
+      "mime": "image/svg+xml",
+      "bytes": 423,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/provenance.svg",
+      "hash": "02130939078f1495c3449484e9bf8c6beb7693a6f1992525a7609c6a7665ae3b",
+      "mime": "image/svg+xml",
+      "bytes": 451,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/rights.svg",
+      "hash": "5b1b1a4eeedd9b739611a3cb37085601a06db9ab0e53ad98991f7a684a42cb91",
+      "mime": "image/svg+xml",
+      "bytes": 384,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/search.svg",
+      "hash": "bcd3a602484fcac0e197cbd5ea1b8c19d54595581e925300c3e612b7f5e63722",
+      "mime": "image/svg+xml",
+      "bytes": 360,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/share.svg",
+      "hash": "db0ed3ee2f9ac7583cbdb25a23f456780c5a81ff230697beef0706b64bd78df3",
+      "mime": "image/svg+xml",
+      "bytes": 427,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/timeline.svg",
+      "hash": "64800e4f413e7d0bcba94c95f12fac18edb8714cbdf64dcc87e1eccef3671382",
+      "mime": "image/svg+xml",
+      "bytes": 454,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    },
+    {
+      "path": "public/icons/zoom-in.svg",
+      "hash": "7e216bd04ac6b289f9bf52539d37d032a108c688a4d689dde891fd998267ee42",
+      "mime": "image/svg+xml",
+      "bytes": 385,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "icon"
+      ]
+    }
+  ]
+}

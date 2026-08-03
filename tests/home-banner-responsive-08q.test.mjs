@@ -12,7 +12,7 @@ const text = (p) => readFileSync(p, "utf8");
 
 test("o contrato do banner proíbe corte de texto/botões e permite crop de imagem", () => {
   const m = read("public/data/home-banner-responsive-model.json");
-  assert.equal(m.version, "0.33.0");
+  assert.equal(m.version, "0.34.0");
   assert.equal(m.canonicalOuterBoxSource, "museu-de-memorias");
   assert.equal(m.textClippingAllowed, false);
   assert.equal(m.buttonClippingAllowed, false);

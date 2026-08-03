@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["family", "file", "hash", "format", "weight", "style", "licenseStatus", "used"],
+  "properties": {
+    "family": {"type": "string"}, "file": {"type": "string"}, "hash": {"type": "string"},
+    "format": {"enum": ["woff2", "woff", "ttf", "otf"]}, "weight": {"type": ["integer", "string"]},
+    "style": {"type": "string"}, "subsets": {"type": "array", "items": {"type": "string"}},
+    "licenseStatus": {"enum": ["confirmed", "pending", "incompatible"]}, "licenseFile": {"type": ["string", "null"]},
+    "used": {"type": "boolean"}, "computedEvidence": {"type": ["string", "null"]}, "externalRequest": {"type": "boolean"}
+  }, "additionalProperties": true
+}

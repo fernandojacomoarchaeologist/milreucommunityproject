@@ -33,7 +33,7 @@ const existing=JSON.parse(await readFile("public/config/notifications.example.js
 const enabled=provider==="webhook"&&webhookConfigured&&tokenConfigured&&workerSecretConfigured&&fromEmailConfigured;
 const runtime={
   ...existing,
-  version:"0.33.0",
+  version:"0.34.0",
   environment,
   email:{
     ...existing.email,

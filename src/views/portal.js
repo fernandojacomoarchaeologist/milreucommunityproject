@@ -69,7 +69,7 @@ function homeCarouselSlide(slide,records,lang,isActive,index,total) {
     const credit = memory ? localised(memory.media.credit,lang).value : "";
     return `<article class="home-carousel__slide home-carousel__slide--image${activeClass}" data-home-slide="${index}" aria-hidden="${ariaHidden}">
       <div class="home-carousel__media">
-        <img src="${assetUrl(memory.media.variants.immersive)}" alt="${esc(localised(memory.title,lang).value)}">
+        <img src="${assetUrl(memory.media.variants.detail)}" srcset="${assetUrl(memory.media.variants.card)} 900w, ${assetUrl(memory.media.variants.detail)} 1600w, ${assetUrl(memory.media.variants.immersive)} 2400w" sizes="100vw" ${isActive ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" alt="${esc(localised(memory.title,lang).value)}">
       </div>
       <div class="home-carousel__overlay"></div>
       <div class="home-carousel__content">
