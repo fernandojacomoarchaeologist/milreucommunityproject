@@ -1,0 +1,9 @@
+{
+  "package": "09D",
+  "version": "0.32.0",
+  "machineDraftCanPublish": false,
+  "humanReviewRequired": true,
+  "approvalRequired": true,
+  "publicationExplicit": true,
+  "auditRequired": true
+}

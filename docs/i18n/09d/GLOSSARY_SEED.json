@@ -1,0 +1,38 @@
+{
+  "sourceLocale": "pt-PT",
+  "status": "seed-requires-human-review",
+  "terms": [
+    {
+      "pt-PT": "Projeto Comunitário de Milreu",
+      "rule": "preserve-name"
+    },
+    {
+      "pt-PT": "Ruínas Romanas de Milreu",
+      "rule": "official-form-only"
+    },
+    {
+      "pt-PT": "Museu de Memórias",
+      "rule": "editorial-decision"
+    },
+    {
+      "pt-PT": "arqueologia pública",
+      "rule": "translate"
+    },
+    {
+      "pt-PT": "proveniência",
+      "rule": "translate"
+    },
+    {
+      "pt-PT": "grau de certeza",
+      "rule": "translate"
+    },
+    {
+      "pt-PT": "oportunidade",
+      "rule": "translate"
+    },
+    {
+      "pt-PT": "candidatura",
+      "rule": "translate"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
+  "package": "09D",
+  "version": "0.32.0",
+  "sourceLocale": "pt-PT",
+  "targetLocales": ["en", "es", "fr"],
+  "note": "Inventário editorial multilíngue. A fonte pt-PT está publicada; EN/ES/FR permanecem em estado 'missing' até rascunho, revisão humana e publicação explícita. Nenhuma tradução é inventada. Alterar 'sourceVersion' de uma unidade marca as traduções vinculadas como potencialmente desatualizadas (stale).",
+  "content": [
+    {
+      "contentId": "portal-nav-project",
+      "domain": "portal-nav",
+      "key": "nav.project",
+      "surfaceRef": "src/lib/i18n.js#project",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-nav-methodology",
+      "domain": "portal-nav",
+      "key": "nav.methodology",
+      "surfaceRef": "src/lib/i18n.js#methodology",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-nav-initiatives",
+      "domain": "portal-nav",
+      "key": "nav.initiatives",
+      "surfaceRef": "src/lib/i18n.js#initiatives",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-nav-museum",
+      "domain": "portal-nav",
+      "key": "nav.museum",
+      "surfaceRef": "src/lib/i18n.js#museum",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-nav-participate",
+      "domain": "portal-nav",
+      "key": "nav.participate",
+      "surfaceRef": "src/lib/i18n.js#participate",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-cta-enter-museum",
+      "domain": "portal-cta",
+      "key": "cta.enterMuseum",
+      "surfaceRef": "src/lib/i18n.js#enterMuseum",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-cta-discover-project",
+      "domain": "portal-cta",
+      "key": "cta.discoverProject",
+      "surfaceRef": "src/lib/i18n.js#discoverProject",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-home-title",
+      "domain": "portal-home",
+      "key": "home.title",
+      "surfaceRef": "src/lib/i18n.js#homeTitle",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-home-lead",
+      "domain": "portal-home",
+      "key": "home.lead",
+      "surfaceRef": "src/lib/i18n.js#homeLead",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "portal-about-lead",
+      "domain": "portal-about",
+      "key": "about.lead",
+      "surfaceRef": "public/data/portal-content.json#about",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "opportunities-list-heading",
+      "domain": "opportunities",
+      "key": "opportunities.list.heading",
+      "surfaceRef": "src/views/opportunities-public.js#opportunitiesListView",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "operationalDataTranslatable": false,
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "opportunities-empty-state",
+      "domain": "opportunities",
+      "key": "opportunities.list.empty",
+      "surfaceRef": "src/views/opportunities-public.js#emptyState",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "operationalDataTranslatable": false,
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "opportunities-apply-cta",
+      "domain": "opportunities",
+      "key": "opportunities.detail.applyCta",
+      "surfaceRef": "src/views/opportunities-public.js#opportunityDetailView",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "operationalDataTranslatable": false,
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "museum-home-title",
+      "domain": "museum",
+      "key": "museum.home.title",
+      "surfaceRef": "src/lib/i18n.js#museumTitle",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "preserve": ["identifier", "source", "authorship", "dating", "certainty", "digitalIntervention", "rights", "communityVsInstitutional"],
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    },
+    {
+      "contentId": "museum-home-lead",
+      "domain": "museum",
+      "key": "museum.home.lead",
+      "surfaceRef": "src/lib/i18n.js#museumLead",
+      "sourceLocale": "pt-PT",
+      "sourceVersion": 1,
+      "status": "published",
+      "preserve": ["identifier", "source", "authorship", "dating", "certainty", "digitalIntervention", "rights", "communityVsInstitutional"],
+      "translations": [
+        { "locale": "en", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "es", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false },
+        { "locale": "fr", "status": "missing", "sourceVersion": null, "text": null, "machineAssisted": false, "translator": null, "reviewer": null, "approver": null, "publishedAt": null, "sourceChanged": false }
+      ]
+    }
+  ]
+}

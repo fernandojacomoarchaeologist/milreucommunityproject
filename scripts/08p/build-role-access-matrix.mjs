@@ -65,7 +65,7 @@ const matrix = contract.profilesToMap.map(profileMatrix);
 const report = {
   _copyright: "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   package: "08P",
-  version: "0.31.0",
+  version: "0.32.0",
   generatedFrom: ["public/data/collaborative-modules.json", "public/data/collaborative-roles-permissions.json"],
   layers: contract.layers,
   layerEnforcement: {

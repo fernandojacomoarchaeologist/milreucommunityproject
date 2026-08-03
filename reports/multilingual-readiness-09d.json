@@ -1,0 +1,56 @@
+{
+  "package": "09D",
+  "version": "0.32.0",
+  "generatedAt": "2026-08-03",
+  "sourceLocale": "pt-PT",
+  "targetLocales": [
+    "en",
+    "es",
+    "fr"
+  ],
+  "sourceUnits": 15,
+  "translationStateByLocale": {
+    "en": {
+      "missing": 15,
+      "draft": 0,
+      "machine-draft": 0,
+      "in-review": 0,
+      "changes-requested": 0,
+      "approved": 0,
+      "published": 0,
+      "archived": 0
+    },
+    "es": {
+      "missing": 15,
+      "draft": 0,
+      "machine-draft": 0,
+      "in-review": 0,
+      "changes-requested": 0,
+      "approved": 0,
+      "published": 0,
+      "archived": 0
+    },
+    "fr": {
+      "missing": 15,
+      "draft": 0,
+      "machine-draft": 0,
+      "in-review": 0,
+      "changes-requested": 0,
+      "approved": 0,
+      "published": 0,
+      "archived": 0
+    }
+  },
+  "routesWithPublishedTargets": [],
+  "automaticPublicationAllowed": false,
+  "silentFallbackAllowed": false,
+  "hreflangGeneration": false,
+  "productionApproval": "blocked",
+  "humanBlockers": [
+    "definir variantes de EN/ES/FR",
+    "designar revisores e aprovadores",
+    "decidir glossário arqueológico e nomes institucionais",
+    "definir prioridade editorial das páginas"
+  ],
+  "note": "Fundação multilíngue pronta. Nenhuma tradução automática publicada; revisão e publicação humanas continuam obrigatórias."
+}
