@@ -9,7 +9,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08L modelo: ${m}`); };
 
 const pub = read("public/data/public-integration-model.json");
-if (pub.version !== "0.30.0") fail("versão do modelo público incorreta.");
+if (pub.version !== "0.31.0") fail("versão do modelo público incorreta.");
 if (pub.publicReadsSnapshotsOnly !== true) fail("publicReadsSnapshotsOnly deve ser true.");
 if (pub.activePublicEffectsByDefault !== 0) fail("efeitos públicos ativos por omissão devem ser 0.");
 if (pub.productionApproval !== "blocked") fail("productionApproval deve estar blocked.");
@@ -19,7 +19,7 @@ for (const dim of ["editorial", "rights", "privacy", "translation", "accessibili
 }
 
 const paths = read("public/data/participation-pathways-model.json");
-if (paths.version !== "0.30.0") fail("versão do modelo de participação incorreta.");
+if (paths.version !== "0.31.0") fail("versão do modelo de participação incorreta.");
 if (paths.module?.code !== "continuous-participation") fail("módulo continuous-participation ausente.");
 if (paths.rankingEnabled !== false || paths.gamificationRequired !== false || paths.automaticRoleGrant !== false) {
   fail("ranking, gamificação e concessão automática de função devem ser false.");
@@ -35,7 +35,7 @@ if (!modules.some((m) => m.code === "continuous-participation" && m.permission =
 const roles = read("public/data/collaborative-roles-permissions.json");
 const newPerms = ["participation.view", "participation.manage", "participation.enrol", "participation.progress.update", "public-integration.view", "public-integration.propose", "public-integration.review", "public-integration.preview", "public-integration.activate", "public-integration.rollback", "evolution.view", "evolution.manage", "evolution.decide"];
 for (const p of newPerms) if (!roles.permissions.includes(p)) fail(`permissão ${p} ausente.`);
-if (roles.permissions.length !== 149) fail(`esperadas 140 permissões, encontradas ${roles.permissions.length}.`);
+if (roles.permissions.length !== 152) fail(`esperadas 140 permissões, encontradas ${roles.permissions.length}.`);
 for (const p of ["public-integration.activate", "public-integration.rollback", "evolution.decide"]) {
   if (roles.rolePermissions.coordinator.includes(p)) fail(`coordinator não pode ter ${p} (é master-only).`);
 }

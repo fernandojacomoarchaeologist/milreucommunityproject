@@ -90,6 +90,10 @@ export async function loadPublicExhibitions() {
   return loadJson("public/data/exhibitions-public.json");
 }
 
+export async function loadPublicOpportunities() {
+  return loadJson("public/data/opportunities-public.json");
+}
+
 export async function loadPublicContentEffects() {
   return loadJson("public/data/public-content-effects.json");
 }

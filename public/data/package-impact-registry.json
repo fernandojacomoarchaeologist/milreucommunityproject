@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.30.0",
-  "currentPackage": "09B",
+  "version": "0.31.0",
+  "currentPackage": "09C",
   "surfaces": [
     {
       "code": "portal-home",
@@ -294,6 +294,19 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Auditoria semântica da linguagem pública + estado temporário dos idiomas: pt-PT selecionável, EN/ES/FR 'em preparação' (desativados, sem fallback silencioso nem navegação para null); correções Tipo A (seletor, footer sem código de pacote); propostas editoriais Tipo C para revisão humana; doc interno de hipóteses/personas. Sem módulos/permissões/migrations; sem tradução completa/SEO/fontes; dataset inalterado."
+    },
+    {
+      "code": "public-opportunities-09c",
+      "package": "09C",
+      "module": "opportunities",
+      "routes": [
+        "/oportunidades",
+        "/oportunidades/:slug",
+        "/area-colaborativa/oportunidades"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Oportunidades públicas + candidaturas: descoberta pública (snapshot vazio honesto), CTA 'Tenho interesse'→login→perfil mínimo, decisão do dono do projeto, partilha client-side sem OAuth, candidatos privados (RLS: anon só lê public+published), menores bloqueados até política. Novo módulo opportunities (26), 3 permissões (152), 2 migrations com RLS/RPCs security definer."
     }
   ],
   "futurePackageRules": [

@@ -14,7 +14,7 @@ const roles = read("public/data/collaborative-roles-permissions.json");
 const readiness = read("public/data/pilot-readiness.json");
 
 test("modelo do piloto está na versão 0.22.0 e staging-only", () => {
-  assert.equal(model.version, "0.30.0");
+  assert.equal(model.version, "0.31.0");
   assert.equal(model.environmentRule, "staging-only");
 });
 
@@ -29,7 +29,7 @@ test("módulo pilot registado com pilot.view", () => {
 });
 
 test("catálogo tem 127 permissões e as 10 do piloto", () => {
-  assert.equal(roles.permissions.length, 149);
+  assert.equal(roles.permissions.length, 152);
   for (const p of ["pilot.view", "pilot.manage", "pilot.approve", "pilot.evidence.manage"]) assert.ok(roles.permissions.includes(p));
 });
 

@@ -11,7 +11,7 @@ import { readFileSync, existsSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08Q auditoria responsiva: ${m}`); };
 
-const EXPECTED = "0.30.0";
+const EXPECTED = "0.31.0";
 const contract = read("public/data/responsive-audit-report.json");
 if (contract.version !== EXPECTED) fail("versão do contrato incorreta.");
 

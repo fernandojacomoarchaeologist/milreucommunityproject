@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "modules": [
     {
       "code": "dashboard",
@@ -226,6 +226,15 @@
       "permission": "operations.view",
       "description": "Ciclos operacionais, suporte, moderação, governação, indicadores e continuidade.",
       "sortOrder": 106
+    },
+    {
+      "code": "opportunities",
+      "name": "Oportunidades",
+      "route": "/area-colaborativa/oportunidades",
+      "status": "active",
+      "permission": "opportunities.view",
+      "description": "Oportunidades públicas e de membros, candidaturas e gestão (decisão do dono do projeto).",
+      "sortOrder": 107
     }
   ]
 }

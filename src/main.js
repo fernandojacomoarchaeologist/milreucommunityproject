@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -37,6 +37,7 @@ import {
   collaborativeAgendaEventEditorView
 } from "./views/collaborative-exhibitions.js";
 import { publicExhibitionsView } from "./views/exhibitions-public.js";
+import { opportunitiesListView, opportunityDetailView } from "./views/opportunities-public.js";
 import {
   collaborativeContributionsView, collaborativeContributionNewView,
   collaborativeContributionDetailView, collaborativeContributionModerationView
@@ -65,6 +66,7 @@ import {
   collaborativePilotView, collaborativePilotManagementView
 } from "./views/collaborative-pilot.js";
 import { collaborativeParticipationView } from "./views/collaborative-participation.js";
+import { collaborativeOpportunitiesView } from "./views/opportunities-collab.js";
 import { collaborativePublicIntegrationView } from "./views/public-integration-management.js";
 import { operationsGovernanceDashboardView } from "./views/operations-dashboard.js";
 import { governanceManagementView } from "./views/governance-management.js";
@@ -78,6 +80,7 @@ const state = {
   homeCarouselIndex: 0,
   homeCarouselPaused: false,
   publicExhibitions: null,
+  publicOpportunities: null,
   publicContentEffects: null,
   collections: [],
   museumIndex: [],
@@ -175,6 +178,25 @@ function moveHomeCarousel(direction) {
   if (!slides.length) return;
   state.homeCarouselIndex = (state.homeCarouselIndex + direction + slides.length) % slides.length;
   render(false);
+}
+
+// 09C: partilha de oportunidade iniciada pelo utilizador (sem OAuth nem publicação automática).
+function bindOpportunityShare() {
+  const box = document.querySelector("[data-opportunity-share]");
+  if (!box) return;
+  const slug = box.dataset.shareSlug, title = box.dataset.shareTitle || "Oportunidade";
+  const url = `${location.origin}${location.pathname}#/oportunidades/${encodeURIComponent(slug)}`;
+  const enc = encodeURIComponent(url), encT = encodeURIComponent(title);
+  const fb = box.querySelector('[data-share="facebook"]'); if (fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${enc}`;
+  const x = box.querySelector('[data-share="x"]'); if (x) x.href = `https://twitter.com/intent/tweet?url=${enc}&text=${encT}`;
+  const em = box.querySelector('[data-share="email"]'); if (em) em.href = `mailto:?subject=${encT}&body=${enc}`;
+  box.querySelector('[data-share="native"]')?.addEventListener("click", async () => {
+    if (navigator.share) { try { await navigator.share({ title, url }); } catch { /* cancelado */ } }
+    else { try { await navigator.clipboard?.writeText(url); } catch { /* noop */ } }
+  });
+  box.querySelector('[data-share="copy"]')?.addEventListener("click", async () => {
+    try { await navigator.clipboard?.writeText(url); const b = box.querySelector('[data-share="copy"]'); if (b) { const t = b.textContent; b.textContent = "Copiado!"; setTimeout(() => b.textContent = t, 1500); } } catch { /* noop */ }
+  });
 }
 
 function setLanguage(lang) {
@@ -359,6 +381,8 @@ function renderCollaborativeRoute(route) {
       return collaborativePilotManagementView(context);
     case "collab-participation":
       return collaborativeParticipationView(context);
+    case "collab-opportunities":
+      return collaborativeOpportunitiesView(context);
     case "collab-public-integration":
       return collaborativePublicIntegrationView(context);
     case "collab-operations-governance":
@@ -448,6 +472,7 @@ function renderCollaborativeRoute(route) {
 
 function bindPage() {
   bindCommon(setLanguage);
+  bindOpportunityShare();
 
   document.querySelector("[data-collab-google-login]")?.addEventListener("click",async()=>{
     try {
@@ -1515,6 +1540,8 @@ function render(scroll=true) {
     case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
+    case "public-opportunities": html = opportunitiesListView(state.publicOpportunities,state.lang); setMetadata("Oportunidades"); break;
+    case "public-opportunity": html = opportunityDetailView(state.publicOpportunities,route.slug,state.lang); setMetadata("Oportunidade"); break;
     case "public-transparency": html = publicTransparencyView(state.publicTransparency||{}); setMetadata("Transparência"); break;
     case "channel-lab": html = channelLabView(state.channelRecords,state.channelConfig,state.lang); setMetadata("Laboratório multicanal"); break;
     case "totem-preview": html = totemPreviewView(findChannelRecord(state.channelRecords,route.id),state.channelConfig,state.lang); setMetadata(`Totem ${route.id}`); break;
@@ -1549,8 +1576,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

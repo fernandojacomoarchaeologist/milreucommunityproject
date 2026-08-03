@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.30.0",
+  "version": "0.31.0",
   "package": "08L",
   "notice": "Registo de slots públicos. Nenhum efeito público está ativo. Ativação exige proposta aprovada, snapshot e gates humanos.",
   "activeEffects": 0,
