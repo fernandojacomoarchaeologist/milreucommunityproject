@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "09B",
-  "version": "0.35.0",
+  "version": "0.36.0",
   "sourceLocale": "pt-PT",
   "summary": "As strings de interface (menus, botões, rótulos) estão traduzidas em pt-PT/en/es/fr no i18n. O CONTEÚDO (prosa do Portal, memórias do Museu, carrossel) existe revisto apenas em pt-PT; en/es/fr fariam fallback silencioso para pt-PT. Por isso o seletor só torna pt-PT selecionável até à revisão humana (09D).",
   "surfaces": [

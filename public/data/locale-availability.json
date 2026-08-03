@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09D",
-  "version": "0.35.0",
+  "version": "0.36.0",
   "generatedBy": "scripts/09d/build-locale-availability.mjs",
   "note": "Disponibilidade por rota derivada de locale-content-registry.json. Um idioma só fica disponível numa rota quando TODAS as unidades de conteúdo dessa rota estão 'published' nesse idioma. Não editar à mão: regenerar com 'npm run locale:availability'. Sem fallback silencioso; idioma indisponível apresenta mensagem visível com opção de continuar em pt-PT.",
   "sourceLocale": "pt-PT",

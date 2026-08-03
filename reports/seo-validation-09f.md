@@ -2,7 +2,7 @@
 
 # Validação — Pacote 09F (SEO, metadados, partilha, hreflang)
 
-**Base:** `main@95776ed` (v0.34.0 / 09E) · **Alvo:** v0.35.0 / 09F
+**Base:** `main@95776ed` (v0.34.0 / 09E) · **Alvo:** v0.36.0 / 09F
 
 ## Resultados determinísticos
 - Inventário de indexabilidade: **86 rotas** classificadas exatamente uma vez — **18 index**, **5 noindex**, **63 blocked**.

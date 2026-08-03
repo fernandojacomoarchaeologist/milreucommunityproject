@@ -1,0 +1,47 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "10A",
+  "version": "0.36.0",
+  "status": "foundation-documental",
+  "note": "Apresentação pública HONESTA da Experiência Proteus após o 10A: define propósito, públicos, classes de conhecimento, modelo de confiança e direitos, e o estado FUTURO das experiências. Nenhuma função (biblioteca, pesquisa, Pergunte ao Proteus, quizzes, API, MCP) está disponível — todas em preparação. Não há recursos externos catalogados nem conteúdo de obras: aguardam pacotes seguintes e decisões humanas.",
+  "purpose": "Infraestrutura pública de conhecimento sobre Milreu: uma fonte estruturada, verificável e viva, legível por pessoas, motores de pesquisa e agentes de IA. Complementa o Portal e o Museu de Memórias; não os substitui.",
+  "audiences": [
+    "visitantes presenciais e virtuais",
+    "comunidade de Estoi e do Algarve",
+    "estudantes e docentes",
+    "investigadores e profissionais do património",
+    "agentes públicos e parceiros institucionais",
+    "jornalistas e público geral",
+    "aplicações e agentes de IA"
+  ],
+  "futureExperiences": [
+    { "key": "conhecer", "title": "Conhecer Milreu", "description": "Explicações acessíveis sobre o sítio, história, espaços, investigações e visita.", "status": "em-preparacao" },
+    { "key": "biblioteca", "title": "Biblioteca", "description": "Artigos, livros, relatórios, notícias, imagens, dados e referências, com direitos e proveniência.", "status": "em-preparacao" },
+    { "key": "explorar", "title": "Explorar o conhecimento", "description": "Temas, cronologias, lugares, autores, conceitos e relações.", "status": "em-preparacao" },
+    { "key": "perguntar", "title": "Pergunte ao Proteus", "description": "Consulta assistida baseada exclusivamente nas fontes catalogadas, com citações e limites de direitos.", "status": "em-preparacao" },
+    { "key": "aprender", "title": "Aprender", "description": "Percursos e quizzes derivados de afirmações verificadas, adaptados a públicos diferentes.", "status": "em-preparacao" },
+    { "key": "visitar", "title": "Visitar e explorar digitalmente", "description": "Ligações a recursos institucionais (visita virtual e objetos 2D/3D), contextualizados sem os substituir.", "status": "em-preparacao" }
+  ],
+  "knowledgeClasses": [
+    { "code": "facto_documentado", "label": "Facto documentado", "rule": "sustentado por fonte adequada; cita fonte e localização" },
+    { "code": "interpretacao", "label": "Interpretação", "rule": "leitura proposta por autor/instituição; atribuída explicitamente" },
+    { "code": "hipotese", "label": "Hipótese", "rule": "proposição ainda não demonstrada; caráter provisório" },
+    { "code": "memoria_testemunho", "label": "Memória / testemunho", "rule": "relato situado; preserva voz, contexto e consentimento" },
+    { "code": "inferencia_proteus", "label": "Inferência do Proteus", "rule": "relação derivada pelo sistema; nunca promovida a facto" },
+    { "code": "desconhecido", "label": "Desconhecido", "rule": "evidência insuficiente ou não revista; não completar por plausibilidade" }
+  ],
+  "trustLevels": ["high", "medium", "low", "contested", "insufficient"],
+  "rights": {
+    "default": "deny",
+    "principle": "Os direitos são avaliados em dimensões independentes (catalogar, armazenar, processar, indexar, sintetizar, citar, publicar, redistribuir, expor por API/MCP, treinar). Um 'sim' numa dimensão nunca implica 'sim' noutra. Estado desconhecido comporta-se como negação para processamento e publicação.",
+    "antiSubstitution": "O serviço público não pode substituir a obra protegida: sem excertos extensos, reconstrução sequencial, respostas por página ou pesquisa que revele texto integral."
+  },
+  "externalResources": [],
+  "externalResourcesNote": "Os recursos do Património Cultural 360 (visita virtual às Ruínas Romanas de Milreu e objetos 2D/3D) serão catalogados e contextualizados em pacotes seguintes, com fornecedor (Património Cultural, I.P.), direitos, atribuição, licença e permissão de incorporação verificados caso a caso. Não são replicados nem incorporados sem autorização; por omissão apenas ligação externa após verificação. URL, direitos e embed permanecem decisão humana (ver decisões abertas).",
+  "futureMcp": {
+    "status": "future-not-implemented",
+    "note": "O futuro MCP será um adaptador público, remoto e somente de leitura sobre a API de conhecimento; nunca acede diretamente ao banco, ao armazenamento privado nem a documentos restritos. Não está implementado no 10A."
+  },
+  "availabilityNotice": "Nesta fase, a Experiência Proteus é uma fundação de política e governação. Nenhuma consulta, biblioteca, API ou chat está disponível.",
+  "openDecisionsRef": "docs/proteus/10a/OPEN_DECISIONS_10A.md"
+}

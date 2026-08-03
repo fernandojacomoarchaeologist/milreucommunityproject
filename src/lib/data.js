@@ -97,3 +97,7 @@ export async function loadPublicOpportunities() {
 export async function loadPublicContentEffects() {
   return loadJson("public/data/public-content-effects.json");
 }
+
+export async function loadProteusOverview() {
+  return loadJson("public/data/proteus-overview.json");
+}
