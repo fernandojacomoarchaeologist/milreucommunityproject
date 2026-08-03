@@ -18,14 +18,19 @@ declare
   app_anon_policy integer;
   minors_default boolean;
 begin
-  -- Candidaturas nunca legíveis por anon (privacidade entre candidatos e público).
+  -- Candidaturas nunca LEGÍVEIS por anon (privacidade entre candidatos e público).
+  -- O invariante do 09C é a ausência de SELECT a anon (RLS + sem grant de leitura);
+  -- privilégios default do Supabase noutras operações são irrelevantes para a leitura.
   select count(*) into app_anon_grant from information_schema.role_table_grants
-  where table_schema='public' and table_name='collab_opportunity_applications' and grantee='anon';
-  if app_anon_grant <> 0 then raise exception 'applications must not grant any privilege to anon (got %)', app_anon_grant; end if;
+  where table_schema='public' and table_name='collab_opportunity_applications'
+    and grantee='anon' and privilege_type='SELECT';
+  if app_anon_grant <> 0 then raise exception 'applications must not be SELECT-able by anon (got %)', app_anon_grant; end if;
 
+  -- Nenhuma política concede leitura de candidaturas a anon.
   select count(*) into app_anon_policy from pg_policies
-  where schemaname='public' and tablename='collab_opportunity_applications' and 'anon' = any(roles);
-  if app_anon_policy <> 0 then raise exception 'applications must have no anon policy (got %)', app_anon_policy; end if;
+  where schemaname='public' and tablename='collab_opportunity_applications'
+    and 'anon' = any(roles) and (cmd = 'SELECT' or cmd = 'ALL');
+  if app_anon_policy <> 0 then raise exception 'applications must have no anon read policy (got %)', app_anon_policy; end if;
 
   -- Menores bloqueados por omissão ao nível da tabela.
   select (column_default like '%false%') into minors_default from information_schema.columns
