@@ -18,7 +18,8 @@ async function loginDemo(page, kind) {
   const btn = page.locator(`[data-collab-demo-login="${kind}"]`);
   await expect(btn).toBeVisible({ timeout: 15000 });
   await btn.click();
-  await expect(page.locator(".collab-shell, .collab-page-heading, main")).toBeVisible();
+  // Espera o re-render pós-login (o dashboard do master). O passo seguinte faz page.goto.
+  await expect(page.locator("[data-collab-demo-login]")).toHaveCount(0);
 }
 
 test.beforeEach(async ({ page }) => {
