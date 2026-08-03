@@ -15,10 +15,14 @@ import { test, expect } from "@playwright/test";
 
 async function loginDemo(page, kind) {
   await page.goto("/#/area-colaborativa");
+  // Terminar qualquer sessão colaborativa anterior (para trocar de utilizador na mesma
+  // jornada) SEM apagar o store de oportunidades, que é a fonte de verdade da demonstração.
+  await page.evaluate(() => { try { localStorage.removeItem("milreu-collaborative-demo-context-v9"); } catch { /* noop */ } });
+  await page.reload();
   const btn = page.locator(`[data-collab-demo-login="${kind}"]`);
   await expect(btn).toBeVisible({ timeout: 15000 });
   await btn.click();
-  // Espera o re-render pós-login (o dashboard do master). O passo seguinte faz page.goto.
+  // Espera o re-render pós-login (login desaparece). O passo seguinte faz page.goto.
   await expect(page.locator("[data-collab-demo-login]")).toHaveCount(0);
 }
 
