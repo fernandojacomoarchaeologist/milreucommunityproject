@@ -41,7 +41,11 @@ test("robots.txt bloqueia tudo em pré-visualização e não há sitemap", async
   expect(sitemap?.status()).toBeGreaterThanOrEqual(400);
 });
 
-test("a memória bloqueada MM202617 não gera página estática pública", async ({ page }) => {
+test("a memória bloqueada MM202617 não tem página estática dedicada (só fallback SPA)", async ({ page }) => {
+  // MM202617 não é gerada como página estática. O dev-server faz fallback para a SPA
+  // (index.html), pelo que não deve existir JSON-LD Photograph com este identificador.
   const res = await page.goto("/museu/memorias/MM202617/");
-  expect(res?.status()).toBeGreaterThanOrEqual(400);
+  const body = (await res?.text()) || "";
+  expect(body).not.toContain('"identifier":"MM202617"');
+  expect(body).not.toMatch(/"@type":"Photograph"[\s\S]*MM202617/);
 });

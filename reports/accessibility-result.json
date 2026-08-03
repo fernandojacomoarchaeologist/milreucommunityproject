@@ -2,7 +2,7 @@
   "version": "0.35.0",
   "standard": "WCAG 2.2",
   "target": "AA",
-  "generatedAt": "2026-08-03T16:26:27.770Z",
+  "generatedAt": "2026-08-03T16:54:57.835Z",
   "scope": "baseline-source-contract",
   "passed": true,
   "checks": [

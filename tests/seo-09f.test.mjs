@@ -65,11 +65,18 @@ test("páginas estáticas: robots condicionado à origem, OG/Twitter, JSON-LD fa
   assert.doesNotMatch(b, /"@type":"(Organization|Event|Offer|Review)"/);
 });
 
-test("robots.txt do preview bloqueia tudo e não há sitemap sem domínio", () => {
-  const robots = text("dist/robots.txt");
-  assert.match(robots, /Disallow: \/\s*$/m);
+test("robots.txt do preview bloqueia tudo e não há sitemap sem domínio", async () => {
+  // Independente do build: invoca o builder num diretório temporário.
+  const { mkdtempSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const { buildRobotsAndSitemap } = await import("../scripts/09f/build-robots-sitemap.mjs");
+  const out = mkdtempSync(join(tmpdir(), "milreu-seo-"));
+  const result = buildRobotsAndSitemap(out);
+  assert.equal(result.robotsMode, "disallow-all");
+  assert.match(text(join(out, "robots.txt")), /Disallow: \/\s*$/m);
   let sitemapExists = true;
-  try { readFileSync("dist/sitemap.xml"); } catch { sitemapExists = false; }
+  try { readFileSync(join(out, "sitemap.xml")); } catch { sitemapExists = false; }
   assert.equal(sitemapExists, false, "não deve existir sitemap sem origem aprovada");
 });
 
