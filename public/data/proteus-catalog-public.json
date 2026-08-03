@@ -1,0 +1,16 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "10B",
+  "version": "0.37.0",
+  "status": "empty-honest",
+  "note": "Snapshot público do catálogo bibliográfico Proteus. Começa VAZIO por decisão: nenhuma obra ou autor real é incluído como demonstração. Apenas registos revistos e 'published' entrarão aqui, com fonte, direitos, acesso e última verificação. Um catálogo vazio é um resultado válido.",
+  "generatedAt": "2026-08-03",
+  "works": [],
+  "authors": [],
+  "notice": "Ainda não há obras nem autores publicados no catálogo. As fichas surgirão após catalogação e revisão humana, com fontes e direitos verificados.",
+  "filters": {
+    "workTypes": ["article", "book", "book-chapter", "report", "thesis", "conference-paper", "dataset", "other"],
+    "accessStatuses": ["open", "restricted", "metadata_only", "unknown"],
+    "languages": ["pt-PT", "en", "es", "fr", "de"]
+  }
+}

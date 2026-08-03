@@ -1,7 +1,7 @@
 {
   "package": "09F",
-  "targetVersion": "0.36.0",
-  "requiredBase": {"commit": "95776ed", "version": "0.36.0", "currentPackage": "09E", "ciPassed": 46},
+  "targetVersion": "0.37.0",
+  "requiredBase": {"commit": "95776ed", "version": "0.37.0", "currentPackage": "09E", "ciPassed": 46},
   "requiredPreservation": {"originalMediaCount": 31, "modules": 26, "permissions": 152, "newMigrations": 0},
   "requiresPublishedLocaleForHreflang": true,
   "productionActivation": false,

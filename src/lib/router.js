@@ -15,6 +15,11 @@ export function getRoute() {
   const initiative = path.match(/^\/iniciativas\/([a-z0-9-]+)$/);
   if (initiative) return { name:"initiative", slug:initiative[1] };
   if (path === "/conhecimento") return { name:"knowledge" };
+  if (path === "/conhecimento/biblioteca") return { name:"proteus-library", query };
+  const proteusWork = path.match(/^\/conhecimento\/biblioteca\/([a-z0-9-]+)$/);
+  if (proteusWork) return { name:"proteus-work", slug:proteusWork[1] };
+  const proteusAuthor = path.match(/^\/conhecimento\/autores\/([a-z0-9-]+)$/);
+  if (proteusAuthor) return { name:"proteus-author", slug:proteusAuthor[1] };
   if (path === "/participar") return { name:"participate" };
   if (path === "/participar/contribuir") return { name:"public-contribution-new" };
   if (path === "/participar/contribuir/acompanhar") return { name:"public-contribution-track" };

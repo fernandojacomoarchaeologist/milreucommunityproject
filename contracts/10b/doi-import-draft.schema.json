@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/proteus/doi-import-draft-10b.json",
+  "title": "Proteus DOI Import Draft",
+  "type": "object",
+  "required": ["id", "normalizedDoi", "provider", "retrievedAt", "status", "mappedFields", "warnings", "publicationApproved"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "normalizedDoi": {"type": "string", "pattern": "^10\\.[0-9]{4,9}/\\S+$"},
+    "provider": {"type": "string", "minLength": 1},
+    "retrievedAt": {"type": "string", "format": "date-time"},
+    "providerRecordId": {"type": ["string", "null"]},
+    "status": {"enum": ["fetched", "duplicate_candidate", "mapping_error", "network_error", "reviewed", "rejected"]},
+    "mappedFields": {"type": "object"},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "duplicateCandidates": {"type": "array", "items": {"type": "string"}},
+    "publicationApproved": {"const": false}
+  },
+  "additionalProperties": false
+}

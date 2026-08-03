@@ -1,6 +1,6 @@
 {
   "package": "09C",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "channels": [
     "web-share-api",
     "copy-link",

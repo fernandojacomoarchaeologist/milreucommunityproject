@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/proteus/public-catalog-entry-10b.json",
+  "title": "Proteus Public Catalog Entry",
+  "type": "object",
+  "required": ["id", "slug", "title", "authors", "workType", "languages", "accessStatus", "sources", "lastReviewedAt"],
+  "properties": {
+    "id": {"type": "string"},
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "authors": {"type": "array", "items": {"type": "object", "required": ["id", "name"], "properties": {"id": {"type": "string"}, "name": {"type": "string"}}, "additionalProperties": false}},
+    "workType": {"type": "string"},
+    "issued": {"type": ["string", "null"]},
+    "languages": {"type": "array", "items": {"type": "string"}},
+    "identifiers": {"type": "object"},
+    "accessStatus": {"enum": ["open", "restricted", "metadata_only", "unknown"]},
+    "publicSummary": {"type": ["string", "null"]},
+    "legalAccessUrl": {"type": ["string", "null"], "format": "uri"},
+    "sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "lastReviewedAt": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": false
+}

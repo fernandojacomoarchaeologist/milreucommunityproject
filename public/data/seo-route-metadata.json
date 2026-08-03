@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "09F",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "canonicalLocale": "pt-PT",
   "note": "Título e descrição por rota pública, em pt-PT, descrevendo conteúdo efetivamente visível e publicado. Sem palavras-chave artificiais nem promessas não entregues. As rotas dinâmicas (memórias, coleções, iniciativas, oportunidades) recebem metadados a partir do respetivo conteúdo publicado.",
   "routes": {
