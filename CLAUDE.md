@@ -185,3 +185,12 @@ Cada pacote integrado deve:
 ## 12. Perguntas
 
 Claude pode e deve questionar quando uma informação necessária não estiver disponível. As perguntas devem ser específicas, agrupadas e limitadas ao que bloqueia a tarefa atual.
+
+## 13. Guardião de identidade de pacotes (PROJECT GATE)
+
+Antes de inspecionar, extrair, aplicar, gerar ou reportar qualquer pacote de desenvolvimento, executar o **PROJECT GATE** definido pela skill `guard-development-packages`. A identidade do projeto **nunca** é inferida do título da conversa, do nome do ficheiro, da memória recente ou de garantias do operador.
+
+- A fonte autoritativa de identidade é `docs/governance/PROJECT_IDENTITY.md`; o pacote deve trazer `PACKAGE_IDENTITY.json`.
+- Se qualquer um dos contratos faltar, se `project_id`/`repository_slug` divergirem, se a base não for HEAD/ancestral, se existir marcador estrangeiro (ex.: Compostela, Godot, GDD) ou se não se provarem três sinais independentes, emitir `PROJECT GATE: BLOCKED` **antes** de extrair ou alterar ficheiros — e **não** criar o contrato por inferência.
+- Correr `python3 .claude/skills/guard-development-packages/scripts/verify_project_package.py --repo . --package <zip-ou-diretório>`; exit ≠ 0 é bloqueio, não aviso.
+- Só depois de `PROJECT GATE: PASS` prosseguir para o `package-intake`. Antes de concluir, repetir o scan de marcadores nos ficheiros alterados (`POSTFLIGHT`).
