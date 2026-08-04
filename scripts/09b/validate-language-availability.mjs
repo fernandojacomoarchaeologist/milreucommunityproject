@@ -13,7 +13,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09B idiomas: ${m}`); };
 
-const EXPECTED = "0.37.0";
+const EXPECTED = "0.37.1";
 const model = read("public/data/language-availability-model.json");
 if (model.version !== EXPECTED) fail("versão do contrato incorreta.");
 if (model.sourceLocale !== "pt-PT") fail("locale fonte deve ser pt-PT.");

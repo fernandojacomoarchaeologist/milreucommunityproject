@@ -1,6 +1,6 @@
 {
   "package": "09B",
-  "version": "0.37.0",
+  "version": "0.37.1",
   "classifications": [
     "clear-public-content",
     "internal-instruction-leak",

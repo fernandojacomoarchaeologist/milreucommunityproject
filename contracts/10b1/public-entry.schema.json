@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/proteus/public-entry-10b1.json",
+  "title": "Proteus Public Catalog Entry (10B.1)",
+  "description": "Entrada pública derivada de um registo do piloto com public_metadata=true. Acrescenta, face ao 10B, licença de reutilização explícita e a distinção entre acesso aberto comprovado e disponibilidade externa de licença desconhecida. Não aloja texto integral.",
+  "type": "object",
+  "required": ["id", "slug", "title", "authors", "workType", "accessStatus", "reuseLicense", "sources", "lastReviewedAt", "editorialStatus"],
+  "properties": {
+    "id": {"type": "string"},
+    "slug": {"type": "string"},
+    "title": {"type": "string"},
+    "authors": {"type": "array", "items": {"type": "object", "required": ["slug", "preferredName"]}},
+    "workType": {"type": "string"},
+    "accessStatus": {"enum": ["open", "restricted", "metadata_only", "unknown"]},
+    "reuseLicense": {"type": "object", "required": ["label", "verificationRequired"]},
+    "openAccess": {"type": "boolean"},
+    "externalAccessLabelUnknownLicense": {"type": "boolean"},
+    "legalAccessUrl": {"type": ["string", "null"]},
+    "publicSummary": {"type": ["string", "null"]},
+    "sources": {"type": "array", "minItems": 1},
+    "lastReviewedAt": {"type": ["string", "null"]},
+    "editorialStatus": {"const": "published"}
+  }
+}

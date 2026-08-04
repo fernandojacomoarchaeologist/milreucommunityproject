@@ -50,12 +50,20 @@ test("detectDuplicateCandidates nunca funde; só assinala", () => {
   assert.equal(detectDuplicateCandidates([], "10.1234/y").length, 0);
 });
 
-test("catálogo público começa vazio e honesto, sem pessoas reais", () => {
+test("catálogo público é honesto: vazio (10B) ou piloto controlado (10B.1), sem privados", () => {
   const cat = read("public/data/proteus-catalog-public.json");
-  assert.equal(cat.works.length, 0);
-  assert.equal(cat.authors.length, 0);
+  assert.ok(Array.isArray(cat.works) && Array.isArray(cat.authors));
   assert.ok(cat.notice);
-  assert.doesNotMatch(JSON.stringify({works:cat.works,authors:cat.authors}), /Hauschild|Teichner|Jácomo|Jacomo/i);
+  const PRIVATE = ["jacomo-2026-desafios-integracao-comunitaria", "jacomo-2026-anexo-a-relatorios-eventos"];
+  for (const w of cat.works) {
+    assert.equal(w.editorialStatus, "published");
+    assert.ok(Array.isArray(w.sources) && w.sources.length > 0, "cada obra precisa de fontes");
+    assert.ok(!PRIVATE.includes(w.slug), "registo privado não pode entrar no snapshot");
+    for (const k of ["fullText", "ocr", "bodyText", "extractedText"]) assert.ok(!(k in w), "sem texto integral alojado");
+  }
+  // Jácomo (public_profile=false) nunca aparece como autor público.
+  assert.doesNotMatch(JSON.stringify(cat.authors), /Jácomo|Jacomo/i);
+  if (cat.works.length > 0) assert.ok(cat.generatedBy, "snapshot populado declara origem derivada");
 });
 
 test("contratos de obra/direitos exigem estados editorial e de acesso", () => {

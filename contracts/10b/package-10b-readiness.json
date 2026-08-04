@@ -1,7 +1,7 @@
 {
   "package": "10B",
-  "targetVersion": "0.37.0",
-  "requiredBase": {"commit": "0430da5", "version": "0.37.0", "currentPackage": "10A", "ci": "green", "cleanTree": true},
+  "targetVersion": "0.37.1",
+  "requiredBase": {"commit": "0430da5", "version": "0.37.1", "currentPackage": "10A", "ci": "green", "cleanTree": true},
   "limits": {"newModulesMaximum": 1, "newPermissions": 0, "newMigrationsMaximum": 1, "realDocuments": 0, "publicApi": false, "mcp": false, "production": false},
   "publication": {"requiresHumanReview": true, "doiImportPublishes": false, "unknownRightsDefault": "deny"},
   "release": {"branchRequired": true, "pullRequestRequired": true, "automaticMerge": false}

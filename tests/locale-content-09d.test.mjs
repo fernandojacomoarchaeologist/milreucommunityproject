@@ -15,7 +15,7 @@ const TARGETS = ["en", "es", "fr"];
 test("o registo de conteúdo tem fonte pt-PT, chaves únicas e versão-fonte", () => {
   const r = read("public/data/locale-content-registry.json");
   assert.equal(r.sourceLocale, "pt-PT");
-  assert.equal(r.version, "0.37.0");
+  assert.equal(r.version, "0.37.1");
   const ids = new Set();
   const keys = new Set();
   for (const u of r.content) {

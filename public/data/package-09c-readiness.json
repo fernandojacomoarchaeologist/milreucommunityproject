@@ -1,6 +1,6 @@
 {
   "package": "09C",
-  "version": "0.37.0",
+  "version": "0.37.1",
   "publicDiscovery": "ready-to-implement",
   "minimumProfileGate": "ready-to-implement",
   "applications": "ready-to-implement",

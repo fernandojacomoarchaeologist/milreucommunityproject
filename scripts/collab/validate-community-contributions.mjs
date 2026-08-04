@@ -27,8 +27,8 @@ const seed=readFileSync("supabase/migrations/20260724110200_collaborative_contri
 const edge=readFileSync("supabase/functions/community-contribution-intake/index.ts","utf8");
 const edgeConfig=readFileSync("supabase/functions/community-contribution-intake/config.toml","utf8");
 
-if(pkg.version!=="0.37.0")throw new Error("Versão 08E incorreta.");
-if(model.version!=="0.37.0")throw new Error("Modelo 08E desatualizado.");
+if(pkg.version!=="0.37.1")throw new Error("Versão 08E incorreta.");
+if(model.version!=="0.37.1")throw new Error("Modelo 08E desatualizado.");
 for(const collection of [
   "contributionTypes","statuses","attributionPreferences","usageScopes",
   "targetTypes","targetRelations","fileStatuses","decisionTypes",

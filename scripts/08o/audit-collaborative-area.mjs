@@ -13,7 +13,7 @@ import { readFileSync, existsSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08O auditoria: ${m}`); };
 
-const EXPECTED_VERSION = "0.37.0";
+const EXPECTED_VERSION = "0.37.1";
 const contract = read("public/data/collaborative-post-merge-audit.json");
 if (contract.version !== EXPECTED_VERSION) fail("versão do contrato incorreta.");
 

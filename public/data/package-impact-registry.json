@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.37.0",
-  "currentPackage": "10B",
+  "version": "0.37.1",
+  "currentPackage": "10B.1",
   "surfaces": [
     {
       "code": "portal-home",
@@ -340,7 +340,12 @@
       "code": "visual-typography-media-performance-09e",
       "package": "09E",
       "module": null,
-      "routes": ["/", "/museu", "/museu/explorar", "/museu/imersivo/:id"],
+      "routes": [
+        "/",
+        "/museu",
+        "/museu/explorar",
+        "/museu/imersivo/:id"
+      ],
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Otimização visual auditável: media responsiva (srcset/sizes no hero do Museu e banner do carrossel; LCP com fetchpriority alta e não-lazy; miniaturas fora da dobra lazy + decoding async), inventário de media (176 ativos: 31 originais + 124 derivados + 21 interface; classificação, direitos, proveniência, intervenção) e de fontes (Fraunces/Spectral/Archivo declaradas mas AUSENTES — sem @font-face nem ficheiros; fonte computada = fallback de sistema; licença/self-hosting = pendência humana), integridade dos 31 originais (sha256 == manifesto, byte a byte), baseline de desempenho (LCP mobile serve 'detail' 127KB vs 'immersive' 278KB = −54% bytes; LCP/CLS de campo = pendência de browser/staging). Sem ficheiros de fonte no Git; sem SEO/hreflang/OG/JSON-LD (reservado 09F); originais imutáveis; MM202617 preserva nota de IA; 09D e as 6 rotas colaborativas preservados. Sem novos módulos/permissões/migrations (26/152). Scripts scripts/09e/*, validate:09e, 09e-ci.yml, docs docs/visual/09e/, matriz reports/visual-closure-09e.md."
@@ -349,7 +354,11 @@
       "code": "seo-metadata-sharing-hreflang-09f",
       "package": "09F",
       "module": null,
-      "routes": ["/", "/museu", "/museu/memorias/:id"],
+      "routes": [
+        "/",
+        "/museu",
+        "/museu/memorias/:id"
+      ],
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Descoberta pública auditável: config SEO por AMBIENTE (public/config/seo.runtime.json) sem inventar domínio — publicOrigin=null (pendência humana) → indexação desativada, robots.txt Disallow: / (preview), sem sitemap (URLs absolutas exigem origem aprovada via MILREU_PUBLIC_BASE_URL). Inventário de indexabilidade (reports/seo-route-inventory-09f.json) classifica as 86 rotas do router exatamente uma vez: 18 index (público publicado) / 5 noindex (imersivo, laboratório, 404) / 63 blocked (colaborativas, auth, formulários com dados pessoais). Metadados por rota (public/data/seo-route-metadata.json, pt-PT factual); OG/Twitter/JSON-LD WebSite no index.html (noindex mantido) e OG/Twitter/JSON-LD Photograph+ImageObject com crédito real nas 30 páginas estáticas de memórias públicas (MM202617 excluída), com robots condicionado à origem. hreflang só pt-PT (self); EN/ES/FR NUNCA anunciados; x-default ausente (decisão humana). JSON-LD factual — sem Organization/Event/Offer/Review inventados. Preserva 31 originais (sha256==manifesto), 26/152, 0 migrations, 09D/09E/09C.1. scripts/09f/*, validate:09f, 09f-ci.yml, contratos contracts/09f/, docs docs/seo/09f/, relatórios reports/seo-{route-inventory,metadata-inventory,validation,closure}-09f.*. Pendências humanas: domínio, x-default, entidade JSON-LD, imagem social padrão, memórias indexáveis; indexação real em motores não verificada."
@@ -359,7 +368,9 @@
       "package": "10A",
       "series": "10 — Experiência Proteus",
       "module": null,
-      "routes": ["/conhecimento"],
+      "routes": [
+        "/conhecimento"
+      ],
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Inaugura a Série 10 (Experiência Proteus) como FUNDAÇÃO DOCUMENTAL — política pública, direitos, confiança e contrato futuro do MCP. NÃO implementa biblioteca, ingestão, PDFs, OCR, embeddings, RAG, chat, API nem servidor MCP; não cria módulos/permissões/migrations. Contratos contracts/10a/ (rights-access-policy: 14 dimensões independentes + negação por defeito + unknown=denied; knowledge-assertion: 6 classes epistémicas facto/interpretação/hipótese/memória/inferência/desconhecido; public-answer: estados answered/limited/insufficient_evidence/rights_restricted/out_of_scope; external-resource: fornecedor+direitos separados; future-mcp-contract: future-not-implemented, sem acesso direto a BD/documentos restritos). Apresentação pública honesta na rota preexistente /conhecimento (knowledgeView + public/data/proteus-overview.json): propósito, 6 experiências futuras TODAS 'em preparação', classes de conhecimento, princípio de direitos (default deny + anti-substituição), recursos institucionais do Património Cultural 360 (visita virtual + 2D/3D) apenas contextualizados — URL/direitos/embed = decisão humana, sem apropriação — e MCP futuro. Nada disponível ainda (sem consulta/API/chat). Scans confirmam ausência de PDFs/fulltext/embeddings/segredos. docs docs/proteus/10a/, validate:10a, 10a-ci.yml. Preserva 09D/09E/09F/09C.1 (26/152, 0 migrations). Continuidade: 10B catálogo→10C afirmações→10D biblioteca/API→10E ingestão→10F Pergunte ao Proteus→10G aprendizagem→10H MCP público→10I MCP editorial. Decisões humanas: nome/entidade, política jurídica de obras restritas, direitos Património 360, licença dos dados, domínio Proteus, governança do MCP."
@@ -369,10 +380,28 @@
       "package": "10B",
       "series": "10 — Experiência Proteus",
       "module": null,
-      "routes": ["/conhecimento/biblioteca", "/conhecimento/biblioteca/:slug", "/conhecimento/autores/:slug"],
+      "routes": [
+        "/conhecimento/biblioteca",
+        "/conhecimento/biblioteca/:slug",
+        "/conhecimento/autores/:slug"
+      ],
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Primeira Biblioteca Proteus (páginas públicas iniciais) em modo static-first. Contratos contracts/10b/ (work, author, work-author, rights-record, doi-import-draft, public-catalog-entry) com estados editorial e de acesso e negação por defeito. Snapshot público public/data/proteus-catalog-public.json começa VAZIO e honesto (0 obras, 0 autores; nenhuma pessoa real como demonstração — Hauschild/Teichner/Jácomo continuam candidatos do piloto, fora deste pacote). Vistas src/views/proteus-library.js (lista+pesquisa+filtros por tipo/acesso/idioma, ficha de obra, perfil de autor) com estados vazio/zero-resultados/404 honestos; só mostra 'published'; não mostra texto integral, notas internas nem URLs privadas. Importação DOI: adaptador PURO src/proteus/doi-import.mjs (normalizeDoi/normalizeOrcid com checksum, mapCrossrefToDraft→ImportDraft com publicationApproved:false e warnings incl. rights_not_evaluated, detectDuplicateCandidates conservador que NUNCA funde) — sem rede embutida (testes com mocks). SEO só para publicados: com catálogo vazio, nenhum JSON-LD/canonical/sitemap é emitido; rotas ficam noindex (09F preview). Ligação a partir de /conhecimento (10A). scripts/10b/validate-10b.mjs+validate:10b; tests/proteus-catalog-10b.test.mjs (9) + E2E tests/e2e/portal/proteus-library-10b.spec.mjs; 10b-ci.yml. **Backend/RLS = pendência CONDICIONAL:** a app é static-first (Supabase não ligado à app) e uma migration nova quebraria os validadores anteriores; a persistência real + RLS (anon lê só published; não-editor não altera; sem escalonamento pelo cliente) fica para quando a fundação Supabase Proteus for autorizada — mantido adapter+contratos, bloqueio relatado (o pacote autoriza). ZERO novos módulos/permissões/migrations (26/152). Preserva 09D/09E/09F/10A. Decisões humanas (OPEN_DECISIONS_10B): licença dos metadados, conselho editorial/SLA, obras/autores do piloto e fontes, tratamento de Hauschild/Teichner, fonte DOI principal e retenção, critério de homónimos, domínio/indexação."
+    },
+    {
+      "code": "proteus-catalographic-pilot-10b1",
+      "package": "10B.1",
+      "series": "10 — Experiência Proteus",
+      "module": null,
+      "routes": [
+        "/conhecimento/biblioteca",
+        "/conhecimento/biblioteca/:slug",
+        "/conhecimento/autores/:slug"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Piloto catalográfico controlado sobre a Biblioteca 10B. Dados editoriais REPO-INTERNOS (data/proteus/pilot-records.json + pilot-agents.json — NÃO servidos): 6 registos + 4 agentes. Todos com full_text_hosted=false e processing_allowed_in_10b1=false (texto integral NUNCA alojado; sem OCR/DOCX/PDF/embeddings/RAG/API/MCP nesta fase; source-manifest com nomes de ficheiro fornecidos deliberadamente NÃO committado). Direitos/acesso/publicação independentes, negação por defeito. Apenas o artigo de Hauschild 2008 é acesso ABERTO comprovado (RUN, run.unl.pt, CC BY com URI/versão por confirmar); Hauschild&Teichner 2002 (BNP) e Teichner 2006 restritos — a cópia externa do 2006 (ResearchGate) é disponibilidade de licença DESCONHECIDA, nunca aberto. Manuscrito Jácomo 2026 e Anexo A permanecem PRIVADOS (public_metadata=false), fora do snapshot; perfil de Jácomo public_profile=false, nunca autor público. Bilheteira do Património Cultural, I.P. tratada como recurso institucional DINÂMICO com verified_at e aviso de atualidade. Derivador scripts/10b1/build-public-catalog.mjs → public/data/proteus-catalog-public.json (3 obras publicadas [1 aberta], 2 autores públicos, 1 recurso). Vista 10B enriquecida: distingue acesso aberto de disponibilidade externa de licença por confirmar, mostra licença de reutilização, e lista recursos institucionais. Validador/teste 10B SUPERADOS (catálogo deixa de exigir-se vazio; passam a aceitar o piloto sem privados/sem Jácomo/sem texto integral). contracts/10b1/ (pilot-record, public-entry), scripts/10b1/validate-10b1.mjs+validate:10b1, tests/proteus-pilot-10b1.test.mjs, 10b1-ci.yml. ZERO módulos/permissões/migrations (26/152). Sem afirmações históricas nem resumos gerados. Próximo: 10C (modelo de conhecimento/afirmações/CIDOC CRM). Decisões humanas pendentes (docs/proteus/10b1/03): estado/licença do manuscrito, tratamento do Anexo A, autorização de guarda do livro, URI CC BY do 2008, licença do PDF de 2006, exibição de cartão mínimo do manuscrito."
     }
   ],
   "futurePackageRules": [
