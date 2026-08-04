@@ -1,0 +1,40 @@
+{
+  "schema_version": "10b1-1",
+  "agents": [
+    {
+      "id": "person-theodor-hauschild",
+      "type": "person",
+      "preferred_name": "Theodor Hauschild",
+      "orcid": null,
+      "public_profile": true,
+      "biography": null,
+      "note": "Não gerar biografia; perfil limitado às obras catalogadas e fontes verificadas."
+    },
+    {
+      "id": "person-felix-teichner",
+      "type": "person",
+      "preferred_name": "Felix Teichner",
+      "orcid": null,
+      "public_profile": true,
+      "biography": null,
+      "note": "Não gerar biografia; perfil limitado às obras catalogadas e fontes verificadas."
+    },
+    {
+      "id": "person-fernando-rodrigues-de-jacomo",
+      "type": "person",
+      "preferred_name": "Fernando Rodrigues de Jácomo",
+      "orcid": null,
+      "public_profile": false,
+      "biography": null,
+      "note": "A ficha pública depende da decisão editorial sobre o manuscrito."
+    },
+    {
+      "id": "org-patrimonio-cultural-ip",
+      "type": "organization",
+      "preferred_name": "Património Cultural, I.P.",
+      "public_profile": true,
+      "official_url": "https://www.patrimoniocultural.gov.pt/",
+      "biography": null
+    }
+  ]
+}

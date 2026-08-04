@@ -15,7 +15,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`10B: ${m}`); };
-const EXPECTED = "0.37.0";
+const EXPECTED = "0.37.1";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
@@ -36,14 +36,26 @@ for (const f of ["accessStatus", "decisions", "evidence", "reviewedAt"]) if (!ri
 const author = read("contracts/10b/author.schema.json").required;
 if (!author.includes("sources")) fail("author.schema deve exigir fontes.");
 
-// 3) Snapshot público vazio e honesto
+// 3) Snapshot público: VAZIO (era 10B) OU piloto controlado (superado pelo 10B.1). Em qualquer
+// caso: nada fabricado, nenhum texto integral alojado, nenhum registo privado, e sem perfil de
+// autor com public_profile=false (Jácomo). Pessoas reais só entram sob direitos verificados no piloto.
 const cat = read("public/data/proteus-catalog-public.json");
-if (!Array.isArray(cat.works) || cat.works.length !== 0) fail("o catálogo público deve começar vazio (sem obras inventadas).");
-if (!Array.isArray(cat.authors) || cat.authors.length !== 0) fail("o catálogo público deve começar sem autores.");
-if (!cat.notice) fail("o catálogo deve declarar estado vazio honesto.");
-// Nenhum nome de pessoa real como DEMONSTRAÇÃO nos registos (obras/autores); o campo de
-// copyright/atribuição do projeto é legítimo e não conta.
-if (/Hauschild|Teichner|Jácomo|Jacomo/i.test(JSON.stringify({ works: cat.works, authors: cat.authors }))) fail("nenhuma pessoa real pode entrar como demonstração no catálogo.");
+if (!Array.isArray(cat.works) || !Array.isArray(cat.authors)) fail("o catálogo deve ter arrays works e authors.");
+if (!cat.notice) fail("o catálogo deve declarar o seu estado.");
+const PRIVATE_SLUGS = ["jacomo-2026-desafios-integracao-comunitaria", "jacomo-2026-anexo-a-relatorios-eventos"];
+for (const w of cat.works) {
+  if (!w.slug || !w.title) fail("cada obra pública precisa de slug e título.");
+  if (w.editorialStatus !== "published") fail(`obra ${w.slug} não publicada não pode estar no snapshot.`);
+  if (!Array.isArray(w.sources) || w.sources.length === 0) fail(`obra ${w.slug} sem fontes.`);
+  if (!["open", "restricted", "metadata_only", "unknown"].includes(w.accessStatus)) fail(`obra ${w.slug} com accessStatus inválido.`);
+  if (PRIVATE_SLUGS.includes(w.slug)) fail(`registo privado (${w.slug}) não pode entrar no snapshot público.`);
+  for (const k of ["fullText", "ocr", "bodyText", "extractedText"]) if (k in w) fail(`obra ${w.slug} não pode alojar texto integral (${k}).`);
+}
+for (const a of cat.authors) {
+  if (/Jácomo|Jacomo/i.test(a.preferredName || "")) fail("perfil de autor com public_profile=false (Jácomo) não pode ser publicado.");
+  if (!Array.isArray(a.sources) || a.sources.length === 0) fail(`autor ${a.slug} sem fontes.`);
+}
+if (cat.works.length > 0 && !cat.generatedBy) fail("snapshot populado deve declarar a origem derivada (generatedBy).");
 
 // 4) Importação DOI: adaptador puro, nunca publica; sem rede embutida
 const doi = text("src/proteus/doi-import.mjs");

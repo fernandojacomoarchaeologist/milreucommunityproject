@@ -24,7 +24,7 @@ if(process.env.MILREU_ADMIN_USER_JWT)console.warn("MILREU_ADMIN_USER_JWT foi det
 const existing=JSON.parse(await readFile("public/config/operations.example.json","utf8"));
 const runtime={
   ...existing,
-  version:"0.37.0",
+  version:"0.37.1",
   environment,
   dashboard:{...existing.dashboard,pollIntervalSeconds},
   audit:{...existing.audit,maxExportRows},

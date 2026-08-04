@@ -1,16 +1,237 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "package": "10B",
-  "version": "0.37.0",
-  "status": "empty-honest",
-  "note": "Snapshot público do catálogo bibliográfico Proteus. Começa VAZIO por decisão: nenhuma obra ou autor real é incluído como demonstração. Apenas registos revistos e 'published' entrarão aqui, com fonte, direitos, acesso e última verificação. Um catálogo vazio é um resultado válido.",
-  "generatedAt": "2026-08-03",
-  "works": [],
-  "authors": [],
-  "notice": "Ainda não há obras nem autores publicados no catálogo. As fichas surgirão após catalogação e revisão humana, com fontes e direitos verificados.",
+  "package": "10B.1",
+  "version": "0.37.1",
+  "status": "pilot-controlled",
+  "generatedBy": "scripts/10b1/build-public-catalog.mjs",
+  "generatedAt": "2026-08-04",
+  "note": "Snapshot público derivado dos dados editoriais do piloto. Só entram registos com metadados aprovados; o texto integral nunca é alojado. Manuscrito e Anexo A permanecem privados (fora deste snapshot) até decisão editorial. A bilheteira é um recurso institucional dinâmico com data de verificação.",
+  "works": [
+    {
+      "id": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "slug": "hauschild-2008-arquitectura-mosaicos-milreu",
+      "title": "A arquitectura e os mosaicos do “Edifício de Culto” ou “Aula” da Villa Romana de Milreu",
+      "subtitle": null,
+      "authors": [
+        {
+          "slug": "theodor-hauschild",
+          "preferredName": "Theodor Hauschild",
+          "public": true
+        }
+      ],
+      "workType": "article",
+      "issued": {
+        "year": 2008
+      },
+      "publication": {
+        "containerTitle": "Revista de História da Arte",
+        "publisher": "Instituto de História da Arte - Faculdade de Ciências Sociais e Humanas/UNL",
+        "series": null,
+        "seriesNumber": null,
+        "issue": "6",
+        "pages": "17-31"
+      },
+      "languages": [],
+      "identifiers": {
+        "doi": null,
+        "url": "http://hdl.handle.net/10362/16601"
+      },
+      "accessStatus": "open",
+      "reuseLicense": {
+        "label": "CC BY",
+        "uri": null,
+        "verificationRequired": true
+      },
+      "openAccess": true,
+      "legalAccessUrl": "https://run.unl.pt/bitstreams/b61f919e-73bb-42ce-9628-c2d2ea4132ad/download",
+      "externalAccessLabelUnknownLicense": false,
+      "publicSummary": null,
+      "sources": [
+        {
+          "note": "RUN record"
+        },
+        {
+          "note": "user-supplied PDF"
+        }
+      ],
+      "lastReviewedAt": "2026-08-03",
+      "editorialStatus": "published"
+    },
+    {
+      "id": "work-hauschild-teichner-2002-milreu-ruinas",
+      "slug": "hauschild-teichner-2002-milreu-ruinas",
+      "title": "Milreu: ruínas",
+      "subtitle": null,
+      "authors": [
+        {
+          "slug": "theodor-hauschild",
+          "preferredName": "Theodor Hauschild",
+          "public": true
+        },
+        {
+          "slug": "felix-teichner",
+          "preferredName": "Felix Teichner",
+          "public": true
+        }
+      ],
+      "workType": "book",
+      "issued": {
+        "year": 2002
+      },
+      "publication": {
+        "containerTitle": null,
+        "publisher": "Instituto Português do Património Arquitectónico",
+        "series": "Roteiros da Arqueologia Portuguesa",
+        "seriesNumber": "9",
+        "issue": null,
+        "pages": null
+      },
+      "languages": [],
+      "identifiers": {
+        "doi": null,
+        "url": "https://bibliografia.bnportugal.gov.pt/bnp/bnp.exe/q?mfn=109034&qf_AU=%3DTEICHNER%2C+FELIX"
+      },
+      "accessStatus": "restricted",
+      "reuseLicense": {
+        "label": "unknown",
+        "uri": null,
+        "verificationRequired": false
+      },
+      "openAccess": false,
+      "legalAccessUrl": "https://bibliografia.bnportugal.gov.pt/bnp/bnp.exe/q?mfn=109034&qf_AU=%3DTEICHNER%2C+FELIX",
+      "externalAccessLabelUnknownLicense": false,
+      "publicSummary": null,
+      "sources": [
+        {
+          "note": "Bibliografia Nacional Portuguesa"
+        },
+        {
+          "note": "user-supplied scan"
+        }
+      ],
+      "lastReviewedAt": "2026-08-03",
+      "editorialStatus": "published"
+    },
+    {
+      "id": "work-teichner-2006-de-lo-romano-a-lo-arabe",
+      "slug": "teichner-2006-de-lo-romano-a-lo-arabe",
+      "title": "«De lo romano a lo árabe». La transición del sur de la provincia de Lusitania a al-Gharb al-Andalus: nuevas investigaciones en los yacimientos de Milreu y Cerro da Vila",
+      "subtitle": null,
+      "authors": [
+        {
+          "slug": "felix-teichner",
+          "preferredName": "Felix Teichner",
+          "public": true
+        }
+      ],
+      "workType": "book-chapter",
+      "issued": {
+        "year": 2006
+      },
+      "publication": {
+        "containerTitle": "Villas tardoantiguas en el Mediterráneo Occidental",
+        "publisher": null,
+        "series": "Anejos de Archivo Español de Arqueología",
+        "seriesNumber": "38",
+        "issue": null,
+        "pages": "207-220"
+      },
+      "languages": [],
+      "identifiers": {
+        "doi": null,
+        "url": "https://www.researchgate.net/publication/325596038"
+      },
+      "accessStatus": "restricted",
+      "reuseLicense": {
+        "label": "unknown",
+        "uri": null,
+        "verificationRequired": false
+      },
+      "openAccess": false,
+      "legalAccessUrl": "https://www.researchgate.net/publication/325596038",
+      "externalAccessLabelUnknownLicense": true,
+      "publicSummary": null,
+      "sources": [
+        {
+          "note": "user-supplied PDF"
+        },
+        {
+          "note": "external bibliographic cross-check"
+        }
+      ],
+      "lastReviewedAt": "2026-08-03",
+      "editorialStatus": "published"
+    }
+  ],
+  "authors": [
+    {
+      "id": "person-theodor-hauschild",
+      "slug": "theodor-hauschild",
+      "preferredName": "Theodor Hauschild",
+      "orcid": null,
+      "affiliations": [],
+      "publicBio": null,
+      "sources": [
+        {
+          "note": "Perfil mínimo derivado das obras catalogadas no Proteus; sem biografia gerada."
+        }
+      ],
+      "editorialStatus": "published"
+    },
+    {
+      "id": "person-felix-teichner",
+      "slug": "felix-teichner",
+      "preferredName": "Felix Teichner",
+      "orcid": null,
+      "affiliations": [],
+      "publicBio": null,
+      "sources": [
+        {
+          "note": "Perfil mínimo derivado das obras catalogadas no Proteus; sem biografia gerada."
+        }
+      ],
+      "editorialStatus": "published"
+    }
+  ],
+  "externalResources": [
+    {
+      "id": "resource-pcip-bilheteira-milreu",
+      "title": "Ruínas Romanas de Milreu",
+      "type": "institutional_dynamic_page",
+      "provider": "Património Cultural, I.P.",
+      "providerUrl": "https://www.patrimoniocultural.gov.pt/",
+      "publicUrl": "https://bilheteira.patrimoniocultural.gov.pt/pt/monument/35",
+      "rightsStatus": "restricted",
+      "rightsLabel": "all_rights_reserved_unless_stated",
+      "dynamic": true,
+      "stalenessNotice": true,
+      "lastVerified": "2026-08-03"
+    }
+  ],
+  "notice": "O catálogo apresenta fichas bibliográficas com fonte, direitos e estado de acesso. As obras restritas não têm texto integral aqui; apenas ligação externa quando autorizada.",
   "filters": {
-    "workTypes": ["article", "book", "book-chapter", "report", "thesis", "conference-paper", "dataset", "other"],
-    "accessStatuses": ["open", "restricted", "metadata_only", "unknown"],
-    "languages": ["pt-PT", "en", "es", "fr", "de"]
+    "workTypes": [
+      "article",
+      "book",
+      "book-chapter",
+      "report",
+      "thesis",
+      "conference-paper",
+      "dataset",
+      "other"
+    ],
+    "accessStatuses": [
+      "open",
+      "restricted",
+      "metadata_only",
+      "unknown"
+    ],
+    "languages": [
+      "pt-PT",
+      "en",
+      "es",
+      "fr",
+      "de"
+    ]
   }
 }

@@ -16,6 +16,34 @@ const esc = (v) => String(v ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 const TYPE_LABELS = { article: "Artigo", book: "Livro", "book-chapter": "Capítulo", report: "Relatório", thesis: "Tese", "conference-paper": "Comunicação", dataset: "Conjunto de dados", other: "Documento" };
 const ACCESS_LABELS = { open: "Acesso aberto", restricted: "Acesso restrito", metadata_only: "Apenas metadados", unknown: "Acesso por confirmar" };
 
+// Bloco de licença + ligação de acesso. Distingue três situações sem inflar direitos:
+// (1) acesso aberto comprovado (texto integral externo legal); (2) cópia disponibilizada
+// externamente por terceiros com licença por confirmar (não implica reutilização);
+// (3) registo bibliográfico institucional (sem texto integral).
+function accessBlock(w) {
+  const lic = w.reuseLicense || {};
+  const licenseLine = lic.label && lic.label !== "unknown"
+    ? `<p class="proteus-license">Licença de reutilização: <strong>${esc(lic.label)}</strong>${lic.uri ? ` — <a href="${esc(lic.uri)}" rel="noopener noreferrer external" target="_blank">${esc(lic.uri)} ↗</a>` : ""}${lic.verificationRequired ? ` <span class="proteus-flag">(versão/URI por confirmar)</span>` : ""}</p>`
+    : `<p class="proteus-license">Licença de reutilização: <strong>por confirmar</strong>. A disponibilidade externa não implica direito de reutilização.</p>`;
+  let link = "";
+  if (w.openAccess && w.legalAccessUrl) {
+    link = `<p><a class="ml-button ml-button--secondary" href="${esc(w.legalAccessUrl)}" rel="noopener noreferrer external" target="_blank">Aceder ao texto integral (acesso aberto) ↗</a></p>`;
+  } else if (w.externalAccessLabelUnknownLicense && w.legalAccessUrl) {
+    link = `<p><a class="ml-button ml-button--secondary" href="${esc(w.legalAccessUrl)}" rel="noopener noreferrer external" target="_blank">Ver página externa ↗</a></p>
+      <p class="fallback-note">Cópia disponibilizada externamente por terceiros; a licença de reutilização não está confirmada e o Proteus não aloja o texto.</p>`;
+  } else if (w.legalAccessUrl) {
+    link = `<p><a class="ml-button ml-button--secondary" href="${esc(w.legalAccessUrl)}" rel="noopener noreferrer external" target="_blank">Ver registo bibliográfico ↗</a></p>`;
+  }
+  return licenseLine + link;
+}
+
+function resourceCard(r) {
+  return `<li class="proteus-resource-card"><h3>${esc(r.title)}</h3>
+    <p class="proteus-work-card__meta">Recurso institucional dinâmico · ${esc(r.provider)}</p>
+    <p><a href="${esc(r.publicUrl)}" rel="noopener noreferrer external" target="_blank">Abrir página oficial ↗</a></p>
+    ${r.stalenessNotice ? `<p class="fallback-note">Conteúdo dinâmico (ex.: horários e bilhética). Última verificação: ${esc(r.lastVerified || "—")}. Confirme sempre na fonte oficial.</p>` : ""}</li>`;
+}
+
 function shell(lang, current, inner) {
   return `${portalHeader(lang, "/conhecimento")}<main id="main" class="portal-main proteus-library">
     <nav class="collab-back-link"><a href="#/conhecimento">← Experiência Proteus</a></nav>
@@ -56,7 +84,12 @@ export function proteusLibraryView(catalog, lang, query = {}) {
         <button type="submit">Aplicar</button>
       </form>
       ${body}
-    </section>`);
+    </section>
+    ${(c.externalResources || []).length ? `<section class="portal-section proteus-resources">
+      <h2>Recursos institucionais</h2>
+      <p class="fallback-note">Páginas oficiais externas relacionadas com Milreu. Não são obras catalogadas; o conteúdo é mantido por terceiros e pode mudar.</p>
+      <ul class="proteus-resource-list">${c.externalResources.map(resourceCard).join("")}</ul>
+    </section>` : ""}`);
 }
 
 function workCard(w) {
@@ -85,8 +118,8 @@ export function proteusWorkView(catalog, slug, lang) {
       ${(w.authors || []).length ? `<p class="proteus-work-detail__authors">${w.authors.map((a) => a.slug ? `<a href="#/conhecimento/autores/${esc(a.slug)}">${esc(a.preferredName)}</a>` : esc(a.preferredName || a)).join(", ")}</p>` : ""}
       <dl class="opportunity-detail__facts">${rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
       ${w.publicSummary ? `<h2>Resumo</h2><p>${esc(w.publicSummary)}</p>` : ""}
-      ${w.legalAccessUrl ? `<p><a class="ml-button ml-button--secondary" href="${esc(w.legalAccessUrl)}" rel="noopener noreferrer external" target="_blank">Aceder legalmente à obra ↗</a></p>` : ""}
-      <p class="fallback-note">O Proteus apresenta a ficha e a ligação legal; não disponibiliza o texto integral de obras restritas.</p>
+      ${accessBlock(w)}
+      ${w.openAccess ? "" : `<p class="fallback-note">O Proteus apresenta a ficha e as ligações; não aloja o texto integral de obras restritas.</p>`}
     </section>`);
 }
 

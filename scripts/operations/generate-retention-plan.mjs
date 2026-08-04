@@ -8,7 +8,7 @@ import { readFile,writeFile,mkdir } from "node:fs/promises";
 const model=JSON.parse(await readFile("public/data/collaborative-retention-model.json","utf8"));
 const payload={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.37.0",
+  version:"0.37.1",
   generatedAt:new Date().toISOString(),
   policies:model.policies.map(item=>({
     code:item.code,

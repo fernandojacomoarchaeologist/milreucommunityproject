@@ -14,7 +14,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09C.1: ${m}`); };
-const EXPECTED = "0.37.0";
+const EXPECTED = "0.37.1";
 
 // 1) Versão
 const pkg = read("package.json");

@@ -267,7 +267,7 @@ try{
   assert("runtime-errors",significantErrors.length===0,significantErrors.length?significantErrors.map(item=>item.text).join(" | "):"Sem exceções ou erros de consola significativos.");
 
   const failed=results.filter(item=>!item.pass);
-  const report={version:"0.37.0",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
+  const report={version:"0.37.1",candidate:"RC1",generatedAt:new Date().toISOString(),browser:chromium,total:results.length,passedCount:results.length-failed.length,failedCount:failed.length,passed:failed.length===0,results,runtimeErrors:significantErrors};
   mkdirSync("reports",{recursive:true});writeFileSync("reports/e2e-result.json",JSON.stringify(report,null,2)+"\n");
   console.log(`E2E Chromium 08J: ${report.passedCount}/${report.total}.`);
   if(failed.length)process.exitCode=1;

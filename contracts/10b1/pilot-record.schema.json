@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu.example/schemas/proteus/pilot-record-10b1.json",
+  "title": "Proteus Pilot Catalographic Record (10B.1)",
+  "description": "Registo do piloto catalográfico controlado. O texto integral NUNCA é alojado e o processamento não é permitido nesta fase. Direitos, acesso e publicação são dimensões independentes com negação por defeito.",
+  "type": "object",
+  "required": ["id", "record_type", "title", "access_status", "public_metadata", "full_text_hosted", "processing_allowed_in_10b1", "editorial_status", "provenance", "verified_at"],
+  "properties": {
+    "id": {"type": "string"},
+    "record_type": {"enum": ["scholarly_article", "book", "book_chapter", "conference_manuscript", "project_report", "institutional_dynamic_page"]},
+    "title": {"type": "string"},
+    "authors": {"type": "array", "items": {"type": "string"}},
+    "access_status": {"enum": ["open", "restricted_or_unknown", "externally_accessible_license_unknown", "private_project_document", "public_web_page"]},
+    "reuse_license_label": {"type": "string"},
+    "reuse_license_uri": {"type": ["string", "null"]},
+    "license_verification_required": {"type": "boolean"},
+    "public_metadata": {"type": "boolean"},
+    "full_text_hosted": {"const": false},
+    "processing_allowed_in_10b1": {"const": false},
+    "editorial_status": {"type": "string"},
+    "provenance": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "verified_at": {"type": "string"}
+  }
+}
