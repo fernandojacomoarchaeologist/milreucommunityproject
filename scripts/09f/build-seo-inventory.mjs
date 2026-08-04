@@ -91,7 +91,7 @@ const counts = {
 mkdirSync("reports", { recursive: true });
 const header = {
   _copyright: "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
-  package: "09F", version: "0.37.1", generatedAt: new Date().toISOString().slice(0, 10),
+  package: "09F", version: "0.38.0", generatedAt: new Date().toISOString().slice(0, 10),
   publicOrigin: origin, indexingAllowed, canonicalLocale: seo.canonicalLocale, publishedLocales: seo.publishedLocales,
 };
 writeFileSync("reports/seo-route-inventory-09f.json", JSON.stringify({ ...header, counts, note: "Cada nome de rota do router foi classificado exatamente uma vez. Sem origem aprovada, canonical/sitemap absolutos ficam nulos e a indexação está desativada (preview).", routes: records }, null, 2) + "\n");

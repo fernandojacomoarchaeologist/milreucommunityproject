@@ -32,7 +32,7 @@ const previews=registry.templates.map(template=>({
 await mkdir("releases/notifications",{recursive:true});
 await writeFile("releases/notifications/template-preview-pt-PT.json",JSON.stringify({
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.37.1",
+  version:"0.38.0",
   generatedAt:new Date().toISOString(),
   recipient:"test@example.invalid",
   previews

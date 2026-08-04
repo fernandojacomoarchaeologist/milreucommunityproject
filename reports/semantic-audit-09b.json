@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "09B",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "method": "Auditoria semântica por inspeção do código real (i18n, portal-content, views). Cada elemento classificado; correções Tipo A aplicadas; Tipo B conservadoras; Tipo C propostas para revisão humana (ver editorial-decisions-09b.md).",
   "summary": { "audited": 14, "fixed": 2, "proposalsPending": 5, "humanDecisionRequired": 5 },
   "items": [

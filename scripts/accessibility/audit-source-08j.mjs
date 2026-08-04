@@ -29,7 +29,7 @@ check("no-secret-browser",!source.includes("SUPABASE_SERVICE_ROLE_KEY")&&!source
 
 const failed=checks.filter(item=>!item.pass);
 const report={
-  version:"0.37.1",standard:"WCAG 2.2",target:"AA",generatedAt:new Date().toISOString(),
+  version:"0.38.0",standard:"WCAG 2.2",target:"AA",generatedAt:new Date().toISOString(),
   scope:"baseline-source-contract",passed:failed.length===0,checks,
   humanReviewRequired:["leitor de ecrã","contraste final","ordem de foco","zoom a 200%","alvos táteis","mensagens de erro","revisão cognitiva"]
 };

@@ -7,7 +7,7 @@ import { mkdir,writeFile } from "node:fs/promises";
 
 const payload={
   _copyright:"© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  version:"0.37.1",
+  version:"0.38.0",
   generatedAt:new Date().toISOString(),
   verification:{
     planCode:"replace-with-plan-code",

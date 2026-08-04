@@ -9,7 +9,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const fail = (m) => { throw new Error(`08L modelo: ${m}`); };
 
 const pub = read("public/data/public-integration-model.json");
-if (pub.version !== "0.37.1") fail("versão do modelo público incorreta.");
+if (pub.version !== "0.38.0") fail("versão do modelo público incorreta.");
 if (pub.publicReadsSnapshotsOnly !== true) fail("publicReadsSnapshotsOnly deve ser true.");
 if (pub.activePublicEffectsByDefault !== 0) fail("efeitos públicos ativos por omissão devem ser 0.");
 if (pub.productionApproval !== "blocked") fail("productionApproval deve estar blocked.");
@@ -19,7 +19,7 @@ for (const dim of ["editorial", "rights", "privacy", "translation", "accessibili
 }
 
 const paths = read("public/data/participation-pathways-model.json");
-if (paths.version !== "0.37.1") fail("versão do modelo de participação incorreta.");
+if (paths.version !== "0.38.0") fail("versão do modelo de participação incorreta.");
 if (paths.module?.code !== "continuous-participation") fail("módulo continuous-participation ausente.");
 if (paths.rankingEnabled !== false || paths.gamificationRequired !== false || paths.automaticRoleGrant !== false) {
   fail("ranking, gamificação e concessão automática de função devem ser false.");

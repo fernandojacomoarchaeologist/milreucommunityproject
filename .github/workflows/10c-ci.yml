@@ -1,0 +1,57 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 10C Proteus Knowledge Model
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  PLAYWRIGHT_VERSION: 1.49.1
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:10c
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
+
+  e2e-proteus-knowledge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Instalar Playwright ad-hoc (sem tocar no lock)
+        run: |
+          npm install --no-save "@playwright/test@${PLAYWRIGHT_VERSION}"
+          npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: E2E da base de conhecimento (modelo vazio honesto, natureza epistémica, 404) — bloqueante
+        run: npx playwright test tests/e2e/portal/proteus-knowledge-10c.spec.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: milreu-10c-playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn

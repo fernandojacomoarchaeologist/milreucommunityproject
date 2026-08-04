@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "09A",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "legacyHarness": "scripts/e2e/run-browser-e2e-08j.mjs",
   "legacyHarnessPreserved": true,
   "migrationMode": "incremental",

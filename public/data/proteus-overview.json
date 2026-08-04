@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "10A",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "status": "foundation-documental",
   "note": "Apresentação pública HONESTA da Experiência Proteus após o 10A: define propósito, públicos, classes de conhecimento, modelo de confiança e direitos, e o estado FUTURO das experiências. Nenhuma função (biblioteca, pesquisa, Pergunte ao Proteus, quizzes, API, MCP) está disponível — todas em preparação. Não há recursos externos catalogados nem conteúdo de obras: aguardam pacotes seguintes e decisões humanas.",
   "purpose": "Infraestrutura pública de conhecimento sobre Milreu: uma fonte estruturada, verificável e viva, legível por pessoas, motores de pesquisa e agentes de IA. Complementa o Portal e o Museu de Memórias; não os substitui.",

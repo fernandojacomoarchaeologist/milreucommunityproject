@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -14,6 +14,7 @@ import {
   knowledgeView, participateView, aboutView, notFoundView
 } from "./views/portal.js";
 import { proteusLibraryView, proteusWorkView, proteusAuthorView } from "./views/proteus-library.js";
+import { proteusKnowledgeView, proteusAssertionView, proteusEntityView } from "./views/proteus-knowledge.js";
 import {
   museumHome, galleryView, detailView, immersiveView, timelineView,
   collectionsView, collectionDetailView
@@ -496,10 +497,25 @@ function bindProteusLibrary() {
   });
 }
 
+function bindProteusKnowledge() {
+  document.querySelector("[data-proteus-knowledge-filters]")?.addEventListener("submit", event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const params = new URLSearchParams();
+    for (const key of ["q", "class", "language"]) {
+      const value = form.elements[key]?.value?.trim();
+      if (value) params.set(key, value);
+    }
+    const qs = params.toString();
+    go(`/conhecimento/afirmacoes${qs ? `?${qs}` : ""}`);
+  });
+}
+
 function bindPage() {
   bindCommon(setLanguage);
   bindOpportunityShare();
   bindProteusLibrary();
+  bindProteusKnowledge();
 
   document.querySelector("[data-collab-google-login]")?.addEventListener("click",async()=>{
     try {
@@ -1592,6 +1608,9 @@ function render(scroll=true) {
     case "proteus-library": html = proteusLibraryView(state.publicProteusCatalog,state.lang,route.query); setMetadata("Biblioteca Proteus"); break;
     case "proteus-work": html = proteusWorkView(state.publicProteusCatalog,route.slug,state.lang); setMetadata("Biblioteca Proteus"); break;
     case "proteus-author": html = proteusAuthorView(state.publicProteusCatalog,route.slug,state.lang); setMetadata("Autor · Proteus"); break;
+    case "proteus-knowledge": html = proteusKnowledgeView(state.publicProteusKnowledge,state.lang,route.query); setMetadata("Base de conhecimento · Proteus"); break;
+    case "proteus-assertion": html = proteusAssertionView(state.publicProteusKnowledge,route.id,state.lang); setMetadata("Afirmação · Proteus"); break;
+    case "proteus-entity": html = proteusEntityView(state.publicProteusKnowledge,route.slug,state.lang); setMetadata("Entidade · Proteus"); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
     case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
@@ -1634,8 +1653,8 @@ function render(scroll=true) {
 
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog(),loadProteusKnowledge()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

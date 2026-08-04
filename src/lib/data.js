@@ -105,3 +105,7 @@ export async function loadProteusOverview() {
 export async function loadProteusCatalog() {
   return loadJson("public/data/proteus-catalog-public.json");
 }
+
+export async function loadProteusKnowledge() {
+  return loadJson("public/data/proteus-knowledge-public.json");
+}

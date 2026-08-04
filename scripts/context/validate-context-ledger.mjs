@@ -25,7 +25,7 @@ for(const invariant of [
 }
 
 const registry=JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8"));
-if(registry.version!=="0.37.1"||registry.currentPackage!=="10B.1")throw new Error("Registo de impacto desatualizado.");
+if(registry.version!=="0.38.0"||registry.currentPackage!=="10C")throw new Error("Registo de impacto desatualizado.");
 for(const surface of ["portal-home","museum-home","museum-canonical-data","collaborative-navigation","training","library","deployment-profile","google-oauth","homologation","notification-center","notification-events","notification-outbox","system-administration","audit-integrity","retention-lifecycle","incident-continuity","accessibility-baseline","browser-e2e","release-candidate","pilot","continuous-participation","public-integration","operations-governance","carousel-post-merge-08o","functional-closure-08p","home-banner-responsive-08q","portal-quality-foundation-09a","semantic-language-audit-09b","public-opportunities-09c"]){
   if(!registry.surfaces.some(item=>item.code===surface))throw new Error(`Superfície não registada: ${surface}`);
 }

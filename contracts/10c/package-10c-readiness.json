@@ -1,0 +1,2 @@
+{"package":"10C","targetVersion":"0.38.0","base":{"commit":"0ceda77","version":"0.38.0","currentPackage":"10B.1"},"requires":{"cleanTree":true,"isolatedBranch":true,"allPreviousValidatorsGreen":true,"noConflictingPullRequest":true},"boundaries":{"realAssertions":false,"documentIngestion":false,"ocr":false,"embeddings":false,"rag":false,"chat":false,"api":false,"mcp":false,"newRoles":false,"automaticPublication":false},"delivery":{"pullRequest":true,"automaticMerge":false,"targetVersion":"0.38.0","targetCurrentPackage":"10C"}}
+

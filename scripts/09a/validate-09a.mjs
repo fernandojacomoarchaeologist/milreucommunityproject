@@ -14,7 +14,7 @@ const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09A: ${m}`); };
 const need = (p) => { if (!existsSync(p)) fail(`ficheiro em falta: ${p}`); };
 
-const EXPECTED = "0.37.1";
+const EXPECTED = "0.38.0";
 
 // 1. Contratos
 const migration = read("public/data/playwright-migration-model.json");

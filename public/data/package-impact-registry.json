@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.37.1",
-  "currentPackage": "10B.1",
+  "version": "0.38.0",
+  "currentPackage": "10C",
   "surfaces": [
     {
       "code": "portal-home",
@@ -402,6 +402,20 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Piloto catalográfico controlado sobre a Biblioteca 10B. Dados editoriais REPO-INTERNOS (data/proteus/pilot-records.json + pilot-agents.json — NÃO servidos): 6 registos + 4 agentes. Todos com full_text_hosted=false e processing_allowed_in_10b1=false (texto integral NUNCA alojado; sem OCR/DOCX/PDF/embeddings/RAG/API/MCP nesta fase; source-manifest com nomes de ficheiro fornecidos deliberadamente NÃO committado). Direitos/acesso/publicação independentes, negação por defeito. Apenas o artigo de Hauschild 2008 é acesso ABERTO comprovado (RUN, run.unl.pt, CC BY com URI/versão por confirmar); Hauschild&Teichner 2002 (BNP) e Teichner 2006 restritos — a cópia externa do 2006 (ResearchGate) é disponibilidade de licença DESCONHECIDA, nunca aberto. Manuscrito Jácomo 2026 e Anexo A permanecem PRIVADOS (public_metadata=false), fora do snapshot; perfil de Jácomo public_profile=false, nunca autor público. Bilheteira do Património Cultural, I.P. tratada como recurso institucional DINÂMICO com verified_at e aviso de atualidade. Derivador scripts/10b1/build-public-catalog.mjs → public/data/proteus-catalog-public.json (3 obras publicadas [1 aberta], 2 autores públicos, 1 recurso). Vista 10B enriquecida: distingue acesso aberto de disponibilidade externa de licença por confirmar, mostra licença de reutilização, e lista recursos institucionais. Validador/teste 10B SUPERADOS (catálogo deixa de exigir-se vazio; passam a aceitar o piloto sem privados/sem Jácomo/sem texto integral). contracts/10b1/ (pilot-record, public-entry), scripts/10b1/validate-10b1.mjs+validate:10b1, tests/proteus-pilot-10b1.test.mjs, 10b1-ci.yml. ZERO módulos/permissões/migrations (26/152). Sem afirmações históricas nem resumos gerados. Próximo: 10C (modelo de conhecimento/afirmações/CIDOC CRM). Decisões humanas pendentes (docs/proteus/10b1/03): estado/licença do manuscrito, tratamento do Anexo A, autorização de guarda do livro, URI CC BY do 2008, licença do PDF de 2006, exibição de cartão mínimo do manuscrito."
+    },
+    {
+      "code": "proteus-knowledge-model-10c",
+      "package": "10C",
+      "series": "10 — Experiência Proteus",
+      "module": null,
+      "routes": [
+        "/conhecimento/afirmacoes",
+        "/conhecimento/afirmacoes/:id",
+        "/conhecimento/entidades/:slug"
+      ],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Modelo de conhecimento do Proteus (gramática de afirmações verificáveis) em static-first, sobre a Biblioteca 10B/10B.1. NÃO extrai afirmações reais, não lê PDFs, não faz OCR/embeddings/RAG/chat/API/MCP; 0 módulos/permissões/migrations (26/152, 42 migrations). Contratos contracts/10c/ (assertion, evidence-locator, knowledge-entity, assertion-relation, editorial-review, cidoc-mapping, readiness). Núcleo PURO src/proteus/knowledge-model.mjs: 6 classes epistémicas (fact_claim/interpretation/hypothesis/memory_account/inference/uncertainty_statement); estados draft→in_review→approved→published→superseded/withdrawn (só published é público); regra dura SEM-EVIDÊNCIA→insufficient; publicação exige aprovado+evidência válida+revisão humana aprovada (checks evidence/rights/epistemicClass/publicSafety, sem conflito de interesse)+direitos compatíveis; confiança explicável por níveis (insufficient/limited/supported/well_supported)+razões, NUNCA percentagem/probabilidade de verdade; relações supports/complements/qualifies/contradicts/supersedes/withdraws com justificação, deteção de ciclos de substituição; conflitos permanecem visíveis (sem votação). src/proteus/cidoc-mapping.mjs: camada SEPARADA de interoperabilidade, conformância parcial NÃO certificada. Snapshot público public/data/proteus-knowledge-public.json VAZIO e honesto (0 afirmações/entidades/relações); rascunhos/retirados/privados nunca no snapshot/SEO/JSON-LD. Crosswalk data/proteus/cidoc-mappings.json (12 mapeamentos do vocabulário do modelo→CIDOC, todos draft/reviewedBy null, repo-interno) exportado validado para reports/cidoc-crosswalk-10c.json. Vistas src/views/proteus-knowledge.js (lista afirmações + ficha + entidade) com estados vazio/zero/404 honestos, exibindo classe epistémica, evidência localizada, revisão e divergências. Rotas /conhecimento/afirmacoes[/:id], /conhecimento/entidades/:slug; ligadas a partir de /conhecimento. scripts/10c/validate-10c.mjs+validate:10c; tests/proteus-knowledge-10c.test.mjs (15, com testes negativos) + E2E proteus-knowledge-10c.spec.mjs; 10c-ci.yml. Preserva 09D/09E/09F/10A/10B/10B.1. Aplicação a fontes reais (afirmações verificáveis) = 10C.1. Decisões humanas: conselho editorial, quem propõe/revê/publica, política de autoaprovação, licença de metadados/afirmações/mapeamentos, vocabulários controlados, perfil/versão CIDOC e extensões, política jurídica de citações, persistência Supabase+RLS."
     }
   ],
   "futurePackageRules": [
