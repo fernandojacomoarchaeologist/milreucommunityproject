@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09F",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "generatedAt": "2026-08-04",
   "publicOrigin": null,
   "indexingAllowed": false,
@@ -10,10 +10,10 @@
     "pt-PT"
   ],
   "counts": {
-    "total": 89,
+    "total": 92,
     "index": 18,
     "noindex": 5,
-    "blocked": 66,
+    "blocked": 69,
     "inSitemap": 0
   },
   "note": "Cada nome de rota do router foi classificado exatamente uma vez. Sem origem aprovada, canonical/sitemap absolutos ficam nulos e a indexação está desativada (preview).",
@@ -124,6 +124,42 @@
       "hreflangTargets": [],
       "evidence": [
         "router:proteus-author"
+      ]
+    },
+    {
+      "route": "#route:proteus-knowledge",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:proteus-knowledge"
+      ]
+    },
+    {
+      "route": "#route:proteus-assertion",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:proteus-assertion"
+      ]
+    },
+    {
+      "route": "#route:proteus-entity",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "blocked",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:proteus-entity"
       ]
     },
     {

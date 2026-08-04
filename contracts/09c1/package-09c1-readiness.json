@@ -1,6 +1,6 @@
 {
   "package": "09C.1",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "requiredBase": {
     "package09C": "merged",
     "package09D": "merged-after-09C",

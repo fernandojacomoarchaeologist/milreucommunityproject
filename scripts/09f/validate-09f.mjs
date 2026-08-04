@@ -17,7 +17,7 @@ import { execFileSync } from "node:child_process";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`09F: ${m}`); };
-const EXPECTED = "0.37.1";
+const EXPECTED = "0.38.0";
 
 // 1) Versão + readiness + preservação
 const pkg = read("package.json");

@@ -67,7 +67,7 @@ catalogDir("public/icons", "interface", "icon");
 const originals = records.filter((r) => r.isOriginal);
 const report = {
   _copyright: "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
-  package: "09E", version: "0.37.1", generatedAt: new Date().toISOString().slice(0, 10),
+  package: "09E", version: "0.38.0", generatedAt: new Date().toISOString().slice(0, 10),
   sourceManifestVersion: manifest.version,
   counts: {
     total: records.length,

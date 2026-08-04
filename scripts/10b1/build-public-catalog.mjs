@@ -82,7 +82,7 @@ function mapResource(r) {
 const snapshot = {
   _copyright: "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   package: "10B.1",
-  version: "0.37.1",
+  version: "0.38.0",
   status: "pilot-controlled",
   generatedBy: "scripts/10b1/build-public-catalog.mjs",
   generatedAt: new Date().toISOString().slice(0, 10),
