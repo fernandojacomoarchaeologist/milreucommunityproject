@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "project_id": "compostela-pilgrimage-game",
+  "project_name": "Compostela",
+  "repository_slug": "compostela",
+  "package_id": "LEVEL-03",
+  "package_title": "Manifesto fictício de Compostela (exemplo BLOCKED)",
+  "target_version": "2.4.0",
+  "predecessor_package": "LEVEL-02",
+  "predecessor_version": "2.3.0",
+  "expected_base_commit": "0000000000000000000000000000000000000000",
+  "base_commit_policy": "exact",
+  "allowed_paths": ["scenes/", "scripts/", "project.godot"],
+  "forbidden_scopes": ["Milreu"],
+  "successor_package": "LEVEL-04",
+  "generated_at": "2026-08-04T22:00:00+01:00",
+  "_note": "Exemplo negativo: deve produzir PROJECT GATE: BLOCKED (project_id/repository_slug divergem, base inválida, marcadores Compostela/Godot)."
+}

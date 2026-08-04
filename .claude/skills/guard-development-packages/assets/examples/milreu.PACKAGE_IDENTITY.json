@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "project_id": "milreu-public-archaeology",
+  "project_name": "Projeto Comunitário de Milreu",
+  "repository_slug": "milreucommunityproject",
+  "package_id": "10C.1",
+  "package_title": "Piloto de afirmações verificáveis (exemplo PASS)",
+  "target_version": "0.38.1",
+  "predecessor_package": "10C",
+  "predecessor_version": "0.38.0",
+  "expected_base_commit": "51e037b1c6ba0c62e2cc59182ba388cb9e983684",
+  "base_commit_policy": "exact-or-proven-ancestor-after-legitimate-main-merges",
+  "allowed_paths": ["contracts/10c1/", "data/proteus/", "public/data/", "src/proteus/", "src/views/", "tests/", "scripts/10c1/", "docs/proteus/10c1/", ".github/workflows/"],
+  "forbidden_scopes": ["Compostela", "game", "Godot", "GDD", "OCR", "embeddings", "RAG", "chat", "API", "MCP", "new database migration", "new role", "new permission", "automatic publication"],
+  "successor_package": "10D",
+  "generated_at": "2026-08-04T22:00:00+01:00"
+}

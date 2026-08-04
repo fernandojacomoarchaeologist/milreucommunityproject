@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "project_id": "<project_id-exato-do-PROJECT_IDENTITY>",
+  "project_name": "<nome-do-projeto>",
+  "repository_slug": "<repository_slug-exato-do-PROJECT_IDENTITY>",
+  "package_id": "<ex: 10D>",
+  "package_title": "<titulo>",
+  "target_version": "<ex: 0.39.0>",
+  "predecessor_package": "<ex: 10C.1>",
+  "predecessor_version": "<versao-atual-do-repositorio>",
+  "expected_base_commit": "<sha-do-HEAD-ou-ancestral-legitimo>",
+  "base_commit_policy": "exact-or-proven-ancestor-after-legitimate-main-merges",
+  "allowed_paths": ["<caminhos-permitidos>"],
+  "forbidden_scopes": ["Compostela", "game", "Godot", "GDD", "OCR", "embeddings", "RAG", "chat", "API", "MCP", "new database migration", "new role", "new permission", "automatic publication"],
+  "successor_package": "<proximo>",
+  "generated_at": "<ISO-8601>"
+}
