@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.1",
+  "project_id": "project-b-example",
+  "project_name": "Project B (exemplo sintético)",
+  "repository_slug": "project-b-repo",
+  "package_id": "PKG-99",
+  "package_title": "Exemplo NEGATIVO sintético — identidade de outro projeto; deve produzir PROJECT GATE: BLOCKED",
+  "target_version": "3.0.0",
+  "predecessor_package": "PKG-98",
+  "predecessor_version": "2.9.0",
+  "expected_base_commit": "0000000000000000000000000000000000000000",
+  "base_commit_policy": "exact",
+  "allowed_paths": ["engine/", "assets/"],
+  "control_paths": ["PACKAGE_IDENTITY.json", "README.md"],
+  "requested_scopes": ["level-design"],
+  "forbidden_scopes": ["project-a"],
+  "successor_package": "PKG-100",
+  "generated_at": "2026-01-01T00:00:00+00:00",
+  "_note": "Sintético. Contra um repositório 'project-a-repo' produz BLOCKED (project_id/repository_slug divergem, base inválida). Sem nomear qualquer projeto real do operador."
+}

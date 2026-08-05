@@ -20,6 +20,8 @@
     "validate:09c": "node scripts/09c/validate-09c.mjs && node scripts/context/validate-context-ledger.mjs",
     "proteus:build-catalog": "node scripts/10b1/build-public-catalog.mjs",
     "validate:10b1": "node scripts/10b1/build-public-catalog.mjs && node scripts/10b1/validate-10b1.mjs && node scripts/context/validate-context-ledger.mjs",
+    "governance:test": "python3 -m unittest discover -s tests/governance -p 'test_*.py'",
+    "governance:open-science": "python3 scripts/governance/open_science_gate.py --profile baseline",
     "proteus:build-knowledge": "node scripts/10c/build-public-knowledge.mjs",
     "validate:10c": "node scripts/10c/build-public-knowledge.mjs && node scripts/10c/validate-10c.mjs && node scripts/context/validate-context-ledger.mjs",
     "infra:validate": "node scripts/ci/validate-package.mjs && node scripts/database/check-migration-safety.mjs",

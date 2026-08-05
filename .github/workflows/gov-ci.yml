@@ -1,0 +1,37 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: GOV Governance Gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Testes adversariais do Guardião e do gate de Ciência Aberta
+        run: python3 -m unittest discover -s tests/governance -p 'test_*.py' -v
+      - name: Baseline de Ciência Aberta (deve PASSAR)
+        run: python3 scripts/governance/open_science_gate.py --profile baseline
+      - name: Perfis dependentes bloqueiam por decisões pendentes (esperado exit 2)
+        run: |
+          set +e
+          for prof in public-git-content release-or-deposit shareable-skill; do
+            python3 scripts/governance/open_science_gate.py --profile "$prof" >/tmp/g.out 2>&1
+            code=$?
+            if [ "$prof" = "public-git-content" ]; then
+              # snapshots atuais vazios/aprovados -> PASS (0) é aceitável; só não pode ser erro (>=3)
+              if [ "$code" -ge 3 ]; then echo "ERRO no perfil $prof (exit $code)"; cat /tmp/g.out; exit 1; fi
+            else
+              if [ "$code" -ne 2 ]; then echo "esperado BLOCKED(2) em $prof, obtido $code"; cat /tmp/g.out; exit 1; fi
+            fi
+          done
+          echo "gates dependentes comportam-se como esperado"
