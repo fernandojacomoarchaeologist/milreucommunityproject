@@ -1,0 +1,148 @@
+{
+  "schema_version": "10c1-2",
+  "queue_status": "human_action_required",
+  "reviewer": null,
+  "approved_by": null,
+  "items": [
+    {
+      "assertionId": "a10c1-001",
+      "priority": "normal",
+      "checks": [
+        "source wording",
+        "secondary citation"
+      ]
+    },
+    {
+      "assertionId": "a10c1-002",
+      "priority": "normal",
+      "checks": [
+        "map comparison",
+        "scope"
+      ]
+    },
+    {
+      "assertionId": "a10c1-003",
+      "priority": "high",
+      "checks": [
+        "chronology",
+        "scope of 'some mosaics'"
+      ]
+    },
+    {
+      "assertionId": "a10c1-004",
+      "priority": "normal",
+      "checks": [
+        "restoration terminology"
+      ]
+    },
+    {
+      "assertionId": "a10c1-005",
+      "priority": "high",
+      "checks": [
+        "chronology",
+        "author attribution"
+      ]
+    },
+    {
+      "assertionId": "a10c1-006",
+      "priority": "normal",
+      "checks": [
+        "contexts remain distinct"
+      ]
+    },
+    {
+      "assertionId": "a10c1-007",
+      "priority": "high",
+      "checks": [
+        "interpretation label",
+        "architectural vocabulary"
+      ]
+    },
+    {
+      "assertionId": "a10c1-008",
+      "priority": "normal",
+      "checks": [
+        "plan evidence"
+      ]
+    },
+    {
+      "assertionId": "a10c1-009",
+      "priority": "high",
+      "checks": [
+        "chronological wording conflict between body and note",
+        "stratigraphy"
+      ]
+    },
+    {
+      "assertionId": "a10c1-010",
+      "priority": "normal",
+      "checks": [
+        "dimensions",
+        "reconstruction qualifier"
+      ]
+    },
+    {
+      "assertionId": "a10c1-011",
+      "priority": "high",
+      "checks": [
+        "hypothesis remains explicit",
+        "alternative identifications"
+      ]
+    },
+    {
+      "assertionId": "a10c1-012",
+      "priority": "high",
+      "checks": [
+        "uncertainty wording",
+        "do not resolve artificially"
+      ]
+    },
+    {
+      "assertionId": "a10c1-013",
+      "priority": "normal",
+      "checks": [
+        "mosaic terminology",
+        "architectural context"
+      ]
+    },
+    {
+      "assertionId": "a10c1-014",
+      "priority": "high",
+      "checks": [
+        "distinguish fragments from reconstruction"
+      ]
+    },
+    {
+      "assertionId": "a10c1-015",
+      "priority": "high",
+      "checks": [
+        "attribute interpretation",
+        "avoid asserting owner identity"
+      ]
+    },
+    {
+      "assertionId": "a10c1-016",
+      "priority": "time_sensitive",
+      "checks": [
+        "reopen official page immediately before display",
+        "expire or archive stale state"
+      ]
+    }
+  ],
+  "open_science": {
+    "decision_refs": [
+      "HD-01",
+      "HD-02"
+    ],
+    "access_classification": "public",
+    "editorial_state": "in_review",
+    "license": "CC-BY-4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "license_scope": "camada original do piloto produzida pelo projeto: metadados, afirmações, entidades e mapeamentos",
+    "third_party_materials_excluded": true,
+    "served_publication": false,
+    "attribution": "Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+  },
+  "publication_allowed": false,
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+}

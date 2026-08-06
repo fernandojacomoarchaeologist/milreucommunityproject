@@ -1,0 +1,198 @@
+{
+  "schema_version": "10c1-2",
+  "locators": [
+    {
+      "id": "ev-h08-01",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 2,
+      "label": "PDF 2 / artigo p. 17",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-02",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 3,
+      "label": "PDF 3 / artigo p. 18",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-03",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 4,
+      "label": "PDF 4 / artigo p. 19",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-04",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 5,
+      "label": "PDF 5 / artigo p. 20",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-05",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 6,
+      "label": "PDF 6 / artigo p. 21",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-06",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 7,
+      "label": "PDF 7 / artigo p. 22",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-07",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 8,
+      "label": "PDF 8 / artigo p. 23",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-08",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 9,
+      "label": "PDF 9 / artigo p. 24",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-09",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 10,
+      "label": "PDF 10 / artigo p. 25",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-10",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 11,
+      "label": "PDF 11 / artigo p. 26",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-11",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 12,
+      "label": "PDF 12 / artigo p. 27",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-12",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 13,
+      "label": "PDF 13 / artigo p. 28",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-13",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page",
+      "pageStart": 14,
+      "label": "PDF 14 / artigo p. 29",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-14",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page_range",
+      "pageStart": 5,
+      "pageEnd": 6,
+      "label": "PDF 5-6 / artigo pp. 20-21",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-h08-15",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locatorType": "page_range",
+      "pageStart": 12,
+      "pageEnd": 14,
+      "label": "PDF 12-14 / artigo pp. 27-29",
+      "accessedAt": "2026-08-04T21:30:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Paginação dupla preservada no campo label: página física do PDF e página impressa do artigo."
+    },
+    {
+      "id": "ev-pcip-01",
+      "sourceId": "resource-pcip-bilheteira-milreu",
+      "locatorType": "url_snapshot",
+      "url": "https://bilheteira.patrimoniocultural.gov.pt/pt/monument/35",
+      "label": "Página institucional - estado operacional",
+      "accessedAt": "2026-08-04T21:45:00+01:00",
+      "quotation": null,
+      "quotationRightsApproved": false,
+      "notes": "Conteúdo dinâmico; exige reverificação antes de exibir como informação atual."
+    }
+  ],
+  "open_science": {
+    "decision_refs": [
+      "HD-01",
+      "HD-02"
+    ],
+    "access_classification": "public",
+    "editorial_state": "in_review",
+    "license": "CC-BY-4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "license_scope": "camada original do piloto produzida pelo projeto: metadados, afirmações, entidades e mapeamentos",
+    "third_party_materials_excluded": true,
+    "served_publication": false,
+    "attribution": "Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+  },
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+}

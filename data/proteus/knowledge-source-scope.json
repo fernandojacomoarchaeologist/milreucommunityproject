@@ -1,0 +1,43 @@
+{
+  "schema_version": "10c1-2",
+  "included": [
+    {
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "use": "15 paraphrased proposals with exact dual pagination",
+      "access": "open external full text; not hosted",
+      "quotationPolicy": "no quotations in pilot data",
+      "projectLayerLicense": "CC-BY-4.0",
+      "thirdPartyRights": "preserved; the project license does not relicense the source material"
+    },
+    {
+      "sourceId": "resource-pcip-bilheteira-milreu",
+      "use": "one dynamic operational observation",
+      "access": "public institutional web page",
+      "quotationPolicy": "paraphrase only; accessed date mandatory",
+      "projectLayerLicense": "CC-BY-4.0",
+      "thirdPartyRights": "preserved; the project license does not relicense the source material"
+    }
+  ],
+  "excluded": [
+    "work-hauschild-teichner-2002-milreu-ruinas",
+    "work-teichner-2006-de-lo-romano-a-lo-arabe",
+    "work-jacomo-2026-desafios-integracao-comunitaria",
+    "work-jacomo-2026-anexo-a-relatorios-eventos"
+  ],
+  "source_files_included": false,
+  "open_science": {
+    "decision_refs": [
+      "HD-01",
+      "HD-02"
+    ],
+    "access_classification": "public",
+    "editorial_state": "in_review",
+    "license": "CC-BY-4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "license_scope": "camada original do piloto produzida pelo projeto: metadados, afirmações, entidades e mapeamentos",
+    "third_party_materials_excluded": true,
+    "served_publication": false,
+    "attribution": "Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+  },
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+}
