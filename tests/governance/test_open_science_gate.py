@@ -33,7 +33,7 @@ def make_gov(tmp, pending=("HD-01", "HD-02", "HD-03", "HD-04", "HD-05", "HD-06",
         "decisions": decisions,
         "gate_profiles": {
             "baseline": {"requires_documents": REQUIRED_DOCS, "forbid_official_license_while_pending": True},
-            "public-git-content": {"blocked_while_pending": ["HD-01", "HD-02"], "empty_public_knowledge_required": True},
+            "public-git-content": {"blocked_while_pending": ["HD-01", "HD-02"], "empty_public_knowledge_required": True, "served_snapshot_must_not_contain_inreview_or_restricted": True},
             "release-or-deposit": {"blocked_while_pending": ["HD-01", "HD-03", "HD-04", "HD-05", "HD-06"]},
             "shareable-skill": {"blocked_while_pending": ["HD-03", "HD-07"], "requires_security_confirmed": True},
         },
@@ -114,6 +114,24 @@ class OpenScienceGate(unittest.TestCase):
                                   {"works": [{"id": "museum-collection", "status": "published"}]})
             code, out = run("public-git-content", gov, repo=t, snapshot=snap)
             self.assertEqual(code, osg.EXIT_BLOCKED)
+
+    def test_confirmed_but_inreview_in_served_snapshot_still_blocks(self):
+        # HD-01/HD-02 confirmadas, mas o snapshot SERVIDO apresenta in_review -> continua BLOCKED
+        with tempfile.TemporaryDirectory() as t:
+            gov = make_gov(t, pending=())
+            snap = write_snapshot(t, "proteus-knowledge-public.json",
+                                  {"assertions": [{"id": "a1", "status": "in_review"}], "entities": [], "relations": []})
+            code, out = run("public-git-content", gov, repo=t, snapshot=snap)
+            self.assertEqual(code, osg.EXIT_BLOCKED, out)
+            self.assertIn("in_review", out)
+
+    def test_confirmed_and_empty_served_passes(self):
+        with tempfile.TemporaryDirectory() as t:
+            gov = make_gov(t, pending=())
+            snap = write_snapshot(t, "proteus-knowledge-public.json",
+                                  {"assertions": [], "entities": [], "relations": []})
+            code, out = run("public-git-content", gov, repo=t, snapshot=snap)
+            self.assertEqual(code, osg.EXIT_OK, out)
 
     def test_H04_release_or_deposit_blocks(self):
         with tempfile.TemporaryDirectory() as t:

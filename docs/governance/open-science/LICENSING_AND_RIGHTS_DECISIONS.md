@@ -8,9 +8,11 @@ Este documento **não escolhe** licenças. Separa camadas e mantém cada escolha
 |---|---|---|---|---|
 | Software da aplicação | `src/`, `scripts/` | licença de software (ex.: MIT/GPL — §7.2) | `PENDING-HUMAN` (HD-03) | hoje só copyright, sem SPDX |
 | Código da skill Guardião | `.claude/skills/guard-development-packages/` | licença de software | `PENDING-HUMAN` (HD-03/HD-07) | interna até decisão |
-| Metadados próprios | catálogo, afirmações, entidades, mapeamentos | licença de metadados (ex.: CC-BY — §5.2.b) | `PENDING-HUMAN` (HD-01) | bloqueia exposição pública de novos metadados |
+| Metadados próprios (camada original) | catálogo próprio, afirmações, entidades, mapeamentos produzidos pelo projeto | **CC BY 4.0** (`https://creativecommons.org/licenses/by/4.0/`) | **CONFIRMED** (HD-01, 2026-08-06) | **NÃO** se estende a artigos/imagens/documentos/transcrições/bases ou quaisquer materiais de terceiros; preservar atribuição e proveniência |
 | Documentação / REA | `docs/`, guia de design | licença aberta (§7.1) | `PENDING-HUMAN` (HD-03) | — |
 | Fotografias, memórias, conteúdos de terceiros | acervo do Museu | **não** licenciar por inferência | `PENDING-HUMAN` | RIGHTS.md: autorizadas para publicação **sem cessão**; reutilização externa não autorizada |
+
+**Classificação do piloto (HD-02, CONFIRMED 2026-08-06):** os 16 registos são **públicos** (presença autorizada em Git), mas permanecem **`in_review`**. Classificação pública **≠** validação científica/editorial; **não** apresentar como conteúdo aprovado na interface pública enquanto `in_review`; preservar estado editorial visível.
 
 **Regras:**
 - confirmar titularidade e compatibilidade antes de qualquer licença;
