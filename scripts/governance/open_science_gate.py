@@ -97,9 +97,6 @@ def run(profile, gov_dir, repo, snapshot_override=None):
 
     if profile == "public-git-content":
         pend = _pending(decisions, cfg.get("blocked_while_pending", []))
-        if not pend:
-            return EXIT_OK, []  # licença/classificação resolvidas
-        # há decisões pendentes: qualquer conteúdo público novo é bloqueado
         reg_path = os.path.join(gov_dir, "RESEARCH_OUTPUTS_REGISTER.json")
         restricted = set()
         if os.path.isfile(reg_path):
@@ -108,11 +105,19 @@ def run(profile, gov_dir, repo, snapshot_override=None):
                     for p in o.get("paths", []):
                         restricted.add(p)
         snaps = [snapshot_override] if snapshot_override else [os.path.join(repo, s) for s in doc.get("public_proteus_snapshots", [])]
+        findings = []
         for s in snaps:
-            reasons += _snapshot_findings(s, restricted)
-        if reasons:
-            return EXIT_BLOCKED, [f"decisões pendentes {pend}"] + reasons
-        return EXIT_OK, []  # pendente mas sem conteúdo público novo
+            findings += _snapshot_findings(s, restricted)
+        # Guard SEMPRE ativo (mesmo com decisões confirmadas): o snapshot SERVIDO nunca pode
+        # apresentar conteúdo 'in_review' como aprovado nem expor registos restritos/controlados
+        # (limite de HD-02: "não apresentar como aprovado enquanto in_review").
+        if cfg.get("served_snapshot_must_not_contain_inreview_or_restricted") and findings:
+            return EXIT_BLOCKED, ["snapshot público servido não pode apresentar in_review/restrito como aprovado"] + findings
+        # Enquanto a licença de metadados (HD-01) ou a classificação (HD-02) estiverem pendentes,
+        # qualquer conteúdo público novo é bloqueado.
+        if pend and findings:
+            return EXIT_BLOCKED, [f"decisões pendentes {pend}"] + findings
+        return EXIT_OK, []
 
     if profile == "release-or-deposit":
         pend = _pending(decisions, cfg.get("blocked_while_pending", []))

@@ -10,7 +10,7 @@ Matriz **viva**. Estados: `compliant` · `partial` · `missing` · `not-applicab
 | §4.1.f / §4.2.e / §8.d | Identificadores permanentes (DOI, ORCID) | `missing` | campos `pid: null` no registo | autor | HD-04: ORCID do autor; DOI no depósito |
 | §4.2.c / §6.e | Plano de Gestão de Dados (Argos/FCT) | `partial` | `DATA_MANAGEMENT_PLAN_DRAFT.md` (esqueleto) | autor + datasteward | HD-05: preencher PGD com decisões reais |
 | §5.2.a | Publicações preferencialmente CC BY | `compliant` (metadados de terceiros) | catálogo 10B regista licença por obra | — | manter distinção acesso≠reutilização |
-| §5.2.b | Metadados sob CC-BY mesmo sem acesso ao conteúdo | `missing` | snapshots públicos sem licença de metadados | autor | HD-01: decidir licença de metadados |
+| §5.2.b | Metadados sob CC-BY mesmo sem acesso ao conteúdo | `compliant` (camada original) | HD-01 (2026-08-06): metadados/afirmações/entidades/mapeamentos próprios sob **CC BY 4.0**; terceiros excluídos | autor | aplicar ficheiro de licença de metadados no depósito (não por inferência) |
 | §6.a/§6.b/§8.b | Depósito em OSF/Zenodo/Figshare/POLEN/Sapientia + readme + DOI + CC | `missing` | nenhum depósito; Git ≠ preservação | autor/UAlg | HD-05: mapa de depósito |
 | §6.c | Distinguir dados brutos vs tratados | `partial` | originais vs derivados no acervo | autor | documentar raw/processed |
 | §6.d | Dados pessoais sensíveis → acesso restrito/controlado (RGPD) | `partial` | colaborativo privado (RLS, demo-only); classificação por formalizar | autor/DPO | HD-02: classificar público/restrito/controlado |

@@ -5,8 +5,36 @@
   "normative_source": "Despacho RT.82/2025 — Política de Ciência Aberta e Dados Abertos da Universidade do Algarve",
   "note": "Registo legível por máquina das decisões humanas de Ciência Aberta. Nenhuma licença, classificação, PID ou acordo é escolhido por inferência. Todas as decisões começam PENDING-HUMAN e o gate bloqueia os perfis que delas dependem.",
   "decisions": {
-    "HD-01": { "topic": "metadata-license", "state": "PENDING-HUMAN", "owner": "Fernando Rodrigues de Jácomo (validação institucional quando necessária)", "blocks": ["public-git-content", "release-or-deposit"], "despacho_ref": "§5.2.b" },
-    "HD-02": { "topic": "pilot-content-classification", "state": "PENDING-HUMAN", "owner": "investigador responsável; DPO/orientação institucional se aplicável", "blocks": ["public-git-content"], "despacho_ref": "§6.d" },
+    "HD-01": {
+      "topic": "metadata-license",
+      "state": "CONFIRMED",
+      "decided_at": "2026-08-06",
+      "owner": "Fernando Rodrigues de Jácomo (validação institucional quando necessária)",
+      "blocks": ["public-git-content", "release-or-deposit"],
+      "despacho_ref": "§5.2.b",
+      "confirmed": {
+        "license": "CC-BY-4.0",
+        "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+        "applies_to": "camada ORIGINAL do piloto produzida pelo projeto: metadados próprios, afirmações produzidas pelo projeto, entidades e mapeamentos",
+        "does_not_extend_to": ["artigos", "imagens", "documentos", "transcrições", "bases de dados", "quaisquer materiais de terceiros"],
+        "note": "A CC BY 4.0 NÃO se estende automaticamente a materiais de terceiros. Preservar atribuição, proveniência e ligação às fontes."
+      }
+    },
+    "HD-02": {
+      "topic": "pilot-content-classification",
+      "state": "CONFIRMED",
+      "decided_at": "2026-08-06",
+      "owner": "investigador responsável; DPO/orientação institucional se aplicável",
+      "blocks": ["public-git-content"],
+      "despacho_ref": "§6.d",
+      "confirmed": {
+        "classification": "public",
+        "editorial_state": "in_review",
+        "count": 16,
+        "ui_presentation": "not-approved-while-in-review",
+        "note": "Os 16 registos são públicos (presença autorizada em Git), mas permanecem em revisão editorial. Classificação pública NÃO equivale a validação científica/editorial. Não apresentar na interface pública como conteúdo aprovado enquanto in_review. Preservar atribuição, proveniência, ligação às fontes e indicação clara do estado editorial."
+      }
+    },
     "HD-03": { "topic": "per-layer-licenses", "state": "PENDING-HUMAN", "owner": "autor + validação institucional", "blocks": ["release-or-deposit", "shareable-skill"], "despacho_ref": "§5.2, §7.1, §7.2" },
     "HD-04": { "topic": "authorship-and-pids", "state": "PENDING-HUMAN", "owner": "autor", "blocks": ["release-or-deposit"], "despacho_ref": "§4.2.e, §8.d" },
     "HD-05": { "topic": "dmp-and-preservation", "state": "PENDING-HUMAN", "owner": "autor + datasteward", "blocks": ["release-or-deposit"], "despacho_ref": "§4.2.c, §6.e, §6.g, §8" },
@@ -15,7 +43,7 @@
   },
   "gate_profiles": {
     "baseline": { "requires_documents": ["RT82_COMPLIANCE_MATRIX.md", "RESEARCH_OUTPUTS_REGISTER.json", "DATA_MANAGEMENT_PLAN_DRAFT.md", "LICENSING_AND_RIGHTS_DECISIONS.md", "DEPOSIT_AND_PRESERVATION_PLAN_DRAFT.md", "SHAREABLE_SKILLS_POLICY.md", "OPEN_SCIENCE_DECISIONS.json"], "forbid_official_license_while_pending": true },
-    "public-git-content": { "blocked_while_pending": ["HD-01", "HD-02"], "empty_public_knowledge_required": true },
+    "public-git-content": { "blocked_while_pending": ["HD-01", "HD-02"], "empty_public_knowledge_required": true, "served_snapshot_must_not_contain_inreview_or_restricted": true },
     "release-or-deposit": { "blocked_while_pending": ["HD-01", "HD-03", "HD-04", "HD-05", "HD-06"] },
     "shareable-skill": { "blocked_while_pending": ["HD-03", "HD-07"], "requires_security_confirmed": true }
   },
