@@ -192,5 +192,14 @@ Antes de inspecionar, extrair, aplicar, gerar ou reportar qualquer pacote de des
 
 - A fonte autoritativa de identidade é `docs/governance/PROJECT_IDENTITY.md`; o pacote deve trazer `PACKAGE_IDENTITY.json`.
 - Se qualquer um dos contratos faltar, se `project_id`/`repository_slug` divergirem, se a base não for HEAD/ancestral, se existir marcador estrangeiro (ex.: Compostela, Godot, GDD) ou se não se provarem três sinais independentes, emitir `PROJECT GATE: BLOCKED` **antes** de extrair ou alterar ficheiros — e **não** criar o contrato por inferência.
-- Correr `python3 .claude/skills/guard-development-packages/scripts/verify_project_package.py --repo . --package <zip-ou-diretório>`; exit ≠ 0 é bloqueio, não aviso.
-- Só depois de `PROJECT GATE: PASS` prosseguir para o `package-intake`. Antes de concluir, repetir o scan de marcadores nos ficheiros alterados (`POSTFLIGHT`).
+- Correr `python3 .claude/skills/guard-development-packages/scripts/verify_project_package.py --repo . --package <zip-ou-diretório>`. Contrato de saída (GOV-02): `0` PASS, `2` BLOCKED, `3` erro de uso, `4` erro interno — qualquer `≠ 0` é bloqueio, não aviso. O verificador exige sidecar SHA-256 para ZIP, aplica `allowed_paths`/`forbidden_scopes`/`base_commit_policy`, rejeita traversal/symlinks/archive-bombs e bloqueia árvore suja por predefinição.
+- Só depois de `PROJECT GATE: PASS` prosseguir para o `package-intake`. Antes de concluir, repetir o scan de marcadores nos ficheiros alterados e confirmar que o diff está contido em `allowed_paths` (`POSTFLIGHT`).
+
+### 13.1 Gates de Ciência Aberta (Despacho RT.82/2025)
+
+A base documental e determinística vive em `docs/governance/open-science/` e é aplicada por `scripts/governance/open_science_gate.py` (perfis: `baseline`, `public-git-content`, `release-or-deposit`, `shareable-skill`). Antes de:
+
+- **expor novos metadados/afirmações/entidades/mapeamentos em Git público**, correr `public-git-content` — bloqueia enquanto a licença de metadados (HD-01) e a classificação (HD-02) estiverem `PENDING-HUMAN`;
+- **release, depósito ou partilha externa**, correr `release-or-deposit`/`shareable-skill` — bloqueiam enquanto licenças, autoria/PID, preservação e regras de parceiros/financiadores não estiverem resolvidas (HD-03..HD-07).
+
+Não escolher licença, DOI, ORCID, classificação ou acordo institucional por inferência. Modelos oficiais (`LICENSE`, `CITATION.cff`, `codemeta.json`) só depois de decisão humana; entretanto existem apenas como `.template` com marca de rascunho.

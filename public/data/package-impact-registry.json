@@ -426,6 +426,16 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Adoção do Guardião de Pacotes (PROJECT GATE). Cria docs/governance/PROJECT_IDENTITY.md (project_id milreu-public-archaeology, repository_slug milreucommunityproject, remote canónico, doc canónico CLAUDE.md, source root src, rotas próprias, marcadores estrangeiros Compostela/Godot/GDD). Instala a skill .claude/skills/guard-development-packages/ (SKILL.md + scripts/verify_project_package.py + assets templates/exemplos). Integra o gate na secção 13 do CLAUDE.md: antes de inspecionar/extrair/aplicar/gerar/reportar qualquer pacote, exigir os dois contratos e igualdade exata de project_id/repository_slug, base HEAD/ancestral, >=3 sinais e ausência de marcadores estrangeiros; caso contrário PROJECT GATE: BLOCKED sem inferir/criar contrato. Testado: Milreu->PASS (exit 0), Compostela->BLOCKED (exit 2), contrato ausente->BLOCKED. Governança pura: NÃO altera v0.38.0 nem currentPackage 10C; 0 módulos/permissões/migrations; nenhuma superfície funcional. Resolve a inconsistência do manifesto 10C.1 (repository_slug milreu vs milreucommunityproject): o 10C.1 deve ser regenerado com o slug correto e reprocessado sob o gate antes de avançar para 10D."
+    },
+    {
+      "code": "guardian-hardening-open-science-gov02",
+      "package": "GOV-02",
+      "series": "Governança",
+      "module": null,
+      "routes": [],
+      "publicEffects": "none",
+      "productionWrites": "disabled",
+      "note": "Endurecimento do Guardião de Pacotes + base determinística de Ciência Aberta (Despacho RT.82/2025). Governança pura: NÃO altera v0.38.0 nem currentPackage 10C; 0 módulos/permissões/migrations. Verificador reescrito (verify_project_package.py): exit 0/2/3/4 distintos; rejeita traversal/absolutos/UNC/backslash/symlinks/hardlinks/arquivos aninhados/executáveis; colisões NFKC+casefold; limites (entradas/tamanho/rácio/JSON profundidade+nós); sidecar SHA-256 obrigatório p/ ZIP + recibo determinístico (anti-TOCTOU); aplica de facto allowed_paths (fronteira de segmento), control_paths (lista fechada), forbidden_scopes e base_commit_policy exact; remote owner/repo exato HTTPS+SSH sem credenciais; bloqueia árvore suja; lista binários não inspecionados. Exemplos reais substituídos por project-a/project-b sintéticos. Suite adversarial tests/governance/test_project_gate.py (A–G, 39) verde. Base de Ciência Aberta docs/governance/open-science/ (matriz RT.82/2025, RESEARCH_OUTPUTS_REGISTER, DMP/depósito/licenciamento/skills drafts, OPEN_SCIENCE_DECISIONS.json) — todas as decisões HD-01..HD-07 PENDING-HUMAN; sem licença/DOI/classificação por inferência. Gate scripts/governance/open_science_gate.py (perfis baseline/public-git-content/release-or-deposit/shareable-skill) + tests (H, 9) verde: baseline passa; os outros bloqueiam pelas decisões pendentes. CI gov-ci.yml. SKILL.md/CLAUDE.md §13-13.1 atualizados (dados não confiáveis, contrato de exit, ordem dos gates). Bloqueia 10C.1/releases/depósitos/partilha até decisões humanas (HD-01 licença de metadados; HD-02 classificação das 16 propostas in_review). Predecessor GOV-01; sucessor 10C.1 corrigido após gates humanos."
     }
   ],
   "futurePackageRules": [

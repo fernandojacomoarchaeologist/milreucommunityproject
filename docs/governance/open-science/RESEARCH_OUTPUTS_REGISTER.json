@@ -1,0 +1,18 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "schema_version": "1.0",
+  "note": "Inventário inicial dos produtos científicos do projeto e respetiva classificação. 'pending' significa que a classificação carece de decisão humana (HD-02/HD-06). Nenhuma classificação 'public' aqui autoriza publicação: a exposição depende da licença de metadados (HD-01) e das decisões de release/depósito.",
+  "classification_values": ["public", "restricted", "controlled", "pending"],
+  "outputs": [
+    { "id": "app-software", "kind": "software", "paths": ["src/", "scripts/"], "classification": "public", "license": "PENDING-HUMAN", "pid": null, "notes": "Aplicação vanilla-JS static-first; código já em Git público sob copyright, sem licença SPDX." },
+    { "id": "guardian-skill", "kind": "software", "paths": [".claude/skills/guard-development-packages/"], "classification": "restricted", "license": "PENDING-HUMAN", "pid": null, "notes": "Interna ao repositório até HD-03/HD-07; partilha externa bloqueada pelo perfil shareable-skill." },
+    { "id": "proteus-catalog-metadata", "kind": "metadata", "paths": ["public/data/proteus-catalog-public.json", "data/proteus/pilot-records.json"], "classification": "pending", "license": "PENDING-HUMAN", "pid": null, "notes": "Metadados bibliográficos (10B/10B.1); licença de metadados HD-01." },
+    { "id": "proteus-knowledge-model", "kind": "metadata", "paths": ["public/data/proteus-knowledge-public.json", "contracts/10c/"], "classification": "pending", "license": "PENDING-HUMAN", "pid": null, "notes": "Snapshot público VAZIO; as afirmações reais (10C.1) dependem de HD-01/HD-02." },
+    { "id": "cidoc-crosswalk", "kind": "metadata", "paths": ["data/proteus/cidoc-mappings.json"], "classification": "pending", "license": "PENDING-HUMAN", "pid": null, "notes": "Crosswalk do vocabulário do modelo; camada de interoperabilidade." },
+    { "id": "museum-collection", "kind": "images-content", "paths": ["public/media/", "public/data/"], "classification": "restricted", "license": "PENDING-HUMAN", "pid": null, "notes": "31 fotografias autorizadas para publicação SEM cessão de titularidade (RIGHTS.md); reutilização externa não autorizada; MM202617 só revisão." },
+    { "id": "collaborative-area", "kind": "data-personal", "paths": ["supabase/", "src/collab/"], "classification": "controlled", "license": null, "pid": null, "notes": "Dados pessoais de acesso restrito (RGPD); dados reais fora do Git (demo-only); RLS." },
+    { "id": "design-system-guide", "kind": "documentation-rea", "paths": ["apps/design-guide/", "docs/design/"], "classification": "pending", "license": "PENDING-HUMAN", "pid": null, "notes": "Potencial Recurso Educativo Aberto (§7.1); licença aberta por decidir." },
+    { "id": "research-personas", "kind": "research-data", "paths": ["docs/research/PARTICIPATION_HYPOTHESES_PERSONAS.md"], "classification": "restricted", "license": null, "pid": null, "notes": "Hipóteses de doutoramento; atributos sensíveis excluídos; interno." },
+    { "id": "survey-2026", "kind": "research-instrument", "paths": [], "classification": "controlled", "license": null, "pid": null, "notes": "Inquérito 2026 (ciência cidadã); instrumento externo; respostas são dados de investigação sob a política." }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "schema_version": "1.0",
+  "package": "GOV-02",
+  "normative_source": "Despacho RT.82/2025 — Política de Ciência Aberta e Dados Abertos da Universidade do Algarve",
+  "note": "Registo legível por máquina das decisões humanas de Ciência Aberta. Nenhuma licença, classificação, PID ou acordo é escolhido por inferência. Todas as decisões começam PENDING-HUMAN e o gate bloqueia os perfis que delas dependem.",
+  "decisions": {
+    "HD-01": { "topic": "metadata-license", "state": "PENDING-HUMAN", "owner": "Fernando Rodrigues de Jácomo (validação institucional quando necessária)", "blocks": ["public-git-content", "release-or-deposit"], "despacho_ref": "§5.2.b" },
+    "HD-02": { "topic": "pilot-content-classification", "state": "PENDING-HUMAN", "owner": "investigador responsável; DPO/orientação institucional se aplicável", "blocks": ["public-git-content"], "despacho_ref": "§6.d" },
+    "HD-03": { "topic": "per-layer-licenses", "state": "PENDING-HUMAN", "owner": "autor + validação institucional", "blocks": ["release-or-deposit", "shareable-skill"], "despacho_ref": "§5.2, §7.1, §7.2" },
+    "HD-04": { "topic": "authorship-and-pids", "state": "PENDING-HUMAN", "owner": "autor", "blocks": ["release-or-deposit"], "despacho_ref": "§4.2.e, §8.d" },
+    "HD-05": { "topic": "dmp-and-preservation", "state": "PENDING-HUMAN", "owner": "autor + datasteward", "blocks": ["release-or-deposit"], "despacho_ref": "§4.2.c, §6.e, §6.g, §8" },
+    "HD-06": { "topic": "partners-funding-ownership", "state": "PENDING-HUMAN", "owner": "autor + UAlg/unidades", "blocks": ["release-or-deposit"], "despacho_ref": "§3, §6.f" },
+    "HD-07": { "topic": "guardian-skill-sharing", "state": "PENDING-HUMAN", "owner": "autor", "blocks": ["shareable-skill"], "despacho_ref": "§7.2" }
+  },
+  "gate_profiles": {
+    "baseline": { "requires_documents": ["RT82_COMPLIANCE_MATRIX.md", "RESEARCH_OUTPUTS_REGISTER.json", "DATA_MANAGEMENT_PLAN_DRAFT.md", "LICENSING_AND_RIGHTS_DECISIONS.md", "DEPOSIT_AND_PRESERVATION_PLAN_DRAFT.md", "SHAREABLE_SKILLS_POLICY.md", "OPEN_SCIENCE_DECISIONS.json"], "forbid_official_license_while_pending": true },
+    "public-git-content": { "blocked_while_pending": ["HD-01", "HD-02"], "empty_public_knowledge_required": true },
+    "release-or-deposit": { "blocked_while_pending": ["HD-01", "HD-03", "HD-04", "HD-05", "HD-06"] },
+    "shareable-skill": { "blocked_while_pending": ["HD-03", "HD-07"], "requires_security_confirmed": true }
+  },
+  "public_proteus_snapshots": [
+    "public/data/proteus-knowledge-public.json",
+    "public/data/proteus-catalog-public.json"
+  ],
+  "official_license_files": ["LICENSE", "LICENSE.md", "LICENSE.txt", "CITATION.cff", "codemeta.json"],
+  "security_hardening_confirmed": false
+}

@@ -11,7 +11,7 @@
   "expected_base_commit": "<sha-do-HEAD-ou-ancestral-legitimo>",
   "base_commit_policy": "exact-or-proven-ancestor-after-legitimate-main-merges",
   "allowed_paths": ["<caminhos-permitidos>"],
-  "forbidden_scopes": ["Compostela", "game", "Godot", "GDD", "OCR", "embeddings", "RAG", "chat", "API", "MCP", "new database migration", "new role", "new permission", "automatic publication"],
+  "forbidden_scopes": ["<nome-de-outro-projeto>", "<âmbito-proibido-1>", "<âmbito-proibido-2>"],
   "successor_package": "<proximo>",
   "generated_at": "<ISO-8601>"
 }

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.1",
+  "project_id": "project-a-example",
+  "project_name": "Project A (exemplo sintético)",
+  "repository_slug": "project-a-repo",
+  "package_id": "PKG-01",
+  "package_title": "Exemplo POSITIVO sintético — a forma que passaria o gate no seu próprio repositório",
+  "target_version": "1.0.0",
+  "predecessor_package": "GOV-00",
+  "predecessor_version": "0.9.0",
+  "expected_base_commit": "<sha-do-HEAD-do-repositorio-project-a>",
+  "base_commit_policy": "exact",
+  "allowed_paths": ["src/", "tests/", "package.json"],
+  "control_paths": ["PACKAGE_IDENTITY.json", "README.md"],
+  "requested_scopes": ["feature-x"],
+  "forbidden_scopes": ["project-b", "OCR", "new database migration"],
+  "successor_package": "PKG-02",
+  "generated_at": "2026-01-01T00:00:00+00:00",
+  "_note": "Sintético. Não corresponde a nenhum repositório real; substitui exemplos que nomeavam projetos reais. Só passaria o gate no repositório 'project-a-repo' com o contrato de identidade correspondente."
+}
