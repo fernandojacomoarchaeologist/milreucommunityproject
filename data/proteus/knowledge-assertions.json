@@ -1,0 +1,530 @@
+{
+  "schema_version": "10c1-2",
+  "package": "10C.1",
+  "open_science": {
+    "decision_refs": [
+      "HD-01",
+      "HD-02"
+    ],
+    "access_classification": "public",
+    "editorial_state": "in_review",
+    "license": "CC-BY-4.0",
+    "license_uri": "https://creativecommons.org/licenses/by/4.0/",
+    "license_scope": "camada original do piloto produzida pelo projeto: metadados, afirmações, entidades e mapeamentos",
+    "third_party_materials_excluded": true,
+    "served_publication": false,
+    "attribution": "Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+  },
+  "publication_policy": "public_in_git; editorial_in_review; human_review_required; zero_automatic_publication",
+  "assertions": [
+    {
+      "id": "a10c1-001",
+      "text": "As ruínas de Milreu foram exploradas por Estácio da Veiga em 1877.",
+      "language": "pt-PT",
+      "epistemicClass": "fact_claim",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-01"
+      ],
+      "entityIds": [
+        "place-milreu",
+        "person-estacio-da-veiga"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte identifica o investigador e o ano."
+        ],
+        "limitations": [
+          "A formulação resume a narrativa do autor e deve ser confrontada com a publicação original de Estácio da Veiga."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-002",
+      "text": "A planta publicada por Estácio da Veiga documenta estruturas que atualmente desapareceram ou estão encobertas.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-01"
+      ],
+      "entityIds": [
+        "place-milreu",
+        "structure-milreu-villa",
+        "person-estacio-da-veiga"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "O artigo compara a planta histórica com o estado de conservação posterior."
+        ],
+        "limitations": [
+          "A extensão exata das estruturas desaparecidas requer verificação cartográfica."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-003",
+      "text": "Alguns mosaicos geométricos de Milreu foram atribuídos aos séculos II ou III d.C. com base na análise dos estratos sob os pavimentos.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-01"
+      ],
+      "entityIds": [
+        "place-milreu",
+        "structure-milreu-villa"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte explicita o critério estratigráfico e o intervalo cronológico."
+        ],
+        "limitations": [
+          "A afirmação aplica-se apenas a alguns mosaicos e depende dos estudos citados por Hauschild."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-004",
+      "text": "Na galeria norte do peristilo, mosaicos removidos da argamassa antiga foram reassentados em placas de cimento para permitir circulação posterior.",
+      "language": "pt-PT",
+      "epistemicClass": "fact_claim",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-02"
+      ],
+      "entityIds": [
+        "feature-milreu-peristilo",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "O artigo descreve o método de restauro e a sua finalidade."
+        ],
+        "limitations": [
+          "A data e a documentação técnica integral da intervenção não constam desta paráfrase."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-005",
+      "text": "O friso de peixes da galeria norte do peristilo é associado pelo autor à última fase de renovação, em meados do século IV.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-02"
+      ],
+      "entityIds": [
+        "feature-milreu-peristilo",
+        "object-milreu-marine-mosaics",
+        "period-late-roman"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A cronologia e o elemento decorativo são ligados explicitamente na fonte."
+        ],
+        "limitations": [
+          "Deve ser apresentado como atribuição do autor, não como consenso universal."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-006",
+      "text": "A temática marinha aparece tanto em espaços da villa como no pódio do chamado edifício de culto.",
+      "language": "pt-PT",
+      "epistemicClass": "fact_claim",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-03"
+      ],
+      "entityIds": [
+        "structure-milreu-villa",
+        "feature-milreu-podium",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte identifica exemplos no peristilo, nas termas e no pódio."
+        ],
+        "limitations": [
+          "A paráfrase não inventaria um programa decorativo único entre todos os contextos."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-007",
+      "text": "O pequeno tanque semicircular junto à entrada é interpretado como parte da encenação de acesso ao recinto do edifício.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-04"
+      ],
+      "entityIds": [
+        "structure-milreu-aula",
+        "place-milreu"
+      ],
+      "confidence": {
+        "level": "limited",
+        "reasons": [
+          "A leitura funcional é proposta explicitamente pelo autor."
+        ],
+        "limitations": [
+          "Trata-se de interpretação da função cénica, não de função diretamente observável."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-008",
+      "text": "O recinto é descrito como organizado por uma disposição rigorosamente simétrica em torno de um eixo que inclui o tanque de água.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-04"
+      ],
+      "entityIds": [
+        "structure-milreu-aula",
+        "place-milreu"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte fundamenta a leitura na disposição arquitetónica."
+        ],
+        "limitations": [
+          "A reconstrução depende do estado preservado e da leitura do autor."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-009",
+      "text": "Materiais cerâmicos e uma moeda encontrados nos estratos do pódio sustentam uma datação do edifício na primeira metade do século IV d.C.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-04"
+      ],
+      "entityIds": [
+        "feature-milreu-podium",
+        "structure-milreu-aula",
+        "period-late-roman"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte relaciona diretamente os materiais estratificados e a proposta cronológica."
+        ],
+        "limitations": [
+          "A nota da página seguinte menciona uma formulação cronológica que deve ser revista pelo editor antes de publicação."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-010",
+      "text": "O friso de mosaicos parietais do pódio teria cerca de 67 metros de extensão e 80 centímetros de altura.",
+      "language": "pt-PT",
+      "epistemicClass": "fact_claim",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-05"
+      ],
+      "entityIds": [
+        "feature-milreu-podium",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "As dimensões são apresentadas explicitamente pela fonte."
+        ],
+        "limitations": [
+          "O uso do condicional preserva a natureza reconstituída de um conjunto parcialmente conservado."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-011",
+      "text": "A figura humana fragmentária do muro B pode ter representado uma nereida, mas a identificação não é segura.",
+      "language": "pt-PT",
+      "epistemicClass": "hypothesis",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-06"
+      ],
+      "entityIds": [
+        "feature-milreu-podium",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "limited",
+        "reasons": [
+          "A proposta decorre do pé humano preservado e do contexto marinho."
+        ],
+        "limitations": [
+          "Só parte da figura subsiste; outras identificações permanecem possíveis."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-012",
+      "text": "Não é possível determinar com segurança quantas cenas mitológicas compunham originalmente o friso do pódio.",
+      "language": "pt-PT",
+      "epistemicClass": "uncertainty_statement",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-07",
+        "ev-h08-08"
+      ],
+      "entityIds": [
+        "feature-milreu-podium",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "well_supported",
+        "reasons": [
+          "O artigo distingue restos observados de reconstituições hipotéticas e assinala perdas."
+        ],
+        "limitations": [
+          "Novos dados documentais ou arqueológicos podem alterar o grau de incerteza."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-013",
+      "text": "Os fragmentos de mosaico de vidro do interior são interpretados como parte da decoração de uma abóbada ou meia cúpula.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-10"
+      ],
+      "entityIds": [
+        "structure-milreu-aula",
+        "object-milreu-marine-mosaics"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte relaciona técnica, argamassa e posição dos achados com decoração abobadada."
+        ],
+        "limitations": [
+          "O programa decorativo não pode ser reconstituído integralmente."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-014",
+      "text": "Fragmentos de opus sectile incluem formas interpretadas como mãos humanas e uma pata de cavalo.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-11"
+      ],
+      "entityIds": [
+        "structure-milreu-aula",
+        "object-milreu-opus-sectile"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A fonte descreve os fragmentos e apresenta documentação visual."
+        ],
+        "limitations": [
+          "A reconstituição de uma figura de cavaleiro é explicitamente hipotética."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-015",
+      "text": "Hauschild interpreta a riqueza arquitetónica e decorativa da aula como parte da apresentação social de um proprietário de estatuto elevado.",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-h08-15"
+      ],
+      "entityIds": [
+        "structure-milreu-aula",
+        "concept-owner-representation",
+        "period-late-roman"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "A interpretação é explicitamente articulada na conclusão do artigo."
+        ],
+        "limitations": [
+          "Deve ser atribuída ao autor e distinguida de prova direta sobre a identidade do proprietário."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    },
+    {
+      "id": "a10c1-016",
+      "text": "Em 4 de agosto de 2026, a página institucional da bilheteira indicava as Ruínas Romanas de Milreu como temporariamente encerradas para obras.",
+      "language": "pt-PT",
+      "epistemicClass": "fact_claim",
+      "status": "in_review",
+      "evidenceIds": [
+        "ev-pcip-01"
+      ],
+      "entityIds": [
+        "place-milreu"
+      ],
+      "confidence": {
+        "level": "supported",
+        "reasons": [
+          "Observação direta de página institucional com data de consulta."
+        ],
+        "limitations": [
+          "Estado operacional volátil; exige reverificação e não pode ser apresentado como permanente."
+        ]
+      },
+      "proposedBy": "ai-assisted-pilot-10c1",
+      "createdAt": "2026-08-04T22:00:00+01:00"
+    }
+  ],
+  "entities": [
+    {
+      "id": "place-milreu",
+      "type": "place",
+      "preferredLabel": "Ruínas Romanas de Milreu",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "structure-milreu-villa",
+      "type": "structure",
+      "preferredLabel": "Villa romana de Milreu",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "structure-milreu-aula",
+      "type": "structure",
+      "preferredLabel": "Edifício de culto ou aula",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "feature-milreu-peristilo",
+      "type": "structure",
+      "preferredLabel": "Peristilo da villa",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "feature-milreu-podium",
+      "type": "structure",
+      "preferredLabel": "Pódio do edifício",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "object-milreu-marine-mosaics",
+      "type": "object",
+      "preferredLabel": "Mosaicos de temática marinha",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "object-milreu-opus-sectile",
+      "type": "object",
+      "preferredLabel": "Fragmentos de opus sectile",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "period-late-roman",
+      "type": "period",
+      "preferredLabel": "Antiguidade Tardia",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "person-estacio-da-veiga",
+      "type": "person",
+      "preferredLabel": "Sebastião Philippes Martins Estácio da Veiga",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    },
+    {
+      "id": "concept-owner-representation",
+      "type": "concept",
+      "preferredLabel": "Representação social do proprietário",
+      "alternativeLabels": [],
+      "language": "pt-PT",
+      "status": "draft",
+      "catalogReferenceId": null,
+      "externalUris": []
+    }
+  ],
+  "relations": [],
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu"
+}

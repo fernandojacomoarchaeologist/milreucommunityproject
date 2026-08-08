@@ -1,0 +1,36 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+
+name: 10C.1 Proteus Verifiable Assertions Pilot
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate:10c1
+      - run: npm run validate
+      - run: npm test
+      - run: npm run build
+      - run: npm run smoke
+
+  open-science-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: O snapshot servido continua sem conteúdo in_review (public-git-content PASS)
+        run: python3 scripts/governance/open_science_gate.py --profile public-git-content
