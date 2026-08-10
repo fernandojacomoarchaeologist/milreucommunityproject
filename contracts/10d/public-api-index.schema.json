@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://milreu/contracts/10d/public-api-index.schema.json",
+  "title": "Índice da API pública Proteus v1 (10D)",
+  "description": "index.json: raiz, transporte, recursos e política de direitos. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "required": ["contractVersion", "apiVersion", "repositoryVersion", "status", "root", "transport", "readOnly", "resources", "rights", "warnings", "generatedBy", "notice"],
+  "additionalProperties": false,
+  "properties": {
+    "contractVersion": { "type": "string", "const": "1.0" },
+    "apiVersion": { "type": "string", "const": "v1" },
+    "repositoryVersion": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["ok", "empty"] },
+    "root": { "type": "string", "const": "/api/proteus/v1/" },
+    "transport": { "type": "string", "const": "static-json" },
+    "readOnly": { "type": "boolean", "const": true },
+    "resources": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["resource", "path", "count"],
+        "additionalProperties": false,
+        "properties": {
+          "resource": { "type": "string", "enum": ["works", "authors", "assertions", "entities", "relations"] },
+          "path": { "type": "string", "pattern": "^/api/proteus/v1/[a-z]+\\.json$" },
+          "count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "required": ["default", "note"],
+      "properties": {
+        "default": { "type": "string", "const": "deny" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "generatedBy": { "type": "string", "minLength": 1 },
+    "notice": { "type": "string", "minLength": 1 }
+  }
+}

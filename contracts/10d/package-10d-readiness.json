@@ -1,0 +1,58 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "10D",
+  "kind": "implementation-with-deferred-formal-closure",
+  "base": { "commit": "9386e98", "version": "0.38.1", "currentPackage": "10C.1" },
+  "requires": {
+    "cleanTree": true,
+    "isolatedBranch": true,
+    "allPreviousValidatorsGreen": true,
+    "noConflictingPullRequest": true,
+    "knownBaseDiscrepancyClassified": true
+  },
+  "boundaries": {
+    "dynamicApi": false,
+    "backendServer": false,
+    "database": false,
+    "documentIngestion": false,
+    "editorialWriteWorkflow": false,
+    "ocr": false,
+    "embeddings": false,
+    "rag": false,
+    "chat": false,
+    "mcp": false,
+    "oauth": false,
+    "newRoles": false,
+    "newPermissions": false,
+    "migrations": false,
+    "automaticPublication": false,
+    "publicationStateChange": false,
+    "newDependencies": false,
+    "repositoryVersionBumpInThisPr": false,
+    "currentPackageChangeInThisPr": false
+  },
+  "api": {
+    "transport": "static-json",
+    "root": "/api/proteus/v1/",
+    "readOnly": true,
+    "collections": ["works", "authors", "assertions", "entities", "relations"],
+    "eligibility": "fail-closed: published + fonte pública + revisão + apiExposure 'allow'",
+    "initialCounts": { "works": 0, "authors": 0, "assertions": 0, "entities": 0, "relations": 0 }
+  },
+  "preserve": {
+    "humanCatalog": true,
+    "knowledgeSnapshotZeroZeroZero": true,
+    "sixteenAssertionsInReview": true,
+    "editorialData": true,
+    "proteusOverviewUnchanged": true
+  },
+  "delivery": {
+    "pullRequest": true,
+    "automaticMerge": false,
+    "thisPrVersion": "0.38.1",
+    "thisPrCurrentPackage": "10C.1",
+    "deferredClosureVersion": "0.39.0",
+    "deferredClosureCurrentPackage": "10D"
+  },
+  "humanPending": ["HD-03", "HD-04", "HD-05", "HD-06", "HD-07"]
+}

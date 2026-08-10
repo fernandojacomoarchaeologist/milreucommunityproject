@@ -1,0 +1,45 @@
+{
+  "contractVersion": "1.0",
+  "apiVersion": "v1",
+  "repositoryVersion": "0.38.1",
+  "status": "ok",
+  "root": "/api/proteus/v1/",
+  "transport": "static-json",
+  "readOnly": true,
+  "resources": [
+    {
+      "resource": "works",
+      "path": "/api/proteus/v1/works.json",
+      "count": 0
+    },
+    {
+      "resource": "authors",
+      "path": "/api/proteus/v1/authors.json",
+      "count": 0
+    },
+    {
+      "resource": "assertions",
+      "path": "/api/proteus/v1/assertions.json",
+      "count": 0
+    },
+    {
+      "resource": "entities",
+      "path": "/api/proteus/v1/entities.json",
+      "count": 0
+    },
+    {
+      "resource": "relations",
+      "path": "/api/proteus/v1/relations.json",
+      "count": 0
+    }
+  ],
+  "rights": {
+    "default": "deny",
+    "note": "Exposição por API exige decisão explícita 'allow', além do estado 'published'. Por omissão nega."
+  },
+  "warnings": [
+    "Todas as coleções estão vazias: nenhum registo tem elegibilidade de API comprovada nesta fase."
+  ],
+  "generatedBy": "scripts/10d/build-public-api.mjs",
+  "notice": "Contrato público v1 somente de leitura. Sem servidor, base de dados, autenticação, escrita ou execução. O futuro MCP será adaptador sobre esta API."
+}

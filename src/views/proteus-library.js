@@ -74,7 +74,8 @@ export function proteusLibraryView(catalog, lang, query = {}) {
       : `<ul class="proteus-work-list">${results.map(workCard).join("")}</ul>`;
   return shell(lang, "/conhecimento/biblioteca", `
     <header class="page-heading"><span class="eyebrow">Experiência Proteus</span><h1 class="page-title">Biblioteca</h1>
-      <p>Catálogo de obras e autores relacionados com Milreu, com fontes, direitos e estado de acesso. Apenas registos revistos e publicados aparecem aqui.</p></header>
+      <p>Catálogo de obras e autores relacionados com Milreu, com fontes, direitos e estado de acesso. Apenas registos revistos e publicados aparecem aqui.</p>
+      <p class="proteus-api-docs-link"><a href="#/conhecimento/api">Consultar a API pública (somente leitura) ↗</a></p></header>
     <section class="portal-section">
       <form class="proteus-library-filters" data-proteus-library-filters role="search">
         <label>Pesquisar<input type="search" name="q" value="${esc(q)}" placeholder="título, autor, ano, DOI, publicação"></label>

@@ -1,0 +1,25 @@
+{
+  "contractVersion": "1.0",
+  "apiVersion": "v1",
+  "repositoryVersion": "0.38.1",
+  "resource": "entities",
+  "status": "empty",
+  "items": [],
+  "pagination": {
+    "page": 1,
+    "pageSize": 100,
+    "total": 0,
+    "totalPages": 0
+  },
+  "sources": [],
+  "rights": {
+    "default": "deny",
+    "note": "Exposição por API exige decisão explícita 'allow', além do estado 'published'. Por omissão nega."
+  },
+  "lastReviewed": null,
+  "warnings": [
+    "Coleção vazia: nenhum registo cumpre a elegibilidade de API (published + fonte pública + revisão + apiExposure 'allow'). Vazio é resultado honesto, não erro."
+  ],
+  "generatedBy": "scripts/10d/build-public-api.mjs",
+  "notice": "Somente leitura. Export estático derivado de snapshots públicos. Itens excluídos por direitos ou estado editorial não são identificados nem contabilizados."
+}
