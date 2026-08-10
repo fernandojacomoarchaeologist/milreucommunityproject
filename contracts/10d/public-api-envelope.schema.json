@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://milreu/contracts/10d/public-api-envelope.schema.json",
+  "title": "Envelope uniforme da API pública Proteus v1 (10D)",
+  "description": "Campos comuns a qualquer resposta da API pública somente de leitura. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "required": ["contractVersion", "apiVersion", "repositoryVersion", "status", "rights", "warnings", "generatedBy", "notice"],
+  "properties": {
+    "contractVersion": { "type": "string", "const": "1.0" },
+    "apiVersion": { "type": "string", "const": "v1" },
+    "repositoryVersion": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["ok", "empty"] },
+    "rights": {
+      "type": "object",
+      "required": ["default", "note"],
+      "properties": {
+        "default": { "type": "string", "const": "deny" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "generatedBy": { "type": "string", "minLength": 1 },
+    "notice": { "type": "string", "minLength": 1 }
+  }
+}

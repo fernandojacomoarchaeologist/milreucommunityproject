@@ -25,6 +25,7 @@ export function getRoute() {
   if (proteusAssertion) return { name:"proteus-assertion", id:decodeURIComponent(proteusAssertion[1]) };
   const proteusEntity = path.match(/^\/conhecimento\/entidades\/([^/]+)$/);
   if (proteusEntity) return { name:"proteus-entity", slug:decodeURIComponent(proteusEntity[1]) };
+  if (path === "/conhecimento/api") return { name:"proteus-api" };
   if (path === "/participar") return { name:"participate" };
   if (path === "/participar/contribuir") return { name:"public-contribution-new" };
   if (path === "/participar/contribuir/acompanhar") return { name:"public-contribution-track" };

@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge, assetUrl
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -15,6 +15,7 @@ import {
 } from "./views/portal.js";
 import { proteusLibraryView, proteusWorkView, proteusAuthorView } from "./views/proteus-library.js";
 import { proteusKnowledgeView, proteusAssertionView, proteusEntityView } from "./views/proteus-knowledge.js";
+import { proteusApiView } from "./views/proteus-api.js";
 import {
   museumHome, galleryView, detailView, immersiveView, timelineView,
   collectionsView, collectionDetailView
@@ -1611,6 +1612,7 @@ function render(scroll=true) {
     case "proteus-knowledge": html = proteusKnowledgeView(state.publicProteusKnowledge,state.lang,route.query); setMetadata("Base de conhecimento · Proteus"); break;
     case "proteus-assertion": html = proteusAssertionView(state.publicProteusKnowledge,route.id,state.lang); setMetadata("Afirmação · Proteus"); break;
     case "proteus-entity": html = proteusEntityView(state.publicProteusKnowledge,route.slug,state.lang); setMetadata("Entidade · Proteus"); break;
+    case "proteus-api": html = proteusApiView(state.publicProteusApi,state.lang); setMetadata("API pública · Proteus"); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
     case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
@@ -1651,10 +1653,21 @@ function render(scroll=true) {
   if (scroll) window.scrollTo(0,0);
 }
 
+// 10D — índice da API pública (export estático). Carregado aqui (não em data.js, fora do âmbito
+// do pacote 10D); resiliente: em caso de falha devolve null e a vista mostra o estado de erro.
+async function loadProteusApiIndex() {
+  try {
+    const response = await fetch(assetUrl("public/api/proteus/v1/index.json"));
+    return response.ok ? await response.json() : null;
+  } catch {
+    return null;
+  }
+}
+
 async function start() {
   try {
-    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge] = await Promise.all([
-      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog(),loadProteusKnowledge()
+    [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge,state.publicProteusApi] = await Promise.all([
+      loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog(),loadProteusKnowledge(),loadProteusApiIndex()
     ]);
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{

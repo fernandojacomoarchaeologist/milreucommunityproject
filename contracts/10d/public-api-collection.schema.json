@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://milreu/contracts/10d/public-api-collection.schema.json",
+  "title": "Coleção da API pública Proteus v1 (10D)",
+  "description": "Envelope de uma coleção (works/authors/assertions/entities/relations) com itens allowlisted e paginação determinista. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "required": ["contractVersion", "apiVersion", "repositoryVersion", "resource", "status", "items", "pagination", "sources", "rights", "lastReviewed", "warnings", "generatedBy", "notice"],
+  "additionalProperties": false,
+  "properties": {
+    "contractVersion": { "type": "string", "const": "1.0" },
+    "apiVersion": { "type": "string", "const": "v1" },
+    "repositoryVersion": { "type": ["string", "null"] },
+    "resource": { "type": "string", "enum": ["works", "authors", "assertions", "entities", "relations"] },
+    "status": { "type": "string", "enum": ["ok", "empty"] },
+    "items": { "type": "array", "items": { "type": "object" } },
+    "pagination": {
+      "type": "object",
+      "required": ["page", "pageSize", "total", "totalPages"],
+      "additionalProperties": false,
+      "properties": {
+        "page": { "type": "integer", "minimum": 1 },
+        "pageSize": { "type": "integer", "minimum": 1 },
+        "total": { "type": "integer", "minimum": 0 },
+        "totalPages": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "sources": { "type": "array" },
+    "rights": {
+      "type": "object",
+      "required": ["default", "note"],
+      "properties": {
+        "default": { "type": "string", "const": "deny" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "lastReviewed": { "type": ["string", "null"] },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "generatedBy": { "type": "string", "minLength": 1 },
+    "notice": { "type": "string", "minLength": 1 }
+  }
+}
