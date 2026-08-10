@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "package": "10C",
-  "version": "0.38.0",
+  "version": "0.38.1",
   "status": "model-only-empty",
   "generatedBy": "scripts/10c/build-public-knowledge.mjs",
   "note": "Snapshot público do modelo de conhecimento do Proteus. Começa VAZIO e honesto: só afirmações/entidades com estado 'published', evidência válida, direitos compatíveis e revisão humana aprovada podem aparecer. O 10C cria a estrutura; a aplicação a fontes reais é o 10C.1. Rascunhos, revisões, dados privados e notas internas nunca entram aqui, no sitemap, no SEO nem em JSON-LD.",
