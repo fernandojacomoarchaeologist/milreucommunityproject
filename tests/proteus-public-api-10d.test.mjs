@@ -52,7 +52,7 @@ test("projectFields aplica allowlist e descarta campos privados", () => {
 });
 
 test("buildCollection com item elegível devolve envelope 'ok' com 1 item allowlisted", () => {
-  const env = buildCollection("works", [eligibleWork], { repositoryVersion: "0.38.1" });
+  const env = buildCollection("works", [eligibleWork], { repositoryVersion: "0.39.0" });
   assert.equal(env.status, "ok");
   assert.equal(env.pagination.total, 1);
   assert.equal(env.items.length, 1);
@@ -62,7 +62,7 @@ test("buildCollection com item elegível devolve envelope 'ok' com 1 item allowl
 
 test("buildCollection sem elegíveis é 'empty' e NÃO revela o item excluído", () => {
   const secret = { id: "SEGREDO-42", slug: "titulo-secreto", title: "Título Secreto Excluído", editorialStatus: "in_review", apiExposure: "deny", sources: [], lastReviewed: null };
-  const env = buildCollection("works", [secret], { repositoryVersion: "0.38.1" });
+  const env = buildCollection("works", [secret], { repositoryVersion: "0.39.0" });
   assert.equal(env.status, "empty");
   assert.equal(env.pagination.total, 0);
   assert.deepEqual(env.items, []);

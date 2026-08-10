@@ -9,7 +9,7 @@ const path = "public/data/pilot-readiness.json";
 const readiness = JSON.parse(readFileSync(path, "utf8"));
 
 // Sem infraestrutura real nem evidência, o piloto permanece honestamente bloqueado.
-readiness.version = "0.38.1";
+readiness.version = "0.39.0";
 readiness.generatedAt = new Date().toISOString();
 readiness.technicalCandidate = "ready";
 readiness.pilotReadiness = "blocked";

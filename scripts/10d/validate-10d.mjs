@@ -48,7 +48,10 @@ for (const f of ["resource", "items", "pagination", "rights"]) if (!col.required
 if (!env.required.includes("rights")) fail("envelope.schema sem required rights.");
 for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail(`readiness.boundaries.${k} deve ser false.`);
 if (readiness.delivery.automaticMerge !== false) fail("readiness: sem merge automático.");
-if (readiness.delivery.thisPrVersion !== pkg.version) fail("readiness: thisPrVersion deve igualar a versão atual.");
+// Fecho formal 10D atingido: o alvo de fecho diferido passa a coincidir com o estado canónico atual
+// (D-10D-CLOSE-03). Os campos base/thisPr do PR funcional são preservados como proveniência histórica.
+if (readiness.delivery.deferredClosureVersion !== pkg.version) fail("readiness: deferredClosureVersion deve igualar a versão canónica após o fecho.");
+if (readiness.delivery.deferredClosureCurrentPackage !== registry.currentPackage) fail("readiness: deferredClosureCurrentPackage deve igualar o pacote canónico do registo.");
 for (const c of Object.values(readiness.api.initialCounts)) if (c !== 0) fail("readiness: contagens iniciais da API devem ser 0.");
 
 // 3) Índice + coleções: válidos, VAZIOS e deterministas (regeneração byte-idêntica).
@@ -135,4 +138,4 @@ for (const p of ["public/data/proteus-catalog-public.json", "public/data/proteus
 if (!/case "proteus-library":/.test(main)) fail("Biblioteca (10B) removida do render.");
 if (!/case "proteus-knowledge":/.test(main)) fail("Base de conhecimento (10C) removida do render.");
 
-console.log("Pacote 10D validado: API pública v1 estática, somente leitura, uniforme e determinista; 6 exports VAZIOS (regeneração byte-idêntica); núcleo puro fail-closed sem revelar excluídos; rota /conhecimento/api ligada; Biblioteca humana 3/2/1 preservada; conhecimento 0/0/0 e 16 afirmações in_review; campo legado currentPackage classificado sem correção; 26 módulos/152 permissões/42 migrations; sem dependências/backend/IA/MCP; predecessores 09/10 preservados. Versão coerente (" + pkg.version + "); bump 0.39.0/10D fica para o PR de fecho.");
+console.log("Pacote 10D validado: API pública v1 estática, somente leitura, uniforme e determinista; 6 exports VAZIOS (regeneração byte-idêntica); núcleo puro fail-closed sem revelar excluídos; rota /conhecimento/api ligada; Biblioteca humana 3/2/1 preservada; conhecimento 0/0/0 e 16 afirmações in_review; campo legado currentPackage classificado sem correção; 26 módulos/152 permissões/42 migrations; sem dependências/backend/IA/MCP; predecessores 09/10 preservados. Estado canónico de fecho atingido (" + pkg.version + " / " + registry.currentPackage + "); pin legado package.json.currentPackage preservado (" + pkg.currentPackage + ").");

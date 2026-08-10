@@ -19,7 +19,7 @@ import { validateCidocMapping, exportCidocMappings } from "../../src/proteus/cid
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 const fail = (m) => { throw new Error(`10C: ${m}`); };
-const EXPECTED = "0.38.1";
+const EXPECTED = "0.39.0";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
@@ -27,7 +27,7 @@ if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (est�
 const readiness = read("contracts/10c/package-10c-readiness.json");
 for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail(`readiness.boundaries.${k} deve ser false.`);
 if (readiness.delivery.automaticMerge !== false) fail("readiness: sem merge automático.");
-if (readiness.delivery.targetVersion !== EXPECTED || readiness.delivery.targetCurrentPackage !== "10C") fail("readiness: alvo deve ser 0.38.1 / 10C.");
+if (readiness.delivery.targetVersion !== EXPECTED || readiness.delivery.targetCurrentPackage !== "10C") fail("readiness: alvo deve ser 0.39.0 / 10C.");
 
 // 2) Contratos com campos obrigatórios
 const req = (p) => read(p).required || [];
