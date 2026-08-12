@@ -29,9 +29,11 @@ node scripts/10e/preview-ingestion.mjs <lote.json>   # ou: npm run proteus:previ
   pelo enum, timestamps **ISO 8601**, `locator.sourceId === proposal.sourceId`, e — quando
   `aiAssisted:true` — `transformation`, `tool` e `toolVersion` obrigatórios;
 - **sem aceitação parcial:** um lote com cabeçalho inválido rejeita todos os candidatos;
-- **preservação sem mutação** dos itens aceites (texto, idioma, classe, fonte, localizador,
-  confiança, transformação, ferramenta/versão, `aiAssisted`, hash, proponente e instante); citação
-  textual só é preservada com direitos aprovados.
+- **preservação sem mutação** dos itens aceites (texto, idioma, classe, fonte, **`sourceVersion`**,
+  localizador, confiança, transformação, ferramenta/versão, `aiAssisted`, hash, proponente e
+  instante); citação textual só é preservada com direitos aprovados;
+- **`sourceVersion`** (versão/edição da fonte) é **opcional**; quando fornecido, string não vazia
+  preservada byte-a-byte. Não se inventam versões para as fontes atuais.
 
 Pré-visualização **pura**: sem `--apply`, sem escrita, limite pequeno de tamanho, recusa de
 symlink/traversal/formato não-JSON. O núcleo é `src/proteus/knowledge-ingestion.mjs`.
