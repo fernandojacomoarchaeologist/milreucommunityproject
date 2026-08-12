@@ -17,7 +17,8 @@ import {
 } from "../../src/proteus/knowledge-ingestion.mjs";
 import {
   buildReviewPacket, validateReviewRequest, validateChecks, validateRightsAssessment, proposeTransition,
-  canPublishInThisPackage, buildAuditEvent, REVIEW_CHECKS,
+  canPublishInThisPackage, buildAuditEvent, REVIEW_CHECKS, RIGHTS_DIMENSIONS, RIGHTS_DIMENSION_KEYS,
+  AUDIT_REQUIRED, AUDIT_KEYS, AUDIT_ENTITY_TYPES,
 } from "../../src/proteus/editorial-workflow.mjs";
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
@@ -49,9 +50,23 @@ if (itemSchema.additionalProperties !== false) fail("contrato de ingestão: item
 if (!sameSet(itemSchema.required, PROPOSAL_REQUIRED)) fail("contrato de ingestão: required do item diverge do núcleo.");
 if (!sameSet(Object.keys(itemSchema.properties), PROPOSAL_KEYS)) fail("contrato de ingestão: propriedades do item divergem do núcleo.");
 if (!sameSet(Object.keys(itemSchema.properties.locator.properties), LOCATOR_KEYS)) fail("contrato de ingestão: propriedades do localizador divergem do núcleo.");
+if (!itemSchema.properties.sourceVersion || itemSchema.properties.sourceVersion.type !== "string") fail("contrato de ingestão: sourceVersion (string) em falta.");
 const rwi = read("contracts/10e/review-work-item.schema.json");
 if (rwi.additionalProperties !== false) fail("review-work-item deve ter additionalProperties:false.");
 for (const f of ["text", "language", "confidence", "proposedBy", "createdAt", "temporalCondition"]) if (!rwi.required.includes(f)) fail(`review-work-item.schema sem campo obrigatório: ${f}.`);
+if (!rwi.properties.confidence.required.includes("limitations")) fail("review-work-item: confidence.limitations obrigatório.");
+for (const f of ["pageStart", "pageEnd", "url", "accessedAt", "notes"]) if (!rwi.properties.evidenceLocators.items.properties[f]) fail(`review-work-item: localizador sem campo preservável ${f}.`);
+// PARIDADE contrato↔núcleo (evita divergência silenciosa):
+const audit = read("contracts/10e/audit-event.schema.json");
+if (!sameSet(audit.required, AUDIT_REQUIRED)) fail("paridade: audit-event.required diverge do núcleo.");
+if (!sameSet(Object.keys(audit.properties), AUDIT_KEYS)) fail("paridade: audit-event.properties diverge do núcleo.");
+if (!sameSet(audit.properties.entityType.enum, AUDIT_ENTITY_TYPES)) fail("paridade: audit-event.entityType enum diverge do núcleo.");
+const rights = read("contracts/10e/rights-assessment.schema.json");
+if (rights.additionalProperties !== false) fail("rights-assessment deve ter additionalProperties:false.");
+if (!rights.required.includes("assertionId")) fail("rights-assessment: assertionId obrigatório.");
+for (const dim of RIGHTS_DIMENSIONS) if (!rights.required.includes(dim)) fail(`rights-assessment: dimensão ${dim} obrigatória.`);
+if (rights.$defs.dimension.additionalProperties !== false) fail("rights-assessment: dimensão deve ter additionalProperties:false.");
+if (!sameSet(Object.keys(rights.$defs.dimension.properties), RIGHTS_DIMENSION_KEYS)) fail("paridade: rights dimension.properties diverge do núcleo.");
 const readiness = read("contracts/10e/package-10e-readiness.json");
 for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail(`readiness.boundaries.${k} deve ser false.`);
 if (readiness.deferredClosure.version !== "0.40.0" || readiness.deferredClosure.currentPackage !== "10E") fail("readiness: fecho diferido deve ser 0.40.0/10E.");
@@ -89,11 +104,15 @@ if (validateProposal({ id: "p", text: "x", language: "pt-PT", epistemicClass: "f
 const badBatch = buildIngestionPreview({ items: [okProp] }, scope); // faltam batchId/proposedBy/proposedAt
 if (badBatch.batchValid !== false || badBatch.totals.accepted !== 0 || badBatch.accepted.length !== 0) fail("lote com cabeçalho inválido não pode aceitar candidatos parcialmente.");
 if (validateBatchHeader({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [], extra: 1 }).valid) fail("lote com propriedade desconhecida deveria falhar.");
-// preservação de proveniência
-const rich = { ...okProp, transformation: "paraphrase", tool: "t", toolVersion: "1", aiAssisted: true, hash: "sha256:x", entityIds: ["e1"] };
+// sourceVersion: opcional; string não vazia quando presente; preservado byte-identicamente.
+if (validateProposal({ ...okProp, sourceVersion: "" }, scope).valid) fail("sourceVersion vazio deveria falhar.");
+if (!validateProposal({ ...okProp, sourceVersion: "2.ª ed. 2019" }, scope).valid) fail("sourceVersion string não vazia deveria passar.");
+// preservação de proveniência (incl. sourceVersion)
+const rich = { ...okProp, sourceVersion: "ed-2019", transformation: "paraphrase", tool: "t", toolVersion: "1", aiAssisted: true, hash: "sha256:x", entityIds: ["e1"] };
 const preview = buildIngestionPreview({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [rich] }, scope);
 const acc = preview.accepted[0];
-for (const k of ["text", "language", "epistemicClass", "sourceId", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"]) if (acc[k] === undefined) fail(`preservação: campo ausente na pré-visualização aceite: ${k}.`);
+for (const k of ["text", "language", "epistemicClass", "sourceId", "sourceVersion", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"]) if (acc[k] === undefined) fail(`preservação: campo ausente na pré-visualização aceite: ${k}.`);
+if (acc.sourceVersion !== "ed-2019") fail("sourceVersion não foi preservado byte-a-byte.");
 if (acc.state !== "draft") fail("item aceite não pode ir além de 'draft'.");
 const pres = preserveProposal({ ...okProp, quotation: "trecho", quotationRightsApproved: false });
 if ("quotation" in pres) fail("preservação não pode incluir citação sem direitos aprovados.");
@@ -104,10 +123,26 @@ const E = read("data/proteus/knowledge-evidence-locators.json");
 const Q = read("data/proteus/knowledge-review-queue.json");
 const packet = buildReviewPacket({ assertions: A.assertions || [], locators: E.locators || [], entities: A.entities || [], queue: Q.items || [] });
 if (packet.totalItems !== 16) fail(`pacote de revisão deve ter 16 itens (tem ${packet.totalItems}).`);
+const assById = new Map((A.assertions || []).map((a) => [a.id, a]));
 for (const it of packet.items) {
   for (const f of ["text", "language", "confidence", "proposedBy", "createdAt"]) if (it[f] === undefined) fail(`item da bancada sem campo revisável: ${f} (${it.assertionId}).`);
   if (it.reviewer !== null || it.decision !== null) fail("pacote não pode conter revisor/decisão fabricados.");
+  // confiança completa: limitações sempre presentes e iguais aos dados canónicos.
+  if (!it.confidence || !Array.isArray(it.confidence.limitations)) fail(`bancada: confidence.limitations ausente em ${it.assertionId}.`);
+  const src = assById.get(it.assertionId);
+  if (JSON.stringify(it.confidence.limitations) !== JSON.stringify(src.confidence.limitations || [])) fail(`bancada: limitações divergem dos dados canónicos em ${it.assertionId}.`);
+  // localizadores autossuficientes, sem citação.
+  for (const l of it.evidenceLocators) {
+    if (!l.id || !l.sourceId || !l.locatorType) fail(`bancada: localizador incompleto em ${it.assertionId}.`);
+    if ("quotation" in l || "quotationRightsApproved" in l) fail(`bancada: localizador não pode conter citação/direitos (${it.assertionId}).`);
+  }
 }
+// Hauschild com paginação estruturada e a10c1-016 com url+accessedAt+nota de volatilidade.
+const it009 = packet.items.find((i) => i.assertionId === "a10c1-009");
+if (!it009.evidenceLocators.some((l) => Number.isInteger(l.pageStart) && l.label)) fail("bancada: paginação estruturada de Hauschild em falta (a10c1-009).");
+const it016 = packet.items.find((i) => i.assertionId === "a10c1-016");
+const loc016 = it016.evidenceLocators[0] || {};
+if (loc016.locatorType !== "url_snapshot" || !loc016.url || !loc016.accessedAt || !loc016.notes) fail("bancada: a10c1-016 deve preservar url, accessedAt e nota de volatilidade.");
 if (!packet.timeSensitiveItems.includes("a10c1-016")) fail("o item temporal a10c1-016 deve ser sinalizado.");
 if (JSON.stringify(packet) !== JSON.stringify(buildReviewPacket({ assertions: A.assertions || [], locators: E.locators || [], entities: A.entities || [], queue: Q.items || [] }))) fail("pacote de revisão não é determinístico.");
 // checks-objeto
@@ -122,21 +157,31 @@ if (validateReviewRequest({ ...goodReq, decidedAt: "hoje" }).valid) fail("data i
 if (validateReviewRequest({ ...goodReq, comment: "" }).valid) fail("comentário vazio deveria falhar.");
 if (validateReviewRequest({ ...goodReq, checks: ["anything"] }).valid) fail("checks arbitrários deveriam falhar.");
 if (validateReviewRequest({ ...goodReq, conflictOfInterest: undefined }).valid) fail("conflictOfInterest tem de ser explícito.");
-// conflito e autoaprovação bloqueiam a TRANSIÇÃO
+// integridade, conflito e autoaprovação bloqueiam a TRANSIÇÃO
 const inrev = (A.assertions || []).find((a) => a.status === "in_review");
+if (proposeTransition(inrev, { ...goodReq, assertionId: "outro-id" }).allowed !== false) fail("integridade: assertionId divergente deve bloquear a transição.");
 if (proposeTransition(inrev, { ...goodReq, assertionId: inrev.id, conflictOfInterest: true }).allowed !== false) fail("conflito de interesse deve bloquear a transição.");
 if (proposeTransition({ ...inrev, proposedBy: "human-1" }, { ...goodReq, assertionId: inrev.id, reviewerId: "human-1" }).allowed !== false) fail("autoaprovação (reviewerId===proposedBy) deve bloquear.");
-if (proposeTransition(inrev, { ...goodReq, assertionId: inrev.id }).allowed !== true) fail("transição válida (sem conflito/autoaprovação) deveria ser permitida.");
-// direitos e publicação
-const ra = validateRightsAssessment({ assertionId: "a", copyright: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "d" }, consent: { decision: "unknown" }, license: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "d" }, thirdPartyMaterial: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "d" }, apiExposure: { decision: "unknown" } });
-if (ra.effective.consent !== "deny" || ra.effective.apiExposure !== "deny" || ra.rightsCompatible !== false) fail("'unknown' deve comportar-se como 'deny'.");
+if (proposeTransition(inrev, { ...goodReq, assertionId: inrev.id }).allowed !== true) fail("transição válida deveria ser permitida.");
+// direitos ESTRITAMENTE fail-closed
+const dim = (d) => ({ decision: d, basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" });
+if (validateRightsAssessment({ copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("rights sem assertionId deveria falhar.");
+if (validateRightsAssessment({ assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny"), extra: 1 }).valid) fail("rights com propriedade desconhecida no topo deveria falhar.");
+if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "d" }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("rights com data não-ISO deveria falhar.");
+if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "allow", basis: "b" }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("allow sem evidência/responsável/data deveria falhar.");
+const raUnknown = validateRightsAssessment({ assertionId: "a", copyright: dim("allow"), consent: { decision: "unknown" }, license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") });
+if (raUnknown.effective.consent !== "deny" || raUnknown.rightsCompatible !== false) fail("'unknown' deve comportar-se como 'deny'.");
+if (validateRightsAssessment({ assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("allow") }).valid !== false) fail("apiExposure:allow deve tornar a avaliação INVÁLIDA neste pacote.");
+if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "2026-08-11", foo: 1 }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("propriedade desconhecida numa dimensão deveria falhar.");
 if (canPublishInThisPackage({ status: "approved" }, {}).allowed !== false) fail("publicação deve estar bloqueada no 10E.");
-// auditoria: motivo obrigatório, ISO, decisionRefs, sem sensível
-if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z" }).valid) fail("auditoria sem motivo deveria falhar.");
-if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "amanhã", reason: "r" }).valid) fail("auditoria com instante não-ISO deveria falhar.");
-if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [""] }).valid) fail("decisionRefs com entrada vazia deveria falhar.");
-if (!buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "revisão proposta", decisionRefs: ["d1"] }).valid) fail("auditoria mínima válida deveria passar.");
-if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "email alguem@example.invalid" }).valid) fail("auditoria com contacto deveria falhar.");
+// auditoria: motivo/ISO/decisionRefs/entityType-enum/propriedades desconhecidas
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", decisionRefs: [] }).valid) fail("auditoria sem motivo deveria falhar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "amanhã", reason: "r", decisionRefs: [] }).valid) fail("auditoria com instante não-ISO deveria falhar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r" }).valid) fail("decisionRefs em falta deveria falhar (obrigatório mesmo []).");
+if (buildAuditEvent({ id: "e", entityType: "desconhecido", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [] }).valid) fail("entityType fora do enum deveria falhar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [], foo: 1 }).valid) fail("propriedade de auditoria desconhecida deveria falhar.");
+if (!buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "revisão proposta", decisionRefs: [] }).valid) fail("auditoria mínima válida (decisionRefs=[]) deveria passar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "email alguem@example.invalid", decisionRefs: [] }).valid) fail("auditoria com contacto deveria falhar.");
 
 // 7) Não-regressão objetiva.
 const cat = read("public/data/proteus-catalog-public.json");
