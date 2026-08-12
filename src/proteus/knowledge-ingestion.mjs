@@ -10,7 +10,7 @@
  * IA). Toda proposta permanece `draft` em quarentena e NUNCA altera dados canónicos. Um lote com
  * cabeçalho inválido NÃO aceita candidatos parcialmente. Instantes e IDs vêm do chamador.
  */
-import { EPISTEMIC_CLASSES, confidenceErrors, validateEvidenceLocator } from "./knowledge-model.mjs";
+import { EPISTEMIC_CLASSES, CONFIDENCE_LEVELS, confidenceErrors, validateEvidenceLocator } from "./knowledge-model.mjs";
 
 export const INGESTION_STATE = "draft"; // estado inicial invariável de qualquer candidato
 export const LANGS_ENUM = ["pt-PT", "en", "es", "fr"];
@@ -20,10 +20,15 @@ export const BATCH_KEYS = ["batchId", "proposedBy", "proposedAt", "items"];
 export const PROPOSAL_REQUIRED = ["id", "text", "language", "epistemicClass", "sourceId", "locator", "confidence", "proposedBy", "proposedAt"];
 export const PROPOSAL_KEYS = ["id", "text", "language", "epistemicClass", "status", "sourceId", "sourceVersion", "entityIds", "locator", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "quotation", "quotationRightsApproved", "confidence", "proposedBy", "proposedAt"];
 export const LOCATOR_KEYS = ["id", "sourceId", "locatorType", "pageStart", "pageEnd", "label", "url", "accessedAt", "quotation", "quotationRightsApproved", "notes"];
+// Allowlist ANINHADA da confiança (paridade com o schema): confiança completa desde a ingestão.
+export const CONFIDENCE_KEYS = ["level", "reasons", "limitations"];
 // Campos de proveniência preservados na pré-visualização de itens aceites (sem mutação).
 export const PRESERVE_KEYS = ["id", "text", "language", "epistemicClass", "sourceId", "sourceVersion", "entityIds", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"];
 
 const isNonEmpty = (v) => typeof v === "string" && v.trim() !== "";
+const isStr = (v) => typeof v === "string";
+const isBool = (v) => typeof v === "boolean";
+const isInt = (v) => Number.isInteger(v);
 const ISO_8601 = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
 const isISO = (v) => typeof v === "string" && ISO_8601.test(v);
 const unknownKeys = (obj, allowed) => (obj && typeof obj === "object" ? Object.keys(obj).filter((k) => !allowed.includes(k)) : []);
@@ -66,13 +71,27 @@ export function validateProposal(proposal, { includedSources = [], excludedSourc
   if (proposal.sourceVersion !== undefined && !isNonEmpty(proposal.sourceVersion)) errors.push("sourceVersion, quando presente, tem de ser uma string não vazia");
   // Classe epistémica.
   if (!EPISTEMIC_CLASSES.includes(proposal.epistemicClass)) errors.push(`classe epistémica inválida: ${proposal.epistemicClass}`);
-  // Confiança nunca probabilística/percentual.
-  if (proposal.confidence) confidenceErrors(proposal.confidence).forEach((e) => errors.push(e));
-  else errors.push("confiança em falta");
-  // Localizador: contrato + coerência de fonte + ISO + paginação.
-  if (!proposal.locator || typeof proposal.locator !== "object") errors.push("localizador em falta");
+  // Tipos dos campos opcionais da proposta (paridade profunda com o schema de ingestão).
+  if (proposal.entityIds !== undefined && !(Array.isArray(proposal.entityIds) && proposal.entityIds.every(isStr))) errors.push("entityIds deve ser um array de strings");
+  for (const f of ["transformation", "tool", "toolVersion", "hash", "quotation"]) if (proposal[f] !== undefined && !isStr(proposal[f])) errors.push(`${f} deve ser string`);
+  if (proposal.aiAssisted !== undefined && !isBool(proposal.aiAssisted)) errors.push("aiAssisted deve ser boolean");
+  if (proposal.quotationRightsApproved !== undefined && !isBool(proposal.quotationRightsApproved)) errors.push("quotationRightsApproved deve ser boolean");
+  // Confiança COMPLETA e estrita: nível/razões/limitações, sem probabilidade nem propriedades desconhecidas.
+  if (!proposal.confidence || typeof proposal.confidence !== "object" || Array.isArray(proposal.confidence)) {
+    errors.push("confiança em falta");
+  } else {
+    confidenceErrors(proposal.confidence).forEach((e) => errors.push(e));
+    for (const k of unknownKeys(proposal.confidence, CONFIDENCE_KEYS)) errors.push(`confiança: propriedade desconhecida: ${k}`);
+    if (proposal.confidence.reasons !== undefined && !(Array.isArray(proposal.confidence.reasons) && proposal.confidence.reasons.every(isStr))) errors.push("confiança: 'reasons' deve ser um array de strings");
+    if (!(Array.isArray(proposal.confidence.limitations) && proposal.confidence.limitations.every(isStr))) errors.push("confiança: 'limitations' obrigatório (array de strings, mesmo que [])");
+  }
+  // Localizador: contrato + coerência de fonte + ISO + paginação + tipos dos campos.
+  if (!proposal.locator || typeof proposal.locator !== "object" || Array.isArray(proposal.locator)) errors.push("localizador em falta");
   else {
     for (const k of unknownKeys(proposal.locator, LOCATOR_KEYS)) errors.push(`localizador: propriedade desconhecida: ${k}`);
+    for (const f of ["id", "sourceId", "label", "url", "accessedAt", "quotation", "notes"]) if (proposal.locator[f] !== undefined && !isStr(proposal.locator[f])) errors.push(`localizador: ${f} deve ser string`);
+    for (const f of ["pageStart", "pageEnd"]) if (proposal.locator[f] !== undefined && !(isInt(proposal.locator[f]) && proposal.locator[f] >= 1)) errors.push(`localizador: ${f} deve ser inteiro >= 1`);
+    if (proposal.locator.quotationRightsApproved !== undefined && !isBool(proposal.locator.quotationRightsApproved)) errors.push("localizador: quotationRightsApproved deve ser boolean");
     if (proposal.locator.sourceId !== proposal.sourceId) errors.push("localizador: sourceId tem de coincidir com o da proposta");
     if (proposal.locator.accessedAt !== undefined && !isISO(proposal.locator.accessedAt)) errors.push("localizador: accessedAt não é ISO 8601");
     const paginated = paginatedSources.includes(proposal.sourceId);

@@ -35,5 +35,13 @@ node scripts/10e/preview-ingestion.mjs <lote.json>   # ou: npm run proteus:previ
 - **`sourceVersion`** (versão/edição da fonte) é **opcional**; quando fornecido, string não vazia
   preservada byte-a-byte. Não se inventam versões para as fontes atuais.
 
+**Paridade profunda com o contrato:** o núcleo recusa os mesmos tipos inválidos que o schema recusa —
+`aiAssisted` não-boolean, `entityIds` não-strings, campos do localizador de tipo errado
+(`id`/`notes`/`url` não-string, `pageStart`/`pageEnd` não-inteiros ≥1) e propriedades desconhecidas
+em `confidence`. A **confiança é completa desde a ingestão**: `level`, `reasons` (strings) e
+`limitations` (array de strings, **obrigatório mesmo quando `[]`**), preservada integralmente e sem
+mutação. Uma invariável de teste garante que, se o núcleo devolve `valid:true`, a estrutura também é
+válida no contrato estático.
+
 Pré-visualização **pura**: sem `--apply`, sem escrita, limite pequeno de tamanho, recusa de
 symlink/traversal/formato não-JSON. O núcleo é `src/proteus/knowledge-ingestion.mjs`.

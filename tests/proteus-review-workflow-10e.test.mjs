@@ -110,6 +110,29 @@ test("direitos estritamente fail-closed (schema): assertionId, propriedades, ISO
   assert.equal(validateRightsAssessment({ ...base, apiExposure: dim("allow") }).valid, false, "apiExposure:allow torna a avaliação inválida");
 });
 
+test("direitos: tipos de basis/evidence/responsible/notes validados mesmo em deny/unknown", () => {
+  const dim = (d) => ({ decision: d, basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" });
+  const base = { assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") };
+  assert.equal(validateRightsAssessment({ ...base, copyright: { decision: "deny", basis: 123 } }).valid, false, "basis:123 (deny)");
+  assert.equal(validateRightsAssessment({ ...base, copyright: { decision: "unknown", evidence: 123 } }).valid, false, "evidence:123 (unknown)");
+  assert.equal(validateRightsAssessment({ ...base, consent: { decision: "deny", responsible: 5 } }).valid, false, "responsible não-string (deny)");
+  assert.equal(validateRightsAssessment({ ...base, license: { decision: "deny", notes: 5 } }).valid, false, "notes não-string (deny)");
+  assert.equal(validateRightsAssessment({ ...base, thirdPartyMaterial: { decision: "deny", date: "d" } }).valid, false, "date não-ISO (deny)");
+  // deny/unknown sem campos extra continuam válidos estruturalmente.
+  assert.equal(validateRightsAssessment({ ...base, copyright: { decision: "deny" } }).valid, true);
+});
+
+test("auditoria: tipos inválidos falham (action numérico, fromState/toState, IDs não-string)", () => {
+  const good = { id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [] };
+  assert.equal(buildAuditEvent({ ...good, action: 7 }).valid, false, "action numérico");
+  assert.equal(buildAuditEvent({ ...good, fromState: 7 }).valid, false, "fromState numérico");
+  assert.equal(buildAuditEvent({ ...good, toState: 7 }).valid, false, "toState numérico");
+  assert.equal(buildAuditEvent({ ...good, fromState: null, toState: null }).valid, true, "fromState/toState null válidos");
+  assert.equal(buildAuditEvent({ ...good, id: 7 }).valid, false, "id numérico");
+  assert.equal(buildAuditEvent({ ...good, actorId: 7 }).valid, false, "actorId numérico");
+  assert.equal(buildAuditEvent({ ...good, entityId: "" }).valid, false, "entityId vazio");
+});
+
 test("publicação bloqueada no 10E", () => {
   assert.equal(canPublishInThisPackage({ status: "approved" }, { review: { decision: "approve", checks: { evidence: true, rights: true, epistemicClass: true, publicSafety: true } }, rightsCompatible: true, evidence: [{ id: "l", sourceId: "s", locatorType: "whole_resource", accessedAt: "t" }] }).allowed, false);
 });

@@ -14,8 +14,8 @@
     "fromState": { "type": ["string", "null"] },
     "toState": { "type": ["string", "null"] },
     "actorId": { "type": "string", "minLength": 1 },
-    "at": { "type": "string", "minLength": 1 },
+    "at": { "type": "string", "minLength": 1, "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$" },
     "reason": { "type": "string", "minLength": 1 },
-    "decisionRefs": { "type": "array", "items": { "type": "string" } }
+    "decisionRefs": { "type": "array", "items": { "type": "string", "minLength": 1 } }
   }
 }

@@ -23,3 +23,10 @@ responsável e data. Só há compatibilidade quando **todas** são `allow` compr
 - nenhum registo recebe `apiExposure: allow`; a API pública permanece `5×0`.
 
 Atribuir exposição por API é uma **decisão de direitos/publicação** humana futura, não deste pacote.
+
+**Paridade profunda contrato↔núcleo:** o schema e o núcleo impõem as mesmas regras — os tipos de
+`basis`, `evidence`, `responsible`, `date` e `notes` são validados **em todas as decisões** (inclusive
+`deny`/`unknown`); `date` obedece ao padrão ISO; `decision: allow` exige `basis`/`evidence`/
+`responsible`/`date` não vazios; `apiExposure: allow` torna o documento inválido; propriedades
+desconhecidas continuam bloqueadas. Na auditoria (`audit-event`), `at` obedece ao padrão ISO,
+`decisionRefs` só contém strings não vazias e `action`/IDs numéricos ou vazios são recusados.

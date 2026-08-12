@@ -13,7 +13,7 @@
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import {
   buildIngestionPreview, validateProposal, validateBatch, validateBatchHeader, preserveProposal, INGESTION_STATE,
-  PROPOSAL_REQUIRED, PROPOSAL_KEYS, LOCATOR_KEYS, BATCH_REQUIRED,
+  PROPOSAL_REQUIRED, PROPOSAL_KEYS, LOCATOR_KEYS, BATCH_REQUIRED, CONFIDENCE_KEYS,
 } from "../../src/proteus/knowledge-ingestion.mjs";
 import {
   buildReviewPacket, validateReviewRequest, validateChecks, validateRightsAssessment, proposeTransition,
@@ -51,6 +51,12 @@ if (!sameSet(itemSchema.required, PROPOSAL_REQUIRED)) fail("contrato de ingestã
 if (!sameSet(Object.keys(itemSchema.properties), PROPOSAL_KEYS)) fail("contrato de ingestão: propriedades do item divergem do núcleo.");
 if (!sameSet(Object.keys(itemSchema.properties.locator.properties), LOCATOR_KEYS)) fail("contrato de ingestão: propriedades do localizador divergem do núcleo.");
 if (!itemSchema.properties.sourceVersion || itemSchema.properties.sourceVersion.type !== "string") fail("contrato de ingestão: sourceVersion (string) em falta.");
+// Confiança completa desde a ingestão: allowlist aninhada e limitations obrigatória (array de strings).
+const confSchema = itemSchema.properties.confidence;
+if (!sameSet(Object.keys(confSchema.properties), CONFIDENCE_KEYS)) fail("paridade: confidence.properties da ingestão divergem do núcleo (level/reasons/limitations).");
+if (confSchema.additionalProperties !== false) fail("contrato de ingestão: confidence deve ter additionalProperties:false.");
+if (!confSchema.required.includes("limitations")) fail("contrato de ingestão: confidence.limitations obrigatório.");
+if (!confSchema.properties.limitations || confSchema.properties.limitations.type !== "array" || confSchema.properties.limitations.items.type !== "string") fail("contrato de ingestão: confidence.limitations deve ser array de strings.");
 const rwi = read("contracts/10e/review-work-item.schema.json");
 if (rwi.additionalProperties !== false) fail("review-work-item deve ter additionalProperties:false.");
 for (const f of ["text", "language", "confidence", "proposedBy", "createdAt", "temporalCondition"]) if (!rwi.required.includes(f)) fail(`review-work-item.schema sem campo obrigatório: ${f}.`);
@@ -67,6 +73,15 @@ if (!rights.required.includes("assertionId")) fail("rights-assessment: assertion
 for (const dim of RIGHTS_DIMENSIONS) if (!rights.required.includes(dim)) fail(`rights-assessment: dimensão ${dim} obrigatória.`);
 if (rights.$defs.dimension.additionalProperties !== false) fail("rights-assessment: dimensão deve ter additionalProperties:false.");
 if (!sameSet(Object.keys(rights.$defs.dimension.properties), RIGHTS_DIMENSION_KEYS)) fail("paridade: rights dimension.properties diverge do núcleo.");
+// Regras duras representadas no schema de direitos: data ISO, allow-completude e apiExposure:allow inválido.
+if (!rights.$defs.dimension.properties.date.pattern) fail("rights: dimension.date deve ter padrão ISO.");
+const dimAllow = (rights.$defs.dimension.allOf || []).find((s) => s.if && s.if.properties && s.if.properties.decision && s.if.properties.decision.const === "allow");
+if (!dimAllow || !sameSet(dimAllow.then.required, ["basis", "evidence", "responsible", "date"])) fail("rights: dimensão deve exigir basis/evidence/responsible/date quando decision=allow.");
+const apiForbid = (rights.allOf || []).find((s) => s.if && s.if.properties && s.if.properties.apiExposure && s.if.properties.apiExposure.properties.decision.const === "allow");
+if (!apiForbid || apiForbid.then !== false) fail("rights: apiExposure:allow deve tornar o documento inválido (then:false).");
+// Auditoria: instante ISO e referências de decisão não vazias representadas no schema.
+if (!audit.properties.at.pattern) fail("audit: 'at' deve ter padrão ISO.");
+if (audit.properties.decisionRefs.items.minLength !== 1) fail("audit: decisionRefs deve conter apenas strings não vazias (minLength:1).");
 const readiness = read("contracts/10e/package-10e-readiness.json");
 for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail(`readiness.boundaries.${k} deve ser false.`);
 if (readiness.deferredClosure.version !== "0.40.0" || readiness.deferredClosure.currentPackage !== "10E") fail("readiness: fecho diferido deve ser 0.40.0/10E.");
@@ -87,7 +102,7 @@ for (const f of ["src/proteus/knowledge-ingestion.mjs", "src/proteus/editorial-w
 }
 
 // 5) Ingestão estrita (fixtures sintéticas).
-const okProp = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z" };
+const okProp = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"], limitations: [] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z" };
 const scope = { includedSources: ["src-in"], excludedSources: ["src-out"], canonicalIds: ["a10c1-001"], paginatedSources: [] };
 if (!validateProposal(okProp, scope).valid) fail("proposta válida deveria passar.");
 if (validateProposal({ ...okProp, sourceId: "src-out" }, scope).valid) fail("fonte excluída deveria falhar.");
@@ -116,6 +131,16 @@ if (acc.sourceVersion !== "ed-2019") fail("sourceVersion não foi preservado byt
 if (acc.state !== "draft") fail("item aceite não pode ir além de 'draft'.");
 const pres = preserveProposal({ ...okProp, quotation: "trecho", quotationRightsApproved: false });
 if ("quotation" in pres) fail("preservação não pode incluir citação sem direitos aprovados.");
+// PARIDADE PROFUNDA de ingestão: tipos inválidos que o schema recusa também têm de falhar no núcleo.
+if (validateProposal({ ...okProp, aiAssisted: "yes" }, scope).valid) fail("aiAssisted não-boolean deveria falhar.");
+if (validateProposal({ ...okProp, entityIds: [7] }, scope).valid) fail("entityIds não-strings deveria falhar.");
+if (validateProposal({ ...okProp, locator: { ...okProp.locator, id: 7 } }, scope).valid) fail("locator.id não-string deveria falhar.");
+if (validateProposal({ ...okProp, locator: { ...okProp.locator, notes: 7 } }, scope).valid) fail("locator.notes não-string deveria falhar.");
+if (validateProposal({ ...okProp, confidence: { ...okProp.confidence, foo: "bar" } }, scope).valid) fail("confidence com propriedade desconhecida deveria falhar.");
+if (validateProposal({ ...okProp, confidence: { level: "supported", reasons: ["r"] } }, scope).valid) fail("confidence sem limitations deveria falhar (obrigatório mesmo []).");
+if (validateProposal({ ...okProp, confidence: { level: "supported", reasons: ["r"], limitations: [7] } }, scope).valid) fail("confidence.limitations não-strings deveria falhar.");
+if (validateProposal({ ...okProp, confidence: { level: "supported", reasons: [7], limitations: [] } }, scope).valid) fail("confidence.reasons não-strings deveria falhar.");
+if (validateProposal({ ...okProp, locator: { ...okProp.locator, pageStart: 0 } }, scope).valid) fail("locator.pageStart<1 deveria falhar.");
 
 // 6) Revisão editorial: bancada revisável + gates.
 const A = read("data/proteus/knowledge-assertions.json");
@@ -173,6 +198,9 @@ const raUnknown = validateRightsAssessment({ assertionId: "a", copyright: dim("a
 if (raUnknown.effective.consent !== "deny" || raUnknown.rightsCompatible !== false) fail("'unknown' deve comportar-se como 'deny'.");
 if (validateRightsAssessment({ assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("allow") }).valid !== false) fail("apiExposure:allow deve tornar a avaliação INVÁLIDA neste pacote.");
 if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "2026-08-11", foo: 1 }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("propriedade desconhecida numa dimensão deveria falhar.");
+// tipos das dimensões validados mesmo em deny/unknown (paridade profunda).
+if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "deny", basis: 123 }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("basis não-string (deny) deveria falhar.");
+if (validateRightsAssessment({ assertionId: "a", copyright: { decision: "unknown", evidence: 123 }, consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") }).valid) fail("evidence não-string (unknown) deveria falhar.");
 if (canPublishInThisPackage({ status: "approved" }, {}).allowed !== false) fail("publicação deve estar bloqueada no 10E.");
 // auditoria: motivo/ISO/decisionRefs/entityType-enum/propriedades desconhecidas
 if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", decisionRefs: [] }).valid) fail("auditoria sem motivo deveria falhar.");
@@ -182,6 +210,11 @@ if (buildAuditEvent({ id: "e", entityType: "desconhecido", entityId: "a", action
 if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [], foo: 1 }).valid) fail("propriedade de auditoria desconhecida deveria falhar.");
 if (!buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "revisão proposta", decisionRefs: [] }).valid) fail("auditoria mínima válida (decisionRefs=[]) deveria passar.");
 if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "email alguem@example.invalid", decisionRefs: [] }).valid) fail("auditoria com contacto deveria falhar.");
+// PARIDADE PROFUNDA de auditoria: tipos inválidos têm de falhar.
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: 7, actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [] }).valid) fail("action numérico deveria falhar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [], fromState: 7 }).valid) fail("fromState numérico deveria falhar.");
+if (buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [""] }).valid) fail("decisionRefs com string vazia deveria falhar.");
+if (buildAuditEvent({ id: 7, entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [] }).valid) fail("id numérico deveria falhar.");
 
 // 7) Não-regressão objetiva.
 const cat = read("public/data/proteus-catalog-public.json");

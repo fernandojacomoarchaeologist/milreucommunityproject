@@ -13,7 +13,7 @@
       "locator": { "id": "syn-loc-bad", "sourceId": "work-teichner-2006-de-lo-romano-a-lo-arabe", "locatorType": "whole_resource", "accessedAt": "2026-08-11" },
       "quotation": "trecho literal sintético",
       "quotationRightsApproved": false,
-      "confidence": { "level": "limited", "reasons": ["exemplo sintético"] },
+      "confidence": { "level": "limited", "reasons": ["exemplo sintético"], "limitations": [] },
       "proposedBy": "synthetic-operator",
       "proposedAt": "2026-08-11T00:00:00Z"
     }

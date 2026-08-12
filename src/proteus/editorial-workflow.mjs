@@ -25,6 +25,7 @@ export const LOCATOR_PRESERVE_KEYS = ["id", "sourceId", "locatorType", "pageStar
 
 const ACTION_TARGET = { return_to_draft: "draft", request_changes: "draft", approve: "approved", reject: "withdrawn" };
 const isNonEmpty = (v) => typeof v === "string" && v.trim() !== "";
+const isStr = (v) => typeof v === "string";
 const ISO_8601 = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
 const isISO = (v) => typeof v === "string" && ISO_8601.test(v);
 const unknownKeys = (obj, allowed) => (obj && typeof obj === "object" ? Object.keys(obj).filter((k) => !allowed.includes(k)) : []);
@@ -124,6 +125,8 @@ export function validateRightsAssessment(assessment = {}) {
     const d = assessment[dim];
     if (!d || typeof d !== "object" || !RIGHTS_DECISIONS.includes(d.decision)) { errors.push(`dimensão de direitos inválida ou ausente: ${dim}`); effective[dim] = "deny"; continue; }
     for (const k of unknownKeys(d, RIGHTS_DIMENSION_KEYS)) errors.push(`propriedade desconhecida em ${dim}: ${k}`);
+    // Tipos alinhados ao schema em TODAS as decisões (inclusive deny/unknown): strings quando presentes.
+    for (const f of ["basis", "evidence", "responsible", "notes"]) if (d[f] !== undefined && !isStr(d[f])) errors.push(`${dim}: ${f} tem de ser string`);
     if (d.date !== undefined && !isISO(d.date)) errors.push(`${dim}: data tem de ser ISO 8601`);
     if (d.decision === "allow" && !(isNonEmpty(d.basis) && isNonEmpty(d.evidence) && isNonEmpty(d.responsible) && isISO(d.date))) errors.push(`'allow' em ${dim} exige fundamento, evidência, responsável e data (ISO)`);
     effective[dim] = d.decision === "unknown" ? "deny" : d.decision;
@@ -166,8 +169,11 @@ export function buildAuditEvent(input = {}) {
   if (!input || typeof input !== "object") return { valid: false, errors: ["evento inválido"], event: null };
   for (const k of unknownKeys(input, AUDIT_KEYS)) errors.push(`propriedade de auditoria desconhecida: ${k}`);
   const { id, entityType, entityId, action, fromState, toState, actorId, at, reason, decisionRefs } = input;
-  for (const [k, v] of Object.entries({ id, entityType, entityId, action, actorId })) if (!isNonEmpty(String(v ?? ""))) errors.push(`campo de auditoria em falta: ${k}`);
+  // IDs/tipo/ação/actor têm de ser strings NÃO vazias (rejeita numéricos e vazios, sem coerção).
+  for (const [k, v] of Object.entries({ id, entityType, entityId, action, actorId })) if (!isNonEmpty(v)) errors.push(`campo de auditoria em falta ou de tipo inválido (string não vazia): ${k}`);
   if (!AUDIT_ENTITY_TYPES.includes(entityType)) errors.push(`entityType fora do enum: ${entityType}`);
+  // fromState/toState só podem ser string ou null.
+  for (const [k, v] of Object.entries({ fromState, toState })) if (v !== undefined && v !== null && !isStr(v)) errors.push(`${k} tem de ser string ou null`);
   if (!isISO(at)) errors.push("instante de auditoria (at) tem de ser ISO 8601 válido");
   if (!isNonEmpty(reason)) errors.push("motivo (reason) obrigatório e não vazio");
   if (!(Array.isArray(decisionRefs) && decisionRefs.every((r) => isNonEmpty(r)))) errors.push("decisionRefs obrigatório (array de referências não vazias, mesmo que [])");

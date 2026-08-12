@@ -12,7 +12,7 @@ import { validateProposal, validateBatch, validateBatchHeader, detectDuplicates,
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const scope = { includedSources: ["src-in"], excludedSources: ["src-out"], canonicalIds: ["a10c1-001"], paginatedSources: [] };
-const ok = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z" };
+const ok = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"], limitations: [] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z" };
 
 test("proposta válida passa e permanece 'draft'", () => {
   const r = validateProposal(ok, scope);
@@ -82,6 +82,30 @@ test("preservação integral de proveniência na pré-visualização de itens ac
   assert.equal(a.state, "draft");
   // não muta o original
   assert.equal(rich.state, undefined);
+});
+
+test("paridade profunda: tipos inválidos dos campos opcionais falham (schema recusa-os)", () => {
+  assert.equal(validateProposal({ ...ok, aiAssisted: "yes" }, scope).valid, false, "aiAssisted não-boolean");
+  assert.equal(validateProposal({ ...ok, entityIds: [7] }, scope).valid, false, "entityIds não-strings");
+  assert.equal(validateProposal({ ...ok, quotationRightsApproved: "sim" }, scope).valid, false, "quotationRightsApproved não-boolean");
+  assert.equal(validateProposal({ ...ok, hash: 7 }, scope).valid, false, "hash não-string");
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, id: 7 } }, scope).valid, false, "locator.id não-string");
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, notes: 7 } }, scope).valid, false, "locator.notes não-string");
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, pageStart: 0 } }, scope).valid, false, "locator.pageStart<1");
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, pageStart: 1.5 } }, scope).valid, false, "locator.pageStart não-inteiro");
+});
+
+test("confiança COMPLETA e estrita: limitations obrigatória, tipos e sem propriedades desconhecidas", () => {
+  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: ["r"] } }, scope).valid, false, "sem limitations");
+  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: ["r"], limitations: [] } }, scope).valid, true, "com limitations vazia");
+  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: ["r"], limitations: [7] } }, scope).valid, false, "limitations não-strings");
+  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: [7], limitations: [] } }, scope).valid, false, "reasons não-strings");
+  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: ["r"], limitations: [], foo: "bar" } }, scope).valid, false, "propriedade desconhecida em confidence");
+  // confiança preservada integralmente e sem mutação.
+  const rich = { ...ok, confidence: { level: "supported", reasons: ["a", "b"], limitations: ["c"] } };
+  const prev = buildIngestionPreview({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [rich] }, scope);
+  assert.deepEqual(prev.accepted[0].confidence, rich.confidence);
+  assert.equal(rich.confidence.limitations.length, 1, "sem mutação do original");
 });
 
 test("sourceVersion: opcional, string não vazia quando presente, preservado byte-a-byte", () => {

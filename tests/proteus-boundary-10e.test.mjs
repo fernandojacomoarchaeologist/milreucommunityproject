@@ -109,6 +109,118 @@ test("paridade contrato↔núcleo: ingestão, auditoria, direitos e bancada alin
   for (const f of ["pageStart", "pageEnd", "url", "accessedAt", "notes"]) assert.ok(rwi.properties.evidenceLocators.items.properties[f], `localizador schema: ${f}`);
 });
 
+// Validador mínimo de JSON Schema (subconjunto usado pelos contratos 10E): type, enum, const,
+// required, properties, additionalProperties:false, items, minLength/maxLength, minItems, minimum,
+// pattern, $ref (#/$defs), allOf, if/then/else e schema booleano. Autossuficiente (zero dependências).
+function schemaErrors(schema, data, root) {
+  if (schema === true) return [];
+  if (schema === false) return ["schema:false"];
+  if (schema.$ref) return schemaErrors(schema.$ref.replace(/^#\//, "").split("/").reduce((o, k) => o[k], root), data, root);
+  const e = [];
+  const typeOK = (t) => t === "object" ? (data !== null && typeof data === "object" && !Array.isArray(data))
+    : t === "array" ? Array.isArray(data) : t === "string" ? typeof data === "string"
+    : t === "integer" ? Number.isInteger(data) : t === "number" ? typeof data === "number"
+    : t === "boolean" ? typeof data === "boolean" : t === "null" ? data === null : false;
+  if (schema.type !== undefined && !(Array.isArray(schema.type) ? schema.type : [schema.type]).some(typeOK)) e.push(`tipo ${JSON.stringify(schema.type)}`);
+  if (schema.enum !== undefined && !schema.enum.some((v) => JSON.stringify(v) === JSON.stringify(data))) e.push("enum");
+  if (schema.const !== undefined && JSON.stringify(schema.const) !== JSON.stringify(data)) e.push("const");
+  if (typeof data === "string") {
+    if (schema.minLength !== undefined && data.length < schema.minLength) e.push("minLength");
+    if (schema.maxLength !== undefined && data.length > schema.maxLength) e.push("maxLength");
+    if (schema.pattern !== undefined && !new RegExp(schema.pattern).test(data)) e.push("pattern");
+  }
+  if (typeof data === "number" && schema.minimum !== undefined && data < schema.minimum) e.push("minimum");
+  if (Array.isArray(data)) {
+    if (schema.minItems !== undefined && data.length < schema.minItems) e.push("minItems");
+    if (schema.items) for (const it of data) e.push(...schemaErrors(schema.items, it, root));
+  }
+  if (data !== null && typeof data === "object" && !Array.isArray(data)) {
+    for (const r of schema.required || []) if (!(r in data)) e.push(`obrigatório: ${r}`);
+    const props = schema.properties || {};
+    for (const [k, v] of Object.entries(data)) {
+      if (props[k]) e.push(...schemaErrors(props[k], v, root));
+      else if (schema.additionalProperties === false) e.push(`adicional: ${k}`);
+      else if (schema.additionalProperties && typeof schema.additionalProperties === "object") e.push(...schemaErrors(schema.additionalProperties, v, root));
+    }
+  }
+  for (const s of schema.allOf || []) e.push(...schemaErrors(s, data, root));
+  if (schema.if !== undefined) {
+    const condOK = schemaErrors(schema.if, data, root).length === 0;
+    if (condOK && schema.then !== undefined) e.push(...schemaErrors(schema.then, data, root));
+    if (!condOK && schema.else !== undefined) e.push(...schemaErrors(schema.else, data, root));
+  }
+  return e;
+}
+
+test("o validador mínimo de schema deteta invalidez (não é trivialmente permissivo)", () => {
+  const ing = read("contracts/10e/ingestion-proposal.schema.json");
+  assert.ok(schemaErrors(ing, {}, ing).length > 0, "lote vazio deve ser inválido");
+  const rights = read("contracts/10e/rights-assessment.schema.json");
+  const dim = (d) => ({ decision: d, basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" });
+  const raAllow = { assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("allow") };
+  assert.ok(schemaErrors(rights, raAllow, rights).length > 0, "apiExposure:allow deve ser inválido no schema");
+  assert.ok(schemaErrors(rights, { ...raAllow, apiExposure: { decision: "allow", basis: "b" } }, rights).length > 0, "allow incompleto inválido");
+  const audit = read("contracts/10e/audit-event.schema.json");
+  assert.ok(schemaErrors(audit, { id: "e", entityType: "assertion", entityId: "a", action: 7, actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [] }, audit).length > 0, "action numérico inválido");
+});
+
+test("INVARIÁVEL DE SEGURANÇA: se o núcleo devolve valid:true, a estrutura é válida no contrato estático", async () => {
+  const KI = await import("../src/proteus/knowledge-ingestion.mjs");
+  const EW = await import("../src/proteus/editorial-workflow.mjs");
+  const ingSchema = read("contracts/10e/ingestion-proposal.schema.json");
+  const rightsSchema = read("contracts/10e/rights-assessment.schema.json");
+  const auditSchema = read("contracts/10e/audit-event.schema.json");
+
+  // (a) Ingestão — cada proposta candidata: se o LOTE é aceite pelo núcleo, tem de validar no schema.
+  const scope = { includedSources: ["src-in"], excludedSources: ["src-out"], canonicalIds: ["a10c1-001"], paginatedSources: [] };
+  const L = (extra = {}) => ({ id: "l", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11", ...extra });
+  const P = (o) => ({ id: "p", text: "t", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: L(), confidence: { level: "supported", reasons: ["r"], limitations: [] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", ...o });
+  const candidates = [
+    P({}),
+    P({ sourceVersion: "2.ª ed. 2019" }),
+    P({ entityIds: ["e1", "e2"] }),
+    P({ aiAssisted: true, transformation: "paraphrase", tool: "t", toolVersion: "1", hash: "sha256:x" }),
+    P({ quotation: "trecho", quotationRightsApproved: true, locator: L({ quotation: "trecho", quotationRightsApproved: true }) }),
+    P({ locator: L({ locatorType: "page", pageStart: 42, label: "PDF 42" }) }),
+    P({ locator: L({ locatorType: "url_snapshot", url: "https://exemplo.invalid/x", notes: "volátil" }) }),
+    P({ confidence: { level: "limited", reasons: ["a", "b"], limitations: ["c"] } }),
+    // núcleo-inválidas (devem ser ignoradas pela invariável; não asseguram nada no schema):
+    P({ aiAssisted: "yes" }), P({ entityIds: [7] }), P({ locator: L({ id: 7 }) }), P({ confidence: { level: "supported", reasons: ["r"] } }),
+    P({ sourceId: "src-out" }), P({ id: "a10c1-001" }),
+  ];
+  let coreValidCount = 0;
+  for (const c of candidates) {
+    const batch = { batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [c] };
+    if (KI.validateBatch(batch, scope).valid) {
+      coreValidCount++;
+      assert.deepEqual(schemaErrors(ingSchema, batch, ingSchema), [], `ingestão núcleo-válida tem de validar no schema: ${JSON.stringify(c)}`);
+    }
+  }
+  assert.ok(coreValidCount >= 8, `esperadas >=8 propostas núcleo-válidas, obtidas ${coreValidCount}`);
+
+  // (b) Direitos — cada avaliação núcleo-válida tem de validar no schema.
+  const dim = (d, x = {}) => ({ decision: d, ...x });
+  const full = { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" };
+  const rightsCandidates = [
+    { assertionId: "a", copyright: full, consent: full, license: full, thirdPartyMaterial: full, apiExposure: dim("deny") },
+    { assertionId: "a", copyright: dim("deny"), consent: dim("unknown"), license: dim("deny", { notes: "n" }), thirdPartyMaterial: dim("deny", { basis: "b" }), apiExposure: dim("deny") },
+    { assertionId: "a", copyright: full, consent: dim("deny"), license: full, thirdPartyMaterial: full, apiExposure: dim("unknown") },
+    // núcleo-inválidas:
+    { assertionId: "a", copyright: full, consent: full, license: full, thirdPartyMaterial: full, apiExposure: dim("allow", { basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" }) },
+    { assertionId: "a", copyright: dim("deny", { basis: 123 }), consent: full, license: full, thirdPartyMaterial: full, apiExposure: dim("deny") },
+  ];
+  let rc = 0;
+  for (const r of rightsCandidates) if (EW.validateRightsAssessment(r).valid) { rc++; assert.deepEqual(schemaErrors(rightsSchema, r, rightsSchema), [], `direitos núcleo-válidos têm de validar no schema: ${JSON.stringify(r)}`); }
+  assert.ok(rc >= 3, `esperadas >=3 avaliações núcleo-válidas, obtidas ${rc}`);
+
+  // (c) Auditoria — cada evento núcleo-válido tem de validar no schema.
+  const A = (o) => ({ id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [], ...o });
+  const auditCandidates = [A({}), A({ fromState: "in_review", toState: "approved" }), A({ fromState: null, toState: null }), A({ decisionRefs: ["ref-1"] }), A({ action: 7 }), A({ id: 7 }), A({ decisionRefs: [""] })];
+  let ac = 0;
+  for (const ev of auditCandidates) { const r = EW.buildAuditEvent(ev); if (r.valid) { ac++; assert.deepEqual(schemaErrors(auditSchema, r.event, auditSchema), [], `auditoria núcleo-válida tem de validar no schema: ${JSON.stringify(ev)}`); } }
+  assert.ok(ac >= 4, `esperados >=4 eventos núcleo-válidos, obtidos ${ac}`);
+});
+
 test("build-review-packet recusa escrita através de diretório-pai symlink", () => {
   const base = mkdtempSync(join(tmpdir(), "10e-symlink-"));
   try {
