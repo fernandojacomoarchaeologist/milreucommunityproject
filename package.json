@@ -1,6 +1,6 @@
 {
   "name": "milreu-community-project",
-  "version": "0.39.0",
+  "version": "0.40.0",
   "private": true,
   "description": "Infraestrutura, dados e Design System do Projeto Comunitário de Milreu.",
   "license": "SEE RIGHTS.md",
@@ -187,5 +187,5 @@
   "devDependencies": {
     "supabase": "2.109.1"
   },
-  "currentPackage": "10B"
+  "currentPackage": "10E"
 }

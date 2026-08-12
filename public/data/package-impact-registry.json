@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.39.0",
-  "currentPackage": "10D",
+  "version": "0.40.0",
+  "currentPackage": "10E",
   "surfaces": [
     {
       "code": "portal-home",
@@ -446,6 +446,12 @@
       "publicEffects": "none",
       "productionWrites": "disabled",
       "note": "Piloto de afirmações verificáveis sobre o modelo 10C, admitido após PROJECT GATE endurecido (base exata 1e6016e, sidecar) + public-git-content PASS. Dados editoriais repo-internos data/proteus/knowledge-{assertions,evidence-locators,review-queue,source-scope}.json: 16 afirmações in_review + 10 entidades draft + 16 localizadores (15 do artigo Hauschild 2008 com DUPLA PAGINAÇÃO PDF/artigo no label; 1 institucional bilheteira com URL+data+aviso de volatilidade). HD-01: CC BY 4.0 SÓ na camada original (terceiros preservados). HD-02: público em Git mas TODOS in_review — o snapshot SERVIDO public/data/proteus-knowledge-public.json permanece VAZIO (derivador só publica published). Modelo editorial PURO src/proteus/knowledge-review.mjs (filtros classe/fonte/estado/prioridade; transições exigem reviewerId humano, nunca fabricam, nunca publicam; índice não servido). Zero publicação automática; sem citações/OCR/embeddings/RAG/API/MCP; sem migrations/papéis/permissões; fontes ∈ 10B.1, excluídas não usadas. scripts/10c1/validate-10c1.mjs (version-agnostic) + validate:10c1; tests/proteus-pilot-10c1.test.mjs (11); 10c1-ci.yml. Preserva 10A/10B/10B.1/10C e GOV-01/02/02.1. LIMITAÇÕES: UI/persistência editorial servida depende da fundação Supabase futura (adaptador puro demonstrável nesta fase); BUMP DIFERIDO — mantém v0.38.0/currentPackage 10C (a cascata para 0.38.1/10C.1 toca ~186 ficheiros, ≥61 fora dos allowed_paths, e vai num PR de fecho de âmbito alargado). HD-03..07 pendentes (bloqueiam release/depósito/partilha, não a admissão). Predecessor GOV-02.1; sucessor 10D."
+    },
+    {
+      "package": "10E-CLOSURE",
+      "version": "0.40.0",
+      "currentPackage": "10E",
+      "note": "Fecho formal mecânico do 10E: bump 0.39.0/10D -> 0.40.0/10E; validadores de estado corrente passam a ler a fonte canónica (package.json/registo); pin legado package.json.currentPackage reconciliado para 10E (D-1 opção A); correção pública honesta de proteus-overview (D-2). Sem mudança funcional: 16 in_review, 10 draft, 3 registos 10E vazios, API 5x0, snapshot 0/0/0, Biblioteca 3/2/1, nenhum apiExposure:allow, sem 10F+. HD-03..07 permanecem PENDING-HUMAN."
     }
   ],
   "futurePackageRules": [
