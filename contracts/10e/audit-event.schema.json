@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu/contracts/10e/audit-event.schema.json",
+  "title": "Evento mínimo de auditoria editorial (10E)",
+  "description": "Sem texto integral, segredos, tokens, contactos ou notas privadas desnecessárias. Instante e IDs fornecidos pelo chamador. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "entityType", "entityId", "action", "actorId", "at", "decisionRefs"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "entityType": { "type": "string", "enum": ["assertion", "entity", "relation", "ingestion-proposal", "rights-assessment"] },
+    "entityId": { "type": "string", "minLength": 1 },
+    "action": { "type": "string", "minLength": 1 },
+    "fromState": { "type": ["string", "null"] },
+    "toState": { "type": ["string", "null"] },
+    "actorId": { "type": "string", "minLength": 1 },
+    "at": { "type": "string", "minLength": 1 },
+    "reason": { "type": ["string", "null"] },
+    "decisionRefs": { "type": "array", "items": { "type": "string" } }
+  }
+}

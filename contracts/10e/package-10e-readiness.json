@@ -1,0 +1,60 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "package": "10E",
+  "title": "Ingestão Controlada e Revisão Editorial Humana",
+  "kind": "offline-foundation-repo-internal",
+  "base": { "commit": "3b24cb8", "version": "0.39.0", "currentPackage": "10D", "packagejsonCurrentPackageLegacy": "10B" },
+  "requires": {
+    "cleanTree": true,
+    "isolatedBranch": true,
+    "allPreviousValidatorsGreen": true,
+    "noConflictingPullRequest": true,
+    "humanHomologation": true
+  },
+  "boundaries": {
+    "servedEditorialUi": false,
+    "backend": false,
+    "supabase": false,
+    "migrations": false,
+    "rls": false,
+    "oauth": false,
+    "newRoles": false,
+    "newPermissions": false,
+    "network": false,
+    "pdfOrOcr": false,
+    "fullText": false,
+    "embeddings": false,
+    "rag": false,
+    "chat": false,
+    "askProteus": false,
+    "learning": false,
+    "mcp": false,
+    "automaticPublication": false,
+    "apiExposureAllow": false,
+    "editorialContentMutation": false,
+    "versionBump": false,
+    "externalRelease": false
+  },
+  "expectedPublicState": {
+    "library": { "works": 3, "authors": 2, "resources": 1 },
+    "api": { "works": 0, "authors": 0, "assertions": 0, "entities": 0, "relations": 0 },
+    "servedKnowledge": { "assertions": 0, "entities": 0, "relations": 0 },
+    "pilot": { "assertionsInReview": 16, "entitiesDraft": 10 },
+    "apiExposureAllowCount": 0,
+    "migrations": 42,
+    "modules": 26,
+    "permissions": 152
+  },
+  "emptyRegistries": ["data/proteus/knowledge-ingestion-inbox.json", "data/proteus/knowledge-review-decisions.json", "data/proteus/knowledge-editorial-audit.json"],
+  "invariants": {
+    "everyProposalStartsDraft": true,
+    "humanGatedReview": true,
+    "unknownRightsBehavesAsDeny": true,
+    "noFabricatedReviewer": true,
+    "auditHasNoSensitiveContent": true,
+    "reviewPacketExactlySixteen": true
+  },
+  "humanPending": ["HD-03", "HD-04", "HD-05", "HD-06", "HD-07"],
+  "deferredClosure": { "version": "0.40.0", "currentPackage": "10E", "policy": "separate-package-after-merge-and-human-homologation" },
+  "delivery": { "pullRequest": true, "automaticMerge": false, "humanHomologationRequired": true }
+}

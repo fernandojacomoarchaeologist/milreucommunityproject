@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu/contracts/10e/rights-assessment.schema.json",
+  "title": "Avaliação de direitos multidimensional (10E)",
+  "description": "Cada dimensão é allow/deny/unknown com fundamento, evidência, responsável e data. 'unknown' comporta-se como 'deny'. 'apiExposure: allow' está proibido neste pacote. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assertionId", "copyright", "consent", "license", "thirdPartyMaterial", "apiExposure"],
+  "properties": {
+    "assertionId": { "type": "string", "minLength": 1 },
+    "copyright": { "$ref": "#/$defs/dimension" },
+    "consent": { "$ref": "#/$defs/dimension" },
+    "license": { "$ref": "#/$defs/dimension" },
+    "thirdPartyMaterial": { "$ref": "#/$defs/dimension" },
+    "apiExposure": { "$ref": "#/$defs/dimension" }
+  },
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["allow", "deny", "unknown"] },
+        "basis": { "type": "string" },
+        "evidence": { "type": "string" },
+        "responsible": { "type": "string" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu/contracts/10e/review-work-item.schema.json",
+  "title": "Item de trabalho editorial (10E)",
+  "description": "Um item do pacote de revisão determinístico. Repo-interno, não servido. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assertionId", "epistemicClass", "state", "priority", "timeSensitive", "pendingChecks", "evidenceLocators", "relatedEntities", "reviewer", "decision"],
+  "properties": {
+    "assertionId": { "type": "string", "minLength": 1 },
+    "epistemicClass": { "type": "string", "enum": ["fact_claim", "interpretation", "hypothesis", "memory_account", "inference", "uncertainty_statement"] },
+    "state": { "type": "string", "enum": ["draft", "in_review", "approved", "published", "superseded", "withdrawn"] },
+    "confidenceLevel": { "type": ["string", "null"], "enum": ["insufficient", "limited", "supported", "well_supported", null] },
+    "priority": { "type": "string", "enum": ["normal", "high", "time_sensitive"] },
+    "timeSensitive": { "type": "boolean" },
+    "pendingChecks": { "type": "array", "items": { "type": "string" } },
+    "evidenceLocators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "sourceId", "locatorType"],
+        "properties": {
+          "id": { "type": "string" },
+          "sourceId": { "type": "string" },
+          "locatorType": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "relatedEntities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "preferredLabel", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "preferredLabel": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      }
+    },
+    "limitationPreserved": { "type": "boolean" },
+    "reviewer": { "type": "null" },
+    "decision": { "type": "null" }
+  }
+}
