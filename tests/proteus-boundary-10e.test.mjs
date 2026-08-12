@@ -221,6 +221,65 @@ test("INVARIÁVEL DE SEGURANÇA: se o núcleo devolve valid:true, a estrutura é
   assert.ok(ac >= 4, `esperados >=4 eventos núcleo-válidos, obtidos ${ac}`);
 });
 
+// Invariantes estruturais de surfaces (espelham validate-context-ledger + validate-10e), aplicados
+// em MEMÓRIA a cópias mutadas — sem tocar nos dados canónicos.
+function surfacesErrors(surfaces) {
+  const e = [];
+  if (!Array.isArray(surfaces)) return ["surfaces não é array"];
+  const seen = new Set();
+  for (const item of surfaces) {
+    if (typeof item.code !== "string" || item.code.trim() === "") e.push("code vazio/ausente");
+    else if (seen.has(item.code)) e.push(`code duplicado: ${item.code}`);
+    else seen.add(item.code);
+  }
+  return e;
+}
+function closure10eEntryErrors(surfaces) {
+  const CODE = "proteus-controlled-ingestion-editorial-review-10e";
+  const m = surfaces.filter((s) => s.code === CODE);
+  const e = [];
+  if (m.length !== 1) return [`ocorrências de ${CODE}: ${m.length}`];
+  const x = m[0];
+  if (x.package !== "10E") e.push("package");
+  if (x.series !== "10 — Experiência Proteus") e.push("series");
+  if (x.module !== null) e.push("module");
+  if (!Array.isArray(x.routes) || x.routes.length !== 0) e.push("routes");
+  if (x.publicEffects !== "none") e.push("publicEffects");
+  if (x.productionWrites !== "disabled") e.push("productionWrites");
+  if ("version" in x || "currentPackage" in x) e.push("propriedade interna proibida");
+  if (typeof x.note !== "string" || x.note.trim() === "") e.push("note vazia");
+  return e;
+}
+
+test("registo real: surfaces com code não-vazio e único; entrada 10E conforme o schema", () => {
+  const reg = read("public/data/package-impact-registry.json");
+  assert.equal(reg.surfaces.length, 42);
+  assert.deepEqual(surfacesErrors(reg.surfaces), []);
+  assert.deepEqual(closure10eEntryErrors(reg.surfaces), []);
+  const closure = reg.surfaces.find((s) => s.code === "proteus-controlled-ingestion-editorial-review-10e");
+  assert.ok(!("version" in closure) && !("currentPackage" in closure));
+});
+
+test("NEGATIVO: mutações sintéticas do registo são bloqueadas (em memória)", () => {
+  const base = read("public/data/package-impact-registry.json");
+  const clone = () => JSON.parse(JSON.stringify(base));
+  const idx = base.surfaces.findIndex((s) => s.code === "proteus-controlled-ingestion-editorial-review-10e");
+  // a) entrada sem code
+  let r = clone(); delete r.surfaces[idx].code; assert.ok(surfacesErrors(r.surfaces).length > 0, "sem code");
+  // b) code vazio
+  r = clone(); r.surfaces[idx].code = "   "; assert.ok(surfacesErrors(r.surfaces).length > 0, "code vazio");
+  // c) code duplicado
+  r = clone(); r.surfaces[idx].code = base.surfaces[0].code; assert.ok(surfacesErrors(r.surfaces).length > 0, "code duplicado");
+  // d) version interno
+  r = clone(); r.surfaces[idx].version = "0.40.0"; assert.ok(closure10eEntryErrors(r.surfaces).includes("propriedade interna proibida"));
+  // e) currentPackage interno
+  r = clone(); r.surfaces[idx].currentPackage = "10E"; assert.ok(closure10eEntryErrors(r.surfaces).includes("propriedade interna proibida"));
+  // f) productionWrites != disabled
+  r = clone(); r.surfaces[idx].productionWrites = "enabled"; assert.ok(closure10eEntryErrors(r.surfaces).includes("productionWrites"));
+  // g) publicEffects != none
+  r = clone(); r.surfaces[idx].publicEffects = "some"; assert.ok(closure10eEntryErrors(r.surfaces).includes("publicEffects"));
+});
+
 test("build-review-packet recusa escrita através de diretório-pai symlink", () => {
   const base = mkdtempSync(join(tmpdir(), "10e-symlink-"));
   try {

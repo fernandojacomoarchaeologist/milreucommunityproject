@@ -35,6 +35,21 @@ if (rd10e.base.commit !== "3b24cb8" || rd10e.base.version !== "0.39.0" || rd10e.
 if (registry.currentPackage !== rd10e.deferredClosure.currentPackage) fail("estado canónico atual deve ser o alvo formal do fecho (10E).");
 if (registry.version !== rd10e.deferredClosure.version) fail("versão canónica atual deve ser o alvo formal do fecho (0.40.0).");
 if (pkg.currentPackage !== registry.currentPackage) fail("package.json.currentPackage deve coincidir com o registo canónico (fonte única).");
+// Entrada de impacto do fecho 10E: conforme o schema canónico da Série 10; sem propriedades internas de estado.
+{
+  const CODE = "proteus-controlled-ingestion-editorial-review-10e";
+  const matches = (registry.surfaces || []).filter((s) => s.code === CODE);
+  if (matches.length !== 1) fail(`entrada de surfaces '${CODE}' deve ocorrer exatamente uma vez (encontradas ${matches.length}).`);
+  const e = matches[0];
+  if (e.package !== "10E") fail("entrada 10E: package deve ser '10E'.");
+  if (e.series !== "10 — Experiência Proteus") fail("entrada 10E: series deve ser '10 — Experiência Proteus'.");
+  if (e.module !== null) fail("entrada 10E: module deve ser null.");
+  if (!Array.isArray(e.routes) || e.routes.length !== 0) fail("entrada 10E: routes deve ser um array vazio.");
+  if (e.publicEffects !== "none") fail("entrada 10E: publicEffects deve ser 'none'.");
+  if (e.productionWrites !== "disabled") fail("entrada 10E: productionWrites deve ser 'disabled'.");
+  if ("version" in e || "currentPackage" in e) fail("entrada 10E: não pode conter as propriedades internas 'version' nem 'currentPackage'.");
+  if (typeof e.note !== "string" || e.note.trim() === "") fail("entrada 10E: note não pode estar vazia.");
+}
 
 // 1) Scripts declarados e ligados.
 for (const s of ["proteus:preview-ingestion", "proteus:review-packet", "validate:10e"]) if (!pkg.scripts[s]) fail(`script em falta: ${s}.`);
