@@ -18,8 +18,12 @@ inventa revisor. Distribuição atual: **8 `high`, 7 `normal`, 1 `time_sensitive
 
 ## Gates humanos (núcleo `src/proteus/editorial-workflow.mjs`)
 
-- decisões que alterem estado exigem `reviewerId` humano não vazio, `decidedAt` do operador,
-  ação, comentário/justificação e `checks` estruturados (`validateReviewRequest`);
+- decisões que alterem estado exigem `reviewerId` humano não vazio, `decidedAt` **ISO 8601** do
+  operador, ação, comentário/justificação e **`checks` como objeto** `{evidence, rights,
+  epistemicClass, publicSafety}` — todos `true` (arrays arbitrários são rejeitados); e
+  `conflictOfInterest` **explícito** (`validateReviewRequest`);
+- **`conflictOfInterest:true` bloqueia a própria transição editorial**, não apenas a publicação;
+- **autoaprovação bloqueada** quando `reviewerId === assertion.proposedBy`;
 - o código **valida e propõe** uma transição (`proposeTransition`), mas **não a aplica** aos 16
   registos neste PR; os registos de decisões e auditoria começam vazios;
 - ausência de decisão, comentário ou revisor **nunca** equivale a aprovação;

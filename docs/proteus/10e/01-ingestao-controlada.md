@@ -24,5 +24,14 @@ canónicos (`knowledge-assertions.json`, entidades, relações, catálogo, snaps
 node scripts/10e/preview-ingestion.mjs <lote.json>   # ou: npm run proteus:preview-ingestion -- <lote.json>
 ```
 
+- **validação estrita do contrato** (`ingestion-proposal.schema.json`): campos obrigatórios do
+  lote e da proposta, `additionalProperties:false` (propriedades desconhecidas rejeitadas), idioma
+  pelo enum, timestamps **ISO 8601**, `locator.sourceId === proposal.sourceId`, e — quando
+  `aiAssisted:true` — `transformation`, `tool` e `toolVersion` obrigatórios;
+- **sem aceitação parcial:** um lote com cabeçalho inválido rejeita todos os candidatos;
+- **preservação sem mutação** dos itens aceites (texto, idioma, classe, fonte, localizador,
+  confiança, transformação, ferramenta/versão, `aiAssisted`, hash, proponente e instante); citação
+  textual só é preservada com direitos aprovados.
+
 Pré-visualização **pura**: sem `--apply`, sem escrita, limite pequeno de tamanho, recusa de
 symlink/traversal/formato não-JSON. O núcleo é `src/proteus/knowledge-ingestion.mjs`.
