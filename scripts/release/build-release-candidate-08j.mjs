@@ -3,6 +3,7 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 const read=path=>JSON.parse(readFileSync(path,"utf8"));
 const safe=path=>existsSync(path)?read(path):null;
 const pkg=read("package.json");
+const registry=read("public/data/package-impact-registry.json");
 const model=read("public/data/collaborative-release-candidate-model.json");
 const modules=read("public/data/collaborative-modules.json");
 const roles=read("public/data/collaborative-roles-permissions.json");
@@ -10,7 +11,7 @@ const deployment=read("public/data/deployment-readiness.json");
 const e2e=safe("reports/e2e-result.json");
 const accessibility=safe("reports/accessibility-result.json");
 const technicalChecks=[
- {code:"version",passed:pkg.version==="0.39.0",detail:pkg.version},
+ {code:"version",passed:pkg.version===registry.version,detail:pkg.version},
  {code:"modules",passed:modules.modules.length===26&&modules.modules.every(item=>item.status==="active"),detail:`${modules.modules.length} ativos`},
  {code:"permissions",passed:roles.permissions.length===152,detail:`${roles.permissions.length} preservadas`},
  {code:"e2e-browser",passed:e2e?.passed===true,detail:e2e?`${e2e.passedCount}/${e2e.total}`:"não executado"},
