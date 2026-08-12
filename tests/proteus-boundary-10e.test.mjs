@@ -8,7 +8,10 @@
  */
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync, mkdtempSync, mkdirSync, symlinkSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { execFileSync } from "node:child_process";
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
@@ -76,4 +79,24 @@ test("42 migrations, 26 módulos, 152 permissões preservados", () => {
   assert.equal(readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql")).length, 42);
   assert.equal(read("public/data/collaborative-modules.json").modules.length, 26);
   assert.equal(read("public/data/collaborative-roles-permissions.json").permissions.length, 152);
+});
+
+test("build-review-packet recusa escrita através de diretório-pai symlink", () => {
+  const base = mkdtempSync(join(tmpdir(), "10e-symlink-"));
+  try {
+    const realDir = join(base, "real");
+    mkdirSync(realDir);
+    const linkDir = join(base, "link");
+    symlinkSync(realDir, linkDir);
+    let blocked = false;
+    try {
+      execFileSync(process.execPath, ["scripts/10e/build-review-packet.mjs", "--output", join(linkDir, "packet.json")], { stdio: "pipe" });
+    } catch {
+      blocked = true;
+    }
+    assert.ok(blocked, "escrita através de diretório-pai symlink deve ser recusada");
+    assert.equal(existsSync(join(realDir, "packet.json")), false, "nada deve ter sido escrito através do symlink");
+  } finally {
+    rmSync(base, { recursive: true, force: true });
+  }
 });

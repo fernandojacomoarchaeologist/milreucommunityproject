@@ -4,5 +4,6 @@
   "decidedAt": "2026-08-11T10:00:00Z",
   "action": "approve",
   "comment": "Revisão sintética de exemplo: evidência, classe epistémica e direitos verificados. Não aplicada aos dados canónicos.",
-  "checks": ["evidence", "epistemicClass", "rights", "publicSafety"]
+  "checks": { "evidence": true, "rights": true, "epistemicClass": true, "publicSafety": true },
+  "conflictOfInterest": false
 }

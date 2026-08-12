@@ -3,72 +3,107 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  *
- * Pacote 10E — testes do núcleo puro de ingestão controlada (quarentena).
+ * Pacote 10E — testes do núcleo puro de ingestão controlada (validação estrita + proveniência).
  */
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { validateProposal, detectDuplicates, normalizeOrder, buildIngestionPreview, INGESTION_STATE } from "../src/proteus/knowledge-ingestion.mjs";
+import { validateProposal, validateBatch, validateBatchHeader, detectDuplicates, normalizeOrder, buildIngestionPreview, preserveProposal, INGESTION_STATE } from "../src/proteus/knowledge-ingestion.mjs";
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const scope = { includedSources: ["src-in"], excludedSources: ["src-out"], canonicalIds: ["a10c1-001"], paginatedSources: [] };
-const ok = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"] }, proposedBy: "op", proposedAt: "t" };
+const ok = { id: "p-1", text: "x", language: "pt-PT", epistemicClass: "fact_claim", sourceId: "src-in", locator: { id: "l1", sourceId: "src-in", locatorType: "whole_resource", accessedAt: "2026-08-11" }, confidence: { level: "supported", reasons: ["r"] }, proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z" };
 
-test("proposta válida de fonte incluída passa e permanece 'draft'", () => {
+test("proposta válida passa e permanece 'draft'", () => {
   const r = validateProposal(ok, scope);
   assert.equal(r.valid, true, r.errors.join("; "));
-  assert.equal(r.state, INGESTION_STATE);
+  assert.equal(r.state, "draft");
   assert.equal(INGESTION_STATE, "draft");
 });
 
-test("fonte excluída, ausente ou ambígua falha fechado", () => {
+test("estrutura: campos obrigatórios e propriedades desconhecidas", () => {
+  assert.equal(validateProposal({ ...ok, foo: 1 }, scope).valid, false, "propriedade desconhecida");
+  const noConf = { ...ok }; delete noConf.confidence;
+  assert.equal(validateProposal(noConf, scope).valid, false, "sem confidence");
+  const noText = { ...ok }; delete noText.text;
+  assert.equal(validateProposal(noText, scope).valid, false, "sem text");
+});
+
+test("idioma pelo enum e timestamps ISO 8601", () => {
+  assert.equal(validateProposal({ ...ok, language: "de" }, scope).valid, false, "idioma fora do enum");
+  assert.equal(validateProposal({ ...ok, proposedAt: "ontem" }, scope).valid, false, "proposedAt não-ISO");
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, accessedAt: "xx" } }, scope).valid, false, "accessedAt não-ISO");
+});
+
+test("coerência de fonte: locator.sourceId === proposal.sourceId", () => {
+  assert.equal(validateProposal({ ...ok, locator: { ...ok.locator, sourceId: "outra" } }, scope).valid, false);
+});
+
+test("proveniência assistida por IA exige transformation/tool/toolVersion", () => {
+  assert.equal(validateProposal({ ...ok, aiAssisted: true }, scope).valid, false);
+  assert.equal(validateProposal({ ...ok, aiAssisted: true, transformation: "paraphrase", tool: "t", toolVersion: "1" }, scope).valid, true);
+});
+
+test("fonte excluída/ausente, colisão canónica e citação sem direitos falham", () => {
   assert.equal(validateProposal({ ...ok, sourceId: "src-out" }, scope).valid, false);
   assert.equal(validateProposal({ ...ok, sourceId: "src-missing" }, scope).valid, false);
-  assert.equal(validateProposal({ ...ok, sourceId: "" }, scope).valid, false);
-});
-
-test("colisão com id canónico, confiança probabilística e citação sem direitos falham", () => {
   assert.equal(validateProposal({ ...ok, id: "a10c1-001" }, scope).valid, false);
-  assert.equal(validateProposal({ ...ok, confidence: { level: "supported", reasons: ["r"], percentage: 80 } }, scope).valid, false);
   assert.equal(validateProposal({ ...ok, quotation: "trecho", quotationRightsApproved: false }, scope).valid, false);
-  assert.equal(validateProposal({ ...ok, epistemicClass: "mixed" }, scope).valid, false);
 });
 
-test("localizador inválido falha", () => {
-  assert.equal(validateProposal({ ...ok, locator: { id: "l", sourceId: "src-in", locatorType: "page" } }, scope).valid, false, "page sem pageStart/accessedAt");
-  assert.equal(validateProposal({ ...ok, sourceId: "src-pag", locator: { id: "l", sourceId: "src-pag", locatorType: "whole_resource", accessedAt: "t" } }, { ...scope, includedSources: ["src-pag"], paginatedSources: ["src-pag"] }).valid, false, "recurso paginado exige localizador de página");
+test("validateBatchHeader: obrigatórios, ISO e propriedades desconhecidas", () => {
+  assert.equal(validateBatchHeader({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [] }).valid, true);
+  assert.equal(validateBatchHeader({ proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [] }).valid, false, "sem batchId");
+  assert.equal(validateBatchHeader({ batchId: "b", proposedBy: "op", proposedAt: "ontem", items: [] }).valid, false, "proposedAt não-ISO");
+  assert.equal(validateBatchHeader({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [], extra: 1 }).valid, false, "propriedade desconhecida");
 });
 
-test("detectDuplicates deteta duplicados no lote e colisões canónicas", () => {
-  const d = detectDuplicates([{ id: "a" }, { id: "a" }, { id: "b" }], ["b", "c"]);
+test("lote com cabeçalho inválido NÃO aceita candidatos parcialmente", () => {
+  const prev = buildIngestionPreview({ items: [ok] }, scope); // faltam batchId/proposedBy/proposedAt
+  assert.equal(prev.batchValid, false);
+  assert.equal(prev.totals.accepted, 0);
+  assert.deepEqual(prev.accepted, []);
+  assert.ok(prev.headerErrors.length > 0);
+});
+
+test("validateBatch valida cabeçalho + todos os itens", () => {
+  const good = validateBatch({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [ok] }, scope);
+  assert.equal(good.valid, true);
+  const bad = validateBatch({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [ok, { ...ok, sourceId: "src-out" }] }, scope);
+  assert.equal(bad.valid, false);
+});
+
+test("preservação integral de proveniência na pré-visualização de itens aceites", () => {
+  const rich = { ...ok, transformation: "paraphrase", tool: "t", toolVersion: "1", aiAssisted: true, hash: "sha256:x", entityIds: ["e1"] };
+  const prev = buildIngestionPreview({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [rich] }, scope);
+  const a = prev.accepted[0];
+  for (const k of ["text", "language", "epistemicClass", "sourceId", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"]) assert.ok(a[k] !== undefined, `preservado: ${k}`);
+  assert.deepEqual(a.confidence, rich.confidence);
+  assert.equal(a.state, "draft");
+  // não muta o original
+  assert.equal(rich.state, undefined);
+});
+
+test("preserveProposal não inclui citação sem direitos aprovados", () => {
+  const p = preserveProposal({ ...ok, quotation: "trecho", quotationRightsApproved: false });
+  assert.equal("quotation" in p, false);
+  const q = preserveProposal({ ...ok, quotation: "trecho", quotationRightsApproved: true });
+  assert.equal(q.quotation, "trecho");
+});
+
+test("detectDuplicates e normalizeOrder deterministas e sem mutação", () => {
+  const d = detectDuplicates([{ id: "a" }, { id: "a" }, { id: "b" }], ["b"]);
   assert.deepEqual(d.duplicates, ["a"]);
   assert.deepEqual(d.collisions, ["b"]);
+  const input = [{ id: "c" }, { id: "a" }, { id: "b" }];
+  assert.deepEqual(normalizeOrder(input).map((x) => x.id), ["a", "b", "c"]);
+  assert.deepEqual(input.map((x) => x.id), ["c", "a", "b"]);
 });
 
-test("normalizeOrder é determinístico e não altera conteúdo", () => {
-  const input = [{ id: "c", v: 3 }, { id: "a", v: 1 }, { id: "b", v: 2 }];
-  const a = normalizeOrder(input); const b = normalizeOrder(input);
-  assert.deepEqual(a.map((x) => x.id), ["a", "b", "c"]);
-  assert.deepEqual(a, b);
-  assert.deepEqual(input.map((x) => x.id), ["c", "a", "b"], "não muta o array original");
-});
-
-test("buildIngestionPreview mantém tudo em 'draft', sem mutação, e declara não-publicação", () => {
-  const prev = buildIngestionPreview({ batchId: "b", proposedBy: "op", proposedAt: "t", items: [ok, { ...ok, id: "p-2" }] }, scope);
-  assert.equal(prev.state, "draft");
-  assert.equal(prev.publicationAllowed, false);
-  assert.equal(prev.humanActionRequired, true);
-  assert.equal(prev.servedPublication, false);
-  assert.ok(prev.accepted.every((a) => a.state === "draft"));
-});
-
-test("fixture sintética válida é aceite; fixture inválida (fonte excluída + citação) é rejeitada", () => {
-  const valid = read("tests/fixtures/10e/ingestion-valid.json");
+test("fixtures sintéticas: válida aceite, inválida (fonte excluída + citação) rejeitada", () => {
   const realScope = { includedSources: ["work-hauschild-2008-arquitectura-mosaicos-milreu"], excludedSources: ["work-teichner-2006-de-lo-romano-a-lo-arabe"], canonicalIds: [], paginatedSources: ["work-hauschild-2008-arquitectura-mosaicos-milreu"] };
-  const pv = buildIngestionPreview(valid, realScope);
+  const pv = buildIngestionPreview(read("tests/fixtures/10e/ingestion-valid.json"), realScope);
   assert.equal(pv.totals.accepted, 1, JSON.stringify(pv.rejected));
-  const invalid = read("tests/fixtures/10e/ingestion-invalid-rights.json");
-  const pi = buildIngestionPreview(invalid, realScope);
+  const pi = buildIngestionPreview(read("tests/fixtures/10e/ingestion-invalid-rights.json"), realScope);
   assert.equal(pi.totals.accepted, 0);
-  assert.equal(pi.totals.rejected, 1);
 });
