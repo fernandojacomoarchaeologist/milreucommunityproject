@@ -81,6 +81,34 @@ test("42 migrations, 26 módulos, 152 permissões preservados", () => {
   assert.equal(read("public/data/collaborative-roles-permissions.json").permissions.length, 152);
 });
 
+test("paridade contrato↔núcleo: ingestão, auditoria, direitos e bancada alinhados", async () => {
+  const ing = read("contracts/10e/ingestion-proposal.schema.json");
+  const rwi = read("contracts/10e/review-work-item.schema.json");
+  const audit = read("contracts/10e/audit-event.schema.json");
+  const rights = read("contracts/10e/rights-assessment.schema.json");
+  const KI = await import("../src/proteus/knowledge-ingestion.mjs");
+  const EW = await import("../src/proteus/editorial-workflow.mjs");
+  const same = (a, b) => assert.deepEqual([...a].sort(), [...b].sort());
+  // ingestão
+  same(ing.required, KI.BATCH_REQUIRED);
+  same(ing.properties.items.items.required, KI.PROPOSAL_REQUIRED);
+  same(Object.keys(ing.properties.items.items.properties), KI.PROPOSAL_KEYS);
+  same(Object.keys(ing.properties.items.items.properties.locator.properties), KI.LOCATOR_KEYS);
+  assert.ok(KI.PROPOSAL_KEYS.includes("sourceVersion"), "sourceVersion na allowlist do núcleo");
+  // auditoria
+  same(audit.required, EW.AUDIT_REQUIRED);
+  same(Object.keys(audit.properties), EW.AUDIT_KEYS);
+  same(audit.properties.entityType.enum, EW.AUDIT_ENTITY_TYPES);
+  // direitos
+  same(Object.keys(rights.$defs.dimension.properties), EW.RIGHTS_DIMENSION_KEYS);
+  for (const d of EW.RIGHTS_DIMENSIONS) assert.ok(rights.required.includes(d));
+  assert.equal(rights.additionalProperties, false);
+  assert.equal(rights.$defs.dimension.additionalProperties, false);
+  // bancada
+  assert.ok(rwi.properties.confidence.required.includes("limitations"));
+  for (const f of ["pageStart", "pageEnd", "url", "accessedAt", "notes"]) assert.ok(rwi.properties.evidenceLocators.items.properties[f], `localizador schema: ${f}`);
+});
+
 test("build-review-packet recusa escrita através de diretório-pai symlink", () => {
   const base = mkdtempSync(join(tmpdir(), "10e-symlink-"));
   try {

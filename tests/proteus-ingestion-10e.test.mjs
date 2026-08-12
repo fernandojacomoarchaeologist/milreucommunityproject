@@ -84,6 +84,14 @@ test("preservação integral de proveniência na pré-visualização de itens ac
   assert.equal(rich.state, undefined);
 });
 
+test("sourceVersion: opcional, string não vazia quando presente, preservado byte-a-byte", () => {
+  assert.equal(validateProposal({ ...ok, sourceVersion: "" }, scope).valid, false, "vazio falha");
+  assert.equal(validateProposal({ ...ok, sourceVersion: "2.ª ed. 2019" }, scope).valid, true);
+  assert.equal(validateProposal(ok, scope).valid, true, "ausência é válida (opcional)");
+  const prev = buildIngestionPreview({ batchId: "b", proposedBy: "op", proposedAt: "2026-08-11T00:00:00Z", items: [{ ...ok, sourceVersion: "ed-2019" }] }, scope);
+  assert.equal(prev.accepted[0].sourceVersion, "ed-2019");
+});
+
 test("preserveProposal não inclui citação sem direitos aprovados", () => {
   const p = preserveProposal({ ...ok, quotation: "trecho", quotationRightsApproved: false });
   assert.equal("quotation" in p, false);

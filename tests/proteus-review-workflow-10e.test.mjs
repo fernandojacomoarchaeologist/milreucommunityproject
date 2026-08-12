@@ -59,11 +59,31 @@ test("validateReviewRequest exige reviewerId, ISO, comentário, checks-objeto e 
   assert.equal(validateReviewRequest(read("tests/fixtures/10e/review-without-human.json")).valid, false);
 });
 
-test("conflito de interesse e autoaprovação bloqueiam a TRANSIÇÃO editorial", () => {
+test("integridade, conflito de interesse e autoaprovação bloqueiam a TRANSIÇÃO editorial", () => {
   const a = A.assertions.find((x) => x.status === "in_review");
   assert.equal(proposeTransition(a, { ...goodReq, assertionId: a.id }).allowed, true);
+  assert.equal(proposeTransition(a, { ...goodReq, assertionId: "outro-id" }).allowed, false, "assertionId divergente bloqueia");
   assert.equal(proposeTransition(a, { ...goodReq, assertionId: a.id, conflictOfInterest: true }).allowed, false);
   assert.equal(proposeTransition({ ...a, proposedBy: "human-1" }, { ...goodReq, assertionId: a.id, reviewerId: "human-1" }).allowed, false);
+});
+
+test("confiança da bancada inclui limitações iguais aos dados canónicos", () => {
+  const p = buildReviewPacket(args);
+  const byId = new Map(A.assertions.map((a) => [a.id, a]));
+  for (const it of p.items) {
+    assert.ok(Array.isArray(it.confidence.limitations), `limitations array em ${it.assertionId}`);
+    assert.deepEqual(it.confidence.limitations, byId.get(it.assertionId).confidence.limitations || []);
+  }
+});
+
+test("localizadores autossuficientes: Hauschild paginado, a10c1-016 url+accessedAt+nota, sem citação", () => {
+  const p = buildReviewPacket(args);
+  const it009 = p.items.find((i) => i.assertionId === "a10c1-009");
+  assert.ok(it009.evidenceLocators.some((l) => Number.isInteger(l.pageStart) && typeof l.label === "string"), "paginação estruturada");
+  const loc016 = p.items.find((i) => i.assertionId === "a10c1-016").evidenceLocators[0];
+  assert.equal(loc016.locatorType, "url_snapshot");
+  assert.ok(loc016.url && loc016.accessedAt && loc016.notes, "url, accessedAt e nota de volatilidade");
+  for (const it of p.items) for (const l of it.evidenceLocators) assert.ok(!("quotation" in l) && !("quotationRightsApproved" in l));
 });
 
 test("proposeTransition valida mas NÃO aplica; aprovação nunca publica", () => {
@@ -74,20 +94,34 @@ test("proposeTransition valida mas NÃO aplica; aprovação nunca publica", () =
   assert.equal(proposeTransition(a, { ...goodReq, assertionId: a.id, action: "publish" }).allowed, false);
 });
 
-test("direitos fail-closed (unknown=deny); publicação e apiExposure bloqueados", () => {
-  const full = (d) => ({ decision: d, basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" });
-  const allAllow = Object.fromEntries(RIGHTS_DIMENSIONS.map((k) => [k, full("allow")]));
-  const r = validateRightsAssessment({ assertionId: "a", ...allAllow });
-  assert.equal(r.rightsCompatible, true);
+test("direitos estritamente fail-closed (schema): assertionId, propriedades, ISO, allow completo, unknown=deny, apiExposure inválido", () => {
+  const dim = (d) => ({ decision: d, basis: "b", evidence: "e", responsible: "r", date: "2026-08-11" });
+  const base = { assertionId: "a", copyright: dim("allow"), consent: dim("allow"), license: dim("allow"), thirdPartyMaterial: dim("allow"), apiExposure: dim("deny") };
+  const r = validateRightsAssessment(base);
+  assert.equal(r.valid, true, r.errors.join("; "));
+  assert.equal(r.rightsCompatible, false, "apiExposure deny => não compatível");
   assert.equal(r.apiExposureBlockedByPackage, true);
-  assert.equal(validateRightsAssessment({ assertionId: "a", ...allAllow, consent: { decision: "unknown" } }).effective.consent, "deny");
+  assert.equal(validateRightsAssessment({ ...base, assertionId: "" }).valid, false, "sem assertionId");
+  assert.equal(validateRightsAssessment({ ...base, extra: 1 }).valid, false, "propriedade desconhecida no topo");
+  assert.equal(validateRightsAssessment({ ...base, copyright: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "d" } }).valid, false, "data não-ISO");
+  assert.equal(validateRightsAssessment({ ...base, copyright: { decision: "allow", basis: "b" } }).valid, false, "allow incompleto");
+  assert.equal(validateRightsAssessment({ ...base, license: { decision: "allow", basis: "b", evidence: "e", responsible: "r", date: "2026-08-11", foo: 1 } }).valid, false, "propriedade desconhecida na dimensão");
+  assert.equal(validateRightsAssessment({ ...base, consent: { decision: "unknown" } }).effective.consent, "deny");
+  assert.equal(validateRightsAssessment({ ...base, apiExposure: dim("allow") }).valid, false, "apiExposure:allow torna a avaliação inválida");
+});
+
+test("publicação bloqueada no 10E", () => {
   assert.equal(canPublishInThisPackage({ status: "approved" }, { review: { decision: "approve", checks: { evidence: true, rights: true, epistemicClass: true, publicSafety: true } }, rightsCompatible: true, evidence: [{ id: "l", sourceId: "s", locatorType: "whole_resource", accessedAt: "t" }] }).allowed, false);
 });
 
-test("auditoria: motivo obrigatório, instante ISO, decisionRefs válido, sem conteúdo sensível", () => {
-  assert.equal(buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z" }).valid, false, "sem motivo");
-  assert.equal(buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "amanhã", reason: "r" }).valid, false, "instante não-ISO");
-  assert.equal(buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "r", decisionRefs: [""] }).valid, false, "decisionRefs vazio");
-  assert.equal(buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "revisão proposta", decisionRefs: ["d1"] }).valid, true);
-  assert.equal(buildAuditEvent({ id: "e", entityType: "assertion", entityId: "a", action: "x", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "email alguem@example.invalid" }).valid, false, "contacto");
+test("auditoria alinhada ao schema: motivo/ISO/decisionRefs/entityType-enum/propriedades desconhecidas", () => {
+  const good = { id: "e", entityType: "assertion", entityId: "a", action: "propose", actorId: "op", at: "2026-08-12T00:00:00Z", reason: "revisão proposta", decisionRefs: [] };
+  assert.equal(buildAuditEvent(good).valid, true, "decisionRefs=[] é válido");
+  assert.equal(buildAuditEvent({ ...good, reason: undefined }).valid, false, "sem motivo");
+  assert.equal(buildAuditEvent({ ...good, at: "amanhã" }).valid, false, "instante não-ISO");
+  assert.equal(buildAuditEvent({ ...good, decisionRefs: undefined }).valid, false, "decisionRefs obrigatório");
+  assert.equal(buildAuditEvent({ ...good, decisionRefs: [""] }).valid, false, "decisionRefs vazio");
+  assert.equal(buildAuditEvent({ ...good, entityType: "desconhecido" }).valid, false, "entityType fora do enum");
+  assert.equal(buildAuditEvent({ ...good, foo: 1 }).valid, false, "propriedade desconhecida");
+  assert.equal(buildAuditEvent({ ...good, reason: "email alguem@example.invalid" }).valid, false, "contacto");
 });
