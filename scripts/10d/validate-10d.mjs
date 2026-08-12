@@ -50,8 +50,8 @@ for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail
 if (readiness.delivery.automaticMerge !== false) fail("readiness: sem merge automático.");
 // Fecho formal 10D atingido: o alvo de fecho diferido passa a coincidir com o estado canónico atual
 // (D-10D-CLOSE-03). Os campos base/thisPr do PR funcional são preservados como proveniência histórica.
-if (readiness.delivery.deferredClosureVersion !== pkg.version) fail("readiness: deferredClosureVersion deve igualar a versão canónica após o fecho.");
-if (readiness.delivery.deferredClosureCurrentPackage !== registry.currentPackage) fail("readiness: deferredClosureCurrentPackage deve igualar o pacote canónico do registo.");
+if (readiness.delivery.deferredClosureVersion !== "0.39.0") fail("readiness: deferredClosureVersion histórico do 10D deve permanecer 0.39.0.");
+if (readiness.delivery.deferredClosureCurrentPackage !== "10D") fail("readiness: deferredClosureCurrentPackage histórico do 10D deve permanecer 10D.");
 for (const c of Object.values(readiness.api.initialCounts)) if (c !== 0) fail("readiness: contagens iniciais da API devem ser 0.");
 
 // 3) Índice + coleções: válidos, VAZIOS e deterministas (regeneração byte-idêntica).

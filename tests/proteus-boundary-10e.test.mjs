@@ -67,12 +67,12 @@ test("nenhuma saída 10E aparece em public/", () => {
   assert.deepEqual(bad, []);
 });
 
-test("estado canónico permanece 0.39.0/10D com pin legado 10B", () => {
+test("estado canónico 0.40.0/10E; package.json.currentPackage alinhado ao registo", () => {
   const pkg = read("package.json"); const reg = read("public/data/package-impact-registry.json");
-  assert.equal(pkg.version, "0.39.0");
-  assert.equal(pkg.currentPackage, "10B");
-  assert.equal(reg.version, "0.39.0");
-  assert.equal(reg.currentPackage, "10D");
+  assert.equal(pkg.version, reg.version);
+  assert.equal(pkg.currentPackage, reg.currentPackage);
+  assert.equal(reg.version, "0.40.0");
+  assert.equal(reg.currentPackage, "10E");
 });
 
 test("42 migrations, 26 módulos, 152 permissões preservados", () => {

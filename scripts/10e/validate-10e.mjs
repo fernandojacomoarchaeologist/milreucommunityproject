@@ -30,8 +30,11 @@ const sameSet = (a, b) => a.length === b.length && [...a].sort().join("|") === [
 const pkg = read("package.json");
 const registry = read("public/data/package-impact-registry.json");
 if (pkg.version !== registry.version) fail(`package.json (${pkg.version}) e registo (${registry.version}) divergem.`);
-if (registry.currentPackage !== "10D") fail("registo canónico deve permanecer 10D neste PR funcional.");
-if (pkg.currentPackage !== "10B") fail("pin legado package.json.currentPackage deve permanecer '10B'.");
+const rd10e = read("contracts/10e/package-10e-readiness.json");
+if (rd10e.base.commit !== "3b24cb8" || rd10e.base.version !== "0.39.0" || rd10e.base.currentPackage !== "10D" || rd10e.base.packagejsonCurrentPackageLegacy !== "10B") fail("base histórica da implementação 10E não pode ser alterada (3b24cb8 / 0.39.0 / 10D / legado 10B).");
+if (registry.currentPackage !== rd10e.deferredClosure.currentPackage) fail("estado canónico atual deve ser o alvo formal do fecho (10E).");
+if (registry.version !== rd10e.deferredClosure.version) fail("versão canónica atual deve ser o alvo formal do fecho (0.40.0).");
+if (pkg.currentPackage !== registry.currentPackage) fail("package.json.currentPackage deve coincidir com o registo canónico (fonte única).");
 
 // 1) Scripts declarados e ligados.
 for (const s of ["proteus:preview-ingestion", "proteus:review-packet", "validate:10e"]) if (!pkg.scripts[s]) fail(`script em falta: ${s}.`);
@@ -237,7 +240,7 @@ for (const f of walk("public")) if (/knowledge-ingestion-inbox|knowledge-review-
 // 9) Predecessores preservados.
 for (const p of ["scripts/10d/validate-10d.mjs", "scripts/10c1/validate-10c1.mjs", "src/proteus/knowledge-model.mjs", "src/proteus/knowledge-review.mjs", "src/proteus/public-api.mjs"]) if (!existsSync(p)) fail(`predecessor removido: ${p}.`);
 
-console.log("Pacote 10E validado: contratos estritos alinhados ao núcleo; ingestão estrita (contrato/ISO/coerência de fonte/proveniência IA/sem aceitação parcial) e proveniência preservada; bancada revisável (texto/idioma/confiança/proponente/instante) determinística de 16 itens (a10c1-016 temporal); gates editoriais (checks-objeto, conflito e autoaprovação bloqueiam a transição); auditoria com motivo/ISO/decisionRefs; núcleos PUROS; não-regressão 3/2/1, 5×0, 0/0/0, 16 in_review, 0 apiExposure allow, 42/26/152; sem saída em public/. Estado canónico 0.39.0/10D (pin legado 10B).");
+console.log("Pacote 10E validado: contratos estritos alinhados ao núcleo; ingestão estrita (contrato/ISO/coerência de fonte/proveniência IA/sem aceitação parcial) e proveniência preservada; bancada revisável (texto/idioma/confiança/proponente/instante) determinística de 16 itens (a10c1-016 temporal); gates editoriais (checks-objeto, conflito e autoaprovação bloqueiam a transição); auditoria com motivo/ISO/decisionRefs; núcleos PUROS; não-regressão 3/2/1, 5×0, 0/0/0, 16 in_review, 0 apiExposure allow, 42/26/152; sem saída em public/. Estado canónico 0.40.0/10E (pin package.json.currentPackage alinhado ao registo).");
 
 function walk(dir) {
   const out = [];

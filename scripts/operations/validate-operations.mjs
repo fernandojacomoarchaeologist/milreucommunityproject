@@ -37,11 +37,11 @@ const retentionPlan=readFileSync("scripts/operations/generate-retention-plan.mjs
 const build=readFileSync("scripts/build.mjs","utf8");
 const smoke=readFileSync("scripts/smoke.mjs","utf8");
 
-if(pkg.version!=="0.39.0")throw new Error("Versão 08I incorreta.");
-for(const item of [model,retention,runtime,readiness,impact]){
+if(pkg.version!==impact.version)throw new Error("package.json e registo de impacto divergem.");
+for(const item of [model,retention,runtime,readiness]){
   if(item.version!=="0.39.0")throw new Error("Contrato 08I desatualizado.");
 }
-if(impact.currentPackage!=="10D")throw new Error("Registo de impacto não aponta para 09C.");
+if(impact.currentPackage!==pkg.currentPackage)throw new Error("registo de impacto e package.json divergem.");
 
 if(modules.length!==26||modules.some(item=>item.status!=="active"))throw new Error("08I deve manter 22 módulos ativos.");
 for(const code of ["system-administration","audit-governance","incident-continuity"]){

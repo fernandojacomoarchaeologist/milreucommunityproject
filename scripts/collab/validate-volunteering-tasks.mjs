@@ -17,7 +17,7 @@ const build=readFileSync("scripts/build.mjs","utf8");
 const migration=readFileSync("supabase/migrations/20260724080000_collaborative_volunteering_tasks.sql","utf8");
 const rpc=readFileSync("supabase/migrations/20260724080100_collaborative_volunteering_tasks_rpc.sql","utf8");
 
-if(pkg.version!=="0.39.0")throw new Error("Versão 08C incorreta.");
+if(pkg.version!==JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8")).version)throw new Error("package.json e registo de impacto divergem.");
 if(model.version!=="0.39.0"||model.categories.length<12)throw new Error("Modelo de tarefas incompleto.");
 for(const code of ["availability","tasks","task-management"]){const module=modules.find(item=>item.code===code);if(!module||module.status!=="active")throw new Error(`Módulo ativo ausente: ${code}`);}
 for(const permission of ["availability.self.manage","tasks.apply","tasks.progress","tasks.time-log","tasks.assign","tasks.verify","tasks.cancel","tasks.audit.view"]){if(!roles.permissions.includes(permission))throw new Error(`Permissão ausente: ${permission}`);}

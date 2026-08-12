@@ -22,7 +22,7 @@ const EXPECTED = "0.39.0";
 
 // 0) Versão
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 
 // 1) Dados editoriais repo-internos presentes (NÃO servidos)
 const recFile = "data/proteus/pilot-records.json";
