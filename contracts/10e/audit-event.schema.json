@@ -5,7 +5,7 @@
   "description": "Sem texto integral, segredos, tokens, contactos ou notas privadas desnecessárias. Instante e IDs fornecidos pelo chamador. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "entityType", "entityId", "action", "actorId", "at", "decisionRefs"],
+  "required": ["id", "entityType", "entityId", "action", "actorId", "at", "reason", "decisionRefs"],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
     "entityType": { "type": "string", "enum": ["assertion", "entity", "relation", "ingestion-proposal", "rights-assessment"] },
@@ -15,7 +15,7 @@
     "toState": { "type": ["string", "null"] },
     "actorId": { "type": "string", "minLength": 1 },
     "at": { "type": "string", "minLength": 1 },
-    "reason": { "type": ["string", "null"] },
+    "reason": { "type": "string", "minLength": 1 },
     "decisionRefs": { "type": "array", "items": { "type": "string" } }
   }
 }

@@ -23,6 +23,7 @@
           "epistemicClass": { "type": "string", "enum": ["fact_claim", "interpretation", "hypothesis", "memory_account", "inference", "uncertainty_statement"] },
           "status": { "type": "string", "const": "draft" },
           "sourceId": { "type": "string", "minLength": 1 },
+          "sourceVersion": { "type": "string", "minLength": 1 },
           "entityIds": { "type": "array", "items": { "type": "string" } },
           "locator": {
             "type": "object",

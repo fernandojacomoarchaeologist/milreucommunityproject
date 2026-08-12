@@ -7,20 +7,27 @@
  * publicação). Reutiliza `knowledge-model.mjs` e `knowledge-review.mjs` sem afrouxar as regras.
  * Não usa relógio nem aleatoriedade: instantes/IDs vêm do chamador. Valida e PROPÕE transições,
  * mas NÃO as aplica aos dados canónicos neste pacote. Bloqueia publicação e `apiExposure:allow`,
- * conflito de interesse e autoaprovação. Comportamento fail-closed enquanto a política editorial
- * definitiva estiver pendente de decisão humana.
+ * conflito de interesse e autoaprovação. Fail-closed enquanto a política editorial estiver pendente.
  */
 import { canTransition, canPublishAssertion } from "./knowledge-model.mjs";
 import { EDITORIAL_ACTIONS } from "./knowledge-review.mjs";
 
 export const RIGHTS_DIMENSIONS = ["copyright", "consent", "license", "thirdPartyMaterial", "apiExposure"];
 export const RIGHTS_DECISIONS = ["allow", "deny", "unknown"];
-// Verificações editoriais obrigatórias, alinhadas ao contrato 10C (canPublishAssertion).
+export const RIGHTS_DIMENSION_KEYS = ["decision", "basis", "evidence", "responsible", "date", "notes"];
 export const REVIEW_CHECKS = ["evidence", "rights", "epistemicClass", "publicSafety"];
+// Espelham `contracts/10e/audit-event.schema.json` (paridade validada por validate-10e.mjs).
+export const AUDIT_ENTITY_TYPES = ["assertion", "entity", "relation", "ingestion-proposal", "rights-assessment"];
+export const AUDIT_REQUIRED = ["id", "entityType", "entityId", "action", "actorId", "at", "reason", "decisionRefs"];
+export const AUDIT_KEYS = ["id", "entityType", "entityId", "action", "fromState", "toState", "actorId", "at", "reason", "decisionRefs"];
+// Campos aplicáveis do localizador preservados na bancada (nunca citação sem direitos).
+export const LOCATOR_PRESERVE_KEYS = ["id", "sourceId", "locatorType", "pageStart", "pageEnd", "label", "url", "accessedAt", "notes"];
+
 const ACTION_TARGET = { return_to_draft: "draft", request_changes: "draft", approve: "approved", reject: "withdrawn" };
 const isNonEmpty = (v) => typeof v === "string" && v.trim() !== "";
 const ISO_8601 = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
 const isISO = (v) => typeof v === "string" && ISO_8601.test(v);
+const unknownKeys = (obj, allowed) => (obj && typeof obj === "object" ? Object.keys(obj).filter((k) => !allowed.includes(k)) : []);
 const SENSITIVE = new RegExp([
   "fullText", "full_text", "bodyText", "body_text", "ocr",
   "-----BEGIN [A-Z ]*PRIVATE KE" + "Y-----",
@@ -29,9 +36,9 @@ const SENSITIVE = new RegExp([
   "@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
 ].join("|"), "i");
 
-// Constrói o pacote de revisão DETERMINÍSTICO. Repo-interno e NÃO servido. Cada item é revisável
-// sem cruzar outro ficheiro: inclui texto, idioma, confiança completa, proveniência, evidência,
-// entidades, prioridade, checks e condição temporal. Nunca inventa revisor/decisão.
+// Pacote de revisão DETERMINÍSTICO, repo-interno e NÃO servido. Cada item é autossuficiente:
+// texto, idioma, confiança COMPLETA (nível+razões+limitações), proveniência, localizadores
+// preservados (sem citação sem direitos), entidades, prioridade, checks e condição temporal.
 export function buildReviewPacket({ assertions = [], locators = [], entities = [], queue = [] } = {}) {
   const locById = new Map(locators.map((l) => [l.id, l]));
   const entById = new Map(entities.map((e) => [e.id, e]));
@@ -46,15 +53,20 @@ export function buildReviewPacket({ assertions = [], locators = [], entities = [
         language: a.language,
         epistemicClass: a.epistemicClass,
         state: a.status,
-        confidence: a.confidence ? { level: a.confidence.level, reasons: a.confidence.reasons || [] } : null,
+        confidence: a.confidence
+          ? { level: a.confidence.level, reasons: a.confidence.reasons || [], limitations: a.confidence.limitations || [] }
+          : null,
         proposedBy: a.proposedBy ?? null,
         createdAt: a.createdAt ?? null,
         priority: q.priority || "normal",
         timeSensitive: q.priority === "time_sensitive",
         pendingChecks: q.checks || [],
         temporalCondition: q.priority === "time_sensitive" ? (q.checks || []) : [],
-        evidenceLocators: (a.evidenceIds || []).map((id) => locById.get(id)).filter(Boolean)
-          .map((l) => ({ id: l.id, sourceId: l.sourceId, locatorType: l.locatorType, label: l.label })),
+        evidenceLocators: (a.evidenceIds || []).map((id) => locById.get(id)).filter(Boolean).map((l) => {
+          const out = {};
+          for (const k of LOCATOR_PRESERVE_KEYS) if (l[k] !== undefined && l[k] !== null) out[k] = l[k];
+          return out;
+        }),
         relatedEntities: (a.entityIds || []).map((id) => entById.get(id)).filter(Boolean)
           .map((e) => ({ id: e.id, type: e.type, preferredLabel: e.preferredLabel, status: e.status })),
         limitationPreserved: ["hypothesis", "uncertainty_statement"].includes(a.epistemicClass),
@@ -100,24 +112,34 @@ export function validateReviewRequest(request = {}) {
   return { valid: errors.length === 0, errors };
 }
 
-// Avaliação de direitos multidimensional, fail-closed. `unknown` comporta-se como `deny`.
+// Avaliação de direitos ESTRITAMENTE fail-closed, alinhada ao schema. `unknown` = `deny`.
+// `apiExposure.decision === "allow"` torna a avaliação INVÁLIDA neste pacote (não apenas bloqueada).
 export function validateRightsAssessment(assessment = {}) {
   const errors = [];
   const effective = {};
+  if (!assessment || typeof assessment !== "object" || Array.isArray(assessment)) return { valid: false, errors: ["avaliação de direitos inválida"], effective: {}, rightsCompatible: false, apiExposureBlockedByPackage: true };
+  if (!isNonEmpty(assessment.assertionId)) errors.push("assertionId obrigatório");
+  for (const k of unknownKeys(assessment, ["assertionId", ...RIGHTS_DIMENSIONS])) errors.push(`propriedade desconhecida na avaliação: ${k}`);
   for (const dim of RIGHTS_DIMENSIONS) {
     const d = assessment[dim];
-    if (!d || !RIGHTS_DECISIONS.includes(d.decision)) { errors.push(`dimensão de direitos inválida ou ausente: ${dim}`); effective[dim] = "deny"; continue; }
-    if (d.decision === "allow" && !(isNonEmpty(d.basis) && isNonEmpty(d.evidence) && isNonEmpty(d.responsible) && isNonEmpty(d.date))) errors.push(`'allow' em ${dim} exige fundamento, evidência, responsável e data`);
+    if (!d || typeof d !== "object" || !RIGHTS_DECISIONS.includes(d.decision)) { errors.push(`dimensão de direitos inválida ou ausente: ${dim}`); effective[dim] = "deny"; continue; }
+    for (const k of unknownKeys(d, RIGHTS_DIMENSION_KEYS)) errors.push(`propriedade desconhecida em ${dim}: ${k}`);
+    if (d.date !== undefined && !isISO(d.date)) errors.push(`${dim}: data tem de ser ISO 8601`);
+    if (d.decision === "allow" && !(isNonEmpty(d.basis) && isNonEmpty(d.evidence) && isNonEmpty(d.responsible) && isISO(d.date))) errors.push(`'allow' em ${dim} exige fundamento, evidência, responsável e data (ISO)`);
     effective[dim] = d.decision === "unknown" ? "deny" : d.decision;
   }
-  const rightsCompatible = RIGHTS_DIMENSIONS.every((dim) => effective[dim] === "allow") && errors.length === 0;
+  // apiExposure:allow está PROIBIDO neste pacote: torna a avaliação inválida.
+  if (assessment.apiExposure && assessment.apiExposure.decision === "allow") errors.push("apiExposure:allow está fora do âmbito do 10E: avaliação inválida");
+  const rightsCompatible = errors.length === 0 && RIGHTS_DIMENSIONS.every((dim) => effective[dim] === "allow");
   return { valid: errors.length === 0, errors, effective, rightsCompatible, apiExposureBlockedByPackage: true };
 }
 
-// Valida e PROPÕE uma transição, sem a aplicar. Bloqueia conflito de interesse e autoaprovação.
+// Valida e PROPÕE uma transição, sem a aplicar. Exige integridade (assertionId === assertion.id) e
+// bloqueia conflito de interesse e autoaprovação.
 export function proposeTransition(assertion = {}, request = {}) {
   const rr = validateReviewRequest(request);
   if (!rr.valid) return { allowed: false, applied: false, errors: rr.errors };
+  if (request.assertionId !== assertion.id) return { allowed: false, applied: false, errors: ["integridade: request.assertionId tem de coincidir com assertion.id"] };
   if (request.conflictOfInterest === true) return { allowed: false, applied: false, errors: ["conflito de interesse declarado bloqueia a transição editorial"] };
   if (isNonEmpty(assertion.proposedBy) && request.reviewerId === assertion.proposedBy) return { allowed: false, applied: false, errors: ["autoaprovação bloqueada: reviewerId não pode ser o proponente da afirmação"] };
   const target = ACTION_TARGET[request.action];
@@ -137,15 +159,18 @@ export function canPublishInThisPackage(assertion, context = {}) {
   return { allowed: false, reasons: ["publicação e apiExposure:allow estão fora do âmbito do 10E funcional", ...base.reasons], modelWouldAllow: base.allowed };
 }
 
-// Evento mínimo de auditoria. `reason` obrigatório e não vazio; `at` ISO válido; `decisionRefs`
-// validado (array de strings). Sem texto integral, segredos ou contactos.
+// Evento mínimo de auditoria, alinhado ao schema. `reason` obrigatório não vazio; `at` ISO;
+// `decisionRefs` obrigatório (mesmo `[]`); `entityType` no enum; propriedades desconhecidas rejeitadas.
 export function buildAuditEvent(input = {}) {
   const errors = [];
+  if (!input || typeof input !== "object") return { valid: false, errors: ["evento inválido"], event: null };
+  for (const k of unknownKeys(input, AUDIT_KEYS)) errors.push(`propriedade de auditoria desconhecida: ${k}`);
   const { id, entityType, entityId, action, fromState, toState, actorId, at, reason, decisionRefs } = input;
   for (const [k, v] of Object.entries({ id, entityType, entityId, action, actorId })) if (!isNonEmpty(String(v ?? ""))) errors.push(`campo de auditoria em falta: ${k}`);
+  if (!AUDIT_ENTITY_TYPES.includes(entityType)) errors.push(`entityType fora do enum: ${entityType}`);
   if (!isISO(at)) errors.push("instante de auditoria (at) tem de ser ISO 8601 válido");
   if (!isNonEmpty(reason)) errors.push("motivo (reason) obrigatório e não vazio");
-  if (decisionRefs !== undefined && !(Array.isArray(decisionRefs) && decisionRefs.every((r) => isNonEmpty(r)))) errors.push("decisionRefs tem de ser um array de referências não vazias");
+  if (!(Array.isArray(decisionRefs) && decisionRefs.every((r) => isNonEmpty(r)))) errors.push("decisionRefs obrigatório (array de referências não vazias, mesmo que [])");
   const event = { id, entityType, entityId, action, fromState: fromState ?? null, toState: toState ?? null, actorId, at, reason: reason ?? null, decisionRefs: Array.isArray(decisionRefs) ? decisionRefs : [] };
   if (SENSITIVE.test(JSON.stringify(event))) errors.push("evento de auditoria não pode conter texto integral, segredo ou contacto");
   return { valid: errors.length === 0, errors, event };

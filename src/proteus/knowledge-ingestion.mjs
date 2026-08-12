@@ -18,10 +18,10 @@ export const LANGS_ENUM = ["pt-PT", "en", "es", "fr"];
 export const BATCH_REQUIRED = ["batchId", "proposedBy", "proposedAt", "items"];
 export const BATCH_KEYS = ["batchId", "proposedBy", "proposedAt", "items"];
 export const PROPOSAL_REQUIRED = ["id", "text", "language", "epistemicClass", "sourceId", "locator", "confidence", "proposedBy", "proposedAt"];
-export const PROPOSAL_KEYS = ["id", "text", "language", "epistemicClass", "status", "sourceId", "entityIds", "locator", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "quotation", "quotationRightsApproved", "confidence", "proposedBy", "proposedAt"];
+export const PROPOSAL_KEYS = ["id", "text", "language", "epistemicClass", "status", "sourceId", "sourceVersion", "entityIds", "locator", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "quotation", "quotationRightsApproved", "confidence", "proposedBy", "proposedAt"];
 export const LOCATOR_KEYS = ["id", "sourceId", "locatorType", "pageStart", "pageEnd", "label", "url", "accessedAt", "quotation", "quotationRightsApproved", "notes"];
 // Campos de proveniência preservados na pré-visualização de itens aceites (sem mutação).
-export const PRESERVE_KEYS = ["id", "text", "language", "epistemicClass", "sourceId", "entityIds", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"];
+export const PRESERVE_KEYS = ["id", "text", "language", "epistemicClass", "sourceId", "sourceVersion", "entityIds", "locator", "confidence", "transformation", "tool", "toolVersion", "aiAssisted", "hash", "proposedBy", "proposedAt"];
 
 const isNonEmpty = (v) => typeof v === "string" && v.trim() !== "";
 const ISO_8601 = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
@@ -62,6 +62,8 @@ export function validateProposal(proposal, { includedSources = [], excludedSourc
   if (!isNonEmpty(proposal.sourceId)) errors.push("sourceId em falta");
   else if (excludedSources.includes(proposal.sourceId)) errors.push(`fonte excluída: ${proposal.sourceId}`);
   else if (!includedSources.includes(proposal.sourceId)) errors.push(`fonte não incluída ou ambígua: ${proposal.sourceId}`);
+  // Versão/edição da fonte: opcional; quando fornecida, string não vazia (não se inventa).
+  if (proposal.sourceVersion !== undefined && !isNonEmpty(proposal.sourceVersion)) errors.push("sourceVersion, quando presente, tem de ser uma string não vazia");
   // Classe epistémica.
   if (!EPISTEMIC_CLASSES.includes(proposal.epistemicClass)) errors.push(`classe epistémica inválida: ${proposal.epistemicClass}`);
   // Confiança nunca probabilística/percentual.

@@ -15,10 +15,11 @@
     "confidence": {
       "type": ["object", "null"],
       "additionalProperties": false,
-      "required": ["level", "reasons"],
+      "required": ["level", "reasons", "limitations"],
       "properties": {
         "level": { "type": "string", "enum": ["insufficient", "limited", "supported", "well_supported"] },
-        "reasons": { "type": "array", "items": { "type": "string" } }
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } }
       }
     },
     "proposedBy": { "type": ["string", "null"] },
@@ -37,7 +38,12 @@
           "id": { "type": "string" },
           "sourceId": { "type": "string" },
           "locatorType": { "type": "string" },
-          "label": { "type": "string" }
+          "pageStart": { "type": "integer" },
+          "pageEnd": { "type": "integer" },
+          "label": { "type": "string" },
+          "url": { "type": "string" },
+          "accessedAt": { "type": "string" },
+          "notes": { "type": "string" }
         }
       }
     },
