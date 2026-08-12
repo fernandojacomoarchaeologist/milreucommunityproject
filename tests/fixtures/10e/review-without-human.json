@@ -1,0 +1,7 @@
+{
+  "assertionId": "a10c1-001",
+  "decidedAt": "2026-08-11T10:00:00Z",
+  "action": "approve",
+  "comment": "Tentativa de aprovação sem reviewerId humano (deve ser bloqueada).",
+  "checks": ["evidence"]
+}
