@@ -1,0 +1,11 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "schema_version": 1,
+  "kind": "review-decisions",
+  "package": "10E",
+  "servedPublication": false,
+  "humanActionRequired": true,
+  "publicationAllowed": false,
+  "notice": "Registo repo-interno do 10E. NÃO é servido na aplicação, NÃO autoriza publicação e exige ação humana explícita. Começa vazio; nenhum revisor, direito ou evento é fabricado.",
+  "decisions": []
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu/contracts/10e/review-work-item.schema.json",
+  "title": "Item de trabalho editorial (10E)",
+  "description": "Um item do pacote de revisão determinístico, revisável sem cruzar outro ficheiro. Repo-interno, não servido. Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assertionId", "text", "language", "epistemicClass", "state", "confidence", "proposedBy", "createdAt", "priority", "timeSensitive", "pendingChecks", "temporalCondition", "evidenceLocators", "relatedEntities", "reviewer", "decision"],
+  "properties": {
+    "assertionId": { "type": "string", "minLength": 1 },
+    "text": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "enum": ["pt-PT", "en", "es", "fr"] },
+    "epistemicClass": { "type": "string", "enum": ["fact_claim", "interpretation", "hypothesis", "memory_account", "inference", "uncertainty_statement"] },
+    "state": { "type": "string", "enum": ["draft", "in_review", "approved", "published", "superseded", "withdrawn"] },
+    "confidence": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["level", "reasons", "limitations"],
+      "properties": {
+        "level": { "type": "string", "enum": ["insufficient", "limited", "supported", "well_supported"] },
+        "reasons": { "type": "array", "items": { "type": "string" } },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "proposedBy": { "type": ["string", "null"] },
+    "createdAt": { "type": ["string", "null"] },
+    "priority": { "type": "string", "enum": ["normal", "high", "time_sensitive"] },
+    "timeSensitive": { "type": "boolean" },
+    "pendingChecks": { "type": "array", "items": { "type": "string" } },
+    "temporalCondition": { "type": "array", "items": { "type": "string" } },
+    "evidenceLocators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "sourceId", "locatorType"],
+        "properties": {
+          "id": { "type": "string" },
+          "sourceId": { "type": "string" },
+          "locatorType": { "type": "string" },
+          "pageStart": { "type": "integer" },
+          "pageEnd": { "type": "integer" },
+          "label": { "type": "string" },
+          "url": { "type": "string" },
+          "accessedAt": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "relatedEntities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "preferredLabel", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "preferredLabel": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      }
+    },
+    "limitationPreserved": { "type": "boolean" },
+    "reviewer": { "type": "null" },
+    "decision": { "type": "null" }
+  }
+}

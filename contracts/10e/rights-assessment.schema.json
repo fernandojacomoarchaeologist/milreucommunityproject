@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://milreu/contracts/10e/rights-assessment.schema.json",
+  "title": "Avaliação de direitos multidimensional (10E)",
+  "description": "Cada dimensão é allow/deny/unknown com fundamento, evidência, responsável e data. 'unknown' comporta-se como 'deny'. 'decision: allow' exige fundamento, evidência, responsável e data (ISO) não vazios. 'apiExposure: allow' está proibido neste pacote (torna a avaliação inválida). Copyright © 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assertionId", "copyright", "consent", "license", "thirdPartyMaterial", "apiExposure"],
+  "properties": {
+    "assertionId": { "type": "string", "minLength": 1 },
+    "copyright": { "$ref": "#/$defs/dimension" },
+    "consent": { "$ref": "#/$defs/dimension" },
+    "license": { "$ref": "#/$defs/dimension" },
+    "thirdPartyMaterial": { "$ref": "#/$defs/dimension" },
+    "apiExposure": { "$ref": "#/$defs/dimension" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": ["apiExposure"],
+        "properties": { "apiExposure": { "required": ["decision"], "properties": { "decision": { "const": "allow" } } } }
+      },
+      "then": false
+    }
+  ],
+  "$defs": {
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["allow", "deny", "unknown"] },
+        "basis": { "type": "string" },
+        "evidence": { "type": "string" },
+        "responsible": { "type": "string" },
+        "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2}(\\.\\d+)?)?(Z|[+-]\\d{2}:\\d{2})?)?$" },
+        "notes": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["decision"], "properties": { "decision": { "const": "allow" } } },
+          "then": {
+            "required": ["basis", "evidence", "responsible", "date"],
+            "properties": {
+              "basis": { "minLength": 1 },
+              "evidence": { "minLength": 1 },
+              "responsible": { "minLength": 1 },
+              "date": { "minLength": 1 }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

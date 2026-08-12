@@ -1,0 +1,20 @@
+{
+  "batchId": "synthetic-batch-1",
+  "proposedBy": "synthetic-operator",
+  "proposedAt": "2026-08-11T00:00:00Z",
+  "items": [
+    {
+      "id": "syn-001",
+      "text": "Proposta sintética de exemplo (sem valor factual).",
+      "language": "pt-PT",
+      "epistemicClass": "interpretation",
+      "status": "draft",
+      "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu",
+      "locator": { "id": "syn-loc-001", "sourceId": "work-hauschild-2008-arquitectura-mosaicos-milreu", "locatorType": "page", "pageStart": 42, "label": "PDF 42 / artigo p. 42", "accessedAt": "2026-08-11" },
+      "transformation": "paraphrase",
+      "confidence": { "level": "limited", "reasons": ["exemplo sintético; não é uma afirmação real"], "limitations": ["exemplo sem valor factual"] },
+      "proposedBy": "synthetic-operator",
+      "proposedAt": "2026-08-11T00:00:00Z"
+    }
+  ]
+}
