@@ -3,7 +3,7 @@
   "package": "10A",
   "version": "0.39.0",
   "status": "foundation-documental",
-  "note": "Apresentação pública HONESTA da Experiência Proteus após o 10A: define propósito, públicos, classes de conhecimento, modelo de confiança e direitos, e o estado FUTURO das experiências. Nenhuma função (biblioteca, pesquisa, Pergunte ao Proteus, quizzes, API, MCP) está disponível — todas em preparação. Não há recursos externos catalogados nem conteúdo de obras: aguardam pacotes seguintes e decisões humanas.",
+  "note": "Apresentação pública HONESTA da Experiência Proteus após o 10A: define propósito, públicos, classes de conhecimento, modelo de confiança e direitos, e o estado das experiências. A Biblioteca pública (catálogo) e a API pública v1 (coleções vazias) já estão disponíveis; Pergunte ao Proteus, quizzes, chat e MCP permanecem em preparação. O conteúdo editorial aprovado aguarda pacotes seguintes e decisões humanas.",
   "purpose": "Infraestrutura pública de conhecimento sobre Milreu: uma fonte estruturada, verificável e viva, legível por pessoas, motores de pesquisa e agentes de IA. Complementa o Portal e o Museu de Memórias; não os substitui.",
   "audiences": [
     "visitantes presenciais e virtuais",
@@ -42,6 +42,6 @@
     "status": "future-not-implemented",
     "note": "O futuro MCP será um adaptador público, remoto e somente de leitura sobre a API de conhecimento; nunca acede diretamente ao banco, ao armazenamento privado nem a documentos restritos. Não está implementado no 10A."
   },
-  "availabilityNotice": "Nesta fase, a Experiência Proteus é uma fundação de política e governação. Nenhuma consulta, biblioteca, API ou chat está disponível.",
+  "availabilityNotice": "Nesta fase: a Biblioteca pública está disponível com um catálogo de 3 obras, 2 autores e 1 recurso; a API pública v1 está disponível com cinco coleções atualmente vazias; o snapshot editorial público é 0/0/0. As experiências guiadas — Pergunte ao Proteus, aprendizagem e quizzes, chat e MCP — e o conhecimento editorial aprovado continuam indisponíveis.",
   "openDecisionsRef": "docs/proteus/10a/OPEN_DECISIONS_10A.md"
 }

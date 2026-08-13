@@ -21,7 +21,7 @@ const EXPECTED = "0.39.0";
 
 // 1) Versão + readiness + preservação
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 const readiness = read("contracts/09f/package-09f-readiness.json");
 if (readiness.productionActivation !== false) fail("readiness: produção deve permanecer bloqueada.");
 if (readiness.proteusInScope !== false) fail("readiness: Proteus fora de escopo.");

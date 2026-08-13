@@ -17,7 +17,7 @@ const EXPECTED_ASSET = "public/media/home/inquerito-2026-carousel.png";
 const EXPECTED_SHA = "ea58885f4c16dbcb524544ce80de46e93bb21bb594b68be6a991ec71f6ccebba";
 
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED_VERSION) fail("versão do pacote incorreta.");
+if (pkg.version !== JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8")).version) fail("package.json e registo de impacto divergem.");
 
 // 1. Contrato pós-merge do carrossel
 const model = read("public/data/carousel-post-merge-model.json");

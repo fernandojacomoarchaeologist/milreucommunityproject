@@ -19,7 +19,7 @@ const EXPECTED = "0.39.0";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 const readiness = read("contracts/10b/package-10b-readiness.json");
 if (readiness.limits.mcp !== false || readiness.limits.publicApi !== false) fail("readiness: sem API pública nem MCP.");
 if (readiness.limits.newPermissions !== 0) fail("readiness: 0 permissões novas.");

@@ -18,7 +18,7 @@ const EXPECTED = "0.39.0";
 
 // 1) Versão
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 
 // 2) Contratos
 const trans = read("contracts/09c1/application-transition-model.json");

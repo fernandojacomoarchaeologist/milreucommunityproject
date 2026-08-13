@@ -23,7 +23,7 @@ const EXPECTED = "0.39.0";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 const readiness = read("contracts/10c/package-10c-readiness.json");
 for (const [k, v] of Object.entries(readiness.boundaries)) if (v !== false) fail(`readiness.boundaries.${k} deve ser false.`);
 if (readiness.delivery.automaticMerge !== false) fail("readiness: sem merge automático.");

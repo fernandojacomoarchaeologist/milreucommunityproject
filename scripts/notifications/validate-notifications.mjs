@@ -34,7 +34,7 @@ const testPayload=readFileSync("scripts/notifications/generate-test-payload.mjs"
 const build=readFileSync("scripts/build.mjs","utf8");
 const smoke=readFileSync("scripts/smoke.mjs","utf8");
 
-if(pkg.version!=="0.39.0")throw new Error("Versão 08H incorreta.");
+if(pkg.version!==impact.version)throw new Error("package.json e registo de impacto divergem.");
 if(model.version!=="0.39.0"||templates.version!=="0.39.0"||runtime.version!=="0.39.0")throw new Error("Contratos 08H desatualizados.");
 if(model.eventTypes.length<20||new Set(model.eventTypes.map(item=>item.code)).size!==model.eventTypes.length)throw new Error("O modelo deve preservar os 20 eventos do 08H e manter códigos únicos.");
 if(model.categories.length<10)throw new Error("Categorias base do 08H incompletas.");
@@ -232,7 +232,7 @@ for(const asset of [
 ]){
   if(!smoke.includes(asset))throw new Error(`Smoke 08H incompleto: ${asset}`);
 }
-if(impact.currentPackage!=="10D"||impact.version!=="0.39.0")throw new Error("Registo de impacto desatualizado.");
+if(impact.currentPackage!==pkg.currentPackage||impact.version!==pkg.version)throw new Error("registo de impacto e package.json divergem.");
 if(!readiness.functionalModules.includes("notifications")||!readiness.functionalModules.includes("notification-management")){
   throw new Error("Readiness sem módulos 08H.");
 }

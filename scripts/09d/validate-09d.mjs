@@ -17,8 +17,8 @@ const fail = (m) => { throw new Error(`09D: ${m}`); };
 
 // 1) Versão
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
-if (pkg.currentPackage && pkg.currentPackage !== "10B") fail("currentPackage deve ser 09D.");
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
+// D-1: package-impact-registry.json é a fonte canónica de currentPackage; 09D não pina o pacote corrente.
 
 // 2) Contratos do pacote
 const locModel = read("contracts/09d/locale-content-model.json");

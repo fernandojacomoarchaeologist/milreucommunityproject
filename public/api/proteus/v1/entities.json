@@ -1,7 +1,7 @@
 {
   "contractVersion": "1.0",
   "apiVersion": "v1",
-  "repositoryVersion": "0.39.0",
+  "repositoryVersion": "0.40.0",
   "resource": "entities",
   "status": "empty",
   "items": [],

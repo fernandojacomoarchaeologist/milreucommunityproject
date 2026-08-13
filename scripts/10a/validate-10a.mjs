@@ -19,7 +19,7 @@ const EXPECTED = "0.39.0";
 
 // 1) Versão + readiness
 const pkg = read("package.json");
-if (pkg.version !== EXPECTED) fail(`package.json deve estar em ${EXPECTED} (está ${pkg.version}).`);
+if (pkg.version !== read("public/data/package-impact-registry.json").version) fail(`package.json (${pkg.version}) e registo de impacto divergem.`);
 const readiness = read("contracts/10a/package-10a-readiness.json");
 if (readiness.implementsMcp !== false || readiness.implementsApi !== false || readiness.implementsChat !== false) fail("readiness: 10A não implementa MCP/API/chat.");
 if (readiness.newMigrationsExpected !== 0 || readiness.newPermissionsExpected !== 0) fail("readiness: 0 migrations/permissões.");
@@ -63,7 +63,7 @@ if (ov.externalResources.length !== 0) fail("overview: sem recursos externos cat
 if (ov.futureMcp.status !== "future-not-implemented") fail("overview: MCP não implementado.");
 if (ov.rights.default !== "deny") fail("overview: direitos por omissão devem negar.");
 if (ov.knowledgeClasses.length !== 6) fail("overview: 6 classes de conhecimento.");
-if (!ov.availabilityNotice || !/nenhuma consulta.*api.*chat/i.test(ov.availabilityNotice)) fail("overview: deve declarar que nada está disponível ainda.");
+if (!ov.availabilityNotice || !/biblioteca p[úu]blica.*dispon|cat[áa]logo/i.test(ov.availabilityNotice) || !/(pergunte ao proteus|chat|mcp).*(continuam )?indispon/i.test(ov.availabilityNotice)) fail("overview: availabilityNotice deve descrever honestamente Biblioteca/API disponíveis e experiências guiadas indisponíveis.");
 // A vista não pode prometer funções inexistentes.
 const portal = text("src/views/portal.js");
 if (!/Em preparação/.test(portal)) fail("knowledgeView: experiências futuras devem estar assinaladas como em preparação.");

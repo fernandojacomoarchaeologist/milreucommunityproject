@@ -14,7 +14,7 @@ const views=readFileSync("src/views/collaborative.js","utf8");
 const main=readFileSync("src/main.js","utf8");
 const css=readFileSync("src/styles/app.css","utf8");
 const migration=readFileSync("supabase/migrations/20260723090100_collaborative_member_management_rpc.sql","utf8");
-if(pkg.version!=="0.39.0")throw new Error("Versão 08B incorreta.");
+if(pkg.version!==JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8")).version)throw new Error("package.json e registo de impacto divergem.");
 for(const code of ["memberships.reject","memberships.suspend","memberships.archive","invitations.manage","member.audit.view","member.notes.manage"]){if(!roles.permissions.includes(code))throw new Error(`Permissão ausente: ${code}`);}
 if(modules.find(x=>x.code==="profile-management")?.status!=="active")throw new Error("Gestão de perfis deve estar ativa.");
 if(!modules.some(x=>x.code==="member-invitations"&&x.status==="active"))throw new Error("Pré-autorizações ausentes.");

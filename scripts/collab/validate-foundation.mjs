@@ -20,7 +20,7 @@ const runtimeBuilder=readFileSync("scripts/collab/build-runtime-config.mjs","utf
 const bootstrap=readFileSync("scripts/admin/bootstrap-master.mjs","utf8");
 const css=readFileSync("src/styles/app.css","utf8");
 
-if(pkg.version!=="0.39.0") throw new Error("Versão do pacote 08A incorreta.");
+if(pkg.version!==JSON.parse(readFileSync("public/data/package-impact-registry.json","utf8")).version)throw new Error("package.json e registo de impacto divergem.");
 if(config.security.serviceRoleInBrowser!==false||example.security.serviceRoleInBrowser!==false){
   throw new Error("service_role não pode ser permitida no navegador.");
 }
