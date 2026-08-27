@@ -3,6 +3,11 @@
 > © 2026 Fernando Rodrigues de Jácomo. **Inventário de trabalho — não é arte-final, não homologado.** Nenhum candidato ausente foi inventado.
 > **v1.1 = atualização não destrutiva da v1.** Todos os campos da v1 (função narrativa, proveniência, direitos, resolução, incertezas, riscos, decisões humanas) são preservados. As únicas alterações: (a) enriquecimentos visuais de Q2/Q5–Q7/Q9–Q11 → `NOT-PLANNED`; (b) Q1 identificação → `DOCUMENTED` + localizadores; (c) redação pública das datas/atribuições; (d) três eixos de estado explícitos.
 
+## Título oficial e âmbito (`HUMAN-DECIDED`)
+- **Título oficial da exposição: «Entre Ruínas e Memórias».** «Milreu — Um lugar, muitas vidas» e «Arquivo Vivo» **não** são o título oficial (não promover sem decisão humana específica).
+- **12 painéis físicos** (841 × 2000 mm). **Cada painel pode integrar um ou mais elementos visuais** (fotografia; várias fotografias; fotografia + pormenores; fotografia + documento; histórica + contemporânea) conforme necessidade editorial, qualidade, proveniência e legibilidade. **12 painéis ≠ 12 imagens.** Q1/Q3/Q4 têm enriquecimentos definidos; nos restantes, `NOT-PLANNED` = **não planeado atualmente**, **não** proibição permanente.
+- **Direitos consolidados:** todos os ativos selecionados foram revistos e estão **`AUTHORIZED-FOR-PROJECT-PUBLICATION`**. A autorização de publicação no projeto **não** é domínio público, sublicenciamento, dispensa de crédito, nem autorização para treino de IA. Mantêm-se crédito, proveniência, licenças externas, condições de arquivo e divulgação de tratamento por IA.
+
 ## Vocabulário de estado
 `DISPONÍVEL` · `LOCALIZADO, MAS NÃO OBTIDO` · `A PRODUZIR` · `A CONFIRMAR` · `BLOCKED-RIGHTS` · `NÃO APLICÁVEL`
 
@@ -16,7 +21,7 @@ Os termos `MEASURED/INFERRED/HUMAN` que aparecem nos registos abaixo lêem-se po
 ## Três eixos de estado (não confundir)
 1. **Classificação da afirmação** (o que sabemos e como): `DOCUMENTED · OBSERVÁVEL · DOCUMENTADO PELO BRIEF · METODOLÓGICO · INTERPRETAÇÃO · PENDENTE`.
 2. **Estado editorial / de planeamento** (maturidade e plano do painel/texto): exemplo · preliminar · em revisão · homologado; mockup vs arte-final; **`NOT-PLANNED`** (enriquecimento não planeado).
-3. **Estado de direitos/ativos** (o que podemos usar): `AUTHORIZED-FOR-PROJECT-PUBLICATION / OTHER-USES-NOT-ESTABLISHED · BLOCKED-RIGHTS · PENDING · PENDING-ASSET · PENDING-OBJECT-VERIFICATION`.
+3. **Estado de direitos/ativos** (o que podemos usar): `AUTHORIZED-FOR-PROJECT-PUBLICATION / OTHER-USES-NOT-ESTABLISHED · PENDING · PENDING-ASSET · PENDING-OBJECT-VERIFICATION · PENDING-PRINT-QUALITY`. (`BLOCKED-RIGHTS` existe na taxonomia, mas **nenhum ativo selecionado está atualmente bloqueado por direitos** — todos revistos/autorizados.)
 Os eixos são **independentes**: uma imagem pode ser `DOCUMENTED` (afirmação), `em revisão` (editorial) e `AUTHORIZED… / OTHER-USES-NOT-ESTABLISHED` (direitos) ao mesmo tempo.
 
 ## Linguagem interna vs. linguagem pública (não transpor códigos)
@@ -29,7 +34,7 @@ A taxonomia acima é **interna**, para controlo documental. **Nunca** transpor o
 Nos painéis: mostrar «desconhecido» quando a ausência for relevante; omitir campos desconhecidos que não sirvam a narrativa; **nunca** preencher lacunas por inferência; manter classificação/fonte/justificação **só no inventário interno**. Antes de redigir uma data/atribuição, registar a **fonte** e o **grau de cautela** escolhido.
 
 ## Normalização de enriquecimentos (v1.1)
-Enriquecimentos documentais **definidos** só em **Q1, Q3, Q4**. Nos restantes (**Q2, Q5–Q7, Q9–Q11**) os enriquecimentos visuais passam a **`NOT-PLANNED`** (reconsiderar apenas com necessidade editorial específica + decisão humana, com localizador). **`NOT-PLANNED` altera apenas o estado do enriquecimento** — os campos factuais, incertezas e riscos abaixo são **preservados**. Exceções: **Q8** (estrutura própria de comparação/IA) e **Q12** (bloqueios reais).
+Enriquecimentos documentais **definidos** só em **Q1, Q3, Q4**. Nos restantes (**Q2, Q5–Q7, Q9–Q11**) os enriquecimentos visuais passam a **`NOT-PLANNED`** (reconsiderar apenas com necessidade editorial específica + decisão humana, com localizador). **`NOT-PLANNED` altera apenas o estado do enriquecimento** — os campos factuais, incertezas e riscos abaixo são **preservados**. Exceções: **Q8** (estrutura própria de comparação/IA) e **Q12** (bloqueio real por mensagens comunitárias inexistentes). **`NOT-PLANNED` = não planeado atualmente; não é proibição permanente** — futura composição com mais imagens depende de decisão editorial humana.
 
 ## Colunas (aplicadas a cada quadro)
 quadro · imagem principal · função narrativa · pormenores da própria imagem · fotografia atual potencial · documento histórico potencial · voz comunitária potencial · item relacionado potencial · ativo já existente · ativo a localizar/produzir · proveniência · direitos · resolução · certeza da relação · risco de inferência · recomendação curatorial · estado HUMAN
@@ -132,53 +137,53 @@ quadro · imagem principal · função narrativa · pormenores da própria image
 - **Ativo principal:** `MM202613_Teste_Eva.png` **13340×8180** → ~403 PPI (alta resolução; scan superior não necessário).
 - **Hipóteses históricas da v1 — não ativas:** não constituem tarefas atuais de investigação, captação ou produção. Registadas apenas: pormenores (identificação de pessoas = **HUMAN**); mosaicos hoje (`INFERRED`); documento; datação atribuída a Cristina Farias (`INFERRED`, não é testemunho autorizado); relação MM202614 (`INFERRED` forte).
 - **Proveniência:** Col. Maria de Lurdes Mendes Martins; providenciada por Celeste e Branca Pimenta.
-- **Direitos:** authorized-for-project-publication; **autorização dos detentores + direitos de imagem de pessoas identificáveis `A CONFIRMAR` (HUMAN)**.
+- **Direitos:** **`AUTHORIZED-FOR-PROJECT-PUBLICATION`** (revisto/autorizado). Crédito obrigatório; condições da coleção/detentores mantidas.
 - **Resolução:** ~403 PPI @841 mm — **excelente** (MEASURED).
 - **Risco de inferência:** datação e identificação de pessoas = risco médio-alto.
-- **Recomendação:** resolver **direitos de imagem de pessoas** antes de qualquer uso público (relação com MM202614 só se necessária ao conteúdo, com localizador).
-- **Estado HUMAN:** direitos de pessoas por confirmar.
+- **Recomendação:** candidato forte; crédito e proveniência obrigatórios (relação com MM202614 só se necessária ao conteúdo, com localizador).
+- **Estado HUMAN:** autorizado para publicação no projeto.
 
 ### Q8 · MM202617 (+ MM202614) — comparação de IA
 - **Função narrativa:** reconstrução assistida por IA vs documento original.
-- **Imagem principal:** MM202617 (retoque por IA) — **`in-review`; a nota editorial declara que permanece INELEGÍVEL para totem/painel até decisão editorial específica (HUMAN).**
+- **Imagem tratada (IA):** MM202617 — **`AUTHORIZED-FOR-PROJECT-PUBLICATION`**; **divulgação do tratamento por IA obrigatória**. **Não** é bloqueio de direitos. Adequação **técnica** depende da **dimensão de colocação**: 2340×1824 → ~297 PPI a ~200 mm de largura (imagem pequena de comparação), ~71 PPI a 841 mm (não aplicar se colocada pequena). Se insuficiente à dimensão real → **`PENDING-PRINT-QUALITY`**; **não** ampliar artificialmente.
 - **Documento original:** **MM202614** «Equipa sobre os mosaicos» — `MM202614_scan_scale_Front.png` **9824×9980** → ~297 PPI (**excelente**, MEASURED).
 - **Pormenores:** os indivíduos das campanhas (comparação leitura IA vs original).
 - **Fotografia atual potencial:** mosaicos `A PRODUZIR`.
 - **Direitos:** MM202614 authorized-for-project-publication + Pimenta (**HUMAN**); MM202617 exige menção clara ao retoque por IA (**HUMAN**).
 - **Resolução:** MM202617 ~71 PPI (**baixa**); MM202614 ~297 PPI.
-- **Recomendação:** **não iniciar Q8 nesta fase**; MM202617 inelegível para painel até decisão editorial.
-- **Estado HUMAN:** bloqueado por decisão editorial da IA.
+- **Recomendação:** **Q8 fora do escopo desta ronda** (não iniciar). MM202617 autorizada com divulgação de IA; usar MM202614 (original) como âncora documental; avaliar PPI à dimensão de colocação.
+- **Estado HUMAN:** autorizado com divulgação de IA obrigatória; qualidade técnica a avaliar à dimensão (`PENDING-PRINT-QUALITY` se insuficiente).
 
 ### Q9 · MM202618 — «Trabalhando nas ruínas» (ca. 1970–1980)
 - **Função narrativa:** o trabalho quotidiano no sítio.
 - **Hipóteses históricas da v1 — não ativas:** não constituem tarefas atuais de investigação, captação ou produção. Registadas apenas: pormenores; local de trabalho hoje (`INFERRED`); documento; testemunho; relação MM202625/MM202623 (`INFERRED`).
 - **Ativo existente:** `MM202618 - Milreu_Scan_Original.png` **5108×8288** → ~154 PPI (aceitável, MEASURED).
 - **Proveniência:** providenciada por Celeste e Branca Pimenta (filhas de D. Noémia Cruz).
-- **Direitos:** authorized-for-project-publication; **direitos de imagem de pessoas identificáveis `A CONFIRMAR` (HUMAN)**.
+- **Direitos:** **`AUTHORIZED-FOR-PROJECT-PUBLICATION`** (revisto). Crédito obrigatório.
 - **Resolução:** ~154 PPI — **aceitável**.
-- **Recomendação:** resolver **direitos de imagem de pessoas** antes de uso público.
-- **Estado HUMAN:** direitos por confirmar.
+- **Recomendação:** candidato; crédito e proveniência obrigatórios.
+- **Estado HUMAN:** autorizado para publicação no projeto.
 
 ### Q10 · MM202625 — «Trabalhadores junto ao edifício de cultos» (ca. 1970–1980)
 - **Função narrativa:** trabalho e cuidado junto ao edifício de cultos.
 - **Hipóteses históricas da v1 — não ativas:** não constituem tarefas atuais de investigação, captação ou produção. Registadas apenas: pormenores; edifício de cultos hoje (`INFERRED`); relação MM202618/MM202623/MM202605 (`INFERRED`).
 - **Ativo existente:** `MM202625 - Milreu_Scan_Original 2.png` **7768×4952** → ~235 PPI (bom, MEASURED).
 - **Proveniência:** Celeste e Branca Pimenta.
-- **Direitos:** authorized-for-project-publication; **pessoas identificáveis `A CONFIRMAR` (HUMAN)**.
+- **Direitos:** **`AUTHORIZED-FOR-PROJECT-PUBLICATION`** (revisto). Crédito obrigatório.
 - **Resolução:** ~235 PPI — **bom**.
-- **Recomendação:** resolver **direitos de imagem de pessoas** antes de uso público.
-- **Estado HUMAN:** direitos por confirmar.
+- **Recomendação:** candidato; crédito e proveniência obrigatórios.
+- **Estado HUMAN:** autorizado para publicação no projeto.
 
 ### Q11 · MM202623 — «Trabalhadores das ruínas» (ca. 1970–1980) — OBRIGATÓRIO
 - **Função narrativa:** trabalho, cuidado e memória (obrigatório na sequência).
 - **Hipóteses históricas da v1 — não ativas:** não constituem tarefas atuais de investigação, captação ou produção. Registadas apenas: pormenores; sítio hoje; relação MM202625/MM202618 (`INFERRED`).
 - **Ativo existente:** `MM202623 - Milreu_Scan_Original.png` **7036×5800** → ~213 PPI (bom, MEASURED).
 - **Proveniência:** Celeste e Branca Pimenta.
-- **Direitos:** **`BLOCKED-RIGHTS`** — pessoas identificáveis; uso dependente de autorização dos detentores e validação de direitos de imagem (**HUMAN**). Não publicar até resolver.
-- **Resolução:** ~213 PPI — **bom** (mas bloqueado por direitos).
-- **Risco de inferência:** identificação de pessoas.
-- **Recomendação:** manter no plano; **`BLOCKED-RIGHTS`** — não produzir até desbloqueio de direitos de imagem.
-- **Estado HUMAN:** BLOCKED-RIGHTS.
+- **Direitos:** **`AUTHORIZED-FOR-PROJECT-PUBLICATION`** (revisto; o único bloqueio anterior era a autorização de publicação, agora consolidada). Crédito obrigatório; condições da coleção mantidas.
+- **Resolução:** ~213 PPI — **bom**.
+- **Risco de inferência:** identificação de pessoas (interno; não afeta a autorização de publicação).
+- **Recomendação:** obrigatório na sequência; crédito e proveniência obrigatórios.
+- **Estado HUMAN:** autorizado para publicação no projeto (obrigatório na sequência).
 
 ### Q12 · MM202610 — «Poesia nas ruínas» (data não determinada)
 - **Função narrativa:** encerramento / voz e memória.
@@ -201,12 +206,12 @@ quadro · imagem principal · função narrativa · pormenores da própria image
 - **Aceitável (~150):** Q9 (~154).
 - **Limítrofe (~106):** Q1, Q2, Q3, Q4, Q5, Q6.
 - **Baixa (<100):** Q8 MM202617 (~71), Q12 MM202610 (~75).
-→ Prioridade de digitalização superior: Q1, Q2, Q3, Q4, Q5, Q6, Q12 (e MM202617 é caso à parte, inelegível).
+→ Prioridade de digitalização superior: Q1, Q2, Q3, Q4, Q5, Q6, Q12. MM202617 (Q8): avaliar PPI à **dimensão de colocação** (`PENDING-PRINT-QUALITY` se insuficiente); autorizada com divulgação de IA.
 
 ## Notas de integridade
 - **Nenhuma fotografia contemporânea de produção foi realizada pelo projeto.** Q3 possui uma **vista contemporânea recebida**, disponível **apenas para referência de mockup**, com autoria, proveniência, direitos e original em alta resolução **pendentes**. Nenhuma fotografia atual gerada por IA.
 - Nenhum documento foi inventado; só se listam fontes com referência real (Torre do Tombo, Ilustração Portuguesa/Hemeroteca).
 - Pormenores só são «recorte da mesma fotografia», nunca documentos independentes.
 - Correspondências de «lugar hoje» são **INFERRED** e exigem validação da equipa das Ruínas de Milreu.
-- Direitos de imagem de pessoas identificáveis (Q7, Q9, Q10, Q11) são **HUMAN**; Q11 = `BLOCKED-RIGHTS`.
+- **Direitos consolidados:** todos os ativos selecionados estão `AUTHORIZED-FOR-PROJECT-PUBLICATION` (revistos); **nenhum bloqueio por direitos já revistos**. Mantêm-se crédito, proveniência, licenças externas e divulgação de tratamento por IA.
 - **«Edifício de cultos»** como identificação de uma estrutura específica é **hipótese arqueológica pendente de verificação**, não facto. Onde os registos usam o termo (Q5, Q10) mantém-se a expressão do próprio registo, mas a correspondência com estruturas concretas (incl. o «grande edifício romano» do documento de 1913, Q4) exige validação da equipa das Ruínas de Milreu.

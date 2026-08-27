@@ -1,7 +1,8 @@
 # Milreu — Sistema de Painéis da Exposição (spec por arquétipo) v0.2.1
 
 > © 2026 Fernando Rodrigues de Jácomo. Consultar `RIGHTS.md`.
-> **Nenhum painel homologado. Arte-final = 0/12.** Formato **841 × 2000 mm = `CURRENT-HUMAN-BASELINE`** (grelha/sangria/arte `PROPOSED/PENDING`). Estados: `REPO-FACT · HUMAN-DECIDED · CURRENT-HUMAN-BASELINE · PROPOSED · PENDING · SUPERSEDED · NOT-APPLICABLE`.
+> **Nenhum painel homologado. Arte-final = 0/12.** Formato **841 × 2000 mm = `CURRENT-HUMAN-BASELINE`** (grelha/sangria/arte `PROPOSED/PENDING`). Estados: `REPO-FACT · HUMAN-DECIDED · CURRENT-HUMAN-BASELINE · PROPOSED · PENDING · PENDING-PRINT-QUALITY · SUPERSEDED · NOT-APPLICABLE`.
+> **Título oficial da exposição: «Entre Ruínas e Memórias»** (`HUMAN-DECIDED`). **12 painéis**; cada painel pode integrar **um ou mais elementos visuais** (12 painéis ≠ 12 imagens). **Direitos:** ativos selecionados `AUTHORIZED-FOR-PROJECT-PUBLICATION` (revistos).
 
 ## 0. Princípios
 - **Nos painéis fotográficos, a fotografia é o objeto museológico central. Painéis documentais, comparativos, comunitários e institucionais podem ter outros centros de atenção.** Os módulos servem a leitura e a proveniência.
@@ -39,8 +40,8 @@ Enquadramento **integral preferencial**; **recorte permitido quando justificado*
 ### Arquétipo 3 — Q8 · Comparação documental / IA
 - **Obrigatórios:** identificação clara das **duas imagens** (documento original + versão tratada); **divulgação do tratamento por IA em texto** (não selo/caixa); crédito/proveniência de cada imagem; regra de comparação (o que se compara e porquê).
 - **Opcionais:** pormenor de conferência.
-- **Proibidos:** apresentar a versão IA como documento original; usar a versão IA como herói de lançamento (**MM202617 está inelegível para painel até decisão editorial**); equivalência visual entre tratado e original.
-- **Pendentes:** decisão editorial sobre a IA; MM202614 (original) como âncora documental; direitos das pessoas identificáveis.
+- **Proibidos:** apresentar a versão IA como documento original; **omitir a divulgação do tratamento por IA**; equivalência visual entre tratado e original. (A versão IA está `AUTHORIZED-FOR-PROJECT-PUBLICATION` com divulgação de IA obrigatória; a sua adequação depende da **qualidade técnica à dimensão de colocação** — `PENDING-PRINT-QUALITY` se insuficiente, **não** bloqueio de direitos.)
+- **Pendentes:** MM202614 (original) como âncora documental; qualidade técnica de MM202617 à dimensão de colocação (`PENDING-PRINT-QUALITY`).
 - **Nota:** a fotografia principal **pode ser o documento original**, não a imagem tratada.
 
 ### Arquétipo 4 — Q12 · Encerramento / comunidade / instituições

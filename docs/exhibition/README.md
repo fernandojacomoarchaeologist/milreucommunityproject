@@ -1,14 +1,16 @@
-# Exposição de Milreu — índice de estado
+# Exposição «Entre Ruínas e Memórias» — índice de estado
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-Índice da documentação da **exposição fotográfica itinerante** de Milreu. Existência de um ficheiro **não** significa aprovação humana.
+Índice da documentação da exposição fotográfica de Milreu — título oficial **«Entre Ruínas e Memórias»** (`HUMAN-DECIDED`). Existência de um ficheiro **não** significa aprovação humana.
 
 ## Estado geral
 - **Painéis homologados: nenhum. Arte-final: 0/12.**
 - **Todos os painéis produzidos até agora são MOCKUP — NÃO IMPRIMIR.** Nenhum mockup é arte-final.
 - **Formato atual: 841 × 2000 mm** (`CURRENT-HUMAN-BASELINE`, decisão 2026-08-17). O formato anterior 1000 × 800 mm é `SUPERSEDED`.
 - Perfil de impressão (PDF/X-4 + ICC), sangria/segurança, fontes de produção e logótipos institucionais permanecem `PENDING`.
+- **12 painéis**; cada painel pode integrar **um ou mais elementos visuais** conforme necessidade editorial (**12 painéis ≠ 12 imagens**). Q1/Q3/Q4 com enriquecimentos definidos; `NOT-PLANNED` nos restantes = não planeado atualmente, **não** proibição permanente.
+- **Direitos consolidados:** ativos selecionados `AUTHORIZED-FOR-PROJECT-PUBLICATION` (revistos); mantêm-se crédito, proveniência, licenças externas e divulgação de IA. **Q11 já não é `BLOCKED-RIGHTS`.** Q8/MM202617 autorizada com divulgação de IA (qualidade técnica = `PENDING-PRINT-QUALITY` se insuficiente à dimensão). **Q12** permanece bloqueado por **mensagens comunitárias inexistentes** (não por direitos).
 
 ## Documentos (fonte vigente e estado)
 | Documento | Papel | Fonte vigente | Estado |

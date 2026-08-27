@@ -10,7 +10,7 @@
 
 ## A. NÚCLEO COMUM (restrito ao verdadeiramente partilhável)
 1. **Identidade e arquitetura de marca** — `HUMAN-DECIDED`. Guarda-chuva **Projeto Comunitário de Milreu**; **Proteus** e **Museu de Memórias** subordinados, sem logótipo próprio. (`brand-architecture`, `proteus-naming`.)
-2. **Linguagem e nomes canónicos** — `REPO-FACT`. Nomes por extenso; sem siglas inventadas.
+2. **Linguagem e nomes canónicos** — `REPO-FACT`/`HUMAN-DECIDED`. Nomes por extenso; sem siglas inventadas. **Título oficial da exposição: «Entre Ruínas e Memórias»** (`HUMAN-DECIDED`).
 3. **Fotografia e proveniência** — `HUMAN-DECIDED`. Registo, enquadramento/recorte documentados, original preservado, crédito+proveniência+direitos sempre presentes, tratamento/IA declarados. (`IMAGERY_TEXTURE_PHOTOGRAPHY`.)
 4. **Papéis tipográficos** — `HUMAN-DECIDED`. **Fraunces** (display), **Spectral** (leitura), **Archivo** (interface/metadados/créditos). A hierarquia não depende da presença da fonte.
 5. **Paleta essencial** — `HUMAN-DECIDED`. **Marfim** (superfície), **preto quente** (leitura), **vermelho/tijolo** (assinatura, nunca fundo de leitura extensa/cabeçalho/overlay). *(Os estados de certeza pátina/sépia/pedra são do perfil web — ver §B.)*
