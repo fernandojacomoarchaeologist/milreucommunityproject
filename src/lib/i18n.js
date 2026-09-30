@@ -11,9 +11,9 @@ export const languages = ["pt-PT", "en", "es", "fr"];
 // nem navegação para conteúdo `null`. Deve espelhar public/data/language-availability-model.json.
 export const languageAvailability = {
   "pt-PT": { status: "published", selectorEnabled: true },
-  "en": { status: "preparation", selectorEnabled: false },
-  "es": { status: "preparation", selectorEnabled: false },
-  "fr": { status: "preparation", selectorEnabled: false },
+  "en": { status: "published", selectorEnabled: true },
+  "es": { status: "published", selectorEnabled: true },
+  "fr": { status: "published", selectorEnabled: true },
 };
 export const languageNames = { "pt-PT": "Português", "en": "Inglês", "es": "Espanhol", "fr": "Francês" };
 export const publishedLocales = languages.filter((code) => languageAvailability[code]?.selectorEnabled);
@@ -44,6 +44,9 @@ const ui = {
     viewAll:"Ver todas as memórias", notFound:"Página não encontrada", principles:"Princípios",
     projectPath:"Percurso do projeto", currentInitiatives:"Iniciativas em desenvolvimento",
     learnMore:"Conhecer", status:"Estado", structuredKnowledge:"Experiência Proteus",
+    discoverMore:"Saiba mais", discoverMoreLead:"Conheça o Museu de Memórias e participe no Inquérito 2026.",
+    museumCardTitle:"Museu de Memórias", museumCardText:"Fotografias, narrativas e memórias que aproximam a comunidade, Estoi, a paisagem e Milreu.",
+    surveyCardTitle:"Inquérito 2026", surveyCardText:"«O que significa Milreu para si?» Participar demora poucos minutos e ajuda a construir futuras iniciativas.", surveyCardCta:"Responder ao Inquérito 2026",
     participationWays:"Formas de participar", contactPending:"O canal público de contacto será configurado antes da publicação.",
     organisations:"Articulação institucional", protectedMuseum:"Evolução incremental do Museu",
     protectedMuseumText:"O detalhe, a galeria e o modo de ecrã inteiro permanecem funcionais enquanto o Portal evolui.",
@@ -51,7 +54,7 @@ const ui = {
     localeUnavailableTitle:"Esta página ainda não está disponível neste idioma",
     localeUnavailableText:"O conteúdo continua a ser apresentado em português enquanto a tradução é preparada e revista.",
     continueInPortuguese:"Continuar em português",
-    languageInPreparationNote:"Inglês, espanhol e francês estão em preparação. O conteúdo continua em português; não há tradução automática publicada."
+    languageInPreparationNote:"As traduções estão a ser publicadas gradualmente. As secções ainda sem tradução aparecem em português; não há tradução automática publicada."
   },
   en: {
     collectionsLabel:"Collections", museumAbout:"About the collection", knownDate:"Known date", unknownDate:"Uncertain date", digitalIntervention:"Digital intervention", withIntervention:"Declared intervention", withoutIntervention:"No declared intervention", sort:"Sort", catalogOrder:"Catalogue order", oldestFirst:"Oldest first", newestFirst:"Newest first", resetFilters:"Reset filters", activeFilters:"Active filters", collectionDerived:"Derived navigation collection", viewCollection:"Explore collection", collectionMembers:"memories", documentation:"Documentation", dateAndPlace:"Date and place", tags:"Themes and keywords", sourceList:"Sources", digitalNotice:"Declared digital interventions", aiRetouchedBadge:"AI retouched", aiDisclosureTitle:"Derived image retouched with artificial intelligence", aiDisclosureText:"This record received substantive AI retouching and may contain reconstructed or altered details. It is visible for review and must not be confused with the original photograph.", reviewVisible:"Under review", publicReleasePending:"Not approved for public release", relatedExplicit:"Recorded relations", suggestedExplore:"You may also explore", suggestedNotice:"Suggestions are calculated from shared keywords and do not represent a confirmed historical relation.", immersiveInfo:"Information", hideInfo:"Hide information", browserFullscreen:"Browser fullscreen", position:"position", keyboardHelp:"Arrows: navigate · I: information · F: fullscreen · Esc: close", showAll:"Show all", undated:"Undetermined date", datePrecision:"Date precision", place:"Place", editorialState:"Editorial state", sourceAccess:"Access", rightsCorrection:"Correction or withdrawal", rightsCorrectionText:"The photograph is authorised for project publication. To report a correction, concern or withdrawal request, use the Participate area.", museumStats:"The collection in this preview", visibleRecords:"visible memories", documentedInterventions:"records with declared interventions", timelineKnown:"With date or range", timelineUnknown:"Without a determined date", openImmersive:"Open immersive mode", projectObjective:"Project objective", accessMuseum:"Open the Museum", slideshow:"Slideshow", pauseSlideshow:"Pause", carouselPrevious:"Previous highlight", carouselNext:"Next highlight", carouselPause:"Pause carousel", carouselResume:"Resume carousel", carouselSelect:"Select highlight", viewGrid:"Grid", viewList:"List", resultsUpdated:"Results updated",
@@ -76,6 +79,9 @@ const ui = {
     viewAll:"View all memories", notFound:"Page not found", principles:"Principles",
     projectPath:"Project path", currentInitiatives:"Initiatives in development", learnMore:"Learn more",
     status:"Status", structuredKnowledge:"Proteus Experience", participationWays:"Ways to participate",
+    discoverMore:"Find out more", discoverMoreLead:"Discover the Museum of Memories and take part in the 2026 Survey.",
+    museumCardTitle:"Museum of Memories", museumCardText:"Photographs, narratives and memories connecting the community, Estoi, the landscape and Milreu.",
+    surveyCardTitle:"2026 Survey", surveyCardText:"“What does Milreu mean to you?” It takes just a few minutes and helps shape future initiatives.", surveyCardCta:"Take the 2026 Survey",
     contactPending:"The public contact channel will be configured before publication.",
     organisations:"Institutional coordination", protectedMuseum:"Incremental Museum evolution",
     protectedMuseumText:"Detail, gallery and fullscreen mode remain functional while the Portal evolves.",
@@ -83,7 +89,7 @@ const ui = {
     localeUnavailableTitle:"This page is not available in this language yet",
     localeUnavailableText:"Content is still shown in Portuguese while the translation is prepared and reviewed.",
     continueInPortuguese:"Continue in Portuguese",
-    languageInPreparationNote:"English, Spanish and French are in preparation. Content remains in Portuguese; no automatic translation is published."
+    languageInPreparationNote:"Translations are being published gradually. Sections not yet translated appear in Portuguese; no automatic translation is published."
   },
   es: {
     collectionsLabel:"Colecciones", museumAbout:"Sobre la colección", knownDate:"Fecha conocida", unknownDate:"Fecha incierta", digitalIntervention:"Intervención digital", withIntervention:"Con intervención declarada", withoutIntervention:"Sin intervención declarada", sort:"Ordenar", catalogOrder:"Orden del catálogo", oldestFirst:"Más antiguas primero", newestFirst:"Más recientes primero", resetFilters:"Limpiar filtros", activeFilters:"Filtros activos", collectionDerived:"Colección de navegación derivada", viewCollection:"Explorar colección", collectionMembers:"memorias", documentation:"Documentación", dateAndPlace:"Fecha y lugar", tags:"Temas y palabras clave", sourceList:"Fuentes", digitalNotice:"Intervenciones digitales declaradas", aiRetouchedBadge:"Retocada con IA", aiDisclosureTitle:"Imagen derivada retocada con inteligencia artificial", aiDisclosureText:"Este registro recibió un retoque sustantivo con IA y puede contener detalles reconstruidos o alterados. Está visible para revisión y no debe confundirse con la fotografía original.", reviewVisible:"En revisión", publicReleasePending:"No aprobada para publicación pública", relatedExplicit:"Relaciones registradas", suggestedExplore:"También puede explorar", suggestedNotice:"Las sugerencias se calculan por palabras clave compartidas y no representan una relación histórica confirmada.", immersiveInfo:"Información", hideInfo:"Ocultar información", browserFullscreen:"Pantalla completa del navegador", position:"posición", keyboardHelp:"Flechas: navegar · I: información · F: pantalla completa · Esc: cerrar", showAll:"Mostrar todo", undated:"Fecha no determinada", datePrecision:"Precisión de la fecha", place:"Lugar", editorialState:"Estado editorial", sourceAccess:"Acceso", rightsCorrection:"Corrección o retirada", rightsCorrectionText:"La fotografía está autorizada para publicación en el proyecto. Para comunicar una corrección, preocupación o retirada, consulte Participar.", museumStats:"La colección en esta vista previa", visibleRecords:"memorias visibles", documentedInterventions:"registros con intervenciones declaradas", timelineKnown:"Con fecha o intervalo", timelineUnknown:"Sin fecha determinada", openImmersive:"Abrir modo inmersivo", projectObjective:"Objetivo del proyecto", accessMuseum:"Acceder al Museo", slideshow:"Modo presentación", pauseSlideshow:"Pausar", carouselPrevious:"Destaque anterior", carouselNext:"Destaque siguiente", carouselPause:"Pausar carrusel", carouselResume:"Reanudar carrusel", carouselSelect:"Seleccionar destaque", viewGrid:"Cuadrícula", viewList:"Lista", resultsUpdated:"Resultados actualizados",
@@ -108,6 +114,9 @@ const ui = {
     viewAll:"Ver todas las memorias", notFound:"Página no encontrada", principles:"Principios",
     projectPath:"Recorrido del proyecto", currentInitiatives:"Iniciativas en desarrollo", learnMore:"Conocer",
     status:"Estado", structuredKnowledge:"Experiencia Proteus", participationWays:"Formas de participar",
+    discoverMore:"Saber más", discoverMoreLead:"Conozca el Museo de Memorias y participe en la Encuesta 2026.",
+    museumCardTitle:"Museo de Memorias", museumCardText:"Fotografías, narrativas y memorias que acercan la comunidad, Estoi, el paisaje y Milreu.",
+    surveyCardTitle:"Encuesta 2026", surveyCardText:"«¿Qué significa Milreu para usted?» Participar lleva unos minutos y ayuda a construir futuras iniciativas.", surveyCardCta:"Responder a la Encuesta 2026",
     contactPending:"El canal público de contacto se configurará antes de la publicación.",
     organisations:"Articulación institucional", protectedMuseum:"Evolución incremental del Museo",
     protectedMuseumText:"El detalle, la galería y el modo de pantalla completa siguen funcionando mientras evoluciona el Portal.",
@@ -115,7 +124,7 @@ const ui = {
     localeUnavailableTitle:"Esta página aún no está disponible en este idioma",
     localeUnavailableText:"El contenido se sigue mostrando en portugués mientras se prepara y revisa la traducción.",
     continueInPortuguese:"Continuar en portugués",
-    languageInPreparationNote:"Inglés, español y francés están en preparación. El contenido sigue en portugués; no se publica traducción automática."
+    languageInPreparationNote:"Las traducciones se publican de forma gradual. Las secciones aún sin traducir aparecen en portugués; no se publica traducción automática."
   },
   fr: {
     collectionsLabel:"Collections", museumAbout:"À propos de la collection", knownDate:"Date connue", unknownDate:"Date incertaine", digitalIntervention:"Intervention numérique", withIntervention:"Intervention déclarée", withoutIntervention:"Sans intervention déclarée", sort:"Trier", catalogOrder:"Ordre du catalogue", oldestFirst:"Plus anciennes", newestFirst:"Plus récentes", resetFilters:"Réinitialiser", activeFilters:"Filtres actifs", collectionDerived:"Collection de navigation dérivée", viewCollection:"Explorer la collection", collectionMembers:"mémoires", documentation:"Documentation", dateAndPlace:"Date et lieu", tags:"Thèmes et mots-clés", sourceList:"Sources", digitalNotice:"Interventions numériques déclarées", aiRetouchedBadge:"Retouchée par IA", aiDisclosureTitle:"Image dérivée retouchée par intelligence artificielle", aiDisclosureText:"Cette notice a reçu une retouche substantielle par IA et peut contenir des détails reconstruits ou modifiés. Elle est visible pour révision et ne doit pas être confondue avec la photographie originale.", reviewVisible:"En révision", publicReleasePending:"Non approuvée pour publication publique", relatedExplicit:"Relations enregistrées", suggestedExplore:"Vous pouvez aussi explorer", suggestedNotice:"Les suggestions sont calculées à partir de mots-clés partagés et ne constituent pas une relation historique confirmée.", immersiveInfo:"Information", hideInfo:"Masquer l’information", browserFullscreen:"Plein écran du navigateur", position:"position", keyboardHelp:"Flèches : naviguer · I : information · F : plein écran · Échap : fermer", showAll:"Tout afficher", undated:"Date indéterminée", datePrecision:"Précision de la date", place:"Lieu", editorialState:"État éditorial", sourceAccess:"Accès", rightsCorrection:"Correction ou retrait", rightsCorrectionText:"La photographie est autorisée pour la publication du projet. Pour signaler une correction, une préoccupation ou un retrait, consultez Participer.", museumStats:"La collection dans cet aperçu", visibleRecords:"mémoires visibles", documentedInterventions:"notices avec interventions déclarées", timelineKnown:"Avec date ou intervalle", timelineUnknown:"Sans date déterminée", openImmersive:"Ouvrir le mode immersif", projectObjective:"Objectif du projet", accessMuseum:"Accéder au Musée", slideshow:"Diaporama", pauseSlideshow:"Pause", carouselPrevious:"Élément précédent", carouselNext:"Élément suivant", carouselPause:"Mettre le carrousel en pause", carouselResume:"Reprendre le carrousel", carouselSelect:"Sélectionner un élément", viewGrid:"Grille", viewList:"Liste", resultsUpdated:"Résultats mis à jour",
@@ -140,6 +149,9 @@ const ui = {
     viewAll:"Voir toutes les mémoires", notFound:"Page introuvable", principles:"Principes",
     projectPath:"Parcours du projet", currentInitiatives:"Initiatives en développement", learnMore:"Découvrir",
     status:"État", structuredKnowledge:"Expérience Proteus", participationWays:"Participer",
+    discoverMore:"En savoir plus", discoverMoreLead:"Découvrez le Musée des Mémoires et participez à l’Enquête 2026.",
+    museumCardTitle:"Musée des Mémoires", museumCardText:"Photographies, récits et mémoires qui relient la communauté, Estoi, le paysage et Milreu.",
+    surveyCardTitle:"Enquête 2026", surveyCardText:"« Que signifie Milreu pour vous ? » Quelques minutes suffisent pour aider à construire de futures initiatives.", surveyCardCta:"Répondre à l’Enquête 2026",
     contactPending:"Le canal public de contact sera configuré avant la publication.",
     organisations:"Articulation institutionnelle", protectedMuseum:"Évolution progressive du Musée",
     protectedMuseumText:"Le détail, la galerie et le mode plein écran restent fonctionnels pendant l’évolution du Portail.",
@@ -147,7 +159,7 @@ const ui = {
     localeUnavailableTitle:"Cette page n’est pas encore disponible dans cette langue",
     localeUnavailableText:"Le contenu reste affiché en portugais pendant la préparation et la révision de la traduction.",
     continueInPortuguese:"Continuer en portugais",
-    languageInPreparationNote:"L’anglais, l’espagnol et le français sont en préparation. Le contenu reste en portugais ; aucune traduction automatique n’est publiée."
+    languageInPreparationNote:"Les traductions sont publiées progressivement. Les sections pas encore traduites apparaissent en portugais ; aucune traduction automatique n’est publiée."
   }
 };
 

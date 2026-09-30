@@ -119,7 +119,8 @@ function homeCarouselSlide(slide,records,lang,isActive,index,total) {
 }
 
 function homeCarousel(records,carousel,lang,state={}) {
-  const slides = carousel.slides || [];
+  // 2026-09 — slides marcados com "hidden": true ficam ocultos (esconder, não remover).
+  const slides = (carousel.slides || []).filter(slide => !slide.hidden);
   const activeIndex = Math.max(0,Math.min(Number(state.index || 0),slides.length-1));
   return `<section class="home-carousel" data-home-carousel aria-roledescription="carousel" aria-label="Destaques do Projeto Comunitário de Milreu">
     <div class="home-carousel__viewport" aria-live="polite">
@@ -147,11 +148,23 @@ export function homeView(records, content, carousel, lang, carouselState={}, pub
 
     <section class="content-section">
       <div class="section-heading section-heading--stacked">
-        <h2>${text(lang,"currentInitiatives")}</h2>
-        <p>O Portal apresenta as diferentes frentes do Projeto Comunitário de Milreu.</p>
+        <h2>${text(lang,"discoverMore")}</h2>
+        <p>${text(lang,"discoverMoreLead")}</p>
       </div>
-      <div class="initiative-grid">${initiatives.map(item => initiativeCard(item,lang)).join("")}</div>
-      <p class="section-action"><a class="ml-button ml-button--secondary" href="#/iniciativas">${text(lang,"viewAll")}</a></p>
+      <div class="initiative-grid">
+        <article class="initiative-card">
+          <div class="initiative-card__icon"><img src="${assetUrl("public/icons/photograph.svg")}" alt=""></div>
+          <h2>${text(lang,"museumCardTitle")}</h2>
+          <p>${text(lang,"museumCardText")}</p>
+          <a href="#/museu">${text(lang,"accessMuseum")} →</a>
+        </article>
+        <article class="initiative-card">
+          <div class="initiative-card__icon"><img src="${assetUrl("public/icons/search.svg")}" alt=""></div>
+          <h2>${text(lang,"surveyCardTitle")}</h2>
+          <p>${text(lang,"surveyCardText")}</p>
+          <a href="https://pt.surveymonkey.com/r/3CFG2MQ" target="_blank" rel="noopener noreferrer external">${text(lang,"surveyCardCta")} ↗</a>
+        </article>
+      </div>
     </section>
 
     <section class="content-section">
@@ -233,6 +246,29 @@ export function initiativesView(content, lang) {
   </main>${footer(lang)}`;
 }
 
+function surveysContent(lang) {
+  const note = lang !== "pt-PT" ? `<div class="fallback-note">${text(lang,"fallback")}</div>` : "";
+  return `${note}
+    <section class="content-section content-section--muted">
+      <div class="section-heading"><h2>Inquérito de 2024 — Diagnóstico</h2><p>Ponto de partida do Projecto Comunitário de Milreu.</p></div>
+      <div class="method-grid">
+        <article><span>Método</span><h3>Como foi feito</h3><p>Inquérito regional exploratório, observação local e entrevistas semiestruturadas com perfis diversificados.</p></article>
+        <article><span>Abrangência</span><h3>Participação</h3><p>532 respostas ao questionário e 9 entrevistas.</p></article>
+        <article><span>Resultados</span><h3>Principais achados</h3><p>Dificuldades de comunicação; acesso limitado e desigual à informação arqueológica; percepções distintas sobre o património; e sinais de distanciamento entre alguns públicos e o sítio.</p></article>
+      </div>
+      <p class="pending-contact" role="note"><strong>Leitura do diagnóstico</strong><span>O diagnóstico de 2024 evidenciou oportunidades para aproximar conhecimento arqueológico, património e comunidade.</span></p>
+    </section>
+    <section class="content-section">
+      <div class="section-heading"><h2>Inquérito de 2026 — «O que significa Milreu para si?»</h2><p>Em fase final.</p></div>
+      <div class="method-grid">
+        <article><span>Escopo</span><h3>O que abrange</h3><p>As ruínas, as histórias, as memórias, as festas, as pessoas, os caminhos e as fotografias antigas.</p></article>
+        <article><span>Abrangência</span><h3>A quem se dirige</h3><p>À comunidade de Estoi, de Faro e da região.</p></article>
+        <article><span>Para quê</span><h3>Como ajuda</h3><p>Participar demora apenas alguns minutos e pode ajudar a construir futuras iniciativas culturais, exposições comunitárias e ações ligadas à memória e ao património local.</p></article>
+      </div>
+      <p class="initiative-primary-action"><a class="ml-button ml-button--primary" href="https://pt.surveymonkey.com/r/3CFG2MQ" target="_blank" rel="noopener noreferrer external">Responder ao Inquérito 2026 ↗</a></p>
+    </section>`;
+}
+
 export function initiativeDetailView(item, lang) {
   if (!item) return notFoundView(lang);
   const title = fallbackNote(item.title,lang);
@@ -242,6 +278,7 @@ export function initiativeDetailView(item, lang) {
     : item.slug === "exposicao-itinerante"
       ? `<p class="initiative-primary-action"><a class="ml-button ml-button--primary" href="#/exposicoes">Ver agenda da exposição</a></p>`
       : "";
+  const surveysBlock = item.slug === "inqueritos-e-dados" ? surveysContent(lang) : "";
 
   return `${portalHeader(lang,"/iniciativas")}<main id="main">
     ${pageLead(title.value, item.short, lang, `${text(lang,"initiatives")} · ${item.status}`)}
@@ -253,6 +290,7 @@ export function initiativeDetailView(item, lang) {
         ${museumAction}
       </article>
     </section>
+    ${surveysBlock}
   </main>${footer(lang)}`;
 }
 

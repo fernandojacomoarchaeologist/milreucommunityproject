@@ -6,11 +6,12 @@
 import { test, expect } from "@playwright/test";
 import { gotoHome, horizontalOverflow } from "../../helpers/geometry.mjs";
 
-test("Proteus: slide da home é empty-state sem imagem inventada", async ({ page }) => {
+test("Proteus: slide da home está oculto (decisão editorial) e sem imagem inventada", async ({ page }) => {
   await gotoHome(page);
+  // 2026-09: o slide Proteus foi ocultado (hidden:true em home-carousel.json; esconder, não remover).
   const proteus = page.locator(".home-carousel__slide--proteus");
-  await expect(proteus).toHaveCount(1);
-  // Não deve haver <img> de conteúdo inventado no slide Proteus (apenas o símbolo da marca no diagrama).
+  await expect(proteus).toHaveCount(0);
+  // Garantia adicional: nunca há <img> de conteúdo inventado num slide Proteus renderizado.
   expect(await proteus.locator(".home-carousel__media img").count()).toBe(0);
 });
 

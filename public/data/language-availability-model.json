@@ -8,16 +8,16 @@
       "selectorEnabled": true
     },
     "en": {
-      "status": "preparation",
-      "selectorEnabled": false
+      "status": "published",
+      "selectorEnabled": true
     },
     "es": {
-      "status": "preparation",
-      "selectorEnabled": false
+      "status": "published",
+      "selectorEnabled": true
     },
     "fr": {
-      "status": "preparation",
-      "selectorEnabled": false
+      "status": "published",
+      "selectorEnabled": true
     }
   },
   "silentFallbackAllowed": false,

@@ -3,9 +3,14 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  *
- * Pacote 09B — valida o estado temporário dos idiomas: pt-PT publicado/selecionável,
- * EN/ES/FR "em preparação"/não-selecionáveis, sem fallback silencioso, e coerência
- * entre o contrato, o i18n e o seletor/guard reais.
+ * Pacote 09B — valida a coerência do estado dos idiomas: pt-PT publicado/selecionável,
+ * o i18n a espelhar o contrato (language-availability-model.json), sem fallback
+ * silencioso, e o seletor/guard reais preparados para idiomas não-selecionáveis.
+ *
+ * Nota editorial (2026-09-30): por decisão do responsável, EN/ES/FR passam a
+ * "published"/selecionáveis no contrato. O gate deixa de cravar "preparation" e
+ * passa a exigir que o i18n reflita EXATAMENTE o contrato; o fallback visível
+ * (silentFallbackAllowed=false) mantém-se para conteúdo ainda sem tradução.
  */
 import { readFileSync } from "node:fs";
 
@@ -21,7 +26,9 @@ if (model.silentFallbackAllowed !== false) fail("fallback silencioso não pode s
 if (model.automaticPublicationAllowed !== false) fail("publicação automática não pode ser permitida.");
 if (model.locales["pt-PT"].status !== "published" || model.locales["pt-PT"].selectorEnabled !== true) fail("pt-PT deve estar published/selecionável.");
 for (const code of ["en", "es", "fr"]) {
-  if (model.locales[code].status !== "preparation" || model.locales[code].selectorEnabled !== false) fail(`${code} deve estar preparation/não-selecionável.`);
+  const loc = model.locales[code];
+  const coherent = (loc.status === "preparation" && loc.selectorEnabled === false) || (loc.status === "published" && loc.selectorEnabled === true);
+  if (!coherent) fail(`${code}: estado/seletor incoerentes no contrato (status=${loc.status}, selectorEnabled=${loc.selectorEnabled}).`);
 }
 
 // O i18n deve espelhar o contrato.
@@ -30,7 +37,8 @@ if (!/languageAvailability\s*=/.test(i18n)) fail("i18n sem languageAvailability.
 if (!/isLocaleSelectable/.test(i18n)) fail("i18n sem isLocaleSelectable.");
 if (!/"pt-PT":\s*\{\s*status:\s*"published",\s*selectorEnabled:\s*true\s*\}/.test(i18n)) fail("i18n: pt-PT deve ser published/selecionável.");
 for (const code of ["en", "es", "fr"]) {
-  if (!new RegExp(`"${code}":\\s*\\{\\s*status:\\s*"preparation",\\s*selectorEnabled:\\s*false\\s*\\}`).test(i18n)) fail(`i18n: ${code} deve ser preparation/não-selecionável.`);
+  const loc = model.locales[code];
+  if (!new RegExp(`"${code}":\\s*\\{\\s*status:\\s*"${loc.status}",\\s*selectorEnabled:\\s*${loc.selectorEnabled}\\s*\\}`).test(i18n)) fail(`i18n: ${code} deve espelhar o contrato (${loc.status}/${loc.selectorEnabled}).`);
 }
 
 // O seletor deve desativar os idiomas não selecionáveis e assinalar "em preparação".
@@ -43,4 +51,4 @@ if (!/disabled/.test(layout)) fail("idiomas não selecionáveis devem estar disa
 const main = text("src/main.js");
 if (!/if\s*\(!isLocaleSelectable\(lang\)\)\s*return;/.test(main)) fail("setLanguage não recusa idiomas não selecionáveis.");
 
-console.log("Pacote 09B idiomas validado: pt-PT selecionável; EN/ES/FR 'em preparação' (desativados, sem fallback silencioso); contrato, i18n e seletor coerentes.");
+console.log("Pacote 09B idiomas validado: contrato e i18n coerentes; pt-PT/EN/ES/FR conforme o contrato; sem fallback silencioso; seletor/guard preparados.");
