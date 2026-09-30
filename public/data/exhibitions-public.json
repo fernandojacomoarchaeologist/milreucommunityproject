@@ -2,9 +2,23 @@
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "version": "0.15.0",
   "generatedAt": null,
-  "source": "empty-foundation",
+  "source": "demonstration-example",
+  "isExample": true,
   "current": [],
-  "upcoming": [],
+  "upcoming": [
+    {
+      "example": true,
+      "starts_on": "2026-02-07",
+      "ends_on": "2026-02-21",
+      "venue_name": "Ruínas Romanas de Milreu",
+      "locality": "Estói",
+      "municipality": "Faro",
+      "address": "Ruínas Romanas de Milreu, Estói, Faro",
+      "exhibition_type": "Exposição itinerante",
+      "public_title": "Entre Ruínas e Memórias",
+      "public_summary": "Exemplo de demonstração: local e datas fictícios, apenas para ilustrar a agenda da itinerância. Os locais e as datas reais serão publicados quando confirmados e aprovados."
+    }
+  ],
   "past": [],
   "events": [],
   "notice": "O percurso público será apresentado quando existirem locais e datas confirmados e aprovados."

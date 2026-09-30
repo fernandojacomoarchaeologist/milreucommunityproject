@@ -692,6 +692,11 @@ linear-gradient(#d8cfc3 1px,transparent 1px),linear-gradient(90deg,#d8cfc3 1px,t
 .public-exhibition-stop__date span{font-size:.62rem;font-weight:900;text-transform:uppercase}.public-exhibition-stop__date strong{font:500 1.5rem var(--ml-font-display)}
 .public-exhibition-stop>div:last-child{padding:1.3rem}.public-exhibition-stop h2{margin:.3rem 0;font:500 2.2rem var(--ml-font-display)}
 .public-exhibition-stop__place{font-weight:800}.public-exhibition-stop dl{display:grid;gap:.55rem}.public-exhibition-stop dl div{display:grid;grid-template-columns:8rem 1fr}.public-exhibition-stop dt{font-weight:900}.public-exhibition-stop dd{margin:0}
+.public-exhibition-stop__duration{font-weight:800;font-size:.72rem;opacity:.85}
+.public-exhibition-stop__address{margin:.15rem 0 .4rem;opacity:.75}
+.public-exhibition-stop__example{display:inline-block;margin-bottom:.5rem;padding:.2rem .55rem;font-weight:800;font-size:.62rem;text-transform:uppercase;letter-spacing:.04em;color:#a83227;border:1px solid #a83227;border-radius:2px}
+.public-exhibition-example-banner{display:grid;gap:.3rem;padding:1rem 1.2rem;background:#eee7db;border-left:4px solid #a83227}
+.public-exhibition-example-banner strong{font:500 1.1rem var(--ml-font-display)}
 .public-exhibition-history{display:grid;gap:.5rem}.public-exhibition-history article{display:grid;grid-template-columns:16rem minmax(0,1fr) 12rem;gap:1rem;padding:.75rem;background:#fffefa}
 .public-exhibition-empty{min-height:28rem;display:grid;place-items:center;align-content:center;padding:2rem;text-align:center;background:
 linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,transparent 1px),#fffefa;background-size:3rem 3rem}

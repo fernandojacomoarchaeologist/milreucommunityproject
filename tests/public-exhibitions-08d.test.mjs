@@ -16,10 +16,21 @@ test("snapshot público possui contrato estável",()=>{
   for(const field of ["current","upcoming","past","events"])assert.ok(Array.isArray(snapshot[field]));
 });
 
-test("snapshot inicial não contém dados inventados",()=>{
-  assert.equal(snapshot.current.length,0);
-  assert.equal(snapshot.upcoming.length,0);
-  assert.equal(snapshot.events.length,0);
+test("snapshot não contém dados reais inventados (só exemplos declarados)",()=>{
+  // 08d-no-fake-exhibition-data + demonstration-content-only: não pode existir conteúdo
+  // REAL não aprovado; entradas de demonstração são admitidas apenas se marcadas
+  // explicitamente com example:true (decisão editorial 2026-09-30 — exemplo fev/2026).
+  for(const field of ["current","upcoming","events"]){
+    for(const row of snapshot[field]){
+      assert.equal(row.example,true,`${field}: entrada não declarada como exemplo`);
+    }
+  }
+  // Campos internos nunca expostos no snapshot público.
+  const forbidden=["internal_notes","transport_notes","condition_report_before","condition_report_after","contact_email","contact_name","internal_objectives"];
+  const serialized=JSON.stringify(snapshot);
+  for(const key of forbidden){
+    assert.doesNotMatch(serialized,new RegExp(`"${key}"`),`campo interno exposto: ${key}`);
+  }
   assert.match(snapshot.notice,/confirmados e aprovados/);
 });
 
