@@ -8,15 +8,23 @@ import { portalHeader, footer } from "../components/layout.js";
 const esc=value=>String(value??"").replace(/[&<>"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
 const dateOnly=value=>value?new Intl.DateTimeFormat("pt-PT",{dateStyle:"long"}).format(new Date(`${value}T12:00:00`)):"—";
 const dateTime=value=>value?new Intl.DateTimeFormat("pt-PT",{dateStyle:"long",timeStyle:"short"}).format(new Date(value)):"—";
+const durationDays=(starts,ends)=>{
+  if(!starts||!ends)return 0;
+  const diff=Math.round((new Date(`${ends}T12:00:00`)-new Date(`${starts}T12:00:00`))/86400000)+1;
+  return diff>0?diff:0;
+};
 
 function stopCard(row,current=false){
   const place=[row.venue_name,row.locality,row.municipality].filter(Boolean).join(" · ");
+  const days=durationDays(row.starts_on,row.ends_on);
   return `<article class="public-exhibition-stop ${current?"public-exhibition-stop--current":""}">
-    <div class="public-exhibition-stop__date"><span>${current?"Agora":"Período"}</span><strong>${esc(dateOnly(row.starts_on))}</strong><small>até ${esc(dateOnly(row.ends_on))}</small></div>
+    <div class="public-exhibition-stop__date"><span>${current?"Agora":"Período"}</span><strong>${esc(dateOnly(row.starts_on))}</strong><small>até ${esc(dateOnly(row.ends_on))}</small>${days?`<small class="public-exhibition-stop__duration">Duração: ${days} ${days===1?"dia":"dias"}</small>`:""}</div>
     <div>
+      ${row.example?`<span class="public-exhibition-stop__example" role="note">Exemplo · demonstração</span>`:""}
       <span>${esc(row.exhibition_type||"Exposição")}</span>
       <h2>${esc(row.public_title||row.exhibition_title||"Exposição")}</h2>
       <p class="public-exhibition-stop__place">${esc(place||"Local por anunciar")}</p>
+      ${row.address?`<p class="public-exhibition-stop__address"><span aria-hidden="true">📍 </span>${esc(row.address)}</p>`:""}
       <p>${esc(row.public_summary||row.exhibition_summary||"")}</p>
       <dl>
         ${row.opening_hours||row.venue_opening_hours?`<div><dt>Horário</dt><dd>${esc(row.opening_hours||row.venue_opening_hours)}</dd></div>`:""}
@@ -37,6 +45,7 @@ export function publicExhibitionsView(snapshot,lang="pt-PT"){
       <h1>Onde está a exposição?</h1>
       <p>Acompanhe os locais e períodos confirmados da exposição física do Projeto Comunitário de Milreu.</p>
     </section>
+    ${snapshot?.isExample?`<section class="content-section"><div class="public-exhibition-example-banner" role="note"><strong>Exemplo de demonstração</strong><span>Esta agenda apresenta um local e datas fictícios (fevereiro de 2026), apenas para ilustrar como será apresentada a itinerância. Os locais e as datas reais serão publicados quando confirmados e aprovados.</span></div></section>`:""}
     ${hasSchedule?`
       ${current.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Em exibição</h2><p>Locais com período atualmente ativo.</p></div><div class="public-exhibition-list">${current.map(row=>stopCard(row,true)).join("")}</div></section>`:""}
       ${upcoming.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Próximos locais</h2><p>Períodos confirmados e publicados.</p></div><div class="public-exhibition-list">${upcoming.map(row=>stopCard(row,false)).join("")}</div></section>`:""}

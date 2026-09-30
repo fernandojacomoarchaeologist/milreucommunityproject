@@ -164,6 +164,12 @@ export function homeView(records, content, carousel, lang, carouselState={}, pub
           <p>${text(lang,"surveyCardText")}</p>
           <a href="https://pt.surveymonkey.com/r/3CFG2MQ" target="_blank" rel="noopener noreferrer external">${text(lang,"surveyCardCta")} ↗</a>
         </article>
+        <article class="initiative-card">
+          <div class="initiative-card__icon"><img src="${assetUrl("public/icons/timeline.svg")}" alt=""></div>
+          <h2>${text(lang,"exhibitionCardTitle")}</h2>
+          <p>${text(lang,"exhibitionCardText")}</p>
+          <a href="#/exposicoes">${text(lang,"exhibitionCardCta")} →</a>
+        </article>
       </div>
     </section>
 
