@@ -131,7 +131,9 @@ function scheduleHomeCarousel() {
   clearHomeCarouselTimer();
   const route = getRoute();
   const config = state.homeCarousel?.autoplay;
-  const slides = state.homeCarousel?.slides || [];
+  // 2026-09 — os slides ocultos (hidden) são excluídos aqui tal como na vista (portal.js),
+  // para o índice do controlador coincidir com os slides realmente renderizados.
+  const slides = (state.homeCarousel?.slides || []).filter(slide => !slide.hidden);
   const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
   // 08O: pausa também quando o separador/página está oculto (document.hidden).
@@ -177,7 +179,7 @@ if (typeof window !== "undefined" && !globalThis.__milreuHomeCarouselResizeBound
 }
 
 function moveHomeCarousel(direction) {
-  const slides = state.homeCarousel?.slides || [];
+  const slides = (state.homeCarousel?.slides || []).filter(slide => !slide.hidden);
   if (!slides.length) return;
   state.homeCarouselIndex = (state.homeCarouselIndex + direction + slides.length) % slides.length;
   render(false);
