@@ -44,12 +44,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run collab:config
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-      - run: pip install -r requirements-qr.txt
+      # Nota: a geração de QR final (channels:qr:generate) NÃO corre aqui.
+      # Gravar o domínio público e marcar os QR como "generated" é uma ação
+      # de lançamento com gate humano (ver .claude/rules/qr-requires-public-domain.md
+      # e public-release-gated.md). O validate-channels exige, corretamente, que o
+      # pacote não invente um domínio público. O deploy técnico permanece noindex/
+      # editorial-preview e mantém os QR em estado "pending".
       - run: npm run channels:export
-      - run: npm run channels:qr:generate
       - run: npm run museum:index
       - run: npm run museum:audit
       - run: npm run validate
