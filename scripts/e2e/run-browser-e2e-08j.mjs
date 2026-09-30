@@ -174,7 +174,7 @@ try{
     // 08Q: os três slides partilham a caixa (offsetHeight idêntico) e title/subtitle/actions
     // ficam dentro da caixa de cada slide, sem scroll horizontal, neste viewport.
     const banner=await evaluate(`(()=>{const slides=[...document.querySelectorAll('.home-carousel__slide')];const hs=slides.map(s=>s.offsetHeight);const contained=slides.every(s=>{const b=s.getBoundingClientRect();return ['.eyebrow','h1','p','.hero-actions .ml-button'].map(x=>s.querySelector(x)).filter(Boolean).every(e=>{const r=e.getBoundingClientRect();return r.top>=b.top-2&&r.bottom<=b.bottom+2&&r.left>=b.left-2&&r.right<=b.right+2;});});return{count:slides.length,maxDiff:Math.max(...hs)-Math.min(...hs),contained,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};})()`);
-    assert(`banner-${name}-equal-box`,banner.count===3&&banner.maxDiff<=1,`3 slides, diferença de caixa ${banner.maxDiff}px`);
+    assert(`banner-${name}-equal-box`,banner.count===2&&banner.maxDiff<=1,`2 slides visíveis, diferença de caixa ${banner.maxDiff}px`);
     assert(`banner-${name}-content-inside`,banner.contained,"title/subtitle/actions dentro da caixa");
     assert(`banner-${name}-no-hscroll`,banner.overflow<=2,`overflow horizontal ${banner.overflow}px`);
   }
@@ -182,7 +182,7 @@ try{
   // 08O: carrossel da Home em browser real — caixa canónica, navegação manual e auto-play de relógio real.
   const CAROUSEL_INTERVAL_MS=9000, CAROUSEL_WAIT=CAROUSEL_INTERVAL_MS+2000;
   const carouselShape=await evaluate(`(()=>{const slides=document.querySelectorAll('.home-carousel__slide');const vp=document.querySelector('.home-carousel__viewport');return{count:slides.length,active:document.querySelectorAll('.home-carousel__slide--active').length,index:document.querySelector('.home-carousel__slide--active')?.dataset.homeSlide??null,height:vp?Math.round(vp.getBoundingClientRect().height):0};})()`);
-  assert("carousel-slide-count",carouselShape.count===3,`${carouselShape.count} slides`);
+  assert("carousel-slide-count",carouselShape.count===2,`${carouselShape.count} slides`);
   assert("carousel-single-active",carouselShape.active===1,`${carouselShape.active} slide ativo`);
   // Navegação manual + paridade de caixa canónica (≤1 CSS px, sem layout shift).
   await evaluate(`document.querySelector('[data-home-carousel-next]').click()`);await sleep(900);

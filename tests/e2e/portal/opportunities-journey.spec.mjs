@@ -98,5 +98,7 @@ test("perfil mínimo é obrigatório antes de candidatar-se", async ({ page }) =
 test("o seletor de idiomas do 09D permanece na página pública de oportunidades", async ({ page }) => {
   await page.goto("/#/oportunidades");
   await expect(page.locator(".language-switcher")).toHaveAttribute("aria-describedby", "language-switcher-note");
-  await expect(page.locator(".language-switcher__option--preparation")).toHaveCount(3);
+  // Decisão editorial 2026-09-30: EN/ES/FR passaram a selecionáveis — sem opções "em preparação".
+  await expect(page.locator(".language-switcher__option--preparation")).toHaveCount(0);
+  await expect(page.locator('.language-switcher [data-language="en"]')).toBeEnabled();
 });

@@ -10,14 +10,17 @@ import { readFileSync } from "node:fs";
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
 
-test("o contrato de idiomas mantém pt-PT selecionável e EN/ES/FR em preparação", () => {
+test("o contrato de idiomas é coerente (pt-PT selecionável; estado/seletor alinhados por locale)", () => {
+  // Decisão editorial 2026-09-30: EN/ES/FR passaram a "published"/selecionáveis.
+  // O contrato deixa de cravar "preparation"; exige-se coerência estado↔seletor.
   const m = read("public/data/language-availability-model.json");
   assert.equal(m.version, "0.39.0");
   assert.equal(m.silentFallbackAllowed, false);
   assert.equal(m.locales["pt-PT"].selectorEnabled, true);
   for (const c of ["en", "es", "fr"]) {
-    assert.equal(m.locales[c].status, "preparation");
-    assert.equal(m.locales[c].selectorEnabled, false);
+    const loc = m.locales[c];
+    const coherent = (loc.status === "preparation" && loc.selectorEnabled === false) || (loc.status === "published" && loc.selectorEnabled === true);
+    assert.ok(coherent, `${c}: estado/seletor incoerentes (${loc.status}/${loc.selectorEnabled})`);
   }
 });
 

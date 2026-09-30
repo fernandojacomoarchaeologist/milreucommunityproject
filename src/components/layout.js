@@ -37,9 +37,19 @@ export function portalHeader(lang, current="") {
     ["/sobre","about"],
     ["/area-colaborativa","collaborativeArea"]
   ];
-  const nav = links.map(([path,key]) =>
-    `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`
-  ).join("");
+  // 2026-09 — Simplificação temporária da navegação pública (esconder, não remover).
+  // Mostra apenas o Museu de Memórias; a Pesquisa/Inquérito 2026 mantém-se acessível
+  // pela Home (carrossel). Todas as rotas permanecem activas e os links continuam
+  // definidos acima — repor = esvaziar HIDDEN_NAV.
+  const HIDDEN_NAV = new Set([
+    "/projeto", "/metodologia", "/iniciativas",
+    "/conhecimento", "/participar", "/sobre", "/area-colaborativa"
+  ]);
+  const nav = links
+    .filter(([path]) => !HIDDEN_NAV.has(path))
+    .map(([path,key]) =>
+      `<a href="#${path}" ${current===path?'aria-current="page"':''}>${text(lang,key)}</a>`
+    ).join("");
 
   return `<header class="site-header">
     <div class="site-header__inner">

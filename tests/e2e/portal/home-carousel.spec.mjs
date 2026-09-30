@@ -16,8 +16,9 @@ for (const vp of VIEWPORTS) {
     await gotoHome(page);
 
     const m = await measureCarousel(page);
-    expect(m.count, "três slides no carrossel").toBe(3);
-    // Caixa idêntica entre os três slides (a regressão 08O→08Q falharia aqui).
+    // 2026-09: o slide Proteus foi ocultado (hidden) por decisão editorial — 2 slides visíveis.
+    expect(m.count, "dois slides visíveis no carrossel").toBe(2);
+    // Caixa idêntica entre os slides (a regressão 08O→08Q falharia aqui).
     expect(m.maxDiff, `diferença de caixa entre slides (${m.heights?.join("/")})`).toBeLessThanOrEqual(1);
     // Título, subtítulo e botões dentro da caixa de cada slide (não cortados).
     expect(m.contained, "title/subtitle/actions dentro da caixa de cada slide").toBe(true);
@@ -44,5 +45,5 @@ test("banner: controlos do carrossel presentes e rotulados", async ({ page }) =>
   await expect(page.locator("[data-home-carousel-previous]")).toBeVisible();
   await expect(page.locator("[data-home-carousel-next]")).toBeVisible();
   await expect(page.locator("[data-home-carousel-pause]")).toBeVisible();
-  await expect(page.locator("[data-home-carousel-index]")).toHaveCount(3);
+  await expect(page.locator("[data-home-carousel-index]")).toHaveCount(2);
 });

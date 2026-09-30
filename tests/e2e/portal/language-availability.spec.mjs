@@ -16,7 +16,7 @@ test("o grupo do seletor é descrito por uma nota de indisponibilidade acessíve
   await expect(group).toHaveAttribute("aria-describedby", "language-switcher-note");
   const note = page.locator("#language-switcher-note[data-locale-note]");
   await expect(note).toHaveCount(1);
-  await expect(note).toContainText(/em prepara/i);
+  await expect(note).toContainText(/tradu/i);
   await expect(note).toContainText(/portugu[eê]s/i);
 });
 

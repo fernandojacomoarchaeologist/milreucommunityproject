@@ -14,23 +14,38 @@
       "kind": "museum-memory",
       "memoryId": "MM202601",
       "eyebrow": {
-        "pt-PT": "Entre Ruínas e Memórias"
+        "pt-PT": "Entre Ruínas e Memórias",
+        "en": "Entre Ruínas e Memórias",
+        "es": "Entre Ruínas e Memórias",
+        "fr": "Entre Ruínas e Memórias"
       },
       "title": {
-        "pt-PT": "Museu de Memórias de Milreu"
+        "pt-PT": "Museu de Memórias de Milreu",
+        "en": "Milreu Museum of Memories",
+        "es": "Museo de Memorias de Milreu",
+        "fr": "Musée des Mémoires de Milreu"
       },
       "description": {
-        "pt-PT": "Fotografias, narrativas, contexto e relações que aproximam a comunidade, Estoi, a paisagem e Milreu."
+        "pt-PT": "Fotografias, narrativas, contexto e relações que aproximam a comunidade, Estoi, a paisagem e Milreu.",
+        "en": "Photographs, narratives, context and relations connecting the community, Estoi, the landscape and Milreu.",
+        "es": "Fotografías, narrativas, contexto y relaciones que acercan la comunidad, Estoi, el paisaje y Milreu.",
+        "fr": "Photographies, récits, contexte et relations qui rapprochent la communauté, Estoi, le paysage et Milreu."
       },
       "primaryAction": {
         "label": {
-          "pt-PT": "Entrar no Museu"
+          "pt-PT": "Entrar no Museu",
+          "en": "Enter the Museum",
+          "es": "Entrar en el Museo",
+          "fr": "Entrer dans le Musée"
         },
         "href": "/museu"
       },
       "secondaryAction": {
         "label": {
-          "pt-PT": "Explorar memórias"
+          "pt-PT": "Explorar memórias",
+          "en": "Explore memories",
+          "es": "Explorar memorias",
+          "fr": "Explorer les mémoires"
         },
         "href": "/museu/explorar"
       }
@@ -39,17 +54,29 @@
       "id": "proteus",
       "kind": "empty-state",
       "eyebrow": {
-        "pt-PT": "Dados, relações e pesquisa"
+        "pt-PT": "Dados, relações e pesquisa",
+        "en": "Data, relations and research",
+        "es": "Datos, relaciones e investigación",
+        "fr": "Données, relations et recherche"
       },
       "title": {
-        "pt-PT": "Experiência Proteus"
+        "pt-PT": "Experiência Proteus",
+        "en": "Proteus Experience",
+        "es": "Experiencia Proteus",
+        "fr": "Expérience Proteus"
       },
       "description": {
-        "pt-PT": "Uma nova forma de pesquisar e cruzar memórias, lugares, fontes, estudos e dados sobre Milreu. A estrutura está preparada e será ampliada de forma progressiva e documentada."
+        "pt-PT": "Uma nova forma de pesquisar e cruzar memórias, lugares, fontes, estudos e dados sobre Milreu. A estrutura está preparada e será ampliada de forma progressiva e documentada.",
+        "en": "A new way to search and cross-reference memories, places, sources, studies and data about Milreu. The structure is ready and will be expanded progressively and transparently.",
+        "es": "Una nueva forma de buscar y cruzar memorias, lugares, fuentes, estudios y datos sobre Milreu. La estructura está preparada y se ampliará de forma progresiva y documentada.",
+        "fr": "Une nouvelle façon de rechercher et de croiser mémoires, lieux, sources, études et données sur Milreu. La structure est prête et sera étendue de façon progressive et documentée."
       },
       "primaryAction": {
         "label": {
-          "pt-PT": "Abrir Experiência Proteus"
+          "pt-PT": "Abrir Experiência Proteus",
+          "en": "Open Proteus Experience",
+          "es": "Abrir Experiencia Proteus",
+          "fr": "Ouvrir l’Expérience Proteus"
         },
         "href": "/conhecimento"
       },
@@ -59,27 +86,43 @@
         "Fontes",
         "Dados",
         "Relações"
-      ]
+      ],
+      "hidden": true
     },
     {
       "id": "survey-2026",
       "kind": "external-image",
       "eyebrow": {
-        "pt-PT": "Inquérito 2026 · fase final"
+        "pt-PT": "Inquérito 2026 · fase final",
+        "en": "2026 Survey · final phase",
+        "es": "Encuesta 2026 · fase final",
+        "fr": "Enquête 2026 · phase finale"
       },
       "title": {
-        "pt-PT": "O que significa Milreu para si?"
+        "pt-PT": "O que significa Milreu para si?",
+        "en": "What does Milreu mean to you?",
+        "es": "¿Qué significa Milreu para usted?",
+        "fr": "Que signifie Milreu pour vous ?"
       },
       "description": {
-        "pt-PT": "As ruínas, as histórias, as memórias, as festas, as pessoas, os caminhos e as fotografias antigas fazem parte desta história. Participar demora apenas alguns minutos e pode ajudar a construir futuras iniciativas culturais, exposições comunitárias e ações ligadas à memória e ao património local. A sua voz faz parte desta história."
+        "pt-PT": "As ruínas, as histórias, as memórias, as festas, as pessoas, os caminhos e as fotografias antigas fazem parte desta história. Participar demora apenas alguns minutos e pode ajudar a construir futuras iniciativas culturais, exposições comunitárias e ações ligadas à memória e ao património local. A sua voz faz parte desta história.",
+        "en": "The ruins, the stories, the memories, the festivals, the people, the paths and the old photographs are all part of this history. It takes only a few minutes and can help shape future cultural initiatives, community exhibitions and actions linked to local memory and heritage. Your voice is part of this history.",
+        "es": "Las ruinas, las historias, las memorias, las fiestas, las personas, los caminos y las fotografías antiguas forman parte de esta historia. Participar lleva solo unos minutos y puede ayudar a construir futuras iniciativas culturales, exposiciones comunitarias y acciones ligadas a la memoria y al patrimonio local. Su voz forma parte de esta historia.",
+        "fr": "Les ruines, les histoires, les mémoires, les fêtes, les personnes, les chemins et les anciennes photographies font partie de cette histoire. Participer ne prend que quelques minutes et peut aider à construire de futures initiatives culturelles, des expositions communautaires et des actions liées à la mémoire et au patrimoine local. Votre voix fait partie de cette histoire."
       },
       "image": "public/media/home/inquerito-2026-carousel.png",
       "imageAlt": {
-        "pt-PT": "Cartaz do Inquérito 2026: O que Milreu significa para si?"
+        "pt-PT": "Cartaz do Inquérito 2026: O que Milreu significa para si?",
+        "en": "2026 Survey poster: What does Milreu mean to you?",
+        "es": "Cartel de la Encuesta 2026: ¿Qué significa Milreu para usted?",
+        "fr": "Affiche de l’Enquête 2026 : Que signifie Milreu pour vous ?"
       },
       "primaryAction": {
         "label": {
-          "pt-PT": "Responder ao Inquérito 2026"
+          "pt-PT": "Responder ao Inquérito 2026",
+          "en": "Take the 2026 Survey",
+          "es": "Responder a la Encuesta 2026",
+          "fr": "Répondre à l’Enquête 2026"
         },
         "href": "https://pt.surveymonkey.com/r/3CFG2MQ",
         "external": true
