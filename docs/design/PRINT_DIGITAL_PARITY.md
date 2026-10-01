@@ -26,15 +26,22 @@ Painéis, totens, portal, museu e app devem parecer partes do mesmo projeto sem 
 
 ## Painéis
 
-Decisões já conhecidas:
+Baseline atual (`CURRENT-HUMAN-BASELINE`, decisão 2026-08-17):
 
-- dimensão de referência: 1000 × 800 mm;
-- sangria: 5 mm;
-- corpo físico aproximadamente equivalente a 34 pt, sujeito a prova real;
-- português completo;
-- traduções resumidas quando o espaço físico exigir;
-- todo o texto essencial permanece na placa;
+- dimensão de referência: **841 × 2000 mm**, vertical («novo formato 841 × 2000 mm; não ampliar o A0»);
+- português completo; traduções resumidas quando o espaço físico exigir; toda a informação essencial permanece na placa;
 - tijolo apenas em moldura, QR e créditos.
+
+Ainda por fechar (`PROPOSED / PENDING`, sujeitos a prova física e perfil de impressão):
+
+- sangria e área segura (valores provisórios; a reconfirmar);
+- corpo físico e escala tipográfica — **34 pt não é um valor aprovado**; a determinar em prova real;
+- perfil de impressão (PDF/X-4 + ICC) — `PENDING`;
+- a **regra de fonte única** (abaixo) e o **QR** permanecem propostas de trabalho, não decisões humanas fechadas.
+
+### Formato anterior — `SUPERSEDED` (nota histórica)
+
+O baseline anterior era **1000 × 800 mm**, sangria 5 mm, corpo ~34 pt. Está **substituído** pelo baseline atual acima; conservado apenas como registo. Ver `MILREU_FORMAT_MIGRATION_NOTE`. Não apresentar os dois formatos como alternativas equivalentes.
 
 ## Digital
 

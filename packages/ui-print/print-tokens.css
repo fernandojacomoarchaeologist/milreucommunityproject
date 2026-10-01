@@ -1,18 +1,31 @@
 /**
  * © 2026 Fernando Rodrigues de Jácomo.
  * Produzido no âmbito do Projeto Comunitário de Milreu.
- * Initial print foundations; not a print-ready panel template.
+ * Initial print foundations; NOT a print-ready panel template.
+ *
+ * Migração de formato (v0.2): baseline do painel atualizado para
+ * 841 × 2000 mm (CURRENT-HUMAN-BASELINE, decisão 2026-08-17).
+ * O baseline anterior 1000 × 800 mm é SUPERSEDED — ver
+ * docs/design/PRINT_DIGITAL_PARITY.md e MILREU_FORMAT_MIGRATION_NOTE.
+ *
+ * Sangria, área segura e tipografia física NÃO foram redefinidas:
+ * permanecem valores provisórios (PROPOSED — NOT FOR PRODUCTION),
+ * pendentes de prova física e de perfil de impressão (PDF/X-4 + ICC).
+ * Perfil de impressão NÃO está pronto.
  */
 
 :root {
-  --ds-print-panel-width: 1000mm;
-  --ds-print-panel-height: 800mm;
-  --ds-print-bleed: 5mm;
-  --ds-print-safe-area: 25mm;
-  --ds-print-body-size: 34pt;
-  --ds-print-caption-size: 22pt;
-  --ds-print-metadata-size: 18pt;
-  --ds-print-institutional-rule: 4mm;
+  /* Formato do painel — CURRENT-HUMAN-BASELINE (841 × 2000 mm) */
+  --ds-print-panel-width: 841mm;
+  --ds-print-panel-height: 2000mm;
+
+  /* PROPOSED — NOT FOR PRODUCTION (pendentes de prova física; não são valores finais) */
+  --ds-print-bleed: 5mm;              /* provisório; a rever (hipótese anterior 5mm) */
+  --ds-print-safe-area: 25mm;         /* provisório; a rever */
+  --ds-print-body-size: 34pt;         /* provisório; NÃO aprovado; a rever em prova física */
+  --ds-print-caption-size: 22pt;      /* provisório; NÃO aprovado */
+  --ds-print-metadata-size: 18pt;     /* provisório; NÃO aprovado */
+  --ds-print-institutional-rule: 4mm; /* provisório */
 }
 
 .ds-print-frame {
