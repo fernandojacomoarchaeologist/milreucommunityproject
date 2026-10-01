@@ -170,6 +170,12 @@ export function homeView(records, content, carousel, lang, carouselState={}, pub
           <p>${text(lang,"exhibitionCardText")}</p>
           <a href="#/exposicoes">${text(lang,"exhibitionCardCta")} →</a>
         </article>
+        <article class="initiative-card">
+          <div class="initiative-card__icon"><img src="${assetUrl("public/icons/community.svg")}" alt=""></div>
+          <h2>${text(lang,"exporCardTitle")}</h2>
+          <p>${text(lang,"exporCardText")}</p>
+          <a href="#/participar/expor">${text(lang,"exporCardCta")} →</a>
+        </article>
       </div>
     </section>
 

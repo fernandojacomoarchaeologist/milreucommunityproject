@@ -776,6 +776,32 @@ class CollaborativeController{
     localStorage.setItem(PUBLIC_CONTRIBUTION_DEMO_KEY,JSON.stringify(items));
   }
 
+  async submitExhibitionProposal(payload){
+    const clean={
+      name:String(payload.name||"").trim(),
+      email:String(payload.email||"").trim(),
+      phone:String(payload.phone||"").trim()||null,
+      organisation:String(payload.organisation||"").trim()||null,
+      spaceType:String(payload.spaceType||"").trim()||null,
+      venue:String(payload.venue||"").trim()||null,
+      locality:String(payload.locality||"").trim()||null,
+      dates:String(payload.dates||"").trim()||null,
+      message:String(payload.message||"").trim(),
+      needs:String(payload.needs||"").trim()||null,
+      privacyAccepted:Boolean(payload.privacyAccepted),
+      language:String(payload.language||"pt-PT")
+    };
+    if(!clean.name||!clean.email||!clean.message||!clean.privacyAccepted)throw new Error("Dados insuficientes para enviar a proposta.");
+    // Modo demonstração / local: sem rede e sem envio real de email.
+    if(this.config?.mode!=="supabase"||!this.client){
+      return {mode:"demo",reference:`MILREU-EXPO-DEMO-${String(Date.now()).slice(-8)}`};
+    }
+    const{data,error}=await this.client.functions.invoke("exhibition-proposal-intake",{body:{action:"submit",payload:clean,website:payload.website||""}});
+    if(error)throw error;
+    if(!data?.ok)throw new Error(data?.error||"A proposta não pôde ser enviada.");
+    return {mode:"sent",reference:data.data?.reference||null};
+  }
+
   async invokeContributionFunction(body){
     if(this.config.mode!=="supabase"||!this.client)throw new Error("A infraestrutura remota de contributos ainda não está configurada.");
     const{data,error}=await this.client.functions.invoke(this.config.contributions?.functionName||"community-contribution-intake",{body});

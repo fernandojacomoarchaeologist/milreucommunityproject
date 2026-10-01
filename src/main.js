@@ -48,6 +48,7 @@ import {
 import {
   publicContributionFormView, publicContributionTrackingView, publicWithdrawalView
 } from "./views/contributions-public.js";
+import { exhibitionProposalView } from "./views/expor.js";
 import {
   collaborativeLibraryView, collaborativeLibraryResourceView, collaborativeTrainingView, collaborativeTrainingTrailView,
   collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView,
@@ -99,6 +100,7 @@ const state = {
   collabNotificationFilters: {query:"",status:"",category:""},
   collabAuditFilters: {query:"",action:"",entityType:"",category:"",severity:"",from:"",to:""},
   contributionSubmissionResult: null,
+  exhibitionProposalResult: null,
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
   lang: isLocaleSelectable(localStorage.getItem("milreu-language")) ? localStorage.getItem("milreu-language") : "pt-PT",
@@ -1306,6 +1308,23 @@ function bindPage() {
     });
   }
 
+  document.querySelector("[data-exhibition-proposal-form]")?.addEventListener("submit",async event=>{
+    event.preventDefault();
+    const form=event.currentTarget;
+    const feedback=(msg,err=false)=>{const el=form.querySelector("[data-exhibition-proposal-feedback]");if(el){el.textContent=msg;el.classList.toggle("is-error",Boolean(err));}};
+    const values=formValues(form);
+    values.language=state.lang;
+    if(values.website){return;} // honeypot: ignorar submissões automáticas
+    if(!values.name?.trim()||!values.email?.trim()||!values.message?.trim()||!form.querySelector('[name="privacyAccepted"]')?.checked){
+      feedback("Preencha o nome, o e-mail, a descrição e aceite a informação de privacidade.",true);return;
+    }
+    feedback("A enviar a proposta…");
+    try{
+      state.exhibitionProposalResult=await collaborative.submitExhibitionProposal(values);
+      render(false);
+    }catch(error){feedback(error.message||"Não foi possível enviar a proposta.",true);}
+  });
+
   document.querySelector("[data-public-contribution-track-form]")?.addEventListener("submit",async event=>{
     event.preventDefault();
     const values=formValues(event.currentTarget);
@@ -1617,6 +1636,7 @@ function render(scroll=true) {
     case "proteus-api": html = proteusApiView(state.publicProteusApi,state.lang); setMetadata("API pública · Proteus"); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
+    case "exhibition-proposal": html = exhibitionProposalView(state.lang,state.exhibitionProposalResult); setMetadata(text(state.lang,"exporTitle")); break;
     case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
     case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
