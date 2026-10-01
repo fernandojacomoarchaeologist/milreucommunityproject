@@ -30,6 +30,7 @@ export function getRoute() {
   if (path === "/participar/contribuir") return { name:"public-contribution-new" };
   if (path === "/participar/contribuir/acompanhar") return { name:"public-contribution-track" };
   if (path === "/participar/retirada") return { name:"public-contribution-withdrawal" };
+  if (path === "/participar/expor" || path === "/expor") return { name:"exhibition-proposal" };
   if (path === "/sobre") return { name:"about" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
   if (path === "/oportunidades") return { name:"public-opportunities" };
