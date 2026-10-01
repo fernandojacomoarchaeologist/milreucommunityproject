@@ -47,7 +47,7 @@ export function museumHome(records,collections,audit,lang,publicEffects=null) {
     ${renderPublicContentEffects(publicEffects,"museum.home.after-opening",records,lang)}
 
     <section class="museum-section">
-      <div class="museum-section__heading"><div><span class="eyebrow">${text(lang,"collectionsLabel")}</span><h2>Percursos de exploração</h2></div><a href="#/museu/colecoes">${text(lang,"showAll")} →</a></div>
+      <div class="museum-section__heading"><div><span class="eyebrow">${text(lang,"collectionsLabel")}</span><h2>${text(lang,"explorationPaths")}</h2></div><a href="#/museu/colecoes">${text(lang,"showAll")} →</a></div>
       <div class="museum-collection-grid">${collections.slice(0,4).map(collection => collectionCard(collection,records,lang)).join("")}</div>
     </section>
 
@@ -142,11 +142,18 @@ export function galleryView(records,indexRecords,lang,state={}) {
   </main></div>`;
 }
 
+// Aviso explícito quando o CONTEÚDO ainda não existe no idioma activo (sem fallback silencioso).
+// As traduções en/es/fr são pendentes de revisão humana; a interface informa em vez de simular.
+function localeFallbackBanner(lang, didFallback) {
+  if (!didFallback || lang === "pt-PT") return "";
+  return `<div class="locale-fallback" role="note"><strong>${text(lang,"localeUnavailableTitle")}</strong><p>${text(lang,"localeUnavailableText")}</p></div>`;
+}
+
 export function collectionsView(records,collections,lang) {
   return `<div class="museum-shell">${museumHeader(lang,"/museu/colecoes")}
   <main id="main" class="gallery-page">
     <div class="gallery-intro"><div><span class="eyebrow">${text(lang,"collectionDerived")}</span><h1>${text(lang,"collectionsLabel")}</h1></div></div>
-    <div class="derived-notice">${text(lang,"suggestedNotice").replace("Sugestões","As coleções")}</div>
+    <div class="derived-notice">${text(lang,"collectionsNotice")}</div>
     <div class="museum-collection-grid museum-collection-grid--all">
       ${collections.map(collection => collectionCard(collection,records,lang)).join("")}
     </div>
@@ -160,6 +167,7 @@ export function collectionDetailView(records,collection,lang) {
   const description = localised(collection.description,lang);
   return `<div class="museum-shell">${museumHeader(lang,"/museu/colecoes")}
   <main id="main" class="gallery-page">
+    ${localeFallbackBanner(lang, title.fallback || description.fallback)}
     <div class="collection-detail-heading">
       <span class="eyebrow">${text(lang,"collectionDerived")} · ${collection.memberCount} ${text(lang,"collectionMembers")}</span>
       <h1>${escapeHtml(title.value)}</h1>
@@ -203,7 +211,7 @@ export function detailView(records,record,lang) {
     <article class="memory-detail__copy">
       <span class="eyebrow">${record.id} · ${text(lang,"preliminary")}</span>
       <h1>${escapeHtml(title.value)}</h1>
-      ${title.fallback ? `<div class="fallback-note">${text(lang,"fallback")}</div>` : ""}
+      ${localeFallbackBanner(lang, title.fallback || short.fallback || objective.fallback || community.fallback || context.fallback)}
       <p class="memory-lead">${escapeHtml(short.value)}</p>${aiReviewDisclosure(record,lang)}
 
       <nav class="memory-local-nav" aria-label="${text(lang,"documentation")}">
@@ -223,7 +231,7 @@ export function detailView(records,record,lang) {
       <section id="record-context" class="memory-section">
         <h2>${text(lang,"context")}</h2>
         ${context.value ? `<p>${escapeHtml(context.value)}</p>` : ""}
-        ${institutional.value ? `<div class="institutional-context"><strong>Enquadramento institucional</strong><p>${escapeHtml(institutional.value)}</p></div>` : ""}
+        ${institutional.value ? `<div class="institutional-context"><strong>${text(lang,"institutionalFraming")}</strong><p>${escapeHtml(institutional.value)}</p></div>` : ""}
       </section>
 
       <section id="record-documentation" class="memory-section">
@@ -243,7 +251,7 @@ export function detailView(records,record,lang) {
         <h3>${text(lang,"sourceList")}</h3>
         <ol class="source-list">${record.sources.map(source => `<li><p>${escapeHtml(source.citation||"")}</p><span>${text(lang,"sourceAccess")}: ${escapeHtml(source.access||"")}</span></li>`).join("")}</ol>
 
-        <div class="ml-provenance"><p><strong>Crédito:</strong> ${escapeHtml(credit.value)}</p></div>
+        <div class="ml-provenance"><p><strong>${text(lang,"creditLabel")}</strong> ${escapeHtml(credit.value)}</p></div>
 
         <div class="ml-rights">
           <h3>${text(lang,"rightsCorrection")}</h3>
@@ -342,7 +350,7 @@ export function timelineView(records,lang) {
 }
 
 export function unavailableView(lang) {
-  return `<div class="museum-shell">${museumHeader(lang)}<main id="main" class="unavailable"><div class="unavailable__box"><span class="eyebrow">Registo protegido</span><h1>${text(lang,"unavailable")}</h1><p>${text(lang,"unavailableText")}</p><a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"returnGallery")}</a></div></main></div>`;
+  return `<div class="museum-shell">${museumHeader(lang)}<main id="main" class="unavailable"><div class="unavailable__box"><span class="eyebrow">${text(lang,"protectedRecord")}</span><h1>${text(lang,"unavailable")}</h1><p>${text(lang,"unavailableText")}</p><a class="ml-button ml-button--primary" href="#/museu/explorar">${text(lang,"returnGallery")}</a></div></main></div>`;
 }
 
 function collectionCard(collection,records,lang) {
@@ -365,7 +373,7 @@ function compactRelationCard(record,lang) {
 function digitalInterventionNotice(record,lang) {
   const interventions = record.media.digitalInterventions || [];
   if (!interventions.length) return "";
-  return `<div class="digital-intervention-notice"><h3>${text(lang,"digitalNotice")}</h3>${interventions.map(item => `<article><strong>${escapeHtml(item.type)}</strong><p>${escapeHtml(localised(item.description,lang).value)}</p><span>Revisão humana: ${escapeHtml(item.humanReviewStatus||"")}</span></article>`).join("")}</div>`;
+  return `<div class="digital-intervention-notice"><h3>${text(lang,"digitalNotice")}</h3>${interventions.map(item => `<article><strong>${escapeHtml(item.type)}</strong><p>${escapeHtml(localised(item.description,lang).value)}</p><span>${text(lang,"humanReviewLabel")} ${escapeHtml(item.humanReviewStatus||"")}</span></article>`).join("")}</div>`;
 }
 
 function timelineItem(record,lang) {
