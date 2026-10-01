@@ -91,7 +91,11 @@
 
 **Histórico.** v1 — primeira montagem; 3 iterações de layout para eliminar overflow/sobreposição e aplicar fit-to-width nos títulos.
 
-**Estado da última versão.** `docs/dissemination/convite-inquerito/**final**/` — **ARTE-FINAL entregue + commitada (HUMAN PASS)**. QA técnico **PASS** (dimensões, sangria, sem quebra de URL, QR validado 841/841, SVG não achatado). Entregáveis: `svg/` (5 SVG editáveis, grupos separados, texto vivo, QR vetorial) · `print/` (PDFs A6/A4/A3, sangria 3mm + marcas, 300 dpi **raster** — vetor/fontes no prepress a partir do SVG) · `digital/` (PNG+JPG 1080×1350 e 1080×1920) · `_PRANCHA_FINAL.png` · `QA_REPORT.md`. **HUMAN GATE pendente:** validação física do QR impresso; CMYK/export vetorial de fontes no prepress. **Tudo single-face.**
+**Estado da última versão: DONE · PRODUCTION GATE PENDING** (decisão humana 2026-10-01). `docs/dissemination/convite-inquerito/final/` (PR #64, commit `3fdc007`).
+- design **aprovado** · arte-final **entregue** · SVG editável **PASS** · PDFs **PASS técnico** · QR digital **PASS** (841/841) · Git/PR **concluído**.
+- **Pendência de produção (HUMAN GATE):** (a) **teste físico do QR** numa impressão real; (b) **prepress final** — conversão/validação **vetorial e CMYK a partir do SVG mestre** quando a gráfica exigir.
+- **Ressalva (decisão humana):** os **PDFs raster 300 dpi** servem como press-ready mas **não são «print-ready definitivo» sem ressalva**; para gráfica, **prioridade ao SVG mestre + prepress**, sobretudo se houver exigência de **CMYK, fontes incorporadas ou PDF/X**.
+- Entregáveis: `svg/` (5 SVG editáveis, grupos separados, texto vivo, QR vetorial) · `print/` (PDFs A6/A4/A3, sangria 3mm + marcas, 300 dpi raster) · `digital/` (PNG+JPG 1080×1350 e 1080×1920) · `_PRANCHA_FINAL.png` · `QA_REPORT.md`. **Tudo single-face.**
 
 *Histórico de composição (aprovada em v6):* **Tudo single-face** (A6, A4, A3 só frente; digitais uma face por formato). Linguagem: eyebrow «INQUÉRITO MILREU 2026» (vermelho, pequeno) · headline «Milreu também se constrói…» (maior texto, 2 linhas) · descrição · **frase de contexto só em A4/A3/digital** · **QR grande** (cresce no A4/A3) + **PARTICIPE** + **URL subordinada** · assinatura discreta. Arte-final pendente: **SVG editável por face (grupos separados, não achatado)** + PDFs print-ready (A6/A4/A3, sangria 3mm + marcas) + PNG/JPG digitais + **teste físico do QR** + CMYK/fontes. (v1–v5 histórico; A6 decidido single-sided, verso eliminado.)
 
