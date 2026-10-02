@@ -110,7 +110,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202601.jpg",
+        "original": "public/media/museum/originals/MM202601.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202601/thumbnail.webp",
           "card": "public/media/museum/generated/MM202601/card.webp",
@@ -302,7 +302,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202602.jpg",
+        "original": "public/media/museum/originals/MM202602.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202602/thumbnail.webp",
           "card": "public/media/museum/generated/MM202602/card.webp",
@@ -496,7 +496,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202603.jpg",
+        "original": "public/media/museum/originals/MM202603.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202603/thumbnail.webp",
           "card": "public/media/museum/generated/MM202603/card.webp",
@@ -876,7 +876,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202605.jpg",
+        "original": "public/media/museum/originals/MM202605.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202605/thumbnail.webp",
           "card": "public/media/museum/generated/MM202605/card.webp",
@@ -1070,7 +1070,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202606.jpg",
+        "original": "public/media/museum/originals/MM202606.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202606/thumbnail.webp",
           "card": "public/media/museum/generated/MM202606/card.webp",
@@ -1261,7 +1261,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202607.jpg",
+        "original": "public/media/museum/originals/MM202607.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202607/thumbnail.webp",
           "card": "public/media/museum/generated/MM202607/card.webp",
@@ -1838,7 +1838,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202610.jpg",
+        "original": "public/media/museum/originals/MM202610.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202610/thumbnail.webp",
           "card": "public/media/museum/generated/MM202610/card.webp",
@@ -2413,7 +2413,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202613.jpg",
+        "original": "public/media/museum/originals/MM202613.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202613/thumbnail.webp",
           "card": "public/media/museum/generated/MM202613/card.webp",
@@ -3449,7 +3449,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202618.jpg",
+        "original": "public/media/museum/originals/MM202618.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202618/thumbnail.webp",
           "card": "public/media/museum/generated/MM202618/card.webp",
@@ -4494,7 +4494,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202623.jpg",
+        "original": "public/media/museum/originals/MM202623.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202623/thumbnail.webp",
           "card": "public/media/museum/generated/MM202623/card.webp",
@@ -4895,7 +4895,7 @@
         }
       ],
       "media": {
-        "original": "public/media/museum/originals/MM202625.jpg",
+        "original": "public/media/museum/originals/MM202625.png",
         "variants": {
           "thumbnail": "public/media/museum/generated/MM202625/thumbnail.webp",
           "card": "public/media/museum/generated/MM202625/card.webp",
