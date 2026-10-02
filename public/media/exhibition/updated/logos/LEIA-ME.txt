@@ -1,0 +1,17 @@
+LOGÓTIPOS — pasta de entrada
+© 2026 Fernando Rodrigues de Jacomo — Projeto Comunitário de Milreu.
+
+Guarde aqui os FICHEIROS ORIGINAIS dos logótipos (nao o print).
+Preferir VETOR (SVG/EPS/PDF); senao PNG/JPG de maior resolucao possivel.
+Nomes sugeridos:
+  logo-republica-portuguesa-cultura.(svg/png)
+  logo-patrimonio-cultural-ip.(svg/png)
+  logo-museu-lyceu-faro.(svg/png)
+  logo-amigos-museu-lyceu.(svg/png)
+  logo-ccdr-algarve.(svg/png)
+  logo-ualg.(svg/png)
+  logo-milreu.(svg/png)
+Depois diga "guardei" + quais.
+Eu gero PNG transparente (remocao de fundo algoritmica, sem IA, sem redesenho)
+para os de fundo liso; os de fundo complexo assinalo para obter versao oficial transparente.
+A marca "Projeto Comunitario de Milreu" ja existe transparente em assets/brand/.
