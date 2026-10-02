@@ -15,7 +15,7 @@
 | 4 | Poster de congresso | Poster A0 académico | `print-A0` + sangria commitado (PR #63); **gate de impressão aberto** («prova visual»); arte-fonte não versionada |
 | 5 | Flyer + Marcador | Materiais do Museu | `print/` (Flyer A6 + Marcador 59×214) commitado (PR #63); **marcador arte-final, flyer ainda prova visual** |
 | 6 | Convite ao Inquérito | Peça de conversão (A6/A4/A3/digitais) | **DONE · PRODUCTION GATE** (PR #64 merged `aa0e018`); **barra canónica de parcerias** aplicada (A6/A4/A3 + story); QA técnico **PASS**; pendente **teste físico do QR** + prepress vetorial/CMYK |
-| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição inicial PDF) | **FASE 1 — previews** P1–P4 (PNG) atualizados; P4 com **barra canónica de parcerias**; **arte-final/PDF por produzir**; direitos de logótipos por confirmar |
+| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição inicial PDF) | **HUMAN DESIGN PASS / FINAL ART DELIVERED** — 3 saídas (DIGITAL RGB+hyperlinks, PRINT CMYK PDF/X-3, LIVRETO A4) + editáveis + QA; **DONE só após revisão humana**; créditos de fotos e prova física do QR pendentes |
 
 ## Nota — directiva de recomposição do bloco institucional (2026-10-02)
 
@@ -141,7 +141,13 @@ Conjunto **canónico** e ordem (fixado por referência do responsável), aplicad
 
 **Como foi feito.** Gerador `scratchpad/item7_build/build.py` (PIL, 150 dpi, 2 famílias Fraunces+Spectral). **Atualização 2026-10-02:** P4 passou a usar a **barra canónica** (5 unidades, cabeçalho bilingue, alinhada à esquerda, gap 0,6×altura) em vez da fila não canónica anterior.
 
-**Estado da última versão.** `docs/dissemination/dossie-convite/v1/previews/` (P1–P4 + `_PRANCHA_dossie.png`, PNG). **FASE 1 (previews) — NÃO é arte-final.** Pendente: validação editorial do dossiê; **FASE 2** (arte-final + **PDF de 4 páginas** com imposição, sangria/marcas, prepress); **direitos dos logótipos e das fotografias (a confirmar)**. Geradores e previews **não versionados em Git** (estado por README + datas de ficheiro).
+**Estado da última versão. HUMAN DESIGN PASS / FINAL ART DELIVERED (2026-10-02).** Direcção aprovada e **congelada** (arquitectura, imagens, hierarquia, copy, diagramas, parceiros). Arte-final em `docs/dissemination/dossie-convite/final/`:
+- `…_DIGITAL.pdf` — RGB, 4×A5 (148×210), sem sangria/marcas, **6 hyperlinks** (site, 2 e-mails `mailto:`, telefone `tel:`, site sob QR) + QR funcional;
+- `…_PRINT.pdf` — **CMYK · PDF/X-3:2002**, 4×A5 + 3 mm sangria + marcas + TrimBox/BleedBox + OutputIntent (perfil «Generic CMYK» padrão — **confirmar com a gráfica**); texto raster a 300 dpi (gerador raster-nativo, sem SVG);
+- `…_LIVRETO_A4.pdf` — imposição 1 folha A4 landscape (duplex, dobra ao meio), versão **adicional**;
+- `editaveis/` (fonte `dossie_generator.py` com texto vivo/diagramas vetoriais; imagens; QR svg+png), `_PRANCHA_FINAL.png`, `QA_REPORT.md`.
+
+Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recortada + MM202613) → Exposição (diagramas) → Convite (MM202601); sem repetições. **Portas de legibilidade PASS** (A5 100%, logos P4, alinhamentos, PPI ≥275, QR matriz, hyperlinks). **DONE só após revisão humana.** **HUMAN PRODUCTION GATE:** prova física do QR; prova do livreto dobrado; cor/prepress final da gráfica; **forma de exibição dos créditos das fotografias** (`creditRequired`) a decidir. Tabela de contexto das imagens em `v1/RELATORIO_FASE1.md`. Geradores/finalização em `scratchpad/item7_build` + `item7_finalize.py` (não versionados).
 
 ---
 
