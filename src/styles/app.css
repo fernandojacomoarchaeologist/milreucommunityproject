@@ -1167,7 +1167,7 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 
 /* Parcerias e apoio (Home + Museu) */
 .partner-section{max-width:var(--ml-container-max);margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,4rem);border-top:1px solid var(--ml-border-subtle)}
-.partner-logos{list-style:none;margin:1.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(1.5rem,4vw,3.25rem)}
+.partner-logos{list-style:none;margin:1.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:clamp(1.1rem,2.7vw,1.9rem)}
 .partner-logos li{display:flex;align-items:center}
 .partner-logos img{height:clamp(32px,4.5vw,48px);width:auto;max-width:170px;object-fit:contain}
 .partner-section--on-dark{border-top-color:rgb(255 255 255/.18)}

@@ -119,12 +119,10 @@ export function footer(lang="pt-PT") {
 // public/media/exhibition/updated/logos/PROVENIENCIA.txt (vários "a confirmar").
 const PARTNER_LOGOS = [
   ["logo-projeto-comunitario-milreu.png", "Projeto Comunitário de Milreu"],
-  ["logo-ualg.svg", "Universidade do Algarve"],
   ["logo-ccdr-algarve.png", "CCDR Algarve"],
-  ["logo-museu-lyceu.png", "Museu do Lyceu de Faro"],
   ["logo-associacao-amigos-museu-lyceu-faro.png", "Associação dos Amigos do Museu do Lyceu de Faro"],
-  ["logo-republica-portuguesa-cultura.png", "República Portuguesa — Cultura"],
-  ["logo-patrimonio-cultural-DGPC.png", "Património Cultural"]
+  ["Milreu_policromatico.png", "Milreu · República Portuguesa (Cultura, Juventude e Desporto) · Património Cultural"],
+  ["logo-ualg-completo.png", "Universidade do Algarve"]
 ];
 
 export function partnerLogos(lang, { dark = false } = {}) {
