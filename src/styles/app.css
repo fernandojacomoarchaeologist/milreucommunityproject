@@ -1163,3 +1163,14 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .opportunity-share span{width:100%;font-size:.62rem;font-weight:900;text-transform:uppercase;color:#8a7f74}
 .opportunity-share button,.opportunity-share a{padding:.4rem .6rem;font-size:.75rem;font-weight:800;color:#7e251c;background:transparent;border:1px solid #c9bda9;text-decoration:none;cursor:pointer}
 @media(max-width:52rem){.opportunity-detail{grid-template-columns:1fr}.opportunity-detail__aside{position:relative;top:0}.opportunity-detail__facts div{grid-template-columns:1fr}}
+
+
+/* Parcerias e apoio (Home + Museu) */
+.partner-section{max-width:var(--ml-container-max);margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,4rem);border-top:1px solid var(--ml-border-subtle)}
+.partner-logos{list-style:none;margin:1.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:clamp(1.1rem,2.7vw,1.9rem)}
+.partner-logos li{display:flex;align-items:center}
+.partner-logos img{height:clamp(32px,4.5vw,48px);width:auto;max-width:170px;object-fit:contain}
+.partner-section--on-dark{border-top-color:rgb(255 255 255/.18)}
+.partner-section--on-dark .section-heading h2,.partner-section--on-dark .section-heading p{color:var(--ml-text-inverse)}
+.partner-logos--panel{background:var(--ml-surface-reading);border-radius:14px;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem);gap:clamp(1.25rem,3vw,2.5rem)}
+@media(max-width:52rem){.partner-logos img{height:34px}}
