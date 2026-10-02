@@ -57,7 +57,6 @@ export function portalHeader(lang, current="") {
         <img src="${assetUrl("public/brand/symbol.webp")}" alt="">
         <span>Projeto Comunitário de Milreu</span>
       </a>
-      <span class="preview-status">${text(lang,"preliminary")}</span>
       <nav class="primary-nav" aria-label="Principal">${nav}</nav>
       <div class="header-actions">
         <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
@@ -109,11 +108,36 @@ export function footer(lang="pt-PT") {
         <p>Fotografias: consultar créditos de cada memória.</p>
       </div>
       <div>
-        <p>Pré-visualização editorial · não indexável</p>
         <p><a href="#/museu">${text(lang,"museum")}</a> · <a href="#/participar">${text(lang,"participate")}</a></p>
       </div>
     </div>
   </footer>`;
+}
+
+// Logótipos de parceria/apoio (os mesmos dos painéis da exposição). Reutilizado na Home
+// e no Museu. Direitos/uso institucional de cada entidade: ver
+// public/media/exhibition/updated/logos/PROVENIENCIA.txt (vários "a confirmar").
+const PARTNER_LOGOS = [
+  ["logo-projeto-comunitario-milreu.png", "Projeto Comunitário de Milreu"],
+  ["logo-ualg.svg", "Universidade do Algarve"],
+  ["logo-ccdr-algarve.png", "CCDR Algarve"],
+  ["logo-museu-lyceu.png", "Museu do Lyceu de Faro"],
+  ["logo-associacao-amigos-museu-lyceu-faro.png", "Associação dos Amigos do Museu do Lyceu de Faro"],
+  ["logo-republica-portuguesa-cultura.png", "República Portuguesa — Cultura"],
+  ["logo-patrimonio-cultural-DGPC.png", "Património Cultural"]
+];
+
+export function partnerLogos(lang, { dark = false } = {}) {
+  const items = PARTNER_LOGOS.map(([file, name]) =>
+    `<li><img src="${assetUrl("public/media/exhibition/updated/logos/" + file)}" alt="${name}" loading="lazy" decoding="async"></li>`
+  ).join("");
+  return `<section class="partner-section${dark ? " partner-section--on-dark" : ""}" aria-label="${text(lang,"partnersTitle")}">
+    <div class="section-heading section-heading--stacked">
+      <h2>${text(lang,"partnersTitle")}</h2>
+      <p>${text(lang,"partnersLead")}</p>
+    </div>
+    <ul class="partner-logos${dark ? " partner-logos--panel" : ""}">${items}</ul>
+  </section>`;
 }
 
 export function bindCommon(setLanguage) {

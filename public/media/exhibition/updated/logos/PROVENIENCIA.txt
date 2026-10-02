@@ -1,0 +1,8 @@
+Proveniência e direitos dos logótipos (2026-08-29)
+- logo-projeto-comunitario-milreu.png : marca do projeto (assets/brand/, projeto).
+- logo-republica-portuguesa-cultura.png : Wikimedia Commons "Cultura Ministry logo", CC BY-SA (marca oficial República Portuguesa/Cultura). Confirmar autorização de uso.
+- logo-republica-portuguesa.svg : Wikimedia Commons "Logótipo do Governo Portugal", CC BY-SA (base, sem "CULTURA").
+- logo-ualg.png / logo-ualg.svg : ZIP oficial ualg.pt (Manual de Identidade UAlg).
+- logo-patrimonio-cultural-DGPC.png : Commons "Logo DGPC" (nome ANTIGO Direção-Geral; baixa resolução; NAO é a versao atual "Patrimonio Cultural, I.P."). Obter versao oficial atual.
+PENDENTES (obter ficheiro proprio): Patrimonio Cultural I.P. (atual), CCDR Algarve, Museu do Lyceu de Faro, Associacao dos Amigos.
+Uso institucional na exposicao a confirmar com cada entidade.

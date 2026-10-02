@@ -3,7 +3,7 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  */
-import { museumHeader, footer } from "../components/layout.js";
+import { museumHeader, footer, partnerLogos } from "../components/layout.js";
 import { memoryCard } from "../components/memory-card.js";
 import { renderPublicContentEffects } from "../components/public-content-effects.js";
 import { assetUrl, suggestedMemories } from "../lib/data.js";
@@ -55,6 +55,8 @@ export function museumHome(records,collections,audit,lang,publicEffects=null) {
       <div class="museum-section__heading"><div><span class="eyebrow">${text(lang,"gallery")}</span><h2>${text(lang,"featured")}</h2></div><a href="#/museu/explorar">${text(lang,"viewAll")} →</a></div>
       <div class="memory-grid">${featured.map(x => memoryCard(x,lang)).join("")}</div>
     </section>
+
+    ${partnerLogos(lang,{dark:true})}
   </main></div>`;
 }
 

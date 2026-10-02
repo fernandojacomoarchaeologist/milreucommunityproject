@@ -3,7 +3,7 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  */
-import { portalHeader, footer } from "../components/layout.js";
+import { portalHeader, footer, partnerLogos } from "../components/layout.js";
 import { memoryCard } from "../components/memory-card.js";
 import { renderPublicContentEffects } from "../components/public-content-effects.js";
 import { assetUrl } from "../lib/data.js";
@@ -189,6 +189,8 @@ export function homeView(records, content, carousel, lang, carouselState={}, pub
     </section>
 
     ${renderPublicContentEffects(publicEffects,"portal.home.after-featured",records,lang)}
+
+    ${partnerLogos(lang)}
   </main>${footer(lang)}`;
 }
 
