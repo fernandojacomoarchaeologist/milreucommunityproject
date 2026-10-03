@@ -1,0 +1,59 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "about": {
+    "short50": "«Entre Ruínas e Memórias» é um museu e exposição itinerante do Projecto Comunitário de Milreu. Reúne fotografias, testemunhos, histórias e outros registos ligados às relações entre a população e as Ruínas Romanas de Milreu, aproximando património arqueológico, memória local, participação pública e comunidade.",
+    "full250": "O Projecto Comunitário de Milreu é uma iniciativa de Arqueologia Pública e Comunitária que procura aproximar património arqueológico, comunidade e participação pública. Parte da ideia de que Milreu não é apenas um sítio arqueológico: é também um lugar vivido, recordado e interpretado por diferentes públicos.\n\nAtravés de inquéritos, entrevistas, recolha de memórias, curadoria participativa e iniciativas de mediação, o projecto procura tornar visíveis as relações entre a população e as Ruínas Romanas de Milreu, transformando a escuta pública em iniciativas de memória, participação e acesso ao património.\n\n«Entre Ruínas e Memórias» nasce deste trabalho e reúne fotografias, testemunhos, histórias e outros registos ligados à forma como Milreu foi conhecido, vivido e recordado pela população. O museu procura preservar e tornar acessíveis essas memórias, mostrando Milreu como património vivido, partilhado e socialmente significativo.\n\nA exposição itinerante permite que estes conteúdos circulem por museus, bibliotecas, escolas, universidades, associações, autarquias e outros espaços culturais. A implantação é adaptada às características de cada local de acolhimento.\n\nMais informação: projectomilreu.pt",
+    "bio": "Projecto Comunitário de Milreu — iniciativa de Arqueologia Pública e Comunitária dedicada à relação entre património arqueológico, memória, participação pública e comunidade em torno das Ruínas Romanas de Milreu."
+  },
+  "contacts": {
+    "site": "projectomilreu.pt",
+    "siteUrl": "https://projectomilreu.pt",
+    "email1": "a78190@ualg.pt",
+    "email2": "fernando.jacomo@yahoo.com",
+    "phone": "925 339 613"
+  },
+  "kit": {
+    "title": "Textos + logótipo (pack)",
+    "format": "ZIP",
+    "fileUrl": "public/press/kit-textos-milreu.zip",
+    "downloadEnabled": true
+  },
+  "documents": [
+    {
+      "id": "nota-imprensa",
+      "title": "Nota de imprensa-base (editável)",
+      "format": "MD",
+      "fileUrl": "public/press/NOTA_DE_IMPRENSA_BASE.md",
+      "downloadEnabled": true,
+      "note": "Texto; preencher campos locais."
+    },
+    {
+      "id": "descricoes",
+      "title": "Descrições oficiais (50/100/250 palavras)",
+      "format": "TXT",
+      "fileUrl": "public/press/kit-textos-milreu.zip",
+      "downloadEnabled": true,
+      "note": "Incluídas no pack."
+    },
+    {
+      "id": "fact-sheet",
+      "title": "Fact Sheet (1 página)",
+      "format": "PDF",
+      "downloadEnabled": false,
+      "reason": "Contém fotografia — uso editorial por imprensa em validação de direitos."
+    },
+    {
+      "id": "dossie",
+      "title": "Dossiê de Convite",
+      "format": "PDF",
+      "downloadEnabled": false,
+      "reason": "Contém fotografias — redistribuição a terceiros em validação de direitos."
+    }
+  ],
+  "pressImages": [],
+  "hostAssets": [],
+  "emptyStates": {
+    "pressImages": "As fotografias para redistribuição editorial encontram-se em validação de direitos. Para pedidos específicos, contacte-nos.",
+    "hostAssets": "Os materiais para espaços anfitriões estão a ser preparados."
+  }
+}

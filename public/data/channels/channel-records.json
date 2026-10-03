@@ -65,7 +65,7 @@
         "original": "public/media/museum/originals/MM202601.jpg",
         "webPreview": "public/media/museum/generated/MM202601/detail.webp",
         "immersive": "public/media/museum/generated/MM202601/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202601.jpg",
+        "printSource": "public/media/museum/originals/MM202601.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -184,7 +184,7 @@
         "original": "public/media/museum/originals/MM202602.jpg",
         "webPreview": "public/media/museum/generated/MM202602/detail.webp",
         "immersive": "public/media/museum/generated/MM202602/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202602.jpg",
+        "printSource": "public/media/museum/originals/MM202602.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -303,7 +303,7 @@
         "original": "public/media/museum/originals/MM202603.jpg",
         "webPreview": "public/media/museum/generated/MM202603/detail.webp",
         "immersive": "public/media/museum/generated/MM202603/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202603.jpg",
+        "printSource": "public/media/museum/originals/MM202603.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -539,7 +539,7 @@
         "original": "public/media/museum/originals/MM202605.jpg",
         "webPreview": "public/media/museum/generated/MM202605/detail.webp",
         "immersive": "public/media/museum/generated/MM202605/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202605.jpg",
+        "printSource": "public/media/museum/originals/MM202605.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -658,7 +658,7 @@
         "original": "public/media/museum/originals/MM202606.jpg",
         "webPreview": "public/media/museum/generated/MM202606/detail.webp",
         "immersive": "public/media/museum/generated/MM202606/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202606.jpg",
+        "printSource": "public/media/museum/originals/MM202606.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -778,7 +778,7 @@
         "original": "public/media/museum/originals/MM202607.jpg",
         "webPreview": "public/media/museum/generated/MM202607/detail.webp",
         "immersive": "public/media/museum/generated/MM202607/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202607.jpg",
+        "printSource": "public/media/museum/originals/MM202607.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -1132,7 +1132,7 @@
         "original": "public/media/museum/originals/MM202610.jpg",
         "webPreview": "public/media/museum/generated/MM202610/detail.webp",
         "immersive": "public/media/museum/generated/MM202610/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202610.jpg",
+        "printSource": "public/media/museum/originals/MM202610.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -1490,7 +1490,7 @@
         "original": "public/media/museum/originals/MM202613.jpg",
         "webPreview": "public/media/museum/generated/MM202613/detail.webp",
         "immersive": "public/media/museum/generated/MM202613/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202613.jpg",
+        "printSource": "public/media/museum/originals/MM202613.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -2107,7 +2107,7 @@
         "original": "public/media/museum/originals/MM202618.jpg",
         "webPreview": "public/media/museum/generated/MM202618/detail.webp",
         "immersive": "public/media/museum/generated/MM202618/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202618.jpg",
+        "printSource": "public/media/museum/originals/MM202618.png",
         "digitalInterventions": [
           {
             "type": "ai-assisted-enhancement",
@@ -2752,7 +2752,7 @@
         "original": "public/media/museum/originals/MM202623.jpg",
         "webPreview": "public/media/museum/generated/MM202623/detail.webp",
         "immersive": "public/media/museum/generated/MM202623/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202623.jpg",
+        "printSource": "public/media/museum/originals/MM202623.png",
         "digitalInterventions": []
       },
       "portal": {
@@ -2990,7 +2990,7 @@
         "original": "public/media/museum/originals/MM202625.jpg",
         "webPreview": "public/media/museum/generated/MM202625/detail.webp",
         "immersive": "public/media/museum/generated/MM202625/immersive.webp",
-        "printSource": "public/media/museum/originals/MM202625.jpg",
+        "printSource": "public/media/museum/originals/MM202625.png",
         "digitalInterventions": []
       },
       "portal": {

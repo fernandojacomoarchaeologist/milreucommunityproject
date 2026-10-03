@@ -98,6 +98,15 @@ export async function loadPublicContentEffects() {
   return loadJson("public/data/public-content-effects.json");
 }
 
+export async function loadMediaAssets() {
+  return loadJson("public/data/media-assets.json");
+}
+
+export async function loadBrandAssets() {
+  return loadJson("public/data/brand-assets.json");
+}
+
+
 export async function loadProteusOverview() {
   return loadJson("public/data/proteus-overview.json");
 }
