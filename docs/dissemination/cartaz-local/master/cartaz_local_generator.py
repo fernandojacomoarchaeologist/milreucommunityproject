@@ -19,7 +19,7 @@ QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)
 FP=os.path.expanduser("~/Library/Fonts/")
-FF={"d":"Fraunces.ttf","di":"Fraunces-Italic.ttf","s":"Spectral-Regular.ttf","sm":"Spectral-Medium.ttf","si":"Spectral-Italic.ttf"}
+FF={"d":"Fraunces.ttf","di":"Fraunces-Italic.ttf","s":"Spectral-Regular.ttf","sm":"Spectral-Medium.ttf","si":"Spectral-Italic.ttf","u":"Archivo.ttf"}
 _fc={}
 def font(k,px,wt=None):
     kk=(k,px,wt)
@@ -165,9 +165,9 @@ def render(TW,TH,fields,outname,demo=True,img=IMG_PRINCIPAL,final=False):
     f.rect(bl,z4,Wp-2*bl,P(0.3*s),HAIR)
     # Bloco A — Projecto + parcerias institucionais (à esquerda)
     f.text(mx,z4+P(5.5*sf),"Projecto Comunitário de Milreu","sm",ptf(10.5),INK7,"l",wt=600)
-    f.text(mx,z4+P(10.2*sf),"Museus sem Fronteiras · Iniciativas 2026","si",ptf(8.5),INK5,"l")
-    f.text(mx,z4+P(14.8*sf),"Apoio institucional e parcerias","sm",ptf(7.2),INK5,"l",wt=500,ls=ptf(0.3))
-    bh=P(7.8*sf); f.logoband(mx,z4+P(19.3*sf),bh)
+    f.text(mx,z4+P(11.0*sf),"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",ptf(7.0),INK5,"l",ls=ptf(0.5))
+    f.text(mx,z4+P(16.0*sf),"Apoio institucional e parcerias","sm",ptf(7.2),INK5,"l",wt=500,ls=ptf(0.3))
+    bh=P(7.8*sf); f.logoband(mx,z4+P(21.0*sf),bh)
     # Bloco C — Acolhimento (à direita), com PAINEL próprio para dar presença e separação
     hostw=P(56*sf); hx=Wp-mx-hostw; py=z4+P(3.5*sf); pbot=Hp-bl-P(3*s)
     f.rect(hx-P(5*sf),py,hostw+P(5*sf),pbot-py,CAMPO,outline=KEY,ow=max(1,round(1*sf)))
