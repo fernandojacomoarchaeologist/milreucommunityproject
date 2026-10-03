@@ -2,13 +2,13 @@
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09E",
   "version": "0.39.0",
-  "generatedAt": "2026-10-02",
+  "generatedAt": "2026-10-03",
   "sourceManifestVersion": "0.19.0",
   "counts": {
-    "total": 176,
+    "total": 177,
     "historicalOriginals": 31,
     "historicalDerivatives": 124,
-    "interface": 21,
+    "interface": 22,
     "rightsPending": 0,
     "unknown": 0
   },
@@ -2826,6 +2826,23 @@
       "hash": "d23c6d4757d7bd1973163c870053ffde8263aeefc3b2a93e54c06ac9e16e88ef",
       "mime": "image/webp",
       "bytes": 23642,
+      "width": null,
+      "height": null,
+      "classification": "interface",
+      "isOriginal": false,
+      "sourceHash": null,
+      "rightsStatus": "confirmed",
+      "credit": "Projeto Comunitário de Milreu",
+      "digitalIntervention": null,
+      "contexts": [
+        "brand"
+      ]
+    },
+    {
+      "path": "public/brand/logo-projeto-comunitario-milreu.png",
+      "hash": "341127e3a6846cdd4dbca51d2432156aba9c05d434364e45ae4c5d324507b276",
+      "mime": "image/png",
+      "bytes": 57895,
       "width": null,
       "height": null,
       "classification": "interface",
