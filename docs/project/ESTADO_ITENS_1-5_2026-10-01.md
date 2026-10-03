@@ -2,7 +2,7 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **DOCUMENTO VIVO (canónico de referência) — consultar e atualizar a cada evolução.** Última atualização: **2026-10-02**.
-> **Âmbito:** documentação de estado (o que é · o que foi feito · como · histórico · estado da última versão). Cobre os itens 1–7.
+> **Âmbito:** documentação de estado (o que é · o que foi feito · como · histórico · estado da última versão). Cobre os itens 1–9.
 > **Método:** baseado em ficheiros do repositório, datas, documentos de decisão e verificações diretas. Estados reportados **tal como registados** — não se infere aprovação onde nenhum ficheiro a declara. Pontos por confirmar estão marcados.
 
 ## Resumo — estado dos itens 1–6 (2026-10-02)
@@ -15,7 +15,9 @@
 | 4 | Poster de congresso | Poster A0 académico | `print-A0` + sangria commitado (PR #63); **gate de impressão aberto** («prova visual»); arte-fonte não versionada |
 | 5 | Flyer + Marcador | Materiais do Museu | `print/` (Flyer A6 + Marcador 59×214) commitado (PR #63); **marcador arte-final, flyer ainda prova visual** |
 | 6 | Convite ao Inquérito | Peça de conversão (A6/A4/A3/digitais) | **DONE · PRODUCTION GATE** (PR #64 merged `aa0e018`); **barra canónica de parcerias** aplicada (A6/A4/A3 + story); QA técnico **PASS**; pendente **teste físico do QR** + prepress vetorial/CMYK |
-| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição inicial PDF) | **FASE 1 — previews** P1–P4 (PNG) atualizados; P4 com **barra canónica de parcerias**; **arte-final/PDF por produzir**; direitos de logótipos por confirmar |
+| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição inicial PDF) | **HUMAN DESIGN PASS / FINAL ART DELIVERED** — 3 saídas (DIGITAL RGB+hyperlinks, PRINT CMYK PDF/X-3, LIVRETO A4) + editáveis + QA; **DONE só após revisão humana**; créditos de fotos e prova física do QR pendentes |
+| 8 | Cartaz local | Master editável A3+A4 por local (exposição itinerante) | **HUMAN DESIGN PASS — arte-final a CONCLUIR (Fase 2)** · decisão 2026-10-03: **não fechar como final ainda**; arte-final preliminar produzida (A3/A4 RGB, previews, editáveis, QA) **não committada**; concluir Fase 2/QA/exports → HUMAN GATE → commit final |
+| 9 | Kit Digital + Press Kit | Pacote para anfitriões/imprensa/parceiros | **HUMAN CONTENT/DESIGN PASS / RIGHTS GATE PENDING** — estrutura+textos+previews+QA (FASE 1); **4 estados de direitos** por imagem (project=YES; press/host/generic=PENDING); ZIP público com fotos **bloqueado** até confirmação; integração no site = Item 2 (posterior) |
 
 ## Nota — directiva de recomposição do bloco institucional (2026-10-02)
 
@@ -141,7 +143,37 @@ Conjunto **canónico** e ordem (fixado por referência do responsável), aplicad
 
 **Como foi feito.** Gerador `scratchpad/item7_build/build.py` (PIL, 150 dpi, 2 famílias Fraunces+Spectral). **Atualização 2026-10-02:** P4 passou a usar a **barra canónica** (5 unidades, cabeçalho bilingue, alinhada à esquerda, gap 0,6×altura) em vez da fila não canónica anterior.
 
-**Estado da última versão.** `docs/dissemination/dossie-convite/v1/previews/` (P1–P4 + `_PRANCHA_dossie.png`, PNG). **FASE 1 (previews) — NÃO é arte-final.** Pendente: validação editorial do dossiê; **FASE 2** (arte-final + **PDF de 4 páginas** com imposição, sangria/marcas, prepress); **direitos dos logótipos e das fotografias (a confirmar)**. Geradores e previews **não versionados em Git** (estado por README + datas de ficheiro).
+**Estado da última versão. HUMAN DESIGN PASS / FINAL ART DELIVERED (2026-10-02).** Direcção aprovada e **congelada** (arquitectura, imagens, hierarquia, copy, diagramas, parceiros). Arte-final em `docs/dissemination/dossie-convite/final/`:
+- `…_DIGITAL.pdf` — RGB, 4×A5 (148×210), sem sangria/marcas, **6 hyperlinks** (site, 2 e-mails `mailto:`, telefone `tel:`, site sob QR) + QR funcional;
+- `…_PRINT.pdf` — **CMYK · PDF/X-3:2002**, 4×A5 + 3 mm sangria + marcas + TrimBox/BleedBox + OutputIntent (perfil «Generic CMYK» padrão — **confirmar com a gráfica**); texto raster a 300 dpi (gerador raster-nativo, sem SVG);
+- `…_LIVRETO_A4.pdf` — imposição 1 folha A4 landscape (duplex, dobra ao meio), versão **adicional**;
+- `editaveis/` (fonte `dossie_generator.py` com texto vivo/diagramas vetoriais; imagens; QR svg+png), `_PRANCHA_FINAL.png`, `QA_REPORT.md`.
+
+Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recortada + MM202613) → Exposição (diagramas) → Convite (MM202601); sem repetições. **Portas de legibilidade PASS** (A5 100%, logos P4, alinhamentos, PPI ≥275, QR matriz, hyperlinks). **DONE só após revisão humana.** **HUMAN PRODUCTION GATE:** prova física do QR; prova do livreto dobrado; cor/prepress final da gráfica; **forma de exibição dos créditos das fotografias** (`creditRequired`) a decidir. Tabela de contexto das imagens em `v1/RELATORIO_FASE1.md`. Geradores/finalização em `scratchpad/item7_build` + `item7_finalize.py` (não versionados).
+
+---
+
+## Item 8 — Cartaz local «Entre Ruínas e Memórias»
+
+**O que é.** **Master de cartaz editável por local** para a exposição itinerante — **A3 vertical** (principal) + **A4 vertical** (derivado). Sistema estável: trocar local/datas/horário/morada/logótipo do anfitrião/imagem **não destrói a composição**. Identidade fixa (Entre Ruínas e Memórias · exposição itinerante do Projecto Comunitário de Milreu · projectomilreu.pt). Campos locais = **texto vivo**.
+
+**O que foi feito. HUMAN DESIGN PASS — arte-final a CONCLUIR (Fase 2).** *(Decisão 2026-10-03: não fechar como final ainda; a arte-final preliminar abaixo foi produzida mas **não é committada**; concluir Fase 2 / QA técnico / exports e apresentar para HUMAN GATE antes do commit final.)* Arquitectura em 4 zonas (imagem+identidade · informação local com forte hierarquia · CTA+QR · assinaturas com **parceiros estruturais separados do acolhimento local**). Robustez validada (nome curto/longo, horário 2 linhas, morada extensa; A4 deriva do A3). IMAGE CONTEXT FIRST: default **MM202601** (Festa da Pinha, autorizado, crédito obrigatório exibido), **substituível**. Guarda de **export final** (bloqueia placeholders/dados fictícios). Entregáveis em `docs/dissemination/cartaz-local/final/`: A3/A4 **print-ready** (RGB, 3 mm sangria + marcas + Trim/BleedBox), PNG previews, `editaveis/` (gerador com texto vivo + `FIELDS_template.json` + README + QR svg/png + imagem principal + nota de logos), `QA_REPORT.md`.
+
+**Como foi feito.** Gerador `scratchpad/item8_build/build.py` (PIL, Design System; auto-fit de nome/datas; escala `sf` para rodapé legível no A4) + `item8_finalize.py` (print-ready + previews + QR + editáveis). Pacote de brief `ITEM08_CARTAZ_LOCAL_v1` verificado (PROJECT GATE PASS; 11/11 checksums). **Sem CMYK/PDF-X** por decisão do brief (perfil da gráfica só quando especificado). FASE 1 (previews em `cartaz-local/v1/`) → refinamento humano → arte-final.
+
+**Estado da última versão.** **Arte-final preliminar (não committada) — Fase 2 a concluir.** Antes do HUMAN GATE e commit final: concluir Fase 2 / QA técnico / exports. Gates de produção (depois): (1) legibilidade real A4 impresso a 100 %; (2) QR validado em impressão física; (3) nenhum placeholder num export específico (guarda ativa); (4) crédito/direitos da foto do cartaz final (confirmados p/ MM202601; reconfirmar se substituída); (5) perfil/prepress da gráfica quando especificado. Geradores **não versionados**.
+
+---
+
+## Item 9 — Kit Digital + Press Kit «Entre Ruínas e Memórias»
+
+**O que é.** **Pacote organizado** (não um documento) para **espaços anfitriões, imprensa e parceiros** divulgarem a exposição itinerante sem reinventar identidade, copy, créditos, logótipos ou fotografias. Estrutura de 10 pastas (README/Quick Start · textos 50/100/250 · press · imagens+direitos · logos · social · web · cartaz(ref. Item 8) · QR · manifest).
+
+**O que foi feito. HUMAN CONTENT/DESIGN PASS / RIGHTS GATE PENDING (2026-10-03).** FASE 1: estrutura + README/Quick Start + drafts (copy canónica, coerente c/ Itens 5/7) + **nota de imprensa editável** (campos `[ ]`) + **Fact Sheet 1 p.** + **social institucional/local** (local derivado do Item 8, c/ slot do anfitrião) + **web hero** + proposta web/social + `LEGENDAS_E_CREDITOS.csv` + `USO_E_DIREITOS.md` + `REGRAS_DE_USO.md` (logos) + QR + manifest/inventory/QA. PROJECT GATE PASS (sem checksums no pacote — registado). Sem claims inventados.
+
+**RIGHTS GATE (refinado).** Redistribuição **não é estado único** → **4 estados** por imagem: `project_official_publication` (**YES**, confirmado 2026-07-23), `press_editorial_use`, `host_partner_republication`, `generic_third_party_redistribution` (**PENDING**, condições da fonte aplicáveis — ex.: Torre do Tombo). **Nenhuma foto** entra em pastas distribuíveis (WEB/PRESS/social) sem `YES` no estado respectivo; previews marcados `HUMAN GATE · NOT FOR DISTRIBUTION`.
+
+**Estado da última versão.** `docs/dissemination/kit-digital-press/v1/`. **Pode avançar** preparação técnica (textos/templates/manifests/editáveis/estrutura do ZIP), mas **não fechar o pacote público com fotos pendentes**. HUMAN GATE: confirmar redistribuição por imagem/fonte; aprovar textos/estrutura; prova visual. **Integração no site = Item 2 (escopo adicional, posterior ao fecho do Item 9).** Geradores não versionados.
 
 ---
 

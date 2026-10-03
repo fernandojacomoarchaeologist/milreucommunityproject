@@ -1,0 +1,13 @@
+{
+  "item": 9,
+  "id": "ITEM09_KIT_DIGITAL_PRESS_v1",
+  "phase": "phase_1_preview",
+  "site": "projectomilreu.pt",
+  "human_gate": [
+    "redistribuição de imagens (por fonte)",
+    "aprovação de textos/estrutura",
+    "prova visual das peças"
+  ],
+  "integration_item2": "escopo adicional posterior",
+  "notes": "ZIP final e população de imagens só após HUMAN GATE"
+}
