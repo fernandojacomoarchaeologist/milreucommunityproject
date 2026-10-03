@@ -173,7 +173,7 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 
 **RIGHTS GATE (refinado).** Redistribuição **não é estado único** → **4 estados** por imagem: `project_official_publication` (**YES**, confirmado 2026-07-23), `press_editorial_use`, `host_partner_republication`, `generic_third_party_redistribution` (**PENDING**, condições da fonte aplicáveis — ex.: Torre do Tombo). **Nenhuma foto** entra em pastas distribuíveis (WEB/PRESS/social) sem `YES` no estado respectivo; previews marcados `HUMAN GATE · NOT FOR DISTRIBUTION`.
 
-**Estado da última versão.** `docs/dissemination/kit-digital-press/v1/`. **Pode avançar** preparação técnica (textos/templates/manifests/editáveis/estrutura do ZIP), mas **não fechar o pacote público com fotos pendentes**. HUMAN GATE: confirmar redistribuição por imagem/fonte; aprovar textos/estrutura; prova visual. **Integração no site = Item 2 (escopo adicional, posterior ao fecho do Item 9).** Geradores não versionados.
+**Estado da última versão.** `docs/dissemination/kit-digital-press/v1/`. **Patch Identidade/Marca (2026-10-03):** área `05_LOGOS/PROJECTO/` com logótipo oficial (PNG transparente; SVG/PDF **pendentes**), `REGRAS_DE_USO_DA_MARCA.md` e link ao Design System marcado `PUBLIC_DS_PAGE_PENDING_ITEM2` (versão pública fica para o Item 2). **Pode avançar** preparação técnica (textos/templates/manifests/editáveis/estrutura do ZIP), mas **não fechar o pacote público com fotos pendentes**. HUMAN GATE: confirmar redistribuição por imagem/fonte; aprovar textos/estrutura; prova visual. **Integração no site = Item 2 (escopo adicional, posterior ao fecho do Item 9).** Geradores não versionados.
 
 ---
 
