@@ -9,3 +9,4 @@
 - **Tamanho mínimo:** a definir no Design System — **ainda não fixado publicamente** (`MIN_SIZE_PENDING`). Garantir legibilidade do símbolo e do texto.
 - **Proibições:** não aplicar gradientes, brilhos, sombras ou texturas; não recompor símbolo/tipografia; não redesenhar; não usar versões aleatórias.
 - **Distinção:** a marca do **projecto** é distinta dos **parceiros estruturais** (`../PARCEIROS/`) e do **anfitrião local** (via Item 8).
+- **Identificador 2026 ≠ logótipo:** «Museus sem Fronteiras · Iniciativas 2026» é um identificador **editorial/administrativo** do ciclo financiado de 2026 (ver `02_TEXTOS/ENQUADRAMENTO_2026.txt`). **Não** é logótipo, marca nem parceiro; compõe-se apenas com tipografia e cores do Design System (sem símbolo próprio), fica **fora** da fila de parceiros e **não** substitui a marca «Projecto Comunitário de Milreu».
