@@ -225,17 +225,17 @@ def p3():
 # ============ P4 — CONVITE ============
 def p4():
     f=newp(); mx=bl+P(11); cw=Wp-2*mx
-    ih=round(Hp*0.20); f.imgcover(0,0,Wp,ih,MM601,av=0.35); f.rect(0,ih,Wp,P(1.3),RED)
+    ih=round(Hp*0.12); f.imgcover(0,0,Wp,ih,MM601,av=0.35); f.rect(0,ih,Wp,P(1.3),RED)
     y=ih+P(9)
-    y=f.para(mx,y,"Gostaria de receber «Entre Ruínas e Memórias» no seu espaço?","d",PT(15),cw,INK,1.06,"l",wt=600)+P(4.5)
-    y=f.para(mx,y,"Receber a exposição é uma oportunidade para aproximar públicos do património arqueológico através de memórias, imagens e narrativas acessíveis. Pode interessar a museus, bibliotecas, escolas, universidades, associações, autarquias e outros espaços culturais que valorizem património, mediação, participação e território. Avaliamos em conjunto o espaço, a configuração possível e o período de acolhimento.","s",PT(8.4),cw,INK7,1.36)+P(8)
+    y=f.para(mx,y,"Gostaria de receber «Entre Ruínas e Memórias» no seu espaço?","d",PT(15),cw,INK,1.06,"l",wt=600)+P(3)
+    y=f.para(mx,y,"Receber a exposição é uma oportunidade para aproximar públicos do património arqueológico através de memórias, imagens e narrativas acessíveis. Pode interessar a museus, bibliotecas, escolas, universidades, associações, autarquias e outros espaços culturais que valorizem património, mediação, participação e território. Avaliamos em conjunto o espaço, a configuração possível e o período de acolhimento.","s",PT(8.4),cw,INK7,1.36)+P(3)
     # porque acolher — benefícios
     eyebrow(f,mx,y,"PORQUE ACOLHER"); y+=P(6.5)
     for b in ["aproxima património e comunidade","activa públicos escolares, culturais e locais",
               "valor educativo e de mediação cultural","adapta-se a diferentes espaços de acolhimento",
               "integra uma rede de parceiros e instituições"]:
-        f.rect(mx,y+P(1.0),P(1.3),P(1.3),RED); f.text(mx+P(3.6),y,b,"s",PT(8.6),INK7,"l"); y+=P(5.6)
-    y+=P(7)
+        f.rect(mx,y+P(1.0),P(1.3),P(1.3),RED); f.text(mx+P(3.6),y,b,"s",PT(8.6),INK7,"l"); y+=P(3.8)
+    y+=P(4)
     # contactos (esquerda) + QR (direita)
     qs=P(23); qx=Wp-mx-qs; qy=y-P(1)
     f.qr(qx,qy,qs); link("07_P4_convite",qx,qy,qx+qs,qy+qs,QURL)
@@ -247,17 +247,17 @@ def p4():
     uw=f.tw("projectomilreu.pt","sm",PT(7.2),600)
     f.text(qx+qs/2,qy+qs+P(3.5),"projectomilreu.pt","sm",PT(7.2),RED,"m",wt=600)
     link("07_P4_convite",qx+qs/2-uw/2,qy+qs+P(3.5),qx+qs/2+uw/2,qy+qs+P(3.5)+PT(7.2),QURL)
-    y=max(yc,qy+qs+P(6))+P(7.5)
+    y=max(yc,qy+qs+P(6))+P(4.5)
     # parágrafo de parcerias (antes do rodapé institucional)
     y=f.para(mx,y,"Em 2026, «Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiadas pela CCDR Algarve. Esta designação enquadra o ciclo de 2026 e não substitui a identidade permanente do projecto.","si",PT(7.8),cw,INK5,1.32)
     # fecho editorial ANCORADO à safe-area inferior (logos nunca encostam ao corte); 4 níveis com respiro
     txt_bottom=y
-    logo_h=P(6.0); sb=Hp-bl-P(9)             # safe-area: 9mm do corte
+    logo_h=P(5.5); sb=Hp-bl-P(6)             # safe-area: 6mm do corte
     logo_y=sb-logo_h
-    sub_y=logo_y-P(4.5)
-    idf_y=sub_y-P(5.5)
-    sig_y=idf_y-P(5.5)
-    rule_y=sig_y-P(5.5)
+    sub_y=logo_y-P(3.5)
+    idf_y=sub_y-P(4.5)
+    sig_y=idf_y-P(4.5)
+    rule_y=sig_y-P(4.2)
     # guarda: o rodapé nunca sobe sobre o texto de enquadramento (gap mínimo de 8mm)
     if rule_y < txt_bottom+P(8):
         sh=(txt_bottom+P(8))-rule_y
