@@ -1,20 +1,21 @@
 # Orçamento — impressora 3D · Circuito Educativo de Milreu
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
-> **Estado: `DRAFT — consulta de mercado`.** Não é adjudicação. Versão corrente: **vFinal, 1 de Outubro de 2026** (v3 de 30 de Setembro no histórico).
+> **Identificação administrativa (ciclo financiado 2026):** `PROJECTO COMUNITÁRIO DE MILREU / MUSEUS SEM FRONTEIRAS` · *Iniciativas 2026 — Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo*. Esta designação identifica o enquadramento da candidatura CCDR e **não** substitui o nome permanente do projecto (ver `docs/governance/IDENTITY_2026_MUSEUS_SEM_FRONTEIRAS.md`).
+> **Estado: `DRAFT — consulta de mercado`.** Não é adjudicação. Versão corrente: **vFinal, 1 de Outubro de 2026** (identificação 2026 aplicada em 3 de Outubro de 2026).
 
 Documento A4 (8 páginas; a matriz de mercado em paisagem) no Design System do Projecto Milreu (tokens `packages/design-tokens/v0.2/`; Fraunces/Spectral/Archivo; vermelho institucional só como filete/detalhe).
 
-## Ficheiros
+## Ficheiros (entregues)
 - `Orcamento_Impressora_3D_vFinal_2026-10-01.pdf` — **versão corrente (vFinal)**, A4, 8 páginas, 200 dpi. Ver secção abaixo.
 - `PREVIEW_vFinal_8paginas.png` — folha de revisão da vFinal.
-- `Orcamento_Impressora_3D_Circuito_Educativo_Milreu.pdf` — versão v3 anterior (RGB, A4, 8 páginas).
-- `svg/orc3d_p1..p8.svg` — fonte editável do v3 (vector; texto vivo, requer as fontes OFL instaladas).
-- `PREVIEW_8paginas.png` — folha de revisão do v3.
 - `CHECKPOINT_FACTUAL_2026-10-01.md` — checkpoint factual (preços medidos, cotações, direcção) que fundamenta a vFinal.
+- `README.md` — este ficheiro.
+
+As versões anteriores (v3) e as fontes SVG/editáveis permanecem **não versionadas** (geradores em `scratchpad/`), por decisão.
 
 ## Versão corrente — vFinal (2026-10-01)
-Gerada a pedido explícito do responsável (o STOP GATE do checkpoint foi levantado em conversa), a partir do `CHECKPOINT_FACTUAL_2026-10-01.md`. Continua **`DRAFT — consulta de mercado`, sem adjudicação**. Renderer: `scratchpad/orc_vfinal/build.py` (A4, Design System v0.2).
+Gerada a pedido explícito do responsável (o STOP GATE do checkpoint foi levantado em conversa), a partir do `CHECKPOINT_FACTUAL_2026-10-01.md`. Continua **`DRAFT — consulta de mercado`, sem adjudicação**. Renderer: `scratchpad/orc_msf2026/build.py` (derivado de `orc_vfinal/build.py`; A4, Design System v0.2). Regenerada a 2026-10-03 **apenas** para aplicar a identificação administrativa 2026 (eyebrow + subtítulo); dados, preços e estrutura inalterados.
 
 Estrutura (8 páginas): (1) objectivo/requisitos/regras; (2) comparação técnica das configurações; (3) três cotações — Kobra S1 Combo + Adventurer 5M; (4) três cotações — 5M Pro + enclosure + AD5X (referência); (5) filamentos (4 cores); (6) cenários de custo total + enquadramento orçamental; (7) avaliação/pontuação das três opções; (8) balanço qualitativo + facturação/notas.
 

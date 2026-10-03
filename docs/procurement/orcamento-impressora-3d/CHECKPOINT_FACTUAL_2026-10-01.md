@@ -1,7 +1,8 @@
 # Checkpoint factual — Orçamento impressora 3D (2026-10-01)
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
-> **STOP GATE ativo:** o PDF do orçamento **NÃO** foi alterado. Este é o resultado intermédio para aprovação.
+> **Identificação administrativa (ciclo financiado 2026):** `PROJECTO COMUNITÁRIO DE MILREU / MUSEUS SEM FRONTEIRAS` · *Iniciativas 2026 — Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo*.
+> **Histórico do STOP GATE:** este checkpoint foi o resultado intermédio para aprovação; o gate foi **levantado** pelo responsável e a vFinal gerada. A regeneração de 2026-10-03 aplicou **apenas** a identificação administrativa 2026 (eyebrow + subtítulo) — **dados, preços e estrutura permanecem inalterados**.
 > Destino de entrega: **Portugal, 3220-172**. Etiquetas: `MEASURED` = visto em página/checkout · `DOCUMENTED` = política oficial · `INFERRED` = inferência (nunca entra como facto).
 > Nenhuma compra efetuada; nenhum dado bancário introduzido.
 
