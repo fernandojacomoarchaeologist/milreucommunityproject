@@ -2,6 +2,8 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **Estado: HUMAN DESIGN PASS / FINAL ART DELIVERED.** Design congelado (arquitectura, imagens, hierarquia, copy, diagramas, parceiros). Só finalização/prepress. **DONE apenas após revisão humana dos ficheiros finais.**
+>
+> **Atualização 2026-10-03 (enquadramento 2026, GOV-MSF-2026):** inserido o enquadramento das iniciativas de 2026 **apenas na página final (P4)**, sem reabrir a arquitectura aprovada: parágrafo que torna explícito que o **Projecto Comunitário de Milreu** é o projecto permanente, que **«Projecto Comunitário de Milreu / Museus sem Fronteiras»** enquadra o ciclo de 2026, e que as iniciativas são **«Entre Ruínas e Memórias» + Circuito Educativo** (apoio CCDR); e identificador secundário **«Museus sem Fronteiras · Iniciativas 2026»** no rodapé institucional. Contactos, QR, hiperligações e demais páginas preservados. Regenerados do pipeline: DIGITAL (RGB+links), PRINT (CMYK PDF/X-3), LIVRETO A4, prancha e gerador versionado.
 
 ## Entregáveis
 | Ficheiro | Formato | Notas |

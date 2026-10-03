@@ -249,10 +249,11 @@ def p4():
     link("07_P4_convite",qx+qs/2-uw/2,qy+qs+P(3.5),qx+qs/2+uw/2,qy+qs+P(3.5)+PT(7.2),QURL)
     y=max(yc,qy+qs+P(6))+P(7.5)
     # parágrafo de parcerias (antes do rodapé institucional)
-    y=f.para(mx,y,"O desenvolvimento e a circulação da exposição contam com apoio institucional e parcerias que reforçam a articulação entre investigação, património, comunidade e mediação cultural.","si",PT(7.8),cw,INK5,1.32)+P(7.5)
-    # fecho editorial (fluxo): assinatura + subtítulo + barra canónica de logótipos
+    y=f.para(mx,y,"Em 2026, «Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiadas pela CCDR Algarve. Esta designação enquadra o ciclo de 2026 e não substitui a identidade permanente do projecto.","si",PT(7.8),cw,INK5,1.32)+P(7.5)
+    # fecho editorial (fluxo): assinatura + identificador 2026 + subtítulo + barra canónica de logótipos
     f.line(mx,y,Wp-mx,y,HAIR,1); y+=P(6)
-    f.text(mx,y,"Projecto Comunitário de Milreu","s",PT(8.5),INK5,"l"); y+=P(6)
+    f.text(mx,y,"Projecto Comunitário de Milreu","s",PT(8.5),INK5,"l"); y+=P(5)
+    f.text(mx,y,"Museus sem Fronteiras · Iniciativas 2026","si",PT(7.2),INK5,"l"); y+=P(5)
     f.text(mx,y,"Apoio institucional e parcerias","sm",PT(5.6),INK5,"l",wt=500,ls=PT(0.5)); y+=P(3.5)
     f.logoband(mx,y,P(6.0))
     f.save("07_P4_convite")
