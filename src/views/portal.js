@@ -363,6 +363,7 @@ export function aboutView(content, lang) {
       <div><h2>Coordenação</h2><p>${esc(localised(about.coordination,lang).value)}</p></div>
       <div><h2>${text(lang,"organisations")}</h2><ul class="organisation-list">${about.organisations.map(item => `<li>${esc(item)}</li>`).join("")}</ul></div>
     </section>
+    <section class="content-section"><div class="section-heading"><h2>Museus sem Fronteiras — Iniciativas 2026</h2><p>Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo</p></div><p>Em 2026, duas iniciativas do Projecto Comunitário de Milreu — o museu itinerante «Entre Ruínas e Memórias» e o Circuito Educativo — são desenvolvidas no âmbito da candidatura «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiada pela CCDR Algarve.</p><p class="muted">Esta designação identifica o enquadramento das iniciativas de 2026 e não substitui o nome permanente do projecto.</p></section>
     <section class="content-section content-section--muted"><div class="section-heading"><h2>${text(lang,"mediaPress")} · ${text(lang,"visualIdentity")}</h2><p>Recursos oficiais para imprensa, parceiros e espaços anfitriões; e regras públicas da identidade.</p></div><p><a class="ml-button ml-button--secondary" href="#/imprensa">${text(lang,"mediaPress")}</a> <a class="ml-button ml-button--secondary" href="#/identidade">${text(lang,"visualIdentity")}</a></p></section>
   </main>${footer(lang)}`;
 }

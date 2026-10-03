@@ -35,6 +35,7 @@ export function mediaPressView(media, lang = "pt-PT") {
   const pressImages = m.pressImages || [];
   const hostAssets = m.hostAssets || [];
   const empty = m.emptyStates || {};
+  const enq = m.enquadramento2026 || null;
   return `${portalHeader(lang, "")}<main id="main" class="media-press">
     <section class="page-lead">
       <span>Projeto Comunitário de Milreu</span>
@@ -51,6 +52,12 @@ export function mediaPressView(media, lang = "pt-PT") {
       <p class="media-press__lead-text">${esc(about.short50)}</p>
       ${about.full250 ? `<details class="media-press__more"><summary>Ler descrição completa</summary><div>${about.full250.split("\n\n").map(p=>`<p>${esc(p)}</p>`).join("")}</div></details>` : ""}
     </section>
+
+    ${enq ? `<section class="content-section" aria-labelledby="mp-enq">
+      <div class="section-heading"><h2 id="mp-enq">${esc(enq.identifier)}</h2><p>${esc(enq.initiativesLine)}</p></div>
+      <p class="media-press__lead-text">${esc(enq.explanation)}</p>
+      ${enq.note ? `<p class="muted">${esc(enq.note)}</p>` : ""}
+    </section>` : ""}
 
     <section class="content-section content-section--muted" aria-labelledby="mp-docs">
       <div class="section-heading"><h2 id="mp-docs">Documentos</h2><p>Textos e documentos oficiais.</p></div>
