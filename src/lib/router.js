@@ -32,6 +32,8 @@ export function getRoute() {
   if (path === "/participar/retirada") return { name:"public-contribution-withdrawal" };
   if (path === "/participar/expor" || path === "/expor") return { name:"exhibition-proposal" };
   if (path === "/sobre") return { name:"about" };
+  if (path === "/imprensa") return { name:"media-press" };
+  if (path === "/identidade") return { name:"visual-identity" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
   if (path === "/oportunidades") return { name:"public-opportunities" };
   const publicOpportunity = path.match(/^\/oportunidades\/([^/]+)$/);

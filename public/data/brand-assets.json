@@ -1,0 +1,96 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "logo": {
+    "name": "Projecto Comunitário de Milreu",
+    "png": "public/brand/logo-projeto-comunitario-milreu.png",
+    "svg": null,
+    "pdf": null,
+    "svgStatus": "pending",
+    "pdfStatus": "pending",
+    "backgrounds": [
+      "Fundo claro (papel/branco)",
+      "Superfícies de leitura calmas"
+    ]
+  },
+  "colors": [
+    {
+      "name": "Papel",
+      "hex": "#FFFCF7",
+      "rgb": "255, 252, 247"
+    },
+    {
+      "name": "Papel 100",
+      "hex": "#F7F1E7",
+      "rgb": "247, 241, 231"
+    },
+    {
+      "name": "Tinta",
+      "hex": "#1E1A17",
+      "rgb": "30, 26, 23"
+    },
+    {
+      "name": "Tinta 500",
+      "hex": "#766D64",
+      "rgb": "118, 109, 100"
+    },
+    {
+      "name": "Vermelho · assinatura",
+      "hex": "#A83227",
+      "rgb": "168, 50, 39"
+    },
+    {
+      "name": "Pátina",
+      "hex": "#5E7267",
+      "rgb": "94, 114, 103"
+    },
+    {
+      "name": "Sépia",
+      "hex": "#62462D",
+      "rgb": "98, 70, 45"
+    },
+    {
+      "name": "Pedra",
+      "hex": "#A79B88",
+      "rgb": "167, 155, 136"
+    }
+  ],
+  "cmyk": {
+    "status": "pending",
+    "note": "CMYK definitivo não é canónico (exige prova física)."
+  },
+  "typography": [
+    {
+      "family": "Fraunces",
+      "role": "Display / títulos",
+      "weights": "Regular, SemiBold, Bold"
+    },
+    {
+      "family": "Spectral",
+      "role": "Leitura / corpo",
+      "weights": "Regular, Medium, Italic"
+    },
+    {
+      "family": "Archivo",
+      "role": "Interface / metadados / créditos",
+      "weights": "Regular, SemiBold, Bold"
+    }
+  ],
+  "typographyNote": "Ficheiros de fonte não são disponibilizados para download (licença de produção em validação).",
+  "rulesDo": [
+    "Manter proporção original",
+    "Respeitar área de respiro (≈ altura do símbolo)",
+    "Usar em fundos claros / de leitura",
+    "Usar apenas cores/variantes aprovadas (cores chapadas)"
+  ],
+  "rulesDont": [
+    "Não distorcer",
+    "Não recolorir",
+    "Não aplicar sombras/brilhos/gradientes/texturas",
+    "Não recompor símbolo/tipografia",
+    "Não redesenhar nem usar versões aleatórias"
+  ],
+  "minSize": {
+    "status": "pending",
+    "note": "Tamanho mínimo a fixar no Design System."
+  }
+}

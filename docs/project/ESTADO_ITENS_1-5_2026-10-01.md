@@ -177,6 +177,20 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 
 ---
 
+## Item 2 (escopo adicional) — Media/Press + Identidade visual no portal
+
+**O que é.** Duas páginas públicas e interligadas no portal (`#/imprensa` e `#/identidade`), consumindo conteúdo **aprovado do Item 9** (textos, logótipo, matriz de direitos) e o **Design System canónico** (tokens v0.2). O Item 9 **não é reaberto**; os seus rights gates permanecem a fonte de verdade.
+
+**O que foi feito (2026-10-03). FASE A→D concluídas; aguarda HUMAN GATE antes de merge.** Páginas orientadas a dados (`public/data/media-assets.json` + `brand-assets.json`), não hardcoded. Media/Press: hero (kit ZIP + «Ver identidade») · Sobre (50/250) · Documentos (downloads de texto + Fact Sheet/Dossiê **gated** por conterem foto) · Fotografias e Anfitriões em **estado vazio elegante** (`press_editorial_use`/`host_partner_republication` PENDING) · Logótipos (link) · Contactos. Identidade: Logótipo (PNG; SVG/PDF «em preparação») · Regras · Cores HEX/RGB (**CMYK não publicado**, não canónico) · Tipografia (Fraunces/Spectral/Archivo, **sem ficheiros de fonte**) · Exemplos ✔/✘ · Downloads. Acessos no **footer** e na **página do projecto**; cross-links em ambos os sentidos. Fora da nav principal.
+
+**Direitos.** `downloadEnabled = true` **apenas** quando o uso da página é `yes` → 3 downloads de texto + logótipo PNG. Nenhum activo `pending`/`no` gera botão. Previews `NOT FOR DISTRIBUTION` **não** são copiados para `public/`. Resolve o `PUBLIC_DS_PAGE_PENDING_ITEM2` do Item 9.
+
+**QA (FASE D).** Mobile 375×812 sem overflow nas duas páginas; a11y (headings semânticos, alt real, estados não só por cor, rótulos explícitos); SEO (title/description próprios; rotas classificadas no inventário 09f); **641/641 testes** + `npm run validate` **exit 0**. Correcção incidental: `channel-records.json` 11 `printSource` `.jpg`→`.png` (bug pré-existente do PR #68). Relatórios: `docs/website/ITEM02_MEDIA_PRESS_DS_AUDIT_FASEA.md` + `…_QA_FASED.md`.
+
+**Estado da última versão.** Branch `feat/item02-media-identidade` (de `origin/main`). **HUMAN GATE antes de merge** (spec §12/13). Pendentes externos ao código: SVG/PDF vectorial do logótipo; CMYK canónico; direitos de fotografias para imprensa/anfitrião; uso institucional dos logos de parceiros.
+
+---
+
 ## Pendências transversais (decisão humana)
 
 1. **Poster print-final indefinido** — gate de impressão aberto; a arte-fonte do poster não está versionada.

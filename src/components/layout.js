@@ -109,6 +109,7 @@ export function footer(lang="pt-PT") {
       </div>
       <div>
         <p><a href="#/museu">${text(lang,"museum")}</a> · <a href="#/participar">${text(lang,"participate")}</a></p>
+        <p><a href="#/imprensa">${text(lang,"mediaPress")}</a> · <a href="#/identidade">${text(lang,"visualIdentity")}</a></p>
       </div>
     </div>
   </footer>`;
