@@ -5,6 +5,8 @@
 >
 > **Atualização 2026-10-03 (enquadramento 2026, GOV-MSF-2026):** acrescentado o identificador secundário **«Museus sem Fronteiras · Iniciativas 2026»** no **bloco institucional**, abaixo da assinatura «Projecto Comunitário de Milreu» e acima de «Apoio institucional e parcerias». **CTA «PARTICIPE», QR, URL `pt.surveymonkey.com/r/3CFG2MQ`, chamada e hierarquia preservados.** Barra canónica de 5 logótipos intacta. Não é logótipo nem parceiro.
 >
+> **Correção dos digitais (2026-10-03):** o **1080×1350** (feed vertical) recuperou o **bloco institucional completo** (Projecto → identificador → Apoio institucional e parcerias → logos), que faltava; o **story 1080×1920** passou a ter **safe-area inferior** adequada (logos ~350px acima do limite, nunca nos últimos píxeis). Página redistribuída (imagem/QR menores) sem comprometer QR/CTA. Nota: os ficheiros digitais chamam-se pela dimensão (`06_1080x1350`, `06_1080x1920`); não existe requisito de 1080×1080.
+>
 > **Correção de arquitetura + spacing pass (HUMAN SPACING GATE PASS 2026-10-03):** (1) identificador em **Archivo MAIÚSCULAS** (tipografia do sistema), **menor/secundário** face à assinatura — já **não** em itálico; sem a 2.ª linha das iniciativas no rodapé. (2) Bloco institucional **top-anchored**: começa **inteiramente abaixo** do fundo do QR, com **separador** e **espaço real** entre o bloco CTA/QR e o bloco institucional — a **quiet zone do QR fica limpa** (nenhum texto/linha/logo a invade). (3) Página redistribuída (imagem principal ligeiramente menor + espaços anteriores reduzidos) para dar respiro **sem** reduzir fontes/QR/logos; margem safe-area inferior A6≈6 · A4≈17 · A3≈24 mm. 5 formatos + CMYK PDF/X regenerados; A6/A4/A3 validados visualmente.
 
 ## Ficheiros entregues
