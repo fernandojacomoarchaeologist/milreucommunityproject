@@ -18,6 +18,9 @@ A exposição itinerante «Entre Ruínas e Memórias» chega a [NOME_LOCAL], em 
 **O QUE É O PROJECTO COMUNITÁRIO DE MILREU**
 Iniciativa de Arqueologia Pública e Comunitária que procura aproximar património arqueológico, comunidade e participação pública. Através de inquéritos, entrevistas, recolha de memórias, curadoria participativa e mediação, torna visíveis as relações entre a população e as Ruínas Romanas de Milreu.
 
+**ENQUADRAMENTO DAS INICIATIVAS 2026**
+Em 2026, duas iniciativas do Projecto Comunitário de Milreu — o museu itinerante «Entre Ruínas e Memórias» e o Circuito Educativo — são desenvolvidas no âmbito da candidatura «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiada pela CCDR Algarve. Esta designação identifica o enquadramento das iniciativas de 2026 e não substitui a identidade permanente do projecto.
+
 **CIRCULAÇÃO / ACOLHIMENTO**
 A exposição foi concebida para circular por museus, bibliotecas, escolas, universidades, associações, autarquias e outros espaços culturais, adaptando-se às características de cada local. Composta por 12 painéis verticais (841 × 1800 mm cada).
 

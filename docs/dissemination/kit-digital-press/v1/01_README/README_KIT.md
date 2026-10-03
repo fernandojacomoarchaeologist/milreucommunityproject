@@ -16,6 +16,14 @@ Pacote para **espaços anfitriões, imprensa e parceiros** divulgarem a exposiç
 - `09_QR/` — QR do site (svg + png)
 - `10_MANIFEST/` — `manifest.json`, `inventory.csv`, `QA_REPORT.md`
 
+## Enquadramento das iniciativas 2026
+
+Em 2026, duas iniciativas do **Projecto Comunitário de Milreu** — o museu itinerante **«Entre Ruínas e Memórias»** e o **Circuito Educativo** — são desenvolvidas no âmbito da candidatura **«Projecto Comunitário de Milreu / Museus sem Fronteiras»**, apoiada pela CCDR Algarve. Esta designação identifica o enquadramento das iniciativas de 2026 e **não** substitui a identidade permanente do projecto.
+
+- **Identificador público secundário:** `MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026` — `Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo`.
+- Não é logótipo, marca principal, parceiro nem novo nome; **não** entra na fila de parceiros.
+- Copy pronta em `02_TEXTOS/ENQUADRAMENTO_2026.txt`. Regra canónica completa em `docs/governance/IDENTITY_2026_MUSEUS_SEM_FRONTEIRAS.md`.
+
 ## Regras essenciais
 - Usar **apenas** os textos e imagens deste kit (copy e identidade canónicas).
 - **Creditar sempre** as fotografias (ver `LEGENDAS_E_CREDITOS.csv`).

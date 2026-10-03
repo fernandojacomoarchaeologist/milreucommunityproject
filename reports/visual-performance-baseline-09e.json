@@ -2,19 +2,19 @@
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09E",
   "version": "0.39.0",
-  "generatedAt": "2026-08-04",
+  "generatedAt": "2026-10-03",
   "environment": "local-node-static-analysis",
   "measured": {
     "bytes": {
-      "javascript": 93370,
-      "cssApp": 150457,
+      "javascript": 0,
+      "cssApp": 156444,
       "cssComponents": 11622,
       "indexHtml": 4389
     },
     "lcpCandidateImageBytes": {
-      "mobileHomeHero": 130354,
-      "desktopHomeHero": 284358,
-      "museumOpeningMobile": 130354
+      "mobileHomeHero": 104980,
+      "desktopHomeHero": 217314,
+      "museumOpeningMobile": 104980
     },
     "responsiveStrategy": {
       "homeCarouselHasSrcset": true,
