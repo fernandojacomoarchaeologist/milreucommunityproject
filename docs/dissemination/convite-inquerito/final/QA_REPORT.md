@@ -2,6 +2,8 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **Estado: ARTE-FINAL (Fase 2).** Composição, tipografia, hierarquia e copy = **aprovadas (v6), inalteradas**. Gerado 2026-10-01. Renderer: `scratchpad/item6_build/arte_final.py`.
+>
+> **Atualização 2026-10-03 (enquadramento 2026, GOV-MSF-2026):** acrescentado o identificador secundário **«Museus sem Fronteiras · Iniciativas 2026»** (Spectral itálico, INK5) no **bloco institucional** — abaixo da assinatura «Projecto Comunitário de Milreu» e acima de «Apoio institucional e parcerias» (no post quadrado, sob a assinatura). **CTA «PARTICIPE», QR, URL `pt.surveymonkey.com/r/3CFG2MQ`, chamada e hierarquia preservados integralmente.** Barra canónica de 5 logótipos intacta. 5 formatos + CMYK PDF/X regenerados do pipeline; 0 colisões verificadas. Não é logótipo nem parceiro.
 
 ## Ficheiros entregues
 - **SVG editável** (mestre vetorial, grupos separados, texto vivo): `svg/06_A6_frente.svg`, `svg/06_A4.svg`, `svg/06_A3.svg`, `svg/06_1080x1350.svg`, `svg/06_1080x1920.svg`.
