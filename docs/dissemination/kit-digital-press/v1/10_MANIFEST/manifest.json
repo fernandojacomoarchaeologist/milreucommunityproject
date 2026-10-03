@@ -8,13 +8,22 @@
     "aprovação de textos/estrutura",
     "prova visual das peças"
   ],
-  "integration_item2": "escopo adicional posterior",
-  "notes": "ZIP final e população de imagens só após HUMAN GATE",
+  "integration_item2": "concluido: #/imprensa (media-press) + #/identidade (visual-identity)",
+  "notes": "ZIP final e populacao de imagens so apos HUMAN GATE",
+  "enquadramento_2026": {
+    "designacao_administrativa": "PROJECTO COMUNITARIO DE MILREU / MUSEUS SEM FRONTEIRAS",
+    "identificador_publico": "MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026",
+    "iniciativas": ["Museu itinerante «Entre Ruinas e Memorias»", "Circuito Educativo"],
+    "copy": "02_TEXTOS/ENQUADRAMENTO_2026.txt",
+    "regra": "docs/governance/IDENTITY_2026_MUSEUS_SEM_FRONTEIRAS.md",
+    "nao_substitui_marca_permanente": true,
+    "nao_e_logotipo_nem_parceiro": true
+  },
   "brand_identity": {
     "logo_png_transparent": "05_LOGOS/PROJECTO/logo-projeto-comunitario-milreu.png",
     "logo_svg": "PENDING",
     "logo_pdf_vector": "PENDING",
     "brand_rules": "05_LOGOS/PROJECTO/REGRAS_DE_USO_DA_MARCA.md",
-    "design_system_public": "PUBLIC_DS_PAGE_PENDING_ITEM2"
+    "design_system_public": "projectomilreu.pt/#/identidade"
   }
 }

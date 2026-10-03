@@ -3,6 +3,8 @@
 # Item 9 — Kit Digital + Press Kit · QA (FASE 1)
 
 **Estado: HUMAN CONTENT/DESIGN PASS / RIGHTS GATE PENDING** (FASE 1 aprovada). Estrutura + textos + previews + QA para validação. **ZIP final e imagens só após HUMAN GATE.** Sem commit de aprovação.
+
+> **Atualização 2026-10-03 (enquadramento 2026, GOV-MSF-2026):** integrado o enquadramento «Museus sem Fronteiras · Iniciativas 2026» nos outputs afectados — `README_KIT.md`, `NOTA_DE_IMPRENSA_BASE.md`, novo `02_TEXTOS/ENQUADRAMENTO_2026.txt`, previews **Fact Sheet** e **nota de imprensa** (bloco «ENQUADRAMENTO 2026»), `QUICK_START.md`, `manifest.json` e `inventory.csv`. Social/web inalterados (sem relação com o enquadramento). **RIGHTS GATE das fotografias mantido integralmente** — nenhuma imagem ganha novos direitos por esta alteração. Integração pública concluída no Item 2 (`#/imprensa` + `#/identidade`), resolvendo `PUBLIC_DS_PAGE_PENDING_ITEM2`.
 **PROJECT GATE: PASS** (pacote ITEM09; identidade Milreu; sem marcadores estrangeiros; sem checksums no pacote — registado).
 
 ## Entregáveis FASE 1 (presentes)
