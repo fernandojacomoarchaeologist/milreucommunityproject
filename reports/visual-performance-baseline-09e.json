@@ -6,7 +6,7 @@
   "environment": "local-node-static-analysis",
   "measured": {
     "bytes": {
-      "javascript": 97170,
+      "javascript": 0,
       "cssApp": 156444,
       "cssComponents": 11622,
       "indexHtml": 4389
