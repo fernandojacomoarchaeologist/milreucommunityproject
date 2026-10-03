@@ -6,6 +6,7 @@ path,type,status
 02_TEXTOS/DESCRICAO_250_PALAVRAS.txt,texto,phase1-preview
 02_TEXTOS/BIO_PROJECTO_CURTA.txt,texto,phase1-preview
 02_TEXTOS/CONTACTOS.txt,texto,phase1-preview
+02_TEXTOS/ENQUADRAMENTO_2026.txt,texto,phase1-preview
 03_PRESS/NOTA_DE_IMPRENSA_BASE.md,press-editavel,phase1-preview
 04_IMAGENS/LEGENDAS_E_CREDITOS.csv,direitos,phase1-preview
 04_IMAGENS/USO_E_DIREITOS.md,direitos,phase1-preview
