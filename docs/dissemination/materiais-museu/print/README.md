@@ -2,6 +2,7 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **Estado: versões de pré-impressão (prova).** Gerado 2026-10-01. Formatos pedidos pelo responsável nesta data.
+> **Atualização 2026-10-03 (enquadramento 2026, GOV-MSF-2026):** acrescentado o identificador secundário **«Museus sem Fronteiras · Iniciativas 2026»** (Spectral itálico) no bloco institucional do **flyer verso** (abaixo da assinatura) e do **marcador verso** (variante compacta). Imagem, CTA, QR e URL **preservados**; «Entre Ruínas e Memórias» **inalterado**. Rodapé do flyer com espaçamento revisto (sem colisão com o QR). Regenerados do pipeline os 4 PRINT (PNG+PDF) + 4 CMYK PDF/X + preview.
 
 Exportações para impressão dos materiais do Museu «Entre Ruínas e Memórias», derivadas **fielmente** da arte `v6.4`, nos formatos solicitados (Flyer **A6**; Marcador **59×214**).
 
