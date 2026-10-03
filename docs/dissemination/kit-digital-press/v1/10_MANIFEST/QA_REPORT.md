@@ -35,6 +35,9 @@
 - **RIGHTS GATE:** redistribuição deixa de ser estado único → **4 estados** por imagem (`project_official_publication`, `press_editorial_use`, `host_partner_republication`, `generic_third_party_redistribution`), cada um `YES/NO/PENDING` com fonte/condição. Hoje: **project=YES; restantes=PENDING**.
 - Previews marcados **`HUMAN GATE · NOT FOR DISTRIBUTION`**.
 
+## Patch Identidade / Marca (2026-10-03) — aplicado
+Área própria **Identidade / Marca** em `05_LOGOS/PROJECTO/`: logótipo oficial do Projecto Comunitário de Milreu em **PNG transparente** (marca própria do projecto); **SVG e PDF/vectorial = PENDING** (vetor oficial não existe canonicamente; não fabricado). `REGRAS_DE_USO_DA_MARCA.md` (proporção/respiro/fundos/cores/variantes/min-size pendente/proibições). Link ao Design System: **`PUBLIC_DS_PAGE_PENDING_ITEM2`** (DS actual é interno; versão pública fica para a integração com o Item 2). Não altera o RIGHTS GATE das fotografias. README/Quick Start/manifest/inventory atualizados.
+
 ## Preparação técnica autorizada (sem fechar pacote público)
 Pode avançar: textos, templates, manifests, editáveis e **estrutura do ZIP** — mas **não fechar** o pacote público de distribuição com fotografias pendentes. Integração no Item 2 fica fora deste gate.
 

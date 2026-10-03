@@ -9,7 +9,7 @@ Pacote para **espaços anfitriões, imprensa e parceiros** divulgarem a exposiç
 - `02_TEXTOS/` — descrições 50/100/250 palavras, bio curta, contactos
 - `03_PRESS/` — nota de imprensa-base (editável + PDF) + Fact Sheet 1 página
 - `04_IMAGENS/` — `WEB/` e `PRESS/` + `LEGENDAS_E_CREDITOS.csv` + `USO_E_DIREITOS.md`
-- `05_LOGOS/` — `PROJECTO/`, `PARCEIROS/` + `REGRAS_DE_USO.md`
+- `05_LOGOS/` — **Identidade / Marca**: `PROJECTO/` (logótipo oficial + `DOWNLOADS.md` + `REGRAS_DE_USO_DA_MARCA.md` + `DESIGN_SYSTEM.md`), `PARCEIROS/` + `REGRAS_DE_USO.md`
 - `06_SOCIAL/` — feed 1080×1350, story 1080×1920, square 1080×1080, WhatsApp, editáveis
 - `07_WEB/` — hero/card/thumbnail horizontais + editáveis
 - `08_CARTAZ/` — referência ao master do **Item 8** (cartaz local)
