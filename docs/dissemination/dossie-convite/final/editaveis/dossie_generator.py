@@ -27,8 +27,8 @@ QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)
 FP=os.path.expanduser("~/Library/Fonts/")
-FF={"d":"Fraunces.ttf","di":"Fraunces-Italic.ttf","s":"Spectral-Regular.ttf","sm":"Spectral-Medium.ttf","si":"Spectral-Italic.ttf"}
-FAM={"d":"Fraunces","di":"Fraunces","s":"Spectral","sm":"Spectral","si":"Spectral"}
+FF={"d":"Fraunces.ttf","di":"Fraunces-Italic.ttf","s":"Spectral-Regular.ttf","sm":"Spectral-Medium.ttf","si":"Spectral-Italic.ttf","u":"Archivo.ttf"}
+FAM={"d":"Fraunces","di":"Fraunces","s":"Spectral","sm":"Spectral","si":"Spectral","u":"Archivo"}
 import numpy as _np
 _fc={}
 def font(k,px,wt=None):
@@ -249,13 +249,24 @@ def p4():
     link("07_P4_convite",qx+qs/2-uw/2,qy+qs+P(3.5),qx+qs/2+uw/2,qy+qs+P(3.5)+PT(7.2),QURL)
     y=max(yc,qy+qs+P(6))+P(7.5)
     # parágrafo de parcerias (antes do rodapé institucional)
-    y=f.para(mx,y,"Em 2026, «Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiadas pela CCDR Algarve. Esta designação enquadra o ciclo de 2026 e não substitui a identidade permanente do projecto.","si",PT(7.8),cw,INK5,1.32)+P(7.5)
-    # fecho editorial (fluxo): assinatura + identificador 2026 + subtítulo + barra canónica de logótipos
-    f.line(mx,y,Wp-mx,y,HAIR,1); y+=P(6)
-    f.text(mx,y,"Projecto Comunitário de Milreu","s",PT(8.5),INK5,"l"); y+=P(5)
-    f.text(mx,y,"Museus sem Fronteiras · Iniciativas 2026","si",PT(7.2),INK5,"l"); y+=P(5)
-    f.text(mx,y,"Apoio institucional e parcerias","sm",PT(5.6),INK5,"l",wt=500,ls=PT(0.5)); y+=P(3.5)
-    f.logoband(mx,y,P(6.0))
+    y=f.para(mx,y,"Em 2026, «Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiadas pela CCDR Algarve. Esta designação enquadra o ciclo de 2026 e não substitui a identidade permanente do projecto.","si",PT(7.8),cw,INK5,1.32)
+    # fecho editorial ANCORADO à safe-area inferior (logos nunca encostam ao corte); 4 níveis com respiro
+    txt_bottom=y
+    logo_h=P(6.0); sb=Hp-bl-P(9)             # safe-area: 9mm do corte
+    logo_y=sb-logo_h
+    sub_y=logo_y-P(4.5)
+    idf_y=sub_y-P(5.5)
+    sig_y=idf_y-P(5.5)
+    rule_y=sig_y-P(5.5)
+    # guarda: o rodapé nunca sobe sobre o texto de enquadramento (gap mínimo de 8mm)
+    if rule_y < txt_bottom+P(8):
+        sh=(txt_bottom+P(8))-rule_y
+        rule_y+=sh; sig_y+=sh; idf_y+=sh; sub_y+=sh; logo_y+=sh
+    f.line(mx,rule_y,Wp-mx,rule_y,HAIR,1)
+    f.text(mx,sig_y,"Projecto Comunitário de Milreu","s",PT(8.5),INK5,"l")
+    f.text(mx,idf_y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",PT(6.4),INK5,"l",ls=PT(0.7))
+    f.text(mx,sub_y,"Apoio institucional e parcerias","sm",PT(5.6),INK5,"l",wt=500,ls=PT(0.5))
+    f.logoband(mx,logo_y,logo_h)
     f.save("07_P4_convite")
 
 p1();p2();p3();p4()
