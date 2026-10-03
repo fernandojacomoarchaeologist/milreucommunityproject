@@ -49,9 +49,9 @@ O identificador 2026 fica **fora** da fila de logótipos.
 | Item | Regra |
 |---|---|
 | 1 — Painéis | **não alterar** (fechados) |
-| 2 — Website | relação explícita Projecto → MSF 2026 → 2 iniciativas; identificador em área institucional/Media-Press; não renomear o portal |
-| 3 — Orçamento | forma administrativa completa (A) + subtítulo das 2 iniciativas; **fora do `allowed_paths` do pacote → requer âmbito/decisão própria** |
-| 4 — Poster | selo discreto no rodapé institucional (futura re-geração; arte-fonte não versionada) |
+| 2 — Website | relação explícita Projecto → MSF 2026 → 2 iniciativas; identificador em área institucional/Media-Press; não renomear o portal — **APLICADO** (PR #73) |
+| 3 — Orçamento | forma administrativa completa (A) + subtítulo das 2 iniciativas — **APLICADO** (regenerado do pipeline 2026-10-03). Âmbito alargado por decisão humana **GOV-MSF-2026 v3** (`allowed_paths` += `docs/procurement/`, base = `main` após #72/#73) |
+| 4 — Poster | selo discreto no rodapé institucional, fora da fila de logótipos — **APLICADO** (PR #74, regenerado do pipeline) |
 | 5 — Flyer/Marcador | selo compacto em futura exportação |
 | 6 — Convite | identificador no bloco institucional inferior; **não tocar CTA/QR** |
 | 7 — Dossiê | enquadramento 2026 na página final, na próxima revisão/prepress |
