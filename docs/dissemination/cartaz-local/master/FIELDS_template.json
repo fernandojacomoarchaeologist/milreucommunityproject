@@ -1,0 +1,21 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo",
+  "_nota": "Campos locais editáveis do master. Preencher com dados CONFIRMADOS ao gerar cartazes reais; a guarda final=True bloqueia export com placeholders/demonstração.",
+  "campos": {
+    "NOME_DO_LOCAL": "[NOME_DO_LOCAL]",
+    "CIDADE_LOCALIDADE": "[CIDADE_LOCALIDADE]",
+    "DATA_INICIO": "[DATA_INICIO]",
+    "DATA_FIM": "[DATA_FIM]",
+    "HORARIO": "[HORARIO]",
+    "MORADA": "[MORADA]",
+    "ENTRADA": "[ENTRADA]",
+    "LOGOTIPO_ANFITRIAO": "[LOGÓTIPO DO ANFITRIÃO]",
+    "LOGOS_LOCAIS_ADICIONAIS": "[LOGOS_LOCAIS_ADICIONAIS]",
+    "IMAGEM_PRINCIPAL": "public/media/museum/originals/MM202601.png (substituível; crédito obrigatório)"
+  },
+  "fixos_nao_editaveis": {
+    "identificador_2026": "MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026",
+    "marca": "Projecto Comunitário de Milreu",
+    "logos_parceria": "conjunto canónico de 5 (public/media/exhibition/updated/logos/)"
+  }
+}
