@@ -11,8 +11,8 @@ PDFs **PDF/X-3:2002**, espaço de cor **CMYK (DeviceCMYK)**, 300 dpi, com **sang
 ## Perfil de cor — IMPORTANTE
 Conversão CMYK com o **perfil padrão «Generic CMYK Profile»** (ColorSync), declarado no **OutputIntent**. **Não é o perfil final da gráfica.** Antes de imprimir: confirmar o **perfil ICC de produção** da gráfica (ex.: Coated FOGRA39); se diferente, **reconverter** a partir do original. Validar **prova de cor**.
 
-## Alternativa vetorial
-Para **texto vetorial com fontes incorporadas**, a arte-fonte (geradores) produz SVG editável; contactar para exportar os SVG do flyer/marcador caso a gráfica o exija. As fotografias permanecem raster.
+## SVG (incluído nesta pasta)
+`flyer_a6_front_PRINTX.svg` · `flyer_a6_back_PRINTX.svg` · `marcador_59x214_front_PRINTX.svg` · `marcador_59x214_back_PRINTX.svg` — SVG à dimensão exacta de impressão **com sangria 3 mm**, com a **arte aprovada embebida** (base64). Estas peças foram finalizadas como **raster**, pelo que o SVG é um **contentor dimensionado com a imagem aprovada** — **não** é vetor-texto editável. Para texto vetorial com fontes incorporadas, reabrir o gerador (tarefa à parte). As fotografias permanecem raster em qualquer caso.
 
 ## Impressão
 - Flyer A6: frente + verso (4/4), couché mate sugerido; acabamento a confirmar.

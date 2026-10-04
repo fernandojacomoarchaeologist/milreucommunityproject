@@ -33,6 +33,7 @@
 - **Cor (tokens v0.2):** texto em `ink.900`; o separador «·» e/ou um fio curto podem usar `red.500` (assinatura, uso mínimo); 2.ª linha em `stone.700`; fios/separadores em `stone.500`. **Vermelho não** é fundo de leitura.
 - **Proibido:** novo logótipo, ícone, brasão, símbolo, monograma ou marca gráfica independente; caixa que o faça parecer logótipo; entrar na fila de parceiros.
 - **Variantes:** *plena* (2 linhas) e *compacta* (1 linha) para peças pequenas.
+- **Excepção do poster (2026-10-04):** só o poster (Item 4) usa o identificador em **tom neutro KEY** e em **duas** posições (abaixo do título + rodapé). Ver §5, Item 4. A regra geral de cor (`ink.900`) e de colocação (rodapé único) mantém-se para os restantes itens.
 - **Grafia:** «Projecto» (pré-AO90) nos materiais de disseminação e neste enquadramento.
 
 ## 4. Hierarquia nas peças
@@ -51,7 +52,7 @@ O identificador 2026 fica **fora** da fila de logótipos.
 | 1 — Painéis | **não alterar** (fechados) |
 | 2 — Website | relação explícita Projecto → MSF 2026 → 2 iniciativas; identificador em área institucional/Media-Press; não renomear o portal — **APLICADO** (PR #73) |
 | 3 — Orçamento | forma administrativa completa (A) + subtítulo das 2 iniciativas — **APLICADO** (regenerado do pipeline 2026-10-03). Âmbito alargado por decisão humana **GOV-MSF-2026 v3** (`allowed_paths` += `docs/procurement/`, base = `main` após #72/#73) |
-| 4 — Poster | selo discreto no rodapé institucional, fora da fila de logótipos — **APLICADO** (PR #74, regenerado do pipeline) |
+| 4 — Poster | **EXCEPÇÃO registada (decisão humana 2026-10-04):** identificador em **duas** posições — (i) **abaixo do título** (sob o subtítulo) e (ii) **rodapé institucional** com a sublinha das iniciativas (copy C) — em **tom neutro KEY** (não `ink.900`), fora da fila de logótipos. Diverge do padrão geral (rodapé único; cor §3) e aplica-se **apenas ao poster**. Regenerado do gerador canónico com a composição aprovada preservada — **APLICADO** (PR #87 produção/CMYK/SVG + PR #88 vetor editável; anterior PR #74). |
 | 5 — Flyer/Marcador | selo compacto em futura exportação |
 | 6 — Convite | identificador no bloco institucional inferior; **não tocar CTA/QR** |
 | 7 — Dossiê | enquadramento 2026 na página final, na próxima revisão/prepress |

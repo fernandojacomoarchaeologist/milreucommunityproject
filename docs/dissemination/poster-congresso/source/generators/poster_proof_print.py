@@ -154,6 +154,7 @@ c.fit("header",M,120,"Projecto Comunitário de Milreu","d",T_TITLE,CW*0.74,INK,w
 c.para("header",M,150,"Memória, participação, educação e acesso público ao património arqueológico","s",T_META,T_META*1.3,CW*0.66,INK7)
 c.text("header",AW-M,108,"Fernando Rodrigues de Jácomo","u",T_META*0.92,INK,"end",wt=600)
 c.text("header",AW-M,121,"Doutoramento em Arqueologia · Universidade do Algarve","u",T_META*0.86,INK5,"end")
+c.text("header",M,166,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",T_EYE,KEY,ls=1.0,wt=600)  # identificador MSF (abaixo do titulo, KEY)
 c.line("header",M,176,AW-M,176,KEY,0.6)
 
 # ---------- CONTEXTO (texto na coluna esquerda; foto histórica na coluna direita — sem colisão) ----------
