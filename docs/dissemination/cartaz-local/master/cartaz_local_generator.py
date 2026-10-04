@@ -7,14 +7,20 @@
 # Design System Milreu (Fraunces+Spectral). IMAGE CONTEXT FIRST. Campos locais = texto vivo (placeholders).
 import os, sys, re
 HERE=os.path.dirname(os.path.abspath(__file__))
+def _repo_root(p):
+    import os as _o
+    p=_o.path.abspath(p)
+    while p!='/' and not _o.path.exists(_o.path.join(p,'CLAUDE.md')): p=_o.path.dirname(p)
+    return p
+_REPO=_repo_root(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(HERE,"..","qrpylibs"))
 from PIL import Image, ImageDraw, ImageFont
 import qrcode, numpy as _np
 OUTP=os.path.join(HERE,"previews"); os.makedirs(OUTP,exist_ok=True)
-GEN="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/museum/generated"
-LOGODIR="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/exhibition/updated/logos"
+GEN=os.path.join(_REPO,"public","media","museum","generated")
+LOGODIR=os.path.join(_REPO,"public","media","exhibition","updated","logos")
 LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
-IMG_PRINCIPAL="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/museum/originals/MM202601.png"  # [IMAGEM_PRINCIPAL] alta-res (substituível): Festa da Pinha
+IMG_PRINCIPAL=os.path.join(_REPO,"public","media","museum","originals","MM202601.png")  # [IMAGEM_PRINCIPAL] alta-res (substituível): Festa da Pinha
 QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)

@@ -5,23 +5,28 @@ DS Milreu (2 famílias: Fraunces + Spectral). Fotos reais autorizadas; sem IA. D
 Diagramas P3 vetoriais: linear / ziguezague / núcleos (12 painéis 841:1800)."""
 import os,sys
 HERE=os.path.dirname(os.path.abspath(__file__))
+def _repo_root(p):
+    p=os.path.abspath(p)
+    while p!='/' and not os.path.exists(os.path.join(p,'CLAUDE.md')): p=os.path.dirname(p)
+    return p
+_REPO=_repo_root(HERE)
 sys.path.insert(0,os.path.join(HERE,"..","qrpylibs"))
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
 OUTP=os.path.join(HERE,"previews"); os.makedirs(OUTP,exist_ok=True)
-AS5=os.path.join(HERE,"..","item5_build","assets")
-MM608="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/museum/originals/MM202608.jpg"  # original museu (2680x1600) p/ herói P1
+AS5=os.path.join(HERE,"assets")  # acervo preparado (gap de versionamento — ver source/README)
+MM608=os.path.join(_REPO,"public","media","museum","originals","MM202608.jpg")  # original museu (2680x1600) p/ herói P1
 MM601=os.path.join(AS5,"MM202601-original.jpg")
 MM603=os.path.join(AS5,"MM202603-original.jpg")
-MM613="/Users/fernandojacomo/Desktop/Milreu community Project/docs/dissemination/poster-congresso/proof/assets/MM202613_hauschild.png"
-_GEN="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/museum/generated"
+MM613=os.path.join(HERE,"assets","MM202613_hauschild.png")  # 14.7MB — gap de versionamento
+_GEN=os.path.join(_REPO,"public","media","museum","generated")
 MM602=f"{_GEN}/MM202602/detail.webp"  # jovens no muro das ruínas (comunidade)
 MM604=f"{_GEN}/MM202604/detail.webp"  # Ti' Jacinto (figura popular de Estoi)
 MM610=f"{_GEN}/MM202610/detail.webp"  # poesia nas ruínas (relação vivida)
 MM627=f"{_GEN}/MM202627/detail.webp"  # trabalhadores em descanso/convívio (sociabilidade; wide)
 MM613g=f"{_GEN}/MM202613/detail.webp"  # equipa de escavadores com Theodor Hauschild (wide)
 MM604c=os.path.join(HERE,"assets_crop","MM202604_crop.png")  # Ti' Jacinto — recortado (sem moldura branca)
-LOGODIR="/Users/fernandojacomo/Desktop/Milreu community Project/public/media/exhibition/updated/logos"
+LOGODIR=os.path.join(_REPO,"public","media","exhibition","updated","logos")
 LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
