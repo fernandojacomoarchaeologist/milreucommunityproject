@@ -269,7 +269,7 @@ def p4():
         rule_y+=sh; sig_y+=sh; idf_y+=sh; sub_y+=sh; logo_y+=sh
     f.line(mx,rule_y,Wp-mx,rule_y,HAIR,1)
     f.text(mx,sig_y,"Projecto Comunitário de Milreu","s",PT(8.5),INK5,"l")
-    f.text(mx,idf_y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",PT(6.4),INK5,"l",ls=PT(0.7))
+    f.text(mx,idf_y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",PT(4.8),INK5,"l",ls=PT(0.52))
     f.text(mx,sub_y,"Apoio institucional e parcerias","sm",PT(5.6),INK5,"l",wt=500,ls=PT(0.5))
     f.logoband(mx,logo_y,logo_h)
     f.save("07_P4_convite")
