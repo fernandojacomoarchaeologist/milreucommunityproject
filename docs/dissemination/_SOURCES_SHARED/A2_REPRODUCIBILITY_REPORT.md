@@ -29,9 +29,9 @@ Derivados exactos (resize/crop/reencode) de originais do acervo, **versionados**
 - **hauschild** → `public/media/museum/originals/MM202613.png` (byte-idêntico); poster e dossiê repontados.
 - dossiê `MM604c` → `editaveis/imagens/MM202604_crop.png` (já committed); `detail.webp` e `MM202608.jpg` já canónicos.
 
-### PENDING — `milreu-hoje`
-`PUBLIC_SOURCE_REDISTRIBUTION = PENDING`. Registo committed (`MILREU_EXPO_CAMADAS_DOCUMENTAIS_v1.1.md`, L79): direitos **A CONFIRMAR**, uso autorizado **apenas mockup interno**. Sem autorização explícita de redistribuição pública → **ficheiro bruto NÃO versionado**. Só manifest/SHA/proveniência/caminho lógico/consumidor/instrução de obtenção (ver `RIGHTS.md`). O gerador do poster fica a aguardar o ficheiro fornecido pelo operador em `original-reference/milreu-hoje.jpg`.
-> **Flag separada:** o poster aprovado usa `milreu-hoje` como arte-final apesar do estado «mockup interno» — a rever pelo responsável (não alterado nesta fase).
+### `milreu-hoje` — NÃO consumido (verificação decisiva)
+Ao testar o checkout limpo descobriu-se que `PHOJE`/`AHOJE` estavam **definidos mas nunca usados** no `poster_proof_print.py` (nenhuma chamada de imagem). **Nenhum gerador consome `milreu-hoje`.** A referência morta foi **removida**; o poster reproduz-se **pixel-idêntico sem** o ficheiro. Rights (A CONFIRMAR / mockup interno) registados em `RIGHTS.md` apenas para memória factual.
+> **Flag anterior RETIRADA:** não há não-conformidade no poster — `milreu-hoje` **não** está na arte-final (a foto de contexto é `MM202608_ctx`, acervo histórico autorizado).
 
 `MM202607` — removido do conjunto: **nenhum gerador o consome**.
 
@@ -44,10 +44,17 @@ Derivados exactos (resize/crop/reencode) de originais do acervo, **versionados**
 | 5 Materiais | flyer/marcador PRINT | **pixel-idêntico** (média 0.0000, max 0) |
 | 6 Convite | A4 (raster) | visual-idêntico (ruído JPEG 0.15% px>24) |
 | 7 Dossiê | PRINT P1–P4 | **pixel-idêntico** (0.000, 4/4) |
-| 4 Poster | PRINT A0 | **pixel-idêntico** (0.000) — com `milreu-hoje` fornecido |
+| 4 Poster | PRINT A0 | **pixel-idêntico** (0.000) — sem qualquer PENDING |
 | 4+5 Editáveis | SVG vetor | **byte-idêntico** (git diff vazio) |
 
 Itens **3 (Orçamento)**, **8 (Cartaz)** e **9 (Kit)**: usam só canónicos committed → já reproduzíveis (sem gap).
+
+### Teste de checkout limpo (worktree sem stash/scratchpad-assets)
+Worktree em detached HEAD do commit A2, sem stash nem assets de scratchpad; só ficheiros committed + fontes/deps do operador:
+- **Materiais** regenerado → **pixel-idêntico** (max=0).
+- **Dossiê** generator corre e produz as previews.
+- **Poster** generator corre **sem erro** e **sem `milreu-hoje`** (confirmou a referência morta).
+→ Nenhuma dependência de stash/`/Users`/scratchpad. **Reprodução a partir de checkout limpo: PASS.**
 
 ## Verificação
 - Sem referências a `/Users/…`, scratchpad ou stash nos geradores.
@@ -58,7 +65,9 @@ Itens **3 (Orçamento)**, **8 (Cartaz)** e **9 (Kit)**: usam só canónicos comm
 ## Dependências do operador (não versionadas, por política)
 - Fontes Fraunces/Spectral/Archivo (`FONTS_MANIFEST.md`).
 - Dependências pip (`BUILD_ENVIRONMENT.md`).
-- `milreu-hoje.jpg` (PENDING — obter autorização e colocar em `original-reference/`).
+- (Nenhum asset PENDING bloqueia a reprodução.)
 
-## Stash
-Auditoria do `stash@{0}` para dependências únicas: ver secção final (após teste de checkout limpo).
+## Auditoria do `stash@{0}`
+Todos os assets necessários à reprodução estão agora **versionados** (`production-derivatives/`, `project-generated/circuito/`) ou são **canónicos committed** (hauschild→`MM202613.png`, `MM202608.jpg`, `detail.webp`, `immersive.webp`, `MM202604_crop.png`). O único asset exclusivo do stash relevante era o `milreu-hoje`, que **não é consumido**. **→ O stash não contém nenhuma dependência única necessária à reprodução dos Itens 3–9.**
+- Para efeitos de reprodução: **descartável**.
+- Nota: o `stash@{0}` contém ainda WIP do utilizador não relacionado (ex.: originais apagados, pastas de trabalho, regressão do convite). O descarte final (`git stash drop`) é decisão do responsável — este relatório apenas certifica que **nada ali é necessário para regenerar os materiais finais**.

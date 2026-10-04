@@ -19,12 +19,10 @@ Herdam os direitos do original do acervo: **`AUTHORIZED-FOR-PROJECT-PUBLICATION`
 ### ORIGINAL_REFERENCE
 - `MM202613.png` — o antigo `MM202613_hauschild.png` era **byte-idêntico** ao canónico `public/media/museum/originals/MM202613.png`; os geradores (poster, dossiê) foram **repontados** ao canónico. Não duplicar.
 
-### PENDING — `milreu-hoje.jpg` (NÃO versionar o ficheiro bruto)
-`PUBLIC_SOURCE_REDISTRIBUTION = PENDING`.
-- Autor: **José António Paula Brito**. Registo committed (`docs/exhibition/inventory/MILREU_EXPO_CAMADAS_DOCUMENTAIS_v1.1.md`, L79): **autoria/data/proveniência/direitos = A CONFIRMAR**; uso autorizado = **apenas referência interna de mockup**; **não apto à arte-final**.
-- Não há autorização explícita de **redistribuição no repositório público**. Por decisão humana (FASE A2, ponto 4) e por não se inferir redistribuição a partir de uso: **o ficheiro bruto não é adicionado ao Git público.**
-- Registado apenas aqui: SHA-256 `4d8bf958…`, proveniência, caminho lógico (`original-reference/milreu-hoje.jpg`), consumidor (poster), e **instrução de obtenção autorizada**: obter o ficheiro autorizado junto do responsável e colocá-lo em `original-reference/milreu-hoje.jpg` antes de regenerar o poster.
-- **Flag separada (fora do âmbito A2):** o poster aprovado usa este ativo como arte-final apesar do estado «apenas mockup interno» — a rever pelo responsável (não alterado nesta fase).
+### `milreu-hoje.jpg` — NÃO consumido (referência morta removida)
+Verificação FASE A2: `PHOJE`/`AHOJE` estavam **definidos mas nunca usados** no gerador do poster (nenhuma chamada de imagem). **Nenhum gerador consome `milreu-hoje`.** A referência morta foi **removida** do `poster_proof_print.py`; o poster reproduz-se **pixel-idêntico sem** este ficheiro.
+- Não é versionado nem requerido para reprodução. Mantém-se apenas este registo factual: autor **José António Paula Brito**; registo committed (`MILREU_EXPO_CAMADAS_DOCUMENTAIS_v1.1.md`, L79): **direitos = A CONFIRMAR**, uso autorizado **apenas mockup interno**, **não apto à arte-final**.
+- **Flag anterior retirada:** não há não-conformidade no poster — o `milreu-hoje` **não** está na arte-final (a foto de contexto usa `MM202608_ctx`, acervo histórico autorizado).
 
 ## Reprodução
-Com fontes (`FONTS_MANIFEST.md`) e dependências (`BUILD_ENVIRONMENT.md`) do operador, um checkout limpo regenera os Itens 3–9 **exceto** o poster, que fica dependente do `milreu-hoje` (PENDING) acima. Ver `A2_REPRODUCIBILITY_REPORT.md`.
+Com fontes (`FONTS_MANIFEST.md`) e dependências (`BUILD_ENVIRONMENT.md`) do operador, um checkout limpo regenera **todos** os Itens 3–9 (poster incluído) sem stash/scratchpad/`/Users`. Ver `A2_REPRODUCIBILITY_REPORT.md`.

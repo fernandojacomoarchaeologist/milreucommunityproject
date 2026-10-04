@@ -18,7 +18,7 @@ import os,sys
 HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(HERE,"..","pylibs"))
 from PIL import Image, ImageDraw, ImageFont
 _A2=_os.path.join(_REPO,"docs","dissemination","_SOURCES_SHARED","assets")  # FASE A2: assets canónicos de produção
-PD=_os.path.join(_A2,"production-derivatives"); PG=_os.path.join(_A2,"project-generated"); OR_=_os.path.join(_A2,"original-reference")
+PD=_os.path.join(_A2,"production-derivatives"); PG=_os.path.join(_A2,"project-generated")
 OUT=_os.path.join(_os.path.dirname(__file__),"out")
 AW,AH=841.0,1189.0; M=48.0; CW=AW-2*M
 PPI=float(os.environ.get("PPI","120")); s=PPI/25.4; Wpx,Hpx=round(AW*s),round(AH*s)
@@ -140,7 +140,6 @@ c.rect("bg",0,0,AW,AH,MARF)
 P601=f"{PD}/MM202601_procissao.jpg"; A601="assets/MM202601_procissao.jpg"
 P608=f"{PD}/MM202608_contexto.png"; A608="assets/MM202608_contexto.png"
 P603=f"{PD}/MM202603_pessoas.jpg"; A603="assets/MM202603_pessoas.jpg"
-PHOJE=f"{OR_}/milreu-hoje.jpg"; AHOJE="assets/milreu-hoje.jpg"  # PENDING: operador fornece (ver ASSET_MANIFEST/RIGHTS)
 PESC=f"{PG}/circuito/oficina_escavacao.jpg"; AESC="assets/circuito/oficina_escavacao.jpg"
 PEST=f"{PG}/circuito/oficina_estratigrafia.jpg"; AEST="assets/circuito/oficina_estratigrafia.jpg"
 PMOS=f"{PG}/circuito/oficina_mosaico.jpg"; AMOS="assets/circuito/oficina_mosaico.jpg"
