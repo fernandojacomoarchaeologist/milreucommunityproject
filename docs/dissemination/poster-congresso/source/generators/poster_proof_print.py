@@ -17,7 +17,8 @@ Tamanhos em pt do DS (A0): título ~90 · iniciativas ~42 · subtítulos ~28 · 
 import os,sys
 HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(HERE,"..","pylibs"))
 from PIL import Image, ImageDraw, ImageFont
-ASSETDIR=_os.path.join(_os.path.dirname(__file__),"..","assets")  # gap de versionamento (ver source/README)
+_A2=_os.path.join(_REPO,"docs","dissemination","_SOURCES_SHARED","assets")  # FASE A2: assets canónicos de produção
+PD=_os.path.join(_A2,"production-derivatives"); PG=_os.path.join(_A2,"project-generated")
 OUT=_os.path.join(_os.path.dirname(__file__),"out")
 AW,AH=841.0,1189.0; M=48.0; CW=AW-2*M
 PPI=float(os.environ.get("PPI","120")); s=PPI/25.4; Wpx,Hpx=round(AW*s),round(AH*s)
@@ -136,15 +137,14 @@ T_TITLE=90*PT; T_INIT=40*PT; T_SUB=27*PT; T_BODY=20*PT; T_LEG=15*PT; T_EYE=10*PT
 LH=T_BODY*1.28
 c=C()
 c.rect("bg",0,0,AW,AH,MARF)
-P601=f"{ASSETDIR}/assets/MM202601_procissao.jpg"; A601="assets/MM202601_procissao.jpg"
-P608=f"{ASSETDIR}/assets/MM202608_contexto.png"; A608="assets/MM202608_contexto.png"
-P603=f"{ASSETDIR}/assets/MM202603_pessoas.jpg"; A603="assets/MM202603_pessoas.jpg"
-PHOJE=f"{ASSETDIR}/assets/milreu-hoje.jpg"; AHOJE="assets/milreu-hoje.jpg"
-PESC=f"{ASSETDIR}/assets/circuito/oficina_escavacao.jpg"; AESC="assets/circuito/oficina_escavacao.jpg"
-PEST=f"{ASSETDIR}/assets/circuito/oficina_estratigrafia.jpg"; AEST="assets/circuito/oficina_estratigrafia.jpg"
-PMOS=f"{ASSETDIR}/assets/circuito/oficina_mosaico.jpg"; AMOS="assets/circuito/oficina_mosaico.jpg"
-PHAU=f"{ASSETDIR}/assets/MM202613_hauschild.png"; AHAU="assets/MM202613_hauschild.png"
-PCTX=f"{ASSETDIR}/assets/MM202608_ctx.jpg"; ACTX="assets/MM202608_ctx.jpg"
+P601=f"{PD}/MM202601_procissao.jpg"; A601="assets/MM202601_procissao.jpg"
+P608=f"{PD}/MM202608_contexto.png"; A608="assets/MM202608_contexto.png"
+P603=f"{PD}/MM202603_pessoas.jpg"; A603="assets/MM202603_pessoas.jpg"
+PESC=f"{PG}/circuito/oficina_escavacao.jpg"; AESC="assets/circuito/oficina_escavacao.jpg"
+PEST=f"{PG}/circuito/oficina_estratigrafia.jpg"; AEST="assets/circuito/oficina_estratigrafia.jpg"
+PMOS=f"{PG}/circuito/oficina_mosaico.jpg"; AMOS="assets/circuito/oficina_mosaico.jpg"
+PHAU=f"{_REPO}/public/media/museum/originals/MM202613.png"; AHAU="assets/MM202613_hauschild.png"  # repontado ao canónico (byte-idêntico)
+PCTX=f"{PD}/MM202608_ctx.jpg"; ACTX="assets/MM202608_ctx.jpg"
 LOGODIR=_os.path.join(_REPO,"public","media","exhibition","updated","logos")
 
 # ---------- CABEÇALHO (limpo) ----------
