@@ -16,5 +16,5 @@ A conversão para CMYK usou o **perfil padrão «Generic CMYK Profile»** (Color
 2. se diferente, **reconverter** a partir do original (os geradores produzem também **SVG editável** com texto vivo em `../svg/`, que a gráfica pode usar para prepress vetorial com fontes incorporadas);
 3. validar uma **prova de cor**.
 
-## Alternativa vetorial
-Se a gráfica exigir **texto vetorial com fontes incorporadas** (em vez de raster a 300 dpi), usar os **SVG** em `../svg/` — incluem o texto vivo e permitem incorporar as fontes no prepress. As fotografias permanecem raster em qualquer caso.
+## SVG editável (incluído nesta pasta)
+`06_A6_frente_PRINTX.svg` · `06_A4_PRINTX.svg` · `06_A3_PRINTX.svg` — **SVG editável** com **texto vivo (vetor)** e fotografias embebidas (base64), já com **sangria 3 mm**. Permitem prepress vetorial com fontes incorporadas. Os mesmos ficheiros existem em `../svg/`. As fotografias permanecem raster em qualquer caso.

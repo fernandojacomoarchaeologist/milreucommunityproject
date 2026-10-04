@@ -9,9 +9,15 @@ O gerador `faseb_cmyk.py` **extrai o raster já aprovado** de cada PDF RGB de im
 
 ## Como correr
 ```
-python3 docs/dissemination/_SOURCES_SHARED/prepress/faseb_cmyk.py .
+python3 docs/dissemination/_SOURCES_SHARED/prepress/faseb_cmyk.py .   # PDFs CMYK/X
+python3 docs/dissemination/_SOURCES_SHARED/prepress/wrap_svg.py .     # SVG à dimensão de impressão (com sangria)
 ```
 (argumento = raiz do repo; predefinição `.`). Dependências em `BUILD_ENVIRONMENT.md` (Pillow, reportlab, pikepdf). Escreve para `…/CMYK_PDFX/` de cada peça.
+
+### SVG nas pastas de impressão
+Cada `CMYK_PDFX/` inclui também o **SVG** correspondente, com a sangria da peça:
+- **Convite (Item 6):** SVG **editável** (texto vivo vetor + fotos embebidas), sangria 3 mm.
+- **Poster (Item 4) e materiais (Item 5):** SVG = **arte aprovada embebida** à dimensão de impressão (poster **A0 + sangria 5 mm**; flyer/marcador sangria 3 mm). Estas peças foram finalizadas como raster, pelo que o SVG é um contentor dimensionado, **não** vetor-texto editável (`wrap_svg.py`). Para editar texto em vetor, reabrir o gerador da peça.
 
 ## Estado por item (gráficos → PDF)
 | Item | Peça | CMYK/X | Localização |

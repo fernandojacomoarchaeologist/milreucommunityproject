@@ -13,8 +13,8 @@ Conversão CMYK com o **perfil padrão «Generic CMYK Profile»** (ColorSync), d
 ## Marcas de corte
 As marcas/elementos de registo são as da arte aprovada. Para grande formato, a gráfica usa normalmente a **TrimBox/BleedBox** aqui definidas; confirmar se pretende marcas adicionais.
 
-## Alternativa vetorial
-A arte-fonte (gerador `proof.py`) produz a composição vetorial; as fotografias permanecem raster. Para texto vetorial com fontes incorporadas, contactar para exportar a partir da fonte, caso a gráfica o exija.
+## SVG (incluído nesta pasta)
+`poster_milreu_A0_PRINTX.svg` — SVG à dimensão exacta de impressão **A0 + sangria 5 mm** (851×1199 mm), com a **arte aprovada embebida** (base64). A composição A0 foi finalizada como **raster**, pelo que este SVG é um **contentor dimensionado com a imagem aprovada** — **não** é vetor-texto editável (ao contrário do convite). Para editar texto em vetor, reabrir o gerador `proof.py` (tarefa à parte).
 
 ## Impressão
 - Formato A0, orientação retrato; suporte e acabamento a confirmar com a gráfica.
