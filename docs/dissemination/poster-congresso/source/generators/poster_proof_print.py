@@ -190,12 +190,12 @@ c.text("transition",M,yt+29,"Em 2026, duas iniciativas concentram parte importan
 y1=yt+30
 # fotos: 1 dominante + 2 secundárias (sem sobreposição)
 # dominante = equipa Hauschild (destaque nas pessoas, em baixo -> âncora para o fundo)
-c.img("i1_photos",M,y1,CW*0.44,132,PHAU,AHAU,av=0.72)
+c.img("i1_photos",M,y1,CW*0.44,132,PHAU,AHAU,av=0.90)
 c.text("i1_photos",M,y1+142,"Theodor Hauschild e equipa de escavadores, Milreu · ca. 1981 · col. M. L. Mendes Martins.","si",T_LEG*0.82,INK5)
 sw=(CW*0.44-12)/2
 # secundárias: Festa da Pinha (subir -> âncora topo) + Achados (subir, não cortar rostos)
 c.img("i1_photos",M,y1+150,sw,78,P601,A601,av=0.24)
-c.img("i1_photos",M+sw+12,y1+150,sw,78,P603,A603,av=0.20)
+c.img("i1_photos",M+sw+12,y1+150,sw,78,P603,A603,av=0.00)
 c.text("i1_photos",M,y1+238,"Cortejo da Festa da Pinha, Estoi · 1909 · ANTT / Foto Artística Samorrinha.","si",T_LEG*0.72,INK5)
 c.text("i1_photos",M+sw+12,y1+238,"Achados romanos · 1966-67 · Aldeia de Estoi, Cultura e Património.","si",T_LEG*0.72,INK5)
 # texto direita
@@ -329,7 +329,7 @@ for im,w in _lg:
     _x+=w+_gap
 c.line("footer",M,fy-26,AW-M,fy-26,KEY,0.6)
 c.text("footer",M,fy-16,"Responsabilidade e curadoria: Fernando Rodrigues de Jácomo · Enquadramento académico: Doutoramento em Arqueologia, Universidade do Algarve.","s",T_META*0.9,INK7)
-c.text("footer",M,fy-5,"© 2026 Fernando Rodrigues de Jácomo · Projecto Comunitário de Milreu · PROVA VISUAL — QR e formato do congresso por confirmar.","u",T_LEG*0.82,INK3)
+c.text("footer",M,fy-5,"© 2026 Fernando Rodrigues de Jácomo · Projecto Comunitário de Milreu","u",T_LEG*0.82,INK3)
 
 # ---------- VERIFICAÇÃO AUTOMÁTICA DE COLISÕES texto/foto ----------
 def _ov(a,b): return not (a[2]<=b[0]+0.5 or b[2]<=a[0]+0.5 or a[3]<=b[1]+0.5 or b[3]<=a[1]+0.5)
