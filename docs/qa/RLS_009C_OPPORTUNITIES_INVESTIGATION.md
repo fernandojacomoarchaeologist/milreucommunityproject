@@ -42,12 +42,26 @@ Com RLS activa e **nenhuma policy para `anon`**, um `SELECT` de `anon` devolve *
 - CI: `.github/workflows/09c-database-tests.yml`.
 
 ## Recomendação (fix mínimo — requer HUMAN GATE; não aplicado)
-Nova migration que **revoga** o grant default herdado, alinhando com a intenção e fazendo o teste passar **sem** o enfraquecer e **sem** alterar comportamento (anon já lê 0 linhas):
+
+### `anon` precisa legitimamente de algum privilégio nesta tabela?
+Verificado: **NÃO.** Os 7 RPCs de candidatura (`collab_opportunity_apply`, `…_withdraw`, `…_decide`, etc.) são concedidos **só a `authenticated`**; `anon` **não** tem `EXECUTE` em nenhum deles, nem há caminho anon-facing (a entrada pública de dados, quando existe no projecto, passa por Edge Function + RPC `service_role`, nunca por INSERT directo de anon — regra 08E). Logo `anon` **não precisa** de `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `REFERENCES` nem `TRIGGER` em `collab_opportunity_applications`. **Todos** os grants que `anon` herdou do default `GRANT ALL` são indevidos (não só a leitura).
+
+### Fix recomendado
+Como o privilégio indevido **não** é apenas leitura (anon não precisa de nada), aplica-se **`REVOKE ALL`**:
 ```sql
 revoke all on public.collab_opportunity_applications from anon;
--- (ou, no mínimo: revoke select on public.collab_opportunity_applications from anon;)
 ```
+→ remove o `SELECT` indevido (faz o teste passar), remove também INSERT/UPDATE/DELETE/… indevidos (hardening completo), mantém a **RLS como segunda barreira** e **não altera comportamento legítimo** (anon nunca usou nenhum; as escritas vão por RPCs de `authenticated`).
+
+*Alternativa estritamente mínima* (só para passar o teste, se se preferir a mudança mais estreita): `revoke select on public.collab_opportunity_applications from anon;` — mas deixaria os outros grants default indevidos por limpar.
+
 Opcional (robustez): auditar outras tabelas sensíveis (memberships, member_roles, audit_log, tasks…) para o mesmo padrão de grant default a anon e decidir se o hardening deve ser transversal — **fora do âmbito desta investigação**, a decidir pelo responsável.
+
+## Nomenclatura dos testes (esclarecimento)
+- **`641/641`** = suite **JS/Node** (`npm test` → `node --test tests/*.test.mjs`): lógica de `src/`, validadores, contratos. **Não** executa SQL.
+- **`009c_opportunities`** = teste **de base de dados (SQL)** em `supabase/collab-tests/`, corrido pelo workflow de CI **`09c-database-tests.yml`** (`supabase db reset` + `psql`), referido também em `09c1-ci.yml`. É o check **`database`** do CI.
+- **`009c_opportunities` NÃO está incluído nos 641** — são suites distintas (JS vs SQL/BD). Os 641 estão verdes; a falha está apenas no check `database`.
+- **Estado esperado após a migration proposta:** `009c_opportunities` passa (`app_anon_grant=0`), o check `database`/`09c` fica verde, e `npm test` mantém-se **641/641** (inalterado — suite diferente).
 
 ## Resultado dos testes
 - `009c_opportunities` **FALHA** em CI (observado nos checks `database` das PR recentes) pela asserção acima.
