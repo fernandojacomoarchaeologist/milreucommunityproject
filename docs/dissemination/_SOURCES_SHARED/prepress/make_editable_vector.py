@@ -21,12 +21,16 @@ def clean_dup_fontweight(svg_text):
         return tag
     return re.sub(r'<text\b[^>]*>', fix, svg_text)
 
-def embed(svg_text, assets_dir):
+def embed(svg_text, assets_dirs, alias=None):
+    # FASE A2: procura o asset (por basename, com aliases) na estrutura canónica de produção.
+    alias=alias or {}
+    if isinstance(assets_dirs,str): assets_dirs=[assets_dirs]
     def repl(m):
         ref=m.group(1)
         if ref.startswith("data:"): return m.group(0)
-        fn=ref.split("/")[-1]; path=os.path.join(assets_dir,fn)
-        if not os.path.exists(path): print("  !! FALTA asset:",path); return m.group(0)
+        fn=ref.split("/")[-1]; fn=alias.get(fn,fn)
+        path=next((os.path.join(d,fn) for d in assets_dirs if os.path.exists(os.path.join(d,fn))),None)
+        if path is None: print("  !! FALTA asset:",fn); return m.group(0)
         im=Image.open(path)
         if max(im.size)>CAP:
             k=CAP/max(im.size); im=im.resize((max(1,round(im.size[0]*k)),max(1,round(im.size[1]*k))), Image.LANCZOS)
@@ -51,25 +55,31 @@ def add_bleed(svg_text, trim_w, trim_h, bleed, paper="#FFFCF7"):
     return f'{head}{bg}<g transform="translate({bleed},{bleed})">{inner}</g></svg>'
 
 ROOT=sys.argv[1]
-SCR=sys.argv[2]  # scratchpad (fontes dos materiais)
 D=f"{ROOT}/docs/dissemination"
+# FASE A2: assets canónicos (sem scratchpad). Lê os SVG-fonte dos OUTPUTS dos geradores.
+A2=f"{D}/_SOURCES_SHARED/assets"
+ASSET_DIRS=[f"{A2}/production-derivatives", f"{A2}/project-generated/circuito",
+            f"{A2}/original-reference", f"{ROOT}/public/media/museum/originals"]
+ALIAS={"MM202613_hauschild.png":"MM202613.png",          # hauschild repontado ao canónico
+       "MM202601-original.jpg":"MM202601_procissao.jpg",  # nomes antigos dos editáveis dos materiais
+       "MM202603-original.jpg":"MM202603_pessoas.jpg",
+       "MM202608.png":"MM202608_contexto.png"}
 
-# --- POSTER ---
+# --- POSTER (v9.svg do gerador) ---
 pdir=f"{D}/poster-congresso/editavel-vetor"; os.makedirs(pdir,exist_ok=True)
-pv9=open(f"{ROOT}/docs/dissemination/poster-congresso/proof/poster_congresso_PROVA_VISUAL_v9.svg",encoding="utf-8").read()
-passets=f"{ROOT}/docs/dissemination/poster-congresso/proof/assets"
-pemb=clean_dup_fontweight(embed(pv9, passets))
+pv9=open(f"{D}/poster-congresso/source/generators/out/poster_congresso_PROVA_VISUAL_v9.svg",encoding="utf-8").read()
+pemb=clean_dup_fontweight(embed(pv9, ASSET_DIRS, ALIAS))
 open(f"{pdir}/poster_A0_editavel.svg","w",encoding="utf-8").write(pemb)
 pbleed=add_bleed(pemb, 841, 1189, 5)
 open(f"{pdir}/poster_A0_editavel_sangria5mm.svg","w",encoding="utf-8").write(pbleed)
 print(f"POSTER: trim {len(pemb)//1024}KB + sangria5mm {len(pbleed)//1024}KB  (imgs embebidas)")
 
-# --- MATERIAIS (masters A5/bookmark, já com 3mm bleed) ---
+# --- MATERIAIS (editáveis A5/bookmark do gerador flyer_marcador_build) ---
 mdir=f"{D}/materiais-museu/editavel-vetor"; os.makedirs(mdir,exist_ok=True)
-massets=f"{SCR}/item5_build/assets"
+mgen=f"{D}/materiais-museu/source/generators"
 for src,out in [("flyer_a5_front","flyer_a5_frente_editavel"),("flyer_a5_back","flyer_a5_verso_editavel"),
                 ("bookmark_front","marcador_frente_editavel"),("bookmark_back","marcador_verso_editavel")]:
-    s=open(f"{SCR}/item5_build/{src}_editable.svg",encoding="utf-8").read()
-    e=clean_dup_fontweight(embed(s, massets))
+    s=open(f"{mgen}/{src}_editable.svg",encoding="utf-8").read()
+    e=clean_dup_fontweight(embed(s, ASSET_DIRS, ALIAS))
     open(f"{mdir}/{out}.svg","w",encoding="utf-8").write(e)
     print(f"MATERIAIS {out}.svg  {len(e)//1024}KB")

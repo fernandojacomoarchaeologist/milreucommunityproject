@@ -27,7 +27,7 @@ def _trimlogo(p):
     if len(xs): im=im.crop((int(xs.min()),int(ys.min()),int(xs.max())+1,int(ys.max())+1))
     return im
 OUTF=os.path.join(HERE,"arte_final"); os.makedirs(OUTF,exist_ok=True)
-PHOTO=os.path.join(HERE,"assets","MM202608.png")  # acervo autorizado (ver source/README)
+PHOTO=os.path.join(_REPO,"docs","dissemination","_SOURCES_SHARED","assets","production-derivatives","MM202608_contexto.png")  # FASE A2: derivado canónico (= antigo MM202608.png)
 QURL="https://pt.surveymonkey.com/r/3CFG2MQ"
 MARF=(255,252,247); CAMPO=(251,246,238); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)

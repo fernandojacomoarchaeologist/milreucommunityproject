@@ -17,6 +17,7 @@ HERE=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
 OUT=HERE; ASS=os.path.join(HERE,"assets")
+PD=_os.path.join(_REPO,"docs","dissemination","_SOURCES_SHARED","assets","production-derivatives")  # FASE A2
 MARF="#FFFCF7"; CAMPO="#FBF6EE"; CAMPO2="#F4ECDD"; INK="#1E1A17"; INK7="#453D36"; INK5="#766D64"; INK3="#B5AA9B"
 RED="#A83227"; KEY="#B0A491"; HAIR="#E6DCC9"
 PTMM=0.3528  # mm por pt
@@ -154,9 +155,9 @@ def logo_band(face,gid,x,y,maxw,h):
         face.g(gid).append(f'<image x="{cx:.2f}" y="{y:.2f}" width="{w:.2f}" height="{h:.2f}" href="data:image/png;base64,{d}"/>')
         cx+=w+gap
     return cx
-A608="assets/MM202608.png"; P608=f"{ASS}/MM202608.png"
-A601="assets/MM202601-original.jpg"; P601=f"{ASS}/MM202601-original.jpg"
-A603="assets/MM202603-original.jpg"; P603=f"{ASS}/MM202603-original.jpg"
+A608="assets/MM202608.png"; P608=f"{PD}/MM202608_contexto.png"
+A601="assets/MM202601-original.jpg"; P601=f"{PD}/MM202601_procissao.jpg"
+A603="assets/MM202603-original.jpg"; P603=f"{PD}/MM202603_pessoas.jpg"
 
 # =================== FLYER A5 ===================
 BL=3.0; TW,TH=148.0,210.0; FW,FH=TW+2*BL,TH+2*BL  # canvas c/ bleed
@@ -164,8 +165,8 @@ MX=BL+13.0  # margem óptica a partir do bleed (13mm do trim)
 CWF=FW-2*MX
 def zy(p): return BL+p/100.0*TH  # y de % da altura do trim
 
-A608nb="assets/MM202608_nb.png"; P608nb=f"{ASS}/MM202608_nb.png"
-A608h="assets/MM202608_hero.png"; P608h=f"{ASS}/MM202608_hero.png"  # herói sem céu vazio no topo (sangra conteúdo)
+A608nb="assets/MM202608_nb.png"; P608nb=f"{PD}/MM202608_nb.png"
+A608h="assets/MM202608_hero.png"; P608h=f"{PD}/MM202608_hero.png"  # herói sem céu vazio no topo (sangra conteúdo)
 GS,GM,GL=4.0,7.5,11.0  # ritmo vertical: curto / médio / maior
 
 # ---- FLYER FRENTE ----

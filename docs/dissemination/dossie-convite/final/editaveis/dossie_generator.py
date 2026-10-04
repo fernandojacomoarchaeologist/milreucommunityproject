@@ -16,16 +16,17 @@ import qrcode
 OUTP=os.path.join(HERE,"previews"); os.makedirs(OUTP,exist_ok=True)
 AS5=os.path.join(HERE,"assets")  # acervo preparado (gap de versionamento — ver source/README)
 MM608=os.path.join(_REPO,"public","media","museum","originals","MM202608.jpg")  # original museu (2680x1600) p/ herói P1
-MM601=os.path.join(AS5,"MM202601-original.jpg")
-MM603=os.path.join(AS5,"MM202603-original.jpg")
-MM613=os.path.join(HERE,"assets","MM202613_hauschild.png")  # 14.7MB — gap de versionamento
+PD=os.path.join(_REPO,"docs","dissemination","_SOURCES_SHARED","assets","production-derivatives")  # FASE A2
+MM601=os.path.join(PD,"MM202601_procissao.jpg")
+MM603=os.path.join(PD,"MM202603_pessoas.jpg")
+MM613=os.path.join(_REPO,"public","media","museum","originals","MM202613.png")  # repontado (byte-identico)
 _GEN=os.path.join(_REPO,"public","media","museum","generated")
 MM602=f"{_GEN}/MM202602/detail.webp"  # jovens no muro das ruínas (comunidade)
 MM604=f"{_GEN}/MM202604/detail.webp"  # Ti' Jacinto (figura popular de Estoi)
 MM610=f"{_GEN}/MM202610/detail.webp"  # poesia nas ruínas (relação vivida)
 MM627=f"{_GEN}/MM202627/detail.webp"  # trabalhadores em descanso/convívio (sociabilidade; wide)
 MM613g=f"{_GEN}/MM202613/detail.webp"  # equipa de escavadores com Theodor Hauschild (wide)
-MM604c=os.path.join(HERE,"assets_crop","MM202604_crop.png")  # Ti' Jacinto — recortado (sem moldura branca)
+MM604c=os.path.join(HERE,"imagens","MM202604_crop.png")  # committed em editaveis/imagens
 LOGODIR=os.path.join(_REPO,"public","media","exhibition","updated","logos")
 LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 QURL="https://projectomilreu.pt"
