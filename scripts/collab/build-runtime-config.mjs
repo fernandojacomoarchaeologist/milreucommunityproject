@@ -40,6 +40,10 @@ const config = {
   supabaseUrl:url || null,
   supabasePublishableKey:publishableKey || null,
   supabaseJsModule:"https://esm.sh/@supabase/supabase-js@2.110.8?bundle",
+  // URL público da função serverless do formulário "Quero expor" (só notificação por e-mail).
+  // NÃO é credencial (sem chave); submissão direta por fetch, sem cliente Supabase no site.
+  // Default null => formulário em modo demonstração. Ver docs/website/SPEC_FORM_EXPOR_BACKEND.md.
+  exhibitionProposalEndpoint:process.env.MILREU_EXPOR_ENDPOINT?.trim() || null,
   siteUrl:siteUrl || null,
   callbackPath:"auth/callback/",
   afterLoginHash:"#/area-colaborativa",

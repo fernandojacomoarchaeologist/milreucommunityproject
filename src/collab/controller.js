@@ -792,13 +792,21 @@ class CollaborativeController{
       language:String(payload.language||"pt-PT")
     };
     if(!clean.name||!clean.email||!clean.message||!clean.privacyAccepted)throw new Error("Dados insuficientes para enviar a proposta.");
-    // Modo demonstração / local: sem rede e sem envio real de email.
-    if(this.config?.mode!=="supabase"||!this.client){
+    // Submissão direta por fetch ao URL público da função serverless (só notificação por e-mail),
+    // SEM cliente/credenciais Supabase no site — mantém o site estático (ver SPEC_FORM_EXPOR_BACKEND.md).
+    // Sem endpoint configurado => modo demonstração, sem rede e sem envio real.
+    const endpoint=this.config?.exhibitionProposalEndpoint;
+    if(!endpoint){
       return {mode:"demo",reference:`MILREU-EXPO-DEMO-${String(Date.now()).slice(-8)}`};
     }
-    const{data,error}=await this.client.functions.invoke("exhibition-proposal-intake",{body:{action:"submit",payload:clean,website:payload.website||""}});
-    if(error)throw error;
-    if(!data?.ok)throw new Error(data?.error||"A proposta não pôde ser enviada.");
+    let res;
+    try{
+      res=await fetch(endpoint,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"submit",payload:clean,website:payload.website||""})});
+    }catch{
+      throw new Error("A proposta não pôde ser enviada.");
+    }
+    let data=null; try{data=await res.json();}catch{}
+    if(!res.ok||!data?.ok)throw new Error(data?.error||"A proposta não pôde ser enviada.");
     return {mode:"sent",reference:data.data?.reference||null};
   }
 

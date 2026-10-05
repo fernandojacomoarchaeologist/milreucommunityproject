@@ -6,6 +6,7 @@
   "supabaseUrl": null,
   "supabasePublishableKey": null,
   "supabaseJsModule": "https://esm.sh/@supabase/supabase-js@2.110.8?bundle",
+  "exhibitionProposalEndpoint": null,
   "siteUrl": null,
   "callbackPath": "auth/callback/",
   "afterLoginHash": "#/area-colaborativa",
