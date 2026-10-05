@@ -35,6 +35,9 @@ jobs:
       MILREU_SITE_URL: ${{ inputs.public_base_url }}
       MILREU_SUPABASE_URL: ${{ secrets.MILREU_SUPABASE_URL }}
       MILREU_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.MILREU_SUPABASE_PUBLISHABLE_KEY }}
+      # URL público da função serverless do formulário "Quero expor" (não é credencial).
+      # Mantém o site estático (sem cliente Supabase); null/ausente => formulário em demo.
+      MILREU_EXPOR_ENDPOINT: ${{ vars.MILREU_EXPOR_ENDPOINT }}
       MILREU_ALLOW_DEMO: "false"
     steps:
       - uses: actions/checkout@v6
