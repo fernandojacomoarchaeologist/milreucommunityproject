@@ -1,0 +1,6 @@
+{
+  "baseline": 42,
+  "postFreeze": [
+    "20261004120000_revoke_anon_opportunity_applications.sql"
+  ]
+}

@@ -10,6 +10,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync, readdirSync, mkdtempSync, mkdirSync, symlinkSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { assertMigrationGuard, BASELINE_MIGRATIONS, POST_FREEZE_MIGRATIONS, EXPECTED_MIGRATION_COUNT } from "../scripts/lib/migration-guard.mjs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -75,8 +76,13 @@ test("estado canónico 0.40.0/10E; package.json.currentPackage alinhado ao regis
   assert.equal(reg.currentPackage, "10E");
 });
 
-test("42 migrations, 26 módulos, 152 permissões preservados", () => {
-  assert.equal(readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql")).length, 42);
+test("baseline 42 + migrations pós-freeze autorizadas, 26 módulos, 152 permissões preservados", () => {
+  // Baseline histórica congelada = 42; migrations pós-freeze só por allowlist governada.
+  // Uma migration pós-freeze não declarada (ex.: 44.ª) quebra este teste. Ver POST_FREEZE_MIGRATIONS.md.
+  assert.equal(BASELINE_MIGRATIONS, 42);
+  assertMigrationGuard((m) => assert.fail(m));
+  assert.equal(readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql")).length, EXPECTED_MIGRATION_COUNT);
+  assert.ok(POST_FREEZE_MIGRATIONS.length >= 0);
   assert.equal(read("public/data/collaborative-modules.json").modules.length, 26);
   assert.equal(read("public/data/collaborative-roles-permissions.json").permissions.length, 152);
 });

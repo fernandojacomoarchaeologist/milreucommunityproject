@@ -14,6 +14,7 @@
  * sem PDF/OCR/embeddings/RAG/chat/MCP/segredos; predecessores 09/10 preservados.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { assertMigrationGuard } from "../lib/migration-guard.mjs";
 import {
   buildCollection, buildIndex, isApiEligible, apiExposureDecision, COLLECTIONS, CONTRACT_VERSION, API_VERSION
 } from "../../src/proteus/public-api.mjs";
@@ -118,8 +119,7 @@ if (assertions.length !== 16) fail(`esperadas 16 afirmações no piloto (há ${a
 if (assertions.some((a) => a.status !== "in_review")) fail("todas as afirmações do piloto devem permanecer in_review.");
 
 // 8) Sem migrations/papéis/permissões novos; sem dependências novas.
-const migrations = readdirSync("supabase/migrations");
-if (migrations.length !== 42) fail(`10D não deve adicionar migrations (esperadas 42, há ${migrations.length}).`);
+assertMigrationGuard(fail); // baseline 42 + allowlist pós-freeze governada (10D não adicionou migrations próprias)
 if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("módulos devem permanecer 26.");
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
 if (pkg.dependencies && Object.keys(pkg.dependencies).length > 0) fail("10D não deve introduzir dependencies de runtime.");
@@ -138,4 +138,4 @@ for (const p of ["public/data/proteus-catalog-public.json", "public/data/proteus
 if (!/case "proteus-library":/.test(main)) fail("Biblioteca (10B) removida do render.");
 if (!/case "proteus-knowledge":/.test(main)) fail("Base de conhecimento (10C) removida do render.");
 
-console.log("Pacote 10D validado: API pública v1 estática, somente leitura, uniforme e determinista; 6 exports VAZIOS (regeneração byte-idêntica); núcleo puro fail-closed sem revelar excluídos; rota /conhecimento/api ligada; Biblioteca humana 3/2/1 preservada; conhecimento 0/0/0 e 16 afirmações in_review; campo legado currentPackage classificado sem correção; 26 módulos/152 permissões/42 migrations; sem dependências/backend/IA/MCP; predecessores 09/10 preservados. Estado canónico de fecho atingido (" + pkg.version + " / " + registry.currentPackage + "); pin legado package.json.currentPackage preservado (" + pkg.currentPackage + ").");
+console.log("Pacote 10D validado: API pública v1 estática, somente leitura, uniforme e determinista; 6 exports VAZIOS (regeneração byte-idêntica); núcleo puro fail-closed sem revelar excluídos; rota /conhecimento/api ligada; Biblioteca humana 3/2/1 preservada; conhecimento 0/0/0 e 16 afirmações in_review; campo legado currentPackage classificado sem correção; 26 módulos/152 permissões/42 migrations baseline (0 por este pacote); sem dependências/backend/IA/MCP; predecessores 09/10 preservados. Estado canónico de fecho atingido (" + pkg.version + " / " + registry.currentPackage + "); pin legado package.json.currentPackage preservado (" + pkg.currentPackage + ").");

@@ -67,3 +67,11 @@ Opcional (robustez): auditar outras tabelas sensíveis (memberships, member_role
 - `009c_opportunities` **FALHA** em CI (observado nos checks `database` das PR recentes) pela asserção acima.
 - Reprodução local do teste de BD **não possível neste ambiente** (sem `docker`/`supabase`/`psql`). A análise é estática sobre migrations + comportamento documentado do Supabase; a confirmação ao vivo faz-se com `supabase db reset` + consulta a `information_schema.role_table_grants` (grant anon presente) e a verificação de que um `SELECT` por `anon` devolve 0 linhas.
 - `npm test` (suite JS) permanece **641/641** (não afectada por esta falha de BD).
+
+---
+
+## Resolução (PR `fix/rls-opportunity-applications-anon-grants`)
+**ROOT CAUSE** → grants herdados das default privileges do Supabase a `anon` em `collab_opportunity_applications` (ver acima).
+**FIX** → nova migration `20261004120000_revoke_anon_opportunity_applications.sql`: `revoke all … from anon` (data real 2026-10-04). Sem tocar em policies/RPCs/default privileges/outras tabelas.
+**MECANISMO** → a baseline histórica (42) é preservada; a migration é registada numa **allowlist pós-freeze governada por identidade** (`supabase/migrations-baseline.json` + `scripts/lib/migration-guard.mjs` + `docs/governance/POST_FREEZE_MIGRATIONS.md`). Guardrails 09F/10A/10C/10D/10E e o teste `proteus-boundary-10e` passam a validar `baseline + allowlist`; uma migration não declarada continua a falhar.
+**VERIFICATION** → `npm test` 641/641; `npm run validate` exit 0; guardrail testado (migration fictícia não-allowlisted ⇒ FAIL). O teste SQL `009c_opportunities` e o check `database` passam a estar alinhados (anon sem grants), mas só confirmáveis em CI (sem docker/supabase local). **HUMAN GATE antes do merge.**

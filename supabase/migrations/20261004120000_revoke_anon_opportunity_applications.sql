@@ -1,0 +1,14 @@
+-- © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.
+-- QA/RLS 009C — alinhar grants de `collab_opportunity_applications` com a intenção documentada.
+--
+-- ROOT CAUSE: as default privileges do Supabase (ALTER DEFAULT PRIVILEGES ... GRANT ALL ON TABLES
+--   TO anon, authenticated, service_role) concedem a `anon`, em cada tabela nova de `public`,
+--   SELECT/INSERT/UPDATE/DELETE/etc. A migration `opportunities_foundation` concede SELECT só a
+--   `authenticated` e documenta «Candidaturas NUNCA são legíveis por anon», mas não revoga o grant
+--   default herdado — pelo que `anon` fica com privilégios indevidos (detectado por 009c_opportunities).
+--
+-- FIX: `anon` não tem fluxo legítimo directo nesta tabela — os 7 RPCs de candidatura são `authenticated`
+--   e a entrada pública usa Edge Function + service_role. Remove-se o grant herdado (defense-in-depth).
+--   A RLS já bloqueava o acesso efectivo (única policy de SELECT é `to authenticated`, sem policy anon),
+--   pelo que NÃO há alteração de comportamento. Não toca em policies, RPCs nem noutras tabelas.
+revoke all on public.collab_opportunity_applications from anon;

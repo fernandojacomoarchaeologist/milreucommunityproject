@@ -12,6 +12,7 @@
  * 26/152/0; e páginas estáticas com metadados corretos entregues a crawlers.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { assertMigrationGuard } from "../lib/migration-guard.mjs";
 import { execFileSync } from "node:child_process";
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
@@ -91,11 +92,11 @@ const manifest = read("public/data/media-manifest.json");
 if (manifest.items.length !== 31) fail("31 originais devem permanecer.");
 if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("módulos devem permanecer 26.");
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
-if (readdirSync("supabase/migrations").filter((f) => /202609|20261/.test(f)).length) fail("09F não deve adicionar migrations.");
+assertMigrationGuard(fail); // 09F não adicionou migrations; pós-freeze só por allowlist (identidade, não data permissiva)
 if (!existsSync("public/data/locale-availability.json")) fail("09D: disponibilidade multilíngue removida.");
 if (!/museum-opening__image"[\s\S]{0,240}fetchpriority="high"/.test(text("src/views/museum.js"))) fail("09E: LCP do hero removido.");
 for (const r of ["collab-opportunities", "collab-participation", "collab-operations-governance"]) {
   if (!new RegExp(`case "${r}":`).test(text("src/main.js"))) fail(`09C.1: rota ${r} removida do render.`);
 }
 
-console.log(`Pacote 09F validado: ${inv.routes.length} rotas classificadas (${inv.counts.index} index/${inv.counts.noindex} noindex/${inv.counts.blocked} blocked), hreflang só pt-PT, sem x-default (pendente), origem por ambiente (${seo.publicOrigin || "pendente"} → indexação ${seo.indexingAllowed}), robots preview bloqueado, sem sitemap sem domínio, OG/Twitter/JSON-LD factuais, 31 originais + 26/152 + 0 migrations preservados.`);
+console.log(`Pacote 09F validado: ${inv.routes.length} rotas classificadas (${inv.counts.index} index/${inv.counts.noindex} noindex/${inv.counts.blocked} blocked), hreflang só pt-PT, sem x-default (pendente), origem por ambiente (${seo.publicOrigin || "pendente"} → indexação ${seo.indexingAllowed}), robots preview bloqueado, sem sitemap sem domínio, OG/Twitter/JSON-LD factuais, 31 originais + 26/152 + 42 migrations baseline (0 por 09F; pós-freeze só por allowlist) preservados.`);

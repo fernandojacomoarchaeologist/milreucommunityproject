@@ -11,6 +11,7 @@
  * PDFs/segredos introduzidos; zero módulos/permissões/migrations; preservação de 09D/09E/09F.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { assertMigrationGuard } from "../lib/migration-guard.mjs";
 
 const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 const text = (p) => readFileSync(p, "utf8");
@@ -85,7 +86,7 @@ if (existsSync("mcp-server") || readdirSync("scripts").includes("mcp")) fail("n�
 // 9) Preservação: 26/152, 0 novas migrations, 09D/09E/09F intactos
 if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("módulos devem permanecer 26.");
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
-if (readdirSync("supabase/migrations").filter((f) => /20261[0-2]|202609/.test(f)).length) fail("10A não deve adicionar migrations.");
+assertMigrationGuard(fail); // baseline 42 + allowlist pós-freeze governada (10A não adicionou migrations próprias)
 if (!existsSync("public/data/locale-availability.json")) fail("09D removido.");
 if (!existsSync("public/config/seo.runtime.json")) fail("09F removido.");
 if (!/museum-opening__image"[\s\S]{0,240}fetchpriority="high"/.test(text("src/views/museum.js"))) fail("09E (LCP) removido.");
