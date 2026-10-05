@@ -17,13 +17,16 @@
 - Gates por asset mantidos; CC BY 4.0 só para conteúdo original *quando indicado*; terceiros mantêm direitos próprios.
 - Classificada no inventário SEO como rota pública (`index`), mas **não indexada** (indexação global desativada).
 
-## 3. Formulário «Quero expor» — ⛔ HUMAN GATE (deploy preparado)
-- Função + workflow de deploy prontos; **deploy não executado** por faltarem credenciais externas.
-- Ver `docs/website/ITEM02_FORM_DEPLOY_PREP.md` (secrets necessários, passos, QA, o que falta).
+## 3. Formulário «Quero expor» — ✅ OPERACIONAL (2026-10-05)
+- **Opção B implementada e validada em produção.** Submissão por `fetch` direto ao URL público da Edge Function (`exhibitionProposalEndpoint`), **sem credenciais Supabase no site** (site mantém-se estático/`demo`).
+- Edge Function publicada; smoke tests OK (honeypot 200 / inválido 422 / origem 403); **e-mail real entregue** aos dois destinatários (yahoo→spam; UALG→quarentena libertada).
+- QA no site real: submissão → «Proposta enviada» com referência real `EXPO-…`; mobile responsivo.
+- Governação: exceção estrita registada (`mvp-scope-control`, `static-first-runtime`); spec `SPEC_FORM_EXPOR_BACKEND.md` (PR #101/#102).
+- **Nota de entrega:** considerar pedir ao IT da UALG para permitir `no-reply@projectomilreu.pt` (quarentena pode repetir-se); reputação do domínio melhora o spam com o tempo.
 
-## 4. `noindex` — MANTIDO
-- `public/config/seo.runtime.json`: `indexingAllowed:false`, `publicOrigin:null` → `robots.txt` = `Disallow: /` (confirmado live). **Não alterado.**
-- A remoção de `noindex` depende de: **HTTPS PASS** (✅), **formulário PASS em produção** (⛔), **página de direitos publicada** (✅ implementada; publicação editorial pendente), **QA do site**.
+## 4. `noindex` — MANTIDO (decisão de indexação agora DESBLOQUEADA)
+- `public/config/seo.runtime.json`: `indexingAllowed:false`, `publicOrigin:null` → `robots.txt` = `Disallow: /` (confirmado live). **Ainda não alterado.**
+- Pré-condições para remover `noindex`: **HTTPS PASS** (✅), **formulário PASS em produção** (✅), **página de direitos publicada** (✅), **QA do site** (✅). Falta apenas a **decisão editorial humana** + resolver as decisões SEO abaixo.
 - EN/ES/FR **não** bloqueiam o lançamento PT (fallback explícito mantido).
 
 ## 5. SEO — NÃO FECHADO (apenas checklist)
