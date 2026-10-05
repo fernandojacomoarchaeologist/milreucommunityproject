@@ -11,6 +11,7 @@
  * objetiva (3/2/1, 5×0, 0/0/0, 16 in_review, 0 apiExposure allow, 42/26/152), sem saída em public/.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { assertMigrationGuard } from "../lib/migration-guard.mjs";
 import {
   buildIngestionPreview, validateProposal, validateBatch, validateBatchHeader, preserveProposal, INGESTION_STATE,
   PROPOSAL_REQUIRED, PROPOSAL_KEYS, LOCATOR_KEYS, BATCH_REQUIRED, CONFIDENCE_KEYS,
@@ -245,7 +246,7 @@ if ((A.entities || []).some((e) => e.status !== "draft")) fail("as 10 entidades 
 for (const p of ["data/proteus/knowledge-assertions.json", "data/proteus/knowledge-review-queue.json", "public/data/proteus-catalog-public.json", "public/data/proteus-knowledge-public.json"]) {
   if (/"apiExposure"\s*:\s*"allow"/i.test(text(p))) fail(`apiExposure allow detetado em ${p}.`);
 }
-if (readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql")).length !== 42) fail("42 migrations esperadas.");
+assertMigrationGuard(fail); // baseline 42 + allowlist pós-freeze governada
 if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("módulos devem permanecer 26.");
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
 

@@ -13,6 +13,7 @@
  * e preservação de 09D/09E/09F/10A/10B/10B.1.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { assertMigrationGuard } from "../lib/migration-guard.mjs";
 import { validateAssertion, canPublishAssertion, confidenceErrors, detectSupersedeCycles, derivePublicKnowledge } from "../../src/proteus/knowledge-model.mjs";
 import { validateCidocMapping, exportCidocMappings } from "../../src/proteus/cidoc-mapping.mjs";
 
@@ -101,9 +102,7 @@ for (const d of ["src/proteus", "contracts/10c", "docs/proteus/10c", "data/prote
 // 8) Zero novos módulos/permissões/migrations
 if (read("public/data/collaborative-modules.json").modules.length !== 26) fail("módulos devem permanecer 26.");
 if (read("public/data/collaborative-roles-permissions.json").permissions.length !== 152) fail("permissões devem permanecer 152.");
-const migrations = readdirSync("supabase/migrations");
-if (migrations.length !== 42) fail(`10C não deve adicionar migrations (esperadas 42, há ${migrations.length}).`);
-if (migrations.some((f) => /2026072[7-9]|20260[89]|20261[0-2]|20270/.test(f))) fail("10C não deve adicionar migration de data nova.");
+assertMigrationGuard(fail); // baseline 42 + allowlist pós-freeze governada (10C não adicionou migrations próprias)
 
 // 9) Preservação 09D/09E/09F/10A/10B/10B.1
 if (!existsSync("public/data/locale-availability.json")) fail("09D removido.");
@@ -113,7 +112,7 @@ if (!existsSync("public/data/proteus-catalog-public.json")) fail("10B removido."
 if (!existsSync("data/proteus/pilot-records.json")) fail("10B.1 removido.");
 if (!/case "proteus-library":/.test(main)) fail("10B (Biblioteca) removido do render.");
 
-console.log("Pacote 10C validado: contratos de afirmação/evidência/entidade/relação/revisão/CIDOC; núcleo puro impõe sem-evidência→insufficient, publicação com evidência+revisão+direitos, confiança não-probabilística e deteção de ciclos; snapshot público só 'published' e vazio honesto; crosswalk CIDOC 'draft' validado (camada separada, não certificada); rotas ligadas; sem PDF/OCR/embeddings/RAG/API/MCP/segredos; 26/152, 42 migrations (0 novas); 09D/09E/09F/10A/10B/10B.1 preservados.");
+console.log("Pacote 10C validado: contratos de afirmação/evidência/entidade/relação/revisão/CIDOC; núcleo puro impõe sem-evidência→insufficient, publicação com evidência+revisão+direitos, confiança não-probabilística e deteção de ciclos; snapshot público só 'published' e vazio honesto; crosswalk CIDOC 'draft' validado (camada separada, não certificada); rotas ligadas; sem PDF/OCR/embeddings/RAG/API/MCP/segredos; 26/152, 42 migrations baseline (0 por este pacote; pós-freeze só por allowlist); 09D/09E/09F/10A/10B/10B.1 preservados.");
 
 function walk(dir) {
   const out = [];
