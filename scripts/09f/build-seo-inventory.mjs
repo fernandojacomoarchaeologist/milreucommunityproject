@@ -31,7 +31,7 @@ const PUBLIC_INDEX = new Set([
   "home", "project", "methodology", "initiatives", "initiative", "knowledge",
   "participate", "about", "public-exhibitions", "public-opportunities", "public-opportunity",
   "public-transparency", "museum-home", "gallery", "timeline", "collections", "collection", "memory",
-  "media-press", "visual-identity",
+  "media-press", "visual-identity", "rights",
 ]);
 const NOINDEX = new Set(["immersive", "channel-lab", "totem-preview", "panel-preview", "not-found"]);
 // Formulários públicos com dados pessoais → fora da indexação (privacidade).
@@ -41,7 +41,7 @@ const pathForName = {
   home: "/", project: "/projeto", methodology: "/metodologia", initiatives: "/iniciativas",
   knowledge: "/conhecimento", participate: "/participar", about: "/sobre",
   "public-exhibitions": "/exposicoes", "public-opportunities": "/oportunidades",
-  "public-transparency": "/transparencia", "media-press": "/imprensa", "visual-identity": "/identidade", "museum-home": "/museu", gallery: "/museu/explorar",
+  "public-transparency": "/transparencia", "media-press": "/imprensa", "visual-identity": "/identidade", rights: "/direitos", "museum-home": "/museu", gallery: "/museu/explorar",
   timeline: "/museu/linha-do-tempo", collections: "/museu/colecoes",
 };
 

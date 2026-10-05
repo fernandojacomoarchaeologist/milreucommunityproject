@@ -1,0 +1,64 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+#
+# Deploy da Edge Function "exhibition-proposal-intake" (formulário público "Quero expor").
+# A função só NOTIFICA por e-mail (não grava em base de dados). Os secrets NUNCA são
+# hardcoded: vêm de GitHub Environment secrets e são aplicados à função via `supabase secrets set`.
+# Sem esses secrets a função falha fechada (503). Ver docs/website/ITEM02_FORM_DEPLOY_PREP.md.
+
+name: Deploy Exhibition Proposal Intake
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Escreva DEPLOY_EXHIBITION_PROPOSAL_INTAKE"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: milreu-exhibition-proposal-intake
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ inputs.confirmation == 'DEPLOY_EXHIBITION_PROPOSAL_INTAKE' }}
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+      # Secrets da função (valores canónicos definidos no GitHub Environment "production"):
+      EXPOR_RESEND_API_KEY: ${{ secrets.EXPOR_RESEND_API_KEY }}
+      EXPOR_EMAIL_FROM: ${{ secrets.EXPOR_EMAIL_FROM }}
+      EXPOR_NOTIFY_RECIPIENTS: ${{ secrets.EXPOR_NOTIFY_RECIPIENTS }}
+      ALLOWED_ORIGINS: ${{ secrets.EXPOR_ALLOWED_ORIGINS }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Aplicar secrets à função (nunca impressos)
+        run: |
+          set -euo pipefail
+          test -n "$EXPOR_RESEND_API_KEY" || { echo "::error::EXPOR_RESEND_API_KEY em falta"; exit 1; }
+          test -n "$EXPOR_EMAIL_FROM" || { echo "::error::EXPOR_EMAIL_FROM em falta"; exit 1; }
+          test -n "$EXPOR_NOTIFY_RECIPIENTS" || { echo "::error::EXPOR_NOTIFY_RECIPIENTS em falta"; exit 1; }
+          test -n "$ALLOWED_ORIGINS" || { echo "::error::EXPOR_ALLOWED_ORIGINS em falta"; exit 1; }
+          supabase secrets set \
+            EXPOR_RESEND_API_KEY="$EXPOR_RESEND_API_KEY" \
+            EXPOR_EMAIL_FROM="$EXPOR_EMAIL_FROM" \
+            EXPOR_NOTIFY_RECIPIENTS="$EXPOR_NOTIFY_RECIPIENTS" \
+            ALLOWED_ORIGINS="$ALLOWED_ORIGINS" \
+            --project-ref "$PROJECT_REF"
+      - name: Publicar a função
+        # Endpoint público: a função protege-se por origin allowlist + honeypot + validação
+        # estrita + consentimento obrigatório (não usa a verificação de JWT da plataforma).
+        run: supabase functions deploy exhibition-proposal-intake --project-ref "$PROJECT_REF" --no-verify-jwt
+      - run: |
+          echo "Edge Function 'exhibition-proposal-intake' publicada."
+          echo "Validar em produção o formulário 'Quero expor' (ver checklist de QA)."

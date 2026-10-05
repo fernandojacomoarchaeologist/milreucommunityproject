@@ -27,7 +27,8 @@ export function visualIdentityView(brand, lang = "pt-PT") {
       <span>Projeto Comunitário de Milreu</span>
       <h1>Identidade visual</h1>
       <p>Recursos e regras para utilizar correctamente a identidade do Projecto Comunitário de Milreu.</p>
-      <div class="page-lead__actions"><a class="ml-button ml-button--secondary" href="#/imprensa">Media / Press</a></div>
+      <div class="page-lead__actions"><a class="ml-button ml-button--secondary" href="#/imprensa">Media / Press</a><a class="ml-button ml-button--secondary" href="#/direitos">Direitos e créditos</a></div>
+      <p class="muted">Logótipos e materiais sujeitos a direitos próprios — ver <a href="#/direitos">Direitos, créditos e reutilização</a>.</p>
     </section>
 
     <section class="content-section" aria-labelledby="vi-logo">

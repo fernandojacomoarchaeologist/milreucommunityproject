@@ -1,0 +1,60 @@
+{
+ "dpi": 300,
+ "page_px": [
+  1819,
+  2551
+ ],
+ "bleed_mm": 3,
+ "trim_mm": [
+  148,
+  210
+ ],
+ "links": {
+  "07_P1_capa": [
+   [
+    165,
+    2398,
+    494,
+    2440,
+    "https://projectomilreu.pt"
+   ]
+  ],
+  "07_P4_convite": [
+   [
+    1382,
+    1191,
+    1654,
+    1463,
+    "https://projectomilreu.pt"
+   ],
+   [
+    165,
+    1280,
+    434,
+    1318,
+    "mailto:a78190@ualg.pt"
+   ],
+   [
+    165,
+    1351,
+    665,
+    1389,
+    "mailto:fernando.jacomo@yahoo.com"
+   ],
+   [
+    165,
+    1422,
+    365,
+    1460,
+    "tel:+351925339613"
+   ],
+   [
+    1400,
+    1504,
+    1636,
+    1534,
+    "https://projectomilreu.pt"
+   ]
+  ]
+ }
+}

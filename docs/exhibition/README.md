@@ -5,10 +5,10 @@
 Índice da documentação da exposição fotográfica de Milreu — título oficial **«Entre Ruínas e Memórias»** (`HUMAN-DECIDED`). Existência de um ficheiro **não** significa aprovação humana.
 
 ## Estado geral
-- **Edição atual FECHADA — `12/12 painéis` (design e conteúdo editorial).** Decisão HUMAN/CANONICAL de 2026-10-05 (ver [`decisions/MILREU_FORMAT_RECONCILIATION_2026-10-05.md`](decisions/MILREU_FORMAT_RECONCILIATION_2026-10-05.md)). **Não** classificar os painéis como «estudo» / «arte não-final» / «mockup».
-- **Formato canónico: 841 × 1800 mm** (`CURRENT-HUMAN-BASELINE`, 2026-10-05). **`841 × 2000 mm` → `SUPERSEDED`**; `1000 × 800 mm` → `SUPERSEDED`. Conjunto de impressão vigente: `PRINT_841x1800_bleed20/`.
-- **Gate de produção (prepress) mantido:** perfil de impressão CMYK com **ICC da gráfica** + **incorporação de fontes** permanecem `PENDING`. «Edição fechada» = design/conteúdo, **não** prepress.
-- **T2 («edifício de cultos»):** `DEFERRED TO FUTURE REVISION` se não pertencer à edição fechada (sem alterar ficheiros produzidos).
+- **`PRODUCTION LOCKED / IN PRINT · EDIÇÃO 2026 FECHADA` — `12/12 painéis`.** Decisão HUMAN/CANONICAL de 2026-10-05 (ver [`decisions/MILREU_FORMAT_RECONCILIATION_2026-10-05.md`](decisions/MILREU_FORMAT_RECONCILIATION_2026-10-05.md)). **Ficheiros já enviados à gráfica**; **nenhuma** alteração editorial/gráfica/técnica nesta edição. **Não** classificar os painéis como «estudo» / «arte não-final» / «mockup».
+- **Formato canónico: 841 × 1800 mm** (`CURRENT-HUMAN-BASELINE`, 2026-10-05). **`841 × 2000 mm` → `SUPERSEDED / NÃO USAR`**; `1000 × 800 mm` → `SUPERSEDED`. Conjunto enviado: `PRINT_841x1800_bleed20/`.
+- **Prepress deixa de ser gate ativo desta edição** (ficheiros já na gráfica). Próxima fase do Item 1 = **RECEPÇÃO / QA FÍSICO** (modelo em [`ITEM01_PRODUCTION_RECEIPT_2026.md`](ITEM01_PRODUCTION_RECEIPT_2026.md)).
+- **T2 («edifício de cultos»):** `DEFERRED TO FUTURE EDITION` (sem alterar ficheiros produzidos).
 - **12 painéis**; cada painel pode integrar **um ou mais elementos visuais** conforme necessidade editorial (**12 painéis ≠ 12 imagens**). Q1/Q3/Q4 com enriquecimentos definidos; `NOT-PLANNED` nos restantes = não planeado atualmente, **não** proibição permanente.
 - **Direitos consolidados:** ativos selecionados `AUTHORIZED-FOR-PROJECT-PUBLICATION` (revistos); mantêm-se crédito, proveniência, licenças externas e divulgação de IA. **Q11 já não é `BLOCKED-RIGHTS`.** Q8/MM202617 autorizada com divulgação de IA (qualidade técnica = `PENDING-PRINT-QUALITY` se insuficiente à dimensão). **Q12** permanece bloqueado por **mensagens comunitárias inexistentes** (não por direitos).
 

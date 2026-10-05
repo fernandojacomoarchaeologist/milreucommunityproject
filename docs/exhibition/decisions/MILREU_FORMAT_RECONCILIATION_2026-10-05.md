@@ -11,13 +11,15 @@
 - `1000 × 800 mm` permanece `SUPERSEDED` (migração anterior).
 - Esta reconciliação **supersede** a baseline da `MILREU_FORMAT_MIGRATION_NOTE_v0.2.md` quanto à dimensão (2000 → 1800). Os registos históricos mantêm-se intactos para rastreabilidade.
 
-### 2. Estado da edição
-- Os **painéis estão FECHADOS para a edição atual** (design e conteúdo editorial). **Não** devem continuar a ser classificados genericamente como «estudo» / «arte não-final» / «mockup».
-- O conjunto de impressão vigente é `PRINT_841x1800_bleed20/`.
-- Os **gates de produção (prepress)** mantêm-se e **não** são alterados por esta reconciliação: conversão CMYK com **perfil ICC da gráfica** e **incorporação de fontes**. «Edição fechada» refere-se a design/conteúdo, não a prepress.
+### 2. Estado da edição — `PRODUCTION LOCKED / IN PRINT · EDIÇÃO 2026 FECHADA`
+- Os **ficheiros já foram enviados à gráfica**. A edição 2026 está **fechada**: **nenhuma** alteração editorial, gráfica ou técnica (não regenerar PDFs, não alterar ICC/fontes, não corrigir T2, não acrescentar «Museus sem Fronteiras», não alterar QR, não substituir imagens, não reabrir Q1–Q12).
+- **Não** classificar os painéis como «estudo» / «arte não-final» / «mockup».
+- O conjunto enviado é `PRINT_841x1800_bleed20/`.
+- **Prepress deixa de ser gate ativo desta edição** (CMYK/ICC/fontes já resolvidos no envio à gráfica). Qualquer ICC/fonte só seria relevante numa **edição futura**.
+- **Próxima fase = RECEPÇÃO / QA FÍSICO** (modelo em `docs/exhibition/ITEM01_PRODUCTION_RECEIPT_2026.md`).
 
 ### 3. T2 («edifício de cultos»)
-- Se **não** pertence à edição fechada: **`DEFERRED TO FUTURE REVISION`**.
+- **`DEFERRED TO FUTURE EDITION`** (não pertence à edição fechada).
 - **Não** alterar os ficheiros já produzidos por este motivo.
 
 ### 4. Direitos (ver `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`)

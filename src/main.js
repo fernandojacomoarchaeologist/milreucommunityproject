@@ -42,6 +42,7 @@ import {
 import { publicExhibitionsView } from "./views/exhibitions-public.js";
 import { mediaPressView } from "./views/media-press.js";
 import { visualIdentityView } from "./views/visual-identity.js";
+import { rightsView } from "./views/rights.js";
 import { opportunitiesListView, opportunityDetailView } from "./views/opportunities-public.js";
 import {
   collaborativeContributionsView, collaborativeContributionNewView,
@@ -1644,6 +1645,7 @@ function render(scroll=true) {
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "media-press": html = mediaPressView(state.mediaAssets,state.lang); setMetadata("Media / Press"); break;
     case "visual-identity": html = visualIdentityView(state.brandAssets,state.lang); setMetadata("Identidade visual"); break;
+    case "rights": html = rightsView(state.lang); setMetadata("Direitos, créditos e reutilização"); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
     case "public-opportunities": html = opportunitiesListView(mergedPublicOpportunities(),state.lang); setMetadata("Oportunidades"); break;
     case "public-opportunity": html = opportunityDetailView(mergedPublicOpportunities(),route.slug,state.lang); setMetadata("Oportunidade"); break;
