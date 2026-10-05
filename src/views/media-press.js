@@ -44,7 +44,9 @@ export function mediaPressView(media, lang = "pt-PT") {
       <div class="page-lead__actions">
         ${m.kit?.downloadEnabled ? downloadButton(m.kit.fileUrl, "Descarregar kit", m.kit.format) : ""}
         <a class="ml-button ml-button--secondary" href="#/identidade">Ver identidade visual</a>
+        <a class="ml-button ml-button--secondary" href="#/direitos">Direitos e créditos</a>
       </div>
+      <p class="muted">Utilização sujeita às condições de cada activo. Ver <a href="#/direitos">Direitos, créditos e reutilização</a>: conteúdo original do projecto em CC BY 4.0 quando indicado; conteúdos de terceiros mantêm créditos/licenças próprias.</p>
     </section>
 
     <section class="content-section" aria-labelledby="mp-sobre">

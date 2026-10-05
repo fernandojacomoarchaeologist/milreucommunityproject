@@ -2,7 +2,7 @@
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09F",
   "version": "0.39.0",
-  "generatedAt": "2026-10-03",
+  "generatedAt": "2026-10-05",
   "publicOrigin": null,
   "indexingAllowed": false,
   "canonicalLocale": "pt-PT",
@@ -10,8 +10,8 @@
     "pt-PT"
   ],
   "counts": {
-    "total": 96,
-    "index": 20,
+    "total": 97,
+    "index": 21,
     "noindex": 5,
     "blocked": 71,
     "inSitemap": 0
@@ -271,6 +271,18 @@
       "hreflangTargets": [],
       "evidence": [
         "router:visual-identity"
+      ]
+    },
+    {
+      "route": "/direitos",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "index",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:rights"
       ]
     },
     {

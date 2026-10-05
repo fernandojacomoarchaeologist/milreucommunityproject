@@ -68,6 +68,10 @@
     "visual-identity": {
       "title": "Identidade visual",
       "description": "Recursos e regras públicas para utilizar a identidade do Projecto Comunitário de Milreu: logótipo, cores, tipografia e boas práticas."
+    },
+    "rights": {
+      "title": "Direitos, créditos e reutilização",
+      "description": "Como estão licenciados os conteúdos próprios do Projecto Comunitário de Milreu (CC BY 4.0 quando indicado) e como se preservam os créditos, licenças e autorizações de terceiros."
     }
   }
 }

@@ -7,6 +7,10 @@
 - **12 painéis** · **841 × 1800 mm** · edição 2026 **fechada** · ficheiros enviados à gráfica.
 - `841 × 2000 mm` = **SUPERSEDED / NÃO USAR**. T2 = `DEFERRED TO FUTURE EDITION`.
 
+## Suporte / material adjudicado
+- **Suporte adjudicado:** ______________________  **Espessura:** __________
+- ⚠️ **A CONFIRMAR contra a encomenda/gráfica.** **Não existe registo deste valor no repositório** — não foi fixado por inferência. (A verificar, em particular, se é **PVC 3 mm**, conforme a encomenda.) Preencher só com o valor confirmado pela gráfica/encomenda antes da recepção.
+
 ## Registo de recepção por painel
 
 | Painel | Recebido (S/N) | Dimensões (mm) | Estado físico | Impressão / cor | Danos | Observações | Acção |
