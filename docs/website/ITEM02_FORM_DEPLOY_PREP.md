@@ -15,11 +15,11 @@ O site publicado está **hoje em `mode: demo`** (`https://projectomilreu.pt/publ
 
 | Variável | Secret? | Valor/configuração conhecida? | Onde configurar | Acção humana necessária |
 |---|---|---|---|---|
-| `SUPABASE_ACCESS_TOKEN` | **SIM (secret)** | ❌ não (token de conta Supabase) | GitHub → Environment `production` → **Secret** | **Sim** — gerar na conta Supabase (Account → Access Tokens) |
-| `SUPABASE_PROJECT_REF` | Não (identificador público) | ❌ **não derivável** (não há projecto prod; `config.toml` só tem o nome local) | GitHub → Environment `production` → **Variable** `SUPABASE_PROJECT_REF` | **Sim** — criar/designar o projecto Supabase de produção e copiar o *Project ref* |
-| `EXPOR_RESEND_API_KEY` | **SIM (secret)** | ❌ não (API key Resend) | GitHub → Environment `production` → **Secret** | **Sim** — criar conta Resend e gerar API key |
-| `EXPOR_EMAIL_FROM` | Não (endereço remetente) | ⚠️ a decidir (ex.: `no-reply@projectomilreu.pt`) — exige **domínio verificado no Resend** | GitHub → Environment `production` → **Variable** `EXPOR_EMAIL_FROM` | **Sim** — verificar domínio/remetente no Resend e indicar o endereço |
-| `EXPOR_NOTIFY_RECIPIENTS` | **SIM (secret)** — são e-mails pessoais (não registar em logs/repo) | ⚠️ **HUMAN PENDING** — sugestão do código: `a78190@ualg.pt,fernando.jacomo@yahoo.com` | GitHub → Environment `production` → **Secret** | **Sim** — **confirmar** os destinatários |
+| `SUPABASE_ACCESS_TOKEN` | **SIM (secret)** | ❌ não (token de conta Supabase) | GitHub → Settings → Secrets and variables → Actions → **Secret** | **Sim** — gerar na conta Supabase (Account → Access Tokens) |
+| `SUPABASE_PROJECT_REF` | Não (identificador público) | ❌ **não derivável** (não há projecto prod; `config.toml` só tem o nome local) | GitHub → Settings → Secrets and variables → Actions → **Variable** `SUPABASE_PROJECT_REF` | **Sim** — criar/designar o projecto Supabase de produção e copiar o *Project ref* |
+| `EXPOR_RESEND_API_KEY` | **SIM (secret)** | ❌ não (API key Resend) | GitHub → Settings → Secrets and variables → Actions → **Secret** | **Sim** — criar conta Resend e gerar API key |
+| `EXPOR_EMAIL_FROM` | Não (endereço remetente) | ⚠️ a decidir (ex.: `no-reply@projectomilreu.pt`) — exige **domínio verificado no Resend** | GitHub → Settings → Secrets and variables → Actions → **Variable** `EXPOR_EMAIL_FROM` | **Sim** — verificar domínio/remetente no Resend e indicar o endereço |
+| `EXPOR_NOTIFY_RECIPIENTS` | **SIM (secret)** — são e-mails pessoais (não registar em logs/repo) | ⚠️ **HUMAN PENDING** — sugestão do código: `a78190@ualg.pt,fernando.jacomo@yahoo.com` | GitHub → Settings → Secrets and variables → Actions → **Secret** | **Sim** — **confirmar** os destinatários |
 | `ALLOWED_ORIGINS` | Não (origem pública) | ✅ **conhecido**: `https://projectomilreu.pt` | Já é **default no workflow** (opcional: Variable `EXPOR_ALLOWED_ORIGINS`) | **Não** (confirmado) |
 
 **Resumo da classificação**
@@ -42,9 +42,9 @@ O site publicado está **hoje em `mode: demo`** (`https://projectomilreu.pt/publ
    a. Criar conta em resend.com.
    b. **Verificar o domínio** de envio (ou um remetente), p.ex. `projectomilreu.pt` (adicionar os registos DNS que o Resend indicar).
    c. Gerar uma **API key**.
-3. **GitHub → repositório → Settings → Environments → `production`**
-   - **Secrets:** `SUPABASE_ACCESS_TOKEN`, `EXPOR_RESEND_API_KEY`, `EXPOR_NOTIFY_RECIPIENTS` (destinatários confirmados).
-   - **Variables:** `SUPABASE_PROJECT_REF`, `EXPOR_EMAIL_FROM` (remetente verificado).
+3. **GitHub → repositório → Settings → Secrets and variables → Actions** (nível do repositório — sem criar ambientes)
+   - Separador **Secrets:** `SUPABASE_ACCESS_TOKEN`, `EXPOR_RESEND_API_KEY`, `EXPOR_NOTIFY_RECIPIENTS` (destinatários confirmados).
+   - Separador **Variables:** `SUPABASE_PROJECT_REF`, `EXPOR_EMAIL_FROM` (remetente verificado).
    - **Para o site sair de demo (deploy do Pages):** Secrets `MILREU_SUPABASE_URL`, `MILREU_SUPABASE_PUBLISHABLE_KEY`.
 4. **Avisar o Claude** que os secrets/variables estão criados (sem os valores). A partir daí, o Claude pode: republicar o site em modo supabase, correr o workflow de deploy da função + smoke test, e fazer o QA do frontend. **O envio real de e-mail** confirma-se consigo (verificar a caixa de entrada dos destinatários).
 
