@@ -1,43 +1,52 @@
-# Item 2 — Formulário «Quero expor»: preparação do deploy (HUMAN GATE)
+# Item 2 — Formulário «Quero expor»: pré-deploy e inventário (HUMAN GATE)
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
-> Estado: **deploy PREPARADO, NÃO EXECUTADO.** O deploy real depende de **credenciais externas** que não estão disponíveis nesta sessão. **Não se inventaram valores de secrets.**
+> Estado: **deploy PREPARADO, NÃO EXECUTADO.** Depende de **credenciais/contas externas** não disponíveis nesta sessão. **Nenhum valor de secret foi inventado nem deve ser colado no chat/repositório.**
 
-## O que já está pronto
-- **Edge Function** `supabase/functions/exhibition-proposal-intake/index.ts` — valida campos, exige consentimento (`privacyAccepted`), honeypot anti-bot, allowlist de origem (CORS), envia e-mail via **Resend**, **falha fechada** (503) sem secrets, **não grava em DB**, **não expõe nem regista segredos**.
-- **Workflow de deploy** `.github/workflows/exhibition-proposal-deploy.yml` — aplica os secrets à função (a partir de GitHub Environment secrets, nunca hardcoded) e publica com `--no-verify-jwt` (endpoint público protegido pela própria função).
-- **Frontend** ligado: `src/collab/controller.js` → `functions.invoke("exhibition-proposal-intake")`.
+## Pré-requisito que muitas vezes passa despercebido
+O site publicado está **hoje em `mode: demo`** (`https://projectomilreu.pt/public/config/collaborative-area.runtime.json` → `supabaseUrl: null`). Em demo, o formulário **mostra-se e aceita**, mas devolve uma **referência DEMO sem enviar e-mail** (fallback gracioso). Para o formulário funcionar a sério é preciso, **por ordem**:
+1. Existir um **projecto Supabase de produção**.
+2. O **site** ser publicado em **modo `supabase`** — definir os secrets `MILREU_SUPABASE_URL` + `MILREU_SUPABASE_PUBLISHABLE_KEY` no deploy do Pages e **republicar** (workflow `07d-pages.yml`).
+3. A **Edge Function** ser publicada nesse projecto (workflow `exhibition-proposal-deploy.yml`).
+4. Os **secrets da função** (Resend, remetente, destinatários, origem) estarem configurados.
+5. A conta **Resend** ter o **domínio/remetente verificado**.
 
-## Secrets necessários (GitHub Environment «production») — valores canónicos a definir pelo responsável
-| Secret (GitHub) | Aplicado a | Valor canónico | Estado |
-|---|---|---|---|
-| `SUPABASE_ACCESS_TOKEN` | CLI Supabase | *(token de conta Supabase)* | ⛔ **EXTERNO — não disponível nesta sessão** |
-| `SUPABASE_PROJECT_REF` | projecto Supabase de produção | *(project ref)* | ⛔ **a confirmar** (o mesmo projecto que serve o site) |
-| `EXPOR_RESEND_API_KEY` | `EXPOR_RESEND_API_KEY` da função | *(API key Resend)* | ⛔ **EXTERNO — conta Resend** |
-| `EXPOR_EMAIL_FROM` | remetente | ex.: `no-reply@projectomilreu.pt` (**domínio/remetente verificado no Resend**) | ⛔ **a verificar no Resend** |
-| `EXPOR_NOTIFY_RECIPIENTS` | destinatários | **a confirmar** (o comentário da função sugere `a78190@ualg.pt,fernando.jacomo@yahoo.com`) | ⚠️ **confirmar — não inventado** |
-| `EXPOR_ALLOWED_ORIGINS` | `ALLOWED_ORIGINS` | `https://projectomilreu.pt` | ✅ conhecido (origem pública do site) |
+## Inventário de variáveis
 
-## Passos de deploy (quando os secrets existirem)
-1. Criar os secrets acima no GitHub Environment `production`.
-2. **Resend:** verificar o **domínio/remetente** (`EXPOR_EMAIL_FROM`) na conta Resend (SPF/DKIM), senão o envio falha.
-3. Correr o workflow **Deploy Exhibition Proposal Intake** (`workflow_dispatch`, confirmação `DEPLOY_EXHIBITION_PROPOSAL_INTAKE`).
-4. Executar o QA abaixo em produção.
+| Variável | Secret? | Valor/configuração conhecida? | Onde configurar | Acção humana necessária |
+|---|---|---|---|---|
+| `SUPABASE_ACCESS_TOKEN` | **SIM (secret)** | ❌ não (token de conta Supabase) | GitHub → Environment `production` → **Secret** | **Sim** — gerar na conta Supabase (Account → Access Tokens) |
+| `SUPABASE_PROJECT_REF` | Não (identificador público) | ❌ **não derivável** (não há projecto prod; `config.toml` só tem o nome local) | GitHub → Environment `production` → **Variable** `SUPABASE_PROJECT_REF` | **Sim** — criar/designar o projecto Supabase de produção e copiar o *Project ref* |
+| `EXPOR_RESEND_API_KEY` | **SIM (secret)** | ❌ não (API key Resend) | GitHub → Environment `production` → **Secret** | **Sim** — criar conta Resend e gerar API key |
+| `EXPOR_EMAIL_FROM` | Não (endereço remetente) | ⚠️ a decidir (ex.: `no-reply@projectomilreu.pt`) — exige **domínio verificado no Resend** | GitHub → Environment `production` → **Variable** `EXPOR_EMAIL_FROM` | **Sim** — verificar domínio/remetente no Resend e indicar o endereço |
+| `EXPOR_NOTIFY_RECIPIENTS` | **SIM (secret)** — são e-mails pessoais (não registar em logs/repo) | ⚠️ **HUMAN PENDING** — sugestão do código: `a78190@ualg.pt,fernando.jacomo@yahoo.com` | GitHub → Environment `production` → **Secret** | **Sim** — **confirmar** os destinatários |
+| `ALLOWED_ORIGINS` | Não (origem pública) | ✅ **conhecido**: `https://projectomilreu.pt` | Já é **default no workflow** (opcional: Variable `EXPOR_ALLOWED_ORIGINS`) | **Não** (confirmado) |
 
-## QA de produção (a executar após o deploy)
-- [ ] **Desktop** — submissão válida → sucesso (referência `EXPO-…`);
-- [ ] **Mobile** — idem;
-- [ ] **Erro** — e-mail inválido/mensagem curta/sem consentimento → mensagem de erro clara (422);
-- [ ] **Campos obrigatórios** — validação no cliente e no servidor;
-- [ ] **Caracteres PT** (acentos, ç, «») preservados no e-mail recebido;
-- [ ] **E-mail efectivamente recebido** pelos destinatários (conteúdo correcto, `reply-to` = e-mail do proponente);
-- [ ] **Sem exposição** de secrets/dados sensíveis (frontend, logs, respostas);
-- [ ] Origem não permitida → 403 (allowlist); honeypot preenchido → aceite silenciosamente sem notificar.
+**Resumo da classificação**
+- **GitHub Secrets (sensíveis):** `SUPABASE_ACCESS_TOKEN`, `EXPOR_RESEND_API_KEY`, `EXPOR_NOTIFY_RECIPIENTS`.
+- **GitHub Variables (não-sensíveis):** `SUPABASE_PROJECT_REF`, `EXPOR_EMAIL_FROM` (e, opcional, `EXPOR_ALLOWED_ORIGINS`).
+- **Já resolvido no repo:** `ALLOWED_ORIGINS = https://projectomilreu.pt` (default do workflow).
+- **Pré-requisito do site (separado):** secrets `MILREU_SUPABASE_URL` + `MILREU_SUPABASE_PUBLISHABLE_KEY` no deploy do Pages (senão fica em demo).
 
-## HUMAN GATE — o que falta exactamente (deploy parado aqui)
-Não é possível avançar sem, do responsável:
-1. **`SUPABASE_ACCESS_TOKEN`** (token de conta Supabase) + **`SUPABASE_PROJECT_REF`** do projecto de produção.
-2. **Conta/`EXPOR_RESEND_API_KEY` do Resend** + **domínio/remetente verificado** (`EXPOR_EMAIL_FROM`).
-3. **Confirmação dos destinatários** (`EXPOR_NOTIFY_RECIPIENTS`).
+## Workflow e smoke test (prontos, não executados)
+- `.github/workflows/exhibition-proposal-deploy.yml`: valida presença da config → aplica secrets à função → publica (`--no-verify-jwt`) → **smoke test** (honeypot → 200 sem e-mail; payload inválido → 422). O smoke test prova que a função está publicada e a validar **sem enviar e-mail**.
 
-Assim que estes forem criados como GitHub Environment secrets (ou indicados por canal seguro — **nunca** colar no chat), executa-se o workflow e corre-se o QA. **Não** colar valores de secrets no chat nem no repositório.
+## Checklist exacta (o que o Fernando faz FORA do repositório)
+> Nenhum destes valores deve ser colado no chat. Configuram-se diretamente no GitHub/Supabase/Resend.
+
+1. **Supabase (produção)**
+   a. Criar (ou escolher) o **projecto Supabase de produção**.
+   b. Copiar o **Project ref** (Settings → General) e a **Project URL** e a **publishable/anon key** (Settings → API).
+   c. Gerar um **Access Token** (foto de perfil → Account → Access Tokens).
+2. **Resend (e-mail)**
+   a. Criar conta em resend.com.
+   b. **Verificar o domínio** de envio (ou um remetente), p.ex. `projectomilreu.pt` (adicionar os registos DNS que o Resend indicar).
+   c. Gerar uma **API key**.
+3. **GitHub → repositório → Settings → Environments → `production`**
+   - **Secrets:** `SUPABASE_ACCESS_TOKEN`, `EXPOR_RESEND_API_KEY`, `EXPOR_NOTIFY_RECIPIENTS` (destinatários confirmados).
+   - **Variables:** `SUPABASE_PROJECT_REF`, `EXPOR_EMAIL_FROM` (remetente verificado).
+   - **Para o site sair de demo (deploy do Pages):** Secrets `MILREU_SUPABASE_URL`, `MILREU_SUPABASE_PUBLISHABLE_KEY`.
+4. **Avisar o Claude** que os secrets/variables estão criados (sem os valores). A partir daí, o Claude pode: republicar o site em modo supabase, correr o workflow de deploy da função + smoke test, e fazer o QA do frontend. **O envio real de e-mail** confirma-se consigo (verificar a caixa de entrada dos destinatários).
+
+## HUMAN GATE
+Parar aqui. O deploy só avança depois de (1) e (2) e (3) acima. O Claude **não** tem, e **não** deve receber no chat, nenhum destes tokens/keys.

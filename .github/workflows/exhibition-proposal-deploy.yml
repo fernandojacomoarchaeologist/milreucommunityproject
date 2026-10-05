@@ -2,10 +2,14 @@
 # Produzido no âmbito do Projeto Comunitário de Milreu.
 # Consultar RIGHTS.md.
 #
-# Deploy da Edge Function "exhibition-proposal-intake" (formulário público "Quero expor").
-# A função só NOTIFICA por e-mail (não grava em base de dados). Os secrets NUNCA são
-# hardcoded: vêm de GitHub Environment secrets e são aplicados à função via `supabase secrets set`.
-# Sem esses secrets a função falha fechada (503). Ver docs/website/ITEM02_FORM_DEPLOY_PREP.md.
+# Deploy + smoke test da Edge Function "exhibition-proposal-intake" (formulário "Quero expor").
+# A função só NOTIFICA por e-mail (não grava em DB). Secrets sensíveis vêm de GitHub Secrets;
+# config não-sensível vem de GitHub Variables (vars). Nada hardcoded. Sem secrets a função
+# falha fechada (503). Ver docs/website/ITEM02_FORM_DEPLOY_PREP.md.
+#
+# Pré-requisito independente: o SITE tem de ser publicado em modo "supabase"
+# (secrets MILREU_SUPABASE_URL + MILREU_SUPABASE_PUBLISHABLE_KEY no deploy do Pages),
+# senão o frontend fica em "demo" e nunca chama esta função. Hoje o site está em demo.
 
 name: Deploy Exhibition Proposal Intake
 
@@ -30,25 +34,31 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
+      # --- SENSÍVEIS (GitHub Secrets) ---
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-      PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-      # Secrets da função (valores canónicos definidos no GitHub Environment "production"):
       EXPOR_RESEND_API_KEY: ${{ secrets.EXPOR_RESEND_API_KEY }}
-      EXPOR_EMAIL_FROM: ${{ secrets.EXPOR_EMAIL_FROM }}
       EXPOR_NOTIFY_RECIPIENTS: ${{ secrets.EXPOR_NOTIFY_RECIPIENTS }}
-      ALLOWED_ORIGINS: ${{ secrets.EXPOR_ALLOWED_ORIGINS }}
+      # --- NÃO-SENSÍVEIS (GitHub Variables) ---
+      PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
+      EXPOR_EMAIL_FROM: ${{ vars.EXPOR_EMAIL_FROM }}
+      # Origem pública conhecida (default); pode ser sobreposta por vars.EXPOR_ALLOWED_ORIGINS.
+      ALLOWED_ORIGINS: ${{ vars.EXPOR_ALLOWED_ORIGINS || 'https://projectomilreu.pt' }}
     steps:
       - uses: actions/checkout@v6
       - uses: supabase/setup-cli@v1
         with:
           version: latest
+      - name: Validar configuração presente (sem imprimir valores)
+        run: |
+          set -euo pipefail
+          miss=0
+          for v in SUPABASE_ACCESS_TOKEN EXPOR_RESEND_API_KEY EXPOR_NOTIFY_RECIPIENTS PROJECT_REF EXPOR_EMAIL_FROM ALLOWED_ORIGINS; do
+            if [ -z "${!v:-}" ]; then echo "::error::$v em falta (ver ITEM02_FORM_DEPLOY_PREP.md)"; miss=1; fi
+          done
+          [ "$miss" = "0" ] || exit 1
       - name: Aplicar secrets à função (nunca impressos)
         run: |
           set -euo pipefail
-          test -n "$EXPOR_RESEND_API_KEY" || { echo "::error::EXPOR_RESEND_API_KEY em falta"; exit 1; }
-          test -n "$EXPOR_EMAIL_FROM" || { echo "::error::EXPOR_EMAIL_FROM em falta"; exit 1; }
-          test -n "$EXPOR_NOTIFY_RECIPIENTS" || { echo "::error::EXPOR_NOTIFY_RECIPIENTS em falta"; exit 1; }
-          test -n "$ALLOWED_ORIGINS" || { echo "::error::EXPOR_ALLOWED_ORIGINS em falta"; exit 1; }
           supabase secrets set \
             EXPOR_RESEND_API_KEY="$EXPOR_RESEND_API_KEY" \
             EXPOR_EMAIL_FROM="$EXPOR_EMAIL_FROM" \
@@ -59,6 +69,16 @@ jobs:
         # Endpoint público: a função protege-se por origin allowlist + honeypot + validação
         # estrita + consentimento obrigatório (não usa a verificação de JWT da plataforma).
         run: supabase functions deploy exhibition-proposal-intake --project-ref "$PROJECT_REF" --no-verify-jwt
-      - run: |
-          echo "Edge Function 'exhibition-proposal-intake' publicada."
-          echo "Validar em produção o formulário 'Quero expor' (ver checklist de QA)."
+      - name: Smoke test (sem enviar e-mail)
+        run: |
+          set -euo pipefail
+          URL="https://${PROJECT_REF}.supabase.co/functions/v1/exhibition-proposal-intake"
+          # 1) Honeypot preenchido -> 200 ok:true, reference:null (NÃO envia e-mail).
+          hp=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL" -H "content-type: application/json" --data '{"website":"bot","payload":{}}')
+          echo "honeypot -> HTTP $hp (esperado 200)"
+          [ "$hp" = "200" ] || { echo "::error::smoke honeypot falhou ($hp)"; exit 1; }
+          # 2) Payload inválido -> 422 (prova validação, sem envio).
+          inv=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$URL" -H "content-type: application/json" --data '{"payload":{"email":"invalido"}}')
+          echo "inválido -> HTTP $inv (esperado 422)"
+          [ "$inv" = "422" ] || { echo "::error::smoke validação falhou ($inv)"; exit 1; }
+          echo "Smoke test OK: função publicada, acessível e a validar. (Envio real de e-mail testado manualmente no QA.)"
