@@ -27,6 +27,13 @@ RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)
 FP=os.path.expanduser("~/Library/Fonts/")
 FF={"d":"Fraunces.ttf","di":"Fraunces-Italic.ttf","s":"Spectral-Regular.ttf","sm":"Spectral-Medium.ttf","si":"Spectral-Italic.ttf","u":"Archivo.ttf"}
 _fc={}
+# --- captura p/ SVG editável: campos locais desenhados invisíveis no raster-base e recolhidos p/ vetor ---
+# OPT-IN: só quando SVG_CAPTURE=True (ligado pelo cartaz_svg.py). Geração normal de PNG não é afetada.
+LAYOUT=[]          # (x,y,text,k,px,fill,a,wt,ls)
+SVG_CAPTURE=False
+_CAP_ON=False
+def _cap(on):
+    global _CAP_ON; _CAP_ON=bool(on) and SVG_CAPTURE
 def font(k,px,wt=None):
     kk=(k,px,wt)
     if kk in _fc: return _fc[kk]
@@ -58,6 +65,8 @@ class F:
         l=round((nw-w)*ah);t=round((nh-h)*av);s.im.paste(im.crop((l,t,l+w,t+h)),(round(x),round(y)))
     def tw(s,t,k,px,wt=None): return s.d.textlength(t,font=font(k,px,wt))
     def text(s,x,y,t,k,px,fill=INK,a="l",wt=None,ls=0):
+        if _CAP_ON and t:
+            LAYOUT.append((x,y,t,k,px,fill,a,wt,ls)); fill=MARF  # invisível no raster; SVG sobrepõe texto vivo
         ft=font(k,px,wt)
         if ls and len(t)>1 and a=="l":
             cx=x
@@ -141,6 +150,7 @@ def render(TW,TH,fields,outname,demo=True,img=IMG_PRINCIPAL,final=False):
     y=f.para(mx,y,IDENT_LINE,"si",pt(10.5),cw,INK5,1.3)+P(6*s)
     f.line(mx,y,Wp-mx,y,HAIR,max(1,P(0.3*s))); y+=P(6*s)
     # ===== ZONA 2 — informação local (25–30%), forte hierarquia =====
+    _cap(True)  # início da captura dos campos locais editáveis (fundo MARF) p/ SVG vivo
     # nome do local — maior; legível a 1–2 m; auto-fit curto/longo
     y,_=f.fitpara(mx,y,fields["NOME_DO_LOCAL"],"d",pt(42),pt(19),cw,2,INK,1.04,600); y+=P(2*s)
     if fields.get("CIDADE_LOCALIDADE"):
@@ -159,6 +169,7 @@ def render(TW,TH,fields,outname,demo=True,img=IMG_PRINCIPAL,final=False):
     y=row(y,"MORADA",fields["MORADA"])
     if fields.get("ENTRADA_CONDICOES"):
         y=row(y,"ENTRADA",fields["ENTRADA_CONDICOES"])
+    _cap(False)  # fim da captura
     # ===== ZONA 3 — CTA / site / QR (10–15%); escala sf para derivar bem no A4 =====
     z3=Hp-bl-P(76*sf)
     f.rect(bl,z3,Wp-2*bl,P(0.3*s),HAIR)
@@ -211,10 +222,6 @@ LONGO=dict(DEMO, NOME_DO_LOCAL="Biblioteca Municipal e Centro de Interpretação
            ENTRADA_CONDICOES="Entrada livre · visitas orientadas mediante marcação")
 
 A3=(297,420); A4=(210,297)
-render(*A3, DEMO, "08_A3_master")
-render(*A4, DEMO, "08_A4_master")
-render(*A3, CURTO, "08_A3_teste_curto")
-render(*A3, LONGO, "08_A3_teste_longo")
 # prancha A3 master + A4 master
 def prancha(names,outname,labs):
     ims=[Image.open(f"{OUTP}/{n}.png") for n in names]; hh=1400
@@ -223,6 +230,12 @@ def prancha(names,outname,labs):
     sh=Image.new("RGB",(Wc,Hc),(238,232,222));d=ImageDraw.Draw(sh);x=pad
     for lab,im in zip(labs,sc): sh.paste(im,(x,pad));d.text((x,pad+hh+10),lab,fill=(60,54,48),font=font("sm",22));x+=im.size[0]+pad
     sh.save(f"{OUTP}/{outname}.png")
-prancha(["08_A3_master","08_A4_master"],"_PRANCHA_A3_A4",["A3 · master","A4 · derivado"])
-prancha(["08_A3_teste_curto","08_A3_teste_longo"],"_PRANCHA_TESTES",["Teste · nome curto","Teste · nome longo + horário 2 linhas + morada extensa"])
-print("ok: A3/A4 master + testes + pranchas")
+
+if __name__=="__main__":
+    render(*A3, DEMO, "08_A3_master")
+    render(*A4, DEMO, "08_A4_master")
+    render(*A3, CURTO, "08_A3_teste_curto")
+    render(*A3, LONGO, "08_A3_teste_longo")
+    prancha(["08_A3_master","08_A4_master"],"_PRANCHA_A3_A4",["A3 · master","A4 · derivado"])
+    prancha(["08_A3_teste_curto","08_A3_teste_longo"],"_PRANCHA_TESTES",["Teste · nome curto","Teste · nome longo + horário 2 linhas + morada extensa"])
+    print("ok: A3/A4 master + testes + pranchas")
