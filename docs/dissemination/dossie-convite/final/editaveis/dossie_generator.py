@@ -181,7 +181,7 @@ def p1():
 def p2():
     f=newp(); mx=bl+P(11); cw=Wp-2*mx
     # imagem DOMINANTE comunitária (pessoas, não arquitectura): jovens no muro das ruínas
-    ih=round(Hp*0.25); f.imgcover(0,0,Wp,ih,MM602,av=0.5); f.rect(0,ih,Wp,P(1.2),RED)
+    ih=round(Hp*0.25); f.imgcover(0,0,Wp,ih,MM602,av=0.25); f.rect(0,ih,Wp,P(1.2),RED)
     y=ih+P(8.5)
     # 1) Projecto Comunitário de Milreu — o que é + como trabalha + importância da investigação
     eyebrow(f,mx,y,"PROJECTO COMUNITÁRIO DE MILREU"); y+=P(7)
