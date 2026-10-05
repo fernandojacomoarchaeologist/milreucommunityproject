@@ -127,9 +127,10 @@ const PARTNER_LOGOS = [
 ];
 
 export function partnerLogos(lang, { dark = false } = {}) {
-  const items = PARTNER_LOGOS.map(([file, name]) =>
-    `<li><img src="${assetUrl("public/media/exhibition/updated/logos/" + file)}" alt="${name}" loading="lazy" decoding="async"></li>`
-  ).join("");
+  const items = PARTNER_LOGOS.map(([file, name]) => {
+    const cls = file === "Milreu_policromatico.png" ? ' class="partner-logo--trio"' : "";
+    return `<li><img${cls} src="${assetUrl("public/media/exhibition/updated/logos/" + file)}" alt="${name}" loading="lazy" decoding="async"></li>`;
+  }).join("");
   return `<section class="partner-section${dark ? " partner-section--on-dark" : ""}" aria-label="${text(lang,"partnersTitle")}">
     <div class="section-heading section-heading--stacked">
       <h2>${text(lang,"partnersTitle")}</h2>
