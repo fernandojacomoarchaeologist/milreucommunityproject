@@ -169,12 +169,13 @@ def p1():
     f.rect(0,ih,Wp,P(1.4),RED)
     y=ih+P(12)
     eyebrow(f,mx,y,"MUSEU · EXPOSIÇÃO ITINERANTE"); y+=P(9)
-    y=f.para(mx,y,"Entre Ruínas e Memórias","d",PT(30),cw,INK,1.02,"l",wt=600)+P(3)
-    y=f.para(mx,y,"Museu e exposição itinerante do Projecto Comunitário de Milreu","sm",PT(10.5),cw,INK7,1.28)+P(4)
-    y=f.para(mx,y,"Memórias da população ligadas às Ruínas Romanas de Milreu.","si",PT(10.5),cw,INK5,1.3)+P(8)
+    y=f.para(mx,y,"Entre Ruínas e Memórias","d",PT(30),cw,INK,1.02,"l",wt=600)+P(4)
+    # tagline comunitária (Spectral itálico — fonte mantida), subida para o lugar da linha removida
+    y=f.para(mx,y,"Memórias da população ligadas às Ruínas Romanas de Milreu.","si",PT(10.5),cw,INK5,1.3)+P(4)
+    # atribuição + anotação MSF, no mesmo tamanho/fonte da linha acima (sem outra alteração)
+    y=f.para(mx,y,"Projecto Comunitário de Milreu — Museus sem Fronteiras 2026","si",PT(10.5),cw,INK5,1.3)
     f.text(mx,Hp-bl-P(10),"projectomilreu.pt","sm",PT(10),RED,"l",wt=500)
     link("07_P1_capa",mx,Hp-bl-P(10),mx+f.tw("projectomilreu.pt","sm",PT(10),500),Hp-bl-P(10)+PT(10),QURL)
-    f.text(Wp-mx,Hp-bl-P(10),"Projecto Comunitário de Milreu","s",PT(8),INK5,"r")
     f.save("07_P1_capa")
 
 # ============ P2 — O PROJECTO E A EXPOSIÇÃO ============
