@@ -1,8 +1,34 @@
-Proveniência e direitos dos logótipos (2026-08-29)
-- logo-projeto-comunitario-milreu.png : marca do projeto (assets/brand/, projeto).
-- logo-republica-portuguesa-cultura.png : Wikimedia Commons "Cultura Ministry logo", CC BY-SA (marca oficial República Portuguesa/Cultura). Confirmar autorização de uso.
-- logo-republica-portuguesa.svg : Wikimedia Commons "Logótipo do Governo Portugal", CC BY-SA (base, sem "CULTURA").
-- logo-ualg.png / logo-ualg.svg : ZIP oficial ualg.pt (Manual de Identidade UAlg).
-- logo-patrimonio-cultural-DGPC.png : Commons "Logo DGPC" (nome ANTIGO Direção-Geral; baixa resolução; NAO é a versao atual "Patrimonio Cultural, I.P."). Obter versao oficial atual.
-PENDENTES (obter ficheiro proprio): Patrimonio Cultural I.P. (atual), CCDR Algarve, Museu do Lyceu de Faro, Associacao dos Amigos.
-Uso institucional na exposicao a confirmar com cada entidade.
+Proveniência e direitos dos logótipos — conjunto canónico de parcerias
+Atualização: 2026-10-05 (decisão HUMAN/CANONICAL)
+
+ESTADO DE DIREITOS (2026-10-05)
+Os logótipos abaixo estão AUTORIZADOS para uso institucional pelo Projecto
+Comunitário de Milreu e nos seus materiais (exposição, disseminação, site,
+documentos do projecto), com crédito e termos próprios de cada entidade.
+Esta autorização NÃO constitui:
+- autorização para redistribuição autónoma dos ficheiros dos logótipos por terceiros;
+- transferência de titularidade, domínio público ou sublicenciamento;
+- dispensa de crédito ou dos termos de uso de cada entidade.
+Cada asset mantém o seu crédito/licença/termos próprios (não são abrangidos pela
+licença do conteúdo original do Projecto).
+
+CONJUNTO CANÓNICO E ORDEM (fixado por referência do responsável)
+1. logo-projeto-comunitario-milreu.png
+   Projecto Comunitário de Milreu — marca própria do projecto (assets/brand/).
+2. logo-ccdr-algarve.png
+   CCDR Algarve — versão RGB (fonte: cultalg.gov.pt / «CCDR Algarve - RGB»).
+3. logo-associacao-amigos-museu-lyceu-faro.png
+   Associação dos Amigos do Museu do Lyceu de Faro.
+4. Milreu_policromatico.png
+   Composição INDIVISÍVEL («sempre juntos»): República Portuguesa
+   (Cultura, Juventude e Desporto) + Património Cultural, I.P. + Milreu.
+5. logo-ualg-completo.png
+   Universidade do Algarve — versão completa (Manual de Identidade UAlg).
+
+NOTAS
+- Ficheiros obsoletos (NÃO reutilizar): logo-ualg.png (símbolo só),
+  logo-museu-lyceu.png, logo-republica-portuguesa-cultura.png,
+  logo-patrimonio-cultural-DGPC.png, logo-republica-portuguesa.svg.
+- Preferir versão vetorial oficial (SVG/EPS) de cada entidade quando disponível,
+  para prepress; os PNG atuais servem RGB/ecrã e composição aprovada.
+- Alteração material do conjunto (adição/remoção/ordem) exige decisão do responsável.

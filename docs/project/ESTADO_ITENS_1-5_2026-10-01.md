@@ -1,8 +1,8 @@
 # Estado dos itens · Divulgação e produção · Projecto Comunitário de Milreu
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
-> **DOCUMENTO VIVO (canónico de referência) — consultar e atualizar a cada evolução.** Última atualização: **2026-10-03**.
-> **Âmbito:** documentação de estado (o que é · o que foi feito · como · histórico · estado da última versão). Cobre os itens 1–9.
+> **DOCUMENTO VIVO (canónico de referência) — consultar e atualizar a cada evolução.** Última atualização: **2026-10-05** (reconciliação HUMAN/CANONICAL).
+> **Âmbito:** documentação de estado (o que é · o que foi feito · como · histórico · estado da última versão). Cobre os itens **1–12**.
 > **Método:** baseado em ficheiros do repositório, datas, documentos de decisão e verificações diretas. Estados reportados **tal como registados** — não se infere aprovação onde nenhum ficheiro a declara. Pontos por confirmar estão marcados.
 >
 > **🟢 ESTADO GLOBAL (2026-10-03): `MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026 — PATCH 2–9 CONCLUÍDO`.** Patch transversal de enquadramento 2026 aplicado e **mergeado** (10 PRs #74–#83, `main` HEAD `580e338`); fecho verificado (working tree limpo · `validate` 0 · 641/641 · outputs↔sources · sem divergências). **Concluir o patch ≠ marcar tudo `DONE`:** mantêm-se os *gates de produção* (ver §«Patch transversal MSF 2026» e «Pendências transversais»). Ver regra viva em `docs/governance/IDENTITY_2026_MUSEUS_SEM_FRONTEIRAS.md`.
@@ -11,15 +11,16 @@
 
 | # | Item | O que é | Estado atual |
 |---|---|---|---|
-| 1 | Painéis da exposição | 12 painéis «Entre Ruínas e Memórias» (totem) | PRINT 841×1800 CMYK gerado; **NÃO é arte-final formal**; conflito **2000 vs 1800** + item T2 por reconciliar |
+| 1 | Painéis da exposição | 12 painéis «Entre Ruínas e Memórias» (totem) | **EDIÇÃO FECHADA 12/12** (design/conteúdo); **formato canónico 841×1800** (`841×2000` **SUPERSEDED**, reconciliado 2026-10-05); **T2 `DEFERRED TO FUTURE REVISION`**. Gate mantido: prepress CMYK/ICC+fontes |
 | 2 | Website | Portal `projectomilreu.pt` (estático) | **LIVE**, `noindex`; barra canónica de 5 logótipos; **+ Media/Press (`#/imprensa`) e Identidade visual (`#/identidade`)** integrados (PR #71/#73); **bloco de enquadramento 2026** em `/sobre` + Media/Press (PR #73). Rights gate confirmado (só logo PNG+textos; SVG/PDF/CMYK/fontes/fotos protegidos). Pendente: Enforce HTTPS; tradução real EN/ES/FR |
 | 3 | Orçamento 3D | Consulta de mercado (impressora + filamentos) | **vFinal** com identificação administrativa **«PROJECTO COMUNITÁRIO DE MILREU / MUSEUS SEM FRONTEIRAS»** (PR #75, GOV-MSF-2026 v3); regenerado do pipeline, dados inalterados; **DRAFT, sem adjudicação**; CMYK gráfica pendente |
 | 4 | Poster de congresso | Poster A0 académico | `print-A0` + sangria com **barra canónica 5 logos + identificador 2026 no rodapé** (PR #74); 0 colisões; **gates:** CMYK/fontes prepress + QR final |
 | 5 | Flyer + Marcador | Materiais do Museu | `print/` (Flyer A6 + Marcador 59×214) + **CMYK PDF/X** com **identificador 2026** (Archivo caps) no bloco institucional; flyer verso 4 níveis com respiro; marcador verso compacto (PR #78). **Gate:** CMYK gráfica |
 | 6 | Convite ao Inquérito | Peça de conversão (A6/A4/A3/digitais) | **FINAL ART** (PR #77/#82) — identificador 2026 no **bloco institucional top-anchored** (QR independente, quiet zone limpa); 5 formatos + CMYK; digitais 1080×1350 (bloco completo) e 1080×1920 (safe-area). **Gates:** CMYK gráfica + **teste físico do QR** |
-| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição PDF) | **FINAL ART DELIVERED** (PR #79/#83) — enquadramento 2026 na **P4**; logos em **safe-area real** (DIGITAL/PRINT/LIVRETO coerentes). **Aguarda gates de produção** (CMYK/fontes prepress) |
-| 8 | Cartaz local | Master/template editável A3+A4 por local | **TEMPLATE READY / STAND BY** (PR #80) — master versionado com **slot 2026**; previews de template (dados fictícios). **Não** se geram cartazes de evento sem local/data; prepress quando houver evento |
-| 9 | Kit Digital + Press Kit | Pacote para anfitriões/imprensa/parceiros | **FASE 1 · RIGHTS GATE PENDING** (PR #76/#81) — bloco «Enquadramento 2026» em README/Quick Start/nota/Fact Sheet + `ENQUADRAMENTO_2026.txt`; manifest/inventory/QA/regras de marca atualizados; **nenhuma foto ganhou direitos** (project=YES; press/host/generic=PENDING); ZIP público final bloqueado |
+| 7 | Dossiê «convite ao convite» | Booklet A5 4 páginas (distribuição PDF) | **FINAL ART DELIVERED** (PR #79/#83/**#97**) — enquadramento 2026 na **P4**; **capa P1 revista 2026-10-05** (anotação MSF; "Memórias…" subida; URL em baixo) + **P2 corrigida** (rostos completos); PDFs 300 DPI. **Aguarda prepress** (CMYK/fontes) |
+| 8 | Cartaz local | Master/template editável A3+A4 por local | **TEMPLATE READY / STAND BY** (PR #80/**#97**) — master versionado com **slot 2026** + **template SVG A3/A4** (campos locais em vetor-texto vivo). **Não** se geram cartazes de evento sem local/data; prepress quando houver evento |
+| 9 | Kit Digital + Press Kit | Pacote para anfitriões/imprensa/parceiros | **FASE 1 · RIGHTS parcialmente resolvidos (2026-10-05)** (PR #76/#81) — fotos históricas selecionadas: `press_editorial_use=YES` com crédito; `generic_third_party_redistribution=NO`; `host_partner_republication` ainda restrito/condicional. Ver `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`. **ZIP público final** ainda condicionado às condições por asset |
+| 12 | Poster de Congresso 2 | Adaptação editorial 2026 de poster académico aprovado | **FINAL (opção C) DELIVERED** (PR **#97**) — corpo aprovado **PRESERVADO** + rodapé 2026 em vetor + barra canónica; SVG editável. Divergência grafia corpo («Projeto») vs rodapé («Projecto**») **aceite** (preservação do design). **Gates:** prepress (CMYK/fontes) + resolução nativa do PSD |
 
 ## Nota — directiva de recomposição do bloco institucional (2026-10-02)
 
@@ -77,7 +78,7 @@ Conjunto **canónico** e ordem (fixado por referência do responsável), aplicad
 
 **O que é.** Conjunto de **12 painéis** físicos (formato totem) da exposição itinerante do Museu de Memórias de Milreu. Bilingue (pt-PT/EN), grafia pré-AO90 «Projecto».
 
-**O que foi feito.** 12 painéis Q01–Q12 em nível de estudo; conjunto de impressão **CMYK** gerado a pedido da **Gráfica Ossonoba** (2026-09-29). Decisões de composição aprovadas para Q3 e Q4; reenquadramento de Q8 (transparência de IA) e Q12 (vozes reais da comunidade). Trio institucional de logótipos. MM202617: produção física autorizada **com divulgação explícita de IA**; **QR final proibido**.
+**O que foi feito.** 12 painéis Q01–Q12 — **edição atual FECHADA** (design/conteúdo; reconciliação 2026-10-05, deixa de ser «estudo/arte-não-final»); conjunto de impressão **CMYK** gerado a pedido da **Gráfica Ossonoba** (2026-09-29). Formato canónico **841×1800** (2000 SUPERSEDED). Prepress (ICC gráfica/fontes) mantém-se gate. Decisões de composição aprovadas para Q3 e Q4; reenquadramento de Q8 (transparência de IA) e Q12 (vozes reais da comunidade). Trio institucional de logótipos. MM202617: produção física autorizada **com divulgação explícita de IA**; **QR final proibido**.
 
 **Como foi feito.** Builds em `scratchpad/rebuild_all.py` + builds por painel (`build_q1_v5.py`, `build_q4_v3.py`, `build_q8_v3.py`, `build_q12_v2.py`); SVGs em `docs/exhibition/svg/`; CMYK genérico (não o ICC específico da gráfica); raster ~91 PPI.
 
@@ -222,16 +223,17 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 
 ## Pendências transversais (decisão humana)
 
-1. **Prepress (transversal)** — conversão **CMYK** com perfil ICC **da gráfica** e **incorporação de fontes** para todos os PDFs de impressão (hoje saem em RGB ou CMYK genérico). Aplica-se a Itens 3, 4, 5, 6, 7.
+1. **Prepress (transversal)** — conversão **CMYK** com perfil ICC **da gráfica** e **incorporação de fontes** para todos os PDFs de impressão (hoje saem em RGB ou CMYK genérico). Aplica-se a Itens 3, 4, 5, 6, 7 **e 12**. *(Inalterado nesta reconciliação.)*
 2. **Teste físico do QR** — Item 6 (convite) e demais peças com QR: validar leitura em impressão real antes de produção.
-3. **Item 9 — RIGHTS GATE das fotografias** — `press_editorial_use`, `host_partner_republication`, `generic_third_party_redistribution` = **PENDING** (condições da fonte aplicáveis). Sem fotos distribuíveis no ZIP público até confirmação por imagem/fonte.
+3. **Item 9 — RIGHTS das fotografias (parcialmente resolvido 2026-10-05)** — fotos históricas selecionadas (Festa da Pinha/Torre do Tombo, homem de bicicleta, imagens das descobertas): `project_official_publication=YES` e `press_editorial_use=YES` **com crédito**; fotografia das meninas = uso do Projecto autorizado, **não** reutilização genérica; `generic_third_party_redistribution` = **NO** salvo licença expressa da fonte; `host_partner_republication` ainda restrito/condicional. Ver `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`. **ZIP público** condicionado às condições por asset.
 4. **Identidade da marca (pendentes)** — **SVG/PDF vectorial** do logótipo (`PENDING`); **CMYK** canónico; **ficheiros de fonte** (OFL, licença/produção por decisão humana) — não distribuídos.
-5. **Direitos dos logótipos de parceria** — uso institucional **a confirmar** (`PROVENIENCIA.txt`); barra canónica aplicada nas peças por decisão do responsável, mas **não** autoriza distribuição externa sem confirmação.
+5. **Direitos dos logótipos de parceria (RESOLVIDO 2026-10-05)** — **AUTORIZADOS** para uso institucional pelo Projecto e nos seus materiais; **NÃO** autoriza redistribuição autónoma dos ficheiros por terceiros. `PROVENIENCIA.txt` atualizado. Mantêm-se crédito/termos próprios por entidade.
 6. **Website** — marcar **«Enforce HTTPS»**; **tradução real** EN/ES/FR do conteúdo (hoje fallback visível); lançamento público (editorial) continua com gate humano.
 7. **Item 3 — Orçamento** — adjudicação/compra (decisão humana); continua `DRAFT`.
-8. **Formato dos painéis 2000 vs 1800** (Item 1) — `STATUS.md` vs `WORK_QUEUE`/pasta PRINT por reconciliar; T2 («edifício de cultos») pendente.
+8. **Formato dos painéis (RECONCILIADO 2026-10-05)** (Item 1) — canónico **841×1800**; **841×2000 → SUPERSEDED**; **edição FECHADA 12/12** (design/conteúdo; deixar de classificar como estudo/arte-não-final); **T2 `DEFERRED TO FUTURE REVISION`** (sem alterar ficheiros produzidos). Ver `docs/exhibition/decisions/MILREU_FORMAT_RECONCILIATION_2026-10-05.md`. Prepress mantém-se gate (ver §1).
 9. **E-mail do formulário «Quero expor»** — requer secrets + deploy da Edge Function no Supabase.
-10. **Versionamento** — arte-final de disseminação versionada (Itens 3–9); a **arte-fonte** e os **geradores em `scratchpad/`** continuam **fora do Git** (por decisão); fontes de marca não versionadas.
+10. **Reprodutibilidade (RECONCILIADO 2026-10-05)** — a dependência de `scratchpad` para os Itens **2–9** foi **superada pelos PRs #85 (source pack de editoração) e #91 (A2)**; o **Item 12** (PR #97) também reproduz do repo (corpo `poster_body.png` + logos versionados). Dependências reais que **restam**: (a) referência **morta** a `../item5_build/` no passo opcional `collect_editaveis` do `dossie_finalize.py` (imagens já versionadas em `editaveis/imagens/` — cosmético, não bloqueia); (b) **ficheiros de fonte** (Fraunces/Spectral/Archivo) e perfil ICC permanecem do operador, não versionados (ver `FONTS_MANIFEST.md`/`BUILD_ENVIRONMENT.md`).
+11. **Direitos/licenças (decisões 2026-10-05)** — ver `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`. Pendências que daí resultam: (a) **licença CC canónica** do conteúdo original do Projecto a **formalizar** (gate de Ciência Aberta, **não** alterado aqui) e a **indicar online**; (b) **política pública de contacto** para pedidos de crédito/correção/remoção a **implementar no site** (Item 2).
 
 > **Resolvidas no patch MSF 2026 (2026-10-03):** re-commit da disseminação atualizada (poster/flyer/marcador/convite/dossiê); Dossiê Fase 2 (FINAL ART DELIVERED); Item 2 Media/Press + Identidade integrados; Item 8 master/template versionado; enquadramento 2026 em todos os itens 2–9.
 
