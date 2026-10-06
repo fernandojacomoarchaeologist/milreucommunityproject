@@ -272,7 +272,10 @@ Decisões humanas aplicadas. Provas geradas; **não é prepress final**. Nada ap
   > Referências — Hauschild, T. & Teichner, F. (2002). Milreu: ruínas. IPPAR. · Jácomo, F. R. de (2025). Anais do Município de Faro, XLVII, 323–358. · Moshenska, G. (ed.) (2017). Key Concepts in Public Archaeology. UCL Press.
 - **Sem** reclamar espaço estrutural adicional. Verificação: `REFS end=1040,5 mm` vs `footer_top=1063,0 mm` → **folga +22,5 mm**; **colisões = 0**. Museu, Circuito, Metodologia, imagens, identidade, parceiros e copy científica **não alterados**.
 
-## Item 12 — **HUMAN DESIGN PASS / EDITORIAL CONTENT FROZEN** (override Acumin → Archivo)
+## Item 12 — **CONTENT PASS / FINAL ART PENDING SINGLE PSD TEXT CORRECTION** (decisão final)
+> **Decisão HUMAN final 2026-10-06:** Item 12 é **peça legada aprovada** — preservar a tipografia original (Bebas Neue títulos · Acumin Pro corpo · Source Sans 3 autoria · Archivo rodapé 2026; coexistência intencional). A **normalização para DS fica SUPERSEDED** (STOP/REPORT aceite). **Única alteração:** `(n=385)` → `(532 respostas)` **no PSD, em Acumin Pro** (não Archivo). Provas com Archivo = **PROOF ONLY/SUPERSEDED**. Arte revertida ao legado (== main) até chegar o PNG corrigido. Detalhe em `poster-congresso2/ITEM12_TYPOGRAPHY_NORMALIZATION_2026-10-06.md`.
+
+### (Histórico) override Acumin → Archivo só no parágrafo
 - Copy final aplicada: `(n=385)` → **`(532 respostas)`** (sem «2024» no parêntese, sem `n=385`, sem «422 Algarve»).
 - **Decisão HUMAN 2026-10-06:** adoptado **Archivo** (sans do DS) no parágrafo editado, dispensando Acumin Pro; aplicado **só** a esse parágrafo (resto do corpo intacto). Corpo canónico `poster_body.png` corrigido; original em `poster_body_ORIG_n385.png`.
 - **QA:** diferenças só no parágrafo (bbox 24,389–541,510); **0 px fora**; 5 linhas, sem overflow (510 vs 543); nenhuma outra copy mudou; composição inalterada. Prova integral `final/poster_congresso2_C_preview.png`; comparação `review/item12/REGIAO_CORRIGIDA_ANTES_DEPOIS.png`. Provas Helvetica/estado n=385 removidas (histórico em `ITEM12_FONT_REQUIRED_2026-10-06.md`).
