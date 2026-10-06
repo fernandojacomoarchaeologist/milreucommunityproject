@@ -4,7 +4,7 @@
 
 1. **Descrever a exposição** — usar `02_TEXTOS/DESCRICAO_50/100/250_PALAVRAS.txt` conforme o espaço.
 0. **Enquadramento 2026** — quando for útil identificar o ciclo financiado, usar `02_TEXTOS/ENQUADRAMENTO_2026.txt`: «Museus sem Fronteiras · Iniciativas 2026» (museu itinerante «Entre Ruínas e Memórias» + Circuito Educativo). É designação **administrativa/editorial**, **não** substitui o nome permanente «Projecto Comunitário de Milreu» nem é logótipo/parceiro.
-2. **Imagens** — para **uso editorial de imprensa**, usar as de `04_IMAGENS/distribuiveis-imprensa/` (subconjunto `press_editorial_use=YES`), **sempre com a linha de crédito** indicada e respeitando as condições de cada asset (ver `LEGENDAS_E_CREDITOS.csv` / `USO_E_DIREITOS.md`). **Não** reutilização genérica; **republicação por anfitrião e redistribuição a terceiros dependem do estado de cada asset.**
+2. **Imagens** — para **uso editorial de imprensa**, usar as de `04_IMAGENS/PRESS_EDITORIAL_USE/` (subconjunto `press_editorial_use=YES`), **sempre com a linha de crédito** indicada e respeitando as condições de cada asset (ver `LEGENDAS_E_CREDITOS.csv` / `USO_E_DIREITOS.md`). **Não** reutilização genérica; **republicação por anfitrião e redistribuição a terceiros dependem do estado de cada asset.**
 3. **Imprensa** — adaptar `03_PRESS/NOTA_DE_IMPRENSA_BASE.md` preenchendo os campos `[ ]` locais; anexar o `FACT_SHEET_1P`.
 4. **Redes sociais** — usar as peças de `06_SOCIAL/` (institucional ou local).
 5. **Site/partilha** — usar `07_WEB/` e o QR de `09_QR/`.

@@ -1,10 +1,12 @@
-# Imagens distribuíveis para imprensa — Kit Digital + Press
+# PRESS_EDITORIAL_USE — Imagens de uso editorial de imprensa
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > Decisão de direitos: 2026-10-05, **reconciliada 2026-10-06** (ver `../USO_E_DIREITOS.md` e `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`).
 
-## O que é esta pasta
-As **5 imagens com `press_editorial_use = YES`** da matriz do kit, em **JPEG de qualidade de imprensa** (2400 px no lado maior). **Derivados** das originais do acervo (autorizadas); não são os ficheiros crus. **Pacote de USO EDITORIAL DE IMPRENSA** — não é um ZIP genérico «livre».
+> **Estes materiais são disponibilizados exclusivamente para utilização editorial relacionada com o Projecto Comunitário de Milreu, nas condições indicadas para cada activo. A disponibilização não constitui autorização para redistribuição genérica, republicação por terceiros ou outros usos fora dessas condições.**
+
+## O que é este pacote
+As **5 imagens com `press_editorial_use = YES`** da matriz do kit (MM202601, MM202602, MM202603, MM202608, MM202613), em **JPEG de qualidade de imprensa** (2400 px no lado maior). **Derivados** das originais do acervo (autorizadas); não são os ficheiros crus. **Pacote de USO EDITORIAL DE IMPRENSA** — não é um ZIP genérico «livre».
 
 ## Condições de uso (obrigatórias)
 - **Uso editorial por imprensa**, **sempre com a linha de crédito** indicada abaixo.
@@ -29,6 +31,7 @@ Ver `CREDITOS_IMPRENSA.csv` para a versão estruturada.
 
 ## Gerar o ZIP para envio (quando necessário)
 ```bash
-cd docs/dissemination/kit-digital-press/v1/04_IMAGENS/distribuiveis-imprensa
-zip -r ../../MILREU_imprensa_imagens.zip . -x ".*"
+cd docs/dissemination/kit-digital-press/v1/04_IMAGENS/PRESS_EDITORIAL_USE
+zip -r ../../PRESS_EDITORIAL_USE.zip . -x ".*"
 ```
+**Este pacote NÃO é um ZIP público genérico** — contém apenas assets de uso editorial de imprensa, com as condições por asset. **Não** desbloqueia redistribuição genérica nem republicação por anfitrião.

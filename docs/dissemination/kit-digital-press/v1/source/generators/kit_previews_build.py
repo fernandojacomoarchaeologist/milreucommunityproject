@@ -156,7 +156,7 @@ def press_preview():
     for t in ["Local: [NOME_LOCAL]","Morada: [MORADA], [CIDADE]","Datas: [DATA_INICIO] — [DATA_FIM]","Horário: [HORARIO]","Contacto local: [CONTACTO_LOCAL]"]:
         f.rect(mx,y+5,8,24,RED); f.text(mx+22,y,t,"sm",23,INK7,"l",wt=500); y+=36
     y+=10; f.text(mx,y,"CONTACTOS · projectomilreu.pt · a78190@ualg.pt · fernando.jacomo@yahoo.com · 925 339 613","s",21,INK7,"l")
-    f.text(mx,H-96,"CRÉDITOS: creditar cada foto (LEGENDAS_E_CREDITOS.csv). Redistribuição de fotos: PENDING / HUMAN GATE.","si",18,INK5,"l")
+    f.text(mx,H-96,"CRÉDITOS: creditar cada foto (LEGENDAS_E_CREDITOS.csv). Uso editorial de imprensa: subconjunto aprovado (PRESS_EDITORIAL_USE); republicação por terceiros/anfitrião por asset.","si",18,INK5,"l")
     f.text(mx,H-60,"FASE 1 · preview do editável · não inventar datas/visitantes/duração/citações.","si",17,INK3,"l")
     f.save("09_nota_imprensa_preview")
 
