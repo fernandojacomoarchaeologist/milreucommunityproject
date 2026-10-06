@@ -11,9 +11,17 @@ Cada coluna é `YES / NO / PENDING` com fonte/condição:
 3. `host_partner_republication` — republicação pelo **anfitrião/parceiro**.
 4. `generic_third_party_redistribution` — redistribuição **genérica** a terceiros.
 
-## Estado actual
-- `project_official_publication = **YES**` (autorização confirmada 2026-07-23).
-- `press_editorial_use` / `host_partner_republication` / `generic_third_party_redistribution` = **PENDING** para **todas** as imagens — as fontes têm **condições próprias** (ex.: Arquivo Nacional da Torre do Tombo) que permanecem aplicáveis.
+## Estado actual (atualizado por decisão humana 2026-10-05)
+- `project_official_publication = **YES**` (autorização confirmada 2026-07-23) para todas.
+- `press_editorial_use` (ver `LEGENDAS_E_CREDITOS.csv`):
+  - **YES** (uso editorial com crédito): **MM202603** (achados/descobertas), **MM202613** (equipa de Hauschild/escavações), **MM202608** (edifício/«homem de bicicleta», ~1910).
+  - **YES com restrição**: **MM202602** («meninas»/juventude) — uso editorial **do projeto** com crédito e **sem reutilização genérica**.
+  - **NO**: **MM202604**, **MM202627**, **MM202631** (esta recente/2024, Património Cultural I.P.).
+  - **PENDING**: **MM202601** (Torre do Tombo) — **autorização/domínio público por confirmar** (data de óbito do autor não localizada; condições de reprodução da Torre do Tombo aplicáveis). Não distribuir por imprensa até confirmação.
+- `generic_third_party_redistribution = **NO**` para **todas** (salvo licença expressa da fonte).
+- `host_partner_republication` = **PENDING/condicional** para todas (sem decisão).
+
+> Base de direitos (ver `docs/dissemination/RIGHTS_DECISIONS_2026-10-05.md`): conteúdo original do projeto em CC BY 4.0; fotografias de terceiros usadas **com atribuição** e em base **não comercial**, com **correção/remoção** a pedido fundamentado. A autorização de uso pelo projeto **não** licencia obras de terceiros.
 
 ## Consequência
 - Imagens com uso incerto **permanecem fora** das pastas distribuíveis correspondentes (`WEB/`, `PRESS/`, social distribuível).
