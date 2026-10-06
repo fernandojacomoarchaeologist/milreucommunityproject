@@ -1,8 +1,10 @@
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-# Item 12 — Normalização tipográfica (sans do DS) · AUDIT + STOP/REPORT
+# Item 12 — Normalização tipográfica · AUDIT + STOP/REPORT (NORMALIZAÇÃO SUPERSEDED)
 
-**Data:** 2026-10-06 · **Estado:** **CONTENT PASS / TYPOGRAPHY NORMALIZATION PENDING.** Não iniciar FASE B. Item 4 **não** é alterado.
+**Data:** 2026-10-06 · **Estado:** **CONTENT PASS / FINAL ART PENDING SINGLE PSD TEXT CORRECTION.** Não iniciar FASE B. Item 4 **não** é alterado.
+
+> **DECISÃO HUMAN FINAL (2026-10-06):** o STOP/REPORT abaixo está **aceite**. A normalização integral para Archivo **fica SUPERSEDED** — o Item 12 é **peça legada aprovada** e a coexistência Bebas Neue (títulos) + Acumin Pro (corpo) + Source Sans 3 (autoria) + Archivo (rodapé 2026) é **intencional e aprovada**. O DS **não** é imposto retrospectivamente ao corpo legado. **Única alteração:** `(n=385)` → `(532 respostas)` **no PSD, em Acumin Pro** (mesmo peso/corpo/leading/tracking/caixa/alinhamento; restante inalterado) — **não** Archivo. O audit/inventário abaixo mantém-se como referência; a secção de «execução no PSD» passa a ser **apenas** essa correcção factual.
 
 ## Decisão humana (interpretação corrigida)
 A versão final deve adoptar o **sans do DS (Archivo)** de forma **coerente** onde substituir a Acumin Pro seja editorialmente equivalente — **não** apenas no parágrafo corrigido. O estado actual (parágrafo = Archivo; restante corpo = Acumin) é uma **mistura incoerente no mesmo nível de informação** e **não é final**.
@@ -62,5 +64,17 @@ Depois disto, farei a **QA visual** (prova integral + ANTES|DEPOIS + crops) comp
 ## Estado do ficheiro actual
 O corpo canónico mantém, **a título interino**, a copy `(532 respostas)` com o parágrafo em Archivo e o restante em Acumin — **mistura reconhecidamente não-final**, assinalada aqui como PENDING. Não é a arte final.
 
+## Procedimento quando chegar o PNG corrigido (do PSD, 1200×1700)
+Única correcção no PSD: `(n=385)` → `(532 respostas)` na camada original (Acumin Pro, mesmo peso/corpo/leading/tracking/caixa/alinhamento; restante inalterado). Ao receber `poster_body.png` (1200×1700):
+1. substituir o body canónico;
+2. regenerar o Item 12 (`final/poster_congresso2_C.svg` + preview);
+3. comparar com o original;
+4. confirmar que o **delta visual está restrito à região do parágrafo corrigido**;
+5. confirmar **ausência de clipping/overflow**;
+6. confirmar **todo o restante corpo inalterado**;
+7. **preservar o rodapé Archivo 2026**.
+
+Após PASS → **ITEM 12 = HUMAN DESIGN PASS / EDITORIAL CONTENT FROZEN**.
+
 ## Não fazer
-Não alterar Item 4 · não comprimir texto/reduzir legibilidade · não substituir BebasNeue automaticamente · não iniciar FASE B.
+Não alterar Item 4 · não comprimir texto/reduzir legibilidade · não substituir BebasNeue · **não usar Archivo no parágrafo final** (correcção em Acumin no PSD) · não iniciar FASE B · não iniciar Itens 10/11.

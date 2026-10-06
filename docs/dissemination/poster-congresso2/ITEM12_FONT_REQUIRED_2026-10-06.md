@@ -1,10 +1,12 @@
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-# Item 12 — override de tipografia (Acumin → Archivo) · HUMAN DESIGN PASS
+# Item 12 — tipografia (histórico de decisões)
 
-**Data:** 2026-10-06 · **Estado:** **RESOLVIDO** — **HUMAN DESIGN PASS / EDITORIAL CONTENT FROZEN**.
+> **⚠️ ESTADO ACTUAL (decisão HUMAN final 2026-10-06):** **CONTENT PASS / FINAL ART PENDING SINGLE PSD TEXT CORRECTION.** O Item 12 é **peça legada aprovada** — preserva-se a tipografia original do corpo (**Bebas Neue** títulos · **Acumin Pro** corpo/bullets/labels/caixas · **Source Sans 3** autoria · **Archivo** só na camada institucional/rodapé 2026). A normalização para DS **fica SUPERSEDED**. A **única** alteração é factual: `(n=385)` → `(532 respostas)`, a fazer **no PSD, em Acumin Pro** (mesmo peso/corpo/leading/tracking/caixa/alinhamento), **não** em Archivo. Ver `ITEM12_TYPOGRAPHY_NORMALIZATION_2026-10-06.md`. As provas com Archivo (parágrafo ou integral) são **PROOF ONLY / SUPERSEDED** — nunca final.
 
-## RESOLUÇÃO (decisão HUMAN 2026-10-06) — supersede o gate anterior
+---
+
+## (SUPERSEDED) RESOLUÇÃO (decisão HUMAN 2026-10-06) — override Acumin → Archivo no parágrafo
 O blocker **`FONT REQUIRED / ACUMIN PRO`** foi **superado por decisão humana explícita**: está **autorizada a adopção de Archivo** (fonte sans do Design System) no lugar da Acumin Pro, especificamente para concluir o poster com a tipografia canónica disponível no DS. **Não se aguarda Acumin Pro.**
 
 - Aplicada **só** ao parágrafo que dependia de Acumin (ENQUADRAMENTO / PROBLEMA); **não** se converteu o resto do poster. Preservados: arquitectura, headings, cores, imagens, dimensões, espaçamentos, rodapé e restante conteúdo.
