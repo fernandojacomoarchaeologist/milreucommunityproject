@@ -4,12 +4,30 @@
   "phase": "phase_1_preview",
   "site": "projectomilreu.pt",
   "human_gate": [
-    "redistribuição de imagens (por fonte)",
-    "aprovação de textos/estrutura",
-    "prova visual das peças"
+    "host_partner_republication e generic_third_party por asset (PENDENTE/NO)",
+    "ZIP publico generico (bloqueado)",
+    "logo SVG/PDF vetorial e CMYK do kit (PENDING)"
   ],
   "integration_item2": "concluido: #/imprensa (media-press) + #/identidade (visual-identity)",
-  "notes": "ZIP final e populacao de imagens so apos HUMAN GATE",
+  "notes": "Press editorial: subconjunto aprovado em 04_IMAGENS/distribuiveis-imprensa (reconciliado 2026-10-06). ZIP publico generico e republicacao por anfitriao continuam bloqueados; dependem do estado por asset.",
+  "rights_images": {
+    "reconciliado": "2026-10-06",
+    "press_editorial_yes": ["MM202601", "MM202602 (restricao)", "MM202603", "MM202608", "MM202613"],
+    "press_editorial_no": ["MM202604", "MM202627", "MM202631"],
+    "host_partner_republication": "PENDENTE/condicional (todas)",
+    "generic_third_party_redistribution": "NO (todas, salvo licenca expressa)",
+    "pasta": "04_IMAGENS/distribuiveis-imprensa/",
+    "regra": "04_IMAGENS/USO_E_DIREITOS.md"
+  },
+  "entidades": {
+    "identidade_principal": "Projecto Comunitario de Milreu",
+    "parceiro_institucional_acompanhamento": "AAMLF — Associacao dos Amigos do Museu do Lyceu de Faro (interlocutor: Meira Pinto; museu.lyceu@aejdfaro.pt)",
+    "financiamento_2026": "CCDR Algarve",
+    "apoio_institucional": ["Universidade do Algarve", "Republica Portuguesa (Cultura, Juventude e Desporto)", "Patrimonio Cultural, I.P."],
+    "anfitrioes_locais": "variavel por exposicao",
+    "patrocinadores_locais_futuros": "variavel e modular",
+    "musfronteiras_2026": "identificador editorial/programatico (nao parceiro, nao financiador)"
+  },
   "enquadramento_2026": {
     "designacao_administrativa": "PROJECTO COMUNITARIO DE MILREU / MUSEUS SEM FRONTEIRAS",
     "identificador_publico": "MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026",

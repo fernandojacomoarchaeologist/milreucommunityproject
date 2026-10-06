@@ -35,11 +35,19 @@ A exposição foi concebida para circular por museus, bibliotecas, escolas, univ
 **CONTACTOS (PROJECTO)**
 projectomilreu.pt · a78190@ualg.pt · fernando.jacomo@yahoo.com · 925 339 613
 
+**CONTACTO INSTITUCIONAL (AAMLF)**
+AAMLF — Associação dos Amigos do Museu do Lyceu de Faro · Meira Pinto · Interlocutor da AAMLF · museu.lyceu@aejdfaro.pt · Av. 5 de Outubro, Liceu de Faro, 8004-069 Faro
+
 **SITE**
 projectomilreu.pt
 
 **CRÉDITOS DAS IMAGENS**
-Cada fotografia deve ser creditada conforme `04_IMAGENS/LEGENDAS_E_CREDITOS.csv`. **A redistribuição das fotografias por terceiros está pendente de confirmação** (ver `04_IMAGENS/USO_E_DIREITOS.md`) — não publicar imagens do acervo sem essa confirmação.
+Cada fotografia deve ser creditada conforme `04_IMAGENS/LEGENDAS_E_CREDITOS.csv`. Existe um **subconjunto aprovado para uso editorial de imprensa** em `04_IMAGENS/distribuiveis-imprensa/` — **cada imagem com crédito e condições próprias**. Isto **não** é autorização genérica de reutilização; **redistribuição a terceiros** e **republicação por anfitrião** continuam **dependentes do estado individual de cada asset** (ver `04_IMAGENS/USO_E_DIREITOS.md`). **Não remover marcas de água nem inferir créditos.**
 
-**APOIO INSTITUCIONAL E PARCERIAS**
-Projecto Comunitário de Milreu · CCDR Algarve · Associação dos Amigos do Museu do Lyceu de Faro · República Portuguesa (Cultura, Juventude e Desporto) · Património Cultural, I.P. · Universidade do Algarve. *(O anfitrião local — [NOME_LOCAL] / [LOGO_ANFITRIAO] — é distinto dos parceiros estruturais.)*
+**ENTIDADES (apoio institucional e parcerias)**
+- **Projecto Comunitário de Milreu** — identidade principal.
+- **Parceiro institucional e de acompanhamento:** Associação dos Amigos do Museu do Lyceu de Faro — AAMLF.
+- **Financiamento 2026:** CCDR Algarve.
+- **Apoio / enquadramento institucional:** Universidade do Algarve · República Portuguesa (Cultura, Juventude e Desporto) · Património Cultural, I.P.
+- **Anfitrião local:** [NOME_LOCAL] / [LOGO_ANFITRIAO] — distinto dos parceiros estruturais.
+*(«Museus sem Fronteiras · Iniciativas 2026» é identificador editorial/programático — não parceiro nem financiador. A AAMLF não é duplicada noutra categoria.)*
