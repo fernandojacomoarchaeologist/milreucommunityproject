@@ -42,7 +42,7 @@ AAMLF — Associação dos Amigos do Museu do Lyceu de Faro · Meira Pinto · In
 projectomilreu.pt
 
 **CRÉDITOS DAS IMAGENS**
-Cada fotografia deve ser creditada conforme `04_IMAGENS/LEGENDAS_E_CREDITOS.csv`. Existe um **subconjunto aprovado para uso editorial de imprensa** em `04_IMAGENS/distribuiveis-imprensa/` — **cada imagem com crédito e condições próprias**. Isto **não** é autorização genérica de reutilização; **redistribuição a terceiros** e **republicação por anfitrião** continuam **dependentes do estado individual de cada asset** (ver `04_IMAGENS/USO_E_DIREITOS.md`). **Não remover marcas de água nem inferir créditos.**
+Cada fotografia deve ser creditada conforme `04_IMAGENS/LEGENDAS_E_CREDITOS.csv`. Existe um **subconjunto aprovado para uso editorial de imprensa** em `04_IMAGENS/PRESS_EDITORIAL_USE/` — **cada imagem com crédito e condições próprias**. Isto **não** é autorização genérica de reutilização; **redistribuição a terceiros** e **republicação por anfitrião** continuam **dependentes do estado individual de cada asset** (ver `04_IMAGENS/USO_E_DIREITOS.md`). **Não remover marcas de água nem inferir créditos.**
 
 **ENTIDADES (apoio institucional e parcerias)**
 - **Projecto Comunitário de Milreu** — identidade principal.
