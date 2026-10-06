@@ -154,34 +154,36 @@ c.fit("header",M,120,"Projecto Comunitário de Milreu","d",T_TITLE,CW*0.74,INK,w
 c.para("header",M,150,"Memória, participação, educação e acesso público ao património arqueológico","s",T_META,T_META*1.3,CW*0.66,INK7)
 c.text("header",AW-M,108,"Fernando Rodrigues de Jácomo","u",T_META*0.92,INK,"end",wt=600)
 c.text("header",AW-M,121,"Doutoramento em Arqueologia · Universidade do Algarve","u",T_META*0.86,INK5,"end")
+c.text("header",AW-M,133,"a78190@ualg.pt","u",T_META*0.82,INK5,"end")  # contacto (discreto, junto à autoria)
 c.text("header",M,166,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",T_EYE,KEY,ls=1.0,wt=600)  # identificador MSF (abaixo do titulo, KEY)
 c.line("header",M,176,AW-M,176,KEY,0.6)
 
 # ---------- CONTEXTO (texto na coluna esquerda; foto histórica na coluna direita — sem colisão) ----------
 LWc=CW*0.55
-c.text("context",M,205,"O Projecto Comunitário de Milreu","d",T_SUB,INK,wt=600)
-yb=c.para("context",M,228,"O Projecto Comunitário de Milreu é um programa plurianual de investigação, participação e acesso público enquadrado na Arqueologia Pública e Comunitária e associado às Ruínas Romanas de Milreu, em Estoi, no concelho de Faro. Desenvolvido no âmbito do doutoramento em Arqueologia da Universidade do Algarve, funciona como uma estrutura guarda-chuva para iniciativas autónomas mas relacionadas. O projecto procura criar relações mais abertas entre património, produção de conhecimento e sociedade, articulando investigação, memória, participação, educação e acesso público.","s",T_BODY,T_BODY*1.36,LWc,INK7)
-c.text("context",M,yb+14,"Do diagnóstico à intervenção","d",T_SUB*0.82,INK,wt=600)
-yc=c.para("context",M,yb+32,"O diagnóstico de 2024 evidenciou distanciamento, fragilidades de comunicação e uma relação pouco activa entre parte da população e Milreu. A auscultação de 2026, ainda em curso, acrescenta uma direcção importante: entre os não visitantes deste recorte, não visitar Milreu não equivale necessariamente a desinteresse pela Arqueologia. Surgem sinais de valorização do património local, da memória colectiva e da educação, interesse por experiências práticas e, simultaneamente, uma percepção de distância entre o trabalho académico e a comunidade.","s",T_BODY,T_BODY*1.36,LWc,INK7)
-# destaque tipográfico discreto (pull-quote — não card/slogan)
-yc=c.para("context",M,yc+6,"Não visitar Milreu não significa necessariamente desinteresse pela Arqueologia.","di",T_SUB*0.62,T_SUB*0.62*1.18,LWc,INK)
+# OBJECTIVO (lead rotulado — financiado pela abertura condensada + remoção do pull-quote)
+c.text("context",M,200,"OBJECTIVO","u",T_EYE,RED,ls=0.9,wt=600)
+yo=c.para("context",M,214,"Compreender a relação entre população e Milreu e transformar o diagnóstico de 2024 em estratégias de Arqueologia Pública e Comunitária, articulando memória, mediação e participação.","s",T_BODY,T_BODY*1.36,LWc,INK)
+c.text("context",M,yo+16,"O Projecto Comunitário de Milreu","d",T_SUB,INK,wt=600)
+yb=c.para("context",M,yo+39,"O Projecto Comunitário de Milreu é um programa plurianual de Arqueologia Pública e Comunitária associado às Ruínas Romanas de Milreu, em Estoi (Faro), desenvolvido no âmbito do doutoramento em Arqueologia da Universidade do Algarve. Funciona como estrutura guarda-chuva para iniciativas autónomas mas relacionadas, articulando investigação, memória, participação, educação e acesso público.","s",T_BODY,T_BODY*1.36,LWc,INK7)
+c.text("context",M,yb+14,"Diagnóstico e resultados (2024)","d",T_SUB*0.82,INK,wt=600)
+yc=c.para("context",M,yb+32,"O inquérito de 2024 (532 respostas) revelou uma avaliação positiva da experiência entre visitantes (7,6/10), mas também distanciamento e fragilidades de comunicação. Os resultados sustentaram a necessidade de reforçar mediação, divulgação e participação comunitária.","s",T_BODY,T_BODY*1.36,LWc,INK7)
 # foto histórica de contexto (coluna direita própria)
-pxx=M+CW*0.60; pw=CW*0.40; pyy=200; phh=(yc-6)-pyy
+pxx=M+CW*0.60; pw=CW*0.40; pyy=200; phh=(yc-8)-pyy
 c.img("context_photo",pxx,pyy,pw,phh,PCTX,ACTX,av=0.62)
 c.text("context_photo",pxx,yc+2,"Ruínas Romanas de Milreu · fotografia histórica (ruína, figura, bicicleta).","si",T_LEG,INK5)
 
 # ---------- METODOLOGIA / ENQUADRAMENTO (faixa editorial baixa; 2 entradas; sem cards) ----------
-my=yc+16
+my=yc+11
 c.line("method",M,my,AW-M,my,KEY,0.6)
 cwm=(CW-44)/2; cxb=M+cwm+44
 c.text("method",M,my+13,"Metodologia","d",T_SUB*0.64,INK,wt=600)
-m1=c.para("method",M,my+27,"Metodologicamente, o projecto articula métodos quantitativos e qualitativos — inquéritos, entrevistas e auscultação de públicos — com pesquisa documental, curadoria participativa e desenvolvimento iterativo de dispositivos de mediação. A perspectiva da Arqueologia Pública e Comunitária orienta a passagem do diagnóstico para a intervenção, procurando aproximar produção de conhecimento, memória local, participação e acesso público.","s",T_BODY*0.9,T_BODY*0.9*1.3,cwm,INK7)
+m1=c.para("method",M,my+27,"Abordagem mista — inquéritos, entrevistas e auscultação comunitária — articulada com pesquisa documental, curadoria participativa e desenvolvimento iterativo das iniciativas, orientando a passagem do diagnóstico para a intervenção.","s",T_BODY*0.9,T_BODY*0.9*1.3,cwm,INK7)
 c.text("method",cxb,my+13,"O que entendemos por Arqueologia Pública e Comunitária?","d",T_SUB*0.64,INK,wt=600)
-m2=c.para("method",cxb,my+27,"A Arqueologia Pública trabalha as relações entre arqueologia e sociedade, ampliando comunicação, acesso e participação. A Arqueologia Comunitária aprofunda essa relação ao envolver comunidades, memórias, interesses e conhecimentos locais nos processos de interpretação, construção e devolução pública do conhecimento arqueológico.","s",T_BODY*0.9,T_BODY*0.9*1.3,cwm,INK7)
+m2=c.para("method",cxb,my+27,"A Arqueologia Pública trabalha as relações entre arqueologia e sociedade — comunicação, acesso e participação; a Arqueologia Comunitária aprofunda-as, envolvendo comunidades, memórias e conhecimentos locais na interpretação e devolução pública do conhecimento.","s",T_BODY*0.9,T_BODY*0.9*1.3,cwm,INK7)
 mb=max(m1,m2)
 
 # ---------- TRANSIÇÃO ----------
-yt=mb+10
+yt=mb+7
 c.line("transition",M,yt,AW-M,yt,KEY,0.6)
 c.text("transition",M,yt+14,"INICIATIVAS EM DESENVOLVIMENTO · 2026","u",T_EYE*1.05,RED,ls=1.2,wt=600)
 c.text("transition",M,yt+29,"Em 2026, duas iniciativas concentram parte importante da implementação pública do programa.","s",T_META,INK5)
@@ -209,7 +211,7 @@ yq=c.para("i1_text",tx,yq+22,"Em 2026, o museu concretiza-se através de uma com
 c.para("i1_text",tx,yq+6,"Processo: pesquisa e reunião documental, selecção curatorial, tratamento de imagens, construção da narrativa, desenho dos painéis, componente digital e preparação para a circulação itinerante.","si",T_BODY*0.86,LH*0.86,twd,INK5)
 
 # ---------- INICIATIVA 2 — CIRCUITO EDUCATIVO (mais presença) ----------
-y2=max(y1+232, yq+22)+8
+y2=max(y1+232, yq+22)+5
 c.line("i2",M,y2,AW-M,y2,KEY,0.6)
 c.text("i2_text",M,y2+16,"2 · INICIATIVA","u",T_EYE*0.95,RED,ls=1.0,wt=600)
 c.fit("i2_text",M,y2+42,"Circuito Educativo de Milreu","d",T_INIT,CW*0.52,INK,wt=600)
@@ -279,21 +281,26 @@ c.text("i2_schemes",ex,cb+9,"Representação gráfica conceptual de actividades 
 
 # ---------- DESENVOLVIMENTO EM 2026 (faixa única, 2 entradas) ----------
 # y3 derivado do fundo real das duas colunas do Circuito (sem vazio fixo) + gap de secção consistente
-y3=max(licb, cb+9+6)+16
+y3=max(licb, cb+9+6)+11
 c.line("dev",M,y3,AW-M,y3,KEY,0.6)
 c.text("dev",M,y3+15,"DESENVOLVIMENTO EM 2026","u",T_EYE*1.05,RED,ls=1.2,wt=600)
-half=(CW-40)/2
-c.rect("dev",M,y3+34-4.4,1.5,6.0,RED)
-c.text("dev",M+6,y3+34,"Entre Ruínas e Memórias","sm",T_META*1.04,INK,wt=600)
-d1=c.para("dev",M+6,y3+46,"O trabalho envolve pesquisa documental, selecção e tratamento curatorial de imagens e testemunhos, construção da narrativa expositiva, desenvolvimento dos painéis físicos e preparação da componente digital e da circulação itinerante.","s",T_BODY*0.9,LH*0.9,half-6,INK7)
-c.rect("dev",M+half+40,y3+34-4.4,1.5,6.0,RED)
-c.text("dev",M+half+46,y3+34,"Circuito Educativo","sm",T_META*1.04,INK,wt=600)
-d2=c.para("dev",M+half+46,y3+46,"O desenvolvimento inclui a definição das actividades, a produção e selecção de recursos pedagógicos, o desenho dos percursos interpretativos e a preparação das condições necessárias para experimentação e futura utilização com públicos educativos.","s",T_BODY*0.9,LH*0.9,half-6,INK7)
+# faixa condensada (evita repetir o processo já descrito nas iniciativas e em Próximos passos)
+d1=c.para("dev",M,y3+30,"Em curso: curadoria e produção dos 12 painéis de «Entre Ruínas e Memórias» e da respectiva componente digital itinerante; e definição das actividades, recursos pedagógicos e percursos interpretativos do Circuito Educativo.","s",T_BODY*0.9,LH*0.9,CW*0.94,INK7)
+d2=d1
 
-# ---------- CONTINUIDADE ----------
-y4=max(d1,d2)+16
-c.text("cont",M,y4,"Próximos passos","d",T_SUB*0.82,INK,wt=600)
-c.para("cont",M,y4+17,"A próxima fase combina a circulação de Entre Ruínas e Memórias, a consolidação da componente digital e o desenvolvimento do Circuito Educativo. A implementação permitirá ampliar o acesso público aos conteúdos produzidos pelo projecto, aproximar as iniciativas de diferentes comunidades e contextos educativos e recolher experiência prática que possa orientar novas iterações do programa.","s",T_BODY,LH,CW*0.94,INK7)
+# ---------- DISCUSSÃO + PRÓXIMOS PASSOS (Discussão integrada, sem caixa nova) ----------
+y4=max(d1,d2)+7
+c.text("cont",M,y4,"Discussão e próximos passos","d",T_SUB*0.82,INK,wt=600)
+yd=c.para("cont",M,y4+17,"Os resultados indicam que o desafio não é apenas aumentar a visitação: mesmo com uma avaliação positiva da experiência, persistem barreiras de comunicação e distância entre o sítio e parte da comunidade — ao que o projecto responde com dispositivos participativos de memória, educação e mediação.","s",T_BODY,LH,CW*0.94,INK7)
+yn=c.para("cont",M,yd+4,"A próxima fase combina a circulação de Entre Ruínas e Memórias, a consolidação da componente digital e o desenvolvimento do Circuito Educativo. A implementação permitirá ampliar o acesso público aos conteúdos produzidos pelo projecto, aproximar as iniciativas de diferentes comunidades e contextos educativos e recolher experiência prática que possa orientar novas iterações do programa.","s",T_BODY,LH,CW*0.94,INK7)
+# ---------- REFERÊNCIAS (bloco compacto; fit() garante 1 linha sem overflow horizontal) ----------
+yr=yn+6
+c.text("refs",M,yr,"Referências","d",T_SUB*0.64,INK,wt=600)
+# compacto de poster (1 linha a 16 pt; fit() garante ausência de overflow horizontal)
+c.fit("refs",M,yr+12,"Hauschild, T. & Teichner, F. (2002). Milreu: ruínas. IPPAR.  ·  Jácomo, F. R. de (2025). Anais do Município de Faro, XLVII, 323–358.  ·  Moshenska, G. (ed.) (2017). Key Concepts in Public Archaeology. UCL Press.","s",16*PT,CW,INK7)
+refs_end=yr+12
+_footer_top=fy-108 if False else (AH-18)-108  # fy é definido abaixo; recalc local para verificação
+print("REFS end=%.1f  footer_top=%.1f  folga=%.1f mm  %s"%(refs_end,_footer_top,_footer_top-refs_end,"OK" if refs_end<=_footer_top-2 else "OVERFLOW!"))
 
 # ---------- RODAPÉ (parceria explícita + créditos + logótipos) ----------
 fy=AH-18
