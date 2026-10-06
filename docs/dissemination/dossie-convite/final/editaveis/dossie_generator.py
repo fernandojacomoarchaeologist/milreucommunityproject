@@ -153,6 +153,33 @@ def diagram(f,x,y,w,h,kind):
             px=sx+i*(pw+g)
             f.rect(px,midy-P(0.6)-ph,pw,ph,CAMPO,outline=INK5,ow=1); f.rect(px,midy-P(0.6)-ph,pw,tb,RED)      # fila cima (barra topo)
             f.rect(px,midy+P(0.6),pw,ph,CAMPO,outline=INK5,ow=1); f.rect(px,midy+P(0.6)+ph-tb,pw,tb,RED)        # fila baixo (barra base)
+    elif kind in ("estr_223","estr_zig"):
+        # Vista de topo (planta) das estruturas metálicas articuladas (biombo/acordeão).
+        # Cada segmento = uma estrutura; vértice = articulação. 2+2+3 ou ziguezague de 7.
+        import math
+        groups=[2,2,3] if kind=="estr_223" else [7]
+        ang=math.radians(34); pad2=P(3); awv=w-2*pad2
+        nseg=sum(groups); ngap=len(groups)-1; gapw=awv*(0.16 if ngap else 0)
+        L=(awv-ngap*gapw)/(nseg*math.cos(ang)); segh=L*math.sin(ang)
+        availh=(h-2*pad2)*0.80
+        if segh>availh: sc=availh/segh; L*=sc; segh*=sc
+        totalw=nseg*L*math.cos(ang)+ngap*gapw
+        cx=x+(w-totalw)/2; ymid=y+h/2; lw=max(2,round(P(0.9))); r=max(2,round(P(0.8)))
+        for gc in groups:
+            verts=[(cx+i*L*math.cos(ang), ymid+(segh/2)*(1 if i%2 else -1)) for i in range(gc+1)]
+            for i in range(gc): f.line(verts[i][0],verts[i][1],verts[i+1][0],verts[i+1][1],INK5,lw)
+            for (vx,vy) in verts: f.d.ellipse([vx-r,vy-r,vx+r,vy+r],fill=RED)
+            cx+=gc*L*math.cos(ang)+gapw
+    elif kind=="painel_apoio":
+        # Esquema de painel com apoios/pés próprios (montagem autónoma).
+        pad2=P(3); lw=max(2,round(P(0.9)))
+        ph=(h-2*pad2)*0.62; pw=ph*PR; px=x+(w-pw)/2; py=y+pad2
+        f.rect(px,py,pw,ph,MARF,outline=INK3,ow=lw)      # painel (contorno claro = conceptual)
+        f.rect(px,py,pw,max(2,ph*0.06),RED)              # barra de topo
+        baseY=py+ph
+        f.line(px+pw*0.30,baseY,px+pw*0.02,baseY+P(5),INK5,lw)  # pé esquerdo
+        f.line(px+pw*0.70,baseY,px+pw*0.98,baseY+P(5),INK5,lw)  # pé direito
+        f.line(px-P(2),baseY+P(5),px+pw+P(2),baseY+P(5),KEY,1)  # linha de chão
     else: # triangular / autoportante: 4 ilhas trianguladas (3 painéis cada, vista de topo)
         import math; ncl=4; cw2=aw/ncl; r=min(cw2,h-2*pad)*0.36; cyc=y+h/2
         for c in range(ncl):
@@ -207,26 +234,34 @@ def p2():
 def p3():
     f=newp(); mx=bl+P(11); cw=Wp-2*mx
     y=bl+P(10)
-    eyebrow(f,mx,y,"A EXPOSIÇÃO NO SEU ESPAÇO"); y+=P(7.5)
-    y=f.para(mx,y,"12 painéis verticais, 841 × 1800 mm","d",PT(15),cw,INK,1.04,"l",wt=600)+P(2.5)
-    y=f.para(mx,y,"A soma das larguras dos 12 painéis lado a lado é de 10,092 m lineares — não uma área mínima: a implantação depende do espaço, dos intervalos, da circulação e da montagem.","s",PT(8.2),cw,INK7,1.32)+P(5)
-    eyebrow(f,mx,y,"EXEMPLOS POSSÍVEIS DE IMPLANTAÇÃO"); y+=P(6.5)
-    dw=P(40); dh=P(17.5); tx=mx+dw+P(5); tw=Wp-mx-tx
-    for kind,lab,desc in [("linear","Linear","Corredores, paredes extensas ou percursos sequenciais."),
-                          ("zigzag","Percurso em ziguezague","Leitura progressiva em áreas mais abertas."),
-                          ("nucleos","Por núcleos","Painéis distribuídos por diferentes zonas do espaço."),
-                          ("costas","Costas com costas","Sequência dupla ou alinhamentos opostos, com leitura dos dois lados."),
-                          ("triangular","Triangular / autoportante","Conjuntos triangulados que se sustentam, criando ilhas expositivas.")]:
-        diagram(f,mx,y,dw,dh,kind)
-        f.text(tx,y+P(1.5),lab,"sm",PT(9),INK,"l",wt=600)
-        f.para(tx,y+P(6.5),desc,"s",PT(7.6),tw,INK7,1.26)
-        y+=dh+P(3.2)
-    y+=P(0.5)
-    f.para(mx,y,"A implantação pode ser adaptada ao espaço anfitrião; estes são exemplos, não um formato obrigatório.","si",PT(8),cw,INK5,1.3); y+=P(9)
-    f.rect(mx,y,cw,P(0.8),HAIR); y+=P(4.5)
+    eyebrow(f,mx,y,"A EXPOSIÇÃO NO SEU ESPAÇO"); y+=P(7)
+    y=f.para(mx,y,"12 painéis verticais · 841 × 1800 mm","d",PT(13),cw,INK,1.04,"l",wt=600)+P(2)
+    y=f.para(mx,y,"«Entre Ruínas e Memórias» é composta por 12 painéis individuais. A implantação é adaptada ao espaço anfitrião, às condições de circulação e ao sistema de montagem disponível.","s",PT(8),cw,INK7,1.34)+P(4)
+    # ===== Bloco A — COM ESTRUTURAS EXPOSITIVAS =====
+    eyebrow(f,mx,y,"COM ESTRUTURAS EXPOSITIVAS"); y+=P(6)
+    y=f.para(mx,y,"O projecto dispõe, através da AAMLF, de sete estruturas metálicas expositivas utilizáveis nas duas faces, correspondendo a até 14 superfícies de montagem. Para garantir estabilidade, as estruturas são associadas entre si, podendo organizar-se em núcleos de 2 + 2 + 3 ou num percurso contínuo em ziguezague.","s",PT(8),cw,INK7,1.34)+P(2.5)
+    gap=P(6); dw=(cw-gap)/2; dh=P(25)
+    for i,(kind,lab,leg) in enumerate([
+        ("estr_223","Em núcleos — 2 + 2 + 3","Os sete expositores podem ser organizados em três conjuntos articulados, garantindo estabilidade ao conjunto."),
+        ("estr_zig","Ziguezague contínuo","Os sete expositores podem formar uma sequência articulada, aproveitando as duas faces e garantindo estabilidade ao conjunto.")]):
+        dx=mx+i*(dw+gap)
+        f.text(dx,y,lab,"sm",PT(8),INK,"l",wt=600)
+        diagram(f,dx,y+P(4.5),dw,dh,kind)
+        f.para(dx,y+P(4.5)+dh+P(1.5),leg,"s",PT(6.8),dw,INK7,1.22)
+    y+=P(4.5)+dh+P(1.5)+P(12)
+    y=f.para(mx,y,"Os 12 painéis são peças individuais. As sete estruturas disponibilizam até 14 faces de montagem, permitindo adaptar a distribuição dos painéis à circulação e ao espaço disponível.","si",PT(7.6),cw,INK5,1.3)+P(3.5)
+    # ===== Bloco B — MONTAGEM AUTÓNOMA — EM DESENVOLVIMENTO =====
+    eyebrow(f,mx,y,"MONTAGEM AUTÓNOMA — EM DESENVOLVIMENTO"); y+=P(6)
+    bdw=P(38); bdh=P(22); btx=mx+bdw+P(5); btw=Wp-mx-btx
+    diagram(f,mx,y,bdw,bdh,"painel_apoio")
+    f.text(mx+bdw/2,y+bdh+P(1.3),"Esquema conceptual","si",PT(6.2),INK5,"m")
+    f.para(btx,y+P(1),"Está em desenvolvimento um sistema de apoios próprios para os painéis, com o objectivo de permitir montagem autónoma, maior flexibilidade nas itinerâncias e menor dependência do transporte das estruturas metálicas.","s",PT(7.8),btw,INK7,1.3)
+    y+=bdh+P(4.2)
+    y=f.para(mx,y,"A configuração final é acordada com cada espaço anfitrião, considerando área disponível, circulação, segurança, transporte e condições de montagem.","si",PT(7.8),cw,INK5,1.3)+P(3.5)
+    f.rect(mx,y,cw,P(0.6),HAIR); y+=P(4)
     eyebrow(f,mx,y,"O QUE PRECISAMOS DE SABER SOBRE O SEU ESPAÇO",INK7); y+=P(6)
-    for it in ["tipo de espaço","dimensões / áreas disponíveis","período pretendido","condições de montagem","contacto da pessoa responsável"]:
-        f.rect(mx,y+P(1.1),P(1.3),P(1.3),RED); f.text(mx+P(3.6),y,it,"s",PT(8.4),INK7,"l"); y+=P(5.6)
+    for it in ["dimensões / área disponível","condições de circulação e montagem","contacto da pessoa responsável"]:
+        f.rect(mx,y+P(1.0),P(1.3),P(1.3),RED); f.text(mx+P(3.6),y,it,"s",PT(8.2),INK7,"l"); y+=P(5.4)
     f.save("07_P3_espaco")
 
 # ============ P4 — CONVITE ============
@@ -254,9 +289,17 @@ def p4():
     uw=f.tw("projectomilreu.pt","sm",PT(7.2),600)
     f.text(qx+qs/2,qy+qs+P(3.5),"projectomilreu.pt","sm",PT(7.2),RED,"m",wt=600)
     link("07_P4_convite",qx+qs/2-uw/2,qy+qs+P(3.5),qx+qs/2+uw/2,qy+qs+P(3.5)+PT(7.2),QURL)
-    y=max(yc,qy+qs+P(6))+P(4.5)
-    # parágrafo de parcerias (antes do rodapé institucional)
-    y=f.para(mx,y,"Em 2026, «Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de «Projecto Comunitário de Milreu / Museus sem Fronteiras», apoiadas pela CCDR Algarve. Esta designação enquadra o ciclo de 2026 e não substitui a identidade permanente do projecto.","si",PT(7.8),cw,INK5,1.32)
+    y=max(yc,qy+qs+P(6))+P(4)
+    # bloco PARCERIA E ACOMPANHAMENTO (AAMLF) — substitui o parágrafo MSF solto; MSF mantém-se no rodapé
+    eyebrow(f,mx,y,"PARCERIA E ACOMPANHAMENTO"); y+=P(5.5)
+    y=f.para(mx,y,"O desenvolvimento e a circulação das iniciativas de 2026 contam com a colaboração da Associação dos Amigos do Museu do Lyceu de Faro — AAMLF, parceira institucional no desenvolvimento e acompanhamento das actividades.","s",PT(7.6),cw,INK7,1.3)+P(1.5)
+    f.text(mx,y,"AAMLF · Meira Pinto — Interlocutor da AAMLF","sm",PT(7.6),INK,"l",wt=500); y+=P(4.0)
+    ew=f.tw("museu.lyceu@aejdfaro.pt","sm",PT(7.4),500)
+    f.text(mx,y,"museu.lyceu@aejdfaro.pt","sm",PT(7.4),RED,"l",wt=500)
+    link("07_P4_convite",mx,y,mx+ew,y+PT(7.4),"mailto:museu.lyceu@aejdfaro.pt"); y+=P(4.0)
+    f.text(mx,y,"Av. 5 de Outubro, Liceu de Faro, 8004-069 Faro","s",PT(7.2),INK5,"l"); y+=P(4.5)
+    # linha editorial independente (secundária), antes do rodapé institucional
+    y=f.para(mx,y,"«Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de 2026 apoiadas no âmbito de «Projecto Comunitário de Milreu / Museus sem Fronteiras».","si",PT(7),cw,INK5,1.28)
     # fecho editorial ANCORADO à safe-area inferior (logos nunca encostam ao corte); 4 níveis com respiro
     txt_bottom=y
     logo_h=P(5.5); sb=Hp-bl-P(6)             # safe-area: 6mm do corte
