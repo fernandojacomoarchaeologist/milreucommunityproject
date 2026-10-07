@@ -201,7 +201,7 @@ def verso():
     _dir="Conteúdos originais do Projecto Comunitário de Milreu: CC BY 4.0 quando indicado. Fotografias, documentos, logótipos e outros conteúdos de terceiros mantêm os respectivos créditos, autorizações e condições de utilização. Direitos e créditos: projectomilreu.pt"
     f.para(x,yb,_dir,"s",PT(9),CW,INK5,1.42)
     _r=f.token_rect(x,yb,_dir,"s",PT(9),CW,1.42,"projectomilreu.pt")
-    if _r: link("folha_verso",_r[0],_r[1],_r[2],_r[3],QURL)  # URL de direitos (expressão já presente no source)
+    if _r: link("folha_verso",_r[0],_r[1],_r[2],_r[3],QURL+"/#/direitos")  # link de direitos → página #/direitos
     # footer
     f.line(x,rule_y,x+CW,rule_y,HAIR,1)
     f.text(x,sig_y,"Projecto Comunitário de Milreu","s",PT(9.5),INK5,"l")

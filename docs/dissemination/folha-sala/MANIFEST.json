@@ -24,7 +24,7 @@
     "qa": "QA_REPORT.md"
   },
   "print": {"bleed_mm": 3, "crop_marks": true, "page1": "FRENTE", "page2": "VERSO", "duplex": "long-edge", "cmyk_icc": "NÃO simulado — FASE B (ICC real da gráfica)"},
-  "hyperlinks_digital": {"target": "https://projectomilreu.pt", "count": 4, "emails": false},
+  "hyperlinks_digital": {"targets": {"site": "https://projectomilreu.pt (3x: rodapé frente, QR, CTA)", "direitos": "https://projectomilreu.pt/#/direitos (1x)"}, "count": 4, "emails": false},
   "rights": "Conteúdos originais do Projecto: CC BY 4.0 quando indicado; terceiros mantêm créditos/autorizações/condições.",
   "institutional": {"umbrella": "Projecto Comunitário de Milreu", "framing_2026": "MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026", "partner": "AAMLF — parceiro institucional e de acompanhamento"},
   "reproducible": true,
