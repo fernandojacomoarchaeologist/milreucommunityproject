@@ -50,14 +50,41 @@ def P(v): return round(v*mm)
 def PT(v): return round(v*DPI/72)
 LINKS={}  # page -> [(x0,y0,x1,y1,target)] em px (top-left), na resolução DPI atual, coords full-bleed
 def link(page,x0,y0,x1,y1,target): LINKS.setdefault(page,[]).append((round(x0),round(y0),round(x1),round(y1),target))
+# ---- backend SVG vetorial (aditivo; não altera o PIL) ----
+import io as _io, base64 as _b64
+FALLBACK={"d":"serif","di":"serif","s":"serif","sm":"serif","si":"serif","u":"sans-serif"}
+def _c(col): return "rgb(%d,%d,%d)"%(col[0],col[1],col[2])
+def _esc(t): return t.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+def _b64img(im,fmt="PNG",q=84):
+    bb=_io.BytesIO()
+    if fmt=="JPEG": im.convert("RGB").save(bb,"JPEG",quality=q)
+    else: im.save(bb,"PNG")
+    mt="jpeg" if fmt=="JPEG" else "png"
+    return f"data:image/{mt};base64,"+_b64.b64encode(bb.getvalue()).decode()
 class F:
-    def __init__(s,W,H,bg=MARF): s.W=W;s.H=H;s.im=Image.new("RGB",(W,H),bg);s.d=ImageDraw.Draw(s.im)
-    def rect(s,x,y,w,h,fill,outline=None,ow=1): s.d.rectangle([x,y,x+w,y+h],fill=fill,outline=outline,width=ow)
-    def line(s,x1,y1,x2,y2,fill,w=1): s.d.line([(x1,y1),(x2,y2)],fill=fill,width=w)
+    def __init__(s,W,H,bg=MARF):
+        s.W=W;s.H=H;s.bg=bg;s.im=Image.new("RGB",(W,H),bg);s.d=ImageDraw.Draw(s.im);s.svg=[]
+    def rect(s,x,y,w,h,fill,outline=None,ow=1):
+        s.d.rectangle([x,y,x+w,y+h],fill=fill,outline=outline,width=ow)
+        at=f'<rect x="{x:.2f}" y="{y:.2f}" width="{w:.2f}" height="{h:.2f}" '
+        at+=(f'fill="{_c(fill)}"' if fill else 'fill="none"')
+        if outline: at+=f' stroke="{_c(outline)}" stroke-width="{ow}"'
+        s.svg.append(at+'/>')
+    def line(s,x1,y1,x2,y2,fill,w=1):
+        s.d.line([(x1,y1),(x2,y2)],fill=fill,width=w)
+        s.svg.append(f'<line x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="{_c(fill)}" stroke-width="{w}"/>')
+    def ellipse(s,x0,y0,x1,y1,fill=None,outline=None,ow=1):
+        s.d.ellipse([x0,y0,x1,y1],fill=fill,outline=outline,width=ow)
+        cx=(x0+x1)/2;cy=(y0+y1)/2;rx=(x1-x0)/2;ry=(y1-y0)/2
+        at=f'<ellipse cx="{cx:.2f}" cy="{cy:.2f}" rx="{rx:.2f}" ry="{ry:.2f}" '
+        at+=(f'fill="{_c(fill)}"' if fill else 'fill="none"')
+        if outline: at+=f' stroke="{_c(outline)}" stroke-width="{ow}"'
+        s.svg.append(at+'/>')
     def imgcover(s,x,y,w,h,path,ah=0.5,av=0.5):
         im=Image.open(path).convert("RGB");iw,ih=im.size;k=max(w/iw,h/ih)
         nw,nh=max(1,round(iw*k)),max(1,round(ih*k));im=im.resize((nw,nh),Image.LANCZOS)
-        l=round((nw-w)*ah);t=round((nh-h)*av);s.im.paste(im.crop((l,t,l+w,t+h)),(x,y))
+        l=round((nw-w)*ah);t=round((nh-h)*av);crop=im.crop((l,t,l+w,t+h));s.im.paste(crop,(x,y))
+        s.svg.append(f'<image x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="none" xlink:href="{_b64img(crop,"JPEG")}"/>')
     def tw(s,t,k,px,wt=None): return s.d.textlength(t,font=font(k,px,wt))
     def text(s,x,y,t,k,px,fill=INK,a="l",wt=None,ls=0):
         ft=font(k,px,wt)
@@ -65,6 +92,11 @@ class F:
             cx=x
             for ch in t: s.d.text((cx,y),ch,font=ft,fill=fill,anchor="la");cx+=s.d.textlength(ch,font=ft)+ls
         else: s.d.text((x,y),t,font=ft,fill=fill,anchor={"l":"la","m":"ma","r":"ra"}[a])
+        asc=ft.getmetrics()[0]; by=y+asc; anch={"l":"start","m":"middle","r":"end"}[a]
+        style=' font-style="italic"' if k in("di","si") else ''
+        wgt=wt if wt else (500 if k=="sm" else None); wstr=f' font-weight="{wgt}"' if wgt else ''
+        lsstr=f' letter-spacing="{ls:.2f}"' if ls else ''
+        s.svg.append(f'<text x="{x:.2f}" y="{by:.2f}" font-family="{FAM[k]},{FALLBACK[k]}" font-size="{px}" fill="{_c(fill)}" text-anchor="{anch}"{style}{wstr}{lsstr}>{_esc(t)}</text>')
     def wrap(s,t,k,px,maxw,wt=None):
         out=[]
         for pa in t.split("\n"):
@@ -90,7 +122,9 @@ class F:
         qz=size*0.08;inner=size-2*qz;ms=inner/n
         for r in range(n):
             for c in range(n):
-                if m[r][c]: s.d.rectangle([x+qz+c*ms,y+qz+r*ms,x+qz+c*ms+ms+0.6,y+qz+r*ms+ms+0.6],fill=INK)
+                if m[r][c]:
+                    s.d.rectangle([x+qz+c*ms,y+qz+r*ms,x+qz+c*ms+ms+0.6,y+qz+r*ms+ms+0.6],fill=INK)
+                    s.svg.append(f'<rect x="{x+qz+c*ms:.2f}" y="{y+qz+r*ms:.2f}" width="{ms+0.6:.2f}" height="{ms+0.6:.2f}" fill="{_c(INK)}"/>')
     def logo(s,cx,cy,maxw,maxh,path):
         im=Image.open(path).convert("RGBA");a=_np.asarray(im);al=a[:,:,3]
         mask=(al>16) if al.min()<250 else (a[:,:,:3].sum(2)<735)
@@ -100,6 +134,7 @@ class F:
         if h>maxh: h=maxh;w=h*ar
         im=im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS)
         s.im.paste(im,(round(cx-w/2),round(cy-h/2)),im)
+        s.svg.append(f'<image x="{cx-w/2:.2f}" y="{cy-h/2:.2f}" width="{w:.2f}" height="{h:.2f}" xlink:href="{_b64img(im)}"/>')
     def logoband(s,x,y,h):
         # barra canónica (5 unidades), alinhada à esquerda, gap = 0,6 x altura (proporção do trio)
         gap=0.6*h; cx=float(x)
@@ -111,9 +146,17 @@ class F:
             ys,xs=_np.where(mask)
             if len(xs): im=im.crop((int(xs.min()),int(ys.min()),int(xs.max())+1,int(ys.max())+1))
             w=h*im.size[0]/im.size[1]; rim=im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS)
-            s.im.paste(rim,(round(cx),round(y)),rim); cx+=w+gap
+            s.im.paste(rim,(round(cx),round(y)),rim)
+            s.svg.append(f'<image x="{cx:.2f}" y="{y:.2f}" width="{w:.2f}" height="{h:.2f}" xlink:href="{_b64img(rim)}"/>')
+            cx+=w+gap
         return cx-gap-x
-    def save(s,name): s.im.save(f"{OUTP}/{name}.png");return s.im
+    def save(s,name):
+        s.im.save(f"{OUTP}/{name}.png")
+        bg=f'<rect x="0" y="0" width="{s.W}" height="{s.H}" fill="{_c(s.bg)}"/>'
+        svg=(f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+             f'width="{FW}mm" height="{FH}mm" viewBox="0 0 {s.W} {s.H}">{bg}{"".join(s.svg)}</svg>')
+        open(f"{OUTP}/{name}.svg","w",encoding="utf-8").write(svg)
+        return s.im
 
 # ---- geometria base A5 + sangria ----
 TW,TH=148,210; BL=3; FW,FH=TW+2*BL,TH+2*BL
@@ -168,7 +211,7 @@ def diagram(f,x,y,w,h,kind):
         for gc in groups:
             verts=[(cx+i*L*math.cos(ang), ymid+(segh/2)*(1 if i%2 else -1)) for i in range(gc+1)]
             for i in range(gc): f.line(verts[i][0],verts[i][1],verts[i+1][0],verts[i+1][1],INK5,lw)
-            for (vx,vy) in verts: f.d.ellipse([vx-r,vy-r,vx+r,vy+r],fill=RED)
+            for (vx,vy) in verts: f.ellipse(vx-r,vy-r,vx+r,vy+r,fill=RED)
             cx+=gc*L*math.cos(ang)+gapw
     elif kind=="painel_apoio":
         # Esquema de painel com apoios/pés próprios (montagem autónoma).
