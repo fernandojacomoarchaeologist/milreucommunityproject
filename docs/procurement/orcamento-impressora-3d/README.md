@@ -2,7 +2,7 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **Identificação administrativa (ciclo financiado 2026):** `PROJECTO COMUNITÁRIO DE MILREU / MUSEUS SEM FRONTEIRAS` · *Iniciativas 2026 — Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo*. Esta designação identifica o enquadramento da candidatura CCDR e **não** substitui o nome permanente do projecto (ver `docs/governance/IDENTITY_2026_MUSEUS_SEM_FRONTEIRAS.md`).
-> **Estado: `DRAFT — consulta de mercado`.** Não é adjudicação. Versão corrente: **vFinal, 1 de Outubro de 2026** (identificação 2026 aplicada em 3 de Outubro de 2026).
+> **Estado: `VERSÃO FINAL — consulta de mercado`.** É a versão final do documento de consulta; **não é adjudicação** (não há decisão de compra registada). Versão corrente: **vFinal, 1 de Outubro de 2026** (identificação 2026 aplicada em 3 de Outubro de 2026; selo «DRAFT» removido em 7 de Outubro de 2026 por decisão do responsável — a peça passou a «CONSULTA DE MERCADO · VERSÃO FINAL»).
 
 Documento A4 (8 páginas; a matriz de mercado em paisagem) no Design System do Projecto Milreu (tokens `packages/design-tokens/v0.2/`; Fraunces/Spectral/Archivo; vermelho institucional só como filete/detalhe).
 
@@ -15,7 +15,7 @@ Documento A4 (8 páginas; a matriz de mercado em paisagem) no Design System do P
 As versões anteriores (v3) e as fontes SVG/editáveis permanecem **não versionadas** (geradores em `scratchpad/`), por decisão.
 
 ## Versão corrente — vFinal (2026-10-01)
-Gerada a pedido explícito do responsável (o STOP GATE do checkpoint foi levantado em conversa), a partir do `CHECKPOINT_FACTUAL_2026-10-01.md`. Continua **`DRAFT — consulta de mercado`, sem adjudicação**. Renderer: `scratchpad/orc_msf2026/build.py` (derivado de `orc_vfinal/build.py`; A4, Design System v0.2). Regenerada a 2026-10-03 **apenas** para aplicar a identificação administrativa 2026 (eyebrow + subtítulo); dados, preços e estrutura inalterados.
+Gerada a pedido explícito do responsável (o STOP GATE do checkpoint foi levantado em conversa), a partir do `CHECKPOINT_FACTUAL_2026-10-01.md`. É a **`VERSÃO FINAL — consulta de mercado`, sem adjudicação** (a direcção recomendada está documentada; nenhuma compra foi decidida). Renderer **versionado e reprodutível**: `source/generators/orcamento_generator.py` (A4, Design System v0.2). Regenerada a 2026-10-03 para aplicar a identificação administrativa 2026 (eyebrow + subtítulo) e a 2026-10-07 para **substituir o selo «DRAFT» por «CONSULTA DE MERCADO · VERSÃO FINAL»** (rodapé: «não é adjudicação»); dados, preços e estrutura **inalterados**.
 
 Estrutura (8 páginas): (1) objectivo/requisitos/regras; (2) comparação técnica das configurações; (3) três cotações — Kobra S1 Combo + Adventurer 5M; (4) três cotações — 5M Pro + enclosure + AD5X (referência); (5) filamentos (4 cores); (6) cenários de custo total + enquadramento orçamental; (7) avaliação/pontuação das três opções; (8) balanço qualitativo + facturação/notas.
 
