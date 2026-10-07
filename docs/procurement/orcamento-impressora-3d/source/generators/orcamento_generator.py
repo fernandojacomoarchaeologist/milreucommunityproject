@@ -79,7 +79,7 @@ def header(d,n,title):
 def footer(d):
     y=H-round(12*MM)
     line(d,MX,y-round(4*MM),W-MX,y-round(4*MM),HAIR,1)
-    txt(d,MX,y,"© 2026 Fernando Rodrigues de Jácomo · Projecto Comunitário de Milreu · Consulta de mercado 2026-10-01 · DRAFT, não é adjudicação","u",7.2,INK3)
+    txt(d,MX,y,"© 2026 Fernando Rodrigues de Jácomo · Projecto Comunitário de Milreu · Consulta de mercado · versão final 2026-10-01 · não é adjudicação","u",7.2,INK3)
 
 def table(d,x,y,headers,rows,widths,pt=9.5,hpt=8.5,rowh=None):
     rowh=rowh or round(P(pt)*2.0)
@@ -118,7 +118,7 @@ for ln in wrap(d,"Orçamento comparativo — equipamento e consumíveis de impre
     d.text((MX,y),ln,font=fnt("d",26),fill=INK); y+=round(P(26)*1.12)
 y+=round(2*MM)
 txt(d,MX,y,"Iniciativas 2026 — Museu itinerante «Entre Ruínas e Memórias» · Circuito Educativo","si",12.5,INK7); y+=round(7*MM)
-chip(d,MX,y,round(78*MM),"DRAFT · CONSULTA DE MERCADO · 2026-10-01","sm",CAMPO,INK7,9); y+=round(12*MM)
+chip(d,MX,y,round(92*MM),"CONSULTA DE MERCADO · VERSÃO FINAL · 2026-10-01","sm",CAMPO,INK7,9); y+=round(12*MM)
 txt(d,MX,y,"Objectivo","d",15,INK); y+=round(8*MM)
 y=para(d,MX,y,"Aquisição de uma impressora 3D (FDM) e consumíveis para o Circuito Educativo de Milreu — oficinas de escavação simulada, estratigrafia e mosaicos para crianças e adolescentes. Ambiente doméstico com animais: a caixa de protecção (enclosure) é requisito de segurança. A aquisição é avaliada por critérios de equipamento, consumíveis, custo entregue e disponibilidade — nunca apenas pelo preço.",W-2*MX,INK7); y+=round(6*MM)
 txt(d,MX,y,"Requisitos e regras da consulta","d",15,INK); y+=round(8*MM)
