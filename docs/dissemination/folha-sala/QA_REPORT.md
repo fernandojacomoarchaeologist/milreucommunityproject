@@ -23,7 +23,8 @@
 | URL correcto | ✓ `https://projectomilreu.pt` |
 | Hyperlinks do DIGITAL | ✓ **4**: FRENTE rodapé (URL) · VERSO QR · VERSO «projectomilreu.pt» (CTA) · VERSO URL de direitos. **Sem e-mails** (não se criou link novo). |
 | Fotografias do acervo (decisão 2026-10-07) | ✓ **2**: FRENTE MM202608 (Ruínas/homem+bicicleta) · VERSO MM202602 (jovens, anos 1950); ambas `project_official_publication=YES`, **sem IA**, com legenda + crédito |
-| Rostos/sujeitos não cortados | ✓ (recorte enviesado: ruínas p/ baixo mostra homem+bicicleta; meninas p/ cima mantém rostos) |
+| Rostos/sujeitos não cortados | ✓ (recorte enviesado: ruínas `focus=0.86` mostra homem+bicicleta por inteiro; meninas `focus=0.30` mantém rostos) |
+| Sem faixas/moldura brancas | ✓ (moldura branca de digitalização + fio escuro da MM202608 **recortados automaticamente** por `_trim_border`; meninas sem moldura = no-op) |
 | Créditos das fotografias | ✓ «Fotografia comunitária · página *Aldeia de Estoi — Cultura e Património* (Luís Barriga)»; MM202602 com restrição de reutilização genérica assinalada nos direitos |
 | Tipografia DS | ✓ Fraunces (títulos) · Spectral (leitura) · Archivo (metadata/eyebrows/números/labels) |
 | Hierarquia Projecto → MSF 2026 → parceiros | ✓ (cabeçalho em 2 linhas + rodapé) |

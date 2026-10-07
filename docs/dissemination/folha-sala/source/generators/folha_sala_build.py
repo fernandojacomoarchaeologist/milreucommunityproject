@@ -62,6 +62,24 @@ def _b64img(im,fmt="PNG"):
     return "data:image/%s;base64,"%("jpeg" if fmt=="JPEG" else "png")+_b64.b64encode(bb.getvalue()).decode()
 LINKS={}  # page -> [(x0,y0,x1,y1,target)] em px (trim A4)
 def link(page,x0,y0,x1,y1,target): LINKS.setdefault(page,[]).append((round(x0),round(y0),round(x1),round(y1),target))
+def _trim_border(im,frac=0.90,kmax=14,wtol=244):
+    """Recorta moldura branca de digitalização (+ fio escuro no bordo). No-op se não houver moldura."""
+    a=_np.asarray(im.convert("RGB")); h,w,_=a.shape
+    wr=(a>wtol).all(-1).mean(1); wc=(a>wtol).all(-1).mean(0)
+    def start(fr):
+        n=len(fr); j=0
+        while j<kmax and j<n and fr[j]<frac: j+=1
+        i=j if (0<j<n and fr[j]>=frac) else 0
+        while i<n and fr[i]>=frac: i+=1
+        return i
+    def end(fr):
+        n=len(fr); j=n-1
+        while j>n-1-kmax and j>=0 and fr[j]<frac: j-=1
+        i=j if (0<=j<n-1 and fr[j]>=frac) else n-1
+        while i>=0 and fr[i]>=frac: i-=1
+        return i+1
+    t,b,l,r=start(wr),end(wr),start(wc),end(wc)
+    return im.crop((l,t,r,b)) if (b-t)>h*0.5 and (r-l)>w*0.5 else im
 class F:
     def __init__(s,W,H,bg=MARF): s.W=W;s.H=H;s.bg=bg;s.im=Image.new("RGB",(W,H),bg);s.d=ImageDraw.Draw(s.im);s.svg=[]
     def rect(s,x,y,w,h,fill,outline=None,ow=1):
@@ -116,9 +134,11 @@ class F:
         nw,nh=max(1,round(iw*k)),max(1,round(ih*k));im=im.resize((nw,nh),Image.NEAREST)
         px_=round(x+(bw-nw)/2); py_=round(y+(bh-nh)/2); s.im.paste(im,(px_,py_))
         s.svg.append(f'<image x="{px_}" y="{py_}" width="{nw}" height="{nh}" preserveAspectRatio="none" xlink:href="{_b64img(im)}"/>')
-    def img_cover(s,x,y,bw,bh,path,focus=0.5):  # fotografia: cover (preenche a caixa) + filete; focus = viés vertical do recorte (0=topo,1=base)
+    def img_cover(s,x,y,bw,bh,path,focus=0.5,trim=True):  # fotografia: cover (preenche a caixa) + filete; focus = viés vertical (0=topo,1=base)
         bw=round(bw);bh=round(bh);x=round(x);y=round(y)
-        im=Image.open(path).convert("RGB");iw,ih=im.size;k=max(bw/iw,bh/ih)
+        im=Image.open(path).convert("RGB")
+        if trim: im=_trim_border(im)   # remove moldura branca de digitalização (+ fio escuro); no-op se não existir
+        iw,ih=im.size;k=max(bw/iw,bh/ih)
         nw,nh=max(1,round(iw*k)),max(1,round(ih*k));rim=im.resize((nw,nh),Image.LANCZOS)
         ox=max(0,round((nw-bw)/2)); oy=max(0,min(nh-bh,round((nh-bh)*focus))); rim=rim.crop((ox,oy,ox+bw,oy+bh))
         s.im.paste(rim,(x,y))
@@ -172,7 +192,7 @@ def frente():
     f.text(x,y,ttl,"d",tfs,INK,"l",wt=600); y+=round(tfs*1.08)+P(3.5)
     y=f.para(x,y,"Museu itinerante sobre as relações entre a população e as Ruínas Romanas de Milreu","si",PT(11.8),CW*0.9,INK5,1.3)+P(5)
     # imagem canónica das ruínas (edifício de cultos / homem+bicicleta) — identidade do sítio; viés p/ baixo mostra o homem+bicicleta
-    bh=P(52); f.img_cover(x,y,CW,bh,IMG_RUINS,focus=0.72); y=f.caption(x,y+bh+P(2.2),CAP_RUINS,CREDIT_SRC,CW)+P(3.5)
+    bh=P(52); f.img_cover(x,y,CW,bh,IMG_RUINS,focus=0.86); y=f.caption(x,y+bh+P(2.2),CAP_RUINS,CREDIT_SRC,CW)+P(3.5)
     y=f.para(x,y,"«Entre Ruínas e Memórias» reúne fotografias, testemunhos e outros registos ligados às relações entre a população e as Ruínas Romanas de Milreu. Mais do que contar apenas a história arqueológica do sítio, a exposição procura tornar visíveis as memórias, experiências e relações construídas com Milreu ao longo do tempo.","s",PT(11),CW,INK7,1.44)+P(2.5)
     y=f.para(x,y,"Os 12 painéis percorrem diferentes momentos dessa relação — das primeiras escavações às memórias das equipas, das festas e vivências locais às mensagens deixadas para o futuro.","s",PT(11),CW,INK7,1.44)+P(6)
     f.line(x,y,x+CW,y,HAIR,1); y+=P(5)

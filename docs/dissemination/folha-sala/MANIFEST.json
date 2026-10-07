@@ -10,7 +10,7 @@
     "ai_intervention": false,
     "credit": "Fotografia comunitária · página «Aldeia de Estoi — Cultura e Património» (Luís Barriga)",
     "images": [
-      {"id": "MM202608", "where": "frente", "caption": "Em frente ao edifício de cultos de Milreu, possivelmente c. 1910.", "file": "public/media/museum/originals/MM202608.jpg", "rights": "project_official_publication=YES", "crop_focus": "0.72 (viés p/ baixo — mostra o homem+bicicleta)"},
+      {"id": "MM202608", "where": "frente", "caption": "Em frente ao edifício de cultos de Milreu, possivelmente c. 1910.", "file": "public/media/museum/originals/MM202608.jpg", "rights": "project_official_publication=YES", "crop_focus": "0.86 (viés p/ baixo — mostra o homem+bicicleta por inteiro)", "border_trim": "moldura branca de digitalização + fio escuro recortados automaticamente (sem faixas brancas)"},
       {"id": "MM202602", "where": "verso", "caption": "Jovens junto ao edifício de cultos de Milreu, possivelmente nos anos 1950.", "file": "public/media/museum/originals/MM202602.png", "rights": "project_official_publication=YES; restrição de reutilização genérica", "crop_focus": "0.30 (viés p/ cima — mantém os rostos)"}
     ]
   },
