@@ -1,0 +1,45 @@
+{
+ "dpi": 300,
+ "page_px": [
+  2480,
+  3508
+ ],
+ "trim_mm": [
+  210,
+  297
+ ],
+ "links": {
+  "folha_frente": [
+   [
+    213,
+    3343,
+    513,
+    3381,
+    "https://projectomilreu.pt"
+   ]
+  ],
+  "folha_verso": [
+   [
+    1865,
+    1544,
+    2267,
+    1946,
+    "https://projectomilreu.pt"
+   ],
+   [
+    213,
+    1847,
+    622,
+    1899,
+    "https://projectomilreu.pt"
+   ],
+   [
+    213,
+    2836,
+    508,
+    2880,
+    "https://projectomilreu.pt"
+   ]
+  ]
+ }
+}
