@@ -5,7 +5,15 @@
   "state": "HUMAN DESIGN PASS / FINAL ART READY / PRODUCTION GATE PENDING",
   "production_gate": "FASE B — prepress/ICC real da gráfica (se produzida fisicamente). NÃO marcar DONE antes.",
   "format": {"size": "A4 210x297 mm", "sides": "frente/verso", "folded": false, "margins_mm": 18, "dpi": 300, "lang": "pt-PT"},
-  "photography": false,
+  "photography": {
+    "added": "2026-10-07 (decisão do responsável; substitui a decisão anterior «sem fotografia»)",
+    "ai_intervention": false,
+    "credit": "Fotografia comunitária · página «Aldeia de Estoi — Cultura e Património» (Luís Barriga)",
+    "images": [
+      {"id": "MM202608", "where": "frente", "caption": "Em frente ao edifício de cultos de Milreu, possivelmente c. 1910.", "file": "public/media/museum/originals/MM202608.jpg", "rights": "project_official_publication=YES", "crop_focus": "0.86 (viés p/ baixo — mostra o homem+bicicleta por inteiro)", "border_trim": "moldura branca de digitalização + fio escuro recortados automaticamente (sem faixas brancas)"},
+      {"id": "MM202602", "where": "verso", "caption": "Jovens junto ao edifício de cultos de Milreu, possivelmente nos anos 1950.", "file": "public/media/museum/originals/MM202602.png", "rights": "project_official_publication=YES; restrição de reutilização genérica", "crop_focus": "0.30 (viés p/ cima — mantém os rostos)"}
+    ]
+  },
   "titles_source_of_truth": "sequência editorial de referência Q1–Q12 (decisão HUMAN 2026-10-07; painéis finais do Item 1 não versionados no repo)",
   "panels_Q1_Q12": [
     "01 Entre Ruínas e Memórias","02 As escavações em Milreu","03 A Festa da Pinha",
@@ -17,13 +25,15 @@
   "outputs": {
     "digital_pdf": "final/FOLHA_SALA_Entre_Ruinas_e_Memorias_DIGITAL.pdf",
     "print_pdf": "final/FOLHA_SALA_Entre_Ruinas_e_Memorias_PRINT.pdf",
+    "print_2up_pdf": "final/FOLHA_SALA_Entre_Ruinas_e_Memorias_2UP_IMPRESSAO_SIMPLIFICADA.pdf",
     "svg": ["final/svg/folha_frente.svg", "final/svg/folha_verso.svg"],
-    "previews": ["proof/folha_frente.png", "proof/folha_verso.png", "proof/_PRANCHA_folha.png"],
-    "source": ["source/generators/folha_sala_build.py", "source/generators/folha_sala_finalize.py"],
+    "previews": ["proof/folha_frente.png", "proof/folha_verso.png", "proof/_PRANCHA_folha.png", "final/_PRANCHA_2up.png"],
+    "source": ["source/generators/folha_sala_build.py", "source/generators/folha_sala_finalize.py", "source/generators/folha_sala_2up.py"],
     "links": "proof/_links.json",
     "qa": "QA_REPORT.md"
   },
   "print": {"bleed_mm": 3, "crop_marks": true, "page1": "FRENTE", "page2": "VERSO", "duplex": "long-edge", "cmyk_icc": "NÃO simulado — FASE B (ICC real da gráfica)"},
+  "print_2up_simplificada": {"orientation": "A4 paisagem (297x210 mm)", "pages": 2, "layout": "Folha 1 = 2x FRENTE · Folha 2 = 2x VERSO", "scaling": "A4->A5 uniforme (√2, sem distorção)", "cut_line": "ténue ao centro (margem branca)", "duplex": "short-edge (margem curta)", "post": "cortar ao meio -> 2 folhas A5 F/V", "bleed": false, "note": "mesma arte, apenas replicada"},
   "hyperlinks_digital": {"targets": {"site": "https://projectomilreu.pt (3x: rodapé frente, QR, CTA)", "direitos": "https://projectomilreu.pt/#/direitos (1x)"}, "count": 4, "emails": false},
   "rights": "Conteúdos originais do Projecto: CC BY 4.0 quando indicado; terceiros mantêm créditos/autorizações/condições.",
   "institutional": {"umbrella": "Projecto Comunitário de Milreu", "framing_2026": "MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026", "partner": "AAMLF — parceiro institucional e de acompanhamento"},

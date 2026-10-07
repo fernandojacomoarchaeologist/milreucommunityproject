@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar RIGHTS.md.
-"""Item 10 — Folha de Sala / Guia Breve. 1ª PROVA (PNG RGB).
+"""Item 10 — Folha de Sala / Guia Breve. PNG RGB + SVG.
 A4 frente/verso (210×297 mm), PT-PT, não dobrado. DS: Fraunces/Spectral/Archivo.
-SEM fotografia (1ª prova). Títulos Q1–Q12 = sequência de referência (HUMAN = fonte de verdade).
-NÃO altera o Item 1. NÃO gera PRINT/CMYK. Parar em HUMAN GATE."""
+COM fotografia do acervo (decisão do responsável, 2026-10-07): a decisão editorial
+anterior «sem fotografia» foi substituída. Duas imagens comunitárias do Museu, ambas
+`project_official_publication=YES`, com legenda e crédito preservados:
+  · FRENTE — MM202608 (Ruínas de Milreu / edifício de cultos, imagem canónica com homem+bicicleta);
+  · VERSO  — MM202602 (jovens junto ao edifício de cultos, anos 1950).
+Crédito da fonte: página «Aldeia de Estoi — Cultura e Património» (Luís Barriga).
+Nenhuma destas imagens tem intervenção de IA. Texto apertado para acomodar as imagens.
+Títulos Q1–Q12 = sequência de referência (HUMAN = fonte de verdade). NÃO altera o Item 1."""
 import os,sys
 HERE=os.path.dirname(os.path.abspath(__file__))
 def _repo(p):
@@ -20,6 +26,12 @@ QR_PNG=os.path.join(REPO,"docs","dissemination","dossie-convite","final","editav
 QURL="https://projectomilreu.pt"
 LOGODIR=os.path.join(REPO,"public","media","exhibition","updated","logos")
 LOGOS=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+# Fotografias do acervo (project_official_publication=YES; créditos preservados; sem IA)
+IMG_RUINS=os.path.join(REPO,"public","media","museum","originals","MM202608.jpg")   # ruínas/edifício de cultos (homem+bicicleta)
+IMG_MENINAS=os.path.join(REPO,"public","media","museum","originals","MM202602.png")  # jovens junto ao edifício de cultos, anos 1950
+CREDIT_SRC="Fotografia comunitária · página «Aldeia de Estoi — Cultura e Património» (Luís Barriga)"
+CAP_RUINS="Em frente ao edifício de cultos de Milreu, possivelmente c. 1910."
+CAP_MENINAS="Jovens junto ao edifício de cultos de Milreu, possivelmente nos anos 1950."
 # DS
 MARF=(255,252,247); CAMPO=(251,246,238); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201)
@@ -50,6 +62,24 @@ def _b64img(im,fmt="PNG"):
     return "data:image/%s;base64,"%("jpeg" if fmt=="JPEG" else "png")+_b64.b64encode(bb.getvalue()).decode()
 LINKS={}  # page -> [(x0,y0,x1,y1,target)] em px (trim A4)
 def link(page,x0,y0,x1,y1,target): LINKS.setdefault(page,[]).append((round(x0),round(y0),round(x1),round(y1),target))
+def _trim_border(im,frac=0.90,kmax=14,wtol=244):
+    """Recorta moldura branca de digitalização (+ fio escuro no bordo). No-op se não houver moldura."""
+    a=_np.asarray(im.convert("RGB")); h,w,_=a.shape
+    wr=(a>wtol).all(-1).mean(1); wc=(a>wtol).all(-1).mean(0)
+    def start(fr):
+        n=len(fr); j=0
+        while j<kmax and j<n and fr[j]<frac: j+=1
+        i=j if (0<j<n and fr[j]>=frac) else 0
+        while i<n and fr[i]>=frac: i+=1
+        return i
+    def end(fr):
+        n=len(fr); j=n-1
+        while j>n-1-kmax and j>=0 and fr[j]<frac: j-=1
+        i=j if (0<=j<n-1 and fr[j]>=frac) else n-1
+        while i>=0 and fr[i]>=frac: i-=1
+        return i+1
+    t,b,l,r=start(wr),end(wr),start(wc),end(wc)
+    return im.crop((l,t,r,b)) if (b-t)>h*0.5 and (r-l)>w*0.5 else im
 class F:
     def __init__(s,W,H,bg=MARF): s.W=W;s.H=H;s.bg=bg;s.im=Image.new("RGB",(W,H),bg);s.d=ImageDraw.Draw(s.im);s.svg=[]
     def rect(s,x,y,w,h,fill,outline=None,ow=1):
@@ -104,6 +134,20 @@ class F:
         nw,nh=max(1,round(iw*k)),max(1,round(ih*k));im=im.resize((nw,nh),Image.NEAREST)
         px_=round(x+(bw-nw)/2); py_=round(y+(bh-nh)/2); s.im.paste(im,(px_,py_))
         s.svg.append(f'<image x="{px_}" y="{py_}" width="{nw}" height="{nh}" preserveAspectRatio="none" xlink:href="{_b64img(im)}"/>')
+    def img_cover(s,x,y,bw,bh,path,focus=0.5,trim=True):  # fotografia: cover (preenche a caixa) + filete; focus = viés vertical (0=topo,1=base)
+        bw=round(bw);bh=round(bh);x=round(x);y=round(y)
+        im=Image.open(path).convert("RGB")
+        if trim: im=_trim_border(im)   # remove moldura branca de digitalização (+ fio escuro); no-op se não existir
+        iw,ih=im.size;k=max(bw/iw,bh/ih)
+        nw,nh=max(1,round(iw*k)),max(1,round(ih*k));rim=im.resize((nw,nh),Image.LANCZOS)
+        ox=max(0,round((nw-bw)/2)); oy=max(0,min(nh-bh,round((nh-bh)*focus))); rim=rim.crop((ox,oy,ox+bw,oy+bh))
+        s.im.paste(rim,(x,y))
+        s.svg.append(f'<image x="{x}" y="{y}" width="{bw}" height="{bh}" preserveAspectRatio="none" xlink:href="{_b64img(rim,"JPEG")}"/>')
+        s.rect(x,y,bw,bh,None,outline=KEY,ow=max(1,round(0.3*mm)))
+    def caption(s,x,y,cap,credit,maxw):  # legenda (comunidade) + crédito da fonte
+        y=s.para(x,y,cap,"si",PT(8.3),maxw,INK5,1.28)+P(0.6)
+        y=s.para(x,y,credit,"u",PT(6.4),maxw,INK3,1.26)
+        return y
     def logoband(s,x,y,h):
         gap=0.6*h; cx=float(x)
         for fn in LOGOS:
@@ -139,52 +183,56 @@ PANELS=[
 ]
 
 def frente():
-    f=F(W,H); x=MX; y=P(20)
-    eyebrow(f,x,y,"MUSEU · PROJECTO COMUNITÁRIO DE MILREU"); y+=P(5.2)
+    f=F(W,H); x=MX; y=P(19)
+    eyebrow(f,x,y,"MUSEU · PROJECTO COMUNITÁRIO DE MILREU"); y+=P(5.0)
     # 2.ª linha institucional (secundária): Projecto permanente → enquadramento 2026 → exposição
-    f.text(x,y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",PT(7.2),INK5,"l",wt=600,ls=PT(0.85)); y+=P(11)
-    ttl="Entre Ruínas e Memórias"; tfs=PT(34)
+    f.text(x,y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",PT(7.2),INK5,"l",wt=600,ls=PT(0.85)); y+=P(9.5)
+    ttl="Entre Ruínas e Memórias"; tfs=PT(31)
     while f.tw(ttl,"d",tfs,600)>CW and tfs>8: tfs-=1
-    f.text(x,y,ttl,"d",tfs,INK,"l",wt=600); y+=round(tfs*1.10)+P(5)
-    y=f.para(x,y,"Museu itinerante sobre as relações entre a população e as Ruínas Romanas de Milreu","si",PT(12.5),CW*0.86,INK5,1.32)+P(7)
-    y=f.para(x,y,"«Entre Ruínas e Memórias» reúne fotografias, testemunhos e outros registos ligados às relações entre a população e as Ruínas Romanas de Milreu. Mais do que contar apenas a história arqueológica do sítio, a exposição procura tornar visíveis as memórias, experiências e relações construídas com Milreu ao longo do tempo.","s",PT(11.3),CW,INK7,1.54)+P(4)
-    y=f.para(x,y,"Os 12 painéis percorrem diferentes momentos dessa relação — das primeiras escavações às memórias das equipas, das festas e vivências locais às mensagens deixadas para o futuro.","s",PT(11.3),CW,INK7,1.54)+P(11)
-    f.line(x,y,x+CW,y,HAIR,1); y+=P(7)
-    eyebrow(f,x,y,"COMO PERCORRER"); y+=P(8)
-    y=f.para(x,y,"Pode seguir a sequência 1–12 ou aproximar-se dos painéis a partir das imagens e temas que mais lhe despertarem curiosidade. A exposição foi concebida como um percurso aberto entre arqueologia, memória e comunidade.","s",PT(11.3),CW,INK7,1.54)+P(11)
-    f.line(x,y,x+CW,y,HAIR,1); y+=P(7)
-    eyebrow(f,x,y,"OS 12 PAINÉIS"); y+=P(10)
-    # duas colunas × 6 — entrelinha/separação aumentadas (usa o espaço disponível)
-    colw=(CW-P(10))/2; col2=x+colw+P(10); rowh=P(14.8); numw=P(10.5)
+    f.text(x,y,ttl,"d",tfs,INK,"l",wt=600); y+=round(tfs*1.08)+P(3.5)
+    y=f.para(x,y,"Museu itinerante sobre as relações entre a população e as Ruínas Romanas de Milreu","si",PT(11.8),CW*0.9,INK5,1.3)+P(5)
+    # imagem canónica das ruínas (edifício de cultos / homem+bicicleta) — identidade do sítio; viés p/ baixo mostra o homem+bicicleta
+    bh=P(52); f.img_cover(x,y,CW,bh,IMG_RUINS,focus=0.86); y=f.caption(x,y+bh+P(2.2),CAP_RUINS,CREDIT_SRC,CW)+P(3.5)
+    y=f.para(x,y,"«Entre Ruínas e Memórias» reúne fotografias, testemunhos e outros registos ligados às relações entre a população e as Ruínas Romanas de Milreu. Mais do que contar apenas a história arqueológica do sítio, a exposição procura tornar visíveis as memórias, experiências e relações construídas com Milreu ao longo do tempo.","s",PT(11),CW,INK7,1.44)+P(2.5)
+    y=f.para(x,y,"Os 12 painéis percorrem diferentes momentos dessa relação — das primeiras escavações às memórias das equipas, das festas e vivências locais às mensagens deixadas para o futuro.","s",PT(11),CW,INK7,1.44)+P(6)
+    f.line(x,y,x+CW,y,HAIR,1); y+=P(5)
+    eyebrow(f,x,y,"COMO PERCORRER"); y+=P(6.5)
+    y=f.para(x,y,"Pode seguir a sequência 1–12 ou aproximar-se dos painéis a partir das imagens e temas que mais lhe despertarem curiosidade. A exposição foi concebida como um percurso aberto entre arqueologia, memória e comunidade.","s",PT(11),CW,INK7,1.44)+P(6)
+    f.line(x,y,x+CW,y,HAIR,1); y+=P(5)
+    eyebrow(f,x,y,"OS 12 PAINÉIS"); y+=P(7)
+    # duas colunas × 6
+    colw=(CW-P(10))/2; col2=x+colw+P(10); rowh=P(10.6); numw=P(10.5)
     for i,(num,tit) in enumerate(PANELS):
         cx=x if i<6 else col2; ry=y+(i%6)*rowh
-        f.text(cx,ry+P(0.4),num,"u",PT(12.5),RED,"l",wt=700)
-        f.text(cx+numw,ry,"·","sm",PT(12),INK3,"l")
-        f.fit(cx+numw+P(3.4),ry,tit,"sm",PT(12.3),colw-numw-P(4),INK,"l")
-        f.line(cx,ry+rowh-P(4.0),cx+colw,ry+rowh-P(4.0),HAIR,1)
+        f.text(cx,ry+P(0.3),num,"u",PT(11.8),RED,"l",wt=700)
+        f.text(cx+numw,ry,"·","sm",PT(11.5),INK3,"l")
+        f.fit(cx+numw+P(3.4),ry,tit,"sm",PT(11.8),colw-numw-P(4),INK,"l")
+        f.line(cx,ry+rowh-P(3.4),cx+colw,ry+rowh-P(3.4),HAIR,1)
     y+=6*rowh+P(2)
     # nota de pé (orientação)
-    f.text(x,H-P(14),"projectomilreu.pt","sm",PT(9),RED,"l",wt=500)
-    link("folha_frente",x,H-P(14),x+f.tw("projectomilreu.pt","sm",PT(9),500),H-P(14)+PT(9),QURL)
-    f.text(x+CW,H-P(14),"Guia breve · Folha de sala","u",PT(7.5),INK5,"r")
+    f.text(x,H-P(13),"projectomilreu.pt","sm",PT(9),RED,"l",wt=500)
+    link("folha_frente",x,H-P(13),x+f.tw("projectomilreu.pt","sm",PT(9),500),H-P(13)+PT(9),QURL)
+    f.text(x+CW,H-P(13),"Guia breve · Folha de sala","u",PT(7.5),INK5,"r")
     f.save("folha_frente")
     return f
 
 def verso():
     f=F(W,H); x=MX; y=P(20)
-    eyebrow(f,x,y,"O PROJECTO COMUNITÁRIO DE MILREU"); y+=P(9)
-    y=f.para(x,y,"O Projecto Comunitário de Milreu é uma investigação em Arqueologia Pública e Comunitária desenvolvida no âmbito do doutoramento em Arqueologia da Universidade do Algarve. O projecto procura aproximar património, investigação e comunidade, tornando a escuta, a memória e a participação parte do processo de conhecer e interpretar Milreu.","s",PT(11.3),CW,INK7,1.54)+P(14)
-    eyebrow(f,x,y,"COMO FOI CONSTRUÍDO"); y+=P(9)
-    y=f.para(x,y,"A investigação combina métodos quantitativos e qualitativos — inquéritos, entrevistas e auscultação comunitária — com recolha documental, curadoria participativa e desenvolvimento iterativo das iniciativas. Fotografias, testemunhos e contributos locais são tratados não apenas como ilustração, mas como fontes para compreender as relações entre pessoas, território e património.","s",PT(11.3),CW,INK7,1.54)+P(16)
+    eyebrow(f,x,y,"O PROJECTO COMUNITÁRIO DE MILREU"); y+=P(7.5)
+    y=f.para(x,y,"O Projecto Comunitário de Milreu é uma investigação em Arqueologia Pública e Comunitária desenvolvida no âmbito do doutoramento em Arqueologia da Universidade do Algarve. O projecto procura aproximar património, investigação e comunidade, tornando a escuta, a memória e a participação parte do processo de conhecer e interpretar Milreu.","s",PT(11),CW,INK7,1.44)+P(8.5)
+    eyebrow(f,x,y,"COMO FOI CONSTRUÍDO"); y+=P(7)
+    y=f.para(x,y,"A investigação combina métodos quantitativos e qualitativos — inquéritos, entrevistas e auscultação comunitária — com recolha documental, curadoria participativa e desenvolvimento iterativo das iniciativas. Fotografias, testemunhos e contributos locais são tratados não apenas como ilustração, mas como fontes para compreender as relações entre pessoas, território e património.","s",PT(11),CW,INK7,1.44)+P(5)
+    # imagem comunitária (jovens junto ao edifício de cultos, anos 1950); viés p/ cima mantém as caras
+    bh=P(40); f.img_cover(x,y,CW,bh,IMG_MENINAS,focus=0.30); y=f.caption(x,y+bh+P(2.2),CAP_MENINAS,CREDIT_SRC,CW)+P(6)
     # CONTINUE A VISITA — bloco visual com QR independente (quiet zone)
-    f.line(x,y,x+CW,y,HAIR,1); y+=P(8)
-    qs=P(34); qx=x+CW-qs; qpad=P(3.4)
+    f.line(x,y,x+CW,y,HAIR,1); y+=P(6)
+    qs=P(32); qx=x+CW-qs; qpad=P(3.2)
     f.rect(qx-qpad,y-qpad,qs+2*qpad,qs+2*qpad,MARF,outline=KEY,ow=1)  # moldura leve = quiet zone
     f.img_contain(qx,y,qs,qs,QR_PNG)
     link("folha_verso",qx,y,qx+qs,y+qs,QURL)  # QR → URL canónico
     tw=CW-qs-P(12)
-    eyebrow(f,x,y,"CONTINUE A VISITA"); yy=y+P(9.5)
-    yy=f.para(x,yy,"No site pode explorar o museu, conhecer o projecto, acompanhar a circulação da exposição e consultar novos conteúdos.","s",PT(11.3),tw,INK7,1.54)+P(4)
+    eyebrow(f,x,y,"CONTINUE A VISITA"); yy=y+P(8.5)
+    yy=f.para(x,yy,"No site pode explorar o museu, conhecer o projecto, acompanhar a circulação da exposição e consultar novos conteúdos.","s",PT(11),tw,INK7,1.46)+P(4)
     f.text(x,yy,"projectomilreu.pt","sm",PT(12.5),RED,"l",wt=500)
     link("folha_verso",x,yy,x+f.tw("projectomilreu.pt","sm",PT(12.5),500),yy+PT(12.5),QURL)
     cont_bottom=max(yy+P(10), y+qs+qpad+P(2))
@@ -192,15 +240,15 @@ def verso():
     logo_h=P(7.5); sb=H-P(15); logo_y=sb-logo_h
     sub_y=logo_y-P(5.0); idf_y=sub_y-P(6.4); sig_y=idf_y-P(5.8); rule_y=sig_y-P(6.0)
     # ---- MSF + créditos/direitos: posicionado mais abaixo, perto do rodapé (sem fundir) ----
-    msf_y=max(cont_bottom+P(24), rule_y-P(60))
-    f.line(x,msf_y-P(7),x+CW,msf_y-P(7),HAIR,1)
-    eyebrow(f,x,msf_y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026",INK5,PT(8)); yb=msf_y+P(7)
-    yb=f.para(x,yb,"«Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de 2026 apoiadas no âmbito de «Projecto Comunitário de Milreu / Museus sem Fronteiras».","si",PT(9.5),CW,INK5,1.42)+P(6.5)
-    eyebrow(f,x,yb,"CRÉDITOS E PARCERIAS",INK5,PT(8)); yb+=P(6.6)
-    yb=f.para(x,yb,"Associação dos Amigos do Museu do Lyceu de Faro — AAMLF: parceiro institucional e de acompanhamento.","s",PT(9.5),CW,INK7,1.42)+P(2.5)
+    msf_y=max(cont_bottom+P(14), rule_y-P(52))
+    f.line(x,msf_y-P(6.5),x+CW,msf_y-P(6.5),HAIR,1)
+    eyebrow(f,x,msf_y,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026",INK5,PT(8)); yb=msf_y+P(6.5)
+    yb=f.para(x,yb,"«Entre Ruínas e Memórias» e o Circuito Educativo integram as iniciativas de 2026 apoiadas no âmbito de «Projecto Comunitário de Milreu / Museus sem Fronteiras».","si",PT(9.3),CW,INK5,1.38)+P(5)
+    eyebrow(f,x,yb,"CRÉDITOS E PARCERIAS",INK5,PT(8)); yb+=P(5.6)
+    yb=f.para(x,yb,"Associação dos Amigos do Museu do Lyceu de Faro — AAMLF: parceiro institucional e de acompanhamento.","s",PT(9.3),CW,INK7,1.38)+P(2)
     _dir="Conteúdos originais do Projecto Comunitário de Milreu: CC BY 4.0 quando indicado. Fotografias, documentos, logótipos e outros conteúdos de terceiros mantêm os respectivos créditos, autorizações e condições de utilização. Direitos e créditos: projectomilreu.pt"
-    f.para(x,yb,_dir,"s",PT(9),CW,INK5,1.42)
-    _r=f.token_rect(x,yb,_dir,"s",PT(9),CW,1.42,"projectomilreu.pt")
+    f.para(x,yb,_dir,"s",PT(8.8),CW,INK5,1.34)
+    _r=f.token_rect(x,yb,_dir,"s",PT(8.8),CW,1.34,"projectomilreu.pt")
     if _r: link("folha_verso",_r[0],_r[1],_r[2],_r[3],QURL+"/#/direitos")  # link de direitos → página #/direitos
     # footer
     f.line(x,rule_y,x+CW,rule_y,HAIR,1)
