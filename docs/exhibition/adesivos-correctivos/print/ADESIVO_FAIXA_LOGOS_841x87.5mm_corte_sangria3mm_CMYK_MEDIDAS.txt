@@ -1,0 +1,11 @@
+faixa no painel: fio a 1619.6 mm do topo do corte; logótipos 1653.9-1690.4; crédito da gráfica a 1717.2 (Q01 = Q12)
+ADESIVO (corte): 841.0 x 87.5 mm; com sangria 3.0 mm: 847.0 x 93.5 mm (10004x1104 px @ 300 ppi)
+colocação: bordo superior a 1617.6 mm do topo do painel (2.0 mm acima do fio); bordos laterais = bordos do painel
+intervalo entre logótipos: 25.6 mm (= intervalo interno médio do trio; gaps internos do trio em px [63, 48]); escala da fila x1.139
+logótipo | x esq (mm) | y topo (mm) | largura | altura | ppi efectivo
+logo-projeto-comunitario-milreu.png | 55.0 | 1653.1 | 37.3 | 38.2 | 282
+logo-ccdr-algarve.png | 117.9 | 1651.7 | 73.8 | 41.0 | 467
+logo-associacao-amigos-museu-lyceu-faro.png | 217.4 | 1653.1 | 64.9 | 38.2 | 525
+logo-junta-freguesia-estoi.png | 307.9 | 1653.1 | 35.8 | 38.2 | 297
+Milreu_policromatico.png | 369.3 | 1651.4 | 283.1 | 41.6 | 55  <- BAIXO
+logo-ualg-completo.png | 678.1 | 1656.0 | 107.9 | 32.3 | 791

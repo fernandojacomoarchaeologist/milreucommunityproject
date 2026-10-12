@@ -1,5 +1,5 @@
 Proveniência e direitos dos logótipos — conjunto canónico de parcerias
-Atualização: 2026-10-05 (decisão HUMAN/CANONICAL)
+Atualização: 2026-10-05 (decisão HUMAN/CANONICAL) · 2026-10-12 (entrada da Junta de Freguesia de Estoi na posição 4)
 
 ESTADO DE DIREITOS (2026-10-05)
 Os logótipos abaixo estão AUTORIZADOS para uso institucional pelo Projecto
@@ -19,10 +19,18 @@ CONJUNTO CANÓNICO E ORDEM (fixado por referência do responsável)
    CCDR Algarve — versão RGB (fonte: cultalg.gov.pt / «CCDR Algarve - RGB»).
 3. logo-associacao-amigos-museu-lyceu-faro.png
    Associação dos Amigos do Museu do Lyceu de Faro.
-4. Milreu_policromatico.png
+4. logo-junta-freguesia-estoi.png   [ENTRADA 2026-10-12 — decisão do responsável]
+   Junta de Freguesia de Estoi — brasão. Fonte: «brasao.gif» fornecido pelo
+   responsável (419x446, transparente; sha256 9d97e7b0…); convertido para PNG
+   sem alterar píxeis (sha256 28edeb3a…). Uso na faixa aprovado pelo responsável
+   em 2026-10-12; documento de autorização da Junta POR ANEXAR (registar aqui
+   quando existir). Resolução suficiente até ~37 mm de altura a 300 ppi.
+5. Milreu_policromatico.png
    Composição INDIVISÍVEL («sempre juntos»): República Portuguesa
    (Cultura, Juventude e Desporto) + Património Cultural, I.P. + Milreu.
-5. logo-ualg-completo.png
+   ATENÇÃO: só existe a 613x90 px (~55-63 ppi nos painéis). Pedir versão
+   oficial vectorial/alta resolução.
+6. logo-ualg-completo.png
    Universidade do Algarve — versão completa (Manual de Identidade UAlg).
 
 NOTAS
@@ -32,3 +40,5 @@ NOTAS
 - Preferir versão vetorial oficial (SVG/EPS) de cada entidade quando disponível,
   para prepress; os PNG atuais servem RGB/ecrã e composição aprovada.
 - Alteração material do conjunto (adição/remoção/ordem) exige decisão do responsável.
+- Regras de construção da faixa: docs/governance/FAIXA_DE_LOGOS_CANONICA.md
+  e skill .claude/skills/build-logo-band/.

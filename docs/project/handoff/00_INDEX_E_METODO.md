@@ -15,12 +15,12 @@
 |---|---|---|---|
 | 1 | [`HANDOFF_ITEM_01_paineis.md`](HANDOFF_ITEM_01_paineis.md) | Painéis da exposição «Entre Ruínas e Memórias» | PRODUCTION LOCKED / IN PRINT (edição 2026 fechada) — **reabertura só do último painel Q12 por decisão humana** · **1.º uso público 10-10-2026** (QA físico formal pendente) · **gráfica imprimiu só Q01–Q06; Q12 FINAL aprovado/gerado (ficha técnica + CCDR) — falta substituir no Drive** |
 | 2 | [`HANDOFF_ITEM_02_website.md`](HANDOFF_ITEM_02_website.md) | Website `projectomilreu.pt` | LIVE · `noindex` · gate editorial humano |
-| 2B | [`HANDOFF_ITEM_02B_seguranca.md`](HANDOFF_ITEM_02B_seguranca.md) | Segurança do sistema | **P0 AUDIT COMPLETE / NO PATCHES APPLIED** · **L1 PHASE 1 APPLIED / ADMINISTRATIVE VERIFIED** (L1-01…05 + L1-06 parcial) — restantes IDs e L2 aguardam aprovação |
+| 2B | [`HANDOFF_ITEM_02B_seguranca.md`](HANDOFF_ITEM_02B_seguranca.md) | Segurança do sistema | **P0 AUDIT COMPLETE / NO PATCHES APPLIED** · **L1 PHASE 1 APPLIED / ADMINISTRATIVE VERIFIED** (L1-01…06b) · **L2 em desenvolvimento** (branch, sem push/PR) — aguarda revisão |
 | 3 | [`HANDOFF_ITEM_03_orcamento3d.md`](HANDOFF_ITEM_03_orcamento3d.md) | Orçamento impressora 3D (consulta de mercado) | VERSÃO FINAL · falta adjudicação (humana) |
 | 4 | [`HANDOFF_ITEM_04_poster.md`](HANDOFF_ITEM_04_poster.md) | Poster de congresso A0 (académico) | EDITORIAL FROZEN / HUMAN DESIGN PASS · gate prepress |
 | 5 | [`HANDOFF_ITEM_05_flyer_marcador.md`](HANDOFF_ITEM_05_flyer_marcador.md) | Flyer + Marcador (+ reconciliação A5) | FINAL (v6.4) + reconciliação A5 em HUMAN GATE · gate CMYK |
 | 6 | [`HANDOFF_ITEM_06_convite_inquerito.md`](HANDOFF_ITEM_06_convite_inquerito.md) | Convite ao Inquérito 2026 | DONE / PRODUCTION GATE PENDING (QR físico + prepress) |
-| 7 | [`HANDOFF_ITEM_07_dossie.md`](HANDOFF_ITEM_07_dossie.md) | Dossiê «convite ao convite» (A5 4 pág.) | FINAL ART DELIVERED (SVG vetorial) · gate prepress · **P3 v2 (frente/verso + ambiente + material) integrada 2026-10-12 — PDFs regenerados, sem commit** |
+| 7 | [`HANDOFF_ITEM_07_dossie.md`](HANDOFF_ITEM_07_dossie.md) | Dossiê «convite ao convite» (A5 4 pág.) | FINAL ART DELIVERED (SVG vetorial) · gate prepress · **P3 v2 + P4 (Quero expor/contactos/ficha técnica) integradas 2026-10-12 — PDFs regenerados, sem commit** |
 | 8 | [`HANDOFF_ITEM_08_cartaz_local.md`](HANDOFF_ITEM_08_cartaz_local.md) | Cartaz local (master A3/A4) | TEMPLATE READY / STAND BY |
 | 9 | [`HANDOFF_ITEM_09_kit_press.md`](HANDOFF_ITEM_09_kit_press.md) | Kit Digital + Press Kit | PRESS PACKAGE READY · redistribuição genérica/anfitrião BLOQUEADA |
 | 10 | [`HANDOFF_ITEM_10_folha_sala.md`](HANDOFF_ITEM_10_folha_sala.md) | Folha de Sala / Guia breve A4 | FINAL ART READY · gate prepress (ICC) |
@@ -52,6 +52,7 @@
 - **Milreu Proteus** = camada técnica de dados; **não** entra no logótipo nem é nome público.
 
 ### Conjunto canónico de parcerias (ordem fixa — Itens 4, 5, 6, 7, 10, 14)
+> **⚠️ SUBSTITUÍDO em 2026-10-12 pela «Faixa de Logos» canónica:** `docs/governance/FAIXA_DE_LOGOS_CANONICA.md` (autoritativo) + skill `.claude/skills/build-logo-band/` + regra `.claude/rules/logo-band-canonical.md`. Nova ordem: 1 Projecto · 2 CCDR · 3 AAMLF · **4 Junta de Freguesia de Estoi** (`logo-junta-freguesia-estoi.png`) · 5 trio Milreu (indivisível) · 6 UAlg. **Intervalo igual entre todos = intervalo interno do trio.** A lista abaixo é o histórico de 2026-10-02.
 Ficheiros em `public/media/exhibition/updated/logos/`:
 1. **Projecto Comunitário de Milreu** (`logo-projeto-comunitario-milreu.png`)
 2. **CCDR Algarve — RGB** (`logo-ccdr-algarve.png`)

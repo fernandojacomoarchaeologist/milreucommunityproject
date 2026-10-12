@@ -1,0 +1,7 @@
+moldura antiga (painel): 382.2 x 445.2 mm; canto sup-esq a 404.3 mm da esquerda e 1109.4 mm do topo (corte do painel)
+         distância à direita do corte: 54.4 mm; ao fundo do corte: 245.4 mm
+filete do painel (CMYK 0-255): (74, 75, 97, 2)  ~1.1 mm
+adesivo (CORTE): 386.2 x 449.2 mm  (folga 2.0 mm/lado)
+adesivo (com sangria 3.0 mm): 392.2 x 455.2 mm  -> 2316 x 2688 px @ 150 ppi
+colocação: canto sup-esq do adesivo a 402.3 mm da esquerda e 1107.4 mm do topo do painel (= 2.0 mm para fora da moldura antiga)
+mapa: interior PNG 1113x1296 px (y 64..1360); escala uniforme x2.0359/y2.0355; resolução efectiva da fonte ~74 ppi

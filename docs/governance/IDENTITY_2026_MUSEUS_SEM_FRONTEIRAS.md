@@ -84,3 +84,4 @@ O identificador 2026 fica **fora** da fila de logótipos.
 - **Menção do apoio (art. 16.º do regulamento CCDR):** quando houver ficha técnica, acompanhar com a fórmula exacta «Apoiado pela CCDR Algarve, I.P.» (EN: «Supported by CCDR Algarve, I.P.»), além do logótipo da CCDR na fila de parcerias.
 - **Grafia:** «Projecto» (pré-AO90), como no resto das peças.
 - **Não** aplicar automaticamente a anos futuros (como o identificador 2026).
+- **Faixa de logos:** regras canónicas em `docs/governance/FAIXA_DE_LOGOS_CANONICA.md` (inclui a Junta de Freguesia de Estoi desde 2026-10-12).
