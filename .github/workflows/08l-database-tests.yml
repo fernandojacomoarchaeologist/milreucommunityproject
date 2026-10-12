@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   database:
+    name: 08l-database-tests-database
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

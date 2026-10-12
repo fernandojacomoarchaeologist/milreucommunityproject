@@ -87,6 +87,7 @@ jobs:
           path: dist
 
   deploy:
+    name: 07d-pages-deploy
     needs: build
     runs-on: ubuntu-latest
     permissions:
