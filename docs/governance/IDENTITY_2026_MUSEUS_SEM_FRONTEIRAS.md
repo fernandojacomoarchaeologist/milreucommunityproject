@@ -49,7 +49,7 @@ O identificador 2026 fica **fora** da fila de logótipos.
 
 | Item | Regra |
 |---|---|
-| 1 — Painéis | **não alterar** (fechados) |
+| 1 — Painéis | **não alterar** (fechados) — **excepção humana 2026-10-12: só o Q12** reaberto para a ficha técnica (§7) + menção CCDR do art. 16.º; Q01–Q11 mantêm-se fechados; identificador MSF continua **fora** dos painéis |
 | 2 — Website | relação explícita Projecto → MSF 2026 → 2 iniciativas; identificador em área institucional/Media-Press; não renomear o portal — **APLICADO** (PR #73) |
 | 3 — Orçamento | forma administrativa completa (A) + subtítulo das 2 iniciativas — **APLICADO** (regenerado do pipeline 2026-10-03). Âmbito alargado por decisão humana **GOV-MSF-2026 v3** (`allowed_paths` += `docs/procurement/`, base = `main` após #72/#73) |
 | 4 — Poster | **EXCEPÇÃO registada (decisão humana 2026-10-04):** identificador em **duas** posições — (i) **abaixo do título** (sob o subtítulo) e (ii) **rodapé institucional** com a sublinha das iniciativas (copy C) — em **tom neutro KEY** (não `ink.900`), fora da fila de logótipos. Diverge do padrão geral (rodapé único; cor §3) e aplica-se **apenas ao poster**. Regenerado do gerador canónico com a composição aprovada preservada — **APLICADO** (PR #87 produção/CMYK/SVG + PR #88 vetor editável; anterior PR #74). |
@@ -63,6 +63,24 @@ O identificador 2026 fica **fora** da fila de logótipos.
 
 ## 6. QA (rejeitar / confirmar)
 
-**Rejeitar** se: o projecto inteiro for chamado «Museus sem Fronteiras»; «Projecto Comunitário de Milreu» perder a posição de marca permanente; «Entre Ruínas e Memórias» for renomeado; o Circuito Educativo desaparecer da explicação do ciclo financiado; o identificador for tratado como parceiro/logótipo; os painéis forem reabertos; o orçamento ligado à CCDR não usar a designação administrativa completa; o poster apresentar o ciclo 2026 como o projecto inteiro; o Museu do Lyceu for apresentado como proprietário/autor sem base documental; o identificador 2026 for aplicado automaticamente a anos futuros.
+**Rejeitar** se: o projecto inteiro for chamado «Museus sem Fronteiras»; «Projecto Comunitário de Milreu» perder a posição de marca permanente; «Entre Ruínas e Memórias» for renomeado; o Circuito Educativo desaparecer da explicação do ciclo financiado; o identificador for tratado como parceiro/logótipo; os painéis forem reabertos (excepto a reabertura humana do Q12 de 2026-10-12, §7); o orçamento ligado à CCDR não usar a designação administrativa completa; o poster apresentar o ciclo 2026 como o projecto inteiro; o Museu do Lyceu for apresentado como proprietário/autor sem base documental; o identificador 2026 for aplicado automaticamente a anos futuros.
 
 **Confirmar** que: projecto permanente ≠ ciclo financiado 2026; as duas iniciativas de 2026 estão explícitas; «Entre Ruínas e Memórias» mantém nome próprio; o Circuito Educativo aparece como iniciativa-irmã; a designação oficial completa é preservada nos materiais administrativos.
+
+## 7. Créditos canónicos das iniciativas 2026 (decisão humana 2026-10-12)
+
+**Canónico para todas as peças das iniciativas de 2026** («Entre Ruínas e Memórias» e Circuito Educativo) que tenham ficha técnica/créditos. Aplicado pela primeira vez no painel Q12 (Item 1). Usar literalmente; não parafrasear nem acrescentar cargos.
+
+| Ordem | Função (pt-PT) | Função (EN) | Nome | Afiliação impressa |
+|---|---|---|---|---|
+| 1 | Investigação, design e produção | Research, design and production | **Fernando Rodrigues de Jácomo** | — |
+| 2 | Coordenação institucional | Institutional coordination | **Meira Pinto** | Associação dos Amigos do Museu do Lyceu de Faro |
+| 3 | Curadoria | Curated by | **Grupo de voluntários** | do Projecto Comunitário de Milreu |
+
+- **Ordem fixa:** o responsável vem primeiro (decisão humana).
+- **Composição:** as três funções têm **o mesmo peso tipográfico** (colunas ou linhas iguais); a coordenação institucional (Meira Pinto/AAMLF) fica **ao lado, nunca abaixo** do responsável em hierarquia visual — evita leitura de subordinação perante a CCDR.
+- **Meira Pinto:** imprimir só «Meira Pinto» + afiliação AAMLF; **sem cargo** (não inferir «curador», «fundador» ou outro).
+- **«Coordenação institucional»** descreve a articulação de contactos, cedência de painéis e apoio à exposição-teste; **não** é autoria nem co-produção (coerente com a regra do Museu do Lyceu no §1).
+- **Menção do apoio (art. 16.º do regulamento CCDR):** quando houver ficha técnica, acompanhar com a fórmula exacta «Apoiado pela CCDR Algarve, I.P.» (EN: «Supported by CCDR Algarve, I.P.»), além do logótipo da CCDR na fila de parcerias.
+- **Grafia:** «Projecto» (pré-AO90), como no resto das peças.
+- **Não** aplicar automaticamente a anos futuros (como o identificador 2026).

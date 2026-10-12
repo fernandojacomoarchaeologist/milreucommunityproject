@@ -4,6 +4,12 @@ node_modules/
 *.log
 .env
 
+# Item 13 (CCDR 2026) e geral — pasta privada DENTRO do projeto para o pipeline
+# acionar inputs sensíveis (faturas, comprovativos, originais fiscais, documentos de
+# candidatura, imagens com direitos) SEM os commitar. O build deve tolerar a ausência.
+_private/
+**/_private/
+
 # Pacote 05A — fonte primária de terceiros: manter privada, nunca publicar no repo público.
 # Ver SOURCE_RIGHTS_NOTICE.md. Os ficheiros ficam localmente para consulta interna.
 sources/primary/private/
