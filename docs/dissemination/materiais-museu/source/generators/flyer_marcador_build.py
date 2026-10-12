@@ -122,7 +122,7 @@ class Face:
 LOGODIR=_os.path.join(_REPO,"public","media","exhibition","updated","logos")
 def L(fn): return os.path.join(LOGODIR,fn)
 import numpy as _np, io as _io, base64 as _b64
-LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 def _trim(p):
     im=Image.open(p).convert("RGBA"); a=_np.asarray(im); al=a[:,:,3]
     mask=(al>16) if al.min()<250 else (a[:,:,:3].sum(2)<735)
@@ -305,8 +305,8 @@ mv.line("11_rule",SM,sby+4.5,MW-SM,sby+4.5,HAIR,0.3)
 mv.text("09_signature",MW/2,sby+10.5,"Projecto Comunitário de Milreu","u",7.6,INK5,"middle",wt=600)
 mv.text("09b_identifier",MW/2,sby+15.5,"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",4.6,INK5,"middle",ls=0.4,wt=500)
 mv.text("12_support_head",MW/2,sby+20.5,"Apoio institucional e parcerias","u",5.2,INK5,"middle",ls=0.2,wt=600)
-_place_row(mv,"13_logos",MW/2,sby+24.5,["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-ualg-completo.png"],4.2)
-_place_row(mv,"13_logos",MW/2,sby+32.0,["Milreu_policromatico.png"],5.0)
+_place_row(mv,"13_logos",MW/2,sby+24.5,["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png"],4.2)
+_place_row(mv,"13_logos",MW/2,sby+32.0,["Milreu_policromatico.png","logo-ualg-completo.png"],5.0)
 mv.save("bookmark_back_editable")
 print("MARCADOR VERSO ok")
 print("DONE")

@@ -83,7 +83,7 @@ if __name__=="__main__":
       (f"{I5}/flyer_a6_back_PRINT.png",105,148,f"{I5}/CMYK_PDFX/flyer_a6_back_PRINTX.pdf","Flyer A6 verso",False),
       (f"{I5}/marcador_59x214_front_PRINT.png",59,214,f"{I5}/CMYK_PDFX/marcador_59x214_front_PRINTX.pdf","Marcador frente",False),
       (f"{I5}/marcador_59x214_back_PRINT.png",59,214,f"{I5}/CMYK_PDFX/marcador_59x214_back_PRINTX.pdf","Marcador verso",False),
-      (_os.path.join(_os.path.dirname(__file__),"..","..","..","convite-inquerito","final","_work","06_A6_frente.png")  # PNG intermédio do convite_arte_final.py,105,148,f"{I6}/CMYK_PDFX/06_A6_frente_PRINTX.pdf","Convite A6",True),
+      (_os.path.join(_os.path.dirname(__file__),"..","..","..","convite-inquerito","final","_work","06_A6_frente.png"),105,148,f"{I6}/CMYK_PDFX/06_A6_frente_PRINTX.pdf","Convite A6",True),
       (_os.path.join(_os.path.dirname(__file__),"..","..","..","convite-inquerito","final","_work","06_A4.png"),210,297,f"{I6}/CMYK_PDFX/06_A4_PRINTX.pdf","Convite A4",True),
       (_os.path.join(_os.path.dirname(__file__),"..","..","..","convite-inquerito","final","_work","06_A3.png"),297,420,f"{I6}/CMYK_PDFX/06_A3_PRINTX.pdf","Convite A3",True),
     ]

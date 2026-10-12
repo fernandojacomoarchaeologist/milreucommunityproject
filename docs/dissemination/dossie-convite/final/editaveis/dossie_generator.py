@@ -28,7 +28,7 @@ MM627=f"{_GEN}/MM202627/detail.webp"  # trabalhadores em descanso/convívio (soc
 MM613g=f"{_GEN}/MM202613/detail.webp"  # equipa de escavadores com Theodor Hauschild (wide)
 MM604c=os.path.join(HERE,"imagens","MM202604_crop.png")  # committed em editaveis/imagens
 LOGODIR=os.path.join(_REPO,"public","media","exhibition","updated","logos")
-LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 QURL="https://projectomilreu.pt"
 FORMURL="https://projectomilreu.pt/#/participar/expor"  # formulário «Quero expor» (rota canónica do site)
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)

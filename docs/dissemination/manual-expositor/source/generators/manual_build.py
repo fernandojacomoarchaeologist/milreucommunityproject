@@ -19,7 +19,7 @@ os.makedirs(PG,exist_ok=True)
 QR_PNG=os.path.join(REPO,"docs","dissemination","dossie-convite","final","editaveis","QR_projectomilreu.png")
 QURL="https://projectomilreu.pt"
 LOGODIR=os.path.join(REPO,"public","media","exhibition","updated","logos")
-LOGOS=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+LOGOS=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
 RED=(168,50,39); KEY=(176,164,145); HAIR=(230,220,201); BROWN=(98,70,45)
 FP=os.path.expanduser("~/Library/Fonts/")
