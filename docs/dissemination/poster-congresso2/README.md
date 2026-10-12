@@ -25,7 +25,7 @@ Adaptação **mínima** de um poster académico **aprovado** (`Milreu - Proposta
 
 ## Rodapé 2026 (copy canónica)
 - Esquerda: **Projecto Comunitário de Milreu** + `MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026`.
-- Direita: `APOIO INSTITUCIONAL E PARCERIAS` + barra canónica de 5 logos (alturas iguais, trio República+Património+Milreu à largura natural).
+- Direita: `APOIO INSTITUCIONAL E PARCERIAS` + faixa canónica de 6 logos (`docs/governance/FAIXA_DE_LOGOS_CANONICA.md`, modo B compacto): Projecto · CCDR · AAMLF · **Junta de Freguesia de Estoi** (entrada 2026-10-12) · trio República+Património+Milreu (indivisível) · UAlg; alturas iguais (30 px), intervalo único 0,6×altura; alinhada à direita (composição aprovada do rodapé).
 
 ## Preservação do original
 - O PSD original permanece em `~/Downloads/Milreu - Proposta de Trabalho-8.psd` (não versionado); a cópia de trabalho (`ITEM12_Poster_Congresso2_v1.psd`) está fora do repositório.
