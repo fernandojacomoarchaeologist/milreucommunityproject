@@ -26,6 +26,7 @@ DPI=300; S=72.0/DPI  # px -> pt
 ICC="/System/Library/ColorSync/Profiles/Generic CMYK Profile.icc"
 PROFILE_NAME="Generic CMYK Profile (perfil padrão — confirmar/substituir pelo perfil ICC da gráfica)"
 QURL="https://projectomilreu.pt"
+FORMURL="https://projectomilreu.pt/#/participar/expor"  # QR da P4 (formulário «Quero expor»)
 meta=json.load(open(os.path.join(PREV,"_links.json")))
 BLEED_MM=meta["bleed_mm"]; TW,TH=meta["trim_mm"]
 bleed_px=round(BLEED_MM*DPI/25.4)
@@ -128,10 +129,14 @@ def build_livreto():
 def build_qr():
     q=qrcode.make(QURL); q.save(os.path.join(EDIT,"QR_projectomilreu.png"))
     img=qrcode.make(QURL, image_factory=qrsvg.SvgPathImage); img.save(os.path.join(EDIT,"QR_projectomilreu.svg"))
+    # QR da P4 = formulário «Quero expor» (o QR canónico do site acima mantém-se: usado pelos Itens 10 e 11)
+    q=qrcode.make(FORMURL); q.save(os.path.join(EDIT,"QR_quero_expor.png"))
+    img=qrcode.make(FORMURL, image_factory=qrsvg.SvgPathImage); img.save(os.path.join(EDIT,"QR_quero_expor.svg"))
 
 # ---------- editáveis: source + imagens usadas ----------
 def collect_editaveis():
-    shutil.copy(os.path.join(HERE,"dossie_generator.py"), os.path.join(EDIT,"dossie_generator.py"))
+    src_gen=os.path.join(HERE,"dossie_generator.py"); dst_gen=os.path.join(EDIT,"dossie_generator.py")
+    if not (os.path.exists(dst_gen) and os.path.samefile(src_gen,dst_gen)): shutil.copy(src_gen,dst_gen)
     imgdir=os.path.join(EDIT,"imagens"); os.makedirs(imgdir,exist_ok=True)
     GEN=_os.path.join(_REPO,"public","media","museum","generated")
     srcs=[GEN+"/MM202602/detail.webp", os.path.join(HERE,"assets_crop","MM202604_crop.png"),
