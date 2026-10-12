@@ -1175,7 +1175,8 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .partner-logos img.partner-logo--k099{height:calc(var(--pl-h)*.99)}
 .partner-logos img.partner-logo--k092{height:calc(var(--pl-h)*.92)}
 .partner-logos img.partner-logo--k078{height:calc(var(--pl-h)*.78)}
-.partner-section--on-dark{border-top-color:rgb(255 255 255/.18)}
+.partner-section--on-dark{border-top-color:rgb(255 255 255/.18);padding-bottom:max(clamp(2.5rem,6vw,5rem),5.5rem)}
+/* A faixa é o último bloco do Museu: o espaço inferior (≥5.5rem) evita que o botão fixo «Voltar ao Projeto» (.museum-return-floating, 3rem + 1.15rem de margem) tape o último logótipo no fim da página. */
 .partner-section--on-dark .section-heading h2,.partner-section--on-dark .section-heading p{color:var(--ml-text-inverse)}
 .partner-logos--panel{background:var(--ml-surface-reading);border-radius:14px;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem)}
 
