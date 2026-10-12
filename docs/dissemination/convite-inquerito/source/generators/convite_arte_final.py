@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFont
 import qrcode
 import numpy as _np
 LOGODIR=_os.path.join(_REPO,"public","media","exhibition","updated","logos")
-LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 def _trimlogo(p):
     im=Image.open(p).convert("RGBA"); a=_np.asarray(im); al=a[:,:,3]
     mask=(al>16) if al.min()<250 else (a[:,:,:3].sum(2)<735)

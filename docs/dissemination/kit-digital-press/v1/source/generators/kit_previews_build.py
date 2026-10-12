@@ -17,7 +17,7 @@ import qrcode, numpy as _np
 OUTP=os.path.join(HERE,"previews"); os.makedirs(OUTP,exist_ok=True)
 GEN=_os.path.join(_REPO,"public","media","museum","generated")
 LOGODIR=_os.path.join(_REPO,"public","media","exhibition","updated","logos")
-LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 IMG=GEN+"/MM202601/immersive.webp"; IMG608=GEN+"/MM202608/immersive.webp"
 QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)

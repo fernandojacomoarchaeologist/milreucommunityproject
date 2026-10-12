@@ -312,7 +312,7 @@ c.text("partner",M,fy-88,"Parceria e apoio","d",T_SUB*0.62,INK,wt=600)
 c.para("partner",M,fy-78,"O desenvolvimento das iniciativas conta com a parceria da Associação dos Amigos do Museu do Lyceu de Faro (AMLF) / Museu do Lyceu de Faro e com apoio financeiro parcial da CCDR Algarve.","s",T_META*0.95,T_META*0.95*1.3,CW*0.80,INK7)
 # fila de logótipos dos parceiros (dos painéis, excepto gráfica)
 LOGOS=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png",
-       "Milreu_policromatico.png","logo-ualg-completo.png"]
+       "logo-junta-freguesia-estoi.png","Milreu_policromatico.png","logo-ualg-completo.png"]
 c.text("logos",M,fy-54,"APOIO INSTITUCIONAL E PARCERIAS · INSTITUTIONAL SUPPORT AND PARTNERSHIPS","u",T_EYE*0.9,INK5,ls=1.0,wt=600)
 # escala + espaçamento uniformes: altura-cap comum (tinta real aparada) e GAPS iguais, linha centrada
 LOGO_H=12.5; LOGO_CY=fy-39
