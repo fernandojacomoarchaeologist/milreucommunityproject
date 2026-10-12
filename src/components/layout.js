@@ -116,28 +116,34 @@ export function footer(lang="pt-PT") {
   </footer>`;
 }
 
-// Logótipos de parceria/apoio (os mesmos dos painéis da exposição). Reutilizado na Home
-// e no Museu. Direitos/uso institucional de cada entidade: ver
-// public/media/exhibition/updated/logos/PROVENIENCIA.txt (vários "a confirmar").
-const PARTNER_LOGOS = [
-  ["logo-projeto-comunitario-milreu.png", "Projeto Comunitário de Milreu"],
-  ["logo-ccdr-algarve.png", "CCDR Algarve"],
-  ["logo-associacao-amigos-museu-lyceu-faro.png", "Associação dos Amigos do Museu do Lyceu de Faro"],
-  ["Milreu_policromatico.png", "Milreu · República Portuguesa (Cultura, Juventude e Desporto) · Património Cultural"],
-  ["logo-ualg-completo.png", "Universidade do Algarve"]
+// Faixa de Logos canónica (docs/governance/FAIXA_DE_LOGOS_CANONICA.md, modo B — compacta).
+// Ordem fixa: Projecto · CCDR · AAMLF · Junta de Freguesia de Estoi · trio Milreu (indivisível) · UAlg.
+// Alturas ópticas relativas ao trio (§3) aplicadas por classe; intervalo único = 0,6 × altura do trio.
+// Duas linhas canónicas quando não cabe: entidades 1–4 na 1.ª, trio + UAlg na 2.ª.
+// Direitos/uso institucional: public/media/exhibition/updated/logos/PROVENIENCIA.txt.
+const PARTNER_LOGO_ROWS = [
+  [
+    ["logo-projeto-comunitario-milreu.png", "Projeto Comunitário de Milreu", "k092"],
+    ["logo-ccdr-algarve.png", "CCDR Algarve", "k099"],
+    ["logo-associacao-amigos-museu-lyceu-faro.png", "Associação dos Amigos do Museu do Lyceu de Faro", "k092"],
+    ["logo-junta-freguesia-estoi.png", "Junta de Freguesia de Estoi", "k092"]
+  ],
+  [
+    ["Milreu_policromatico.png", "Milreu · República Portuguesa (Cultura, Juventude e Desporto) · Património Cultural", "trio"],
+    ["logo-ualg-completo.png", "Universidade do Algarve", "k078"]
+  ]
 ];
 
 export function partnerLogos(lang, { dark = false } = {}) {
-  const items = PARTNER_LOGOS.map(([file, name]) => {
-    const cls = file === "Milreu_policromatico.png" ? ' class="partner-logo--trio"' : "";
-    return `<li><img${cls} src="${assetUrl("public/media/exhibition/updated/logos/" + file)}" alt="${name}" loading="lazy" decoding="async"></li>`;
-  }).join("");
+  const items = PARTNER_LOGO_ROWS.map(row => `<ul class="partner-logos__row">${row.map(([file, name, k]) =>
+    `<li><img class="partner-logo--${k}" src="${assetUrl("public/media/exhibition/updated/logos/" + file)}" alt="${name}" loading="lazy" decoding="async"></li>`
+  ).join("")}</ul>`).join("");
   return `<section class="partner-section${dark ? " partner-section--on-dark" : ""}" aria-label="${text(lang,"partnersTitle")}">
     <div class="section-heading section-heading--stacked">
       <h2>${text(lang,"partnersTitle")}</h2>
       <p>${text(lang,"partnersLead")}</p>
     </div>
-    <ul class="partner-logos${dark ? " partner-logos--panel" : ""}">${items}</ul>
+    <div class="partner-logos${dark ? " partner-logos--panel" : ""}">${items}</div>
   </section>`;
 }
 

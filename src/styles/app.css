@@ -1167,14 +1167,18 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 
 /* Parcerias e apoio (Home + Museu) */
 .partner-section{max-width:var(--ml-container-max);margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,4rem);border-top:1px solid var(--ml-border-subtle)}
-.partner-logos{list-style:none;margin:1.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:clamp(1.1rem,2.7vw,1.9rem)}
-.partner-logos li{display:flex;align-items:center}
-.partner-logos img{height:clamp(32px,4.5vw,48px);width:auto;max-width:170px;object-fit:contain}
-.partner-logos img.partner-logo--trio{height:clamp(42px,6vw,63px);max-width:230px}
+/* Faixa de Logos canónica (modo B): --pl-h = altura do trio; intervalo único = 0,6 × trio (FAIXA_DE_LOGOS_CANONICA §3). */
+.partner-logos{--pl-h:clamp(28px,7.8vw,48px);--pl-gap:calc(var(--pl-h)*.6);margin:1.5rem 0 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:var(--pl-gap)}
+.partner-logos__row{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:var(--pl-gap)}
+.partner-logos__row li{display:flex;align-items:center}
+.partner-logos img{height:var(--pl-h);width:auto;max-width:none;object-fit:contain}
+.partner-logos img.partner-logo--k099{height:calc(var(--pl-h)*.99)}
+.partner-logos img.partner-logo--k092{height:calc(var(--pl-h)*.92)}
+.partner-logos img.partner-logo--k078{height:calc(var(--pl-h)*.78)}
 .partner-section--on-dark{border-top-color:rgb(255 255 255/.18)}
 .partner-section--on-dark .section-heading h2,.partner-section--on-dark .section-heading p{color:var(--ml-text-inverse)}
-.partner-logos--panel{background:var(--ml-surface-reading);border-radius:14px;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem);gap:clamp(1.25rem,3vw,2.5rem)}
-@media(max-width:52rem){.partner-logos img{height:34px}.partner-logos img.partner-logo--trio{height:45px}}
+.partner-logos--panel{background:var(--ml-surface-reading);border-radius:14px;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem)}
+
 /* ===== Item 2 — Media/Press + Identidade visual ===== */
 .page-lead__actions{display:flex;flex-wrap:wrap;gap:var(--ml-space-3);margin-top:var(--ml-space-5)}
 .media-press .muted,.visual-identity .muted{color:var(--ml-color-text-muted);font-size:.92rem}
