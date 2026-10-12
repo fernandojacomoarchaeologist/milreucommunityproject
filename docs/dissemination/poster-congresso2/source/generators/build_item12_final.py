@@ -22,7 +22,8 @@ OUT=os.path.join(REPO,"docs","dissemination","poster-congresso2","final"); os.ma
 BODY=os.path.join(REPO,"docs","dissemination","poster-congresso2","source","poster_body.png")  # composto aprovado (PSD->PNG)
 LOGODIR=os.path.join(REPO,"public","media","exhibition","updated","logos")
 LOGOS=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png",
-       "logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+       "logo-associacao-amigos-museu-lyceu-faro.png","logo-junta-freguesia-estoi.png",  # Junta: pos. 4 (faixa canónica 2026-10-12)
+       "Milreu_policromatico.png","logo-ualg-completo.png"]
 FP=os.path.expanduser("~/Library/Fonts/")
 
 # --- geometria (coords partilhadas SVG + preview) ---
