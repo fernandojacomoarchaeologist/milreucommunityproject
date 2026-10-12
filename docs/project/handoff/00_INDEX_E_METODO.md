@@ -26,8 +26,8 @@
 | 10 | [`HANDOFF_ITEM_10_folha_sala.md`](HANDOFF_ITEM_10_folha_sala.md) | Folha de Sala / Guia breve A4 | FINAL ART READY · gate prepress (ICC) |
 | 11 | [`HANDOFF_ITEM_11_manual_expositor.md`](HANDOFF_ITEM_11_manual_expositor.md) | Manual do Expositor | CONTENT/DESIGN PASS · bloqueado por validação física |
 | 12 | [`HANDOFF_ITEM_12_poster2.md`](HANDOFF_ITEM_12_poster2.md) | Poster de Congresso 2 (adaptação legada) | CONTENT PASS · falta correcção PSD (externo) |
-| 13 | [`HANDOFF_ITEM_13_relatorio_ccdr.md`](HANDOFF_ITEM_13_relatorio_ccdr.md) | Relatório de Execução CCDR 2026 | v0.20 PRELIMINAR · RETOMADO 2026-10-12 (1.ª apresentação da exposição 10-10 integrada) |
 | 14 | [`HANDOFF_ITEM_14_banner.md`](HANDOFF_ITEM_14_banner.md) | Banner institucional (lona 850×2000) | v0.6b FINAL ART READY · PREPRESS PENDING |
+| 15 | [`HANDOFF_ITEM_15_adesivo.md`](HANDOFF_ITEM_15_adesivo.md) | Adesivo do logótipo (Ø50 mm) | Item novo — print + CMYK + prova (APROVADO) |
 
 **Estados da sessão 2026-10-08→12 (Itens 13, 14, 5-reconc, 2B):** tudo em **HUMAN GATE — sem commit, sem PR** (árvore untracked). Itens 1–12 (exceto reconc. do 5) já estão em `main`.
 

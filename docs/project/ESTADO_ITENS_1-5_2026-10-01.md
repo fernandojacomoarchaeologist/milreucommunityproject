@@ -317,3 +317,15 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 - 2026-10-12 · PENDENTE · Documento de autorização da Junta; trio Milreu em alta resolução; autoria do mapa (ficheiros de impressão do mapa fora do Git até lá).
 
 > Outros itens: entradas mantidas localmente até revisão própria (conteúdo de segurança/privado não publicado).
+
+
+---
+
+## Manutenção da faixa de logótipos + entregáveis para gráfica — 2026-10-12
+
+**Faixa canónica (6 logótipos, Junta de Freguesia de Estoi na posição 4)** aplicada/verificada nos materiais; espaçamento canónico 0,6 × altura.
+
+- **Item 14 — Banner institucional (v0.6b):** rodapé reconstruído como **faixa canónica única** (sem destaque isolado da CCDR; logo do Projecto na faixa, redundância aceite), **espaçamento 0,6 × altura**, imagem central com zoom (sem margens brancas). Alterações **persistidas** no gerador; finais em `proof/` + `print/`. **APROVADO.**
+- **Item 15 — Adesivo do logótipo (NOVO):** redondo Ø50 mm, sangria 3 mm, logótipo preservado. **APROVADO.** Ver `docs/dissemination/adesivo-logo/` e `handoff/HANDOFF_ITEM_15_adesivo.md`.
+- **Entregáveis para gráfica** reunidos no cofre externo `Milreudocs/Temporary` (RGB c/ sangria + CMYK «Generic» de referência + SVG auto-contidos; a **gráfica faz a conversão CMYK**). Itens 1,2,4,5,6,7,8,9,10,11,12,14,15.
+- **Pendente:** Item 4 (poster) com a faixa Estoi existe **apenas no cofre** — falta aplicá-la no repo pela janela do Item 4 (o `origin/main` do poster ainda não tem a Junta). SVG auto-contido de poster/flyer/marcador depende de exportar os assets recortados.
