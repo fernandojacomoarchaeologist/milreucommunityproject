@@ -21,7 +21,9 @@ concurrency:
 
 jobs:
   dispatch:
-    if: ${{ inputs.confirmation == 'DISPATCH_MILREU_NOTIFICATIONS_STAGING' }}
+    # L2: staging só corre com a variável MILREU_STAGING_ENABLED=true — impede que o
+    # GitHub crie automaticamente um environment `staging` sem protecções.
+    if: ${{ inputs.confirmation == 'DISPATCH_MILREU_NOTIFICATIONS_STAGING' && vars.MILREU_STAGING_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     environment: staging
     steps:
