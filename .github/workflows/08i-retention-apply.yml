@@ -1,6 +1,12 @@
 # © 2026 Fernando Rodrigues de Jácomo.
 # Produzido no âmbito do Projeto Comunitário de Milreu.
 # Consultar RIGHTS.md.
+#
+# L2 / SEC-P0-001: nenhum input é interpolado em `run:`. Todos os inputs entram
+# por `env:` e são comparados como dados (aspas), nunca como código. A confirmação
+# literal é também exigida no `if:` do job (avaliada pelo GitHub, não pelo bash).
+# O ambiente `staging` só é aceite com a variável `MILREU_STAGING_ENABLED=true`,
+# para impedir a criação automática de um environment sem protecções.
 
 name: 08I Apply Approved Retention
 
@@ -34,18 +40,27 @@ concurrency:
 
 jobs:
   apply:
+    if: >-
+      ${{ inputs.confirmation == 'APPLY_MILREU_RETENTION_POLICY'
+      && (inputs.environment == 'production' || vars.MILREU_STAGING_ENABLED == 'true') }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
       - name: Validate confirmations
         shell: bash
+        env:
+          TARGET_ENVIRONMENT: ${{ inputs.environment }}
+          CONFIRMATION: ${{ inputs.confirmation }}
+          PRODUCTION_CONFIRMATION: ${{ inputs.production_confirmation }}
+          RUN_ID: ${{ inputs.run_id }}
         run: |
           set -euo pipefail
-          test "${{ inputs.confirmation }}" = "APPLY_MILREU_RETENTION_POLICY"
-          if [ "${{ inputs.environment }}" = "production" ]; then
-            test "${{ inputs.production_confirmation }}" = "APPLY_MILREU_PRODUCTION_RETENTION"
+          [[ "$CONFIRMATION" == "APPLY_MILREU_RETENTION_POLICY" ]] || { echo "::error::Confirmação inválida."; exit 1; }
+          if [[ "$TARGET_ENVIRONMENT" == "production" ]]; then
+            [[ "$PRODUCTION_CONFIRMATION" == "APPLY_MILREU_PRODUCTION_RETENTION" ]] || { echo "::error::Confirmação de produção inválida."; exit 1; }
           fi
-          echo "${{ inputs.run_id }}" | grep -Eq '^[0-9a-fA-F-]{36}$'
+          uuid_re='^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'
+          [[ "$RUN_ID" =~ $uuid_re ]] || { echo "::error::run_id não é um UUID válido."; exit 1; }
       - name: Apply one approved run
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

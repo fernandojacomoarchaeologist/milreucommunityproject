@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - name: Testes adversariais do Guardião e do gate de Ciência Aberta
         run: python3 -m unittest discover -s tests/governance -p 'test_*.py' -v
       - name: Baseline de Ciência Aberta (deve PASSAR)

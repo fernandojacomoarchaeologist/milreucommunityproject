@@ -35,11 +35,12 @@ jobs:
       MILREU_PRODUCTION_CONFIRMATION: ${{ inputs.confirmation }}
       MILREU_CHANGE_TICKET: ${{ inputs.change_ticket }}
       MILREU_GITHUB_ENVIRONMENT: production
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
-      SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+    # L2 / SEC-P0-007: credenciais só nos steps que as usam (não ficam expostas
+    # a checkout, setup-node, npm ci nem aos scripts de validação).
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -49,4 +50,11 @@ jobs:
       - run: npm run infra:test
       - run: npm run db:production:preflight
       - run: npx supabase link --project-ref "$SUPABASE_PROJECT_ID"
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
       - run: npx supabase db push
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}

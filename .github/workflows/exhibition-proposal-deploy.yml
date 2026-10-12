@@ -29,20 +29,25 @@ jobs:
     if: ${{ inputs.confirmation == 'DEPLOY_EXHIBITION_PROPOSAL_INTAKE' }}
     runs-on: ubuntu-latest
     environment: production
-    env:
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-      PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-      # Secrets da função (valores canónicos definidos no GitHub Environment "production"):
-      EXPOR_RESEND_API_KEY: ${{ secrets.EXPOR_RESEND_API_KEY }}
-      EXPOR_EMAIL_FROM: ${{ secrets.EXPOR_EMAIL_FROM }}
-      EXPOR_NOTIFY_RECIPIENTS: ${{ secrets.EXPOR_NOTIFY_RECIPIENTS }}
-      ALLOWED_ORIGINS: ${{ secrets.EXPOR_ALLOWED_ORIGINS }}
+    # L2 / SEC-P0-007: secrets só nos steps que os usam (não ficam expostos a
+    # checkout nem à action de instalação do CLI).
     steps:
       - uses: actions/checkout@v6
-      - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          persist-credentials: false
+      # L2 / SEC-P0-008: action fixada por SHA (v1.7.3) e CLI em versão determinística.
+      - uses: supabase/setup-cli@1dedf2c611547ede7232d26866dd3c56ab903bbb # v1.7.3
+        with:
+          version: 2.109.1
       - name: Aplicar secrets à função (nunca impressos)
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          # Secrets da função (valores canónicos definidos no GitHub Environment "production"):
+          EXPOR_RESEND_API_KEY: ${{ secrets.EXPOR_RESEND_API_KEY }}
+          EXPOR_EMAIL_FROM: ${{ secrets.EXPOR_EMAIL_FROM }}
+          EXPOR_NOTIFY_RECIPIENTS: ${{ secrets.EXPOR_NOTIFY_RECIPIENTS }}
+          ALLOWED_ORIGINS: ${{ secrets.EXPOR_ALLOWED_ORIGINS }}
         run: |
           set -euo pipefail
           test -n "$EXPOR_RESEND_API_KEY" || { echo "::error::EXPOR_RESEND_API_KEY em falta"; exit 1; }
@@ -56,6 +61,9 @@ jobs:
             ALLOWED_ORIGINS="$ALLOWED_ORIGINS" \
             --project-ref "$PROJECT_REF"
       - name: Publicar a função
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
         # Endpoint público: a função protege-se por origin allowlist + honeypot + validação
         # estrita + consentimento obrigatório (não usa a verificação de JWT da plataforma).
         run: supabase functions deploy exhibition-proposal-intake --project-ref "$PROJECT_REF" --no-verify-jwt

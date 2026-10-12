@@ -1,6 +1,15 @@
 # © 2026 Fernando Rodrigues de Jácomo.
 # Produzido no âmbito do Projeto Comunitário de Milreu.
 # Consultar RIGHTS.md.
+#
+# L2 / SEC-P0-009 + SEC-P0-010:
+# - o build corre só com `contents: read`; as permissões de publicação
+#   (`pages: write`, `id-token: write`) existem apenas no job `deploy`;
+# - o build de produção declara `MILREU_ENVIRONMENT: production`, activando as
+#   asserções de ambiente (HTTPS obrigatório, demo proibida);
+# - `public_base_url` é validado antes do build;
+# - o perfil de deployment é regenerado no build (deixa de ser publicado o
+#   ficheiro estático versionado com `environment: local`).
 
 name: Publish Technical MVP to Pages
 
@@ -18,8 +27,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -29,8 +36,12 @@ jobs:
   build:
     if: ${{ inputs.confirmation == 'PUBLISH_TECHNICAL_MVP' }}
     runs-on: ubuntu-latest
-    environment: github-pages
+    permissions:
+      contents: read
+      # configure-pages só lê a configuração do site (sem capacidade de publicar).
+      pages: read
     env:
+      MILREU_ENVIRONMENT: production
       MILREU_PUBLIC_BASE_URL: ${{ inputs.public_base_url }}
       MILREU_SITE_URL: ${{ inputs.public_base_url }}
       MILREU_SUPABASE_URL: ${{ secrets.MILREU_SUPABASE_URL }}
@@ -40,7 +51,15 @@ jobs:
       MILREU_EXPOR_ENDPOINT: ${{ vars.MILREU_EXPOR_ENDPOINT }}
       MILREU_ALLOW_DEMO: "false"
     steps:
+      - name: Validar URL pública
+        shell: bash
+        run: |
+          set -euo pipefail
+          url_re='^https://[A-Za-z0-9.-]+(/[A-Za-z0-9._~/-]*)?$'
+          [[ "$MILREU_PUBLIC_BASE_URL" =~ $url_re ]] || { echo "::error::public_base_url tem de ser um URL https:// válido."; exit 1; }
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v6
         with:
           node-version: 22
@@ -58,10 +77,24 @@ jobs:
       - run: npm run museum:audit
       - run: npm run validate
       - run: npm test
+      # Regenerar o perfil de deployment DEPOIS dos testes: os testes validam o perfil
+      # versionado (inicial, `local`); o site publicado recebe o perfil de produção.
+      - run: npm run deploy:profile
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
