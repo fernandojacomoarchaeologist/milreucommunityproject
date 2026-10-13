@@ -317,6 +317,41 @@
         "recordStatus"
       ],
       "mvp": true
+    },
+    {
+      "id": "SPEC-PAGE-019-EXHIBITIONS",
+      "product": "portal",
+      "path": "/exposicoes",
+      "objective": "Agenda da exposição itinerante: em exibição, próximos locais e atividades, eventos realizados",
+      "components": [
+        "ProjectHeader",
+        "AgendaCard",
+        "AgendaPastCard",
+        "StandardFooter"
+      ],
+      "sources": [
+        "publicExhibitions",
+        "serverClock"
+      ],
+      "mvp": false
+    },
+    {
+      "id": "SPEC-PAGE-020-EXHIBITION-ENTRY",
+      "product": "portal",
+      "path": "/exposicoes/:id",
+      "objective": "Paragem ou atividade da agenda: período, local (freguesia, município, Google Maps), fotografias e documentos, partilha",
+      "components": [
+        "ProjectHeader",
+        "AgendaPlace",
+        "AgendaShare",
+        "AgendaGallery",
+        "StandardFooter"
+      ],
+      "sources": [
+        "publicExhibitions",
+        "serverClock"
+      ],
+      "mvp": false
     }
   ]
 }

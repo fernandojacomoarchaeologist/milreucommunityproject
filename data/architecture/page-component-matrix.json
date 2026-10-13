@@ -182,6 +182,25 @@
         "PrimaryAction",
         "MuseumFooter"
       ]
+    },
+    {
+      "route": "/exposicoes",
+      "components": [
+        "ProjectHeader",
+        "AgendaCard",
+        "AgendaPastCard",
+        "StandardFooter"
+      ]
+    },
+    {
+      "route": "/exposicoes/:id",
+      "components": [
+        "ProjectHeader",
+        "AgendaPlace",
+        "AgendaShare",
+        "AgendaGallery",
+        "StandardFooter"
+      ]
     }
   ]
 }

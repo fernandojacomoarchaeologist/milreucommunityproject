@@ -1220,3 +1220,48 @@ linear-gradient(#ded6c9 1px,transparent 1px),linear-gradient(90deg,#ded6c9 1px,t
 .logo-example__box--stretch img{width:170px;height:90px;object-fit:fill}
 .logo-example--bad .logo-example__box{outline:2px solid var(--ml-color-red-500)}
 @media (max-width:640px){.brand-logo-show{flex-direction:column;align-items:flex-start}.type-list strong{min-width:0}}
+
+/* Agenda pública (#/exposicoes e #/exposicoes/:id) — próximos, realizados, local, partilha e galeria. Só tokens. */
+.agenda-list{display:grid;gap:var(--ml-space-4)}
+.agenda-card{display:grid;grid-template-columns:15rem minmax(0,1fr);background:var(--ml-surface-reading);border:1px solid var(--ml-border-subtle)}
+.agenda-card--current{border:3px solid var(--ml-surface-signature)}
+.agenda-card__date{display:grid;align-content:start;gap:var(--ml-space-2);padding:var(--ml-space-5);background:var(--ml-surface-muted)}
+.agenda-card--current .agenda-card__date{background:var(--ml-surface-signature);color:var(--ml-text-on-signature)}
+.agenda-card__date span{font:800 .66rem var(--ml-font-interface);letter-spacing:.08em;text-transform:uppercase}
+.agenda-card__date strong{font:500 1.35rem/1.2 var(--ml-font-display)}
+.agenda-card__date small{font-size:.78rem}
+.agenda-card__body{display:grid;gap:var(--ml-space-3);padding:var(--ml-space-5);min-width:0}
+.agenda-card__category{font:800 .66rem var(--ml-font-interface);letter-spacing:.08em;text-transform:uppercase;color:var(--ml-text-secondary)}
+.agenda-card h3{margin:0;font:500 1.6rem/1.2 var(--ml-font-display)}
+.agenda-card h3 a{color:inherit}
+.agenda-card p{margin:0}
+.agenda-place{display:flex;flex-wrap:wrap;gap:var(--ml-space-2) var(--ml-space-6);margin:0}
+.agenda-place div{display:grid}
+.agenda-place dt{font:800 .62rem var(--ml-font-interface);letter-spacing:.08em;text-transform:uppercase;color:var(--ml-text-secondary)}
+.agenda-place dd{margin:0;font-weight:700}
+.agenda-address{color:var(--ml-text-secondary)}
+.agenda-maps{justify-self:start;font-weight:700}
+.agenda-thumbs{display:flex;flex-wrap:wrap;gap:var(--ml-space-2)}
+.agenda-thumbs img{display:block;width:auto;height:4.5rem;max-width:7.5rem;object-fit:cover;border:1px solid var(--ml-border-subtle)}
+.agenda-card__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--ml-space-3) var(--ml-space-5)}
+.agenda-share{display:flex;flex-wrap:wrap;align-items:center;gap:var(--ml-space-2)}
+.agenda-share span{font:800 .66rem var(--ml-font-interface);letter-spacing:.08em;text-transform:uppercase;color:var(--ml-text-secondary)}
+.agenda-share a{display:inline-flex;align-items:center;min-height:2.75rem;padding:0 var(--ml-space-3);border:1px solid var(--ml-border-default);color:var(--ml-text-primary);font-weight:700;text-decoration:none;background:var(--ml-surface-canvas)}
+.agenda-share a:hover,.agenda-share a:focus-visible{border-color:var(--ml-border-strong)}
+.agenda-past-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:var(--ml-space-4)}
+.agenda-past{display:grid;grid-template-rows:auto 1fr;background:var(--ml-surface-reading);border:1px solid var(--ml-border-subtle);color:var(--ml-text-primary);text-decoration:none}
+a.agenda-past:hover,a.agenda-past:focus-visible{border-color:var(--ml-border-strong)}
+.agenda-past__media img{display:block;width:100%;height:11rem;object-fit:cover}
+.agenda-past__body{display:grid;align-content:start;gap:var(--ml-space-1);padding:var(--ml-space-4)}
+.agenda-past__body time{font:800 .7rem var(--ml-font-interface);text-transform:uppercase;letter-spacing:.06em;color:var(--ml-text-secondary)}
+.agenda-past__body strong{font:500 1.2rem/1.25 var(--ml-font-display)}
+.agenda-past__body small{color:var(--ml-text-secondary)}
+.agenda-notice{color:var(--ml-text-secondary);font-size:.85rem}
+.agenda-back{display:inline-block;margin-bottom:var(--ml-space-3);font-weight:700}
+.agenda-detail__period{font-size:1.1rem}
+.agenda-detail__info{display:grid;gap:var(--ml-space-4);max-width:48rem}
+.agenda-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:var(--ml-space-4)}
+.agenda-gallery figure{margin:0;display:grid;gap:var(--ml-space-2)}
+.agenda-gallery img{display:block;width:100%;height:12rem;object-fit:cover;border:1px solid var(--ml-border-subtle)}
+.agenda-gallery figcaption{font-size:.78rem;color:var(--ml-text-secondary)}
+@media(max-width:52rem){.agenda-card{grid-template-columns:1fr}.agenda-card__date{padding:var(--ml-space-4)}}

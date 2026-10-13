@@ -5,7 +5,7 @@
  */
 import {
   loadMemories, loadPortalContent, loadMuseumCollections, loadMuseumIndex, loadMuseumAudit,
-  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge, loadMediaAssets, loadBrandAssets, assetUrl
+  findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadServerClock, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge, loadMediaAssets, loadBrandAssets, assetUrl
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
 import { bindCommon } from "./components/layout.js";
@@ -39,7 +39,8 @@ import {
   collaborativeScheduleEditorView, collaborativeScheduleDetailView,
   collaborativeAgendaEventEditorView
 } from "./views/collaborative-exhibitions.js";
-import { publicExhibitionsView } from "./views/exhibitions-public.js";
+import { publicExhibitionsView, publicExhibitionEntryView } from "./views/exhibitions-public.js";
+import { clockNow } from "./lib/agenda.js";
 import { mediaPressView } from "./views/media-press.js";
 import { visualIdentityView } from "./views/visual-identity.js";
 import { rightsView } from "./views/rights.js";
@@ -87,6 +88,7 @@ const state = {
   homeCarouselIndex: 0,
   homeCarouselPaused: false,
   publicExhibitions: null,
+  serverClock: null,
   publicOpportunities: null,
   publicContentEffects: null,
   collections: [],
@@ -1646,7 +1648,8 @@ function render(scroll=true) {
     case "media-press": html = mediaPressView(state.mediaAssets,state.lang); setMetadata("Media / Press"); break;
     case "visual-identity": html = visualIdentityView(state.brandAssets,state.lang); setMetadata("Identidade visual"); break;
     case "rights": html = rightsView(state.lang); setMetadata("Direitos, créditos e reutilização"); break;
-    case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang); setMetadata("Agenda da exposição"); break;
+    case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang,clockNow(state.serverClock)); setMetadata("Agenda da exposição"); break;
+    case "public-exhibition-entry": html = publicExhibitionEntryView(state.publicExhibitions,route.id,state.lang,clockNow(state.serverClock)); setMetadata("Agenda da exposição"); break;
     case "public-opportunities": html = opportunitiesListView(mergedPublicOpportunities(),state.lang); setMetadata("Oportunidades"); break;
     case "public-opportunity": html = opportunityDetailView(mergedPublicOpportunities(),route.slug,state.lang); setMetadata("Oportunidade"); break;
     case "public-transparency": html = publicTransparencyView(state.publicTransparency||{}); setMetadata("Transparência"); break;
@@ -1697,6 +1700,10 @@ async function start() {
     [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge,state.publicProteusApi,state.mediaAssets,state.brandAssets] = await Promise.all([
       loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog(),loadProteusKnowledge(),loadProteusApiIndex(),loadMediaAssets(),loadBrandAssets()
     ]);
+    loadServerClock().then(clock=>{
+      state.serverClock=clock;
+      if (["public-exhibitions","public-exhibition-entry"].includes(getRoute().name)) render(false);
+    });
     state.collab=await collaborative.init();
     collaborative.subscribe(context=>{
       state.collab=context;

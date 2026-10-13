@@ -29,7 +29,7 @@ const indexingAllowed = seo.indexingAllowed === true;
 // blocked = autenticação, gestão, formulários com dados pessoais, demonstração, preview.
 const PUBLIC_INDEX = new Set([
   "home", "project", "methodology", "initiatives", "initiative", "knowledge",
-  "participate", "about", "public-exhibitions", "public-opportunities", "public-opportunity",
+  "participate", "about", "public-exhibitions", "public-exhibition-entry", "public-opportunities", "public-opportunity",
   "public-transparency", "museum-home", "gallery", "timeline", "collections", "collection", "memory",
   "media-press", "visual-identity", "rights",
 ]);

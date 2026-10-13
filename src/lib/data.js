@@ -90,6 +90,16 @@ export async function loadPublicExhibitions() {
   return loadJson("public/data/exhibitions-public.json");
 }
 
+// Hora do servidor (cabeçalho Date, HEAD); sem rede, relógio do dispositivo.
+export async function loadServerClock() {
+  try {
+    const response = await fetch(assetUrl("public/data/exhibitions-public.json"), { method: "HEAD", cache: "no-store" });
+    const serverMs = Date.parse(response.headers.get("date") || "");
+    if (Number.isFinite(serverMs)) return { ms: serverMs, fetchedAt: Date.now(), source: "server" };
+  } catch {}
+  return { ms: Date.now(), fetchedAt: Date.now(), source: "device" };
+}
+
 export async function loadPublicOpportunities() {
   return loadJson("public/data/opportunities-public.json");
 }
