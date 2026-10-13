@@ -22,23 +22,6 @@ import {
 } from "./views/museum.js";
 import { channelLabView, totemPreviewView, panelPreviewView } from "./views/channels.js";
 import { text, isLocaleSelectable } from "./lib/i18n.js";
-import { collaborative } from "./collab/controller.js";
-import {
-  collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView,
-  collaborativeProfileView, collaborativeSkeletonView,
-  collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView
-} from "./views/collaborative.js";
-import {
-  collaborativeTasksView, collaborativeTaskDetailView, collaborativeAvailabilityView,
-  collaborativeTaskManagementView, collaborativeTaskEditorView
-} from "./views/collaborative-tasks.js";
-import {
-  collaborativeAgendaView, collaborativeExhibitionManagementView,
-  collaborativeVenueManagementView, collaborativeVenueEditorView,
-  collaborativeExhibitionEditorView, collaborativeExhibitionDetailView,
-  collaborativeScheduleEditorView, collaborativeScheduleDetailView,
-  collaborativeAgendaEventEditorView
-} from "./views/collaborative-exhibitions.js";
 import { publicExhibitionsView, publicExhibitionEntryView } from "./views/exhibitions-public.js";
 import { clockNow } from "./lib/agenda.js";
 import { mediaPressView } from "./views/media-press.js";
@@ -46,39 +29,28 @@ import { visualIdentityView } from "./views/visual-identity.js";
 import { rightsView } from "./views/rights.js";
 import { opportunitiesListView, opportunityDetailView } from "./views/opportunities-public.js";
 import {
-  collaborativeContributionsView, collaborativeContributionNewView,
-  collaborativeContributionDetailView, collaborativeContributionModerationView
-} from "./views/collaborative-contributions.js";
-import {
   publicContributionFormView, publicContributionTrackingView, publicWithdrawalView
 } from "./views/contributions-public.js";
 import { exhibitionProposalView } from "./views/expor.js";
-import {
-  collaborativeLibraryView, collaborativeLibraryResourceView, collaborativeTrainingView, collaborativeTrainingTrailView,
-  collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView,
-  collaborativeMuseumReviewPreviewView, collaborativeMuseumReviewManagementView
-} from "./views/collaborative-museum-review.js";
-import {
-  collaborativeDeploymentHomologationView, collaborativeHomologationRunView
-} from "./views/collaborative-deployment.js";
-import { collaborativeReleaseCandidateView } from "./views/collaborative-release-candidate.js";
-import {
-  collaborativeNotificationsView, collaborativeNotificationPreferencesView,
-  collaborativeNotificationManagementView
-} from "./views/collaborative-notifications.js";
-import {
-  collaborativeSystemAdministrationView, collaborativeAuditGovernanceView,
-  collaborativeIncidentsContinuityView, collaborativeIncidentDetailView
-} from "./views/collaborative-operations.js";
-import {
-  collaborativePilotView, collaborativePilotManagementView
-} from "./views/collaborative-pilot.js";
-import { collaborativeParticipationView } from "./views/collaborative-participation.js";
-import { collaborativeOpportunitiesView } from "./views/opportunities-collab.js";
-import { collaborativePublicIntegrationView } from "./views/public-integration-management.js";
-import { operationsGovernanceDashboardView } from "./views/operations-dashboard.js";
-import { governanceManagementView } from "./views/governance-management.js";
 import { publicTransparencyView } from "./views/public-transparency.js";
+
+// Área Colaborativa carregada a pedido (src/collab/bundle.js): só as rotas que a usam
+// descarregam este código; o site público (Home, Museu, agenda, Proteus…) fica leve.
+let collaborative, collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView, collaborativeProfileView, collaborativeSkeletonView, collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView, collaborativeTasksView, collaborativeTaskDetailView, collaborativeAvailabilityView, collaborativeTaskManagementView, collaborativeTaskEditorView, collaborativeAgendaView, collaborativeExhibitionManagementView, collaborativeVenueManagementView, collaborativeVenueEditorView, collaborativeExhibitionEditorView, collaborativeExhibitionDetailView, collaborativeScheduleEditorView, collaborativeScheduleDetailView, collaborativeAgendaEventEditorView, collaborativeContributionsView, collaborativeContributionNewView, collaborativeContributionDetailView, collaborativeContributionModerationView, collaborativeLibraryView, collaborativeLibraryResourceView, collaborativeTrainingView, collaborativeTrainingTrailView, collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView, collaborativeMuseumReviewPreviewView, collaborativeMuseumReviewManagementView, collaborativeDeploymentHomologationView, collaborativeHomologationRunView, collaborativeReleaseCandidateView, collaborativeNotificationsView, collaborativeNotificationPreferencesView, collaborativeNotificationManagementView, collaborativeSystemAdministrationView, collaborativeAuditGovernanceView, collaborativeIncidentsContinuityView, collaborativeIncidentDetailView, collaborativePilotView, collaborativePilotManagementView, collaborativeParticipationView, collaborativeOpportunitiesView, collaborativePublicIntegrationView, operationsGovernanceDashboardView, governanceManagementView;
+let collabReady = false, collabLoading = null;
+const COLLAB_PUBLIC_ROUTES = ["public-contribution-new","public-contribution-track","public-contribution-withdrawal","exhibition-proposal","public-opportunities","public-opportunity"];
+const needsCollaborative = route => route.name.startsWith("collab-") || COLLAB_PUBLIC_ROUTES.includes(route.name);
+function ensureCollaborative() {
+  return collabLoading ||= import("./collab/bundle.js").then(async module => {
+    ({ collaborative, collaborativeLoginView, collaborativeOnboardingView, collaborativeDashboardView, collaborativeProfileView, collaborativeSkeletonView, collaborativeProfileManagementView, collaborativeMemberDetailView, collaborativeInvitationsView, collaborativeTasksView, collaborativeTaskDetailView, collaborativeAvailabilityView, collaborativeTaskManagementView, collaborativeTaskEditorView, collaborativeAgendaView, collaborativeExhibitionManagementView, collaborativeVenueManagementView, collaborativeVenueEditorView, collaborativeExhibitionEditorView, collaborativeExhibitionDetailView, collaborativeScheduleEditorView, collaborativeScheduleDetailView, collaborativeAgendaEventEditorView, collaborativeContributionsView, collaborativeContributionNewView, collaborativeContributionDetailView, collaborativeContributionModerationView, collaborativeLibraryView, collaborativeLibraryResourceView, collaborativeTrainingView, collaborativeTrainingTrailView, collaborativeMuseumReviewView, collaborativeMuseumReviewDetailView, collaborativeMuseumReviewPreviewView, collaborativeMuseumReviewManagementView, collaborativeDeploymentHomologationView, collaborativeHomologationRunView, collaborativeReleaseCandidateView, collaborativeNotificationsView, collaborativeNotificationPreferencesView, collaborativeNotificationManagementView, collaborativeSystemAdministrationView, collaborativeAuditGovernanceView, collaborativeIncidentsContinuityView, collaborativeIncidentDetailView, collaborativePilotView, collaborativePilotManagementView, collaborativeParticipationView, collaborativeOpportunitiesView, collaborativePublicIntegrationView, operationsGovernanceDashboardView, governanceManagementView } = module);
+    state.collab = await collaborative.init();
+    collaborative.subscribe(context => {
+      state.collab = context;
+      if (isCollaborativeRoute(getRoute())) render(false);
+    });
+    collabReady = true;
+  });
+}
 
 const app = document.querySelector("#app");
 const state = {
@@ -1562,6 +1534,14 @@ function bindImmersiveKeyboard() {
 function render(scroll=true) {
   const route = getRoute();
   let html = "";
+  if (needsCollaborative(route) && !collabReady) {
+    app.innerHTML = `<main id="main" class="content-section"><p role="status">A carregar…</p></main>`;
+    ensureCollaborative().then(() => render(scroll)).catch(error => {
+      console.error(error);
+      app.innerHTML = `<main class="app-error"><h1>Não foi possível abrir esta página</h1><p>Tente novamente dentro de instantes.</p></main>`;
+    });
+    return;
+  }
 
   switch (route.name) {
     case "collab-login":
@@ -1703,11 +1683,6 @@ async function start() {
     loadServerClock().then(clock=>{
       state.serverClock=clock;
       if (["public-exhibitions","public-exhibition-entry"].includes(getRoute().name)) render(false);
-    });
-    state.collab=await collaborative.init();
-    collaborative.subscribe(context=>{
-      state.collab=context;
-      if (isCollaborativeRoute(getRoute())) render(false);
     });
     render();
   } catch (error) {
