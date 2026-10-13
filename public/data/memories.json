@@ -3257,7 +3257,7 @@
           {
             "type": "ai-assisted-enhancement",
             "description": {
-              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem. O resultado está visível apenas para revisão e deve ser identificado como imagem derivada.",
+              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem.",
               "en": null,
               "es": null,
               "fr": null
