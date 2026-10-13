@@ -66,8 +66,11 @@ class F:
         for xx in range(int(x),int(x+w),dash*2): s.d.line([(xx,y),(min(xx+dash,x+w),y)],fill=fill,width=ow); s.d.line([(xx,y+h),(min(xx+dash,x+w),y+h)],fill=fill,width=ow)
         for yy in range(int(y),int(y+h),dash*2): s.d.line([(x,yy),(x,min(yy+dash,y+h))],fill=fill,width=ow); s.d.line([(x+w,yy),(x+w,min(yy+dash,y+h))],fill=fill,width=ow)
     def line(s,x1,y1,x2,y2,fill,w=1): s.d.line([(x1,y1),(x2,y2)],fill=fill,width=w)
-    def imgcover(s,x,y,w,h,path,ah=0.5,av=0.5):
-        im=Image.open(path).convert("RGB");iw,ih=im.size;k=max(w/iw,h/ih)
+    def imgcover(s,x,y,w,h,path,ah=0.5,av=0.5,trim=0.0):
+        im=Image.open(path).convert("RGB")
+        if trim:  # apara só a margem do scan (fracção por lado); não altera o conteúdo da fotografia
+            tw,th=round(im.size[0]*trim),round(im.size[1]*trim); im=im.crop((tw,th,im.size[0]-tw,im.size[1]-th))
+        iw,ih=im.size;k=max(w/iw,h/ih)
         nw,nh=max(1,round(iw*k)),max(1,round(ih*k));im=im.resize((nw,nh),Image.LANCZOS)
         l=round((nw-w)*ah);t=round((nh-h)*av);s.im.paste(im.crop((l,t,l+w,t+h)),(round(x),round(y)))
     def tw(s,t,k,px,wt=None): return s.d.textlength(t,font=font(k,px,wt))
@@ -151,8 +154,8 @@ def render(TW,TH,fields,outname,demo=True,img=IMG_PRINCIPAL,final=False):
     def pt(v): return PT(v*s)
     def ptf(v): return PT(v*sf)
     f=F(Wp,Hp,MARF)
-    # ===== ZONA 1 — imagem + identidade (45–55%) =====
-    ih=round(Hp*(0.405 if s>0.9 else 0.365)); f.imgcover(0,0,Wp,ih,img,av=fields.get("IMG_AV",0.42)); f.rect(0,ih,Wp,P(1.6*s),RED)
+    # ===== ZONA 1 — imagem + identidade (45–55%) =====  (IMG_RATIO: altura da imagem nos formatos digitais)
+    ih=round(Hp*fields.get("IMG_RATIO",0.405 if s>0.9 else 0.365)); f.imgcover(0,0,Wp,ih,img,av=fields.get("IMG_AV",0.42),trim=fields.get("IMG_TRIM",0.0)); f.rect(0,ih,Wp,P(1.6*s),RED)
     cred=fields.get("CREDITO_IMAGEM")
     if cred:  # crédito obrigatório da fotografia (editável, ligado à imagem); faixa escura p/ legibilidade
         chh=pt(6.4)*1.7; f.rect(0,ih-chh,Wp,chh,(24,20,18))  # faixa escura p/ legibilidade do crédito

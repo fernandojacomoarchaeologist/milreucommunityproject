@@ -333,3 +333,4 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 ## Item 8 — Cartaz local (registo incremental)
 - 2026-10-13 · ALTERADO · **Cartaz Estoi — nova data:** abertura e inauguração **sexta-feira 30-10-2026, 21h00** (exposição 30-10 → 06-11); pasta `eventos/2026-10-30_estoi/`. · responsável
 - 2026-10-13 · ALTERADO · Cartaz Estoi com **Faixa de Logos canónica** (Junta na posição 4, intervalo único, menção art. 16.º) e anfitrião = `logo-junta-freguesia-estoi.png`; `Logo_Estoi.jpeg` retirado. PDFs A3/A4 regenerados; aguarda HUMAN GATE. · esta sessão
+- 2026-10-13 · NOVO · Cartaz Estoi: **ficheiro final** PDF/X-3 CMYK genérico (A3/A4), **versão online** 1080×1350 + 1080×1920 e **versão animada** MP4 (14 s, 4:5 e 9:16). FINAL ART; pendente teste físico do QR e ICC da gráfica. · responsável
