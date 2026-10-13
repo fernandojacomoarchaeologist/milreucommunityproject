@@ -24,6 +24,7 @@ import { channelLabView, totemPreviewView, panelPreviewView } from "./views/chan
 import { text, isLocaleSelectable } from "./lib/i18n.js";
 import { publicExhibitionsView, publicExhibitionEntryView } from "./views/exhibitions-public.js";
 import { clockNow } from "./lib/agenda.js";
+import { initAnalytics, trackRoute, bindSurveyTracking, analyticsActive } from "./lib/analytics.js";
 import { mediaPressView } from "./views/media-press.js";
 import { visualIdentityView } from "./views/visual-identity.js";
 import { rightsView } from "./views/rights.js";
@@ -498,6 +499,8 @@ function bindPage() {
   bindOpportunityShare();
   bindProteusLibrary();
   bindProteusKnowledge();
+  trackRoute(getRoute());
+  bindSurveyTracking(app);
 
   document.querySelector("[data-collab-google-login]")?.addEventListener("click",async()=>{
     try {
@@ -1627,7 +1630,7 @@ function render(scroll=true) {
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
     case "media-press": html = mediaPressView(state.mediaAssets,state.lang); setMetadata("Media / Press"); break;
     case "visual-identity": html = visualIdentityView(state.brandAssets,state.lang); setMetadata("Identidade visual"); break;
-    case "rights": html = rightsView(state.lang); setMetadata("Direitos, créditos e reutilização"); break;
+    case "rights": html = rightsView(state.lang,{ analytics:analyticsActive() }); setMetadata("Direitos, créditos e reutilização"); break;
     case "public-exhibitions": html = publicExhibitionsView(state.publicExhibitions,state.lang,clockNow(state.serverClock)); setMetadata("Agenda da exposição"); break;
     case "public-exhibition-entry": html = publicExhibitionEntryView(state.publicExhibitions,route.id,state.lang,clockNow(state.serverClock)); setMetadata("Agenda da exposição"); break;
     case "public-opportunities": html = opportunitiesListView(mergedPublicOpportunities(),state.lang); setMetadata("Oportunidades"); break;
@@ -1685,6 +1688,7 @@ async function start() {
       if (["public-exhibitions","public-exhibition-entry"].includes(getRoute().name)) render(false);
     });
     render();
+    initAnalytics().then(active => { if (active) { trackRoute(getRoute()); bindSurveyTracking(app); } });
   } catch (error) {
     console.error(error);
     app.innerHTML = `<main class="app-error"><h1>Não foi possível iniciar a aplicação</h1><p>${error.message}</p></main>`;

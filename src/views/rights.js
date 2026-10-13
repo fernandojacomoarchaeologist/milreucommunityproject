@@ -9,7 +9,7 @@
  */
 import { portalHeader, footer } from "../components/layout.js";
 
-export function rightsView(lang = "pt-PT") {
+export function rightsView(lang = "pt-PT", { analytics = false } = {}) {
   return `${portalHeader(lang, "")}<main id="main" class="rights-page">
     <section class="page-lead">
       <span>Projecto Comunitário de Milreu</span>
@@ -38,5 +38,10 @@ export function rightsView(lang = "pt-PT") {
       <p>O Projecto acolhe pedidos fundamentados de crédito, correcção ou remoção apresentados por titulares legítimos de direitos ou seus representantes.</p>
       <p class="muted">Os pedidos podem ser dirigidos através dos <a href="#/imprensa">contactos oficiais do projecto</a>.</p>
     </section>
+    ${analytics ? `<section class="content-section" aria-labelledby="dir-estatistica">
+      <div class="section-heading"><h2 id="dir-estatistica">Estatísticas de visita</h2></div>
+      <p>Para saber quantas pessoas visitam o site e que páginas lhes são úteis, o projecto usa o Umami, um serviço de estatística que não usa cookies nem cria perfis de visitantes. Os dados são tratados de forma agregada: páginas vistas, site de origem da visita, país ou região aproximada, tipo de dispositivo e navegador, e hora da visita.</p>
+      <p>Se o seu navegador pedir para não ser seguido («Do Not Track»), a visita não é contada. A Área Colaborativa não é medida.</p>
+    </section>` : ""}
   </main>${footer(lang)}`;
 }
