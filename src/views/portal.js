@@ -64,12 +64,23 @@ function homeCarouselSlide(slide,records,lang,isActive,index,total) {
   const activeClass = isActive ? " home-carousel__slide--active" : "";
   const ariaHidden = isActive ? "false" : "true";
 
-  if (slide.kind === "museum-memory") {
-    const memory = records.find(record => record.id === slide.memoryId) || records.find(record => record.publication.siteVisible);
-    const credit = memory ? localised(memory.media.credit,lang).value : "";
+  // Slides com imagem de fundo: Museu (memória canónica) e fotografia de evento da agenda.
+  if (slide.kind === "museum-memory" || slide.kind === "event-photo") {
+    let src, srcset, alt, dims = "", credit;
+    if (slide.kind === "event-photo") {
+      const image = slide.image || {};
+      src = assetUrl(image.src); srcset = `${assetUrl(image.thumb)} 640w, ${src} 1600w`;
+      alt = localised(image.alt,lang).value; credit = localised(image.credit,lang).value;
+      dims = `width="${Number(image.width)||""}" height="${Number(image.height)||""}"`;
+    } else {
+      const memory = records.find(record => record.id === slide.memoryId) || records.find(record => record.publication.siteVisible);
+      const v = memory.media.variants;
+      src = assetUrl(v.detail); srcset = `${assetUrl(v.card)} 900w, ${src} 1600w, ${assetUrl(v.immersive)} 2400w`;
+      alt = localised(memory.title,lang).value; credit = memory ? localised(memory.media.credit,lang).value : "";
+    }
     return `<article class="home-carousel__slide home-carousel__slide--image${activeClass}" data-home-slide="${index}" aria-hidden="${ariaHidden}">
       <div class="home-carousel__media">
-        <img src="${assetUrl(memory.media.variants.detail)}" srcset="${assetUrl(memory.media.variants.card)} 900w, ${assetUrl(memory.media.variants.detail)} 1600w, ${assetUrl(memory.media.variants.immersive)} 2400w" sizes="100vw" ${isActive ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" alt="${esc(localised(memory.title,lang).value)}">
+        <img src="${src}" srcset="${srcset}" sizes="100vw" ${dims} ${isActive ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" alt="${esc(alt)}">
       </div>
       <div class="home-carousel__overlay"></div>
       <div class="home-carousel__content">

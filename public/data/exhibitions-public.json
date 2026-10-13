@@ -1,36 +1,245 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "generatedAt": "2026-10-13",
   "source": "human-approved-static",
   "isExample": false,
   "approval": {
     "decidedBy": "responsável do projeto",
     "decidedOn": "2026-10-13",
-    "ref": "docs/dissemination/cartaz-local/eventos/2026-10-30_estoi/README.md"
+    "ref": "docs/website/decisions/2026-10-13_AGENDA_EVENTOS_E_MEDIA.md"
   },
   "current": [],
   "upcoming": [
     {
+      "id": "2026-10-30-estoi-junta-de-freguesia",
       "starts_on": "2026-10-30",
       "ends_on": "2026-11-06",
       "venue_name": "Junta de Freguesia de Estoi",
+      "parish": "Estoi",
       "locality": "Estoi",
       "municipality": "Faro",
       "address": "Largo Ossónoba, 8005-454 Estoi",
+      "maps_query": "Junta de Freguesia de Estoi, Largo Ossónoba, Estoi",
       "exhibition_type": "Exposição itinerante",
       "public_title": "Entre Ruínas e Memórias",
       "public_summary": "Exposição itinerante do Projeto Comunitário de Milreu sobre as memórias da população ligadas às Ruínas Romanas de Milreu. Entrada livre.",
-      "opening_hours": "Segunda a sexta · 9h00–12h00 e 14h00–18h00 · encerrado ao fim de semana"
+      "opening_hours": "Segunda a sexta · 9h00–12h00 e 14h00–18h00 · encerrado ao fim de semana",
+      "media": [
+        {
+          "kind": "poster",
+          "src": "public/media/events/2026-10-30-estoi-junta-de-freguesia/cartaz.jpg",
+          "width": 1080,
+          "height": 1350,
+          "thumb": "public/media/events/2026-10-30-estoi-junta-de-freguesia/cartaz-640.jpg",
+          "thumbWidth": 512,
+          "thumbHeight": 640,
+          "alt": "Cartaz da exposição «Entre Ruínas e Memórias» na Junta de Freguesia de Estoi, de 30 de outubro a 6 de novembro de 2026",
+          "credit": "Cartaz: Projeto Comunitário de Milreu"
+        }
+      ]
     }
   ],
-  "past": [],
+  "past": [
+    {
+      "id": "2026-10-10-sao-bras-de-alportel-museu-do-traje",
+      "starts_on": "2026-10-10",
+      "ends_on": "2026-10-10",
+      "venue_name": "Museu do Traje",
+      "parish": "São Brás de Alportel",
+      "locality": "São Brás de Alportel",
+      "municipality": "São Brás de Alportel",
+      "maps_query": "Museu do Traje, São Brás de Alportel",
+      "exhibition_type": "Exposição itinerante · apresentação prévia",
+      "public_title": "Entre Ruínas e Memórias — apresentação prévia",
+      "public_summary": "Primeira apresentação pública da exposição itinerante «Entre Ruínas e Memórias» (6 painéis), integrada no 2.º Encontro do Grupo de Amigos de Museus do Algarve, no Museu do Traje de São Brás de Alportel.",
+      "opening_hours": "10 de outubro de 2026 · 9h30–17h00",
+      "media": [
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-01.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-01-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Painéis da exposição «Entre Ruínas e Memórias» instalados no pátio do Museu do Traje, em São Brás de Alportel, a 10 de outubro de 2026",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-02.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-02-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Painéis da exposição com fotografias do acervo do Museu de Memórias, no Museu do Traje",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-03.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-03-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Painel da exposição montado na estrutura de itinerância, no pátio do Museu do Traje",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-04.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-04-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Painéis da exposição «Entre Ruínas e Memórias» vistos de frente, no Museu do Traje",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/folha-de-sala.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/folha-de-sala-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Folhas de sala da exposição sobre uma mesa redonda, no pátio do Museu do Traje",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/acervo-em-mesa.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/acervo-em-mesa-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Reproduções de fotografias do acervo do Museu de Memórias dispostas sobre uma mesa",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "poster",
+          "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/cartaz-encontro.jpg",
+          "width": 1600,
+          "height": 1131,
+          "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/cartaz-encontro-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 452,
+          "alt": "Cartaz do 2.º Encontro do Grupo de Amigos de Museus do Algarve, 10 de outubro de 2026, Museu do Traje, São Brás de Alportel",
+          "credit": "Cartaz: organização do 2.º Encontro do Grupo de Amigos de Museus do Algarve — reprodução autorizada"
+        }
+      ]
+    }
+  ],
   "events": [
     {
+      "id": "2026-10-30-estoi-inauguracao",
       "startsAt": "2026-10-30T21:00:00+00:00",
       "title": "Inauguração da exposição «Entre Ruínas e Memórias»",
       "description": "Abertura da exposição itinerante na Junta de Freguesia de Estoi. Entrada livre.",
-      "locationText": "Junta de Freguesia de Estoi · Largo Ossónoba, 8005-454 Estoi"
+      "venueName": "Junta de Freguesia de Estoi",
+      "locationText": "Junta de Freguesia de Estoi · Largo Ossónoba, 8005-454 Estoi",
+      "parish": "Estoi",
+      "municipality": "Faro",
+      "mapsQuery": "Junta de Freguesia de Estoi, Largo Ossónoba, Estoi",
+      "stopId": "2026-10-30-estoi-junta-de-freguesia",
+      "media": []
+    },
+    {
+      "id": "2026-04-11-estoi-roda-de-conversas",
+      "startsAt": "2026-04-11T18:30:00+01:00",
+      "title": "Milreu: Memória e Comunidade — Roda de Conversas com a Comunidade",
+      "description": "2.ª Roda de Conversas com a população de Estoi: apresentação do Museu de Memórias e recolha de fotografias.",
+      "venueName": "Junta de Freguesia de Estoi",
+      "locationText": "Junta de Freguesia de Estoi",
+      "parish": "Estoi",
+      "municipality": "Faro",
+      "mapsQuery": "Junta de Freguesia de Estoi, Largo Ossónoba, Estoi",
+      "media": [
+        {
+          "kind": "poster",
+          "src": "public/media/events/2026-04-11-estoi-roda-de-conversas/cartaz.jpg",
+          "width": 1129,
+          "height": 1600,
+          "thumb": "public/media/events/2026-04-11-estoi-roda-de-conversas/cartaz-640.jpg",
+          "thumbWidth": 452,
+          "thumbHeight": 640,
+          "alt": "Cartaz da Roda de Conversas «Milreu: Memória e Comunidade», 11 de abril de 2026, Junta de Freguesia de Estoi",
+          "credit": "Cartaz: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-04-11-estoi-roda-de-conversas/roda-01.jpg",
+          "width": 1280,
+          "height": 842,
+          "thumb": "public/media/events/2026-04-11-estoi-roda-de-conversas/roda-01-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 421,
+          "alt": "Participantes da Roda de Conversas na Junta de Freguesia de Estoi, a 11 de abril de 2026",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-04-11-estoi-roda-de-conversas/roda-02.jpg",
+          "width": 1600,
+          "height": 900,
+          "thumb": "public/media/events/2026-04-11-estoi-roda-de-conversas/roda-02-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 360,
+          "alt": "Participantes sentados à mesa durante a Roda de Conversas, na Junta de Freguesia de Estoi",
+          "credit": "Fotografia: Fernando Rodrigues de Jácomo"
+        }
+      ]
+    },
+    {
+      "id": "2026-02-07-milreu-roda-de-conversas",
+      "startsAt": "2026-02-07T14:00:00+00:00",
+      "title": "Milreu: Passado, Comunidade e Futuro — Roda de Conversas com a Comunidade",
+      "description": "Apresentação dos resultados dos inquéritos à comunidade, próximos passos para a integração da comunidade no património de Milreu e visita guiada pelas Ruínas Romanas de Milreu. Entrada livre.",
+      "venueName": "Ruínas Romanas de Milreu",
+      "locationText": "Ruínas Romanas de Milreu · Estoi",
+      "parish": "Estoi",
+      "municipality": "Faro",
+      "mapsQuery": "Ruínas Romanas de Milreu, Estoi",
+      "media": [
+        {
+          "kind": "poster",
+          "src": "public/media/events/2026-02-07-milreu-roda-de-conversas/cartaz.jpg",
+          "width": 1129,
+          "height": 1600,
+          "thumb": "public/media/events/2026-02-07-milreu-roda-de-conversas/cartaz-640.jpg",
+          "thumbWidth": 452,
+          "thumbHeight": 640,
+          "alt": "Cartaz da Roda de Conversas «Milreu: Passado, Comunidade e Futuro», 7 de fevereiro de 2026, Ruínas Romanas de Milreu",
+          "credit": "Cartaz: Fernando Rodrigues de Jácomo"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-02-07-milreu-roda-de-conversas/apresentacao.jpg",
+          "width": 1600,
+          "height": 1142,
+          "thumb": "public/media/events/2026-02-07-milreu-roda-de-conversas/apresentacao-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 457,
+          "alt": "Apresentação aos participantes durante a Roda de Conversas de 7 de fevereiro de 2026, em Milreu",
+          "credit": "Fotografia: Património Cultural, I.P. — reprodução sob autorização"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-02-07-milreu-roda-de-conversas/debate.jpg",
+          "width": 1600,
+          "height": 995,
+          "thumb": "public/media/events/2026-02-07-milreu-roda-de-conversas/debate-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 398,
+          "alt": "Debate com os participantes durante a Roda de Conversas de 7 de fevereiro de 2026, em Milreu",
+          "credit": "Fotografia: Património Cultural, I.P. — reprodução sob autorização"
+        }
+      ]
     }
   ],
   "notice": "Apresentamos apenas locais e datas confirmados e aprovados. O percurso será atualizado a cada nova paragem."

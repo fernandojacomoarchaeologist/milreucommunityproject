@@ -53,10 +53,14 @@ test("os três slides partilham a caixa canónica (empilhados) com crop só na m
   assert.match(css, /object-fit:cover/);
 });
 
-test("o carrossel tem 3 slides: Museu (canónico), Proteus (sem imagem) e Inquérito (asset)", () => {
+test("o carrossel tem Museu (canónico), Proteus (sem imagem), Inquérito (asset) e evento 10-10", () => {
   const c = read("public/data/home-carousel.json");
   assert.equal(c.version, "0.39.0");
-  assert.equal(c.slides.length, 3);
+  // decisão do responsável 2026-10-13: 4.º destaque = evento de 10-10-2026
+  assert.equal(c.slides.length, 4);
+  assert.equal(c.slides[3].id, "agenda-2026-10-10");
+  assert.equal(c.slides[3].kind, "event-photo");
+  assert.ok(c.slides[3].image.credit["pt-PT"]);
   assert.equal(c.slides[0].kind, "museum-memory");
   assert.equal(c.slides[1].kind, "empty-state");
   assert.ok(!c.slides[1].image, "Proteus não deve ter imagem inventada");

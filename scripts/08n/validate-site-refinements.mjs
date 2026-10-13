@@ -12,7 +12,8 @@ if(model.publicEffectsActive!==0)fail("efeitos públicos ativos devem ser 0.");
 if(model.carouselAutoplayEnabled!==true)fail("autoplay do carrossel deve estar ativo.");
 const carousel=read("public/data/home-carousel.json");
 if(!carousel.autoplay?.enabled)fail("home-carousel.json deve ter autoplay ativo.");
-if(carousel.slides.length!==3)fail("o carrossel deve ter 3 slides (Museu, Proteus, Inquérito 2026).");
+// decisão do responsável 2026-10-13: 4.º destaque = evento de 10-10-2026
+if(carousel.slides.length!==4)fail("o carrossel deve ter 4 slides (Museu, Proteus, Inquérito 2026, evento 10-10).");
 // crop consistente da imagem do Inquérito (object-fit:cover + object-position)
 const css=readFileSync("src/styles/app.css","utf8");
 if(!/\.home-carousel__survey-image img\{[^}]*object-fit:cover/.test(css))fail("imagem do Inquérito deve usar object-fit:cover para consistência e crop.");

@@ -36,6 +36,8 @@ export function getRoute() {
   if (path === "/identidade") return { name:"visual-identity" };
   if (path === "/direitos") return { name:"rights" };
   if (path === "/exposicoes") return { name:"public-exhibitions" };
+  const publicExhibitionEntry = path.match(/^\/exposicoes\/([^/]+)$/);
+  if (publicExhibitionEntry) return { name:"public-exhibition-entry", id: decodeURIComponent(publicExhibitionEntry[1]) };
   if (path === "/oportunidades") return { name:"public-opportunities" };
   const publicOpportunity = path.match(/^\/oportunidades\/([^/]+)$/);
   if (publicOpportunity) return { name:"public-opportunity", slug: decodeURIComponent(publicOpportunity[1]) };

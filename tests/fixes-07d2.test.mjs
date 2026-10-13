@@ -13,8 +13,9 @@ const museum = readFileSync("src/views/museum.js","utf8");
 const main = readFileSync("src/main.js","utf8");
 const css = readFileSync("src/styles/app.css","utf8");
 
-test("Home tem Museu, Proteus e Inquérito", () => {
-  assert.deepEqual(carousel.slides.map(slide => slide.id),["museum","proteus","survey-2026"]);
+test("Home tem Museu, Proteus, Inquérito e o evento de 10-10", () => {
+  // decisão do responsável 2026-10-13: 4.º destaque = evento de 10-10-2026
+  assert.deepEqual(carousel.slides.map(slide => slide.id),["museum","proteus","survey-2026","agenda-2026-10-10"]);
   assert.equal(carousel.slides[1].kind,"empty-state");
   assert.equal(carousel.slides[2].primaryAction.href,"https://pt.surveymonkey.com/r/3CFG2MQ");
   assert.ok(existsSync(carousel.slides[2].image));

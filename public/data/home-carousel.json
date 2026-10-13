@@ -127,6 +127,64 @@
         "href": "https://pt.surveymonkey.com/r/3CFG2MQ",
         "external": true
       }
+    },
+    {
+      "id": "agenda-2026-10-10",
+      "kind": "event-photo",
+      "eyebrow": {
+        "pt-PT": "Entre Ruínas e Memórias · 10 de outubro de 2026",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "title": {
+        "pt-PT": "A exposição saiu à rua",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "description": {
+        "pt-PT": "Primeira apresentação pública da exposição itinerante, no Museu do Traje, em São Brás de Alportel. Veja as fotografias e os próximos locais.",
+        "en": null,
+        "es": null,
+        "fr": null
+      },
+      "image": {
+        "src": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-01.jpg",
+        "thumb": "public/media/events/2026-10-10-sao-bras-de-alportel-museu-do-traje/exposicao-01-640.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": {
+          "pt-PT": "Painéis da exposição «Entre Ruínas e Memórias» instalados no pátio do Museu do Traje, em São Brás de Alportel",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "credit": {
+          "pt-PT": "Fotografia: Fernando Rodrigues de Jácomo",
+          "en": null,
+          "es": null,
+          "fr": null
+        }
+      },
+      "primaryAction": {
+        "label": {
+          "pt-PT": "Ver a agenda",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "href": "/exposicoes"
+      },
+      "secondaryAction": {
+        "label": {
+          "pt-PT": "Ver fotografias",
+          "en": null,
+          "es": null,
+          "fr": null
+        },
+        "href": "/exposicoes/2026-10-10-sao-bras-de-alportel-museu-do-traje"
+      }
     }
   ],
   "assets": {

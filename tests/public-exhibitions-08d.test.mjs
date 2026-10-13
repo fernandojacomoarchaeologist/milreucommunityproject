@@ -12,7 +12,7 @@ const exporter=readFileSync("scripts/exhibitions/export-public.mjs","utf8");
 const build=readFileSync("scripts/build.mjs","utf8");
 
 test("snapshot público possui contrato estável",()=>{
-  assert.equal(snapshot.version,"0.15.0");
+  assert.equal(snapshot.version,"0.16.0");
   for(const field of ["current","upcoming","past","events"])assert.ok(Array.isArray(snapshot[field]));
 });
 

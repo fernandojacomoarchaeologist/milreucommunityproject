@@ -34,8 +34,12 @@ for (const bp of [375, 768, 1280]) if (!model.breakpointsToTest?.includes(bp)) f
 // 2. Slide do Inquérito usa o asset exato; asset existe e o SHA-256 confere
 const carousel = read("public/data/home-carousel.json");
 if (carousel.version !== EXPECTED_VERSION) fail("versão do home-carousel incorreta.");
-if (carousel.slides.length !== 3) fail("o carrossel deve ter exatamente 3 slides.");
-const [museum, proteus, survey] = carousel.slides;
+// 3 destaques canónicos + 1 destaque de evento (decisão do responsável 2026-10-13: 4.º destaque = evento de 10-10-2026).
+if (carousel.slides.length !== 4) fail("o carrossel deve ter exatamente 4 slides (Museu, Proteus, Inquérito, evento).");
+const [museum, proteus, survey, agenda] = carousel.slides;
+if (agenda.id !== "agenda-2026-10-10" || agenda.kind !== "event-photo") fail("quarto slide deve ser o evento de 10-10-2026 (event-photo).");
+if (!existsSync(agenda.image?.src) || !existsSync(agenda.image?.thumb)) fail("imagem do slide do evento ausente.");
+if (!agenda.image?.credit?.["pt-PT"]) fail("slide do evento sem crédito da fotografia.");
 if (museum.id !== "museum" || museum.kind !== "museum-memory") fail("primeiro slide deve ser o Museu de Memórias (fonte canónica).");
 if (proteus.kind !== "empty-state" || proteus.image) fail("slide Proteus deve ser empty-state sem imagem inventada.");
 if (survey.id !== "survey-2026") fail("terceiro slide deve ser o Inquérito 2026.");

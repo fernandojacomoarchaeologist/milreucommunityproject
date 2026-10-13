@@ -116,6 +116,20 @@
       "sources": [
         "recordStatus"
       ]
+    },
+    {
+      "route": "/exposicoes",
+      "sources": [
+        "publicExhibitions",
+        "serverClock"
+      ]
+    },
+    {
+      "route": "/exposicoes/:id",
+      "sources": [
+        "publicExhibitions",
+        "serverClock"
+      ]
     }
   ]
 }
