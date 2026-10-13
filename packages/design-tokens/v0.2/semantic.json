@@ -15,7 +15,12 @@
       "signature": "{color.red.500}",
       "signatureDeep": "{color.red.700}",
       "inverse": "{color.ink.950}",
-      "overlay": "rgba(30,26,23,0.82)"
+      "overlay": "rgba(30,26,23,0.82)",
+      "sunken": "{color.paper.150}",
+      "tintWarning": "{color.ochre.50}",
+      "tintDanger": "{color.red.50}",
+      "tintSignature": "{color.red.100}",
+      "tintSuccess": "{color.patina.100}"
     },
     "text": {
       "primary": "{color.ink.950}",
@@ -23,7 +28,8 @@
       "muted": "{color.ink.500}",
       "inverse": "{color.paper.0}",
       "onSignature": "{color.paper.0}",
-      "link": "{color.red.700}"
+      "link": "{color.red.700}",
+      "signature": "{color.red.700}"
     },
     "border": {
       "subtle": "{color.ink.200}",
