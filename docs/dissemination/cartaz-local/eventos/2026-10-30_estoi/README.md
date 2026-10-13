@@ -31,11 +31,11 @@ Primeiro cartaz de **evento real** gerado a partir do master do Item 8 (`../../m
 - `digital/ITEM8_Estoi_1080x1920.{png,jpg}` — stories / estados (9:16).
 
 **Animado**
-- `animado/ITEM8_Estoi_1080x1350_animado.mp4` e `animado/ITEM8_Estoi_1080x1920_animado.mp4` — H.264, 30 fps, 14 s, sem som: a fotografia entra com zoom lento e os blocos de informação revelam-se em cascata (fade + deslize); termina no cartaz completo. Composto só com pixels da arte online aprovada.
+- `animado/ITEM8_Estoi_1080x1350_animado.mp4` e `animado/ITEM8_Estoi_1080x1920_animado.mp4` — **v2 (2026-10-13)**: H.264, 30 fps, 21,8 s, sem som, **sem QR** (o link vai no post). Composição livre: 4 fotografias do acervo com transição cruzada e zoom lento — MM202601 (Festa da Pinha, 1909) · MM202608 (Edifício de cultos, c. 1910) · MM202603 (Achados romanos, 1966-67) · MM202613 (Hauschild e equipa, c. 1981) — com texto animado sobre painel chapado (título, local e datas, inauguração 30-10 às 21h00, entrada livre) e **crédito do índice em cada cena**; termina em cartão MARF «Saiba mais e acompanhe a agenda em projectomilreu.pt» + identidade + Faixa de Logos canónica + «Apoiado pela CCDR Algarve, I.P.». Moldura branca dos scans aparada (só a margem).
 
 **Fontes**
 - `source/cartaz_evento_generator.py` — gerador derivado do master (campo `DESTAQUE`; «Com o apoio de» só em demo; altura da imagem 0.405 A3 / 0.365 A4 ou `IMG_RATIO`; `IMG_AV`; `IMG_TRIM` apara só a margem do scan; Faixa de Logos canónica).
-- `source/build_estoi.py` (impressão RGB) · `source/build_cmyk.py` (PDF/X-3, via `_SOURCES_SHARED/prepress/faseb_cmyk.py`) · `source/build_digital.py` (online) · `source/build_animado.py` (MP4).
+- `source/build_estoi.py` (impressão RGB) · `source/build_cmyk.py` (PDF/X-3, via `_SOURCES_SHARED/prepress/faseb_cmyk.py`) · `source/build_digital.py` (online) · `source/build_animado.py` (MP4 v2, composição livre).
 
 **Reproduzir:** `QRPYLIBS=<qrcode> ITEM8_DPI=300 python3 source/build_estoi.py` → `PYTHONPATH=<pikepdf,reportlab> python3 source/build_cmyk.py` → `QRPYLIBS=<qrcode> python3 source/build_digital.py` → `PYTHONPATH=<imageio-ffmpeg> python3 source/build_animado.py` (Pillow, numpy; fontes Fraunces/Spectral/Archivo em `~/Library/Fonts/`, não versionadas).
 
@@ -54,3 +54,4 @@ Primeiro cartaz de **evento real** gerado a partir do master do Item 8 (`../../m
 - 2026-10-13 · ALTERADO · **Faixa de Logos canónica** aplicada (Junta na posição 4, intervalo único, cabeçalho Archivo, menção art. 16.º); anfitrião passa ao ficheiro canónico transparente; `assets/Logo_Estoi.jpeg` removido (deixou de ser usado). PDFs A3/A4 regenerados. · esta sessão
 - 2026-10-13 · PENDENTE · HUMAN GATE da revisão · teste físico do QR · prepress da gráfica · autorização da Junta em `PROVENIENCIA.txt`. · responsável
 - 2026-10-13 · NOVO · **Ficheiro final** (PDF/X-3 CMYK genérico A3/A4), **versão online** (1080×1350 e 1080×1920) e **versão animada** (MP4 14 s, 4:5 e 9:16) gerados a pedido do responsável. Estado → FINAL ART; production gate pendente. · responsável
+- 2026-10-13 · ALTERADO · **Vídeo animado v2** (decisão do responsável): sai o QR e a réplica do cartaz; passa a composição livre com 4 fotografias do acervo (MM202601/08/03/13, uso = publicação oficial do projecto, crédito por cena), texto animado e convite final a visitar projectomilreu.pt. · responsável
