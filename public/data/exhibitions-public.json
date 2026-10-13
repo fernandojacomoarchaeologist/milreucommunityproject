@@ -1,25 +1,37 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "version": "0.15.0",
-  "generatedAt": null,
-  "source": "demonstration-example",
-  "isExample": true,
+  "generatedAt": "2026-10-13",
+  "source": "human-approved-static",
+  "isExample": false,
+  "approval": {
+    "decidedBy": "responsável do projeto",
+    "decidedOn": "2026-10-13",
+    "ref": "docs/dissemination/cartaz-local/eventos/2026-10-30_estoi/README.md"
+  },
   "current": [],
   "upcoming": [
     {
-      "example": true,
-      "starts_on": "2026-02-07",
-      "ends_on": "2026-02-21",
-      "venue_name": "Ruínas Romanas de Milreu",
-      "locality": "Estói",
+      "starts_on": "2026-10-30",
+      "ends_on": "2026-11-06",
+      "venue_name": "Junta de Freguesia de Estoi",
+      "locality": "Estoi",
       "municipality": "Faro",
-      "address": "Estrada Nacional 2-6 (EN 2-6), Estói, 8005-411 Faro, Algarve",
+      "address": "Largo Ossónoba, 8005-454 Estoi",
       "exhibition_type": "Exposição itinerante",
       "public_title": "Entre Ruínas e Memórias",
-      "public_summary": "Exemplo de demonstração: local e datas fictícios, apenas para ilustrar a agenda da itinerância. Os locais e as datas reais serão publicados quando confirmados e aprovados."
+      "public_summary": "Exposição itinerante do Projeto Comunitário de Milreu sobre as memórias da população ligadas às Ruínas Romanas de Milreu. Entrada livre.",
+      "opening_hours": "Segunda a sexta · 9h00–12h00 e 14h00–18h00 · encerrado ao fim de semana"
     }
   ],
   "past": [],
-  "events": [],
-  "notice": "O percurso público será apresentado quando existirem locais e datas confirmados e aprovados."
+  "events": [
+    {
+      "startsAt": "2026-10-30T21:00:00+00:00",
+      "title": "Inauguração da exposição «Entre Ruínas e Memórias»",
+      "description": "Abertura da exposição itinerante na Junta de Freguesia de Estoi. Entrada livre.",
+      "locationText": "Junta de Freguesia de Estoi · Largo Ossónoba, 8005-454 Estoi"
+    }
+  ],
+  "notice": "Apresentamos apenas locais e datas confirmados e aprovados. O percurso será atualizado a cada nova paragem."
 }

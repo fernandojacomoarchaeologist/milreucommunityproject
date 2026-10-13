@@ -7,7 +7,8 @@ import { portalHeader, footer } from "../components/layout.js";
 
 const esc=value=>String(value??"").replace(/[&<>"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
 const dateOnly=value=>value?new Intl.DateTimeFormat("pt-PT",{dateStyle:"long"}).format(new Date(`${value}T12:00:00`)):"—";
-const dateTime=value=>value?new Intl.DateTimeFormat("pt-PT",{dateStyle:"long",timeStyle:"short"}).format(new Date(value)):"—";
+// Hora do local (Portugal), independente do fuso de quem consulta.
+const dateTime=value=>value?new Intl.DateTimeFormat("pt-PT",{dateStyle:"long",timeStyle:"short",timeZone:"Europe/Lisbon"}).format(new Date(value)):"—";
 const durationDays=(starts,ends)=>{
   if(!starts||!ends)return 0;
   const diff=Math.round((new Date(`${ends}T12:00:00`)-new Date(`${starts}T12:00:00`))/86400000)+1;
