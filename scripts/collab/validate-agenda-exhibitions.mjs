@@ -78,7 +78,7 @@ for(const binding of [
   if(!main.includes(binding))throw new Error(`Binding 08D ausente: ${binding}`);
 }
 
-if(!publicViews.includes("publicExhibitionsView")||!publicViews.includes("O próximo local ainda não foi publicado")){
+if(!publicViews.includes("publicExhibitionsView")||!publicViews.includes("Os próximos locais serão anunciados em breve")){
   throw new Error("Página pública da itinerância ausente.");
 }
 

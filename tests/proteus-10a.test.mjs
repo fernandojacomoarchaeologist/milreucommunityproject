@@ -50,7 +50,8 @@ test("apresentação pública do Proteus é honesta: tudo em preparação, nada 
 
 test("a vista não simula chat/consulta nem promete funções disponíveis", () => {
   const portal = text("src/views/portal.js");
-  assert.match(portal, /Em preparação/);
+  // 2026-10-13: experiências futuras não são mostradas; se forem, têm de estar assinaladas.
+  assert.ok(!/futureExperiences\.map/.test(portal) || /Em preparação/.test(portal));
   assert.doesNotMatch(portal, /Pergunte já|Consultar agora/i);
 });
 

@@ -13,7 +13,7 @@ export function publicTransparencyView(publicView={}){
   if(!indicators.length){
     return `<section class="public-transparency public-transparency--empty" aria-label="Transparência">
       <h2>Transparência</h2>
-      <p>De momento não há indicadores públicos publicados. Quando existirem, serão apresentados aqui, agregados e após aprovação de qualidade e privacidade.</p>
+      <p>De momento não há indicadores disponíveis.</p>
     </section>`;
   }
   return `<section class="public-transparency" aria-label="Transparência">

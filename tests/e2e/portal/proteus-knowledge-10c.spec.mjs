@@ -12,7 +12,7 @@ import { test, expect } from "@playwright/test";
 test("a base de conhecimento abre com estado vazio honesto e filtros acessíveis", async ({ page }) => {
   await page.goto("/#/conhecimento/afirmacoes");
   await expect(page.locator(".page-title")).toHaveText(/Base de conhecimento/, { timeout: 15000 });
-  await expect(page.locator(".collab-empty-state h2")).toHaveText(/Ainda não há afirmações publicadas/);
+  await expect(page.locator(".collab-empty-state h2")).toHaveText(/Ainda não há afirmações disponíveis/);
   await expect(page.locator("[data-proteus-knowledge-filters]")).toBeVisible();
   await expect(page.locator('[data-proteus-knowledge-filters] select[name="class"]')).toBeVisible();
 });

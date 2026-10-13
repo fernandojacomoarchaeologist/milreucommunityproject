@@ -67,7 +67,8 @@ if (ov.knowledgeClasses.length !== 6) fail("overview: 6 classes de conhecimento.
 if (!ov.availabilityNotice || !/biblioteca p[úu]blica.*dispon|cat[áa]logo/i.test(ov.availabilityNotice) || !/(pergunte ao proteus|chat|mcp).*(continuam )?indispon/i.test(ov.availabilityNotice)) fail("overview: availabilityNotice deve descrever honestamente Biblioteca/API disponíveis e experiências guiadas indisponíveis.");
 // A vista não pode prometer funções inexistentes.
 const portal = text("src/views/portal.js");
-if (!/Em preparação/.test(portal)) fail("knowledgeView: experiências futuras devem estar assinaladas como em preparação.");
+// 2026-10-13 (decisão do responsável): as experiências futuras deixaram de ser mostradas; se voltarem, têm de estar assinaladas.
+if (/futureExperiences\.map/.test(portal) && !/Em preparação/.test(portal)) fail("knowledgeView: experiências futuras mostradas sem estarem assinaladas como em preparação.");
 if (/<(input|textarea)[^>]*data-proteus|Pergunte já|Consultar agora|chat/i.test(portal)) fail("knowledgeView: não pode simular chat/consulta disponível.");
 
 // 8) Sem MCP/API/chat/ingestão/embeddings introduzidos por 10A (scan das áreas novas)

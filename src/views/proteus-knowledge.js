@@ -45,13 +45,13 @@ export function proteusKnowledgeView(knowledge, lang, query = {}) {
   const results = published.filter((a) => matches(a, q, filters));
   const opt = (arr, sel, labels) => (arr || []).map((v) => `<option value="${esc(v)}"${v === sel ? " selected" : ""}>${esc(labels?.[v] || v)}</option>`).join("");
   const body = published.length === 0
-    ? `<div class="collab-empty-state"><span>Base de conhecimento</span><h2>Ainda não há afirmações publicadas</h2><p>${esc(k.notice || "As afirmações surgirão após evidência localizada, direitos verificados e revisão humana.")}</p></div>`
+    ? `<div class="collab-empty-state"><span>Base de conhecimento</span><h2>Ainda não há afirmações disponíveis</h2></div>`
     : results.length === 0
       ? `<div class="collab-empty-state"><span>Base de conhecimento</span><h2>Sem resultados</h2><p>Nenhuma afirmação corresponde à pesquisa e aos filtros aplicados.</p></div>`
       : `<ul class="proteus-work-list">${results.map(assertionCard).join("")}</ul>`;
   return shell(lang, `
     <header class="page-heading"><span class="eyebrow">Experiência Proteus</span><h1 class="page-title">Base de conhecimento</h1>
-      <p>Afirmações sobre Milreu, com a sua natureza epistémica, as fontes e a evidência localizada que as sustentam, a revisão humana e as posições divergentes. Apenas afirmações revistas e publicadas aparecem aqui.</p></header>
+      <p>Afirmações sobre Milreu, com a sua natureza epistémica, as fontes e a evidência localizada que as sustentam e as posições divergentes.</p></header>
     <section class="portal-section">
       <p class="fallback-note">A confiança é explicada por níveis e razões, nunca por uma percentagem de verdade. Quando as fontes divergem, o Proteus mostra as posições em vez de as resolver por votação.</p>
       <form class="proteus-library-filters" data-proteus-knowledge-filters role="search">

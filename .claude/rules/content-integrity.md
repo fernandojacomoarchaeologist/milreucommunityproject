@@ -21,3 +21,7 @@ paths:
 - Distinguir voz comunitária, descrição objetiva e contextualização institucional.
 - Não apagar incertezas nem divergências para tornar o conteúdo mais simples.
 - Quando faltar informação necessária, indicar a lacuna e perguntar ao responsável.
+
+## Decisão do responsável — 2026-10-13
+
+- O site público não mostra rótulos de processo interno (pré-visualização editorial, estado editorial, «publicado/aprovado/confirmado», «em preparação», códigos internos). O estado editorial continua registado nos dados e visível na área de revisão. Avisos de direitos, de retoque por IA e de navegação derivada mantêm-se, em linguagem corrente.

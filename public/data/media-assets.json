@@ -46,20 +46,20 @@
       "title": "Fact Sheet (1 página)",
       "format": "PDF",
       "downloadEnabled": false,
-      "reason": "Contém fotografia — uso editorial por imprensa em validação de direitos."
+      "reason": "Contém fotografia — disponível mediante pedido."
     },
     {
       "id": "dossie",
       "title": "Dossiê de Convite",
       "format": "PDF",
       "downloadEnabled": false,
-      "reason": "Contém fotografias — redistribuição a terceiros em validação de direitos."
+      "reason": "Contém fotografias — disponível mediante pedido."
     }
   ],
   "pressImages": [],
   "hostAssets": [],
   "emptyStates": {
-    "pressImages": "As fotografias para redistribuição editorial encontram-se em validação de direitos. Para pedidos específicos, contacte-nos.",
+    "pressImages": "Fotografias para uso editorial disponíveis mediante pedido.",
     "hostAssets": "Os materiais para espaços anfitriões estão a ser preparados."
   }
 }

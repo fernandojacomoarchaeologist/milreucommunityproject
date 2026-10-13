@@ -23,7 +23,7 @@ function documentCard(doc) {
     ${meta ? `<p class="resource-card__meta">${meta}</p>` : ""}
     ${doc.downloadEnabled
       ? downloadButton(doc.fileUrl, "Descarregar", doc.format)
-      : `<p class="resource-card__gated" role="note"><span aria-hidden="true">🔒 </span>${esc(doc.reason || "Em validação de direitos.")}</p>`}
+      : `<p class="resource-card__gated" role="note"><span aria-hidden="true">🔒 </span>${esc(doc.reason || "Disponível mediante pedido.")}</p>`}
   </article>`;
 }
 

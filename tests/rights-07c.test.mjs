@@ -19,5 +19,7 @@ test("correção conduz à área Participar", () => {
 
 test("intervenções digitais são exibidas", () => {
   assert.match(museum,/digitalInterventionNotice/);
-  assert.match(museum,/humanReviewStatus/);
+  // 2026-10-13 (decisão do responsável): o estado de revisão humana deixa de ser mostrado no site público;
+  // continua registado nos dados (humanReviewStatus) e na área de revisão. O tipo de intervenção continua visível.
+  assert.match(museum,/digital-intervention-notice/);
 });

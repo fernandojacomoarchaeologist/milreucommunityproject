@@ -40,7 +40,6 @@ function initiativeCard(item, lang) {
     <div class="initiative-card__icon">
       <img src="${assetUrl(`public/icons/${item.icon}.svg`)}" alt="">
     </div>
-    <span class="status-label">${text(lang,"status")}: ${esc(item.status)}</span>
     <h2>${esc(title.value)}</h2>
     ${title.note}
     <p>${esc(short.value)}</p>
@@ -306,7 +305,7 @@ export function initiativeDetailView(item, lang) {
   const surveysBlock = item.slug === "inqueritos-e-dados" ? surveysContent(lang) : "";
 
   return `${portalHeader(lang,"/iniciativas")}<main id="main">
-    ${pageLead(title.value, item.short, lang, `${text(lang,"initiatives")} · ${item.status}`)}
+    ${pageLead(title.value, item.short, lang, text(lang,"initiatives"))}
     <section class="content-section initiative-detail initiative-detail--single">
       <article class="initiative-detail__content">
         <h2>Enquadramento</h2>
@@ -324,28 +323,20 @@ export function knowledgeView(content, lang, proteus) {
   const p = proteus || null;
   const overview = p ? `
     <section class="content-section proteus-overview">
-      <div class="architecture-note"><h2>O que é a Experiência Proteus</h2><p>${esc(p.purpose)}</p>
-        <p class="fallback-note">${esc(p.availabilityNotice)}</p></div>
-      <h2 class="proteus-heading">Experiências previstas</h2>
-      <div class="knowledge-grid">
-        ${p.futureExperiences.map(x => `<article class="knowledge-card"><h3>${esc(x.title)}</h3><p>${esc(x.description)}</p><span>Em preparação</span></article>`).join("")}
-      </div>
-      <p class="section-action"><a class="ml-button ml-button--secondary" href="#/conhecimento/biblioteca">Abrir a Biblioteca (catálogo inicial)</a>
-        <a class="ml-button ml-button--secondary" href="#/conhecimento/afirmacoes">Abrir a base de conhecimento (modelo inicial)</a></p>
+      <div class="architecture-note"><h2>O que é a Experiência Proteus</h2><p>${esc(p.purpose)}</p></div>
+      <p class="section-action"><a class="ml-button ml-button--secondary" href="#/conhecimento/biblioteca">Abrir a Biblioteca</a>
+        <a class="ml-button ml-button--secondary" href="#/conhecimento/afirmacoes">Abrir a base de conhecimento</a></p>
       <h2 class="proteus-heading">Como o conhecimento é classificado</h2>
       <ul class="proteus-classes">${p.knowledgeClasses.map(c => `<li><strong>${esc(c.label)}</strong> — ${esc(c.rule)}</li>`).join("")}</ul>
-      <div class="architecture-note"><h2>Direitos e proveniência</h2><p>${esc(p.rights.principle)}</p><p class="fallback-note">${esc(p.rights.antiSubstitution)}</p></div>
-      <div class="architecture-note"><h2>Recursos institucionais e visita virtual</h2><p>${esc(p.externalResourcesNote)}</p></div>
-      <div class="architecture-note"><h2>Consulta por agentes (MCP)</h2><p>${esc(p.futureMcp.note)}</p></div>
+      <div class="architecture-note"><h2>Direitos e proveniência</h2><p>Cada fonte é usada de acordo com os seus direitos, com indicação de proveniência e sem substituir a obra original.</p></div>
     </section>` : "";
   return `${portalHeader(lang,"/conhecimento")}<main id="main">
     ${pageLead(text(lang,"structuredKnowledge"), knowledge.summary, lang, "Milreu Proteus")}
     ${overview}
     <section class="content-section">
       <div class="knowledge-grid">
-        ${knowledge.categories.map(item => `<article class="knowledge-card"><img src="${assetUrl("public/icons/knowledge.svg")}" alt=""><h2>${esc(localised(item.title,lang).value)}</h2><p>${esc(localised(item.description,lang).value)}</p><span>Estrutura preparada · conteúdo futuro</span></article>`).join("")}
+        ${knowledge.categories.map(item => `<article class="knowledge-card"><img src="${assetUrl("public/icons/knowledge.svg")}" alt=""><h2>${esc(localised(item.title,lang).value)}</h2><p>${esc(localised(item.description,lang).value)}</p></article>`).join("")}
       </div>
-      <div class="architecture-note"><h2>Fonte única</h2><p>As páginas públicas, o Museu, os totens e as futuras APIs deverão derivar dos mesmos registos canónicos.</p><p><a class="ml-button ml-button--secondary ml-button--on-dark" href="#/laboratorio/canais">Abrir laboratório multicanal</a></p></div>
     </section>
   </main>${footer(lang)}`;
 }
@@ -380,5 +371,5 @@ export function aboutView(content, lang) {
 }
 
 export function notFoundView(lang) {
-  return `${portalHeader(lang)}<main id="main" class="content-section"><div class="ml-empty"><h1>${text(lang,"notFound")}</h1><p>A rota solicitada não existe nesta versão.</p><a class="ml-button ml-button--primary" href="#/">Início</a></div></main>${footer(lang)}`;
+  return `${portalHeader(lang)}<main id="main" class="content-section"><div class="ml-empty"><h1>${text(lang,"notFound")}</h1><p>A página que procura não existe.</p><a class="ml-button ml-button--primary" href="#/">Início</a></div></main>${footer(lang)}`;
 }

@@ -34,7 +34,7 @@ test("agenda oferece lista, calendário e itinerância",()=>{
 });
 
 test("página pública não inventa locais",()=>{
-  assert.match(publicView,/O próximo local ainda não foi publicado/);
+  assert.match(publicView,/Os próximos locais serão anunciados em breve/);
   assert.match(publicView,/publicExhibitionsView/);
   assert.ok(main.includes('case "public-exhibitions"'));
 });
