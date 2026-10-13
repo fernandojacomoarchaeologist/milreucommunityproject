@@ -78,3 +78,18 @@ test("dados reais têm aprovação registada e nenhum exemplo misturado", () => 
   assert.ok(existsSync(snapshot.approval.ref), "registo da decisão em falta");
   for (const k of ["current", "upcoming", "past", "events"]) for (const row of snapshot[k]) assert.notEqual(row.example, true);
 });
+
+test("detalhe abre em gaveta sobre a agenda, com imagem, fecho e regresso à agenda", async () => {
+  const { publicExhibitionEntryView } = await import("../src/views/exhibitions-public.js");
+  const html = publicExhibitionEntryView(snapshot, "2026-10-30-estoi-inauguracao", "pt-PT", Date.parse("2026-10-13T12:00:00Z"));
+  assert.match(html, /Onde está a exposição\?/, "a agenda fica por trás da gaveta");
+  assert.match(html, /role="dialog" aria-modal="true" aria-labelledby="agenda-drawer-title"/);
+  assert.match(html, /class="agenda-drawer__close" href="#\/exposicoes" data-agenda-close/);
+  assert.match(html, /class="agenda-drawer__hero"/, "evento sem fotografia usa a imagem da paragem");
+  const missing = publicExhibitionEntryView(snapshot, "nao-existe", "pt-PT", Date.parse("2026-10-13T12:00:00Z"));
+  assert.match(missing, /Evento não encontrado/);
+  assert.match(missing, /data-agenda-close/);
+  const main = readFileSync("src/main.js", "utf8");
+  assert.match(main, /event\.key === "Escape"/);
+  assert.match(main, /has-agenda-drawer/);
+});

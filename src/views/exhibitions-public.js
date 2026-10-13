@@ -2,7 +2,8 @@
  * © 2026 Fernando Rodrigues de Jácomo.
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
- * Agenda (#/exposicoes) e detalhe (#/exposicoes/:id); classificação em lib/agenda.js.
+ * Agenda (#/exposicoes); o detalhe (#/exposicoes/:id) abre numa gaveta lateral sobre a agenda.
+ * Classificação em lib/agenda.js; comportamento da gaveta (foco, Esc, fecho) em main.js.
  */
 import { portalHeader, footer } from "../components/layout.js";
 import { assetUrl } from "../lib/data.js";
@@ -72,7 +73,7 @@ function entryCard(entry){
     <div class="agenda-card__body">
       ${entry.example?`<span class="public-exhibition-stop__example" role="note">Exemplo · demonstração</span>`:""}
       <span class="agenda-card__category">${esc(entry.category)}</span>
-      <h3>${detail?`<a href="${detail}">${esc(entry.title)}</a>`:esc(entry.title)}</h3>
+      <h3>${detail?`<a href="${detail}" data-agenda-id="${esc(entry.id)}">${esc(entry.title)}</a>`:esc(entry.title)}</h3>
       ${placeBlock(entry)}
       ${entry.summary?`<p>${esc(entry.summary)}</p>`:""}
       ${entry.hours?`<p class="agenda-hours"><strong>Horário:</strong> ${esc(entry.hours)}</p>`:""}
@@ -96,11 +97,11 @@ function pastCard(entry){
       ${entry.media.length?`<small>${entry.media.length} ${entry.media.length===1?"imagem":"imagens"}</small>`:""}
     </div>`;
   return entry.id
-    ?`<a class="agenda-past" href="#/exposicoes/${encodeURIComponent(entry.id)}">${inner}</a>`
+    ?`<a class="agenda-past" href="#/exposicoes/${encodeURIComponent(entry.id)}" data-agenda-id="${esc(entry.id)}">${inner}</a>`
     :`<div class="agenda-past">${inner}</div>`;
 }
 
-export function publicExhibitionsView(snapshot,lang="pt-PT",nowMs=Date.now()){
+export function publicExhibitionsView(snapshot,lang="pt-PT",nowMs=Date.now(),openId=null){
   const groups=classifyAgenda(snapshot,nowMs);
   const hasSchedule=groups.current.length||groups.upcoming.length||groups.past.length;
   return `${portalHeader(lang,"")}<main id="main">
@@ -115,36 +116,50 @@ export function publicExhibitionsView(snapshot,lang="pt-PT",nowMs=Date.now()){
       ${groups.upcoming.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Próximos locais e atividades</h2><p>Onde e quando pode encontrar a exposição.</p></div><div class="agenda-list">${groups.upcoming.map(entryCard).join("")}</div></section>`:""}
       ${groups.past.length?`<section class="content-section content-section--muted public-exhibition-section"><div class="section-heading"><h2>Eventos realizados</h2><p>Reveja os encontros anteriores, com fotografias e documentos.</p></div><div class="agenda-past-list">${groups.past.map(pastCard).join("")}</div></section>`:""}
     `:`<section class="content-section"><div class="public-exhibition-empty"><span>Itinerância</span><h2>Os próximos locais serão anunciados em breve</h2><a class="ml-button ml-button--secondary" href="#/iniciativas/exposicao-itinerante">Conhecer a iniciativa</a></div></section>`}
-  </main>${footer(lang)}`;
+  </main>${footer(lang)}${openId?agendaDrawer(snapshot,openId,nowMs):""}`;
 }
 
+// Detalhe = agenda + gaveta: o endereço continua partilhável e o fundo mantém o contexto.
 export function publicExhibitionEntryView(snapshot,id,lang="pt-PT",nowMs=Date.now()){
+  return publicExhibitionsView(snapshot,lang,nowMs,id);
+}
+
+function drawerShell(content){
+  return `<div class="agenda-drawer" data-agenda-drawer>
+    <a class="agenda-drawer__backdrop" href="#/exposicoes" data-agenda-close tabindex="-1" aria-hidden="true"></a>
+    <aside class="agenda-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="agenda-drawer-title">
+      <a class="agenda-drawer__close" href="#/exposicoes" data-agenda-close aria-label="Fechar e voltar à agenda"><span aria-hidden="true">✕</span><span>Voltar à agenda</span></a>
+      ${content}
+    </aside>
+  </div>`;
+}
+
+function agendaDrawer(snapshot,id,nowMs){
   const entry=findAgendaEntry(snapshot,id);
   if(!entry){
-    return `${portalHeader(lang,"")}<main id="main"><section class="content-section"><div class="public-exhibition-empty"><span>Agenda</span><h1>Evento não encontrado</h1><p>Este evento não existe ou já não está publicado.</p><a class="ml-button ml-button--secondary" href="#/exposicoes">Voltar à agenda</a></div></section></main>${footer(lang)}`;
+    return drawerShell(`<div class="agenda-drawer__body"><span class="agenda-drawer__eyebrow">Agenda</span><h2 id="agenda-drawer-title">Evento não encontrado</h2><p>Este evento não existe ou já não está publicado.</p></div>`);
   }
   const status=entryStatus(entry,nowMs);
   const days=entry.type==="stop"?durationDays(entry.startsOn,entry.endsOn):0;
   const related=entry.stopId?findAgendaEntry(snapshot,entry.stopId):null;
-  return `${portalHeader(lang,"")}<main id="main">
-    <section class="page-lead page-lead--exhibitions">
-      <a class="agenda-back" href="#/exposicoes">← Agenda da exposição</a>
-      <span>${esc(STATUS_LABEL[status]||"")} · ${esc(entry.category)}</span>
-      <h1>${esc(entry.title)}</h1>
+  // Imagem de destaque: a do próprio evento ou, se não tiver, a da paragem a que pertence.
+  const ownCover=entry.media.find(item=>item.kind!=="poster")||entry.media[0];
+  const cover=ownCover||related?.media?.[0]||null;
+  const gallery=entry.media.filter(item=>item!==ownCover);
+  return drawerShell(`
+    ${cover?`<figure class="agenda-drawer__hero"><a href="${esc(assetUrl(cover.src))}" ${EXTERNAL} aria-label="Abrir imagem ampliada: ${esc(cover.alt)}${NW}"><img src="${esc(assetUrl(cover.src))}" width="${Number(cover.width)||""}" height="${Number(cover.height)||""}" alt="${esc(cover.alt)}" decoding="async"></a>${cover.credit?`<figcaption>${esc(cover.credit)}</figcaption>`:""}</figure>`:""}
+    <div class="agenda-drawer__body">
+      <span class="agenda-drawer__eyebrow">${esc(STATUS_LABEL[status]||"")} · ${esc(entry.category)}</span>
+      <h2 id="agenda-drawer-title">${esc(entry.title)}</h2>
       <p class="agenda-detail__period"><strong>${esc(periodLabel(entry))}</strong>${days>1?` · ${days} dias`:""}</p>
-    </section>
-    <section class="content-section agenda-detail">
-      <div class="agenda-detail__info">
-        ${placeBlock(entry)}
-        ${entry.summary?`<p>${esc(entry.summary)}</p>`:""}
-        ${entry.hours?`<p class="agenda-hours"><strong>Horário:</strong> ${esc(entry.hours)}</p>`:""}
-        ${related?`<p><a href="#/exposicoes/${encodeURIComponent(related.id)}">Ver a exposição: ${esc(related.title)} →</a></p>`:""}
-        ${status!=="past"?shareBlock(entry):""}
-      </div>
-    </section>
-    ${entry.media.length?`<section class="content-section">
-      <div class="section-heading"><h2>Fotografias e documentos</h2><p>Selecione uma imagem para a abrir ampliada.</p></div>
-      <div class="agenda-gallery">${entry.media.map(item=>`<figure>${mediaThumb(item)}<figcaption>${esc(item.credit||"")}</figcaption></figure>`).join("")}</div>
-    </section>`:""}
-  </main>${footer(lang)}`;
+      ${placeBlock(entry)}
+      ${entry.summary?`<p>${esc(entry.summary)}</p>`:""}
+      ${entry.hours?`<p class="agenda-hours"><strong>Horário:</strong> ${esc(entry.hours)}</p>`:""}
+      ${related?`<p><a href="#/exposicoes/${encodeURIComponent(related.id)}">Ver a exposição: ${esc(related.title)} →</a></p>`:""}
+      ${status!=="past"?shareBlock(entry):""}
+      ${gallery.length?`<section class="agenda-drawer__gallery" aria-labelledby="agenda-drawer-gallery">
+        <h3 id="agenda-drawer-gallery">Fotografias e documentos</h3>
+        <div class="agenda-gallery">${gallery.map(item=>`<figure>${mediaThumb(item)}<figcaption>${esc(item.credit||"")}</figcaption></figure>`).join("")}</div>
+      </section>`:""}
+    </div>`);
 }
