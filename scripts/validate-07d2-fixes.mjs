@@ -12,7 +12,8 @@ const main = readFileSync("src/main.js","utf8");
 const css = readFileSync("src/styles/app.css","utf8");
 
 if (carousel.version !== "0.39.0") throw new Error("Versão do carrossel inválida.");
-if (carousel.slides.length !== 3) throw new Error("A Home deve possuir três destaques.");
+// decisão do responsável 2026-10-13: 4.º destaque = evento de 10-10-2026
+if (carousel.slides.length !== 4 || carousel.slides[3].id !== "agenda-2026-10-10") throw new Error("A Home deve possuir Museu, Proteus, Inquérito e o evento de 10-10.");
 if (carousel.slides[0].id !== "museum") throw new Error("O Museu deve ser o primeiro destaque.");
 if (carousel.slides[1].kind !== "empty-state" || carousel.slides[1].id !== "proteus") {
   throw new Error("Experiência Proteus deve ser o segundo destaque sem imagem.");
