@@ -67,3 +67,4 @@ Sistema de **template** (não peça única): composição que resiste a dados va
 - 2026-10-13 · ALTERADO · Cartaz Estoi com **Faixa de Logos canónica** (Junta na posição 4, intervalo único, menção art. 16.º) e anfitrião = `logo-junta-freguesia-estoi.png`; `Logo_Estoi.jpeg` retirado. PDFs A3/A4 regenerados; aguarda HUMAN GATE. · esta sessão
 - 2026-10-13 · NOVO · Cartaz Estoi: **ficheiro final** PDF/X-3 CMYK genérico (A3/A4), **versão online** 1080×1350 + 1080×1920 e **versão animada** MP4 (14 s, 4:5 e 9:16). FINAL ART; pendente teste físico do QR e ICC da gráfica. · responsável
 - 2026-10-13 · ALTERADO · Cartaz Estoi — **vídeo animado v2**: sem QR; 4 fotografias do acervo (MM202601/08/03/13) com crédito por cena, texto animado e cartão final «projectomilreu.pt» + Faixa de Logos. · responsável
+- 2026-10-13 · PENDENTE · Vídeo animado v2 (e restantes peças do cartaz Estoi) **enviados para validação externa — STAND BY** até retorno. · responsável

@@ -55,3 +55,4 @@ Primeiro cartaz de **evento real** gerado a partir do master do Item 8 (`../../m
 - 2026-10-13 · PENDENTE · HUMAN GATE da revisão · teste físico do QR · prepress da gráfica · autorização da Junta em `PROVENIENCIA.txt`. · responsável
 - 2026-10-13 · NOVO · **Ficheiro final** (PDF/X-3 CMYK genérico A3/A4), **versão online** (1080×1350 e 1080×1920) e **versão animada** (MP4 14 s, 4:5 e 9:16) gerados a pedido do responsável. Estado → FINAL ART; production gate pendente. · responsável
 - 2026-10-13 · ALTERADO · **Vídeo animado v2** (decisão do responsável): sai o QR e a réplica do cartaz; passa a composição livre com 4 fotografias do acervo (MM202601/08/03/13, uso = publicação oficial do projecto, crédito por cena), texto animado e convite final a visitar projectomilreu.pt. · responsável
+- 2026-10-13 · PENDENTE · Vídeo animado v2 (e restantes peças do cartaz Estoi) **enviados para validação externa — STAND BY** até retorno. · responsável
