@@ -1662,7 +1662,57 @@ function render(scroll=true) {
   app.innerHTML = html;
   bindPage();
   if (scroll) window.scrollTo(0,0);
+  syncAgendaDrawer(route);
 }
+
+// Gaveta da agenda: abrir/fechar não muda de página; o foco entra na gaveta e regressa ao cartão.
+const AGENDA_ROUTES = ["public-exhibitions","public-exhibition-entry"];
+// «Voltar» usa o histórico só quando a gaveta foi aberta a partir da lista; por link direto vai para #/exposicoes.
+let lastRouteName = null, drawerOpenedFromAgenda = false, lastDrawerId = null, openedFromList = false, keepDrawerOrigin = false;
+function syncAgendaDrawer(route) {
+  const drawer = document.querySelector("[data-agenda-drawer]");
+  document.documentElement.classList.toggle("has-agenda-drawer", Boolean(drawer));
+  if (drawer) {
+    if (lastDrawerId !== route.id && !keepDrawerOrigin) drawerOpenedFromAgenda = openedFromList;
+    openedFromList = keepDrawerOrigin = false;
+    lastDrawerId = route.id;
+    drawer.querySelector(".agenda-drawer__close")?.focus({ preventScroll:true });
+    drawer.querySelectorAll("[data-agenda-close]").forEach(link => link.addEventListener("click", event => {
+      if (!drawerOpenedFromAgenda) return;
+      event.preventDefault();
+      history.back();
+    }));
+    // De uma gaveta para outra substitui a entrada do histórico: «Voltar» regressa sempre à agenda.
+    drawer.querySelectorAll('.agenda-drawer__body a[href^="#/exposicoes/"]').forEach(link => link.addEventListener("click", event => {
+      event.preventDefault();
+      keepDrawerOrigin = true;
+      location.replace(link.getAttribute("href"));
+    }));
+  } else if (lastDrawerId && route.name === "public-exhibitions") {
+    [...document.querySelectorAll("[data-agenda-id]")].find(link => link.dataset.agendaId === lastDrawerId)?.focus({ preventScroll:true });
+    lastDrawerId = null;
+  } else {
+    lastDrawerId = null;
+  }
+  if (route.name === "public-exhibitions" || drawer) document.querySelectorAll('main a[href^="#/exposicoes/"]').forEach(link => link.addEventListener("click", () => { openedFromList = true; }));
+  lastRouteName = route.name;
+}
+document.addEventListener("keydown", event => {
+  const panel = document.querySelector("[data-agenda-drawer] .agenda-drawer__panel");
+  if (!panel) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    panel.querySelector(".agenda-drawer__close")?.click();
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = [...panel.querySelectorAll("a[href],button:not([disabled])")].filter(element => element.offsetParent !== null);
+  if (!focusable.length) return;
+  const first = focusable[0], last = focusable[focusable.length-1];
+  if (!panel.contains(document.activeElement)) { event.preventDefault(); first.focus(); }
+  else if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+});
 
 // 10D — índice da API pública (export estático). Carregado aqui (não em data.js, fora do âmbito
 // do pacote 10D); resiliente: em caso de falha devolve null e a vista mostra o estado de erro.
@@ -1691,5 +1741,6 @@ async function start() {
   }
 }
 
-window.addEventListener("hashchange",() => render());
+// Entre a agenda e a gaveta mantém-se a posição de leitura.
+window.addEventListener("hashchange",() => render(!(AGENDA_ROUTES.includes(getRoute().name) && AGENDA_ROUTES.includes(lastRouteName))));
 start();
