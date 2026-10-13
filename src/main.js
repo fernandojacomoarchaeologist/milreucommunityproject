@@ -1675,6 +1675,9 @@ async function loadProteusApiIndex() {
   }
 }
 
+// Modo escuro: quando o dispositivo muda e não há escolha guardada, o botão do cabeçalho acompanha.
+window.addEventListener("milreu-theme-change",() => render(false));
+
 async function start() {
   try {
     [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge,state.publicProteusApi,state.mediaAssets,state.brandAssets] = await Promise.all([
@@ -1692,5 +1695,4 @@ async function start() {
 }
 
 window.addEventListener("hashchange",() => render());
-window.addEventListener("milreu-theme-change",() => render(false));
 start();

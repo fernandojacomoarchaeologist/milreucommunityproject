@@ -1166,6 +1166,16 @@ linear-gradient(var(--ml-surface-subtle) 1px,transparent 1px),linear-gradient(90
 
 
 /* Parcerias e apoio (Home + Museu) */
+/* Modo escuro (ADR 2026-10-13). As cores vêm dos tokens semânticos (tokens.css); aqui só os casos
+   que não podem inverter: texto sobre destaques amarelos, ícones raster, logótipos de parceiros. */
+.preview-banner,.preview-watermark,.preview-status,.ai-retouch-badge,.ai-review-disclosure--compact span,.collab-mode--demo,.collab-demo-notice,.collab-status--pending,.task-assignment-badge--submitted,.task-assignment-badge--applied,.notification-card--warning .notification-card__icon{color:var(--ml-color-ink-950)}
+.theme-toggle{color:var(--ml-text-primary)}
+.theme-toggle svg{display:block}
+.museum-header .theme-toggle{color:var(--ml-text-primary)}
+:root[data-theme="dark"] .icon-button:not(.immersive-view *):not(.immersive-actions *) img,:root[data-theme="dark"] .mobile-menu-button img{filter:invert(1)}
+:root[data-theme="dark"] .partner-logos:not(.partner-logos--panel){padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem);background:var(--ml-color-paper-0);border-radius:14px}
+/* Com o botão de tema, o nome do Museu deixa de caber ao lado dos controlos em ecrãs estreitos; fica o símbolo (como no Portal). */
+@media(max-width:30rem){.museum-brand span{display:none}}
 .partner-section{max-width:var(--ml-container-max);margin:0 auto;padding:clamp(2.5rem,6vw,5rem) clamp(1rem,4vw,4rem);border-top:1px solid var(--ml-border-subtle)}
 /* Faixa de Logos canónica (modo B): --pl-h = altura do trio; intervalo único = 0,6 × trio (FAIXA_DE_LOGOS_CANONICA §3). */
 .partner-logos{--pl-h:clamp(28px,7.8vw,48px);--pl-gap:calc(var(--pl-h)*.6);margin:1.5rem 0 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:var(--pl-gap)}
@@ -1266,13 +1276,3 @@ a.agenda-past:hover,a.agenda-past:focus-visible{border-color:var(--ml-border-str
 .agenda-gallery figcaption{font-size:.78rem;color:var(--ml-text-secondary)}
 @media(max-width:52rem){.agenda-card{grid-template-columns:1fr}.agenda-card__date{padding:var(--ml-space-4)}}
 
-/* Modo escuro (ADR 2026-10-13). As cores vêm dos tokens semânticos (tokens.css); aqui só os casos
-   que não podem inverter: texto sobre destaques amarelos, ícones raster, logótipos de parceiros. */
-.preview-banner,.preview-watermark,.preview-status,.ai-retouch-badge,.ai-review-disclosure--compact span,.collab-mode--demo,.collab-demo-notice,.collab-status--pending,.task-assignment-badge--submitted,.task-assignment-badge--applied,.notification-card--warning .notification-card__icon{color:var(--ml-color-ink-950)}
-.theme-toggle{color:var(--ml-text-primary)}
-.theme-toggle svg{display:block}
-.museum-header .theme-toggle{color:var(--ml-text-primary)}
-:root[data-theme="dark"] .icon-button:not(.immersive-view *):not(.immersive-actions *) img,:root[data-theme="dark"] .mobile-menu-button img{filter:invert(1)}
-:root[data-theme="dark"] .partner-logos:not(.partner-logos--panel){padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,3vw,2rem);background:var(--ml-color-paper-0);border-radius:14px}
-/* Com o botão de tema, o nome do Museu deixa de caber ao lado dos controlos em ecrãs estreitos; fica o símbolo (como no Portal). */
-@media(max-width:30rem){.museum-brand span{display:none}}
