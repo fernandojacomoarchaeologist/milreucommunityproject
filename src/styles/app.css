@@ -1275,4 +1275,3 @@ a.agenda-past:hover,a.agenda-past:focus-visible{border-color:var(--ml-border-str
 .agenda-gallery img{display:block;width:100%;height:12rem;object-fit:cover;border:1px solid var(--ml-border-subtle)}
 .agenda-gallery figcaption{font-size:.78rem;color:var(--ml-text-secondary)}
 @media(max-width:52rem){.agenda-card{grid-template-columns:1fr}.agenda-card__date{padding:var(--ml-space-4)}}
-
