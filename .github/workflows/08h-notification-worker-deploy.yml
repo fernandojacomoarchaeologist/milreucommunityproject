@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   deploy:
+    name: 08h-notification-worker-deploy-deploy
     # L2: staging só corre com a variável MILREU_STAGING_ENABLED=true — impede que o
     # GitHub crie automaticamente um environment `staging` sem protecções.
     if: ${{ inputs.confirmation == 'DEPLOY_MILREU_NOTIFICATION_WORKER_STAGING' && vars.MILREU_STAGING_ENABLED == 'true' }}

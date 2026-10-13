@@ -17,6 +17,7 @@ env:
 
 jobs:
   quality:
+    name: 10b-ci-quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
