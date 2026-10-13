@@ -20,9 +20,14 @@ test("snapshot não contém dados reais inventados (só exemplos declarados)",()
   // 08d-no-fake-exhibition-data + demonstration-content-only: não pode existir conteúdo
   // REAL não aprovado; entradas de demonstração são admitidas apenas se marcadas
   // explicitamente com example:true (decisão editorial 2026-09-30 — exemplo fev/2026).
+  // Dados reais só com decisão humana registada (source human-approved-static + approval.decidedOn/ref,
+  // decisão 2026-10-13 — paragem Junta de Freguesia de Estoi); caso contrário, apenas exemplos declarados.
+  const humanApproved=snapshot.source==="human-approved-static"&&snapshot.isExample===false
+    &&/^\d{4}-\d{2}-\d{2}$/.test(snapshot.approval?.decidedOn||"")&&Boolean(snapshot.approval?.ref);
   for(const field of ["current","upcoming","events"]){
     for(const row of snapshot[field]){
-      assert.equal(row.example,true,`${field}: entrada não declarada como exemplo`);
+      if(!humanApproved)assert.equal(row.example,true,`${field}: entrada não declarada como exemplo`);
+      else assert.notEqual(row.example,true,`${field}: exemplo misturado com dados aprovados`);
     }
   }
   // Campos internos nunca expostos no snapshot público.
