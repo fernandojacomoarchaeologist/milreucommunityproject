@@ -14,7 +14,7 @@ function dl(url, label, format) {
   return `<a class="ml-button ml-button--primary" href="${esc(assetUrl(url))}" download data-analytics="logo_download">${esc(label)}${format?` <span aria-hidden="true">· ${esc(format)}</span>`:""}</a>`;
 }
 function dlPending(label) {
-  return `<span class="brand-dl--pending" role="note"><span aria-hidden="true">🔒 </span>${esc(label)} · em preparação</span>`;
+  return `<span class="brand-dl--pending" role="note"><span aria-hidden="true">🔒 </span>${esc(label)} · disponível mediante pedido</span>`;
 }
 
 export function visualIdentityView(brand, lang = "pt-PT") {
@@ -61,7 +61,7 @@ export function visualIdentityView(brand, lang = "pt-PT") {
       <ul class="color-grid">
         ${colors.map(c=>`<li class="color-swatch"><span class="color-swatch__chip" style="background:${esc(c.hex)}" aria-hidden="true"></span><strong>${esc(c.name)}</strong><span class="color-swatch__val">HEX ${esc(c.hex)}</span><span class="color-swatch__val">RGB ${esc(c.rgb)}</span></li>`).join("")}
       </ul>
-      <p class="muted">${esc(b.cmyk?.note || "CMYK em validação.")}</p>
+      <p class="muted">${esc(b.cmyk?.note || "CMYK disponível mediante pedido.")}</p>
     </section>
 
     <section class="content-section content-section--muted" aria-labelledby="vi-tipo">

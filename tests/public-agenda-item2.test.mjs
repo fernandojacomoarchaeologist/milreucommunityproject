@@ -56,7 +56,7 @@ test("partilha Facebook/WhatsApp só em eventos não realizados", () => {
 test("realizados são clicáveis e há rota de detalhe", () => {
   assert.match(view, /class="agenda-past" href="#\/exposicoes\//);
   assert.match(router, /public-exhibition-entry/);
-  assert.match(view, /O próximo local ainda não foi publicado/);
+  assert.match(view, /Os próximos locais serão anunciados em breve/);
 });
 
 test("todas as imagens existem, com dimensões, texto alternativo, crédito e sem EXIF", () => {

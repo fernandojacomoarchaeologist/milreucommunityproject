@@ -139,7 +139,7 @@ test("snapshot público começa vazio e honesto; sem confiança percentual", () 
 
 test("vistas: estado vazio, 404 de afirmação e de entidade são honestos", () => {
   const snap = read("public/data/proteus-knowledge-public.json");
-  assert.match(proteusKnowledgeView(snap, "pt-PT", {}), /Ainda não há afirmações publicadas/);
+  assert.match(proteusKnowledgeView(snap, "pt-PT", {}), /Ainda não há afirmações disponíveis/);
   assert.match(proteusAssertionView(snap, "inexistente", "pt-PT"), /Afirmação não encontrada/);
   assert.match(proteusEntityView(snap, "inexistente", "pt-PT"), /Entidade não encontrada/);
 });

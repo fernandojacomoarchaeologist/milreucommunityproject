@@ -107,15 +107,14 @@ export function publicExhibitionsView(snapshot,lang="pt-PT",nowMs=Date.now()){
     <section class="page-lead page-lead--exhibitions">
       <span>Entre Ruínas e Memórias</span>
       <h1>Onde está a exposição?</h1>
-      <p>Acompanhe os locais, as datas e as atividades da exposição física do Projeto Comunitário de Milreu.</p>
+      <p>Saiba onde e quando pode visitar a exposição e reveja os encontros já realizados.</p>
     </section>
     ${snapshot?.isExample?`<section class="content-section"><div class="public-exhibition-example-banner" role="note"><strong>Exemplo de demonstração</strong><span>Dados fictícios.</span></div></section>`:""}
     ${hasSchedule?`
-      ${groups.current.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Em exibição</h2><p>Locais com período atualmente ativo.</p></div><div class="agenda-list">${groups.current.map(entryCard).join("")}</div></section>`:""}
-      ${groups.upcoming.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Próximos locais e atividades</h2><p>Períodos e atividades confirmados, do mais próximo para o mais distante.</p></div><div class="agenda-list">${groups.upcoming.map(entryCard).join("")}</div></section>`:""}
-      ${groups.past.length?`<section class="content-section content-section--muted public-exhibition-section"><div class="section-heading"><h2>Eventos realizados</h2><p>Do mais recente para o mais antigo. Abra cada evento para ver fotografias e documentos.</p></div><div class="agenda-past-list">${groups.past.map(pastCard).join("")}</div></section>`:""}
-    `:`<section class="content-section"><div class="public-exhibition-empty"><span>Itinerância</span><h2>O próximo local ainda não foi publicado</h2><p>${esc(snapshot?.notice||"A agenda será atualizada quando existirem locais e datas confirmados.")}</p><a class="ml-button ml-button--secondary" href="#/iniciativas/exposicao-itinerante">Conhecer a iniciativa</a></div></section>`}
-    ${snapshot?.notice&&hasSchedule?`<p class="content-section agenda-notice">${esc(snapshot.notice)}</p>`:""}
+      ${groups.current.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Em exibição</h2><p>Pode visitar a exposição agora.</p></div><div class="agenda-list">${groups.current.map(entryCard).join("")}</div></section>`:""}
+      ${groups.upcoming.length?`<section class="content-section public-exhibition-section"><div class="section-heading"><h2>Próximos locais e atividades</h2><p>Onde e quando pode encontrar a exposição.</p></div><div class="agenda-list">${groups.upcoming.map(entryCard).join("")}</div></section>`:""}
+      ${groups.past.length?`<section class="content-section content-section--muted public-exhibition-section"><div class="section-heading"><h2>Eventos realizados</h2><p>Reveja os encontros anteriores, com fotografias e documentos.</p></div><div class="agenda-past-list">${groups.past.map(pastCard).join("")}</div></section>`:""}
+    `:`<section class="content-section"><div class="public-exhibition-empty"><span>Itinerância</span><h2>Os próximos locais serão anunciados em breve</h2><a class="ml-button ml-button--secondary" href="#/iniciativas/exposicao-itinerante">Conhecer a iniciativa</a></div></section>`}
   </main>${footer(lang)}`;
 }
 

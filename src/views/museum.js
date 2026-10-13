@@ -21,7 +21,6 @@ function aiReviewDisclosure(record,lang,compact=false) {
   return `<div class="${compact ? "ai-review-disclosure ai-review-disclosure--compact" : "ai-review-disclosure"}" role="note">
     <strong>${text(lang,"aiDisclosureTitle")}</strong>
     <p>${text(lang,"aiDisclosureText")}</p>
-    ${record.publication.publicReleaseEligible === false ? `<span>${text(lang,"publicReleasePending")}</span>` : ""}
   </div>`;
 }
 
@@ -211,7 +210,7 @@ export function detailView(records,record,lang) {
     </div>
 
     <article class="memory-detail__copy">
-      <span class="eyebrow">${record.id} · ${text(lang,"preliminary")}</span>
+      <span class="eyebrow">${record.id}</span>
       <h1>${escapeHtml(title.value)}</h1>
       ${localeFallbackBanner(lang, title.fallback || short.fallback || objective.fallback || community.fallback || context.fallback)}
       <p class="memory-lead">${escapeHtml(short.value)}</p>${aiReviewDisclosure(record,lang)}
@@ -239,10 +238,8 @@ export function detailView(records,record,lang) {
       <section id="record-documentation" class="memory-section">
         <h2>${text(lang,"documentation")}</h2>
         <dl class="record-facts">
-          <dt>${text(lang,"dateAndPlace")}</dt><dd>${escapeHtml(date.value || text(lang,"undated"))}${place.value ? ` · ${escapeHtml(place.value)}` : ""}</dd>
-          <dt>${text(lang,"datePrecision")}</dt><dd>${escapeHtml(record.date.precision)}</dd>
+          <dt>${text(lang,"dateAndPlace")}</dt><dd>${escapeHtml(/^\d{4}-\d\d-\d\d$/.test(date.value)?new Date(`${date.value}T12:00:00`).toLocaleDateString(lang,{dateStyle:"long"}):date.value||text(lang,"undated"))}${place.value ? ` · ${escapeHtml(place.value)}` : ""}</dd>
           <dt>${text(lang,"type")}</dt><dd>${escapeHtml(record.classification.primaryType)}</dd>
-          <dt>${text(lang,"editorialState")}</dt><dd>${escapeHtml(record.editorialStatus)}</dd>
         </dl>
 
         <h3>${text(lang,"tags")}</h3>
@@ -375,7 +372,7 @@ function compactRelationCard(record,lang) {
 function digitalInterventionNotice(record,lang) {
   const interventions = record.media.digitalInterventions || [];
   if (!interventions.length) return "";
-  return `<div class="digital-intervention-notice"><h3>${text(lang,"digitalNotice")}</h3>${interventions.map(item => `<article><strong>${escapeHtml(item.type)}</strong><p>${escapeHtml(localised(item.description,lang).value)}</p><span>${text(lang,"humanReviewLabel")} ${escapeHtml(item.humanReviewStatus||"")}</span></article>`).join("")}</div>`;
+  return `<div class="digital-intervention-notice"><h3>${text(lang,"digitalNotice")}</h3>${interventions.map(item => `<article><strong>${escapeHtml({"ai-assisted-enhancement":"Melhoria assistida por IA",crop:"Recorte",other:"Outra intervenção"}[item.type]||item.type)}</strong><p>${escapeHtml(localised(item.description,lang).value)}</p></article>`).join("")}</div>`;
 }
 
 function timelineItem(record,lang) {

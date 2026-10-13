@@ -13,7 +13,7 @@ test("lista pública de oportunidades carrega com estado vazio honesto", async (
   await page.goto("/#/oportunidades");
   await page.waitForFunction(() => document.querySelector("#app")?.textContent.trim().length > 0, { timeout: 15_000 });
   await expect(page.getByRole("heading", { name: "Oportunidades" }).first()).toBeVisible();
-  await expect(page.getByText(/ainda não há oportunidades publicadas/i)).toBeVisible();
+  await expect(page.getByText(/neste momento não há oportunidades abertas/i)).toBeVisible();
   expect(await page.locator(".app-error").count()).toBe(0);
 });
 

@@ -44,7 +44,7 @@ export function opportunitiesListView(snapshot, lang) {
   const list = (snapshot?.opportunities || []);
   const body = list.length
     ? `<div class="opportunity-grid">${list.map(card).join("")}</div>`
-    : `<div class="collab-empty-state"><span>Oportunidades</span><h2>Ainda não há oportunidades publicadas</h2><p>${esc(snapshot?.notice || "As oportunidades aparecem aqui quando forem criadas e publicadas pela coordenação.")}</p></div>`;
+    : `<div class="collab-empty-state"><span>Oportunidades</span><h2>Neste momento não há oportunidades abertas</h2><p>Para colaborar com o projeto, visite <a href="#/participar">Participar</a>.</p></div>`;
   return `<div class="portal-shell">${portalHeader(lang, "/oportunidades")}
     <main id="main" class="portal-main">
       <header class="page-heading"><span class="eyebrow">Participar</span><h1 class="page-title">Oportunidades</h1>
