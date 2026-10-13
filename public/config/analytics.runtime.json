@@ -1,0 +1,10 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "_note": "Estatística de visitas (decisão do responsável 2026-10-13: Umami Cloud, sem cookies). Desligada até existir conta: enabled=false e websiteId=null. O websiteId é um identificador público do site, não uma credencial. Ver docs/website/SPEC_ESTATISTICA_VISITAS.md.",
+  "provider": "umami",
+  "enabled": false,
+  "websiteId": null,
+  "scriptUrl": null,
+  "domains": ["projectomilreu.pt"],
+  "respectDoNotTrack": true
+}
