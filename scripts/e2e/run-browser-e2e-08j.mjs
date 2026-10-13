@@ -46,6 +46,14 @@ function transformModule(file,allModuleIds){
     if(!id)throw new Error(`Importação local não resolvida em ${relative(ROOT,file)}: ${specifier}`);
     return `${prefix}${quote}${id}${quote}`;
   });
+  // 2026-10-13: import() dinâmico com caminho literal (ex.: Área Colaborativa carregada a pedido
+  // em src/main.js) também tem de apontar para o id do módulo no import map.
+  source=source.replace(/(\bimport\s*\(\s*)(["'])(\.{1,2}\/[^"']+)\2(\s*\))/g,(match,prefix,quote,specifier,suffix)=>{
+    const target=resolve(dirname(file),specifier);
+    const id=allModuleIds.get(target);
+    if(!id)throw new Error(`Importação dinâmica local não resolvida em ${relative(ROOT,file)}: ${specifier}`);
+    return `${prefix}${quote}${id}${quote}${suffix}`;
+  });
   return source;
 }
 function escapeInlineJson(value){return JSON.stringify(value).replace(/</g,"\\u003c");}
