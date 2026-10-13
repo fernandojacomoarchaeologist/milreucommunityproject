@@ -6,8 +6,11 @@
     "cardMax": 250000,
     "detailMax": 700000,
     "immersiveMax": 1200000,
-    "javascriptTotalMax": 780000,
+    "javascriptPublicInitialMax": 400000,
+    "javascriptCollaborativeMax": 560000,
+    "javascriptTotalMax": 960000,
     "cssTotalMax": 180000,
     "htmlShellMax": 100000
-  }
+  },
+  "note": "2026-10-13 (decisão do responsável, opção B): o JavaScript passa a ser medido pelo que cada visitante descarrega. O site público carrega src/main.js e os seus imports estáticos; a Área Colaborativa é carregada a pedido (src/collab/bundle.js)."
 }
