@@ -14,10 +14,11 @@ F={"NOME_DO_LOCAL":"Junta de Freguesia de Estoi","CIDADE_LOCALIDADE":"Estoi · F
    "ENTRADA_CONDICOES":"Entrada livre","IMG_AV":0.9,
    "LOGO_ANFITRIAO":os.path.join(gen.LOGODIR,"logo-junta-freguesia-estoi.png")}  # anfitrião: ficheiro canónico (transparente)
 IMG=os.path.join(gen._REPO,"public","media","museum","originals","MM202613.png")
-for fmt,(w,h) in [("A3",gen.A3),("A4",gen.A4)]:
-    name=f"ITEM8_Estoi_{fmt}"
-    gen.render(w,h,F,name,img=IMG,final=True)  # guarda final=True: bloqueia placeholders
-    im=Image.open(os.path.join(OUT,name+".png")).convert("RGB")
-    im.save(os.path.join(OUT,name+f"_PRINT_sangria3mm_{gen.DPI}dpi.pdf"),resolution=gen.DPI)
-    pv=im.copy(); pv.thumbnail((1400,1400)); pv.save(os.path.join(OUT,name+"_preview.png")); os.remove(os.path.join(OUT,name+".png"))
-print("ok")
+if __name__=="__main__":
+    for fmt,(w,h) in [("A3",gen.A3),("A4",gen.A4)]:
+        name=f"ITEM8_Estoi_{fmt}"
+        gen.render(w,h,F,name,img=IMG,final=True)  # guarda final=True: bloqueia placeholders
+        im=Image.open(os.path.join(OUT,name+".png")).convert("RGB")
+        im.save(os.path.join(OUT,name+f"_PRINT_sangria3mm_{gen.DPI}dpi.pdf"),resolution=gen.DPI)
+        pv=im.copy(); pv.thumbnail((1400,1400)); pv.save(os.path.join(OUT,name+"_preview.png")); os.remove(os.path.join(OUT,name+".png"))
+    print("ok")
