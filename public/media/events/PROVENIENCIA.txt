@@ -1,0 +1,27 @@
+Proveniência e direitos — imagens dos eventos da agenda pública (#/exposicoes)
+© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar RIGHTS.md.
+Decisão: docs/website/decisions/2026-10-13_AGENDA_EVENTOS_E_MEDIA.md (2026-10-13).
+
+Os ficheiros desta pasta são DERIVADOS WEB (1600 px e 640 px; EXIF/GPS removidos).
+Os originais estão em armazenamento privado do responsável e não são distribuídos.
+Gerador: scripts/events/build_event_media.py (incremental).
+
+2026-02-07-milreu-roda-de-conversas/
+  cartaz.jpg ............ Cartaz: Fernando Rodrigues de Jácomo.
+  apresentacao.jpg ...... Fotografia: Património Cultural, I.P. — reprodução sob autorização.
+  debate.jpg ............ Fotografia: Património Cultural, I.P. — reprodução sob autorização.
+
+2026-04-11-estoi-roda-de-conversas/
+  cartaz.jpg ............ Cartaz: Fernando Rodrigues de Jácomo.
+  roda-01.jpg, roda-02.jpg  Fotografia: Fernando Rodrigues de Jácomo (consentimento dos participantes confirmado pelo responsável).
+
+2026-10-10-sao-bras-de-alportel-museu-do-traje/
+  exposicao-01..04.jpg, folha-de-sala.jpg, acervo-em-mesa.jpg
+                          Fotografia: Fernando Rodrigues de Jácomo.
+  cartaz-encontro.jpg ... Cartaz: organização do 2.º Encontro do Grupo de Amigos de Museus do Algarve — reprodução autorizada.
+
+2026-10-30-estoi-junta-de-freguesia/
+  cartaz.jpg ............ Cartaz: Projecto Comunitário de Milreu (Item 8; imagem MM202613 com o crédito do índice do Museu).
+
+Esta atribuição NÃO transfere direitos de terceiros nem autoriza redistribuição autónoma dos ficheiros.
+Correcção, contestação ou retirada: contactar o projecto (ver #/direitos).
