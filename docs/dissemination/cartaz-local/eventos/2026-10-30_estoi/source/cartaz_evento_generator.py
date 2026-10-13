@@ -23,7 +23,10 @@ import qrcode, numpy as _np
 OUTP=os.path.join(HERE,"previews"); os.makedirs(OUTP,exist_ok=True)
 GEN=os.path.join(_REPO,"public","media","museum","generated")
 LOGODIR=os.path.join(_REPO,"public","media","exhibition","updated","logos")
-LOGOS_CANON=["logo-projeto-comunitario-milreu.png","logo-ccdr-algarve.png","logo-associacao-amigos-museu-lyceu-faro.png","Milreu_policromatico.png","logo-ualg-completo.png"]
+# Faixa de Logos canónica (docs/governance/FAIXA_DE_LOGOS_CANONICA.md, 2026-10-12): ordem fixa + alturas ópticas relativas ao trio
+LOGOS_CANON=[("logo-projeto-comunitario-milreu.png",0.92),("logo-ccdr-algarve.png",0.99),("logo-associacao-amigos-museu-lyceu-faro.png",0.92),
+             ("logo-junta-freguesia-estoi.png",0.92),("Milreu_policromatico.png",1.00),("logo-ualg-completo.png",0.78)]
+TRIO_GAP=0.6  # intervalo único = intervalo interno médio do trio (≈0,6 × altura do trio)
 IMG_PRINCIPAL=os.path.join(_REPO,"public","media","museum","originals","MM202601.png")  # [IMAGEM_PRINCIPAL] alta-res (substituível): Festa da Pinha
 QURL="https://projectomilreu.pt"
 MARF=(255,252,247); CAMPO=(251,246,238); CAMPO2=(244,236,221); INK=(30,26,23); INK7=(69,61,54); INK5=(118,109,100); INK3=(181,170,155)
@@ -42,8 +45,8 @@ def font(k,px,wt=None):
     kk=(k,px,wt)
     if kk in _fc: return _fc[kk]
     f=ImageFont.truetype(FP+FF[k],px)
-    if wt and k=="d":
-        try: f.set_variation_by_name({600:"SemiBold",700:"Bold",900:"Black"}.get(wt,"SemiBold"))
+    if wt and k in ("d","u"):
+        try: f.set_variation_by_name({500:"Medium",600:"SemiBold",700:"Bold",900:"Black"}.get(wt,"SemiBold"))
         except Exception: pass
     _fc[kk]=f; return f
 import os as _os
@@ -107,15 +110,24 @@ class F:
         for r in range(n):
             for c in range(n):
                 if m[r][c]: s.d.rectangle([x+qz+c*ms,y+qz+r*ms,x+qz+c*ms+ms+0.6,y+qz+r*ms+ms+0.6],fill=INK)
-    def logoband(s,x,y,h,names=LOGOS_CANON,gapf=0.6):
-        gap=gapf*h; cx=float(x)
-        for fn in names:
-            p=os.path.join(LOGODIR,fn)
-            if not os.path.exists(p): continue
-            im=_trim(p); w=h*im.size[0]/im.size[1]
-            s.im.paste(im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS),(round(cx),round(y)), im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS))
-            cx+=w+gap
-        return cx-gap-x
+    def logoband(s,x,y,H,maxw,names=LOGOS_CANON,gapf=TRIO_GAP):
+        """Modo B (compacta). H = altura do trio. Devolve y da base da última linha."""
+        ims=[(_trim(os.path.join(LOGODIR,fn)),k) for fn,k in names]
+        def lay(H):
+            it=[(im,H*k*im.size[0]/im.size[1],H*k) for im,k in ims]; g=gapf*H
+            return it,g,sum(w for _,w,_ in it)+g*(len(it)-1)
+        items,gap,tot=lay(H)
+        if tot>maxw and maxw/tot>=0.7:  # escala uniforme de todos (intervalo acompanha) p/ caber numa linha
+            H=H*maxw/tot; items,gap,tot=lay(H)
+        rows=[items] if tot<=maxw+1 else [items[:4],items[4:]]  # 2 linhas: 1–4 / trio+UAlg
+        yy=y
+        for row in rows:
+            cx=float(x)
+            for im,w,h in row:
+                r=im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS)
+                s.im.paste(r,(round(cx),round(yy+(H-h)/2)),r); cx+=w+gap  # centro vertical comum
+            yy+=H+gap
+        return yy-gap
     def save(s,name): s.im.save(f"{OUTP}/{name}.png"); return s.im
 
 # ---------------- MASTER DO CARTAZ ----------------
@@ -191,8 +203,10 @@ def render(TW,TH,fields,outname,demo=True,img=IMG_PRINCIPAL,final=False):
     # Bloco A — Projecto + parcerias institucionais (à esquerda)
     f.text(mx,z4+P(5.5*sf),"Projecto Comunitário de Milreu","sm",ptf(10.5),INK7,"l",wt=600)
     f.text(mx,z4+P(11.0*sf),"MUSEUS SEM FRONTEIRAS · INICIATIVAS 2026","u",ptf(7.0),INK5,"l",ls=ptf(0.5))
-    f.text(mx,z4+P(16.0*sf),"Apoio institucional e parcerias","sm",ptf(7.2),INK5,"l",wt=500,ls=ptf(0.3))
-    bh=P(7.8*sf); f.logoband(mx,z4+P(21.0*sf),bh)
+    f.text(mx,z4+P(16.0*sf),"APOIO INSTITUCIONAL E PARCERIAS","u",ptf(6.6),INK,"l",wt=700,ls=ptf(1.0))
+    bandmax=(Wp-mx-P(56*sf))-P(10*sf)-mx  # até ao painel «Acolhimento»
+    bh=P(10.0*sf); yb=f.logoband(mx,z4+P(20.5*sf),bh,bandmax)
+    f.text(mx,yb+P(2.6*sf),"Apoiado pela CCDR Algarve, I.P.","si",ptf(7.2),INK7,"l")  # art. 16.º (literal)
     # Bloco C — Acolhimento (à direita), com PAINEL próprio para dar presença e separação
     hostw=P(56*sf); hx=Wp-mx-hostw; py=z4+P(3.5*sf); pbot=Hp-bl-P(3*s)
     f.rect(hx-P(5*sf),py,hostw+P(5*sf),pbot-py,CAMPO,outline=KEY,ow=max(1,round(1*sf)))
