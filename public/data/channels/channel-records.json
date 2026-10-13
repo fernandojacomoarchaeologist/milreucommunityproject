@@ -62,7 +62,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202601.jpg",
+        "original": "public/media/museum/originals/MM202601.png",
         "webPreview": "public/media/museum/generated/MM202601/detail.webp",
         "immersive": "public/media/museum/generated/MM202601/immersive.webp",
         "printSource": "public/media/museum/originals/MM202601.png",
@@ -181,7 +181,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202602.jpg",
+        "original": "public/media/museum/originals/MM202602.png",
         "webPreview": "public/media/museum/generated/MM202602/detail.webp",
         "immersive": "public/media/museum/generated/MM202602/immersive.webp",
         "printSource": "public/media/museum/originals/MM202602.png",
@@ -300,7 +300,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202603.jpg",
+        "original": "public/media/museum/originals/MM202603.png",
         "webPreview": "public/media/museum/generated/MM202603/detail.webp",
         "immersive": "public/media/museum/generated/MM202603/immersive.webp",
         "printSource": "public/media/museum/originals/MM202603.png",
@@ -536,7 +536,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202605.jpg",
+        "original": "public/media/museum/originals/MM202605.png",
         "webPreview": "public/media/museum/generated/MM202605/detail.webp",
         "immersive": "public/media/museum/generated/MM202605/immersive.webp",
         "printSource": "public/media/museum/originals/MM202605.png",
@@ -655,7 +655,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202606.jpg",
+        "original": "public/media/museum/originals/MM202606.png",
         "webPreview": "public/media/museum/generated/MM202606/detail.webp",
         "immersive": "public/media/museum/generated/MM202606/immersive.webp",
         "printSource": "public/media/museum/originals/MM202606.png",
@@ -775,7 +775,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202607.jpg",
+        "original": "public/media/museum/originals/MM202607.png",
         "webPreview": "public/media/museum/generated/MM202607/detail.webp",
         "immersive": "public/media/museum/generated/MM202607/immersive.webp",
         "printSource": "public/media/museum/originals/MM202607.png",
@@ -1129,7 +1129,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202610.jpg",
+        "original": "public/media/museum/originals/MM202610.png",
         "webPreview": "public/media/museum/generated/MM202610/detail.webp",
         "immersive": "public/media/museum/generated/MM202610/immersive.webp",
         "printSource": "public/media/museum/originals/MM202610.png",
@@ -1487,7 +1487,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202613.jpg",
+        "original": "public/media/museum/originals/MM202613.png",
         "webPreview": "public/media/museum/generated/MM202613/detail.webp",
         "immersive": "public/media/museum/generated/MM202613/immersive.webp",
         "printSource": "public/media/museum/originals/MM202613.png",
@@ -1978,7 +1978,7 @@
           {
             "type": "ai-assisted-enhancement",
             "description": {
-              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem. O resultado está visível apenas para revisão e deve ser identificado como imagem derivada.",
+              "pt-PT": "Retoque substantivo realizado com inteligência artificial no Gemini. A intervenção pode incluir reconstrução ou alteração de rostos, objetos, texturas e áreas da imagem.",
               "en": null,
               "es": null,
               "fr": null
@@ -2104,7 +2104,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202618.jpg",
+        "original": "public/media/museum/originals/MM202618.png",
         "webPreview": "public/media/museum/generated/MM202618/detail.webp",
         "immersive": "public/media/museum/generated/MM202618/immersive.webp",
         "printSource": "public/media/museum/originals/MM202618.png",
@@ -2749,7 +2749,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202623.jpg",
+        "original": "public/media/museum/originals/MM202623.png",
         "webPreview": "public/media/museum/generated/MM202623/detail.webp",
         "immersive": "public/media/museum/generated/MM202623/immersive.webp",
         "printSource": "public/media/museum/originals/MM202623.png",
@@ -2987,7 +2987,7 @@
         ]
       },
       "media": {
-        "original": "public/media/museum/originals/MM202625.jpg",
+        "original": "public/media/museum/originals/MM202625.png",
         "webPreview": "public/media/museum/generated/MM202625/detail.webp",
         "immersive": "public/media/museum/generated/MM202625/immersive.webp",
         "printSource": "public/media/museum/originals/MM202625.png",
