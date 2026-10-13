@@ -4,9 +4,11 @@
  * Direitos: consultar RIGHTS.md.
  */
 :root {
+  color-scheme: light;
   --ml-color-paper-0: #FFFFFF;
   --ml-color-paper-50: #FFFCF7;
   --ml-color-paper-100: #F7F1E7;
+  --ml-color-paper-150: #EEE7DB;
   --ml-color-paper-200: #E9DECF;
   --ml-color-ink-950: #1E1A17;
   --ml-color-ink-900: #2A2521;
@@ -19,16 +21,36 @@
   --ml-color-red-500: #A83227;
   --ml-color-red-400: #C44738;
   --ml-color-red-100: #F6DEDA;
+  --ml-color-red-50: #FCF1EF;
+  --ml-color-ochre-50: #FFF5D6;
+  --ml-color-patina-100: #DFE7E2;
+  /* Primitivos do tema escuro (ADR 2026-10-13). */
+  --ml-color-ink-1000: #14110F;
+  --ml-color-ink-925: #26211D;
+  --ml-color-ink-850: #322C27;
+  --ml-color-ink-800: #3A332E;
+  --ml-color-red-300: #E58A7C;
+  --ml-color-red-950: #3B2420;
+  --ml-color-ochre-950: #3A3121;
+  --ml-color-patina-950: #25302A;
+  --ml-color-info-300: #8DB8C6;
   --ml-color-patina-500: #5E7267;
   --ml-color-sepia-500: #8A6A4A;
   --ml-color-stone-700: #6F6456;
   --ml-surface-canvas: var(--ml-color-paper-50);
   --ml-surface-reading: var(--ml-color-paper-0);
   --ml-surface-muted: var(--ml-color-paper-100);
+  --ml-surface-sunken: var(--ml-color-paper-150);
+  --ml-surface-subtle: var(--ml-color-paper-200);
+  --ml-surface-tint-warning: var(--ml-color-ochre-50);
+  --ml-surface-tint-danger: var(--ml-color-red-50);
+  --ml-surface-tint-signature: var(--ml-color-red-100);
+  --ml-surface-tint-success: var(--ml-color-patina-100);
   --ml-surface-signature: var(--ml-color-red-500);
   --ml-surface-inverse: var(--ml-color-ink-950);
   --ml-text-primary: var(--ml-color-ink-950);
   --ml-text-secondary: var(--ml-color-ink-600);
+  --ml-text-signature: var(--ml-color-red-700);
   --ml-text-inverse: var(--ml-color-paper-0);
   --ml-text-on-signature: var(--ml-color-paper-0);
   --ml-border-subtle: var(--ml-color-ink-200);
@@ -68,6 +90,51 @@
   --ml-space-20: 5rem;
   --ml-space-24: 6rem;
   --ml-space-32: 8rem;
+}
+
+/* Tema escuro (ADR 2026-10-13): segue o dispositivo, salvo escolha explícita guardada em
+   <html data-theme>. Só muda tokens semânticos; o vermelho de assinatura mantém-se. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ml-surface-canvas: var(--ml-color-ink-950);
+    --ml-surface-reading: var(--ml-color-ink-925);
+    --ml-surface-muted: var(--ml-color-ink-900);
+    --ml-surface-sunken: var(--ml-color-ink-850);
+    --ml-surface-subtle: var(--ml-color-ink-700);
+    --ml-surface-inverse: var(--ml-color-ink-1000);
+    --ml-surface-tint-warning: var(--ml-color-ochre-950);
+    --ml-surface-tint-danger: var(--ml-color-red-950);
+    --ml-surface-tint-signature: var(--ml-color-red-950);
+    --ml-surface-tint-success: var(--ml-color-patina-950);
+    --ml-text-primary: var(--ml-color-paper-100);
+    --ml-text-secondary: var(--ml-color-ink-300);
+    --ml-text-signature: var(--ml-color-red-300);
+    --ml-border-subtle: var(--ml-color-ink-800);
+    --ml-border-default: var(--ml-color-ink-500);
+    --ml-border-strong: var(--ml-color-ink-300);
+    --ml-focus-ring: var(--ml-color-info-300);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ml-surface-canvas: var(--ml-color-ink-950);
+  --ml-surface-reading: var(--ml-color-ink-925);
+  --ml-surface-muted: var(--ml-color-ink-900);
+  --ml-surface-sunken: var(--ml-color-ink-850);
+  --ml-surface-subtle: var(--ml-color-ink-700);
+  --ml-surface-inverse: var(--ml-color-ink-1000);
+  --ml-surface-tint-warning: var(--ml-color-ochre-950);
+  --ml-surface-tint-danger: var(--ml-color-red-950);
+  --ml-surface-tint-signature: var(--ml-color-red-950);
+  --ml-surface-tint-success: var(--ml-color-patina-950);
+  --ml-text-primary: var(--ml-color-paper-100);
+  --ml-text-secondary: var(--ml-color-ink-300);
+  --ml-text-signature: var(--ml-color-red-300);
+  --ml-border-subtle: var(--ml-color-ink-800);
+  --ml-border-default: var(--ml-color-ink-500);
+  --ml-border-strong: var(--ml-color-ink-300);
+  --ml-focus-ring: var(--ml-color-info-300);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -9,8 +9,8 @@
     "javascriptPublicInitialMax": 400000,
     "javascriptCollaborativeMax": 560000,
     "javascriptTotalMax": 960000,
-    "cssTotalMax": 180000,
+    "cssTotalMax": 195000,
     "htmlShellMax": 100000
   },
-  "note": "2026-10-13 (decisão do responsável, opção B): o JavaScript passa a ser medido pelo que cada visitante descarrega. O site público carrega src/main.js e os seus imports estáticos; a Área Colaborativa é carregada a pedido (src/collab/bundle.js)."
+  "note": "2026-10-13 (decisão do responsável, opção B): o JavaScript passa a ser medido pelo que cada visitante descarrega. O site público carrega src/main.js e os seus imports estáticos; a Área Colaborativa é carregada a pedido (src/collab/bundle.js). 2026-10-13 (modo escuro, ADR 2026-10-13): cssTotalMax 180000→195000 — ~480 cores literais passaram a tokens semânticos (var(--ml-…)), +12 KB sem compressão; impacto comprimido desprezável."
 }

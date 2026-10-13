@@ -17,6 +17,38 @@
     "inverse": {
       "surface": "{color.surface.inverse}",
       "text": "{color.text.inverse}"
+    },
+    "dark": {
+      "_adr": "docs/adr/ADR-DS-009-DARK-THEME.md",
+      "activation": "prefers-color-scheme: dark ou <html data-theme=\"dark\">",
+      "surface": {
+        "canvas": "{color.ink.950}",
+        "reading": "{color.ink.925}",
+        "muted": "{color.ink.900}",
+        "sunken": "{color.ink.850}",
+        "subtle": "{color.ink.700}",
+        "inverse": "{color.ink.1000}",
+        "tintWarning": "{color.ochre.950}",
+        "tintDanger": "{color.red.950}",
+        "tintSignature": "{color.red.950}",
+        "tintSuccess": "{color.patina.950}",
+        "signature": "{color.red.500}"
+      },
+      "text": {
+        "primary": "{color.paper.100}",
+        "secondary": "{color.ink.300}",
+        "signature": "{color.red.300}",
+        "inverse": "{color.paper.0}",
+        "onSignature": "{color.paper.0}"
+      },
+      "border": {
+        "subtle": "{color.ink.800}",
+        "default": "{color.ink.500}",
+        "strong": "{color.ink.300}"
+      },
+      "focus": {
+        "ring": "{color.info.300}"
+      }
     }
   }
 }

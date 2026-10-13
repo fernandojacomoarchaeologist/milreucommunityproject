@@ -26,6 +26,17 @@ export function languageSwitcher(lang) {
   }<p id="language-switcher-note" class="language-switcher__note" data-locale-note>${note}</p></div>`;
 }
 
+// Modo escuro (ADR 2026-10-13): o estado inicial vem de src/theme-init.js (dispositivo ou escolha
+// guardada); o botão alterna e guarda a escolha. Ícones 24×24 em currentColor.
+export function themeToggle(lang) {
+  const dark = typeof document !== "undefined" && document.documentElement.dataset.theme === "dark";
+  return `<button type="button" class="icon-button theme-toggle" data-theme-toggle aria-pressed="${dark}" aria-label="${text(lang, dark ? "themeToLight" : "themeToDark")}" title="${text(lang, dark ? "themeToLight" : "themeToDark")}">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${dark
+      ? '<circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>'
+      : '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>'}</svg>
+  </button>`;
+}
+
 export function portalHeader(lang, current="") {
   const links = [
     ["/projeto","project"],
@@ -62,6 +73,7 @@ export function portalHeader(lang, current="") {
         <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
           <img src="${assetUrl("public/icons/menu.svg")}" alt="">
         </button>
+        ${themeToggle(lang)}
         ${languageSwitcher(lang)}
       </div>
     </div>
@@ -89,6 +101,7 @@ export function museumHeader(lang, current="") {
       <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
         <img src="${assetUrl("public/icons/menu.svg")}" alt="">
       </button>
+      ${themeToggle(lang)}
       ${languageSwitcher(lang)}
     </div>
     <nav class="mobile-drawer" data-drawer data-open="false">${nav}</nav>
@@ -147,7 +160,15 @@ export function partnerLogos(lang, { dark = false } = {}) {
   </section>`;
 }
 
-export function bindCommon(setLanguage) {
+export function bindCommon(setLanguage, onThemeChange) {
+  document.querySelectorAll("[data-theme-toggle]").forEach(btn =>
+    btn.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      window.milreuTheme?.set(next);
+      onThemeChange?.();
+      document.querySelector("[data-theme-toggle]")?.focus();
+    })
+  );
   document.querySelectorAll("[data-language]").forEach(btn =>
     btn.addEventListener("click", () => setLanguage(btn.dataset.language))
   );

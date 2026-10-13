@@ -494,7 +494,7 @@ function bindProteusKnowledge() {
 }
 
 function bindPage() {
-  bindCommon(setLanguage);
+  bindCommon(setLanguage, () => render(false));
   bindOpportunityShare();
   bindProteusLibrary();
   bindProteusKnowledge();
@@ -1692,4 +1692,5 @@ async function start() {
 }
 
 window.addEventListener("hashchange",() => render());
+window.addEventListener("milreu-theme-change",() => render(false));
 start();
