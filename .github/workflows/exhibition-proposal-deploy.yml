@@ -26,6 +26,7 @@ concurrency:
 
 jobs:
   deploy:
+    name: exhibition-proposal-deploy-deploy
     if: ${{ inputs.confirmation == 'DEPLOY_EXHIBITION_PROPOSAL_INTAKE' }}
     runs-on: ubuntu-latest
     environment: production

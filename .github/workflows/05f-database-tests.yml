@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   database:
+    name: 05f-database-tests-database
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

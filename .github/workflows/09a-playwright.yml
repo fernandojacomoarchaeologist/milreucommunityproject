@@ -19,6 +19,7 @@ env:
 
 jobs:
   quality:
+    name: 09a-playwright-quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

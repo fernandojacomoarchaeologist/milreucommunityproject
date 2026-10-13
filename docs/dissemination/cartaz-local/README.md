@@ -13,7 +13,7 @@ O master inclui, no rodapé institucional, o identificador secundário **«Museu
 `[NOME_DO_LOCAL]` · `[CIDADE_LOCALIDADE]` · `[DATA_INICIO]`–`[DATA_FIM]` · `[HORARIO]` · `[MORADA]` · `[ENTRADA]` · `[LOGÓTIPO DO ANFITRIÃO]` · `[LOGOS_LOCAIS_ADICIONAIS]` · `[IMAGEM_PRINCIPAL]` (substituível).
 
 ## Eventos gerados
-- `eventos/2026-10-31_estoi/` — **Junta de Freguesia de Estoi**, 31-10 → 06-11-2026 (HUMAN DESIGN PASS 2026-10-12; production gate pendente).
+- `eventos/2026-10-30_estoi/` — **Junta de Freguesia de Estoi**, 30-10 → 06-11-2026 (FINAL ART 2026-10-13: impressão PDF/X-3 + online + animado; production gate pendente).
 
 ## Ficheiros
 - `master/cartaz_local_generator.py` — gerador do master (Design System Milreu; auto-fit; guarda de export final).
