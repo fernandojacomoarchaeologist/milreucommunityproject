@@ -338,3 +338,5 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 ## Item 2 — Website (registo incremental)
 - 2026-10-13 · NOVO · Agenda pública: primeira paragem real (Junta de Freguesia de Estoi, 30-10 → 06-11-2026; inauguração 30-10 21h00). · responsável
 - 2026-10-13 · NOVO · **Produção:** agenda pública com a paragem de Estoi publicada em https://projectomilreu.pt/#/exposicoes — deploy `07d-pages` run 38400451323 (success, build 2026-10-13T12:52Z); verificado ao vivo (período 30-10 → 06-11-2026, morada, horário, inauguração 30-10 às 21:00 hora de Lisboa). Home e página da iniciativa só têm ligação «Acompanhar a agenda» (sem destaque próprio). Cache do Pages: max-age 600 s. · esta sessão
+- 2026-10-13 · ALTERADO · Cartaz Estoi — **vídeo animado v2**: sem QR; 4 fotografias do acervo (MM202601/08/03/13) com crédito por cena, texto animado e cartão final «projectomilreu.pt» + Faixa de Logos. · responsável
+- 2026-10-13 · PENDENTE · Vídeo animado v2 (e restantes peças do cartaz Estoi) **enviados para validação externa — STAND BY** até retorno. · responsável
