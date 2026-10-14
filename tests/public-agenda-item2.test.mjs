@@ -93,3 +93,17 @@ test("detalhe abre em gaveta sobre a agenda, com imagem, fecho e regresso à age
   assert.match(main, /event\.key === "Escape"/);
   assert.match(main, /has-agenda-drawer/);
 });
+
+test("botão diz o que existe e eventos por realizar levam aos encontros anteriores", async () => {
+  const { publicExhibitionsView, publicExhibitionEntryView } = await import("../src/views/exhibitions-public.js");
+  const now = Date.parse("2026-10-14T12:00:00Z");
+  const list = publicExhibitionsView(snapshot, "pt-PT", now);
+  assert.match(list, /Ver cartaz e detalhes/);
+  assert.doesNotMatch(list, /Ver fotografias e documentos \(1\)/);
+  const upcoming = publicExhibitionEntryView(snapshot, "2026-10-30-estoi-junta-de-freguesia", "pt-PT", now);
+  assert.match(upcoming, /Encontros anteriores/);
+  for (const id of ["2026-10-10-sao-bras-de-alportel-museu-do-traje", "2026-04-11-estoi-roda-de-conversas", "2026-02-07-milreu-roda-de-conversas"])
+    assert.ok(upcoming.includes(`href="#/exposicoes/${id}"`), id);
+  const past = publicExhibitionEntryView(snapshot, "2026-10-10-sao-bras-de-alportel-museu-do-traje", "pt-PT", now);
+  assert.doesNotMatch(past, /Encontros anteriores/);
+});
