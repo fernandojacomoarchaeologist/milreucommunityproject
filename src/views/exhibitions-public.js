@@ -59,6 +59,30 @@ function mediaThumb(item,{linkToFull=true}={}){
   return linkToFull?`<a href="${esc(assetUrl(item.src))}" ${EXTERNAL} aria-label="Abrir imagem ampliada: ${esc(item.alt)}${NW}">${img}</a>`:img;
 }
 
+// O botão diz o que existe: só o cartaz não é «fotografias e documentos».
+function detailLabel(entry){
+  const n=entry.media.length;
+  if(!n)return "Ver detalhes";
+  if(n===1)return entry.media[0].kind==="poster"?"Ver cartaz e detalhes":"Ver imagem e detalhes";
+  return `Ver fotografias e documentos (${n})`;
+}
+
+// Navegação derivada (identificada como tal): nos eventos por realizar, mostra os encontros já
+// realizados com imagens. Não junta essas fotografias ao evento, só leva às gavetas de cada um.
+function previousEncounters(snapshot,entry,status,nowMs){
+  if(status==="past")return "";
+  const past=classifyAgenda(snapshot,nowMs).past.filter(item=>item.id&&item.id!==entry.id&&item.media.length);
+  if(!past.length)return "";
+  return `<section class="agenda-drawer__related" aria-labelledby="agenda-drawer-related">
+    <h3 id="agenda-drawer-related">Encontros anteriores</h3>
+    <p>Fotografias e documentos de outros encontros da exposição.</p>
+    <ul>${past.map(item=>{
+      const cover=item.media.find(m=>m.kind!=="poster")||item.media[0];
+      return `<li><a href="#/exposicoes/${encodeURIComponent(item.id)}">${mediaThumb(cover,{linkToFull:false})}<span><time>${esc(periodLabel(item))}</time><strong>${esc(item.title)}</strong><small>${item.media.length} ${item.media.length===1?"imagem":"imagens"}</small></span></a></li>`;
+    }).join("")}</ul>
+  </section>`;
+}
+
 function entryCard(entry){
   const status=entry.status;
   const days=entry.type==="stop"?durationDays(entry.startsOn,entry.endsOn):0;
@@ -79,7 +103,7 @@ function entryCard(entry){
       ${entry.hours?`<p class="agenda-hours"><strong>Horário:</strong> ${esc(entry.hours)}</p>`:""}
       ${preview.length?`<div class="agenda-thumbs" aria-label="Fotografias e documentos">${preview.map(item=>mediaThumb(item)).join("")}</div>`:""}
       <div class="agenda-card__actions">
-        ${detail?`<a class="ml-button ml-button--secondary" href="${detail}">${entry.media.length?`Ver fotografias e documentos (${entry.media.length})`:"Ver detalhes"}</a>`:""}
+        ${detail?`<a class="ml-button ml-button--secondary" href="${detail}">${detailLabel(entry)}</a>`:""}
         ${status!=="past"?shareBlock(entry):""}
       </div>
     </div>
@@ -161,5 +185,6 @@ function agendaDrawer(snapshot,id,nowMs){
         <h3 id="agenda-drawer-gallery">Fotografias e documentos</h3>
         <div class="agenda-gallery">${gallery.map(item=>`<figure>${mediaThumb(item)}<figcaption>${esc(item.credit||"")}</figcaption></figure>`).join("")}</div>
       </section>`:""}
+      ${previousEncounters(snapshot,entry,status,nowMs)}
     </div>`);
 }
