@@ -2,7 +2,7 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.
 
-**Estado:** preparado e **desligado**. Activa-se quando o responsável criar a conta e fornecer o `websiteId` e o URL do script.
+**Estado:** **ligado** a 2026-10-14. O responsável criou a conta Umami Cloud e forneceu o código de seguimento (Website ID `88ef757f-…`, script `https://cloud.umami.is/script.js`). Os dados existem só a partir da publicação desta configuração.
 **Decisão:** Fernando Rodrigues de Jácomo, 2026-10-13, feita directamente a Claude. Escolheu o Umami Cloud (plano gratuito), sem cookies.
 
 ## Objectivo
