@@ -24,7 +24,7 @@ export function isTrackedRoute(route) {
 }
 
 export function funnelStep(route) {
-  if (["museum","gallery","timeline","collections","collection","memory","immersive"].includes(route.name)) return FUNNEL_EVENTS.museum;
+  if (["museum-home","gallery","timeline","collections","collection","memory","immersive"].includes(route.name)) return FUNNEL_EVENTS.museum;
   if (["public-exhibitions","public-exhibition-entry"].includes(route.name)) return FUNNEL_EVENTS.agenda;
   return null;
 }
@@ -70,7 +70,8 @@ export function trackRoute(route) {
   lastPath = path;
   send(() => window.umami.track(props => ({ ...props, url: path, title: document.title })));
   const step = funnelStep(route);
-  if (step) send(() => window.umami.track(step));
+  // O evento do funil leva o mesmo caminho da página (sem o URL completo com «#»).
+  if (step) send(() => window.umami.track(props => ({ ...props, url: path, title: document.title, name: step })));
 }
 
 export function bindSurveyTracking(root = document) {
