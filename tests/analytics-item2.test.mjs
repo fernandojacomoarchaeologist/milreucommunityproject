@@ -32,6 +32,12 @@ test("só no domínio público e respeita Do Not Track", () => {
 });
 
 test("funil e exclusão da Área Colaborativa", () => {
+  // Nomes reais do router: a entrada do Museu é «museum-home».
+  const router = readFileSync("src/lib/router.js", "utf8");
+  for (const name of ["museum-home","gallery","timeline","collections","collection","memory","immersive"]) {
+    assert.match(router, new RegExp(`name:"${name}"`), name);
+    assert.equal(funnelStep({ name }), FUNNEL_EVENTS.museum, name);
+  }
   assert.equal(funnelStep({ name: "memory" }), FUNNEL_EVENTS.museum);
   assert.equal(funnelStep({ name: "public-exhibition-entry" }), FUNNEL_EVENTS.agenda);
   assert.equal(funnelStep({ name: "home" }), null);
