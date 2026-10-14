@@ -14,10 +14,14 @@ import { analyticsAllowed, funnelStep, isTrackedRoute, FUNNEL_EVENTS } from "../
 const config = JSON.parse(readFileSync("public/config/analytics.runtime.json", "utf8"));
 const on = { ...config, enabled: true, websiteId: "00000000-0000-4000-8000-000000000000", scriptUrl: "https://cloud.umami.is/script.js" };
 
-test("versionado desligado e sem identificador", () => {
-  assert.equal(config.enabled, false);
-  assert.equal(config.websiteId, null);
-  assert.equal(analyticsAllowed(config, "projectomilreu.pt", null), false);
+test("configuração versionada: desligada, ou ligada só com identificador válido no domínio público", () => {
+  if (!config.enabled) { assert.equal(analyticsAllowed(config, "projectomilreu.pt", null), false); return; }
+  assert.match(config.websiteId, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+  assert.equal(config.scriptUrl, "https://cloud.umami.is/script.js");
+  assert.deepEqual(config.domains, ["projectomilreu.pt"]);
+  assert.equal(config.respectDoNotTrack, true);
+  assert.equal(analyticsAllowed(config, "projectomilreu.pt", null), true);
+  assert.equal(analyticsAllowed(config, "localhost", null), false);
 });
 
 test("só no domínio público e respeita Do Not Track", () => {
