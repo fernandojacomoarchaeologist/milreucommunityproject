@@ -1,21 +1,18 @@
 # © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar RIGHTS.md.
-# Item 8 — versão ANIMADA v2 do cartaz Estoi (decisão do responsável 2026-10-13: composição livre,
-# fotografias do acervo com texto animado à frente, convite a visitar o site; SEM QR — o link vai no post).
+# Item 8 — TIPO CANÓNICO 2/3: ANIMAÇÃO (vídeo para redes sociais). Ver README.md desta pasta.
+# Decisão do responsável (2026-10-13): composição livre — fotografias do acervo com texto animado à frente
+# e convite final a visitar o site; SEM QR (o link vai no corpo do post).
 # MP4 H.264, 30 fps, sem som; 1080×1350 (feed) e 1080×1920 (stories).
-# Fotografias: originais do Museu (uso = publicação oficial do projecto, com crédito obrigatório por cena).
-# Créditos e legendas copiados do índice do Museu (public/data/museum-index.json); nada inventado.
+# Fotografias, legendas e créditos vêm do evento.json (copiados do índice do Museu); nada inventado.
 # Aparamento: só a margem branca uniforme do scan (moldura), nunca o conteúdo da fotografia.
-# Uso: PYTHONPATH=<dir com imageio-ffmpeg> python3 build_animado.py
-import os, numpy as np
+# Uso: PYTHONPATH=<dir com imageio-ffmpeg> python3 animacao.py <pasta do evento>
+import os, sys, numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import imageio_ffmpeg
+import evento_lib as L
 
-HERE=os.path.dirname(os.path.abspath(__file__)); EV=os.path.dirname(HERE)
-REPO=HERE
-while REPO!="/" and not os.path.exists(os.path.join(REPO,"CLAUDE.md")): REPO=os.path.dirname(REPO)
-ORIG=os.path.join(REPO,"public","media","museum","originals")
+REPO=L.REPO
 LOGODIR=os.path.join(REPO,"public","media","exhibition","updated","logos")
-OUT=os.path.join(EV,"animado"); os.makedirs(OUT,exist_ok=True)
 
 MARF=(255,252,247); INK=(30,26,23); INK5=(118,109,100); RED=(168,50,39); HAIR=(230,220,201)
 FONTS=os.path.expanduser("~/Library/Fonts/")
@@ -25,47 +22,37 @@ def font(name,px,var=None):
         try: f.set_variation_by_name(var)
         except Exception: pass
     return f
-FP=1.0  # escala tipográfica (definida por formato)
+# escala tipográfica (definida por formato)
+FP=1.0
 
-# Faixa de Logos canónica (docs/governance/FAIXA_DE_LOGOS_CANONICA.md): ordem fixa + alturas ópticas relativas ao trio
-LOGOS=[("logo-projeto-comunitario-milreu.png",0.92),("logo-ccdr-algarve.png",0.99),("logo-associacao-amigos-museu-lyceu-faro.png",0.92),
-       ("logo-junta-freguesia-estoi.png",0.92),("Milreu_policromatico.png",1.00),("logo-ualg-completo.png",0.78)]
 
-# Cenas fotográficas: (ficheiro, legenda curta do índice, crédito do índice, textos)
-# (ficheiro, legenda, crédito, textos, (ah, av) = ponto de enquadramento horizontal/vertical)
-CENAS=[
- ("MM202601.png","Um aspecto do cortejo da Festa da Pinha, em Estoi · 1909",
-  "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. PT/TT/SAM/A/001/000016",
-  [("eyebrow","EXPOSIÇÃO ITINERANTE"),("titulo","Entre Ruínas\ne Memórias")],(0.5,0.35)),
- ("MM202608.jpg","Edifício de cultos, potencialmente em 1910",
-  "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga",
-  [("frase","Memórias da população ligadas às Ruínas Romanas de Milreu.")],(0.55,0.5)),
- ("MM202603.png","Achados romanos de Milreu · 1966-1967",
-  "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga",
-  [("eyebrow","JUNTA DE FREGUESIA DE ESTOI"),("titulo","30 de Outubro —\n6 de Novembro")],(0.5,0.25)),
- ("MM202613.png","Theodor Hauschild e equipa de escavadores em Milreu · ca. 1981",
-  "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta",
-  [("eyebrow","INAUGURAÇÃO"),("titulo","Sexta-feira,\n30 de Outubro · 21h00"),("frase","Entrada livre · Largo Ossónoba, Estoi")],(0.5,0.92),"topo"),
-]
+def cenas(ev):
+    """Cenas (ficheiro, legenda, crédito, textos, (ah,av), [topo]) a partir do evento.json.
+    Ordem narrativa fixa: identidade · memória · local e datas · destaque (ou horário)."""
+    fotos=ev["animacao_fotografias"]
+    if len(fotos)!=4: raise SystemExit("evento.json: animacao_fotografias tem de ter 4 fotografias")
+    d=ev["datas"]; dst=ev.get("destaque")
+    if dst:
+        dia=L.cap(dst.get("dia",""))
+        quando=dia.replace(", ",",\n",1)+(" · "+dst["hora"] if dst.get("hora") else "")
+        ultima=[("eyebrow",dst.get("rotulo","").upper()),("titulo",quando),("frase",f'{ev["entrada"]} · {ev["local"]["morada"]}')]
+    else:
+        ultima=[("eyebrow","HORÁRIO"),("titulo",ev["horario"][0]),("frase",f'{ev["entrada"]} · {ev["local"]["morada"]}')]
+    textos=[[("eyebrow",L.EYEBROW),("titulo",L.TITULO.replace(" e ","\ne ",1))],
+            [("frase",L.LINHA)],
+            [("eyebrow",ev["local"]["nome"].upper()),("titulo",f'{d["inicio_texto"]} —\n{d["fim_texto"]}')],
+            ultima]
+    out=[]
+    for f,t in zip(fotos,textos):
+        c=(L.repo_path(f["ficheiro"]),f["legenda"],f["credito"],t,tuple(f.get("enquadramento",[0.5,0.5])))
+        out.append(c+(("topo",) if f.get("texto_no_topo") else ()))
+    return out
+
 FPS=30; T_CENA=4.2; T_XF=0.7; T_FIM=5.0; ZOOM=1.12
 
 def ease(x): x=min(max(x,0.0),1.0); return 1-(1-x)**3
 
-def apara_moldura(im):
-    """Remove só a moldura branca/uniforme do scan: linhas/colunas de borda quase brancas (<= 12 % por lado)."""
-    a=np.asarray(im.convert("L")).astype(np.float32); H,W=a.shape
-    def borda(v,lim):
-        # tolera uma linha escura de 1-3 px no limite do scan antes da moldura branca
-        k=0
-        while k<min(4,lim) and v[k]<=232: k+=1
-        if k>=min(4,lim) or v[k]<=232: return 0
-        n=k
-        while n<lim and v[n]>232: n+=1
-        return n
-    rows=a.mean(1); cols=a.mean(0)
-    t=borda(rows,int(H*.12)); b=borda(rows[::-1],int(H*.12)); l=borda(cols,int(W*.12)); r=borda(cols[::-1],int(W*.12))
-    m=max(4,int(min(W,H)*0.004))  # folga para o fio cinzento da margem
-    return im.crop((l+m if l else 0,t+m if t else 0,W-(r+m if r else 0),H-(b+m if b else 0)))
+apara_moldura=L.apara_moldura
 
 def cover(im,W,H):
     k=max(W/im.size[0],H/im.size[1]); return im.resize((round(im.size[0]*k)+1,round(im.size[1]*k)+1),Image.LANCZOS)
@@ -112,41 +99,28 @@ def camada_texto(W,H,linhas,mx,ybase):
         camadas.append((L,y,y+h)); y+=h+gap
     return camadas, ybase-total
 
-def logo_band(W,H_trio,maxw):
-    ims=[]
-    for fn,k in LOGOS:
-        im=Image.open(os.path.join(LOGODIR,fn)).convert("RGBA"); a=np.asarray(im)[:,:,3]
-        ys,xs=np.where(a>16); im=im.crop((xs.min(),ys.min(),xs.max()+1,ys.max()+1)); ims.append((im,k))
-    def lay(Hh):
-        it=[(im,Hh*k*im.size[0]/im.size[1],Hh*k) for im,k in ims]; g=0.6*Hh
-        return it,g,sum(w for _,w,_ in it)+g*(len(it)-1)
-    it,g,tot=lay(H_trio)
-    if tot>maxw: H_trio*=maxw/tot; it,g,tot=lay(H_trio)
-    band=Image.new("RGBA",(round(tot)+2,round(H_trio)+2),(0,0,0,0)); x=0.0
-    for im,w,h in it:
-        r=im.resize((max(1,round(w)),max(1,round(h))),Image.LANCZOS); band.alpha_composite(r,(round(x),round((H_trio-h)/2))); x+=w+g
-    return band
+def logo_band(W,H_trio,maxw): return L.logo_band(H_trio,maxw)
 
-def cartao_final(W,H,mx):
+def cartao_final(ev,W,H,mx):
     """Cartão final em papel MARF: convite ao site + identidade + Faixa de Logos canónica + art. 16.º. Devolve camadas."""
     camadas=[]; cw=W-2*mx
-    def L(): return Image.new("RGBA",(W,H),(0,0,0,0))
+    def nova(): return Image.new("RGBA",(W,H),(0,0,0,0))
     y=round(H*0.30)
-    a=L(); d=ImageDraw.Draw(a); f=font("Spectral-Italic.ttf",round(54*FP)); d.text((mx,y),"Saiba mais e acompanhe a agenda em",font=f,fill=INK5+(255,)); h=round(f.size*1.3)
+    a=nova(); d=ImageDraw.Draw(a); f=font("Spectral-Italic.ttf",round(54*FP)); d.text((mx,y),"Saiba mais e acompanhe a agenda em",font=f,fill=INK5+(255,)); h=round(f.size*1.3)
     camadas.append((a,y,y+h)); y+=h+round(14*FP)
-    a=L(); d=ImageDraw.Draw(a); px=round(118*FP); f=font("Fraunces.ttf",px,"SemiBold")
+    a=nova(); d=ImageDraw.Draw(a); px=round(118*FP); f=font("Fraunces.ttf",px,"SemiBold")
     while d.textlength("projectomilreu.pt",font=f)>cw: px-=2; f=font("Fraunces.ttf",px,"SemiBold")
     d.text((mx,y),"projectomilreu.pt",font=f,fill=RED+(255,)); h=round(px*1.15)
     d.rectangle([mx,y+h+round(6*FP),mx+round(140*FP),y+h+round(14*FP)],fill=RED+(255,))
     camadas.append((a,y,y+h+round(14*FP))); y+=h+round(70*FP)
-    a=L(); d=ImageDraw.Draw(a); f=font("Fraunces.ttf",round(52*FP),"SemiBold"); f2=font("Spectral-Regular.ttf",round(40*FP))
-    d.text((mx,y),"Entre Ruínas e Memórias",font=f,fill=INK+(255,)); yy=y+round(52*FP*1.25)
-    for ln in ["Junta de Freguesia de Estoi","30 de Outubro — 6 de Novembro de 2026"]:
+    a=nova(); d=ImageDraw.Draw(a); f=font("Fraunces.ttf",round(52*FP),"SemiBold"); f2=font("Spectral-Regular.ttf",round(40*FP))
+    d.text((mx,y),L.TITULO,font=f,fill=INK+(255,)); yy=y+round(52*FP*1.25)
+    for ln in [ev["local"]["nome"],L.datas_longas(ev)]:
         d.text((mx,yy),ln,font=f2,fill=INK+(255,)); yy+=round(40*FP*1.35)
     camadas.append((a,y,yy));
     # rodapé institucional
     yb=H-round(H*0.20)
-    a=L(); d=ImageDraw.Draw(a)
+    a=nova(); d=ImageDraw.Draw(a)
     d.line([(mx,yb),(W-mx,yb)],fill=HAIR+(255,),width=max(1,round(2*FP)))
     yy=yb+round(26*FP)
     d.text((mx,yy),"Projecto Comunitário de Milreu",font=font("Spectral-Medium.ttf",round(34*FP)),fill=INK+(255,)); yy+=round(46*FP)
@@ -159,18 +133,19 @@ def cartao_final(W,H,mx):
 
 def compoe(base,camada,p,slide):
     """Alpha-composite da camada com opacidade p e deslize vertical (px)."""
-    L,y0,y1=camada
+    Lc,y0,y1=camada
     if p<=0: return
-    dy=round(slide*(1-p)); a=L
+    dy=round(slide*(1-p)); a=Lc
     if p<1:
-        a=L.copy(); al=np.asarray(a)[:,:,3].astype(np.float32)*p; arr=np.asarray(a).copy(); arr[:,:,3]=al.astype(np.uint8); a=Image.fromarray(arr)
+        a=Lc.copy(); al=np.asarray(a)[:,:,3].astype(np.float32)*p; arr=np.asarray(a).copy(); arr[:,:,3]=al.astype(np.uint8); a=Image.fromarray(arr)
     base.alpha_composite(a,(0,dy))
 
-def anima(W,H,nome):
+def anima(ev,W,H,nome):
     global FP
+    CENAS=cenas(ev); OUT=L.saida(ev,"animado")
     FP=W/1080*(1.0 if H/W<1.5 else 1.08)
     mx=round(80*FP); slide=round(36*FP)
-    fotos=[cover(apara_moldura(Image.open(os.path.join(ORIG,fn)).convert("RGB")),round(W*ZOOM),round(H*ZOOM)) for fn,*_ in CENAS]
+    fotos=[cover(apara_moldura(Image.open(fn).convert("RGB")),round(W*ZOOM),round(H*ZOOM)) for fn,*_ in CENAS]
     textos=[]; creds=[]; topos=[]
     posicoes=[]
     for (fn,leg,cred,linhas,_,*pos) in CENAS:
@@ -193,9 +168,9 @@ def anima(W,H,nome):
             d_.rectangle([0,H-round(118*FP),W,H],fill=INK+(199,))  # faixa do crédito
         else: d_.rectangle([0,yt-round(64*FP),W,H],fill=INK+(199,))
         paineis.append(P_)
-    fim=cartao_final(W,H,mx)
+    fim=cartao_final(ev,W,H,mx)
     n=len(CENAS); T_FOTOS=n*T_CENA; DUR=T_FOTOS+T_FIM
-    out=os.path.join(OUT,f"ITEM8_Estoi_{nome}_animado.mp4")
+    out=os.path.join(OUT,f'{ev["prefixo_ficheiros"]}_{nome}_animado.mp4')
     wr=imageio_ffmpeg.write_frames(out,(W,H),fps=FPS,codec="libx264",pix_fmt_out="yuv420p",quality=6,macro_block_size=2,
                                    output_params=["-movflags","+faststart"]); wr.send(None)
     def foto_frame(i,t_local):
@@ -226,6 +201,11 @@ def anima(W,H,nome):
         wr.send(np.asarray(base.convert("RGB")).tobytes())
     wr.close(); return out,DUR
 
+FORMATOS=[("1080x1350",(1080,1350)),("1080x1920",(1080,1920))]
+def gerar(pasta):
+    ev=L.carregar(pasta)
+    for nome,(W,H) in FORMATOS:
+        o,d=anima(ev,W,H,nome); print(os.path.basename(o),f"{d:.1f}s",os.path.getsize(o)//1024,"KB")
 if __name__=="__main__":
-    for nome,(W,H) in [("1080x1350",(1080,1350)),("1080x1920",(1080,1920))]:
-        o,d=anima(W,H,nome); print(os.path.basename(o),f"{d:.1f}s",os.path.getsize(o)//1024,"KB")
+    if len(sys.argv)<2: raise SystemExit("uso: python3 animacao.py <pasta do evento>")
+    gerar(sys.argv[1])

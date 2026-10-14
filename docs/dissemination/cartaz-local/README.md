@@ -12,8 +12,11 @@ O master inclui, no rodapé institucional, o identificador secundário **«Museu
 ## Campos editáveis (placeholders)
 `[NOME_DO_LOCAL]` · `[CIDADE_LOCALIDADE]` · `[DATA_INICIO]`–`[DATA_FIM]` · `[HORARIO]` · `[MORADA]` · `[ENTRADA]` · `[LOGÓTIPO DO ANFITRIÃO]` · `[LOGOS_LOCAIS_ADICIONAIS]` · `[IMAGEM_PRINCIPAL]` (substituível).
 
+## Os 3 tipos canónicos de divulgação (2026-10-14)
+Cada paragem é divulgada por **cartaz geral (impressão)**, **animação** e **post de rede social**, todos gerados a partir de um único `evento.json` por paragem. Ver `canonico/README.md`.
+
 ## Eventos gerados
-- `eventos/2026-10-30_estoi/` — **Junta de Freguesia de Estoi**, 30-10 → 06-11-2026 (FINAL ART 2026-10-13: impressão PDF/X-3 + online + animado; production gate pendente).
+- `eventos/2026-10-30_estoi/` — **Junta de Freguesia de Estoi**, 30-10 → 06-11-2026 (3 tipos canónicos: impressão PDF/X-3 · animação · post social; dados em `evento.json`).
 
 ## Ficheiros
 - `master/cartaz_local_generator.py` — gerador do master (Design System Milreu; auto-fit; guarda de export final).

@@ -1,0 +1,61 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu.",
+  "_nota": "Dados do evento (únicos campos que mudam entre paragens). Confirmados pelo responsável em 2026-10-12/13. Ver ../../canonico/README.md.",
+  "id": "2026-10-30_estoi",
+  "prefixo_ficheiros": "ITEM8_Estoi",
+  "local": {
+    "nome": "Junta de Freguesia de Estoi",
+    "localidade": "Estoi · Faro",
+    "morada": "Largo Ossónoba · 8005-454 Estoi",
+    "logo_anfitriao": "public/media/exhibition/updated/logos/logo-junta-freguesia-estoi.png"
+  },
+  "datas": {
+    "inicio": "2026-10-30",
+    "fim": "2026-11-06",
+    "inicio_texto": "30 de Outubro",
+    "fim_texto": "6 de Novembro",
+    "ano": "2026"
+  },
+  "destaque": {
+    "rotulo": "Inauguração",
+    "dia": "sexta-feira, 30 de Outubro",
+    "hora": "21h00"
+  },
+  "horario": [
+    "Segunda a sexta · 9h00 – 12h00 e 14h00 – 18h00",
+    "Encerrado ao fim-de-semana"
+  ],
+  "entrada": "Entrada livre",
+  "imagem_principal": {
+    "ficheiro": "public/media/museum/originals/MM202613.png",
+    "credito": "Theodor Hauschild e equipa de escavadores em Milreu, ca. 1981 · Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta",
+    "enquadramento_vertical": 0.9
+  },
+  "animacao_fotografias": [
+    {
+      "ficheiro": "public/media/museum/originals/MM202601.png",
+      "legenda": "Um aspecto do cortejo da Festa da Pinha, em Estoi · 1909",
+      "credito": "Arquivo Nacional da Torre do Tombo — Foto Artística Samorrinha. Autor: José Viegas Samorrinha. PT/TT/SAM/A/001/000016",
+      "enquadramento": [0.5, 0.35]
+    },
+    {
+      "ficheiro": "public/media/museum/originals/MM202608.jpg",
+      "legenda": "Edifício de cultos, potencialmente em 1910",
+      "credito": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga",
+      "enquadramento": [0.55, 0.5]
+    },
+    {
+      "ficheiro": "public/media/museum/originals/MM202603.png",
+      "legenda": "Achados romanos de Milreu · 1966-1967",
+      "credito": "Página ALDEIA DE ESTOI — CULTURA E PATRIMÓNIO, gerida por Luís Barriga",
+      "enquadramento": [0.5, 0.25]
+    },
+    {
+      "ficheiro": "public/media/museum/originals/MM202613.png",
+      "legenda": "Theodor Hauschild e equipa de escavadores em Milreu · ca. 1981",
+      "credito": "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta",
+      "enquadramento": [0.5, 0.92],
+      "texto_no_topo": true
+    }
+  ]
+}

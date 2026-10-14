@@ -1,5 +1,6 @@
 # © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar RIGHTS.md.
-# Item 8 — GERADOR DE EVENTO, derivado do master `../../../master/cartaz_local_generator.py` (master NÃO alterado).
+# Item 8 — TIPO CANÓNICO 1/3: motor do CARTAZ IMPRESSO, derivado do master `../master/cartaz_local_generator.py`
+# (master NÃO alterado). Chamado por cartaz_impressao.py com os campos do evento.json.
 # Diferenças face ao master: campo DESTAQUE (linha de inauguração); «Com o apoio de» só em demo;
 # altura da imagem 0.405 (A3) / 0.365 (A4); enquadramento vertical da imagem por campo IMG_AV.
 # © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar RIGHTS.md.
