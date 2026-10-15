@@ -9,7 +9,7 @@
 import { test, expect } from "@playwright/test";
 import { horizontalOverflow } from "../../helpers/geometry.mjs";
 
-const ready = async (page) => page.waitForFunction(() => document.querySelector("#app")?.textContent.trim().length > 0, { timeout: 15_000 });
+const ready = async (page) => expect(page.locator("#app")).not.toHaveText(/^\s*$/, { timeout: 15_000 });
 
 test("a API pública carrega com estado disponível e coleções vazias honestas", async ({ page }) => {
   await page.goto("/#/conhecimento/api");

@@ -17,7 +17,7 @@ test("Proteus: slide da home está oculto (decisão editorial) e sem imagem inve
 
 test("Proteus: rota Experiência Proteus carrega sem app-error", async ({ page }) => {
   await page.goto("/#/conhecimento");
-  await page.waitForFunction(() => document.querySelector("#app")?.textContent.trim().length > 0, { timeout: 15_000 });
+  await expect(page.locator("#app")).not.toHaveText(/^\s*$/, { timeout: 15_000 });
   expect(await page.locator(".app-error").count()).toBe(0);
   expect(await horizontalOverflow(page)).toBeLessThanOrEqual(2);
 });

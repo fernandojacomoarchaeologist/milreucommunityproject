@@ -9,7 +9,7 @@ async function demoLogin(page, profile) {
   await page.goto("/#/entrar");
   await page.waitForSelector('[data-collab-demo-login]', { timeout: 15_000 });
   await page.locator(`[data-collab-demo-login="${profile}"]`).click();
-  await page.waitForFunction(() => location.hash.includes("/area-colaborativa"));
+  await page.waitForURL(/#\/area-colaborativa/);
 }
 
 test("Área Colaborativa: entrada de demonstração com três perfis", async ({ page }) => {
@@ -31,12 +31,13 @@ test("voluntário: sidebar presente, biblioteca mostra a fonte, admin negado", a
   await expect(page.locator(".collab-library-source").first()).toContainText("Fonte:");
   // Rota de administração deve apresentar acesso condicionado.
   await page.goto("/#/area-colaborativa/gestao/sistema");
-  await page.waitForFunction(() => /Acesso condicionado|permissão/.test(document.querySelector("#app")?.textContent || ""));
+  await expect(page.locator("#app")).toContainText(/Acesso condicionado|permissão/);
 });
 
 test("master: gestão de perfis carrega", async ({ page }) => {
   await demoLogin(page, "master");
   await page.goto("/#/area-colaborativa/gestao/perfis");
-  await page.waitForFunction(() => document.querySelector(".collab-sidebar") && /Membros|perfis|Gestão/i.test(document.querySelector("#app")?.textContent || ""));
+  await expect(page.locator(".collab-sidebar")).toBeVisible();
+  await expect(page.locator("#app")).toContainText(/Membros|perfis|Gestão/i);
   expect(await page.locator(".app-error").count()).toBe(0);
 });

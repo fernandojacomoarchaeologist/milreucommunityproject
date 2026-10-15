@@ -25,6 +25,6 @@ for (const vp of VIEWPORTS) {
 test("navegação Portal → Museu funciona", async ({ page }) => {
   await gotoHome(page);
   await page.locator('a[href="#/museu"]').first().click();
-  await page.waitForFunction(() => location.hash.startsWith("#/museu"));
+  await page.waitForURL(/#\/museu/);
   expect(await page.locator(".app-error").count()).toBe(0);
 });
