@@ -8,6 +8,7 @@ import { memoryCard } from "../components/memory-card.js";
 import { renderPublicContentEffects } from "../components/public-content-effects.js";
 import { assetUrl, suggestedMemories } from "../lib/data.js";
 import { localised, text } from "../lib/i18n.js";
+import { MUSEUM_SHARING, isShareable, shareLinks } from "../lib/museum-engagement.js";
 
 
 function isSubstantiveAiRecord(record) {
@@ -178,7 +179,32 @@ export function collectionDetailView(records,collection,lang) {
   </main></div>`;
 }
 
-export function detailView(records,record,lang) {
+// Item 2 (2026-10-15): avaliação anónima e partilha. Sem armazenamento, médias ou contadores.
+const HEART_ICON = `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M12 20.5 4.2 13A4.9 4.9 0 0 1 11.1 6l.9.9.9-.9a4.9 4.9 0 0 1 6.9 7L12 20.5Z"/></svg>`;
+
+function memoryEngagement(record,title,credit,lang,sharing) {
+  const hearts = [1,2,3,4,5].map(n => `<input type="radio" id="memory-rating-${n}" name="memory-rating" value="${n}"><label for="memory-rating-${n}" data-rating-value="${n}">${HEART_ICON}<span class="memory-rating__value">${text(lang,"ratingValue").replace("{n}",n)}</span></label>`).join("");
+  const share = sharing?.enabled && isShareable(record) ? shareLinks(record,title) : null;
+  return `<section class="memory-section memory-engagement" aria-label="${text(lang,"ratingLegend")}">
+        <fieldset class="memory-rating" data-memory-rating="${record.id}">
+          <legend>${text(lang,"ratingLegend")}</legend>
+          <p class="memory-rating__hint">${text(lang,"ratingHint")}</p>
+          <div class="memory-rating__options">${hearts}</div>
+          <p class="memory-rating__status" role="status" aria-live="polite" data-memory-rating-status></p>
+        </fieldset>
+        ${share ? `<div class="memory-share" data-memory-share="${record.id}" data-share-url="${escapeHtml(share.url)}" data-share-text="${escapeHtml(share.text)}">
+          <h3>${text(lang,"shareTitle")}</h3>
+          <div class="memory-share__actions">
+            <button type="button" class="ml-button ml-button--secondary" data-memory-share-native hidden>${text(lang,"shareNative")}</button>
+            <a class="ml-button ml-button--secondary" data-memory-share-target="facebook" href="${escapeHtml(share.facebook)}" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="ml-button ml-button--secondary" data-memory-share-target="whatsapp" href="${escapeHtml(share.whatsapp)}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+          <p class="memory-share__credit">${text(lang,"shareCredit")}${credit ? ` ${text(lang,"creditLabel")} ${escapeHtml(credit)}` : ""}</p>
+        </div>` : ""}
+      </section>`;
+}
+
+export function detailView(records,record,lang,{ sharing = MUSEUM_SHARING } = {}) {
   if (!record?.publication.siteVisible) return unavailableView(lang);
   const publicRecords = records.filter(x => x.publication.siteVisible);
   const index = publicRecords.findIndex(x => x.id === record.id);
@@ -258,6 +284,8 @@ export function detailView(records,record,lang) {
           <a class="ml-correction" href="#/participar">${text(lang,"participate")} →</a>
         </div>
       </section>
+
+      ${memoryEngagement(record,title.value,credit.value,lang,sharing)}
 
       ${relationRecords.length ? `<section class="memory-section"><h2>${text(lang,"relatedExplicit")}</h2><div class="relation-card-grid">${relationRecords.map(x => compactRelationCard(x,lang)).join("")}</div></section>` : ""}
 

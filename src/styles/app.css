@@ -1317,3 +1317,20 @@ a.agenda-past:hover,a.agenda-past:focus-visible{border-color:var(--ml-border-str
 @keyframes agenda-slide{from{transform:translateX(100%)}to{transform:none}}
 @keyframes agenda-fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.agenda-drawer__panel,.agenda-drawer__backdrop{animation:none}}
+/* Item 2 (2026-10-15) — Museu: avaliação anónima (1–5 corações) e partilha */
+.memory-engagement{display:grid;gap:1.25rem}
+.memory-rating{margin:0;padding:0;border:0}
+.memory-rating legend{padding:0;font:700 1rem var(--ml-font-interface,Arial,sans-serif)}
+.memory-rating__hint,.memory-share__credit{margin:.3rem 0 .6rem;font:.85rem/1.5 var(--ml-font-interface,Arial,sans-serif);color:var(--ml-text-secondary)}
+.memory-rating__options{display:flex;gap:.25rem}
+.memory-rating__options input{position:absolute;width:1px;height:1px;opacity:0;margin:0}
+.memory-rating__options label{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;color:var(--ml-text-signature);cursor:pointer}
+.memory-rating__options svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+.memory-rating__options label.is-filled svg{fill:currentColor}
+.memory-rating__options label:hover svg{fill:currentColor;opacity:.7}
+.memory-rating__options input:focus-visible+label{outline:3px solid var(--ml-focus-ring,var(--ml-text-signature));outline-offset:2px}
+.memory-rating__value{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.memory-rating__status{min-height:1.4em;margin:.4rem 0 0;font:600 .9rem var(--ml-font-interface,Arial,sans-serif)}
+.memory-share h3{margin:0 0 .6rem;font:700 1rem var(--ml-font-interface,Arial,sans-serif)}
+.memory-share__actions{display:flex;flex-wrap:wrap;gap:.5rem}
+.memory-share__actions .ml-button{min-height:44px}

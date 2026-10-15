@@ -24,7 +24,8 @@ import { channelLabView, totemPreviewView, panelPreviewView } from "./views/chan
 import { text, isLocaleSelectable } from "./lib/i18n.js";
 import { publicExhibitionsView, publicExhibitionEntryView } from "./views/exhibitions-public.js";
 import { clockNow } from "./lib/agenda.js";
-import { initAnalytics, trackRoute, bindSurveyTracking, analyticsActive } from "./lib/analytics.js";
+import { initAnalytics, trackRoute, bindSurveyTracking, analyticsActive, trackEvent } from "./lib/analytics.js";
+import { RATING_EVENT, SHARE_EVENTS, validRating } from "./lib/museum-engagement.js";
 import { mediaPressView } from "./views/media-press.js";
 import { visualIdentityView } from "./views/visual-identity.js";
 import { rightsView } from "./views/rights.js";
@@ -195,6 +196,35 @@ function bindOpportunityShare() {
   box.querySelector('[data-share="copy"]')?.addEventListener("click", async () => {
     try { await navigator.clipboard?.writeText(url); const b = box.querySelector('[data-share="copy"]'); if (b) { const t = b.textContent; b.textContent = "Copiado!"; setTimeout(() => b.textContent = t, 1500); } } catch { /* noop */ }
   });
+}
+
+// Item 2 (2026-10-15): avaliação anónima (um evento por memória e visita) e intenção de partilha.
+const ratedMemories = new Set();
+function bindMemoryEngagement() {
+  const rating = document.querySelector("[data-memory-rating]");
+  if (rating) {
+    const memory = rating.dataset.memoryRating;
+    const status = rating.querySelector("[data-memory-rating-status]");
+    rating.addEventListener("change", event => {
+      const value = validRating(event.target.value);
+      if (!value) return;
+      rating.querySelectorAll("[data-rating-value]").forEach(label => label.classList.toggle("is-filled", Number(label.dataset.ratingValue) <= value));
+      if (status) status.textContent = text(state.lang,"ratingThanks");
+      if (!ratedMemories.has(memory)) { ratedMemories.add(memory); trackEvent(RATING_EVENT,{ memory, value }); }
+    });
+  }
+  const share = document.querySelector("[data-memory-share]");
+  if (!share) return;
+  const memory = share.dataset.memoryShare, url = share.dataset.shareUrl, title = share.dataset.shareText;
+  share.querySelectorAll("[data-memory-share-target]").forEach(link => link.addEventListener("click", () => trackEvent(SHARE_EVENTS[link.dataset.memoryShareTarget],{ memory })));
+  const native = share.querySelector("[data-memory-share-native]");
+  if (native && typeof navigator.share === "function") {
+    native.hidden = false;
+    native.addEventListener("click", async () => {
+      trackEvent(SHARE_EVENTS.native,{ memory });
+      try { await navigator.share({ title, url }); } catch { /* cancelado */ }
+    });
+  }
 }
 
 function setLanguage(lang) {
@@ -506,6 +536,7 @@ function bindPage() {
   applyDataStyles();
   bindCommon(setLanguage, () => render(false));
   bindOpportunityShare();
+  bindMemoryEngagement();
   bindProteusLibrary();
   bindProteusKnowledge();
   trackRoute(getRoute());

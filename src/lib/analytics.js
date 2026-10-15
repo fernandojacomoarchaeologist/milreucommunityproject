@@ -74,6 +74,11 @@ export function trackRoute(route) {
   if (step) send(() => window.umami.track(props => ({ ...props, url: path, title: document.title, name: step })));
 }
 
+// Evento anónimo genérico (ex.: avaliação e intenção de partilha no Museu). Só nome e dados não pessoais.
+export function trackEvent(name, data = {}) {
+  send(() => window.umami.track(name, data));
+}
+
 export function bindSurveyTracking(root = document) {
   if (!active) return;
   root.querySelectorAll(`a[href*="${SURVEY_HOST}"]`).forEach(link =>
