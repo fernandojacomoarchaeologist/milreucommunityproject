@@ -806,7 +806,9 @@ class CollaborativeController{
       throw new Error("A proposta não pôde ser enviada.");
     }
     let data=null; try{data=await res.json();}catch{}
-    if(!res.ok||!data?.ok)throw new Error(data?.error||"A proposta não pôde ser enviada.");
+    // L3: mostrar mensagens em português, nunca códigos ou detalhes do servidor.
+    const EXPOR_ERRORS={invalid_payload:"Verifique os dados: nome, e-mail válido, descrição com pelo menos 10 caracteres e aceitação da informação de privacidade.",payload_too_long:"Algum campo é demasiado longo. Encurte o texto e tente de novo.",payload_too_large:"A proposta é demasiado longa. Encurte o texto e tente de novo.",origin_not_allowed:"Envie a proposta a partir do site projectomilreu.pt.",edge_function_not_configured:"O envio de propostas está temporariamente indisponível. Tente mais tarde."};
+    if(!res.ok||!data?.ok)throw new Error(EXPOR_ERRORS[data?.error]||"A proposta não pôde ser enviada. Tente novamente dentro de instantes.");
     return {mode:"sent",reference:data.data?.reference||null};
   }
 
