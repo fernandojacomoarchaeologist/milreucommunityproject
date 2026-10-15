@@ -494,7 +494,14 @@ function bindProteusKnowledge() {
   });
 }
 
+// CSP (Item 2B): sem atributos style no HTML; valores dinâmicos aplicados por CSSOM, validados.
+function applyDataStyles(root = document) {
+  root.querySelectorAll("[data-swatch]").forEach(el => { if (/^#[0-9a-f]{3,8}$/i.test(el.dataset.swatch)) el.style.background = el.dataset.swatch; });
+  root.querySelectorAll("[data-progress]").forEach(el => { const n = Number(el.dataset.progress); if (Number.isFinite(n)) el.style.width = `${Math.max(0, Math.min(100, n))}%`; });
+}
+
 function bindPage() {
+  applyDataStyles();
   bindCommon(setLanguage, () => render(false));
   bindOpportunityShare();
   bindProteusLibrary();
