@@ -74,13 +74,15 @@ export function exhibitionProposalView(lang = "pt-PT", result = null, { draft = 
 
         <button class="ml-button ml-button--primary" type="submit">${text(lang,"exporSubmit")}</button>
         <p data-exhibition-proposal-feedback aria-live="polite"></p>
-        <div class="proposal-fallback" data-exhibition-proposal-fallback hidden>
-          <strong>A proposta não foi enviada.</strong>
-          <p>O texto que escreveu continua neste formulário. Pode tentar de novo mais tarde${contactEmail ? ` ou enviá-lo por e-mail para <a href="mailto:${esc(contactEmail)}">${esc(contactEmail)}</a>` : ""}.</p>
+        <div class="proposal-fallback" data-exhibition-proposal-fallback role="alert" hidden>
+          <h2 class="proposal-fallback__title" tabindex="-1" data-exhibition-proposal-fallback-title>A proposta não foi enviada</h2>
+          <p>Estamos com uma instabilidade no serviço. Podes enviar a tua proposta por e-mail, clicando abaixo. Os dados que preencheste serão incluídos na mensagem.</p>
           <div>
             ${contactEmail ? `<a class="ml-button ml-button--primary" data-exhibition-proposal-mailto href="mailto:${esc(contactEmail)}" data-contact="${esc(contactEmail)}">Enviar por e-mail</a>` : ""}
-            <button class="ml-button ml-button--secondary" type="button" data-exhibition-proposal-copy>Copiar texto da proposta</button>
+            <button class="ml-button ml-button--secondary" type="button" data-exhibition-proposal-copy>Copiar proposta</button>
           </div>
+          ${contactEmail ? `<p class="contribution-consent-note">Destinatário: ${esc(contactEmail)}. A mensagem só segue quando a enviares na tua aplicação de correio.</p>` : ""}
+          <p class="contribution-consent-note" data-exhibition-proposal-mail-note aria-live="polite"></p>
         </div>
       </form>
       <aside class="contribution-public-aside">

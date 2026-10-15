@@ -9,7 +9,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { todayLisbon, validateProposalDates, composeProposalDates, proposalPlainText, proposalMailto, isDeliveryFailure } from "../src/lib/exhibition-proposal.js";
+import { todayLisbon, validateProposalDates, composeProposalDates, proposalPlainText, proposalMailto, isDeliveryFailure, PROPOSAL_FIELDS, PROPOSAL_SUBJECT, MAILTO_SAFE_LENGTH } from "../src/lib/exhibition-proposal.js";
 import { exhibitionProposalView } from "../src/views/expor.js";
 
 test("hoje é o dia de Lisboa (não o UTC nem o do dispositivo)", () => {
@@ -41,18 +41,55 @@ test("só falhas de entrega abrem a alternativa (não erros de validação)", ()
   for (const code of ["invalid_payload", "invalid_dates", "payload_too_long", "origin_not_allowed", "http_422", ""]) assert.equal(isDeliveryFailure(code), false, code);
 });
 
-test("alternativa por e-mail: endereço validado, texto completo, corte seguro", () => {
-  const values = { name: "Maria Silva", email: "maria@example.org", spaceType: "biblioteca", dateFrom: "2026-11-10", dateTo: "2026-11-20", message: "Gostaríamos de acolher a exposição." };
-  const text = proposalPlainText(values);
-  assert.match(text, /Tipo de espaço: Biblioteca/);
-  assert.match(text, /Datas pretendidas: 10\/11\/2026 a 20\/11\/2026/);
-  const href = proposalMailto("a78190@ualg.pt", values);
+// Dados fictícios com os 12 campos preenchidos (acentos, aspas angulares, símbolos e várias linhas).
+const FULL = {
+  name: "Maria João Antunes", email: "maria.joao@example.org", phone: "+351 912 345 678", organisation: "Associação «Amigos de Estoi»",
+  spaceType: "associacao", venue: "Salão Nobre da Junta", locality: "Estoi", dateFrom: "2027-05-10", dateTo: "2027-05-20",
+  message: "Linha 1 — acentos: ç ã é ô ü\nLinha 2 & símbolos: <b>%</b> # € 100%\n\nLinha 4 depois de linha vazia.",
+  needs: "Rampa de acesso\nTomada eléctrica", privacyAccepted: "on", language: "pt-PT",
+};
+
+test("os 12 campos do contrato aparecem identificados no texto", () => {
+  assert.equal(PROPOSAL_FIELDS.length, 12);
+  assert.deepEqual(PROPOSAL_FIELDS.map(([key]) => key), ["name", "email", "phone", "organisation", "spaceType", "venue", "locality", "dates", "message", "needs", "privacyAccepted", "language"]);
+  const text = proposalPlainText(FULL);
+  for (const label of ["Nome: Maria João Antunes", "E-mail: maria.joao@example.org", "Telefone: +351 912 345 678", "Organização ou coletivo: Associação «Amigos de Estoi»",
+    "Tipo de espaço: Associação ou coletivo", "Nome do espaço ou local: Salão Nobre da Junta", "Localidade: Estoi", "Datas pretendidas: 10/05/2027 a 20/05/2027",
+    "Descrição da proposta:\nLinha 1 — acentos: ç ã é ô ü\nLinha 2 & símbolos: <b>%</b> # € 100%\n\nLinha 4", "Condições, dimensões ou necessidades:\nRampa de acesso\nTomada eléctrica",
+    "Informação de privacidade: lida e aceite", "Idioma do formulário: Português (pt-PT)"]) assert.ok(text.includes(label), label);
+});
+
+test("opcionais vazios ficam assinalados (nada parece perdido); opcionais preenchidos nunca são omitidos", () => {
+  const minimal = { name: "Ana", email: "ana@example.org", message: "Proposta com o mínimo de campos.", privacyAccepted: true };
+  const text = proposalPlainText(minimal, { language: "en" });
+  for (const label of ["Telefone: (não indicado)", "Organização ou coletivo: (não indicado)", "Tipo de espaço: (não indicado)", "Datas pretendidas: (não indicadas)", "Idioma do formulário: Inglês (en)"]) assert.ok(text.includes(label), label);
+  assert.match(proposalPlainText({ ...minimal, phone: "123456" }), /Telefone: 123456/);
+  assert.match(proposalPlainText({ ...minimal, privacyAccepted: false }), /privacidade: não aceite/);
+  assert.match(proposalPlainText({ ...minimal, dates: "a partir de 01/12/2026" }), /Datas pretendidas: a partir de 01\/12\/2026/);
+});
+
+test("mailto: assunto identificável, contacto validado, CRLF, acentos e símbolos preservados", () => {
+  const { href, complete } = proposalMailto("a78190@ualg.pt", FULL);
+  assert.equal(complete, true);
+  assert.ok(href.length <= MAILTO_SAFE_LENGTH);
   assert.match(href, /^mailto:a78190@ualg\.pt\?subject=/);
-  assert.ok(decodeURIComponent(href).includes("Gostaríamos de acolher"));
-  assert.equal(proposalMailto("x@y.pt?cc=z@w.pt", values), "", "endereço com parâmetros é recusado");
-  assert.equal(proposalMailto("", values), "");
-  const long = proposalMailto("a78190@ualg.pt", { ...values, message: "x".repeat(5000) });
-  assert.ok(decodeURIComponent(long).includes("Texto cortado"));
+  const subject = decodeURIComponent(href.match(/subject=([^&]+)/)[1]);
+  assert.equal(subject, `${PROPOSAL_SUBJECT} (Maria João Antunes)`);
+  const body = decodeURIComponent(href.match(/body=(.+)$/)[1]);
+  assert.ok(body.includes("\r\nNome: Maria João Antunes\r\n"), "CRLF");
+  assert.equal(body.replace(/\r\n/g, "\n"), proposalPlainText(FULL), "o e-mail tem exactamente o texto de «Copiar proposta»");
+  for (const bad of ["x@y.pt?cc=z@w.pt", "x@y.pt&bcc=z@w.pt", "", "não é e-mail"]) assert.equal(proposalMailto(bad, FULL).href, "", bad);
+});
+
+test("descrição longa: mailto com resumo (sem cortar a meio) e indicação para colar o texto copiado", () => {
+  const long = { ...FULL, message: "Descrição longa com acentos ção ã é. ".repeat(140) };
+  const { href, complete } = proposalMailto("a78190@ualg.pt", long);
+  assert.equal(complete, false);
+  assert.ok(href.length <= MAILTO_SAFE_LENGTH, `resumo com ${href.length}`);
+  const body = decodeURIComponent(href.match(/body=(.+)$/)[1]);
+  assert.match(body, /demasiado longa/); assert.match(body, /Copiar proposta/); assert.match(body, /Nome: Maria João Antunes/);
+  // O texto para copiar continua íntegro.
+  assert.ok(proposalPlainText(long).includes(long.message.trim()));
 });
 
 test("vista: obrigatórios assinalados, e-mail obrigatório, calendário com mínimo de hoje, alternativa escondida", () => {
@@ -62,8 +99,12 @@ test("vista: obrigatórios assinalados, e-mail obrigatório, calendário com mí
   assert.match(html, new RegExp(`type="date" name="dateFrom" min="${todayLisbon()}"`));
   assert.match(html, /type="date" name="dateTo"/);
   assert.doesNotMatch(html, /name="dates"/);
-  assert.match(html, /data-exhibition-proposal-fallback hidden/);
-  assert.match(html, /href="mailto:a78190@ualg\.pt"/);
+  assert.match(html, /data-exhibition-proposal-fallback role="alert" hidden/);
+  assert.match(html, /data-exhibition-proposal-mailto href="mailto:a78190@ualg\.pt"/);
+  assert.match(html, /<h2[^>]*>A proposta não foi enviada<\/h2>/);
+  assert.match(html, /Estamos com uma instabilidade no serviço\. Podes enviar a tua proposta por e-mail, clicando abaixo\. Os dados que preencheste serão incluídos na mensagem\./);
+  assert.match(html, />Copiar proposta</);
+  assert.doesNotMatch(html, /Supabase|Edge Function|endpoint|HTTP/i);
   assert.doesNotMatch(html.match(/data-exhibition-proposal-fallback[\s\S]*?<\/div>\s*<\/div>/)[0], /Obrigad|enviada com sucesso/i);
 });
 
@@ -82,4 +123,9 @@ test("envio: botão desactivado durante o envio (sem duplicados) e sucesso só a
   const controller = readFileSync("src/collab/controller.js", "utf8");
   assert.match(controller, /"network"\)/);
   assert.match(controller, /if\(!res\.ok\|\|!data\?\.ok\)\{const code=/);
+  // Falha de entrega: sem mensagem técnica; e-mail e cópia gerados dos valores actuais; abrir o correio não é «enviado».
+  assert.match(main, /isDeliveryFailure\(error\.code\)&&fallback\)\{[\s\S]*?feedback\(""\)/);
+  assert.match(main, /proposalMailto\(link\.dataset\.contact,currentValues\(\)\)/);
+  assert.match(main, /proposalPlainText\(currentValues\(\)\)/);
+  assert.doesNotMatch(main, /e-mail (foi )?enviado|mensagem enviada/i);
 });
