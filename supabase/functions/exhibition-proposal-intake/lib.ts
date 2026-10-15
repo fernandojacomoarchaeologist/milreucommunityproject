@@ -45,7 +45,25 @@ export function isOriginAllowed(origin: string | null, allowed: string[]): boole
   return Boolean(origin) && /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin as string);
 }
 
-export function parseProposal(body: unknown): ParseResult {
+export function todayLisbon(now = Date.now()): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(now));
+}
+
+// Datas do calendário chegam como «a partir de dd/mm/aaaa» ou «dd/mm/aaaa a dd/mm/aaaa».
+// Nenhuma pode ser anterior a hoje (Lisboa) e o fim não pode anteceder o início. Texto sem datas continua aceite.
+export function datesAreValid(text: string, today = todayLisbon()): boolean {
+  const found = [...text.matchAll(/\b(\d{2})\/(\d{2})\/(\d{4})\b/g)].map(m => {
+    const [d, mo, y] = [Number(m[1]), Number(m[2]), Number(m[3])];
+    const date = new Date(Date.UTC(y, mo - 1, d));
+    const real = date.getUTCFullYear() === y && date.getUTCMonth() === mo - 1 && date.getUTCDate() === d;
+    return real ? `${m[3]}-${m[2]}-${m[1]}` : "invalid";
+  });
+  if (found.includes("invalid")) return false;
+  if (found.some(iso => iso < today)) return false;
+  return found.length < 2 || found[1] >= found[0];
+}
+
+export function parseProposal(body: unknown, { today = todayLisbon() }: { today?: string } = {}): ParseResult {
   if (!body || typeof body !== "object" || Array.isArray(body)) return { ok: false, error: "invalid_payload" };
   const raw = (body as Record<string, unknown>).payload;
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) return { ok: false, error: "invalid_payload" };
@@ -66,6 +84,7 @@ export function parseProposal(body: unknown): ParseResult {
   if (value.spaceType && !SPACE_TYPES.includes(value.spaceType)) return { ok: false, error: "invalid_payload" };
   if (!LANGUAGES.includes(value.language)) return { ok: false, error: "invalid_payload" };
   if (value.phone && !/^[0-9+().\s-]{6,60}$/.test(value.phone)) return { ok: false, error: "invalid_payload" };
+  if (value.dates && !datesAreValid(value.dates, today)) return { ok: false, error: "invalid_dates" };
   return { ok: true, value };
 }
 
