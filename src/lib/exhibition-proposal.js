@@ -46,32 +46,81 @@ const SPACE_LABELS = {
   "centro-cultural": "Espaço cultural", escola: "Escola", biblioteca: "Biblioteca", associacao: "Associação ou coletivo",
   autarquia: "Autarquia ou serviço público", museu: "Museu ou centro interpretativo", outro: "Outro",
 };
+const LANGUAGE_LABELS = { "pt-PT": "Português (pt-PT)", en: "Inglês (en)", es: "Espanhol (es)", fr: "Francês (fr)" };
 
-export function proposalPlainText(values = {}) {
-  const line = (label, value) => (String(value || "").trim() ? `${label}: ${String(value).trim()}\n` : "");
-  return (
-    "Proposta «Quero expor» — Entre Ruínas e Memórias\n\n" +
-    line("Nome", values.name) +
-    line("E-mail", values.email) +
-    line("Telefone", values.phone) +
-    line("Organização ou coletivo", values.organisation) +
-    line("Tipo de espaço", SPACE_LABELS[values.spaceType] || values.spaceType) +
-    line("Espaço ou local", values.venue) +
-    line("Localidade", values.locality) +
-    line("Datas pretendidas", values.dates || composeProposalDates(values.dateFrom, values.dateTo)) +
-    `\nDescrição da proposta:\n${String(values.message || "").trim()}\n` +
-    (String(values.needs || "").trim() ? `\nCondições ou necessidades:\n${String(values.needs).trim()}\n` : "")
-  );
+export const PROPOSAL_SUBJECT = "Proposta de acolhimento — Entre Ruínas e Memórias";
+// Comprimento total seguro de um URL mailto: (o limite mais restritivo encontrado é o do Outlook no
+// Windows, ~2 000 caracteres; Gmail web, Apple Mail e Android aceitam mais). Acima disto, a mensagem
+// leva só um resumo e o visitante cola a proposta completa copiada.
+export const MAILTO_SAFE_LENGTH = 1900;
+
+// Os 12 campos do formulário (contrato da Edge Function), pela ordem do formulário.
+export const PROPOSAL_FIELDS = [
+  ["name", "Nome"], ["email", "E-mail"], ["phone", "Telefone"], ["organisation", "Organização ou coletivo"],
+  ["spaceType", "Tipo de espaço"], ["venue", "Nome do espaço ou local"], ["locality", "Localidade"], ["dates", "Datas pretendidas"],
+  ["message", "Descrição da proposta"], ["needs", "Condições, dimensões ou necessidades"],
+  ["privacyAccepted", "Informação de privacidade"], ["language", "Idioma do formulário"],
+];
+
+const clean = value => String(value ?? "").replace(/\r\n?/g, "\n").trim();
+const accepted = value => value === true || value === "on" || value === "true";
+
+// Texto completo da proposta: todos os campos identificados; opcionais vazios marcados «(não indicado)»
+// para que nada pareça ter-se perdido; quebras de linha, acentos e símbolos preservados.
+export function proposalPlainText(values = {}, { language = "" } = {}) {
+  const dates = clean(values.dates) || composeProposalDates(values.dateFrom, values.dateTo);
+  const lang = clean(values.language) || language || "pt-PT";
+  const show = value => clean(value) || "(não indicado)";
+  return [
+    PROPOSAL_SUBJECT,
+    "Enviada por e-mail porque o formulário do site não a conseguiu enviar.",
+    "",
+    "1. QUEM PROPÕE",
+    `Nome: ${show(values.name)}`,
+    `E-mail: ${show(values.email)}`,
+    `Telefone: ${show(values.phone)}`,
+    `Organização ou coletivo: ${show(values.organisation)}`,
+    "",
+    "2. A PROPOSTA",
+    `Tipo de espaço: ${show(SPACE_LABELS[values.spaceType] || values.spaceType)}`,
+    `Nome do espaço ou local: ${show(values.venue)}`,
+    `Localidade: ${show(values.locality)}`,
+    `Datas pretendidas: ${dates || "(não indicadas)"}`,
+    "",
+    "Descrição da proposta:",
+    show(values.message),
+    "",
+    "Condições, dimensões ou necessidades:",
+    show(values.needs),
+    "",
+    "3. CONSENTIMENTO",
+    `Informação de privacidade: ${accepted(values.privacyAccepted) ? "lida e aceite (tratamento dos dados para avaliar e responder à proposta)" : "não aceite"}`,
+    `Idioma do formulário: ${LANGUAGE_LABELS[lang] || lang}`,
+  ].join("\n");
 }
 
-// mailto: com o texto da proposta (cortado para caber nos clientes de e-mail; o texto completo
-// pode ser copiado com o botão «Copiar texto da proposta»).
-export function proposalMailto(address, values = {}, maxBody = 1800) {
-  if (!/^[^\s@<>,;"]+@[^\s@<>,;"]+\.[^\s@<>,;"]+$/.test(String(address || ""))) return "";
-  const full = proposalPlainText(values);
-  const body = full.length > maxBody ? `${full.slice(0, maxBody)}…\n\n(Texto cortado: cole aqui o texto completo copiado no formulário.)` : full;
-  const subject = `Quero expor — ${String(values.name || "").trim() || "proposta"}`;
-  return `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// mailto: com a proposta completa (CRLF, para clientes que ignoram LF). Se exceder o tamanho seguro,
+// leva um resumo com contactos e o pedido para colar a proposta completa copiada; `complete` diz qual.
+export function proposalMailto(address, values = {}, { language = "", maxLength = MAILTO_SAFE_LENGTH } = {}) {
+  if (!/^[^\s@<>,;"?&]+@[^\s@<>,;"?&]+\.[^\s@<>,;"?&]+$/.test(String(address || ""))) return { href: "", complete: false };
+  const name = clean(values.name);
+  const subject = name ? `${PROPOSAL_SUBJECT} (${name})` : PROPOSAL_SUBJECT;
+  const crlf = text => text.replace(/\n/g, "\r\n");
+  const build = body => `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(crlf(body))}`;
+  const full = build(proposalPlainText(values, { language }));
+  if (full.length <= maxLength) return { href: full, complete: true };
+  const summary = [
+    PROPOSAL_SUBJECT,
+    "",
+    "A proposta completa é demasiado longa para ser incluída automaticamente nesta mensagem.",
+    "Cole aqui, por baixo, o texto copiado com o botão «Copiar proposta» antes de enviar.",
+    "",
+    `Nome: ${clean(values.name) || "(não indicado)"}`,
+    `E-mail: ${clean(values.email) || "(não indicado)"}`,
+    "",
+    "--- cole aqui a proposta completa ---",
+  ].join("\n");
+  return { href: build(summary), complete: false };
 }
 
 // Falhas em que a proposta NÃO chegou à equipa e o visitante deve usar a alternativa.

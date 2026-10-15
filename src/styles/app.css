@@ -760,6 +760,8 @@ linear-gradient(125deg,var(--ml-surface-inverse),#7e251c)}
 .proposal-dates .contribution-consent-note{grid-column:1/-1;margin:0}
 .proposal-fallback{display:grid;gap:var(--ml-space-3);padding:var(--ml-space-4);background:var(--ml-surface-tint-warning);border-left:4px solid var(--ml-border-strong)}
 .proposal-fallback p{margin:0}
+.proposal-fallback__title{margin:0;font:500 1.35rem/1.2 var(--ml-font-display)}
+.proposal-fallback__title:focus{outline:none}
 .proposal-fallback>div{display:flex;flex-wrap:wrap;gap:var(--ml-space-3)}
 .contribution-success{display:grid;justify-items:start;gap:.65rem;max-width:46rem;padding:2rem;background:var(--ml-surface-reading);border-top:7px solid #3f6b4c}
 .contribution-success>span{font-size:.62rem;font-weight:900;text-transform:uppercase;color:var(--ml-text-signature)}

@@ -1307,10 +1307,27 @@ function bindPage() {
     proposalForm.addEventListener("change",keepDraft);
     const from=proposalForm.querySelector("[data-proposal-date-from]"),to=proposalForm.querySelector("[data-proposal-date-to]");
     from?.addEventListener("change",()=>{if(to){to.min=from.value||from.min;if(to.value&&from.value&&to.value<from.value)to.value="";}});
+    // Alternativa por e-mail: texto gerado sempre a partir do que está AGORA no formulário (os 12 campos);
+    // «Copiar proposta» e «Enviar por e-mail» usam o mesmo texto completo. Abrir o correio não é enviar.
+    const currentValues=()=>({...formValues(proposalForm),privacyAccepted:proposalForm.querySelector('[name="privacyAccepted"]')?.checked||false,language:state.lang});
+    const mailNote=proposalForm.querySelector("[data-exhibition-proposal-mail-note]");
+    const copyFull=async()=>{try{await navigator.clipboard.writeText(proposalPlainText(currentValues()));return true;}catch{return false;}};
     proposalForm.querySelector("[data-exhibition-proposal-copy]")?.addEventListener("click",async event=>{
-      const text=proposalPlainText({...formValues(proposalForm)});
-      try{await navigator.clipboard.writeText(text);event.currentTarget.textContent="Texto copiado";}
-      catch{event.currentTarget.textContent="Não foi possível copiar: selecione o texto do formulário";}
+      const button=event.currentTarget;
+      const ok=await copyFull();
+      button.textContent=ok?"Proposta copiada":"Copiar proposta";
+      if(mailNote)mailNote.textContent=ok?"A proposta completa foi copiada. Podes colá-la numa nova mensagem de correio.":"Não foi possível copiar automaticamente. Seleciona e copia o texto dos campos do formulário.";
+    });
+    proposalForm.querySelector("[data-exhibition-proposal-mailto]")?.addEventListener("click",async event=>{
+      const link=event.currentTarget;
+      const mail=proposalMailto(link.dataset.contact,currentValues());
+      if(!mail.href){event.preventDefault();return;}
+      link.href=mail.href; // o correio abre com os dados actuais
+      if(mail.complete){if(mailNote)mailNote.textContent="Se a tua aplicação de correio abriu, confirma os dados e envia a mensagem por lá.";return;}
+      const copied=await copyFull();
+      if(mailNote)mailNote.textContent=copied
+        ?"A proposta é longa demais para ser incluída automaticamente: copiámos o texto completo. Cola-o na mensagem que abriu antes de a enviares."
+        :"A proposta é longa demais para ser incluída automaticamente. Usa «Copiar proposta» e cola o texto na mensagem antes de a enviares.";
     });
   }
   proposalForm?.addEventListener("submit",async event=>{
@@ -1340,11 +1357,15 @@ function bindPage() {
       render(false);
     }catch(error){
       if(submit)submit.disabled=false;
-      feedback(error.message||"Não foi possível enviar a proposta.",true);
       if(isDeliveryFailure(error.code)&&fallback){
+        // Falha de entrega: sem mensagens técnicas; o painel explica e oferece o e-mail.
+        feedback("");
         const mail=fallback.querySelector("[data-exhibition-proposal-mailto]");
-        if(mail)mail.href=proposalMailto(mail.dataset.contact,values);
+        if(mail)mail.href=proposalMailto(mail.dataset.contact,{...values,privacyAccepted:true}).href||mail.href;
         fallback.hidden=false;
+        fallback.querySelector("[data-exhibition-proposal-fallback-title]")?.focus();
+      }else{
+        feedback(error.message||"Não foi possível enviar a proposta.",true);
       }
     }
   });
