@@ -753,6 +753,14 @@ linear-gradient(125deg,var(--ml-surface-inverse),#7e251c)}
 .contribution-public-aside article p{color:#d8cbbc}
 .contribution-public-aside nav{display:grid;gap:.55rem}.contribution-public-aside nav a{color:white;font-weight:800}
 
+/* «Quero expor» (incidente 2026-10-15): obrigatórios assinalados, datas com calendário e alternativa quando o envio falha. Só tokens. */
+.field-required{color:var(--ml-text-signature);font-weight:700}
+.proposal-dates{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--ml-space-3);margin:0;padding:var(--ml-space-3) 0 0;border:0;grid-column:1/-1}
+.proposal-dates legend{padding:0;font-size:.78rem;font-weight:800}
+.proposal-dates .contribution-consent-note{grid-column:1/-1;margin:0}
+.proposal-fallback{display:grid;gap:var(--ml-space-3);padding:var(--ml-space-4);background:var(--ml-surface-tint-warning);border-left:4px solid var(--ml-border-strong)}
+.proposal-fallback p{margin:0}
+.proposal-fallback>div{display:flex;flex-wrap:wrap;gap:var(--ml-space-3)}
 .contribution-success{display:grid;justify-items:start;gap:.65rem;max-width:46rem;padding:2rem;background:var(--ml-surface-reading);border-top:7px solid #3f6b4c}
 .contribution-success>span{font-size:.62rem;font-weight:900;text-transform:uppercase;color:var(--ml-text-signature)}
 .contribution-success>strong{font:500 2rem var(--ml-font-display)}

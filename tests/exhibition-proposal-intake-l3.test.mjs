@@ -142,3 +142,16 @@ test("referência: formato estável e componente aleatória", () => {
   assert.match(a, /^EXPO-[0-9A-Z]+-ABCDEF$/);
   assert.notEqual(a.split("-")[2], b.split("-")[2]);
 });
+
+test("datas no servidor: nenhuma anterior a hoje (Lisboa), fim ≥ início, texto livre aceite", async () => {
+  const { datesAreValid } = await import("../supabase/functions/exhibition-proposal-intake/lib.ts");
+  const today = "2026-10-15";
+  assert.equal(datesAreValid("a partir de 15/10/2026", today), true);
+  assert.equal(datesAreValid("20/10/2026 a 05/11/2026", today), true);
+  assert.equal(datesAreValid("a partir de 14/10/2026", today), false);
+  assert.equal(datesAreValid("05/11/2026 a 20/10/2026", today), false);
+  assert.equal(datesAreValid("31/02/2027", today), false);
+  assert.equal(datesAreValid("a combinar", today), true);
+  assert.equal(parseProposal(withPayload({ dates: "a partir de 01/01/2020" }), { today }).error, "invalid_dates");
+  assert.equal(parseProposal(withPayload({ dates: "a partir de 01/01/2030" }), { today }).ok, true);
+});

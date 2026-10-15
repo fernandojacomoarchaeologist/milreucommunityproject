@@ -33,6 +33,7 @@ import {
   publicContributionFormView, publicContributionTrackingView, publicWithdrawalView
 } from "./views/contributions-public.js";
 import { exhibitionProposalView } from "./views/expor.js";
+import { validateProposalDates, composeProposalDates, proposalMailto, proposalPlainText, isDeliveryFailure } from "./lib/exhibition-proposal.js";
 import { publicTransparencyView } from "./views/public-transparency.js";
 
 // Área Colaborativa carregada a pedido (src/collab/bundle.js): só as rotas que a usam
@@ -79,6 +80,7 @@ const state = {
   collabAuditFilters: {query:"",action:"",entityType:"",category:"",severity:"",from:"",to:""},
   contributionSubmissionResult: null,
   exhibitionProposalResult: null,
+  exhibitionProposalDraft: {},
   contributionTrackingResult: null,
   contributionWithdrawalResult: null,
   lang: isLocaleSelectable(localStorage.getItem("milreu-language")) ? localStorage.getItem("milreu-language") : "pt-PT",
@@ -1295,21 +1297,56 @@ function bindPage() {
     });
   }
 
-  document.querySelector("[data-exhibition-proposal-form]")?.addEventListener("submit",async event=>{
+  // «Quero expor» (incidente 2026-10-15): o texto escrito fica em memória (não em armazenamento) para
+  // sobreviver a re-renders; datas com calendário ≥ hoje; se a proposta não chegar, nunca se mostra
+  // sucesso e oferece-se o envio por e-mail para o contacto institucional publicado.
+  const proposalForm=document.querySelector("[data-exhibition-proposal-form]");
+  if(proposalForm){
+    const keepDraft=()=>{state.exhibitionProposalDraft={...formValues(proposalForm),privacyAccepted:proposalForm.querySelector('[name="privacyAccepted"]')?.checked||false};};
+    proposalForm.addEventListener("input",keepDraft);
+    proposalForm.addEventListener("change",keepDraft);
+    const from=proposalForm.querySelector("[data-proposal-date-from]"),to=proposalForm.querySelector("[data-proposal-date-to]");
+    from?.addEventListener("change",()=>{if(to){to.min=from.value||from.min;if(to.value&&from.value&&to.value<from.value)to.value="";}});
+    proposalForm.querySelector("[data-exhibition-proposal-copy]")?.addEventListener("click",async event=>{
+      const text=proposalPlainText({...formValues(proposalForm)});
+      try{await navigator.clipboard.writeText(text);event.currentTarget.textContent="Texto copiado";}
+      catch{event.currentTarget.textContent="Não foi possível copiar: selecione o texto do formulário";}
+    });
+  }
+  proposalForm?.addEventListener("submit",async event=>{
     event.preventDefault();
     const form=event.currentTarget;
     const feedback=(msg,err=false)=>{const el=form.querySelector("[data-exhibition-proposal-feedback]");if(el){el.textContent=msg;el.classList.toggle("is-error",Boolean(err));}};
+    const fallback=form.querySelector("[data-exhibition-proposal-fallback]");
+    if(fallback)fallback.hidden=true;
     const values=formValues(form);
     values.language=state.lang;
     if(values.website){return;} // honeypot: ignorar submissões automáticas
     if(!values.name?.trim()||!values.email?.trim()||!values.message?.trim()||!form.querySelector('[name="privacyAccepted"]')?.checked){
-      feedback("Preencha o nome, o e-mail, a descrição e aceite a informação de privacidade.",true);return;
+      feedback("Preencha os campos obrigatórios: nome, e-mail, descrição e aceitação da informação de privacidade.",true);return;
     }
+    const emailField=form.querySelector('[name="email"]');
+    if(emailField&&!emailField.checkValidity()){feedback("Indique um endereço de e-mail válido.",true);emailField.focus();return;}
+    const dates=validateProposalDates(values.dateFrom,values.dateTo);
+    if(!dates.ok){feedback(dates.message,true);form.querySelector("[data-proposal-date-from]")?.focus();return;}
+    values.dates=composeProposalDates(values.dateFrom,values.dateTo);
+    delete values.dateFrom; delete values.dateTo;
+    const submit=form.querySelector('button[type="submit"]');
+    if(submit)submit.disabled=true;
     feedback("A enviar a proposta…");
     try{
       state.exhibitionProposalResult=await collaborative.submitExhibitionProposal(values);
+      state.exhibitionProposalDraft={};
       render(false);
-    }catch(error){feedback(error.message||"Não foi possível enviar a proposta.",true);}
+    }catch(error){
+      if(submit)submit.disabled=false;
+      feedback(error.message||"Não foi possível enviar a proposta.",true);
+      if(isDeliveryFailure(error.code)&&fallback){
+        const mail=fallback.querySelector("[data-exhibition-proposal-mailto]");
+        if(mail)mail.href=proposalMailto(mail.dataset.contact,values);
+        fallback.hidden=false;
+      }
+    }
   });
 
   document.querySelector("[data-public-contribution-track-form]")?.addEventListener("submit",async event=>{
@@ -1631,7 +1668,7 @@ function render(scroll=true) {
     case "proteus-api": html = proteusApiView(state.publicProteusApi,state.lang); setMetadata("API pública · Proteus"); break;
     case "participate": html = participateView(state.portal,state.lang); setMetadata(text(state.lang,"participate")); break;
     case "public-contribution-new": html = publicContributionFormView(state.collab.contributionModel,state.lang,state.contributionSubmissionResult); setMetadata("Partilhar contributo"); break;
-    case "exhibition-proposal": html = exhibitionProposalView(state.lang,state.exhibitionProposalResult); setMetadata(text(state.lang,"exporTitle")); break;
+    case "exhibition-proposal": html = exhibitionProposalView(state.lang,state.exhibitionProposalResult,{ draft:state.exhibitionProposalDraft, contactEmail:state.mediaAssets?.contacts?.email1 || "" }); setMetadata(text(state.lang,"exporTitle")); break;
     case "public-contribution-track": html = publicContributionTrackingView(state.collab.contributionModel,state.lang,state.contributionTrackingResult); setMetadata("Acompanhar contributo"); break;
     case "public-contribution-withdrawal": html = publicWithdrawalView(state.collab.contributionModel,state.lang,state.contributionWithdrawalResult); setMetadata("Pedido de retirada"); break;
     case "about": html = aboutView(state.portal,state.lang); setMetadata(text(state.lang,"about")); break;
