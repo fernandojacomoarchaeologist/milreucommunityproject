@@ -33,7 +33,7 @@ jobs:
     # L2 / SEC-P0-007: secrets só nos steps que os usam (não ficam expostos a
     # checkout nem à action de instalação do CLI).
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           persist-credentials: false
       # L2 / SEC-P0-008: action fixada por SHA (v1.7.3) e CLI em versão determinística.

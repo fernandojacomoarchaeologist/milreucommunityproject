@@ -1,0 +1,19 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+#
+# Item 2B — mantém actualizadas as Actions fixadas por SHA (cada actualização é um PR
+# com o novo SHA e a versão em comentário; o merge continua a ser humano).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: "ci(deps)"
+    open-pull-requests-limit: 3
