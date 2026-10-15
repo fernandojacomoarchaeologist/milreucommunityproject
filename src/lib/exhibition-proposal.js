@@ -59,7 +59,7 @@ export const PROPOSAL_FIELDS = [
   ["name", "Nome"], ["email", "E-mail"], ["phone", "Telefone"], ["organisation", "Organização ou coletivo"],
   ["spaceType", "Tipo de espaço"], ["venue", "Nome do espaço ou local"], ["locality", "Localidade"], ["dates", "Datas pretendidas"],
   ["message", "Descrição da proposta"], ["needs", "Condições, dimensões ou necessidades"],
-  ["privacyAccepted", "Informação de privacidade"], ["language", "Idioma do formulário"],
+  ["privacyAccepted", "Declaração sobre dados pessoais"], ["language", "Idioma do formulário"],
 ];
 
 const clean = value => String(value ?? "").replace(/\r\n?/g, "\n").trim();
@@ -94,7 +94,7 @@ export function proposalPlainText(values = {}, { language = "" } = {}) {
     show(values.needs),
     "",
     "3. CONSENTIMENTO",
-    `Informação de privacidade: ${accepted(values.privacyAccepted) ? "lida e aceite (tratamento dos dados para avaliar e responder à proposta)" : "não aceite"}`,
+    `Declaração sobre dados pessoais: ${accepted(values.privacyAccepted) ? "confirmada (tomou conhecimento da finalidade: análise e acompanhamento da proposta)" : "não confirmada"}`,
     `Idioma do formulário: ${LANGUAGE_LABELS[lang] || lang}`,
   ].join("\n");
 }

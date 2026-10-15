@@ -67,7 +67,8 @@ export function exhibitionProposalView(lang = "pt-PT", result = null, { draft = 
           <label>Condições, dimensões ou necessidades <small>opcional</small><textarea name="needs" rows="3" maxlength="2000" placeholder="Ex.: área disponível, acessibilidade, apoio técnico, transporte.">${v("needs")}</textarea></label>
         </fieldset>
 
-        <fieldset><legend>3. Consentimento</legend>
+        <fieldset><legend>3. Dados pessoais</legend>
+          <p class="contribution-consent-note" data-proposal-privacy-purpose>${text(lang,"exporPrivacyPurpose")}</p>
           <label class="collab-check"><input type="checkbox" name="privacyAccepted" required${draft.privacyAccepted ? " checked" : ""}>${text(lang,"exporPrivacyLabel")} ${req}</label>
           <p class="contribution-consent-note">${text(lang,"exporConsentNote")}</p>
         </fieldset>

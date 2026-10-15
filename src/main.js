@@ -1343,7 +1343,7 @@ function bindPage() {
     values.language=state.lang;
     if(values.website){return;} // honeypot: ignorar submissões automáticas
     if(!values.name?.trim()||!values.email?.trim()||!values.message?.trim()||!form.querySelector('[name="privacyAccepted"]')?.checked){
-      setState("invalid");feedback("Preencha os campos obrigatórios: nome, e-mail, descrição e aceitação da informação de privacidade.",true);return;
+      setState("invalid");feedback("Preencha os campos obrigatórios: nome, e-mail, descrição e a declaração sobre dados pessoais.",true);return;
     }
     const emailField=form.querySelector('[name="email"]');
     if(emailField&&!emailField.checkValidity()){setState("invalid");feedback("Indique um endereço de e-mail válido.",true);emailField.focus();return;}
