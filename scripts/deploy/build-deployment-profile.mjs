@@ -3,7 +3,7 @@
  * Produzido no âmbito do Projeto Comunitário de Milreu.
  * Consultar RIGHTS.md.
  */
-import { writeFile,readFile } from "node:fs/promises";
+import { writeFile,readFile,mkdir } from "node:fs/promises";
 
 const environment=(process.env.MILREU_ENVIRONMENT||"local").trim().toLowerCase();
 if(!["local","staging","production"].includes(environment)){
@@ -133,7 +133,17 @@ const readiness={
 };
 
 await writeFile("public/config/deployment-profile.runtime.json",JSON.stringify(profile,null,2)+"\n");
-await writeFile("public/data/deployment-readiness.json",JSON.stringify(readiness,null,2)+"\n");
+// Item 2B: em produção o ficheiro publicado no site só tem o resumo. Os checks e os bloqueios (nomes de
+// variáveis, serviços por configurar) ficam em reports/, que não é publicado nem impresso no log público do CI.
+const publicReadiness=environment==="production"
+  ?{_copyright:readiness._copyright,version:readiness.version,environment,generatedAt:readiness.generatedAt,status:readiness.status,redacted:true,
+    notice:"Resumo público. O detalhe da verificação fica no registo interno do build e não é publicado."}
+  :readiness;
+await writeFile("public/data/deployment-readiness.json",JSON.stringify(publicReadiness,null,2)+"\n");
+if(environment==="production"){
+  await mkdir("reports",{recursive:true});
+  await writeFile(`reports/deployment-readiness-${environment}.json`,JSON.stringify(readiness,null,2)+"\n");
+}
 console.log(`Perfil ${environment}: ${readiness.status}; ${blockingItems.length} bloqueios.`);
 if(process.env.MILREU_PREFLIGHT_STRICT==="true"&&blockingItems.length){
   throw new Error(`Preflight bloqueado: ${blockingItems.join(" | ")}`);

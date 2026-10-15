@@ -143,7 +143,7 @@ export function collaborativeDeploymentHomologationView(context){
     ${heading("Implantação e homologação","Validação dos ambientes, Google OAuth, master, migrations, RLS, storage e fluxos antes de qualquer publicação.")}
     <section class="deployment-preflight deployment-preflight--${esc(readiness.status||"configuration-pending")}">
       <div><span>Preflight local</span><h2>${esc(readiness.status||"Pendente")}</h2><p>Ambiente: ${esc(profile.environment||"local")}. O relatório não contém tokens nem o e-mail master.</p></div>
-      <ul>${readinessRows(readiness)}</ul>
+      ${readiness.redacted?`<p class="muted">Este resumo é público. O detalhe dos checks e dos bloqueios está no registo interno do build e não é publicado no site.</p>`:`<ul>${readinessRows(readiness)}</ul>`}
       ${readiness.blockingItems?.length?`<details><summary>${readiness.blockingItems.length} bloqueios de configuração</summary><ol>${readiness.blockingItems.map(item=>`<li>${esc(item)}</li>`).join("")}</ol></details>`:""}
     </section>
     <section class="deployment-environments"><div class="section-heading-inline"><div><span>Ambientes</span><h2>Local → staging → produção</h2></div><p>Produção nunca é homologada sem staging aprovado para a mesma versão.</p></div>
