@@ -119,7 +119,7 @@ test("vista: rascunho mantido e escapado (sem injecção de HTML)", () => {
 test("envio: botão desactivado durante o envio (sem duplicados) e sucesso só após resposta ok", () => {
   const main = readFileSync("src/main.js", "utf8");
   assert.match(main, /submit\.disabled=true/);
-  assert.match(main, /state\.exhibitionProposalResult=await collaborative\.submitExhibitionProposal\(values\);\s*state\.exhibitionProposalDraft=\{\};/);
+  assert.match(main, /state\.exhibitionProposalResult=await collaborative\.submitExhibitionProposal\(values\);\s*setState\("sent"\);\s*state\.exhibitionProposalDraft=\{\};/);
   const controller = readFileSync("src/collab/controller.js", "utf8");
   assert.match(controller, /"network"\)/);
   assert.match(controller, /if\(!res\.ok\|\|!data\?\.ok\)\{const code=/);
@@ -128,4 +128,19 @@ test("envio: botão desactivado durante o envio (sem duplicados) e sucesso só a
   assert.match(main, /proposalMailto\(link\.dataset\.contact,currentValues\(\)\)/);
   assert.match(main, /proposalPlainText\(currentValues\(\)\)/);
   assert.doesNotMatch(main, /e-mail (foi )?enviado|mensagem enviada/i);
+});
+
+test("estado inicial neutro: o aviso de falha está escondido de facto (regra [hidden] vence display:grid)", () => {
+  const css = readFileSync("src/styles/app.css", "utf8");
+  // A regra base tem de existir e vir antes das regras de componentes.
+  const reset = css.indexOf("[hidden]{display:none !important}");
+  assert.ok(reset > -1, "falta a regra base [hidden]");
+  assert.ok(reset < css.indexOf(".proposal-fallback{"), "a regra base deve vir antes do componente");
+  const html = exhibitionProposalView("pt-PT", null, { contactEmail: "a78190@ualg.pt" });
+  assert.match(html, /data-exhibition-proposal-form data-proposal-state="idle"/);
+  assert.match(html, /data-exhibition-proposal-fallback role="alert" hidden/);
+  const main = readFileSync("src/main.js", "utf8");
+  // O painel só fica visível no estado failed, depois de uma tentativa real.
+  assert.match(main, /setState\("failed"\);[\s\S]{0,400}fallback\.hidden=false/);
+  assert.match(main, /setState\("sending"\);/);
 });

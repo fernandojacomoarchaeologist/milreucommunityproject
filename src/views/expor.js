@@ -32,7 +32,7 @@ export function exhibitionProposalView(lang = "pt-PT", result = null, { draft = 
   return `${portalHeader(lang,"/participar")}<main id="main">
     <section class="page-lead page-lead--contributions"><span>Participação comunitária</span><h1>${text(lang,"exporTitle")}</h1><p>${text(lang,"exporLead")}</p></section>
     <section class="content-section contribution-public-layout">
-      <form class="public-contribution-form" data-exhibition-proposal-form novalidate>
+      <form class="public-contribution-form" data-exhibition-proposal-form data-proposal-state="idle" novalidate>
         <input class="contribution-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <fieldset><legend>1. Quem propõe</legend>
           <div class="form-grid-2">

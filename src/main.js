@@ -1334,30 +1334,36 @@ function bindPage() {
     event.preventDefault();
     const form=event.currentTarget;
     const feedback=(msg,err=false)=>{const el=form.querySelector("[data-exhibition-proposal-feedback]");if(el){el.textContent=msg;el.classList.toggle("is-error",Boolean(err));}};
+    // Máquina de estados: idle (ao abrir) → sending → failed | sent; «invalid» quando a validação local falha.
+    // O aviso de falha só existe no estado failed, depois de uma tentativa real que não chegou à equipa.
+    const setState=next=>{form.dataset.proposalState=next;};
     const fallback=form.querySelector("[data-exhibition-proposal-fallback]");
     if(fallback)fallback.hidden=true;
     const values=formValues(form);
     values.language=state.lang;
     if(values.website){return;} // honeypot: ignorar submissões automáticas
     if(!values.name?.trim()||!values.email?.trim()||!values.message?.trim()||!form.querySelector('[name="privacyAccepted"]')?.checked){
-      feedback("Preencha os campos obrigatórios: nome, e-mail, descrição e aceitação da informação de privacidade.",true);return;
+      setState("invalid");feedback("Preencha os campos obrigatórios: nome, e-mail, descrição e aceitação da informação de privacidade.",true);return;
     }
     const emailField=form.querySelector('[name="email"]');
-    if(emailField&&!emailField.checkValidity()){feedback("Indique um endereço de e-mail válido.",true);emailField.focus();return;}
+    if(emailField&&!emailField.checkValidity()){setState("invalid");feedback("Indique um endereço de e-mail válido.",true);emailField.focus();return;}
     const dates=validateProposalDates(values.dateFrom,values.dateTo);
-    if(!dates.ok){feedback(dates.message,true);form.querySelector("[data-proposal-date-from]")?.focus();return;}
+    if(!dates.ok){setState("invalid");feedback(dates.message,true);form.querySelector("[data-proposal-date-from]")?.focus();return;}
     values.dates=composeProposalDates(values.dateFrom,values.dateTo);
     delete values.dateFrom; delete values.dateTo;
     const submit=form.querySelector('button[type="submit"]');
     if(submit)submit.disabled=true;
+    setState("sending");
     feedback("A enviar a proposta…");
     try{
       state.exhibitionProposalResult=await collaborative.submitExhibitionProposal(values);
+      setState("sent");
       state.exhibitionProposalDraft={};
       render(false);
     }catch(error){
       if(submit)submit.disabled=false;
       if(isDeliveryFailure(error.code)&&fallback){
+        setState("failed");
         // Falha de entrega: sem mensagens técnicas; o painel explica e oferece o e-mail.
         feedback("");
         const mail=fallback.querySelector("[data-exhibition-proposal-mailto]");
@@ -1365,6 +1371,7 @@ function bindPage() {
         fallback.hidden=false;
         fallback.querySelector("[data-exhibition-proposal-fallback-title]")?.focus();
       }else{
+        setState("invalid");
         feedback(error.message||"Não foi possível enviar a proposta.",true);
       }
     }
