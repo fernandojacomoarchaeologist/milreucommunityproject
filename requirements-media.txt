@@ -1,1 +1,4 @@
-Pillow==11.3.0
+# © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.
+# Ferramentas locais de media (não fazem parte do site publicado). Pillow 12.x exige Python >= 3.10.
+# 12.3.0 corrige os 18 alertas Dependabot abertos em 2026-10-15 (Item 2B).
+Pillow==12.3.0
