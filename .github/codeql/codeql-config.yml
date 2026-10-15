@@ -1,0 +1,20 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+#
+# Item 2B — CodeQL: análise de segurança do JavaScript/TypeScript e dos workflows.
+# Consultas «security-extended» (segurança; sem as de qualidade, para limitar ruído).
+# Excluídos: testes, ficheiros gerados/derivados e dependências.
+name: milreu-codeql
+queries:
+  - uses: security-extended
+paths-ignore:
+  - node_modules
+  - dist
+  - tests
+  - "**/*.test.mjs"
+  - public/media
+  - public/api
+  - reports
+  - releases
+  - legacy

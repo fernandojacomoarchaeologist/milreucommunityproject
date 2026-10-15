@@ -1,0 +1,50 @@
+# © 2026 Fernando Rodrigues de Jácomo.
+# Produzido no âmbito do Projeto Comunitário de Milreu.
+# Consultar RIGHTS.md.
+#
+# Item 2B — análise estática de segurança (CodeQL) do JavaScript/TypeScript do site,
+# scripts e Edge Functions, e dos próprios workflows GitHub Actions.
+# Sem secrets; permissões mínimas; resultados no separador Security → Code scanning.
+# Não é um check obrigatório (o ruleset do L1-07 não muda).
+
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: codeql-analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, actions]
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: github/codeql-action/init@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+          config-file: ./.github/codeql/codeql-config.yml
+      - uses: github/codeql-action/analyze@2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2 # v4.38.2
+        with:
+          category: /language:${{ matrix.language }}
