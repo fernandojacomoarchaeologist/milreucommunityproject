@@ -57,3 +57,23 @@ O formulário passa a submeter **diretamente** para o **URL público da Edge Fun
 - [ ] Aprovar a **exceção de governação** (endpoint serverless só para o formulário de intenção, sem backend colaborativo).
 - [ ] Aprovar esta **spec** (desenho por `fetch` direto, sem credenciais no site).
 - [ ] Confirmar que trata dos **2 pré-requisitos externos** (token Supabase + domínio Resend).
+
+## L3 — endurecimento (Item 2B, 2026-10-15)
+
+> © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu.
+
+Lógica pura em `supabase/functions/exhibition-proposal-intake/lib.ts`, testada em `tests/exhibition-proposal-intake-l3.test.mjs`. **O código fica no repositório e só chega à produção num deploy autorizado** (`exhibition-proposal-deploy`).
+
+- **Origin obrigatório** e na lista `ALLOWED_ORIGINS`: pedidos sem Origin (fora do browser) → 403.
+- **Corpo:** só `application/json` (415); máximo 32 KB, aplicado aos bytes lidos e não só ao `Content-Length` (413); JSON e UTF-8 válidos (400).
+- **Campos:** só texto ou `null`.
+  - Acima do limite rejeita (`payload_too_long`), em vez de cortar em silêncio.
+  - Listas fechadas: `spaceType` (opções do formulário) e `language` (pt-PT/en/es/fr).
+  - O telefone só aceita dígitos e `+ ( ) . -`.
+- **E-mail:** um só endereço (sem listas, nomes de apresentação nem quebras de linha), usado em `reply_to`.
+- **Campos do e-mail:**
+  - removidos CR/LF dos campos de uma linha (assunto e cabeçalhos);
+  - removidos caracteres de controlo e bidireccionais em todos os campos;
+  - corpo só em texto simples, com o aviso «conteúdo não verificado».
+- **Erros:** códigos genéricos e cabeçalhos `Cache-Control: no-store` e `X-Content-Type-Options: nosniff`. Os logs só têm texto fixo e o código HTTP do fornecedor. O formulário mostra mensagens em português, nunca os códigos.
+- **Fora de âmbito nesta fase:** Turnstile/captcha e limitação de taxa com estado (sem base de dados).

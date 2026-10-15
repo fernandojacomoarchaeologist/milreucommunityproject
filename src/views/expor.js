@@ -31,8 +31,8 @@ export function exhibitionProposalView(lang = "pt-PT", result = null) {
         <fieldset><legend>1. Quem propõe</legend>
           <div class="form-grid-2">
             <label>Nome<input name="name" required maxlength="160" autocomplete="name"></label>
-            <label>E-mail<input type="email" name="email" required autocomplete="email"></label>
-            <label>Telefone <small>opcional</small><input name="phone" autocomplete="tel"></label>
+            <label>E-mail<input type="email" name="email" required maxlength="254" autocomplete="email"></label>
+            <label>Telefone <small>opcional</small><input name="phone" maxlength="60" autocomplete="tel"></label>
             <label>Organização ou coletivo <small>opcional</small><input name="organisation" maxlength="180"></label>
           </div>
         </fieldset>
@@ -51,10 +51,10 @@ export function exhibitionProposalView(lang = "pt-PT", result = null) {
             </select></label>
             <label>Nome do espaço ou local<input name="venue" maxlength="180"></label>
             <label>Localidade<input name="locality" maxlength="120"></label>
-            <label>Datas ou período pretendido <small>opcional</small><input name="dates" placeholder="Ex.: 2.º trimestre de 2026 ou a combinar"></label>
+            <label>Datas ou período pretendido <small>opcional</small><input name="dates" maxlength="160" placeholder="Ex.: 2.º trimestre de 2026 ou a combinar"></label>
           </div>
-          <label>Descrição da proposta<textarea name="message" rows="7" required placeholder="Descreva o espaço, o público, a motivação e o que gostaria de acolher ou propor."></textarea></label>
-          <label>Condições, dimensões ou necessidades <small>opcional</small><textarea name="needs" rows="3" placeholder="Ex.: área disponível, acessibilidade, apoio técnico, transporte."></textarea></label>
+          <label>Descrição da proposta<textarea name="message" rows="7" required minlength="10" maxlength="5000" placeholder="Descreva o espaço, o público, a motivação e o que gostaria de acolher ou propor."></textarea></label>
+          <label>Condições, dimensões ou necessidades <small>opcional</small><textarea name="needs" rows="3" maxlength="2000" placeholder="Ex.: área disponível, acessibilidade, apoio técnico, transporte."></textarea></label>
         </fieldset>
 
         <fieldset><legend>3. Consentimento</legend>
