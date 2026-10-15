@@ -1228,6 +1228,10 @@ linear-gradient(var(--ml-surface-subtle) 1px,transparent 1px),linear-gradient(90
 .logo-example figcaption{font-size:.9rem;margin-top:var(--ml-space-3);color:var(--ml-text-secondary)}
 .logo-example__box{border-radius:var(--ml-radius-md);padding:var(--ml-space-6);display:flex;align-items:center;justify-content:center;min-height:120px}
 .logo-example__box--stretch img{width:170px;height:90px;object-fit:fill}
+/* CSP (Item 2B): fundos dos exemplos em classes, sem atributos style. */
+.logo-example__box--paper{background:var(--ml-color-paper-50)}
+.logo-example__box--patina{background:var(--ml-color-patina-500)}
+.proteus-api-table-wrap{overflow-x:auto;max-width:100%}
 .logo-example--bad .logo-example__box{outline:2px solid var(--ml-color-red-500)}
 @media (max-width:640px){.brand-logo-show{flex-direction:column;align-items:flex-start}.type-list strong{min-width:0}}
 

@@ -61,7 +61,7 @@ export function proteusApiView(apiIndex, lang) {
     </section>
     <section class="portal-section">
       <h2>Recursos</h2>
-      <div class="proteus-api-table-wrap" style="overflow-x:auto;max-width:100%">
+      <div class="proteus-api-table-wrap">
         <table class="proteus-api-table">
           <thead><tr><th scope="col">Recurso</th><th scope="col">Caminho</th><th scope="col">Itens</th></tr></thead>
           <tbody>${rows}</tbody>

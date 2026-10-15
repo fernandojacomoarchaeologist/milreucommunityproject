@@ -15,7 +15,7 @@ const routes = [
 for (const [name, route] of routes) {
   test(`Museu: ${name} carrega sem app-error nem overflow`, async ({ page }) => {
     await page.goto(route);
-    await page.waitForFunction(() => document.querySelector("#app")?.textContent.trim().length > 0, { timeout: 15_000 });
+    await expect(page.locator("#app")).not.toHaveText(/^\s*$/, { timeout: 15_000 });
     expect(await page.locator(".app-error").count(), "sem app-error").toBe(0);
     await expect(page.locator("h1").first()).toBeVisible();
     expect(await horizontalOverflow(page)).toBeLessThanOrEqual(2);

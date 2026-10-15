@@ -38,7 +38,7 @@ for (const [area, route, ready] of SURFACES) {
 test("immersive @ desktop", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/#/museu/imersivo/MM202601");
-  await page.waitForFunction(() => document.body.classList.contains("is-immersive"), { timeout: 15_000 });
+  await expect(page.locator("body")).toHaveClass(/\bis-immersive\b/, { timeout: 15_000 });
   await page.waitForTimeout(400);
   await expect(page).toHaveScreenshot("immersive-desktop.png");
 });

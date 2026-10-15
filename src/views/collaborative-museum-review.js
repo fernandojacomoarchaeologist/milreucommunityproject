@@ -101,7 +101,7 @@ export function collaborativeTrainingView(context){
       return `<article class="training-trail-card">
         <div><span>${esc(trail.estimatedMinutes)} min</span>${statusPill(progress.status)}</div>
         <h2>${esc(trail.title)}</h2><p>${esc(trail.summary)}</p>
-        <div class="training-progress"><span style="width:${Math.max(0,Math.min(100,progress.percent))}%"></span></div><small>${esc(progress.percent)}% concluído · nota mínima ${esc(trail.assessment?.passingScore||80)}%</small>
+        <div class="training-progress"><span data-progress="${Math.max(0,Math.min(100,Number(progress.percent)||0))}"></span></div><small>${esc(progress.percent)}% concluído · nota mínima ${esc(trail.assessment?.passingScore||80)}%</small>
         <a href="#/area-colaborativa/formacao/${esc(trail.code)}">Abrir percurso</a>
       </article>`;
     }).join("")}</div>

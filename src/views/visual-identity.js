@@ -59,7 +59,7 @@ export function visualIdentityView(brand, lang = "pt-PT") {
     <section class="content-section" aria-labelledby="vi-cores">
       <div class="section-heading"><h2 id="vi-cores">Cores</h2></div>
       <ul class="color-grid">
-        ${colors.map(c=>`<li class="color-swatch"><span class="color-swatch__chip" style="background:${esc(c.hex)}" aria-hidden="true"></span><strong>${esc(c.name)}</strong><span class="color-swatch__val">HEX ${esc(c.hex)}</span><span class="color-swatch__val">RGB ${esc(c.rgb)}</span></li>`).join("")}
+        ${colors.map(c=>`<li class="color-swatch"><span class="color-swatch__chip" data-swatch="${esc(c.hex)}" aria-hidden="true"></span><strong>${esc(c.name)}</strong><span class="color-swatch__val">HEX ${esc(c.hex)}</span><span class="color-swatch__val">RGB ${esc(c.rgb)}</span></li>`).join("")}
       </ul>
       <p class="muted">${esc(b.cmyk?.note || "CMYK disponível mediante pedido.")}</p>
     </section>
@@ -75,8 +75,8 @@ export function visualIdentityView(brand, lang = "pt-PT") {
     <section class="content-section" aria-labelledby="vi-ex">
       <div class="section-heading"><h2 id="vi-ex">Exemplos</h2></div>
       <div class="logo-examples">
-        <figure class="logo-example logo-example--ok"><div class="logo-example__box" style="background:#FFFCF7"><img src="${esc(assetUrl(logo.png))}" alt="Aplicação correcta em fundo claro" width="120"></div><figcaption><span aria-hidden="true">✔ </span>Fundo claro, proporção e respiro respeitados.</figcaption></figure>
-        <figure class="logo-example logo-example--bad"><div class="logo-example__box logo-example__box--stretch" style="background:#5E7267"><img src="${esc(assetUrl(logo.png))}" alt="Aplicação incorrecta: distorção e fundo inadequado" width="170" height="90"></div><figcaption><span aria-hidden="true">✘ </span>Não distorcer nem usar sobre fundos inadequados.</figcaption></figure>
+        <figure class="logo-example logo-example--ok"><div class="logo-example__box logo-example__box--paper"><img src="${esc(assetUrl(logo.png))}" alt="Aplicação correcta em fundo claro" width="120"></div><figcaption><span aria-hidden="true">✔ </span>Fundo claro, proporção e respiro respeitados.</figcaption></figure>
+        <figure class="logo-example logo-example--bad"><div class="logo-example__box logo-example__box--stretch logo-example__box--patina"><img src="${esc(assetUrl(logo.png))}" alt="Aplicação incorrecta: distorção e fundo inadequado" width="170" height="90"></div><figcaption><span aria-hidden="true">✘ </span>Não distorcer nem usar sobre fundos inadequados.</figcaption></figure>
       </div>
     </section>
 
