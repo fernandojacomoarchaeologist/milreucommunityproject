@@ -56,7 +56,7 @@ test("os 12 campos do contrato aparecem identificados no texto", () => {
   for (const label of ["Nome: Maria João Antunes", "E-mail: maria.joao@example.org", "Telefone: +351 912 345 678", "Organização ou coletivo: Associação «Amigos de Estoi»",
     "Tipo de espaço: Associação ou coletivo", "Nome do espaço ou local: Salão Nobre da Junta", "Localidade: Estoi", "Datas pretendidas: 10/05/2027 a 20/05/2027",
     "Descrição da proposta:\nLinha 1 — acentos: ç ã é ô ü\nLinha 2 & símbolos: <b>%</b> # € 100%\n\nLinha 4", "Condições, dimensões ou necessidades:\nRampa de acesso\nTomada eléctrica",
-    "Informação de privacidade: lida e aceite", "Idioma do formulário: Português (pt-PT)"]) assert.ok(text.includes(label), label);
+    "Declaração sobre dados pessoais: confirmada", "Idioma do formulário: Português (pt-PT)"]) assert.ok(text.includes(label), label);
 });
 
 test("opcionais vazios ficam assinalados (nada parece perdido); opcionais preenchidos nunca são omitidos", () => {
@@ -64,7 +64,7 @@ test("opcionais vazios ficam assinalados (nada parece perdido); opcionais preenc
   const text = proposalPlainText(minimal, { language: "en" });
   for (const label of ["Telefone: (não indicado)", "Organização ou coletivo: (não indicado)", "Tipo de espaço: (não indicado)", "Datas pretendidas: (não indicadas)", "Idioma do formulário: Inglês (en)"]) assert.ok(text.includes(label), label);
   assert.match(proposalPlainText({ ...minimal, phone: "123456" }), /Telefone: 123456/);
-  assert.match(proposalPlainText({ ...minimal, privacyAccepted: false }), /privacidade: não aceite/);
+  assert.match(proposalPlainText({ ...minimal, privacyAccepted: false }), /dados pessoais: não confirmada/);
   assert.match(proposalPlainText({ ...minimal, dates: "a partir de 01/12/2026" }), /Datas pretendidas: a partir de 01\/12\/2026/);
 });
 
@@ -119,7 +119,7 @@ test("vista: rascunho mantido e escapado (sem injecção de HTML)", () => {
 test("envio: botão desactivado durante o envio (sem duplicados) e sucesso só após resposta ok", () => {
   const main = readFileSync("src/main.js", "utf8");
   assert.match(main, /submit\.disabled=true/);
-  assert.match(main, /state\.exhibitionProposalResult=await collaborative\.submitExhibitionProposal\(values\);\s*state\.exhibitionProposalDraft=\{\};/);
+  assert.match(main, /state\.exhibitionProposalResult=await collaborative\.submitExhibitionProposal\(values\);\s*setState\("sent"\);\s*state\.exhibitionProposalDraft=\{\};/);
   const controller = readFileSync("src/collab/controller.js", "utf8");
   assert.match(controller, /"network"\)/);
   assert.match(controller, /if\(!res\.ok\|\|!data\?\.ok\)\{const code=/);
@@ -128,4 +128,33 @@ test("envio: botão desactivado durante o envio (sem duplicados) e sucesso só a
   assert.match(main, /proposalMailto\(link\.dataset\.contact,currentValues\(\)\)/);
   assert.match(main, /proposalPlainText\(currentValues\(\)\)/);
   assert.doesNotMatch(main, /e-mail (foi )?enviado|mensagem enviada/i);
+});
+
+test("estado inicial neutro: o aviso de falha está escondido de facto (regra [hidden] vence display:grid)", () => {
+  const css = readFileSync("src/styles/app.css", "utf8");
+  // A regra base tem de existir e vir antes das regras de componentes.
+  const reset = css.indexOf("[hidden]{display:none !important}");
+  assert.ok(reset > -1, "falta a regra base [hidden]");
+  assert.ok(reset < css.indexOf(".proposal-fallback{"), "a regra base deve vir antes do componente");
+  const html = exhibitionProposalView("pt-PT", null, { contactEmail: "a78190@ualg.pt" });
+  assert.match(html, /data-exhibition-proposal-form data-proposal-state="idle"/);
+  assert.match(html, /data-exhibition-proposal-fallback role="alert" hidden/);
+  const main = readFileSync("src/main.js", "utf8");
+  // O painel só fica visível no estado failed, depois de uma tentativa real.
+  assert.match(main, /setState\("failed"\);[\s\S]{0,400}fallback\.hidden=false/);
+  assert.match(main, /setState\("sending"\);/);
+});
+
+test("privacidade: a declaração não afirma ter lido uma informação inexistente; a finalidade está visível junto da caixa", async () => {
+  const { text } = await import("../src/lib/i18n.js");
+  for (const lang of ["pt-PT", "en", "es", "fr"]) {
+    assert.doesNotMatch(text(lang, "exporPrivacyLabel"), /Li a informação|have read|He leído|J’ai lu/, lang);
+    assert.ok(text(lang, "exporPrivacyPurpose").includes("a78190@ualg.pt"), lang);
+  }
+  assert.equal(text("pt-PT", "exporPrivacyLabel"), "Declaro que tomei conhecimento da finalidade do tratamento dos meus dados pessoais para análise e acompanhamento desta proposta.");
+  const html = exhibitionProposalView("pt-PT", null, {});
+  const purpose = html.indexOf("data-proposal-privacy-purpose"), box = html.indexOf('name="privacyAccepted"');
+  assert.ok(purpose > -1 && purpose < box, "finalidade antes da caixa");
+  // Sem afirmações jurídicas ainda por validar (responsável, base jurídica, conservação).
+  assert.doesNotMatch(text("pt-PT", "exporPrivacyPurpose"), /base jurídica|responsável pelo tratamento|conservad|RGPD/i);
 });
