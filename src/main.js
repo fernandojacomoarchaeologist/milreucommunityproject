@@ -1591,9 +1591,29 @@ function bindPage() {
   });
 
   bindImmersiveKeyboard();
+  bindSlideshowChrome();
   scheduleSlideshow();
   equalizeHomeCarousel();
   scheduleHomeCarousel();
+}
+
+// Modo slide: os controlos aparecem com o rato, o toque ou o teclado e voltam a esconder-se.
+let slideshowChromeHandler = null;
+let slideshowChromeTimer = null;
+function bindSlideshowChrome() {
+  if (slideshowChromeHandler) {
+    ["mousemove","touchstart","keydown"].forEach(type => document.removeEventListener(type,slideshowChromeHandler));
+    slideshowChromeHandler = null;
+  }
+  clearTimeout(slideshowChromeTimer);
+  const view = document.querySelector(".is-slide");
+  if (!view) return;
+  slideshowChromeHandler = () => {
+    view.classList.add("is-chrome");
+    clearTimeout(slideshowChromeTimer);
+    slideshowChromeTimer = setTimeout(() => view.classList.remove("is-chrome"), 2500);
+  };
+  ["mousemove","touchstart","keydown"].forEach(type => document.addEventListener(type,slideshowChromeHandler,{ passive:true }));
 }
 
 function bindImmersiveKeyboard() {

@@ -45,6 +45,34 @@ MEDIA = {
         ("evento1010-IMG_0060.HEIC", "acervo-em-mesa"),
         ("evento1010-Cartaz.jpg", "cartaz-encontro"),
     ],
+    "2026-10-30-estoi-inauguracao": [
+        ("IMG_0260.HEIC", "exposicao-01"),
+        ("IMG_0262.HEIC", "exposicao-02"),
+        ("IMG_0439.JPG", "exposicao-03"),
+        ("IMG_0267.HEIC", "mesa-01"),
+        ("IMG_0273.HEIC", "mesa-02"),
+        ("IMG_0274.HEIC", "exposicao-04"),
+        ("IMG_0279.HEIC", "rollup"),
+        ("IMG_0326.JPG", "painel-achados"),
+        ("IMG_0331.JPG", "inauguracao-01"),
+        ("IMG_0332.JPG", "inauguracao-02"),
+        ("IMG_0334.JPG", "inauguracao-03"),
+        ("IMG_0337.JPG", "inauguracao-04"),
+        ("IMG_0338.JPG", "inauguracao-05"),
+        ("IMG_0436.JPG", "inauguracao-06"),
+        ("IMG_0437.JPG", "inauguracao-07"),
+        ("IMG_0351.JPG", "inauguracao-08"),
+        ("IMG_0362.JPG", "inauguracao-09"),
+        ("IMG_0365.JPG", "inauguracao-10"),
+        ("IMG_0367.JPG", "inauguracao-11"),
+        ("IMG_0409.JPG", "inauguracao-12"),
+        ("IMG_0414.JPG", "inauguracao-13"),
+        ("IMG_0416.JPG", "inauguracao-14"),
+        ("IMG_0441.PNG", "video-01"),
+        ("IMG_0445.PNG", "video-02"),
+        ("IMG_0446.PNG", "video-03"),
+        ("IMG_0447.PNG", "video-04"),
+    ],
 }
 
 
@@ -56,7 +84,24 @@ def open_image(path):
         path = tmp
     im = Image.open(path)
     im = ImageOps.exif_transpose(im)  # aplica a orientação antes de descartar o EXIF
-    return im.convert("RGB")
+    im = im.convert("RGB")
+    if path.lower().endswith(".png"):
+        im = crop_black_bars(im)  # capturas de ecrã de vídeo: retirar as barras pretas laterais
+    return im
+
+
+def crop_black_bars(im, threshold=12):
+    """Recorta colunas quase pretas nas margens esquerda e direita (fotogramas de vídeo)."""
+    gray = im.convert("L")
+    w, h = gray.size
+    dark = lambda x: max(gray.crop((x, 0, x + 1, h)).getextrema()) <= threshold
+    left = 0
+    while left < w // 3 and dark(left):
+        left += 1
+    right = w
+    while right > w - w // 3 and dark(right - 1):
+        right -= 1
+    return im.crop((left, 0, right, h))
 
 
 def main():

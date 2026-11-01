@@ -1337,3 +1337,9 @@ a.agenda-past:hover,a.agenda-past:focus-visible{border-color:var(--ml-border-str
 .memory-share h3{margin:0 0 .6rem;font:700 1rem var(--ml-font-interface,Arial,sans-serif)}
 .memory-share__actions{display:flex;flex-wrap:wrap;gap:.5rem}
 .memory-share__actions .ml-button{min-height:44px}
+
+.is-slide{grid-template-rows:1fr}.is-slide .immersive-bottom{display:none}.is-slide .immersive-frame{padding:0}
+.is-slide .immersive-top{position:absolute;inset:0 0 auto;z-index:10;background:rgb(30 26 23/.7)}
+.is-slide :is(.immersive-top,.immersive-side){opacity:0}
+.is-slide.is-chrome>*,.is-slide.is-chrome .immersive-side,.is-slide :focus-within{opacity:1}.is-slide:not(.is-chrome){cursor:none}
+.slide-ai{position:absolute;inset:auto auto .75rem .75rem;z-index:11}.is-slide aside{top:4.5rem}

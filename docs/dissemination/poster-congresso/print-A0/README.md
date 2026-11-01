@@ -6,8 +6,11 @@
 Exportação para impressão do **poster canónico** (poster académico A0 — «o poster que fechámos»), sem alterar composição, proporção ou texto.
 
 ## Ficheiros
-- `poster_milreu_A0_PRINT_sangria5mm.pdf` — **A0 (841×1189 mm) + sangria 5 mm → 851×1199 mm**, 150 dpi, com marcas de corte nos quatro cantos.
-- `_PREVIEW_poster_A0_print.png` — prova reduzida.
+- `poster_item4_A0_VECTOR_sangria5mm.pdf` — **VETORIAL** (texto vivo Fraunces/Spectral/Archivo + fotografias), **A0 (841×1189 mm) + sangria 5 mm → 851×1199 mm**, com **TrimBox = A0**. **Melhor qualidade de impressão** — enviar este à gráfica.
+- `poster_item4_A0_300dpi_sangria5mm.pdf` — raster 300 dpi (alternativa flattened).
+- `CMYK_PDFX/` — conversão CMYK (perfil genérico interino).
+
+> **Atualização 2026-10-27:** substitui o antigo `poster_milreu_A0_PRINT_sangria5mm.pdf` (raster achatado ~150 dpi), recusado pela gráfica por falta de qualidade. Regenerado a partir do SVG canónico; fotografias **recortadas** (sem distorção). Ver handoff do Item 4, §11.
 
 ## Fonte (linha canónica)
 - Gerador canónico: `scratchpad/poster/proof.py` → `../proof/poster_congresso_PROVA_VISUAL_v9.*` / `../proof/poster_congresso_PROVA_VISUAL_vFinal-Academic.pdf`.
@@ -15,6 +18,6 @@ Exportação para impressão do **poster canónico** (poster académico A0 — �
 - **NÃO é fonte:** a pasta `../master/` (poster retrato «dois pilares») está **rejeitada** por `../gate/POSTER_GATE.md` e não é reutilizada.
 
 ## Pendências humanas / pré-impressão (não inferidas)
-- Conversão **CMYK** com perfil ICC da gráfica e **incorporação de fontes** — resolvidas no prepress; o PDF sai em RGB/150 dpi.
+- Conversão **CMYK** com perfil ICC real da gráfica — resolvida no prepress; o VECTOR sai em RGB (texto vetorial) e o CMYK genérico é interino.
 - A arte mantém, tal como fechada, o rótulo de rodapé **«PROVA VISUAL — QR e formato do congresso por confirmar»**. Alterar esse texto, o formato/título do congresso ou acrescentar QR = edição explícita a pedido.
 - Direitos das fotografias e hierarquia final de logótipos conforme a matriz do projecto.
