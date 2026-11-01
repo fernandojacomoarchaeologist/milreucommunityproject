@@ -311,7 +311,8 @@ export function immersiveView(records,record,lang,state={}) {
   const slideshowSpeed = Number(state.slideshowSpeed || 0);
   const title = escapeHtml(localised(record.title,lang).value);
 
-  return `<main id="main" class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}" role="dialog" aria-modal="true" aria-label="${title}">
+  // Modo slide (2026-11-01): a imagem ocupa o ecrã; miniaturas ocultas e controlos só com actividade.
+  return `<main id="main" class="immersive-view ${infoOpen ? "immersive-view--info" : "immersive-view--clean"}${slideshowSpeed ? " is-slide" : ""}" role="dialog" aria-modal="true" aria-label="${title}">
     <a class="immersive-return-fixed" href="#/museu/memorias/${record.id}" data-close-immersive>
       <img src="${assetUrl("public/icons/back.svg")}" alt="">
       <span>Voltar ao Museu</span>
@@ -323,6 +324,8 @@ export function immersiveView(records,record,lang,state={}) {
       <img src="${assetUrl("public/icons/close.svg")}" alt="">
     </button>
 
+${slideshowSpeed && isSubstantiveAiRecord(record) ? `
+    <span class="immersive-ai-badge slide-ai" aria-hidden="true">${text(lang,"aiRetouchedBadge")}</span>` : ""}
     <div class="immersive-top">
       <div>
         <span class="immersive-position">${index+1}/${list.length} · ${record.id}</span>

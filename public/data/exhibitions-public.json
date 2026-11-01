@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.16.0",
-  "generatedAt": "2026-10-13",
+  "version": "0.17.0",
+  "generatedAt": "2026-11-01",
   "source": "human-approved-static",
   "isExample": false,
   "approval": {
@@ -147,7 +147,294 @@
       "municipality": "Faro",
       "mapsQuery": "Junta de Freguesia de Estoi, Largo Ossónoba, Estoi",
       "stopId": "2026-10-30-estoi-junta-de-freguesia",
-      "media": []
+      "media": [
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-01.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-01-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Vista da exposição «Entre Ruínas e Memórias» montada no pátio da Junta de Freguesia de Estoi, com o roll-up do projeto em primeiro plano",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-02.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-02-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Painéis «Trabalhar nas ruínas» e «Theodor Hauschild e a equipa», com uma fotografia do acervo projetada na parede",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-03.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-03-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Painéis da exposição dispostos à volta do chafariz do pátio da Junta de Freguesia de Estoi",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/mesa-01.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/mesa-01-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Folhas de sala e materiais da exposição sobre uma mesa com toalha vermelha",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/mesa-02.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/mesa-02-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Folhas de sala, cartões e adesivos do projeto sobre a mesa de acolhimento",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-04.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/exposicao-04-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "O coordenador do projeto junto aos painéis da exposição, antes da inauguração",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/rollup.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/rollup-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "O coordenador do projeto junto ao roll-up do Projeto Comunitário de Milreu",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/painel-achados.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/painel-achados-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Painel «Achados romanos de Milreu», com uma fotografia de trabalhadores e esculturas romanas",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-01.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-01-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes conversam junto aos painéis, durante a inauguração",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-02.jpg",
+          "width": 1280,
+          "height": 960,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-02-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Visitantes observam o painel «Entre Ruínas e Memórias», ao lado do roll-up do projeto",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-03.jpg",
+          "width": 1280,
+          "height": 960,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-03-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Visitantes percorrem a exposição no pátio, com uma memória do Museu projetada na parede",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-04.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-04-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes na galeria da Junta de Freguesia de Estoi durante a inauguração",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-05.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-05-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes conversam junto ao painel «Entre Ruínas e Memórias»",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-06.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-06-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes junto ao painel «Memórias de juventude», com o Museu de Memórias projetado na parede",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-07.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-07-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Participantes observam fotografias antigas trazidas para a inauguração",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-08.jpg",
+          "width": 1280,
+          "height": 960,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-08-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "O coordenador do projeto apresenta a exposição aos visitantes, junto ao painel «Entre Ruínas e Memórias»",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-09.jpg",
+          "width": 1280,
+          "height": 1240,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-09-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 620,
+          "alt": "Roll-up com a coordenação do projeto e, ao fundo, o coordenador junto à mesa de acolhimento",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-10.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-10-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes junto ao painel «Memórias de juventude», no fim da inauguração",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-11.jpg",
+          "width": 960,
+          "height": 1280,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-11-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Visitantes observam os painéis, com uma fotografia do acervo projetada ao fundo",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-12.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-12-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Vista de cima da inauguração: visitantes reunidos no pátio durante a apresentação",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-13.jpg",
+          "width": 1600,
+          "height": 1200,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-13-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 480,
+          "alt": "Visitantes à entrada da exposição durante a apresentação, junto ao roll-up do projeto",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-14.jpg",
+          "width": 1200,
+          "height": 1600,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/inauguracao-14-640.jpg",
+          "thumbWidth": 480,
+          "thumbHeight": 640,
+          "alt": "Apresentação junto ao chafariz, com uma memória do Museu projetada na parede",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/video-01.jpg",
+          "width": 1600,
+          "height": 900,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/video-01-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 360,
+          "alt": "Intervenção durante a inauguração, junto ao painel «As escavações em Milreu» (imagem de vídeo)",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/video-02.jpg",
+          "width": 1600,
+          "height": 900,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/video-02-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 360,
+          "alt": "Intervenção durante a inauguração, junto ao painel «Memórias de juventude» (imagem de vídeo)",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/video-03.jpg",
+          "width": 1600,
+          "height": 900,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/video-03-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 360,
+          "alt": "Intervenção durante a inauguração, junto ao painel «Entre Ruínas e Memórias» (imagem de vídeo)",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        },
+        {
+          "kind": "photo",
+          "src": "public/media/events/2026-10-30-estoi-inauguracao/video-04.jpg",
+          "width": 1600,
+          "height": 900,
+          "thumb": "public/media/events/2026-10-30-estoi-inauguracao/video-04-640.jpg",
+          "thumbWidth": 640,
+          "thumbHeight": 360,
+          "alt": "Participantes reunidos junto à mesa de acolhimento durante a inauguração (imagem de vídeo)",
+          "credit": "Fotografia: Projeto Comunitário de Milreu"
+        }
+      ]
     },
     {
       "id": "2026-04-11-estoi-roda-de-conversas",

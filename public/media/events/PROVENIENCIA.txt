@@ -23,5 +23,12 @@ Gerador: scripts/events/build_event_media.py (incremental).
 2026-10-30-estoi-junta-de-freguesia/
   cartaz.jpg ............ Cartaz: Projecto Comunitário de Milreu (Item 8; imagem MM202613 com o crédito do índice do Museu).
 
+2026-10-30-estoi-inauguracao/  (inauguração na Junta de Freguesia de Estoi, 30-10-2026)
+  exposicao-01..04, mesa-01..02, rollup, painel-achados, inauguracao-01..14, video-01..04 (26 imagens)
+                          Fotografia: Projecto Comunitário de Milreu (crédito genérico decidido pelo responsável a 2026-11-01;
+                          as fotografias não foram todas feitas pela mesma pessoa). Publicação e consentimento dos
+                          participantes confirmados pelo responsável (2026-11-01). video-01..04 = fotogramas de vídeo
+                          com as barras pretas laterais recortadas. Excluídas 3 quase-duplicadas (IMG_0438, IMG_0440, IMG_0443).
+
 Esta atribuição NÃO transfere direitos de terceiros nem autoriza redistribuição autónoma dos ficheiros.
 Correcção, contestação ou retirada: contactar o projecto (ver #/direitos).

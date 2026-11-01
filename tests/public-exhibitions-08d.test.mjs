@@ -12,7 +12,7 @@ const exporter=readFileSync("scripts/exhibitions/export-public.mjs","utf8");
 const build=readFileSync("scripts/build.mjs","utf8");
 
 test("snapshot público possui contrato estável",()=>{
-  assert.equal(snapshot.version,"0.16.0");
+  assert.equal(snapshot.version,"0.17.0");
   for(const field of ["current","upcoming","past","events"])assert.ok(Array.isArray(snapshot[field]));
 });
 
@@ -49,4 +49,29 @@ test("exportação usa chave publicável e filtra campos internos",()=>{
 test("build inclui checksums da agenda pública",()=>{
   assert.match(build,/exhibitionModelChecksum/);
   assert.match(build,/publicExhibitionsChecksum/);
+});
+
+test("inauguração de 30-10-2026: 26 fotografias com crédito, texto alternativo e derivados existentes", async () => {
+  const { existsSync } = await import("node:fs");
+  const ev = snapshot.events.find(e => e.id === "2026-10-30-estoi-inauguracao");
+  assert.equal(ev.media.length, 26);
+  for (const m of ev.media) {
+    assert.equal(m.kind, "photo");
+    assert.equal(m.credit, "Fotografia: Projeto Comunitário de Milreu");
+    assert.ok(m.alt.length > 20);
+    assert.ok(existsSync(m.src) && existsSync(m.thumb), m.src);
+    assert.ok(Math.max(m.width, m.height) <= 1600 && Math.max(m.thumbWidth, m.thumbHeight) <= 640);
+  }
+});
+
+test("modo slide: imagem em ecrã inteiro, miniaturas ocultas só durante o slide, aviso de IA mantido", async () => {
+  const { readFileSync } = await import("node:fs");
+  const css = readFileSync("src/styles/app.css", "utf8");
+  const view = readFileSync("src/views/museum.js", "utf8");
+  assert.match(css, /\.is-slide \.immersive-bottom\{display:none\}/);
+  assert.match(css, /\.is-slide \.immersive-frame\{padding:0\}/);
+  assert.match(css, /\.is-slide :focus-within\{opacity:1/);
+  assert.match(view, /slideshowSpeed \? " is-slide" : ""/);
+  assert.match(view, /slideshowSpeed && isSubstantiveAiRecord\(record\)/);
+  assert.match(view, /class="immersive-filmstrip"/); // a filmstrip continua a existir fora do modo slide
 });
