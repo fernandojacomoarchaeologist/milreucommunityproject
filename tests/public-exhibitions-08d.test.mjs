@@ -6,6 +6,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import * as fsSync from "node:fs";
 
 const snapshot=JSON.parse(readFileSync("public/data/exhibitions-public.json","utf8"));
 const exporter=readFileSync("scripts/exhibitions/export-public.mjs","utf8");
@@ -74,4 +75,18 @@ test("modo slide: imagem em ecrã inteiro, miniaturas ocultas só durante o slid
   assert.match(view, /slideshowSpeed \? " is-slide" : ""/);
   assert.match(view, /slideshowSpeed && isSubstantiveAiRecord\(record\)/);
   assert.match(view, /class="immersive-filmstrip"/); // a filmstrip continua a existir fora do modo slide
+});
+
+test("modo imersivo: o título começa depois de «Voltar ao Museu» e «Voltar ao Projeto» (sem sobreposição)", () => {
+  const css = readFileSync("src/styles/app.css", "utf8");
+  // «Voltar ao Projeto» está fixo em left:12.5rem e mede ~10,3rem; o título tem de começar depois (≥ 24rem).
+  assert.match(css, /\.immersive-top\{min-width:0;padding-left:24rem;/);
+  assert.match(css, /\.immersive-return-portal\{position:fixed;top:\.75rem;left:12\.5rem;/);
+});
+
+test("orçamento de CSS: margem mínima de 2 KB abaixo do limite", () => {
+  const { statSync, readdirSync } = fsSync;
+  const budget = JSON.parse(readFileSync("public/data/performance-budgets.json", "utf8")).budgetsBytes.cssTotalMax;
+  const total = readdirSync("src/styles").filter(f => f.endsWith(".css")).reduce((s, f) => s + statSync(`src/styles/${f}`).size, 0);
+  assert.ok(budget - total >= 2000, `margem ${budget - total} B`);
 });
