@@ -23,11 +23,13 @@ test("13-10-2026: 10/10, abril e fevereiro realizados; Estoi e inauguração pr�
   assert.equal(g.current.length, 0);
 });
 
-test("durante a paragem de Estoi fica «em exibição»; depois de 06-11 passa a realizada", () => {
+test("durante a paragem de Estoi fica «em exibição»; depois de 27-11 (prorrogação) passa a realizada", () => {
   const during = classifyAgenda(snapshot, Date.parse("2026-11-02T10:00:00Z"));
   assert.ok(ids(during.current).includes("2026-10-30-estoi-junta-de-freguesia"));
   assert.ok(ids(during.past).includes("2026-10-30-estoi-inauguracao"));
-  const after = classifyAgenda(snapshot, Date.parse("2026-11-07T10:00:00Z"));
+  const stillOn = classifyAgenda(snapshot, Date.parse("2026-11-20T10:00:00Z"));
+  assert.ok(ids(stillOn.current).includes("2026-10-30-estoi-junta-de-freguesia"));
+  const after = classifyAgenda(snapshot, Date.parse("2026-11-28T10:00:00Z"));
   assert.equal(ids(after.past)[0], "2026-10-30-estoi-junta-de-freguesia");
 });
 
