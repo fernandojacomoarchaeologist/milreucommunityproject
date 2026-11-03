@@ -630,13 +630,16 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     host.appendChild(el); later(() => el.remove(), 700);
   }
 
-  function showHintZone(spot) {
+  // Zona da pista (0.3.2): nível 1 mostra uma zona larga (raio × 1,8), nível 2 a zona exacta da ficha de missão.
+  // Fica visível até a pista ser encontrada (ou até se pedir outra), em vez de desaparecer ao fim de 7 s.
+  function showHintZone(spot, level = 2) {
     const el = root.querySelector("[data-dm-hintzone]"); if (!el || !spot.hintArea) return;
-    const a = spot.hintArea, aspect = S.mission.image.width / S.mission.image.height;
+    const k = level >= 2 ? 1.15 : 1.8, aspect = S.mission.image.width / S.mission.image.height;
+    const a = { ...spot.hintArea, r: spot.hintArea.r * k };
     el.style.left = `${(a.cx - a.r) * 100}%`; el.style.top = `${(a.cy - a.r * aspect) * 100}%`;
     el.style.width = `${a.r * 2 * 100}%`; el.style.height = `${a.r * 2 * aspect * 100}%`;
+    el.dataset.task = spot.id; el.classList.toggle("is-wide", level < 2);
     el.hidden = false; el.classList.remove("is-on"); void el.offsetWidth; el.classList.add("is-on");
-    later(() => { el.hidden = true; }, 7000);
   }
 
   // ───────────────────────── mapa de atenção (local, para a equipa avaliar o jogo) ─────────────────────────
@@ -705,7 +708,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const t0 = now();
     S.lastFound = task.id;
     if (task.type === "find") drawOutlines(task.id);
-    const zone = root.querySelector("[data-dm-hintzone]"); if (zone) zone.hidden = true;
+    const zone = root.querySelector("[data-dm-hintzone]"); if (zone && (!zone.dataset.task || zone.dataset.task === task.id)) zone.hidden = true;
     refreshObjectives();
     sound("found");
     S.progress = bumpMetric(S.progress, "feedbackMs", now() - t0);
@@ -765,7 +768,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       announce(`Já encontraste: ${outcome.hotspot.title}.`);
     } else {
       ripple(point); persistRun(); metric("misses");
-      if (outcome.suggestHelp) guide("curious", "Nem todas as pistas são fáceis de encontrar! Experimenta a lupa ou observa outra parte da fotografia.", [{ act: "hint", label: "Dá-me uma pista" }], 9000);
+      if (outcome.near) guide("curious", outcome.near.id === S.selected ? "Estás muito perto! Procura mesmo à volta deste ponto." : "Estás perto de uma pista! Olha com atenção à volta.", [], 4500);
+      else if (outcome.suggestHelp) guide("curious", "Nem todas as pistas são fáceis de encontrar! Experimenta a lupa ou observa outra parte da fotografia.", [{ act: "hint", label: "Dá-me uma pista" }], 9000);
       else announce("Aqui ainda não há pista. Continua a observar.");
     }
   }
@@ -957,7 +961,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       if (!task) return;
       S.run = run; persistRun(); metric("hintsUsed"); step("hint");
       S.selected = task.id; refreshObjectives();
-      if (level >= 2 && task.type === "find") { showHintZone(task); guide("curious", `Está nesta zona: «${task.clue}». Agora encontra o sítio exacto.`, [], 8000); }
+      if (level >= 2 && task.type === "find") { showHintZone(task, 2); guide("curious", `Está mesmo aqui dentro: «${task.clue}». Toca no objecto.`, [], 8000); }
+      else if (task.type === "find") { showHintZone(task, 1); guide("curious", `${task.hint} Procura dentro do círculo.`, [{ act: "hint", label: "Aproxima a zona" }], 10000); }
       else if (level >= 2) guide("curious", `${task.hint} Abre o cartão para responderes.`, [{ act: "ask", task: task.id, label: "Responder", primary: true }], 10000);
       else guide("curious", task.hint, [{ act: "hint", label: "Mostra-me a zona" }], 10000);
       poke();

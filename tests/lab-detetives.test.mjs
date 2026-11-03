@@ -86,13 +86,14 @@ test("geometria: acerta no centro de cada pista, não acerta nas outras nem fora
   }
 });
 
-test("folga táctil limitada: cada pista ocupa < 15 % da fotografia e as obrigatórias, juntas, < 20 %", () => {
+// 0.3.2: folga alargada a pedido do responsável (acertar era pouco intuitivo); limites revistos de 15/20 % para 20/30 %.
+test("folga táctil limitada: cada pista ocupa < 20 % da fotografia e as obrigatórias, juntas, < 30 %", () => {
   const cover = (mission, tasks) => { let hits = 0, total = 0;
     for (let x = 0.0125; x < 1; x += 0.025) for (let y = 0.0125; y < 1; y += 0.025) { total++; if (tasks.some(s => hitTest(s.shape, { x, y }, mission.image, touchTolerance(mission.image, 375)))) hits++; }
     return hits / total; };
   for (const mission of missions) {
-    for (const spot of finds(mission)) assert.ok(cover(mission, [spot]) < 0.15, `${mission.missionId}/${spot.id}`);
-    assert.ok(cover(mission, finds(mission).filter(t => !t.optional)) < 0.2, mission.missionId);
+    for (const spot of finds(mission)) assert.ok(cover(mission, [spot]) < 0.2, `${mission.missionId}/${spot.id}`);
+    assert.ok(cover(mission, finds(mission).filter(t => !t.optional)) < 0.3, mission.missionId);
   }
 });
 
@@ -286,4 +287,15 @@ test("revisão 0.3.1: sem suposições nos textos, curiosidades com dados da fic
   assert.equal(bins.length, ATTENTION_GRID.cols * ATTENTION_GRID.rows);
   assert.equal(bins.reduce((a, b) => a + b, 0), 4);
   assert.deepEqual(migrate(JSON.parse(JSON.stringify(p))).metrics.attention[m1.missionId], bins);
+});
+
+test("0.3.2: toque perto de uma pista por encontrar devolve «near»; longe não", () => {
+  const spot = finds(m1)[0], c = shapeCenter(spot.shape), tol = touchTolerance(m1.image, 1000);
+  const run = createRun(m1);
+  assert.equal(registerTap(run, m1, c, tol).result, "found");
+  const off = { x: Math.min(0.999, c.x + 0.07), y: c.y };
+  const near = registerTap(run, m1, off, tol);
+  if (near.result === "miss") assert.ok(near.near, "esperava aviso de proximidade");
+  const far = registerTap(run, m1, { x: 0.99, y: 0.99 }, tol);
+  assert.equal(far.result, "miss"); assert.equal(far.near, null);
 });

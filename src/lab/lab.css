@@ -129,7 +129,8 @@
 .dm-outline.is-new polygon,.dm-outline.is-new ellipse,.dm-outline.is-new rect{stroke-dasharray:1;animation:dm-draw var(--ml-duration-editorial) var(--ml-ease-standard) both,dm-glow 1.2s var(--ml-ease-standard) .3s}
 .dm-ripple{position:absolute;width:2rem;height:2rem;transform:translate(-50%,-50%);border:2px solid var(--ml-color-paper-0);border-radius:50%;pointer-events:none;animation:dm-fade .6s var(--ml-ease-standard) forwards}
 .dm-hintzone{position:absolute;border:3px dashed var(--ml-color-paper-0);border-radius:50%;box-shadow:0 0 0 2px rgb(30 26 23/.45);pointer-events:none}
-.dm-hintzone.is-on{animation:dm-pulse 1.4s ease-in-out 4}
+.dm-hintzone.is-on{animation:dm-pulse 1.4s ease-in-out 3}
+.dm-hintzone.is-wide{border-width:2px;border-style:dashed;background:color-mix(in srgb,var(--ml-color-paper-0) 10%,transparent)}
 .dm-cursor{position:absolute;display:none;transform:translate(-30%,-30%);color:var(--ml-color-paper-0);filter:drop-shadow(0 0 2px rgb(30 26 23/.9));pointer-events:none}
 .dm-stage.is-keyboard .dm-cursor,.dm-stage:focus-visible .dm-cursor{display:block}
 /* lupa real */

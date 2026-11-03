@@ -138,11 +138,13 @@ function distanceToPolygon(x, y, pts) {
   return best;
 }
 
-// Folga táctil: 16 px de ecrã convertidos para a imagem, limitada a 2,5 % da largura original
-// (tolerante para o dedo, mas sem permitir resolver a imagem a tocar ao acaso).
-export function touchTolerance(image, renderedWidth, screenPx = 16) {
+// Folga táctil: 28 px de ecrã convertidos para a imagem, limitada a 4,5 % da largura original
+// (0.3.2: mais tolerante — o responsável achou difícil acertar —, mas sem permitir resolver a imagem a tocar ao acaso).
+export const NEAR_FRACTION = 0.08;
+
+export function touchTolerance(image, renderedWidth, screenPx = 28) {
   if (!(renderedWidth > 0)) return 0;
-  return Math.min(screenPx * (image.width / renderedWidth), image.width * 0.025);
+  return Math.min(screenPx * (image.width / renderedWidth), image.width * 0.045);
 }
 
 export function createRun(mission) {
@@ -177,7 +179,10 @@ export function registerTap(run, mission, point, tolerancePx = 0) {
   }
   if (spots.length) return { run, result: "already", hotspot: spots[0], points: 0 };
   const misses = run.misses + 1;
-  return { run: { ...run, misses }, result: "miss", hotspot: null, points: 0, suggestHelp: misses % MISSES_BEFORE_SUGGESTION === 0 };
+  // «Estás perto»: o toque falhou por pouco (até 8 % da largura além da folga) uma pista ainda por encontrar.
+  const nearPx = tolerancePx + mission.image.width * NEAR_FRACTION;
+  const near = findTasks(mission).find(spot => !run.found.includes(spot.id) && hitTest(spot.shape, point, mission.image, nearPx)) || null;
+  return { run: { ...run, misses }, result: "miss", hotspot: null, near, points: 0, suggestHelp: misses % MISSES_BEFORE_SUGGESTION === 0 };
 }
 
 // Resposta a uma pergunta: sem penalização; cada tentativa falhada conta como um nível de ajuda.
