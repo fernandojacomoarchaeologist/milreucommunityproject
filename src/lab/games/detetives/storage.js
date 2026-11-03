@@ -18,13 +18,31 @@ export function emptyProgress() {
 // Medição LOCAL de qualidade (só neste browser; nunca enviada): conclusão, ajudas, descobertas,
 // erros de interacção e tempo de resposta. Sem dados pessoais nem tempo total de permanência.
 export function emptyMetrics() {
-  return { missionsStarted: 0, missionsCompleted: 0, hintsUsed: 0, discoveries: 0, optionalDiscoveries: 0, misses: 0, wrongAnswers: 0, firstDiscoveryMs: [], feedbackMs: [] };
+  return { missionsStarted: 0, missionsCompleted: 0, hintsUsed: 0, discoveries: 0, optionalDiscoveries: 0, misses: 0, wrongAnswers: 0, firstDiscoveryMs: [], feedbackMs: [], attention: {} };
+}
+
+// Mapa de ATENÇÃO local (para avaliar o jogo, não pessoas): onde o jogador passa a lupa/o rato e toca,
+// numa grelha grosseira por fotografia. Só contagens; nunca enviado. Toques valem 3, passagens 1.
+export const ATTENTION_GRID = Object.freeze({ cols: 24, rows: 16 });
+export function recordAttention(progress, missionId, point, weight = 1) {
+  if (!/^[a-z0-9-]+$/.test(missionId || "") || !point || !(point.x >= 0 && point.x <= 1 && point.y >= 0 && point.y <= 1)) return progress;
+  const { cols, rows } = ATTENTION_GRID, metrics = { ...(progress.metrics || emptyMetrics()) };
+  const attention = { ...(metrics.attention || {}) };
+  const bins = Array.isArray(attention[missionId]) && attention[missionId].length === cols * rows ? [...attention[missionId]] : new Array(cols * rows).fill(0);
+  const i = Math.min(rows - 1, Math.floor(point.y * rows)) * cols + Math.min(cols - 1, Math.floor(point.x * cols));
+  bins[i] = Math.min(1e6, bins[i] + weight);
+  attention[missionId] = bins;
+  return { ...progress, metrics: { ...metrics, attention } };
 }
 function migrateMetrics(raw) {
   const m = emptyMetrics();
   if (!raw || typeof raw !== "object") return m;
   for (const key of ["missionsStarted", "missionsCompleted", "hintsUsed", "discoveries", "optionalDiscoveries", "misses", "wrongAnswers"]) m[key] = num(raw[key]);
   for (const key of ["firstDiscoveryMs", "feedbackMs"]) m[key] = (Array.isArray(raw[key]) ? raw[key] : []).map(num).slice(-20);
+  const size = ATTENTION_GRID.cols * ATTENTION_GRID.rows;
+  for (const [id, bins] of Object.entries(raw.attention && typeof raw.attention === "object" ? raw.attention : {})) {
+    if (/^[a-z0-9-]+$/.test(id) && Array.isArray(bins) && bins.length === size) m.attention[id] = bins.map(num);
+  }
   return m;
 }
 export function bumpMetric(progress, key, value) {

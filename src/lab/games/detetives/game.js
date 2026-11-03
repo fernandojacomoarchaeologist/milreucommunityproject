@@ -16,7 +16,7 @@ import {
   touchTolerance, shapeCenter, levelFor, unlockedMissions, maxScore, tasksOf, requiredTasks, remainingTasks,
   POINTS_BY_HINT, LAYERS
 } from "./engine.js";
-import { loadProgress, saveProgress, clearProgress, recordCompletion, bumpMetric } from "./storage.js";
+import { loadProgress, saveProgress, clearProgress, recordCompletion, bumpMetric, recordAttention, ATTENTION_GRID } from "./storage.js";
 import { ICONS } from "./icons.js";
 import { LOUPE_FRAME, TOOL, NOTEBOOK, stampSvg, TAPE, GUIDE_BADGE } from "./art.js";
 
@@ -37,7 +37,7 @@ const OPENING = [
 export const GUIDE = Object.freeze({
   start: "Há algo curioso nesta fotografia... Consegues encontrar?",
   idle: "Experimenta usar a lupa!",
-  found: "Boa descoberta! Queres saber mais?",
+  found: "Boa descoberta!",
   done: "Excelente investigação! Vou guardar esta memória no teu caderno."
 });
 
@@ -53,7 +53,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     screen: "intro", progress: loadProgress(storage), mission: null, run: null, runDone: false,
     zoom: { s: 1, x: 0, y: 0 }, cursor: { x: 0.5, y: 0.5 }, selected: null, dialog: null, briefing: false,
     question: null, questionNote: "", completion: null, error: null, confirmClear: false, notice: "",
-    albumPage: 0, startedAt: 0, firstFound: false, loupe: false, lastFound: null, objectivesOpen: false
+    albumPage: 0, startedAt: 0, firstFound: false, loupe: false, lastFound: null, objectivesOpen: false, heat: false
   };
   const timers = new Set();
   const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); return id; };
@@ -201,10 +201,9 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
 
   function objectivesHtml() {
     const req = requiredTasks(S.mission), done = req.filter(t => S.run.found.includes(t.id)).length;
-    const pips = req.map(t => `<i class="${S.run.found.includes(t.id) ? "is-on" : ""}"></i>`).join("");
     return `<aside class="dm-objectives ${S.objectivesOpen ? "is-open" : ""}" aria-label="Objectivos da investigação" data-dm-objectives>
       <button type="button" class="dm-objectives__head" data-act="objectives" aria-expanded="${S.objectivesOpen}">
-        <span>Procura</span><span class="dm-pips" role="img" aria-label="${done} de ${req.length} encontrados">${pips}</span><b data-dm-progress>${done}/${req.length}</b>
+        <span>Encontra na fotografia</span><b data-dm-progress aria-label="${done} de ${req.length} encontrados">${done}/${req.length}</b>
       </button>
       <ol class="dm-objectives__list">${tasksOf(S.mission).map(objectiveHtml).join("")}</ol>
     </aside>`;
@@ -226,7 +225,6 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       <button type="button" class="dm-tool" data-act="zoom-in" title="Ampliar">${TOOL.mais}<span class="dm-sr">Ampliar</span></button>
       <button type="button" class="dm-tool" data-act="zoom-out" title="Reduzir">${TOOL.menos}<span class="dm-sr">Reduzir</span></button>
       <button type="button" class="dm-tool" data-act="zoom-reset" title="Ver a fotografia inteira">${TOOL.ajustar}<span class="dm-sr">Ver a fotografia inteira</span></button>
-      <button type="button" class="dm-tool" data-act="describe" title="Explorar por descrição">${TOOL.lista}<span class="dm-sr">Explorar por descrição (alternativa ao toque)</span></button>
       <button type="button" class="dm-tool" data-act="sound" aria-pressed="${sound}" title="Sons">${sound ? TOOL.som : TOOL.semSom}<span class="dm-sr">Sons ${sound ? "ligados" : "desligados"}</span></button>
     </div>`;
   }
@@ -245,6 +243,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
           <div class="dm-canvas" data-dm-canvas>
             <img src="${assetUrl(m.image.src)}" alt="" draggable="false" data-dm-image>
             <span class="dm-tape-slot dm-tape-slot--l">${TAPE}</span><span class="dm-tape-slot dm-tape-slot--r">${TAPE}</span>
+            <canvas class="dm-heat" data-dm-heat aria-hidden="true" ${S.heat ? "" : "hidden"}></canvas>
             <svg class="dm-outlines" data-dm-outlines viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"></svg>
             <div class="dm-hintzone" data-dm-hintzone hidden></div>
             <div class="dm-cursor" data-dm-cursor aria-hidden="true">${TOOL.lupa}</div>
@@ -298,6 +297,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     return dialogHtml("dm-q", esc(task.title), `
       <p class="dm-eyebrow">${esc(LAYERS[task.layer].label)}${task.optional ? " · extra" : ""}</p>
       ${compare}${zoom}
+      ${task.facts?.length ? `<div class="dm-facts"><p class="dm-eyebrow">O que a ficha regista</p><ul>${task.facts.map(f => `<li>${esc(f)}</li>`).join("")}</ul><p class="dm-facts__src">${esc(task.factsSource || "")}</p></div>` : ""}
       <p>${esc(task.prompt)}</p>
       <div class="dm-options" role="group" aria-label="Respostas">${opts}</div>
       <p class="dm-qnote" role="status" data-dm-qnote>${esc(S.questionNote)}</p>`,
@@ -311,6 +311,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         <label class="dm-toggle"><input type="checkbox" id="dm-pref-calm" data-pref="calm" ${S.progress.prefs.calm ? "checked" : ""}> Modo calmo (sem animações extra)</label>
       </div>`,
       `<button type="button" class="dm-btn dm-btn--primary" data-act="resume">Retomar</button>
+       <button type="button" class="dm-btn" data-act="describe-open">${TOOL.lista} Explorar por descrição (sem rato nem toque)</button>
+       <button type="button" class="dm-btn" data-act="heat" aria-pressed="${S.heat}">${S.heat ? "Esconder" : "Mostrar"} o mapa de atenção (equipa)</button>
        <button type="button" class="dm-btn" data-act="howto">Como jogar</button>
        <button type="button" class="dm-btn" data-act="board">Sair para as fotografias</button>`);
   }
@@ -382,6 +384,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       </div>
       <details class="dm-metrics"><summary>Medição local desta versão de teste</summary>
         <p class="dm-note">Guardada só neste browser e nunca enviada. Serve para avaliar o protótipo, não para medir pessoas.</p>
+        <div class="dm-heatgrid">${valid.map(m => `<figure class="dm-heatfig"><span class="dm-heatfig__box">${img(m.image.src, "")}<canvas data-dm-heatmap="${m.missionId}" aria-hidden="true"></canvas></span><figcaption>Mapa de atenção · ${esc(m.image.memoryRef)}</figcaption></figure>`).join("")}</div>
+        <p class="dm-note">Zonas mais escuras = onde a lupa/o rato passou mais e onde se tocou (toques valem 3). Ajuda a ver para onde os olhos vão e que pistas passam despercebidas.</p>
         <dl><dt>Fotografias iniciadas</dt><dd>${mt.missionsStarted || 0}</dd><dt>Fotografias concluídas</dt><dd>${mt.missionsCompleted || 0}</dd>
         <dt>Descobertas (das quais extra)</dt><dd>${mt.discoveries || 0} (${mt.optionalDiscoveries || 0})</dd><dt>Ajudas pedidas</dt><dd>${mt.hintsUsed || 0}</dd>
         <dt>Toques sem pista / respostas a rever</dt><dd>${mt.misses || 0} / ${mt.wrongAnswers || 0}</dd>
@@ -426,6 +430,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     root.innerHTML = `<div class="dm-live dm-sr" data-dm-live aria-live="polite"></div>${screens[S.screen]()}${S.dialog ? dialogs[S.dialog]() : ""}`;
     root.querySelectorAll("[data-dm-pct]").forEach(el => { el.style.width = `${el.dataset.dmPct}%`; });
     if (S.screen === "play") setupStage();
+    drawAlbumHeat();
     if (S.dialog === "question") placeZoomPreview();
     if (S.dialog) {
       root.querySelector(".dm-play")?.setAttribute("inert", "");
@@ -454,6 +459,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const image = root.querySelector("[data-dm-image]");
     image.addEventListener("error", () => { S.error = { message: "A fotografia desta missão não carregou. Verifica a ligação e tenta de novo.", retry: true }; S.screen = "error"; render(); }, { once: true });
     fit(); drawOutlines(); drawCursor();
+    if (S.heat) drawHeat(root.querySelector("[data-dm-heat]"), S.progress.metrics?.attention?.[S.mission.missionId]);
     resizeObserver?.disconnect();
     if (typeof ResizeObserver === "function") { resizeObserver = new ResizeObserver(() => { fit(); }); resizeObserver.observe(stage); }
     bindStage();
@@ -532,8 +538,11 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       if (gesture?.type === "lens") moveLoupe(event.clientX, event.clientY, true);
       poke();
     });
+    let lastSample = 0;
     stage.addEventListener("pointermove", event => {
       if (event.pointerType === "mouse") moveLoupe(event.clientX, event.clientY);
+      const t = Date.now();
+      if (t - lastSample > 150 && (event.pointerType === "mouse" || gesture?.type === "lens")) { lastSample = t; attend(toNormalized(event.clientX, event.clientY - (gesture?.type === "lens" ? loupe.offsetWidth * 0.75 : 0)), 1); }
       if (!pointers.has(event.pointerId) || !gesture) return;
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
       if (gesture.type === "pinch" && pointers.size === 2) {
@@ -630,6 +639,29 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     later(() => { el.hidden = true; }, 7000);
   }
 
+  // ───────────────────────── mapa de atenção (local, para a equipa avaliar o jogo) ─────────────────────────
+  let attentionDirty = false, attentionTimer = null;
+  function attend(point, weight) {
+    if (!S.mission || !point) return;
+    S.progress = recordAttention(S.progress, S.mission.missionId, point, weight);
+    attentionDirty = true;
+    if (!attentionTimer) attentionTimer = later(() => { attentionTimer = null; if (attentionDirty) { attentionDirty = false; save(); } }, 2000);
+  }
+  // Grelha suavizada desenhada em canvas, cor de dados (não a cor de marca), opacidade proporcional à atenção.
+  function drawHeat(el, bins) {
+    if (!el) return;
+    const { cols, rows } = ATTENTION_GRID, W = el.width = cols * 8, H = el.height = rows * 8, ctx = el.getContext("2d");
+    ctx.clearRect(0, 0, W, H);
+    const max = bins ? Math.max(...bins) : 0;
+    if (!max) return;
+    ctx.fillStyle = getComputedStyle(root).getPropertyValue("--ml-color-info-300").trim() || "currentColor";
+    bins.forEach((v, i) => { if (!v) return; ctx.globalAlpha = 0.15 + 0.65 * (v / max); ctx.fillRect((i % cols) * 8, Math.floor(i / cols) * 8, 8, 8); });
+    ctx.globalAlpha = 1;
+  }
+  function drawAlbumHeat() {
+    root.querySelectorAll("[data-dm-heatmap]").forEach(el => drawHeat(el, S.progress.metrics?.attention?.[el.dataset.dmHeatmap]));
+  }
+
   // ───────────────────────── guia (avatar futuro) ─────────────────────────
   // guide(mood, texto, acções, ms) — mood: neutral | curious | discovery | celebrate. Nunca rouba o foco.
   function guide(mood, text, buttons = [], ms = 9000) {
@@ -681,8 +713,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     S.progress = bumpMetric(S.progress, "discoveries"); if (task.optional) S.progress = bumpMetric(S.progress, "optionalDiscoveries");
     save();
     animateScore(points);
-    hideDiscovery();
-    guide("discovery", `${GUIDE.found} ${task.discovery.short || task.title}`, [{ act: "more", task: task.id, label: "Saber mais", primary: true }], 10000);
+    guide("discovery", GUIDE.found, [], 2500);
+    showDiscovery(task, { auto: true });
     announce(`Descoberta: ${task.title}. Mais ${points} pontos.`);
     poke();
     if (S.run.completedOnce) { S.progress = recordCompletion(S.progress, S.run, new Date(), { keepCurrent: true }); save(); }
@@ -700,7 +732,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   }
 
   // «Saber mais»: cartão breve com o texto completo, certeza e fonte. Fecha-se e o jogo continua.
-  function showDiscovery(task) {
+  function showDiscovery(task, { auto = false } = {}) {
     const card = root.querySelector("[data-dm-discovery]"); if (!card || !task) return;
     const memory = task.compare?.id || S.mission.image.memoryRef;
     card.innerHTML = `<span class="dm-obj__pic">${objPic(task)}</span>
@@ -710,13 +742,16 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       <p class="dm-discovery__meta"><span class="dm-cert dm-cert--${task.discovery.certainty}">${certaintyText(task.discovery.certainty)}</span> Fonte: ${esc(task.discovery.source)} · <a href="#/museu/memorias/${esc(memory)}">${esc(memory)}</a></p>
       <button type="button" class="dm-btn dm-btn--small dm-btn--primary" data-act="ack">Continuar a investigar</button></div>`;
     card.hidden = false; card.classList.remove("is-in"); void card.offsetWidth; card.classList.add("is-in");
-    hideGuide(); sound("paper"); step("read");
-    card.querySelector(".dm-btn")?.focus({ preventScroll: true });
+    if (!auto) hideGuide();
+    sound("paper"); step("read");
+    if (!auto) card.querySelector(".dm-btn")?.focus({ preventScroll: true });
   }
   function hideDiscovery() { const card = root.querySelector("[data-dm-discovery]"); if (card) card.hidden = true; }
 
   function investigate(point, via) {
     if (S.dialog || S.briefing || !S.run || S.runDone) return;
+    hideDiscovery();
+    attend(point, 3);
     const rect = canvas.getBoundingClientRect();
     const tol = via === "pointer" ? touchTolerance(S.mission.image, rect.width) : touchTolerance(S.mission.image, rect.width, 6);
     const outcome = registerTap(S.run, S.mission, point, tol);
@@ -736,8 +771,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   }
 
   const pendingRequired = () => requiredTasks(S.mission).some(t => !S.run.found.includes(t.id));
-  // A celebração dá tempo para ver o contorno e o cartão (~1,3 s); nunca começa outra missão sozinha.
-  function maybeCompleteSoon() { later(() => { if (!S.dialog && !maybeComplete()) pendingHelp(); }, calm() ? 400 : 1300); }
+  // A celebração dá tempo para ler o resultado da última descoberta (~2,6 s); nunca começa outra missão sozinha.
+  function maybeCompleteSoon() { later(() => { if (!S.dialog && !maybeComplete()) pendingHelp(); }, calm() ? 400 : 2600); }
 
   function answer(optionId) {
     const res = answerQuestion(S.run, S.mission, S.question, optionId);
@@ -885,6 +920,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       root.querySelectorAll(".dm-tab").forEach((tab, i) => { tab.classList.toggle("is-current", i === page); tab.setAttribute("aria-current", String(i === page)); });
       root.querySelectorAll(".dm-album__nav [data-act='album-page']").forEach((btn, i) => { const target = i === 0 ? page - 1 : page + 1; btn.dataset.page = String(target); btn.disabled = target < 0 || target >= valid.length; });
       sound("paper");
+      drawAlbumHeat();
     },
     play: el => startMission(el.dataset.mission),
     pause: () => { S.dialog = "paused"; render(); },
@@ -904,6 +940,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     },
     objectives: () => { S.objectivesOpen = !S.objectivesOpen; refreshObjectives(); },
     describe: describePanel,
+    "describe-open": () => { closeDialog(); describePanel(); },
+    heat: () => { S.heat = !S.heat; closeDialog(); },
     "zoom-in": () => zoomAt(1.4),
     "zoom-out": () => zoomAt(1 / 1.4),
     "zoom-reset": () => { S.zoom = { s: 1, x: 0, y: 0 }; applyTransform(); },
@@ -979,6 +1017,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       document.removeEventListener("keydown", onKey);
       resizeObserver?.disconnect();
       if (loupeFrame) cancelAnimationFrame(loupeFrame);
+      if (attentionDirty) save();
       timers.forEach(clearTimeout); timers.clear();
       try { audio?.close(); } catch { /* */ }
       persistRun();

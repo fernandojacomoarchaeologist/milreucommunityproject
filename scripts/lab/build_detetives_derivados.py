@@ -57,8 +57,10 @@ for mission in catalog["missions"]:
              "master": manifest[mid]["originalPath"], "crop": [round(x0 / W, 5), round(y0 / H, 5), round(x1 / W, 5), round(y1 / H, 5)],
              "output": out, "width": pres.width, "height": pres.height, "sha256": digest(out), "tasks": []}
     for task in [t for t in mission["tasks"] if t["type"] == "find"]:
-        bx0, by0, bx1, by1 = bbox(task["shape"]); pad = 0.012
-        box = (int(max(0, bx0 - pad) * W), int(max(0, by0 - pad) * H), int(min(1, bx1 + pad) * W), int(min(1, by1 + pad) * H))
+        # Cartão quadrado centrado no objecto (lado = maior dimensão + 20 %), para o objecto caber inteiro na miniatura.
+        bx0, by0, bx1, by1 = bbox(task["shape"])
+        cx, cy = (bx0 + bx1) / 2 * W, (by0 + by1) / 2 * H; side = max((bx1 - bx0) * W, (by1 - by0) * H) * 1.2
+        box = (int(max(0, cx - side / 2)), int(max(0, cy - side / 2)), int(min(W, cx + side / 2)), int(min(H, cy + side / 2)))
         card = im.crop(box); card.thumbnail((360, 360)); cout = f"{OUT}/{mid}-{task['id']}.webp"
         card.save(cout, "WEBP", quality=82, method=6)
         entry["tasks"].append({"taskId": task["id"], "output": cout, "width": card.width, "height": card.height, "crop": [round(v, 5) for v in (box[0] / W, box[1] / H, box[2] / W, box[3] / H)]})

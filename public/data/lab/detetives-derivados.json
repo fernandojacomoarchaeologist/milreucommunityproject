@@ -22,51 +22,51 @@
       "sha256": "e234c64cf16129c8edb0a7ebe4d39963859ac7f093d3bfed9313f34ca2ebebd5",
       "tasks": [
         {
-          "taskId": "bolsa",
-          "output": "public/media/lab/detetives/derivados/MM202615-bolsa.webp",
-          "width": 192,
-          "height": 248,
+          "taskId": "saco",
+          "output": "public/media/lab/detetives/derivados/MM202615-saco.webp",
+          "width": 245,
+          "height": 246,
           "crop": [
-            0.21985,
-            0.16776,
-            0.30197,
-            0.30373
+            0.2083,
+            0.16831,
+            0.31309,
+            0.30318
           ]
         },
         {
           "taskId": "flores",
           "output": "public/media/lab/detetives/derivados/MM202615-flores.webp",
-          "width": 210,
-          "height": 122,
+          "width": 185,
+          "height": 186,
           "crop": [
-            0.44482,
-            0.30976,
-            0.53464,
-            0.37664
+            0.45038,
+            0.29221,
+            0.52951,
+            0.39419
           ]
         },
         {
           "taskId": "recipiente",
           "output": "public/media/lab/detetives/derivados/MM202615-recipiente.webp",
-          "width": 211,
+          "width": 360,
           "height": 360,
           "crop": [
-            0.28999,
-            0.62993,
-            0.41189,
-            0.89693
+            0.23695,
+            0.61732,
+            0.4645,
+            0.90899
           ]
         },
         {
           "taskId": "latas",
           "output": "public/media/lab/detetives/derivados/MM202615-latas.webp",
-          "width": 183,
-          "height": 132,
+          "width": 151,
+          "height": 152,
           "crop": [
-            0.43969,
-            0.36952,
-            0.51796,
-            0.44189
+            0.44654,
+            0.36404,
+            0.51112,
+            0.44737
           ]
         }
       ]
@@ -92,48 +92,48 @@
           "taskId": "pessoas",
           "output": "public/media/lab/detetives/derivados/MM202621-pessoas.webp",
           "width": 360,
-          "height": 130,
+          "height": 299,
           "crop": [
-            0.11792,
-            0.13781,
-            0.62167,
-            0.39143
+            0.08167,
+            0.0,
+            0.65792,
+            0.66474
           ]
         },
         {
           "taskId": "fragmentos",
           "output": "public/media/lab/detetives/derivados/MM202621-fragmentos.webp",
           "width": 360,
-          "height": 132,
+          "height": 360,
           "crop": [
-            0.16792,
-            0.34742,
-            0.49167,
-            0.51187
+            0.14958,
+            0.1795,
+            0.51,
+            0.67979
           ]
         },
         {
           "taskId": "carrinho",
           "output": "public/media/lab/detetives/derivados/MM202621-carrinho.webp",
           "width": 360,
-          "height": 156,
+          "height": 360,
           "crop": [
-            0.38792,
-            0.38796,
-            0.84167,
-            0.66184
+            0.35667,
+            0.16618,
+            0.87292,
+            0.88303
           ]
         },
         {
           "taskId": "balde",
           "output": "public/media/lab/detetives/derivados/MM202621-balde.webp",
-          "width": 273,
-          "height": 352,
+          "width": 360,
+          "height": 360,
           "crop": [
-            0.25792,
-            0.43775,
-            0.37167,
-            0.64157
+            0.23708,
+            0.43196,
+            0.3925,
+            0.64794
           ]
         }
       ]
@@ -159,24 +159,24 @@
           "taskId": "mosaico",
           "output": "public/media/lab/detetives/derivados/MM202614-mosaico.webp",
           "width": 360,
-          "height": 107,
+          "height": 277,
           "crop": [
-            0.44786,
-            0.71765,
-            0.93162,
-            0.90186
+            0.41368,
+            0.45559,
+            0.96581,
+            1.0
           ]
         },
         {
           "taskId": "porta",
           "output": "public/media/lab/detetives/derivados/MM202614-porta.webp",
-          "width": 236,
-          "height": 275,
+          "width": 278,
+          "height": 278,
           "crop": [
-            0.39274,
-            0.12281,
-            0.49359,
-            0.27357
+            0.38376,
+            0.12226,
+            0.50256,
+            0.27467
           ]
         }
       ]

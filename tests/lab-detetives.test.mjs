@@ -15,7 +15,7 @@ import {
   unlockedMissions, touchTolerance, shapeCenter, maxScore, tasksOf, requiredTasks, POINTS_BY_HINT, TUTORIAL_STEPS,
   MISSES_BEFORE_SUGGESTION, MIN_TASKS, MAX_TASKS
 } from "../src/lab/games/detetives/engine.js";
-import { loadProgress, saveProgress, clearProgress, recordCompletion, migrate, bumpMetric, STORAGE_KEY, STORAGE_VERSION } from "../src/lab/games/detetives/storage.js";
+import { loadProgress, saveProgress, clearProgress, recordCompletion, migrate, bumpMetric, recordAttention, ATTENTION_GRID, STORAGE_KEY, STORAGE_VERSION } from "../src/lab/games/detetives/storage.js";
 import { memoryGameEligibility, resolveMissions, toCrop } from "../src/lab/games/detetives/editorial-adapter.js";
 import { createHash } from "node:crypto";
 
@@ -134,7 +134,7 @@ test("camadas: conclui com as obrigatórias; as de investigação são extra; po
 test("missão 1 (MM202615): quatro objectos concretos, sem objectivos vagos; o treino continua suportado pelo motor", () => {
   assert.equal(m1.memoryRef ?? m1.image.memoryRef, "MM202615");
   assert.equal(m1.kind, "mission");
-  assert.deepEqual(requiredTasks(m1).map(t => t.id), ["bolsa", "flores", "recipiente", "latas"]);
+  assert.deepEqual(requiredTasks(m1).map(t => t.id), ["saco", "flores", "recipiente", "latas"]);
   assert.ok(requiredTasks(m1).every(t => t.type === "find" && t.discovery.short));
   assert.doesNotMatch(JSON.stringify(m1.tasks), /encontra o grupo|encontra a mesa/i);
   assert.equal(m1.opening, "Há algo curioso nesta fotografia... Consegues encontrar?");
@@ -256,7 +256,7 @@ test("revisão visual: pistas invisíveis, guia com as quatro mensagens, peças 
   assert.deepEqual(GUIDE, {
     start: "Há algo curioso nesta fotografia... Consegues encontrar?",
     idle: "Experimenta usar a lupa!",
-    found: "Boa descoberta! Queres saber mais?",
+    found: "Boa descoberta!",
     done: "Excelente investigação! Vou guardar esta memória no teu caderno."
   });
   // os contornos só se desenham para pistas ENCONTRADAS
@@ -265,4 +265,25 @@ test("revisão visual: pistas invisíveis, guia com as quatro mensagens, peças 
   assert.doesNotMatch(game + css, /confetti|coin|moeda/i);
   // a missão seguinte só começa por escolha do jogador
   assert.doesNotMatch(game, /later\(\(\) => startMission/);
+});
+
+test("revisão 0.3.1: sem suposições nos textos, curiosidades com dados da ficha e mapa de atenção local", () => {
+  const raw = JSON.stringify(m1.tasks);
+  assert.doesNotMatch(raw, /bolsa|plástico|refrigerante|proteger do chão/i, "MM202615 só descreve o que se vê");
+  assert.match(raw, /saco de mercado/);
+  const recs = Object.fromEntries(records.map(r => [r.id, JSON.stringify(r.description)]));
+  for (const [mission, id] of [[m1, "verso"], [m2, "revelacao"]]) {
+    const q = tasksOf(mission).find(t => t.id === id);
+    assert.ok(q.facts.length >= 2 && /Ficha do Museu de Memórias/.test(q.factsSource), id);
+    assert.match(recs[mission.image.memoryRef], /Kodak/, `${id}: o dado Kodak vem da ficha`);
+  }
+  assert.match(recs.MM202621, /dezembro de 1984/);
+  let p = loadProgress(memStore());
+  p = recordAttention(p, m1.missionId, { x: 0.26, y: 0.2 }, 3);
+  p = recordAttention(p, m1.missionId, { x: 0.26, y: 0.2 });
+  p = recordAttention(p, m1.missionId, { x: 2, y: 0.2 });
+  const bins = p.metrics.attention[m1.missionId];
+  assert.equal(bins.length, ATTENTION_GRID.cols * ATTENTION_GRID.rows);
+  assert.equal(bins.reduce((a, b) => a + b, 0), 4);
+  assert.deepEqual(migrate(JSON.parse(JSON.stringify(p))).metrics.attention[m1.missionId], bins);
 });

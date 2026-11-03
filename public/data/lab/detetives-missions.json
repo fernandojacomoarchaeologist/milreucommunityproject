@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "status": "lab-only",
   "notice": "Catálogo de TESTE (HML) do jogo Detetives da Memória com fotografias reais do Museu de Memórias. Imagens, títulos, créditos e direitos vêm sempre da ficha canónica (public/data/memories.json + media-manifest.json); este ficheiro só guarda a jogabilidade. Planeamento e verificação visual: docs/website/DETETIVES_PLANEAMENTO_MISSOES.md.",
   "certaintyLabels": {
@@ -19,17 +19,17 @@
       "documentTitle": "Os escavadores ao almoço",
       "difficulty": "fácil",
       "locale": "pt-PT",
-      "description": "Uma refeição durante as campanhas arqueológicas. Quatro pormenores escondidos à volta da mesa.",
+      "description": "Uma refeição durante as campanhas arqueológicas. Quatro objectos escondidos à volta da mesa.",
       "opening": "Há algo curioso nesta fotografia... Consegues encontrar?",
       "tasks": [
         {
-          "id": "bolsa",
+          "id": "saco",
           "type": "find",
           "layer": "observacao",
           "optional": false,
-          "title": "A bolsa azul",
-          "clue": "A bolsa azul suspensa",
-          "hint": "Olha para cima, à esquerda: está pendurada numa árvore.",
+          "title": "O saco de mercado",
+          "clue": "O saco de mercado azul",
+          "hint": "Olha para cima, à esquerda: está pendurado num ramo da árvore.",
           "shape": {
             "type": "polygon",
             "points": [
@@ -56,10 +56,10 @@
             "cy": 0.24,
             "r": 0.07
           },
-          "visualCheck": "Saco de plástico azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças.",
+          "visualCheck": "Saco de mercado azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças.",
           "discovery": {
-            "short": "Uma bolsa de plástico azul pendurada num ramo, longe do chão e do sol.",
-            "text": "Uma bolsa de plástico azul pendurada num ramo da árvore. Pendurar as coisas era uma forma simples de as proteger do chão, dos animais e do calor. Não sabemos o que guardava.",
+            "short": "Um saco de mercado azul pendurado num ramo da árvore.",
+            "text": "Um saco de mercado azul pendurado num ramo da árvore, acima das cabeças. A fotografia não mostra o que levava.",
             "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
             "certainty": "confirmed"
           }
@@ -100,10 +100,10 @@
           },
           "visualCheck": "Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas.",
           "discovery": {
-            "short": "Um copo com flores cor-de-rosa no meio da refeição.",
-            "text": "Um copo com flores cor-de-rosa no meio da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos. A interpretação do gesto é nossa.",
+            "short": "Um copo com flores cor-de-rosa no centro da mesa.",
+            "text": "Um copo com flores cor-de-rosa no centro da mesa, entre as garrafas.",
             "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
-            "certainty": "hypothesis"
+            "certainty": "confirmed"
           }
         },
         {
@@ -140,12 +140,12 @@
             "cy": 0.76,
             "r": 0.08
           },
-          "visualCheck": "Bidão de plástico branco com asa metálica, no chão, em primeiro plano à esquerda.",
+          "visualCheck": "Recipiente branco com asa, no chão, em primeiro plano à esquerda.",
           "discovery": {
-            "short": "Um grande recipiente de plástico branco, com asa, pousado no chão.",
-            "text": "Um grande recipiente de plástico branco, com asa, pousado junto ao banco. Recipientes destes serviam muitas vezes para guardar água num sítio sem torneira, mas a fotografia não mostra o que continha.",
+            "short": "Um grande recipiente branco com asa, pousado no chão.",
+            "text": "Um grande recipiente branco com asa, pousado no chão em frente à mesa. A fotografia não mostra de que material é feito nem o que continha.",
             "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
-            "certainty": "hypothesis"
+            "certainty": "confirmed"
           }
         },
         {
@@ -184,9 +184,47 @@
           },
           "visualCheck": "Duas latas vermelhas com rótulo branco, em pé sobre a toalha aos quadrados, à frente das flores.",
           "discovery": {
-            "short": "Duas latas de refrigerante, ao lado das garrafas e dos pratos.",
-            "text": "Duas latas de refrigerante vermelhas. Embalagens, rótulos e objectos do quotidiano mudam com os anos e ajudam a situar uma fotografia no tempo. A ficha data esta imagem de cerca dos anos 1970-1980.",
+            "short": "Duas latas vermelhas sobre a toalha, ao lado das garrafas.",
+            "text": "Duas latas vermelhas em pé sobre a toalha, à frente das flores. Objectos do dia-a-dia como estes também ajudam a situar uma fotografia no tempo; a ficha data esta imagem de cerca dos anos 1970-1980.",
             "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
+            "certainty": "confirmed"
+          }
+        },
+        {
+          "id": "verso",
+          "type": "question",
+          "kind": "caption",
+          "layer": "investigacao",
+          "optional": true,
+          "title": "Curiosidade: o verso da fotografia",
+          "clue": "Curiosidade: o que está escrito no verso?",
+          "prompt": "Uma fotografia em papel também tem verso. Lê o que a ficha regista sobre esta: que indicação aparece no verso?",
+          "facts": [
+            "Formato: retrato, cerca de 10,1 × 14,9 cm.",
+            "No verso: indicação «Kodak».",
+            "Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta."
+          ],
+          "factsSource": "Ficha do Museu de Memórias MM202615 (descrição objectiva).",
+          "options": [
+            {
+              "id": "a",
+              "text": "A indicação «Kodak»"
+            },
+            {
+              "id": "b",
+              "text": "Os nomes das pessoas fotografadas"
+            },
+            {
+              "id": "c",
+              "text": "A data e o local da refeição"
+            }
+          ],
+          "answer": "a",
+          "hint": "Procura na ficha a linha que começa por «No verso».",
+          "discovery": {
+            "short": "No verso está a indicação «Kodak».",
+            "text": "A ficha regista a indicação «Kodak» no verso. Muitas fotografias em papel desta época têm no verso o nome do fabricante do papel ou do laboratório. O verso não identifica as pessoas nem o dia da refeição.",
+            "source": "Ficha do Museu de Memórias MM202615: «indicação Kodak no verso».",
             "certainty": "confirmed"
           }
         }
@@ -437,28 +475,35 @@
           "optional": false,
           "title": "O verso da fotografia",
           "clue": "Descobre o que diz o verso da fotografia.",
-          "prompt": "O verso desta fotografia guarda uma pista sobre quando foi revelada. Qual é?",
+          "prompt": "O verso desta fotografia tem um carimbo, já quase apagado. Lê o que a ficha regista: quando foi revelada a fotografia?",
           "options": [
             {
               "id": "a",
-              "text": "Um carimbo da Kodak de dezembro de 1984"
+              "text": "Em dezembro de 1984"
             },
             {
               "id": "b",
-              "text": "Uma assinatura de 1950"
+              "text": "Em 1950"
             },
             {
               "id": "c",
-              "text": "Não tem nada escrito"
+              "text": "Não há qualquer data"
             }
           ],
           "answer": "a",
-          "hint": "As fotografias de papel eram muitas vezes reveladas em laboratórios com carimbo próprio.",
+          "hint": "Na ficha do verso, a primeira linha diz quem revelou a fotografia e quando.",
           "discovery": {
-            "text": "Segundo um carimbo apagado no verso, a fotografia foi revelada pela Kodak em dezembro de 1984. O momento fotografado pode ser anterior: revelação e fotografia nem sempre acontecem no mesmo mês.",
+            "text": "Segundo um carimbo já apagado no verso, a fotografia foi revelada pela Kodak em dezembro de 1984. Curiosidade: a data de revelação não é a data da fotografia — o rolo podia ficar semanas ou meses na máquina antes de ser revelado, por isso o momento fotografado pode ser anterior.",
             "source": "Ficha do Museu de Memórias MM202621: «revelada pela Kodak em dezembro de 1984, segundo carimbo apagado no verso».",
-            "certainty": "probable"
-          }
+            "certainty": "probable",
+            "short": "Revelada pela Kodak em dezembro de 1984."
+          },
+          "facts": [
+            "Carimbo apagado no verso: revelação pela Kodak em dezembro de 1984.",
+            "Papel com brilho espelhado e pontas arredondadas, cerca de 10 × 15 cm.",
+            "Bom estado de conservação, com efeitos do tempo."
+          ],
+          "factsSource": "Ficha do Museu de Memórias MM202621 (descrição objectiva)."
         }
       ],
       "reward": {
