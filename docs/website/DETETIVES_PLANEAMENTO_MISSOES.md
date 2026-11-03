@@ -25,19 +25,26 @@ Sobreposições para revisão: `docs/website/capturas/detetives-v0.2/<ID>_pistas
 - **Recompensa:** Selo do quotidiano · página do álbum «O quotidiano das equipas» · mensagem: «Descobriste que a história de uma escavação também se constrói à volta da mesa.»
 - **Ligações:** MM202622
 
-| # | Descoberta | Camada | Tipo | Elemento visível confirmado / pergunta | Zona | Certeza | Fonte da interpretação |
+> **v0.3 (2026-11-03) — substituída** a versão v0.2 (mesa, contagem do grupo, flores, comparação com MM202622) por **quatro objectos concretos** para procurar, a pedido do responsável («bolsa azul suspensa, flores sobre a mesa, recipiente branco em primeiro plano» + um 4.º pormenor validado). Objectivos vagos («encontra o grupo/a mesa») retirados. A ligação a MM202622 passa para a história final da recompensa.
+> Coordenadas no espaço da **variante canónica** (`immersive`); o jogo mostra o derivado de apresentação sem margens do scan e converte-as pelo recorte registado em `public/data/lab/detetives-derivados.json`.
+
+| # | Descoberta | Camada | Tipo | Elemento visível confirmado | Zona (canónica) | Certeza | Fonte |
 |---|---|---|---|---|---|---|---|
-| 1 | A mesa da refeição | Observação | find | Toalha aos quadrados e toalha branca, pratos, copos, garrafas e latas; estrutura de cavaletes visível por baixo. | polígono (0.315,0.385) (0.66,0.37) (0.725,0.43) (0.72,0.5) (0.33,0.47) | Confirmado | Ficha do Museu de Memórias MM202615 (descrição e contexto comunitário) + observação directa da fotografia. |
-| 2 | O grupo | Observação | question/count | Quantas pessoas estão nesta fotografia? Conta com calma, também as que estão de pé. → «Cerca de dez» | legenda / testemunho | Confirmado | Ficha do Museu de Memórias MM202615: «A fotografia apresenta dez indivíduos, não identificados com segurança.» |
-| 3 | As flores na mesa | Investigação (extra) | find | Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas. | círculo cx 0.49 · cy 0.342 · r 0.035 | Hipótese | Observação directa da fotografia MM202615. A interpretação do gesto é nossa. |
-| 4 | Quem preparava a comida? | História | question/compare | Outra fotografia do mesmo conjunto mostra o que acontecia antes da refeição. O que vês nela? → «Duas trabalhadoras a cozinhar com panelas grandes» | comparação com MM202622 | Provável | Ficha do Museu de Memórias MM202622 («Trabalhadoras das ruínas a cozinhar») e MM202615; mesma proveniência (Celeste Pimenta e Branca Pimenta). |
+| 1 | A bolsa azul | Observação | find | Saco de plástico azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças. | rect (0.232,0.18)–(0.29,0.292) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 2 | As flores na mesa | Observação | find | Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas. | rect (0.457,0.322)–(0.523,0.365) | Hipótese | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 3 | O recipiente branco | Observação | find | Bidão de plástico branco com asa metálica, no chão, em primeiro plano à esquerda. | rect (0.302,0.642)–(0.4,0.885) | Hipótese | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 4 | As latas vermelhas | Observação | find | Duas latas vermelhas com rótulo branco, em pé sobre a toalha aos quadrados, à frente das flores. | rect (0.452,0.382)–(0.506,0.43) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
 
 **Textos das descobertas:**
 
-- *A mesa da refeição:* Uma mesa coberta com toalhas, pratos, copos e garrafas, montada sobre cavaletes de madeira. As campanhas arqueológicas também eram momentos de convívio e partilha entre trabalhadores locais e equipas de investigação.
-- *O grupo:* A ficha regista dez pessoas. Não estão identificadas com segurança: os nomes de quem aparece numa fotografia só entram no Museu quando há confirmação.
-- *As flores na mesa:* Um copo com flores cor-de-rosa em cima da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos.
-- *Quem preparava a comida?:* A fotografia MM202622 mostra trabalhadoras das ruínas a cozinhar. As duas imagens foram cedidas pelas mesmas pessoas e mostram o trabalho de apoio às campanhas. Não sabemos se foram tiradas no mesmo dia.
+- *A bolsa azul:* Uma bolsa de plástico azul pendurada num ramo da árvore. Pendurar as coisas era uma forma simples de as proteger do chão, dos animais e do calor. Não sabemos o que guardava.
+- *As flores na mesa:* Um copo com flores cor-de-rosa no meio da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos. A interpretação do gesto é nossa.
+- *O recipiente branco:* Um grande recipiente de plástico branco, com asa, pousado junto ao banco. Recipientes destes serviam muitas vezes para guardar água num sítio sem torneira, mas a fotografia não mostra o que continha.
+- *As latas vermelhas:* Duas latas de refrigerante vermelhas. Embalagens, rótulos e objectos do quotidiano mudam com os anos e ajudam a situar uma fotografia no tempo. A ficha data esta imagem de cerca dos anos 1970-1980.
+
+**História final (recompensa):** Esta fotografia faz parte de um conjunto cedido por Celeste Pimenta e Branca Pimenta. Noutra fotografia do mesmo conjunto (MM202622), trabalhadoras das ruínas cozinham em grandes panelas. Não sabemos se foram tiradas no mesmo dia.
+
+**4.º pormenor escolhido — latas vermelhas:** visível com clareza sobre a toalha, à frente das flores; o texto só afirma o que se vê (latas de refrigerante) e a datação da ficha (ca. anos 1970-1980). Marca/rótulo **não** identificados.
 
 ## 2. Lavando os Cacos — `MM202621`
 

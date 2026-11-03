@@ -79,3 +79,20 @@
 - **Medição local:** missões iniciadas e concluídas, descobertas, ajudas, erros de interacção, tempo até à 1.ª descoberta e tempo de resposta. Só no browser, nunca enviada.
 - **Planeamento, verificação visual, fontes e bloqueios:** `docs/website/DETETIVES_PLANEAMENTO_MISSOES.md`.
 - **MM202618:** bloqueada por intervenção substantiva de IA declarada. **MM202617:** excluída.
+
+## 6. v0.3 — revisão visual e de jogabilidade «mesa de investigação» (2026-11-03)
+
+Pedido do responsável: tornar o protótipo um jogo de procurar objectos com acabamento 2D mate, acolhedor e profissional, sem aspecto de maqueta. **O motor, a ligação ao acervo, a persistência e os testes mantêm-se.**
+
+- **Fotografia protagonista:** derivado de apresentação **sem as margens brancas do scan** (`scripts/lab/build_detetives_derivados.py`; recorte só do branco neutro do suporte; master e variantes intactos; proveniência + SHA-256 em `public/data/lab/detetives-derivados.json`). Pistas convertidas pelo recorte (`toCrop`) e verificadas por teste. Medido a 1280×800: a fotografia ocupa ≈70 % da área da mesa (77 % da largura, 94 % da altura disponível).
+- **Pistas invisíveis** durante a exploração; ao descobrir: contorno da forma real desenhado (SVG, traço sem escala), cartão do objecto marcado, pontos, som opcional e guia com «Boa descoberta! Queres saber mais?». Zonas só aparecem através da Pista (nível 2).
+- **Lupa real** (DS-L006): segue o ponteiro, amplia ×2,6 dentro da lente (funciona também com zoom), clique investiga; ligar/desligar repõe o cursor normal. No toque: arrastar mostra a lente acima do dedo e levantar investiga; zoom por pinça e deslocação mantêm-se. Medido: 60 movimentos em ≈980 ms (1 actualização por frame, só transforms).
+- **Objectivos** (DS-L007): cartões com o recorte do objecto procurado (MM202615: bolsa azul, flores, recipiente branco, latas vermelhas). Em telemóvel: grelha compacta por baixo da fotografia.
+- **Guia** (DS-L008): quatro mensagens fixas (início, inactividade 20 s, descoberta, conclusão), nunca rouba o foco nem bloqueia; aceita `mood` (neutral/curious/discovery/celebrate) para o avatar futuro — especificação em `docs/design/AVATAR_GUIA_ESPECIFICACAO.md` (sem personagem nesta fase).
+- **Caderno de Campo** (DS-L009): objecto no canto da mesa; abre com animação curta de capa; fecha de imediato (X, Esc).
+- **Conclusão** (DS-L010): celebração breve, selo que voa para o Caderno, história ligada (MM202622) e a próxima fotografia **à escolha** («Investigar a próxima», «Abrir o caderno», «Ficar nesta fotografia»). Nunca arranca outra missão sozinha. Sem confettis, moedas, flashes ou sorte.
+- **Removido:** painel lateral com texto de abertura, lista de treino riscada, cartões de formulário, marcas vermelhas visíveis, fundo preto, botões de zoom «de administração».
+- **Peças SVG próprias** (`src/lab/games/detetives/art.js`): lupa, ícones de ferramentas, Caderno, selo, fita-cola, medalhão do guia — só `currentColor`/tokens, sem hexadecimais nem gradientes.
+- **Verificação:** 17 testes do laboratório e 739 no total; e2e em Chrome a 1280×800, 768×1024 e 375×812 — 0 erros, 0 violações CSP, sem scroll horizontal, alinhamento depois de zoom exacto (centro do contorno = centro esperado ±0,0001), persistência após recarregar, teclado e explorar por descrição funcionais. Capturas em `docs/website/capturas/detetives-v0.3/`.
+- **Aprovação visual ≠ funcional:** ambos pendentes do responsável. Componentes DS-L005..L011 em `proposed`.
+

@@ -24,6 +24,13 @@ rights: "Consultar RIGHTS.md na raiz do repositório"
 | DS-L002 | Investigation Stage (imagem com pistas, zoom, teclado) | `src/lab` | proposed | comunidade | Laboratório (HML) |
 | DS-L003 | Discovery Card (ficha de descoberta) | `src/lab` | proposed | instituição | Laboratório (HML) |
 | DS-L004 | Field Notebook (Caderno de Campo) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L005 | Investigation Table (mesa de investigação: fotografia protagonista, moldura discreta, pistas invisíveis até à descoberta) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L006 | Magnifier Lens (lupa real, ampliação ×2,6 dentro da lente; SVG próprio) | `src/lab` | proposed | utilitária | Laboratório (HML) |
+| DS-L007 | Objective Card (cartão de objecto com recorte da fotografia, progresso e estado) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L008 | Guide Message (guia contextual; espaço para avatar futuro) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L009 | Notebook Object (Caderno pousado na mesa, abertura animada) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L010 | Completion Stamp (selo de missão que voa para o Caderno) | `src/lab` | proposed | instituição | Laboratório (HML) |
+| DS-L011 | Game Toolbar (ferramentas: lupa, pista, ampliar, ajustar, descrição, som) | `src/lab` | proposed | utilitária | Laboratório (HML) |
 
 ## Critérios para `stable`
 
