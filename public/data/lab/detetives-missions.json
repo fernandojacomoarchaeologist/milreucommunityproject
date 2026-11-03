@@ -1,0 +1,625 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "status": "lab-only",
+  "isExample": true,
+  "notice": "Catálogo de TESTE do laboratório de jogos. Missões com ilustrações demonstrativas próprias; nenhuma fotografia do acervo.",
+  "generatedBy": "scripts/lab/build_detetives_assets.py",
+  "missions": [
+    {
+      "missionId": "aprende-a-investigar",
+      "order": 0,
+      "kind": "tutorial",
+      "title": "Aprende a Investigar",
+      "description": "Treino guiado: aprende a usar a lupa, as ajudas e o Caderno de Campo.",
+      "difficulty": "muito fácil",
+      "locale": "pt-PT",
+      "opening": "Bem-vindo à equipa de investigação! Observa a imagem com atenção. Encontrámos algumas pistas importantes, mas precisamos da tua ajuda para as descobrir. Toca numa pista para a investigar. Podes ampliar a imagem sempre que precisares.",
+      "image": {
+        "src": "public/media/lab/detetives/00-mesa-do-investigador.svg",
+        "width": 1600,
+        "height": 1000,
+        "alt": "Ilustração de uma mesa de madeira vista de cima, com um caderno aberto, uma chávena, fotografias soltas, uma bússola, uma planta, um envelope, um lápis e outros objectos.",
+        "memoryRef": null,
+        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
+        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
+        "demo": true
+      },
+      "editorial": {
+        "publicationStatus": "lab-only",
+        "rightsReview": "not-applicable-own-illustration",
+        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
+        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
+        "digitalInterventions": []
+      },
+      "hotspots": [
+        {
+          "id": "lupa",
+          "shape": {
+            "type": "circle",
+            "cx": 0.6813,
+            "cy": 0.36,
+            "r": 0.0813
+          },
+          "title": "A lupa",
+          "clue": "Um instrumento que torna os pormenores maiores.",
+          "hint": "Procura na mesa, à direita do caderno, perto do topo.",
+          "hintArea": {
+            "cx": 0.6813,
+            "cy": 0.36,
+            "r": 0.13
+          },
+          "discovery": {
+            "text": "Uma lupa aumenta os pormenores sem tocar no objecto. Serve para ler assinaturas, datas ou carimbos escritos em letra pequena em fotografias e documentos. Neste jogo, a tua lupa é o botão de ampliar: usa-o sempre que algo parecer pequeno demais.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "selo",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.8146,
+                0.5947
+              ],
+              [
+                0.8545,
+                0.6003
+              ],
+              [
+                0.8502,
+                0.678
+              ],
+              [
+                0.8104,
+                0.6724
+              ]
+            ]
+          },
+          "title": "O selo",
+          "clue": "Uma pequena marca colada num envelope.",
+          "hint": "Há um envelope em baixo, à direita. Olha para o canto de cima.",
+          "hintArea": {
+            "cx": 0.775,
+            "cy": 0.66,
+            "r": 0.12
+          },
+          "discovery": {
+            "text": "Selos, carimbos e marcas de correio podem ajudar a perceber de onde veio um documento e em que época circulou. Numa investigação a sério, uma pista destas só conta quando é confirmada por outra fonte.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "lapis",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.1594,
+                0.8485
+              ],
+              [
+                0.4101,
+                0.7921
+              ],
+              [
+                0.4393,
+                0.8007
+              ],
+              [
+                0.4127,
+                0.8218
+              ],
+              [
+                0.162,
+                0.8782
+              ]
+            ]
+          },
+          "title": "O lápis",
+          "clue": "Um objecto para tomar notas que se pode apagar.",
+          "hint": "Está pousado na mesa, em baixo, debaixo do caderno.",
+          "hintArea": {
+            "cx": 0.3,
+            "cy": 0.83,
+            "r": 0.14
+          },
+          "discovery": {
+            "text": "Quem investiga toma notas a lápis: pode corrigir e não estraga papéis antigos. Anotar o que vês, onde e quando, é o primeiro passo para não confundir uma observação com uma suposição.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        }
+      ],
+      "zones": [
+        {
+          "id": "z-chavena",
+          "label": "Canto superior esquerdo",
+          "description": "Uma chávena de café num pires.",
+          "x": 0.1062,
+          "y": 0.19
+        },
+        {
+          "id": "z-regua",
+          "label": "Topo, ao centro",
+          "description": "Uma régua de madeira.",
+          "x": 0.4375,
+          "y": 0.07
+        },
+        {
+          "id": "z-caderno",
+          "label": "Centro-esquerda",
+          "description": "Um caderno aberto com notas e o desenho de um arco.",
+          "x": 0.3156,
+          "y": 0.52
+        },
+        {
+          "id": "z-fotos",
+          "label": "Topo, à direita do centro",
+          "description": "Duas fotografias soltas de uma paisagem.",
+          "x": 0.625,
+          "y": 0.19
+        },
+        {
+          "id": "z-lupa",
+          "label": "À direita do caderno, em cima",
+          "description": "Um objecto redondo com cabo.",
+          "x": 0.6813,
+          "y": 0.36
+        },
+        {
+          "id": "z-planta",
+          "label": "Canto superior direito",
+          "description": "Um vaso com uma planta.",
+          "x": 0.9187,
+          "y": 0.17
+        },
+        {
+          "id": "z-bussola",
+          "label": "Direita, ao meio",
+          "description": "Uma bússola.",
+          "x": 0.9,
+          "y": 0.46
+        },
+        {
+          "id": "z-envelope",
+          "label": "Em baixo, à direita",
+          "description": "Um envelope com algo vermelho no canto.",
+          "x": 0.83,
+          "y": 0.625
+        },
+        {
+          "id": "z-lapis",
+          "label": "Em baixo, à esquerda",
+          "description": "Um objecto comprido e vermelho com ponta afiada.",
+          "x": 0.3,
+          "y": 0.832
+        },
+        {
+          "id": "z-clipes",
+          "label": "Em baixo, ao centro",
+          "description": "Um clipe de papel.",
+          "x": 0.5687,
+          "y": 0.85
+        }
+      ],
+      "reward": {
+        "stamp": "lupa",
+        "label": "Selo da primeira investigação"
+      },
+      "completion": {
+        "requires": "all-hotspots-and-steps"
+      }
+    },
+    {
+      "missionId": "o-olhar-do-investigador",
+      "order": 1,
+      "kind": "mission",
+      "title": "O Olhar do Investigador",
+      "description": "Num largo imaginário escondem-se três pormenores. Nem tudo o que parece importante é uma pista.",
+      "difficulty": "fácil",
+      "locale": "pt-PT",
+      "opening": "Um bom investigador olha para tudo: o céu, as janelas, o chão. Observa este largo imaginário e encontra três pormenores que contam como se vive ali.",
+      "image": {
+        "src": "public/media/lab/detetives/01-o-olhar-do-investigador.svg",
+        "width": 1600,
+        "height": 1000,
+        "alt": "Ilustração de um largo imaginário com uma torre com relógio, casas brancas de telhados vermelhos, uma fonte, oliveiras, um cão, um banco, um candeeiro e uma bicicleta.",
+        "memoryRef": null,
+        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
+        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
+        "demo": true
+      },
+      "editorial": {
+        "publicationStatus": "lab-only",
+        "rightsReview": "not-applicable-own-illustration",
+        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
+        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
+        "digitalInterventions": []
+      },
+      "hotspots": [
+        {
+          "id": "relogio",
+          "shape": {
+            "type": "circle",
+            "cx": 0.1437,
+            "cy": 0.3,
+            "r": 0.0387
+          },
+          "title": "O relógio da torre",
+          "clue": "Algo que diz as horas a toda a gente do largo.",
+          "hint": "Olha para cima, para a construção mais alta à esquerda.",
+          "hintArea": {
+            "cx": 0.1437,
+            "cy": 0.3,
+            "r": 0.1
+          },
+          "discovery": {
+            "text": "Numa fotografia, um relógio visível pode indicar a hora a que a imagem foi feita, e as sombras podem confirmar ou contradizer essa hora. Comparar duas pistas é sempre mais seguro do que confiar só numa.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "gato",
+          "shape": {
+            "type": "circle",
+            "cx": 0.5656,
+            "cy": 0.48,
+            "r": 0.0437
+          },
+          "title": "O gato à janela",
+          "clue": "Alguém está a espreitar de uma janela…",
+          "hint": "Repara nas janelas da casa do meio, no primeiro andar.",
+          "hintArea": {
+            "cx": 0.5625,
+            "cy": 0.47,
+            "r": 0.12
+          },
+          "discovery": {
+            "text": "Os pormenores escondidos nas margens de uma imagem mostram a vida do dia-a-dia que nem sempre era o assunto principal da fotografia. Janelas, portas e cantos revelam muitas vezes as pistas mais inesperadas.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "bicicleta",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.7025,
+                0.67
+              ],
+              [
+                0.8538,
+                0.67
+              ],
+              [
+                0.8538,
+                0.826
+              ],
+              [
+                0.7025,
+                0.826
+              ]
+            ]
+          },
+          "title": "A bicicleta",
+          "clue": "Um meio de transporte que não precisa de motor.",
+          "hint": "Procura junto à casa da direita, ao nível do chão.",
+          "hintArea": {
+            "cx": 0.7812,
+            "cy": 0.75,
+            "r": 0.12
+          },
+          "discovery": {
+            "text": "Os meios de transporte que aparecem numa fotografia ajudam a situá-la no tempo, porque mudam de forma ao longo dos anos. Mas atenção: um objecto antigo também pode aparecer numa fotografia recente.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        }
+      ],
+      "zones": [
+        {
+          "id": "z-torre",
+          "label": "Esquerda, em cima",
+          "description": "Uma torre alta com telhado vermelho e um mostrador redondo.",
+          "x": 0.1437,
+          "y": 0.3
+        },
+        {
+          "id": "z-sol",
+          "label": "Céu, à direita",
+          "description": "O sol.",
+          "x": 0.8625,
+          "y": 0.13
+        },
+        {
+          "id": "z-aves",
+          "label": "Céu, ao centro",
+          "description": "Aves a voar.",
+          "x": 0.35,
+          "y": 0.165
+        },
+        {
+          "id": "z-casa1",
+          "label": "Casa da esquerda",
+          "description": "Uma casa branca com duas janelas e uma porta verde.",
+          "x": 0.3375,
+          "y": 0.56
+        },
+        {
+          "id": "z-janela",
+          "label": "Casa do meio, primeiro andar",
+          "description": "Uma janela com portadas vermelhas e algo escuro lá dentro.",
+          "x": 0.5656,
+          "y": 0.48
+        },
+        {
+          "id": "z-vasos",
+          "label": "Casa do meio, varandas",
+          "description": "Vasos com flores nas janelas.",
+          "x": 0.5031,
+          "y": 0.51
+        },
+        {
+          "id": "z-fonte",
+          "label": "Centro do largo",
+          "description": "Uma fonte com água.",
+          "x": 0.5,
+          "y": 0.78
+        },
+        {
+          "id": "z-cao",
+          "label": "Chão, à direita da fonte",
+          "description": "Um cão deitado.",
+          "x": 0.6375,
+          "y": 0.855
+        },
+        {
+          "id": "z-banco",
+          "label": "Chão, à esquerda",
+          "description": "Um banco de madeira.",
+          "x": 0.3219,
+          "y": 0.81
+        },
+        {
+          "id": "z-bicicleta",
+          "label": "Junto à casa da direita",
+          "description": "Duas rodas e uma armação vermelha.",
+          "x": 0.7781,
+          "y": 0.75
+        },
+        {
+          "id": "z-candeeiro",
+          "label": "Extremo direito",
+          "description": "Um candeeiro de rua.",
+          "x": 0.9531,
+          "y": 0.6
+        }
+      ],
+      "reward": {
+        "stamp": "olho",
+        "label": "Selo do olhar atento"
+      },
+      "completion": {
+        "requires": "all-hotspots"
+      }
+    },
+    {
+      "missionId": "o-arquivo-das-memorias",
+      "order": 2,
+      "kind": "mission",
+      "title": "O Arquivo das Memórias",
+      "description": "Num arquivo cheio de caixas e papéis, três objectos contam como se guardam as memórias.",
+      "difficulty": "média",
+      "locale": "pt-PT",
+      "opening": "Os arquivos guardam papéis, fotografias e objectos que ajudam a lembrar. Procura os três objectos que nos dizem como as memórias foram registadas e conservadas.",
+      "image": {
+        "src": "public/media/lab/detetives/02-o-arquivo-das-memorias.svg",
+        "width": 1600,
+        "height": 1000,
+        "alt": "Ilustração de uma sala de arquivo com uma janela, uma estante com caixas e livros, uma mesa com um álbum e uma máquina de escrever, um mapa na parede e uma câmara num tripé.",
+        "memoryRef": null,
+        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
+        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
+        "demo": true
+      },
+      "editorial": {
+        "publicationStatus": "lab-only",
+        "rightsReview": "not-applicable-own-illustration",
+        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
+        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
+        "digitalInterventions": []
+      },
+      "hotspots": [
+        {
+          "id": "mapa",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.3096,
+                0.1164
+              ],
+              [
+                0.5345,
+                0.1038
+              ],
+              [
+                0.5404,
+                0.3736
+              ],
+              [
+                0.3155,
+                0.3862
+              ]
+            ]
+          },
+          "title": "O mapa desenhado à mão",
+          "clue": "Um desenho que mostra caminhos e ribeiras.",
+          "hint": "Está preso na parede, ao lado da janela.",
+          "hintArea": {
+            "cx": 0.425,
+            "cy": 0.245,
+            "r": 0.15
+          },
+          "discovery": {
+            "text": "Os mapas guardam nomes de lugares, caminhos e ribeiras que às vezes já mudaram. Comparar um mapa antigo com o terreno actual é uma das formas de perceber como os lugares se transformaram.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "moldura",
+          "shape": {
+            "type": "circle",
+            "cx": 0.6312,
+            "cy": 0.54,
+            "r": 0.04
+          },
+          "title": "A fotografia na moldura oval",
+          "clue": "Uma fotografia guardada numa moldura que não é rectangular.",
+          "hint": "Procura em cima da mesa, perto da extremidade direita.",
+          "hintArea": {
+            "cx": 0.625,
+            "cy": 0.56,
+            "r": 0.1
+          },
+          "discovery": {
+            "text": "As molduras e o formato das provas fotográficas podem dar pistas sobre a época e sobre o valor que a família dava a uma imagem. O verso de uma fotografia também pode guardar nomes e datas.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        },
+        {
+          "id": "camara",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.0737,
+                0.446
+              ],
+              [
+                0.2562,
+                0.446
+              ],
+              [
+                0.2562,
+                0.58
+              ],
+              [
+                0.0737,
+                0.58
+              ]
+            ]
+          },
+          "title": "A câmara de fole",
+          "clue": "O instrumento com que se faziam as fotografias.",
+          "hint": "Está à esquerda, montado num tripé de madeira.",
+          "hintArea": {
+            "cx": 0.1562,
+            "cy": 0.56,
+            "r": 0.13
+          },
+          "discovery": {
+            "text": "Repara na parte dobrada como um acordeão: o fole servia para focar a imagem. Saber como uma fotografia foi feita ajuda a perceber o que ela mostra e o que ficou de fora do enquadramento.",
+            "source": "Conteúdo de demonstração — sem valor documental.",
+            "certainty": null
+          }
+        }
+      ],
+      "zones": [
+        {
+          "id": "z-janela",
+          "label": "Parede, à esquerda",
+          "description": "Uma janela com vista para uma colina.",
+          "x": 0.1625,
+          "y": 0.235
+        },
+        {
+          "id": "z-mapa",
+          "label": "Parede, ao centro",
+          "description": "Uma folha presa com alfinetes vermelhos, com linhas e uma cruz.",
+          "x": 0.425,
+          "y": 0.245
+        },
+        {
+          "id": "z-relogio",
+          "label": "Parede, à direita do centro",
+          "description": "Um relógio de parede.",
+          "x": 0.6312,
+          "y": 0.17
+        },
+        {
+          "id": "z-quadro",
+          "label": "Parede, por baixo do relógio",
+          "description": "Um quadro rectangular com uma paisagem.",
+          "x": 0.6281,
+          "y": 0.345
+        },
+        {
+          "id": "z-estante",
+          "label": "Direita",
+          "description": "Uma estante com caixas de arquivo, livros e um globo.",
+          "x": 0.85,
+          "y": 0.38
+        },
+        {
+          "id": "z-album",
+          "label": "Mesa, à esquerda",
+          "description": "Um álbum de fotografias aberto.",
+          "x": 0.3875,
+          "y": 0.585
+        },
+        {
+          "id": "z-maquina",
+          "label": "Mesa, ao centro",
+          "description": "Uma máquina de escrever.",
+          "x": 0.5406,
+          "y": 0.575
+        },
+        {
+          "id": "z-moldura",
+          "label": "Mesa, à direita",
+          "description": "Um objecto oval de pé, com um retrato.",
+          "x": 0.6312,
+          "y": 0.54
+        },
+        {
+          "id": "z-candeeiro",
+          "label": "Mesa, extremo esquerdo",
+          "description": "Um candeeiro de mesa.",
+          "x": 0.3,
+          "y": 0.54
+        },
+        {
+          "id": "z-cadeira",
+          "label": "Chão, à direita",
+          "description": "Uma cadeira de madeira.",
+          "x": 0.7312,
+          "y": 0.8
+        },
+        {
+          "id": "z-tripe",
+          "label": "Esquerda, sobre o tripé",
+          "description": "Uma caixa escura com uma parte em acordeão e uma lente.",
+          "x": 0.1562,
+          "y": 0.517
+        }
+      ],
+      "reward": {
+        "stamp": "arquivo",
+        "label": "Selo do arquivista"
+      },
+      "completion": {
+        "requires": "all-hotspots"
+      }
+    }
+  ]
+}

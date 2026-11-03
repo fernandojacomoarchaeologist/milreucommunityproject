@@ -1,0 +1,7 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.1.0",
+  "status": "empty",
+  "notice": "Registo de decisões de uso INTERACTIVO (jogo) de memórias do Museu. Vazio: nenhuma fotografia do acervo está autorizada para o jogo. Cada entrada exige decisão explícita do responsável: { memoryId, scope: \"interactive-game\", status: \"approved\", decidedOn, decisionRef }.",
+  "authorisations": []
+}

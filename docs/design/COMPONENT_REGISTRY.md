@@ -20,6 +20,10 @@ rights: "Consultar RIGHTS.md na raiz do repositório"
 | DS-P001 | Portal Shell | `ui-portal` | draft | equilibrada | Portal |
 | DS-M001 | Museum Shell | `ui-museum` | draft | comunidade | Museu |
 | DS-PR001 | Print Frame | `ui-print` | draft | equilibrada | Painéis e totens |
+| DS-L001 | Lab Games Menu (menu suspenso «Jogos», só em teste) | `src/lab` | proposed | utilitária | Laboratório (HML) |
+| DS-L002 | Investigation Stage (imagem com pistas, zoom, teclado) | `src/lab` | proposed | comunidade | Laboratório (HML) |
+| DS-L003 | Discovery Card (ficha de descoberta) | `src/lab` | proposed | instituição | Laboratório (HML) |
+| DS-L004 | Field Notebook (Caderno de Campo) | `src/lab` | proposed | comunidade | Laboratório (HML) |
 
 ## Critérios para `stable`
 

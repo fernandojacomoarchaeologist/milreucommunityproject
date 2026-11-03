@@ -2,7 +2,7 @@
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projeto Comunitário de Milreu. Consultar RIGHTS.md.",
   "package": "09F",
   "version": "0.39.0",
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-11-03",
   "publicOrigin": null,
   "indexingAllowed": false,
   "canonicalLocale": "pt-PT",
@@ -10,9 +10,9 @@
     "pt-PT"
   ],
   "counts": {
-    "total": 98,
+    "total": 100,
     "index": 22,
-    "noindex": 5,
+    "noindex": 7,
     "blocked": 71,
     "inSitemap": 0
   },
@@ -1123,6 +1123,32 @@
       "evidence": [
         "router:collab-exhibition-detail",
         "policy:authenticated-or-management"
+      ]
+    },
+    {
+      "route": "#route:lab-games",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:lab-games",
+        "policy:internal-or-404"
+      ]
+    },
+    {
+      "route": "#route:lab-detetives",
+      "locale": "pt-PT",
+      "editorialState": "published",
+      "indexability": "noindex",
+      "canonical": null,
+      "inSitemap": false,
+      "hreflangTargets": [],
+      "evidence": [
+        "router:lab-detetives",
+        "policy:internal-or-404"
       ]
     },
     {

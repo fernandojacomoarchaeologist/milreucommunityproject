@@ -37,6 +37,12 @@ export function themeToggle(lang) {
   </button>`;
 }
 
+// Laboratório de jogos (só em teste/HML): src/main.js regista o desenhador do menu «Jogos» quando
+// public/config/lab.runtime.json o permite. Em produção fica vazio e nada é desenhado.
+let labMenuRenderer = null;
+export function setLabMenuRenderer(fn) { labMenuRenderer = typeof fn === "function" ? fn : null; }
+const labMenu = lang => (labMenuRenderer ? labMenuRenderer(lang) : "");
+
 export function portalHeader(lang, current="") {
   const links = [
     ["/projeto","project"],
@@ -73,6 +79,7 @@ export function portalHeader(lang, current="") {
         <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
           <img src="${assetUrl("public/icons/menu.svg")}" alt="">
         </button>
+        ${labMenu(lang)}
         ${themeToggle(lang)}
         ${languageSwitcher(lang)}
       </div>
@@ -101,6 +108,7 @@ export function museumHeader(lang, current="") {
       <button class="icon-button mobile-menu-button" data-menu aria-label="Abrir menu">
         <img src="${assetUrl("public/icons/menu.svg")}" alt="">
       </button>
+      ${labMenu(lang)}
       ${themeToggle(lang)}
       ${languageSwitcher(lang)}
     </div>
