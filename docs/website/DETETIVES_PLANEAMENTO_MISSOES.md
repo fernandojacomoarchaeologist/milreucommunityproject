@@ -25,26 +25,26 @@ Sobreposições para revisão: `docs/website/capturas/detetives-v0.2/<ID>_pistas
 - **Recompensa:** Selo do quotidiano · página do álbum «O quotidiano das equipas» · mensagem: «Descobriste que a história de uma escavação também se constrói à volta da mesa.»
 - **Ligações:** MM202622
 
-> **v0.3 (2026-11-03) — substituída** a versão v0.2 (mesa, contagem do grupo, flores, comparação com MM202622) por **quatro objectos concretos** para procurar, a pedido do responsável («bolsa azul suspensa, flores sobre a mesa, recipiente branco em primeiro plano» + um 4.º pormenor validado). Objectivos vagos («encontra o grupo/a mesa») retirados. A ligação a MM202622 passa para a história final da recompensa.
-> Coordenadas no espaço da **variante canónica** (`immersive`); o jogo mostra o derivado de apresentação sem margens do scan e converte-as pelo recorte registado em `public/data/lab/detetives-derivados.json`.
+> **v0.3.1 (2026-11-03) — correcções do responsável:** «bolsa azul» → **saco de mercado**; recipiente branco **sem material nem uso** (não se sabe se é plástico); textos limitados ao que se vê (sem interpretações sobre protecção, refrigerantes ou gestos). Acrescentada a curiosidade **«O verso da fotografia»** (extra) com os dados da ficha (indicação Kodak, formato).
+> Coordenadas no espaço da **variante canónica** (`immersive`); o jogo mostra o derivado de apresentação sem margens do scan (`public/data/lab/detetives-derivados.json`).
 
-| # | Descoberta | Camada | Tipo | Elemento visível confirmado | Zona (canónica) | Certeza | Fonte |
+| # | Descoberta | Camada | Tipo | Elemento visível confirmado / dados | Zona (canónica) | Certeza | Fonte |
 |---|---|---|---|---|---|---|---|
-| 1 | A bolsa azul | Observação | find | Saco de plástico azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças. | rect (0.232,0.18)–(0.29,0.292) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
-| 2 | As flores na mesa | Observação | find | Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas. | rect (0.457,0.322)–(0.523,0.365) | Hipótese | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
-| 3 | O recipiente branco | Observação | find | Bidão de plástico branco com asa metálica, no chão, em primeiro plano à esquerda. | rect (0.302,0.642)–(0.4,0.885) | Hipótese | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 1 | O saco de mercado | Observação | find | Saco de mercado azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças. | rect (0.232,0.18)–(0.29,0.292) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 2 | As flores na mesa | Observação | find | Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas. | rect (0.457,0.322)–(0.523,0.365) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 3 | O recipiente branco | Observação | find | Recipiente branco com asa, no chão, em primeiro plano à esquerda. | rect (0.302,0.642)–(0.4,0.885) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
 | 4 | As latas vermelhas | Observação | find | Duas latas vermelhas com rótulo branco, em pé sobre a toalha aos quadrados, à frente das flores. | rect (0.452,0.382)–(0.506,0.43) | Confirmado | Ficha do Museu de Memórias MM202615 + observação directa da fotografia. |
+| 5 | Curiosidade: o verso da fotografia | Investigação (extra) | question/caption | Formato: retrato, cerca de 10,1 × 14,9 cm. No verso: indicação «Kodak». Coleção de Maria de Lurdes Mendes Martins; fotografia providenciada por Celeste Pimenta e Branca Pimenta. | ficha do verso | Confirmado | Ficha do Museu de Memórias MM202615: «indicação Kodak no verso». |
 
 **Textos das descobertas:**
 
-- *A bolsa azul:* Uma bolsa de plástico azul pendurada num ramo da árvore. Pendurar as coisas era uma forma simples de as proteger do chão, dos animais e do calor. Não sabemos o que guardava.
-- *As flores na mesa:* Um copo com flores cor-de-rosa no meio da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos. A interpretação do gesto é nossa.
-- *O recipiente branco:* Um grande recipiente de plástico branco, com asa, pousado junto ao banco. Recipientes destes serviam muitas vezes para guardar água num sítio sem torneira, mas a fotografia não mostra o que continha.
-- *As latas vermelhas:* Duas latas de refrigerante vermelhas. Embalagens, rótulos e objectos do quotidiano mudam com os anos e ajudam a situar uma fotografia no tempo. A ficha data esta imagem de cerca dos anos 1970-1980.
+- *O saco de mercado:* Um saco de mercado azul pendurado num ramo da árvore, acima das cabeças. A fotografia não mostra o que levava.
+- *As flores na mesa:* Um copo com flores cor-de-rosa no centro da mesa, entre as garrafas.
+- *O recipiente branco:* Um grande recipiente branco com asa, pousado no chão em frente à mesa. A fotografia não mostra de que material é feito nem o que continha.
+- *As latas vermelhas:* Duas latas vermelhas em pé sobre a toalha, à frente das flores. Objectos do dia-a-dia como estes também ajudam a situar uma fotografia no tempo; a ficha data esta imagem de cerca dos anos 1970-1980.
+- *Curiosidade: o verso da fotografia:* A ficha regista a indicação «Kodak» no verso. Muitas fotografias em papel desta época têm no verso o nome do fabricante do papel ou do laboratório. O verso não identifica as pessoas nem o dia da refeição.
 
 **História final (recompensa):** Esta fotografia faz parte de um conjunto cedido por Celeste Pimenta e Branca Pimenta. Noutra fotografia do mesmo conjunto (MM202622), trabalhadoras das ruínas cozinham em grandes panelas. Não sabemos se foram tiradas no mesmo dia.
-
-**4.º pormenor escolhido — latas vermelhas:** visível com clareza sobre a toalha, à frente das flores; o texto só afirma o que se vê (latas de refrigerante) e a datação da ficha (ca. anos 1970-1980). Marca/rótulo **não** identificados.
 
 ## 2. Lavando os Cacos — `MM202621`
 
@@ -111,3 +111,7 @@ Sobreposições para revisão: `docs/website/capturas/detetives-v0.2/<ID>_pistas
 2. Uso interactivo destas fotografias fora do ambiente de teste (direitos por fonte: coleção de Maria de Lurdes Mendes Martins, Celeste Pimenta e Branca Pimenta).
 3. Relações MM202615↔MM202622 e MM202614↔MM202613 como «ligações» de jogo (proveniência e tema comuns; data comum não comprovada).
 4. A pergunta das luvas (MM202614) convida a partilhar a memória do motivo, que não está documentado.
+
+## v0.3.1 — MM202621: pergunta do verso com dados
+
+A pergunta «O verso da fotografia» passa a mostrar o que a ficha regista (carimbo apagado, Kodak, dezembro de 1984; papel com brilho espelhado, pontas arredondadas, ~10 × 15 cm) e explica por que a data de revelação pode ser posterior à fotografia. Fonte: ficha MM202621.

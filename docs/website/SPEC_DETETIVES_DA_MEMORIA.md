@@ -96,3 +96,12 @@ Pedido do responsável: tornar o protótipo um jogo de procurar objectos com aca
 - **Verificação:** 17 testes do laboratório e 739 no total; e2e em Chrome a 1280×800, 768×1024 e 375×812 — 0 erros, 0 violações CSP, sem scroll horizontal, alinhamento depois de zoom exacto (centro do contorno = centro esperado ±0,0001), persistência após recarregar, teclado e explorar por descrição funcionais. Capturas em `docs/website/capturas/detetives-v0.3/`.
 - **Aprovação visual ≠ funcional:** ambos pendentes do responsável. Componentes DS-L005..L011 em `proposed`.
 
+### 6.1 v0.3.1 — correcções após revisão do responsável (2026-11-03)
+
+- Textos de MM202615 sem suposições (saco de mercado; recipiente branco sem material/uso; sem interpretações).
+- **Resultado imediato:** ao descobrir, o cartão com o texto, a certeza e a fonte abre logo (sem «Saber mais»); não bloqueia — tocar de novo na fotografia fecha-o. Guia: «Boa descoberta!».
+- **Objectivos mais visíveis:** painel maior (miniaturas quadradas com o objecto inteiro, título «Encontra na fotografia», contador grande); pontinhos de progresso retirados.
+- «Explorar por descrição» saiu da barra lateral e passou para o menu Pausa (alternativa acessível mantida).
+- **Curiosidades com dados da ficha:** perguntas mostram «O que a ficha regista» (MM202615: verso Kodak, extra; MM202621: carimbo Kodak dez. 1984, papel, formato).
+- **Mapa de atenção (equipa):** grelha local 24×16 por fotografia com passagens da lupa/rato (peso 1) e toques (peso 3); nunca enviada. Ver em Pausa → «Mostrar o mapa de atenção» e no Caderno → «Medição local». Cor de dados (`info`), não a cor de marca.
+

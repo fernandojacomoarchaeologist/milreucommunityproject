@@ -369,8 +369,10 @@
   .dm-notebook-obj{position:fixed;left:max(.7rem,env(safe-area-inset-left,0px));bottom:calc(.35rem + env(safe-area-inset-bottom,0px));z-index:5;width:3rem}
   .dm-notebook-obj__label{display:none}
   .dm-guide{position:fixed;left:.6rem;right:.6rem;bottom:calc(4.4rem + env(safe-area-inset-bottom,0px));max-width:none}
-  .dm-discovery{position:fixed;left:.6rem;right:.6rem;bottom:calc(4.4rem + env(safe-area-inset-bottom,0px));width:auto;max-height:55vh;grid-template-columns:3.5rem minmax(0,1fr)}
+  .dm-discovery{position:relative;inset:auto;order:3;flex:0 0 auto;margin:.5rem .6rem 0;width:auto;max-height:none;overflow:visible;grid-template-columns:3.5rem minmax(0,1fr);box-shadow:var(--dm-e1)}
+  .dm-objectives{order:2}.dm-stage{order:0}.dm-credit{order:1}.dm-tools{order:10}
   .dm-discovery .dm-obj__pic{width:3.5rem;height:3.5rem}
+  .dm-obj__pic{width:3.6rem;height:3.6rem}
   .dm-describe{position:fixed;top:auto;left:.6rem;right:.6rem;bottom:calc(4.4rem + env(safe-area-inset-bottom,0px));width:auto;max-height:60vh}
   .dm-brief{position:fixed;top:auto;bottom:calc(.6rem + env(safe-area-inset-bottom,0px));left:.6rem;right:.6rem;width:auto;max-height:80vh;transform:none;animation-name:dm-rise}
   .dm-brief__objs{grid-template-columns:1fr 1fr}
