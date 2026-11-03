@@ -1,0 +1,185 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.3.0",
+  "notice": "Derivados de APRESENTAÇÃO do laboratório de jogos (só teste). Recortes das variantes do Museu; master e variantes intactos. Não são documentos de preservação.",
+  "generatedBy": "scripts/lab/build_detetives_derivados.py",
+  "items": [
+    {
+      "memoryId": "MM202615",
+      "kind": "apresentacao",
+      "source": "public/media/museum/generated/MM202615/immersive.webp",
+      "sourceSha256": "3f374c7e31bb40cd47f481869ba035db5b6a1087da5c934e990fd59be95ae7f4",
+      "master": "public/media/museum/originals/MM202615.jpg",
+      "crop": [
+        0.06672,
+        0.12993,
+        0.93499,
+        0.8909
+      ],
+      "output": "public/media/lab/detetives/derivados/MM202615-apresentacao.webp",
+      "width": 2030,
+      "height": 1388,
+      "sha256": "e234c64cf16129c8edb0a7ebe4d39963859ac7f093d3bfed9313f34ca2ebebd5",
+      "tasks": [
+        {
+          "taskId": "bolsa",
+          "output": "public/media/lab/detetives/derivados/MM202615-bolsa.webp",
+          "width": 192,
+          "height": 248,
+          "crop": [
+            0.21985,
+            0.16776,
+            0.30197,
+            0.30373
+          ]
+        },
+        {
+          "taskId": "flores",
+          "output": "public/media/lab/detetives/derivados/MM202615-flores.webp",
+          "width": 210,
+          "height": 122,
+          "crop": [
+            0.44482,
+            0.30976,
+            0.53464,
+            0.37664
+          ]
+        },
+        {
+          "taskId": "recipiente",
+          "output": "public/media/lab/detetives/derivados/MM202615-recipiente.webp",
+          "width": 211,
+          "height": 360,
+          "crop": [
+            0.28999,
+            0.62993,
+            0.41189,
+            0.89693
+          ]
+        },
+        {
+          "taskId": "latas",
+          "output": "public/media/lab/detetives/derivados/MM202615-latas.webp",
+          "width": 183,
+          "height": 132,
+          "crop": [
+            0.43969,
+            0.36952,
+            0.51796,
+            0.44189
+          ]
+        }
+      ]
+    },
+    {
+      "memoryId": "MM202621",
+      "kind": "apresentacao",
+      "source": "public/media/museum/generated/MM202621/immersive.webp",
+      "sourceSha256": "f87b1ee8a157056f34da1d1a011650a74477136f135b5ec1bc150b38f8550095",
+      "master": "public/media/museum/originals/MM202621.jpg",
+      "crop": [
+        0.13167,
+        0.15518,
+        0.88375,
+        0.87087
+      ],
+      "output": "public/media/lab/detetives/derivados/MM202621-apresentacao.webp",
+      "width": 1805,
+      "height": 1236,
+      "sha256": "7ee0abd29077cd77c9255fa4078bc7b1e0c516c89aec30a13143d38dc76ed110",
+      "tasks": [
+        {
+          "taskId": "pessoas",
+          "output": "public/media/lab/detetives/derivados/MM202621-pessoas.webp",
+          "width": 360,
+          "height": 130,
+          "crop": [
+            0.11792,
+            0.13781,
+            0.62167,
+            0.39143
+          ]
+        },
+        {
+          "taskId": "fragmentos",
+          "output": "public/media/lab/detetives/derivados/MM202621-fragmentos.webp",
+          "width": 360,
+          "height": 132,
+          "crop": [
+            0.16792,
+            0.34742,
+            0.49167,
+            0.51187
+          ]
+        },
+        {
+          "taskId": "carrinho",
+          "output": "public/media/lab/detetives/derivados/MM202621-carrinho.webp",
+          "width": 360,
+          "height": 156,
+          "crop": [
+            0.38792,
+            0.38796,
+            0.84167,
+            0.66184
+          ]
+        },
+        {
+          "taskId": "balde",
+          "output": "public/media/lab/detetives/derivados/MM202621-balde.webp",
+          "width": 273,
+          "height": 352,
+          "crop": [
+            0.25792,
+            0.43775,
+            0.37167,
+            0.64157
+          ]
+        }
+      ]
+    },
+    {
+      "memoryId": "MM202614",
+      "kind": "apresentacao",
+      "source": "public/media/museum/generated/MM202614/immersive.webp",
+      "sourceSha256": "06246d0ea37792ead46741997290b4212eb6abb84efe7853824f98f332c96e5e",
+      "master": "public/media/museum/originals/MM202614.jpg",
+      "crop": [
+        0.06111,
+        0.11404,
+        0.92991,
+        0.90241
+      ],
+      "output": "public/media/lab/detetives/derivados/MM202614-apresentacao.webp",
+      "width": 2033,
+      "height": 1438,
+      "sha256": "da7156435e6e66594446354cb0e220cca8d5da4d41f01b205a93f95b13e596e6",
+      "tasks": [
+        {
+          "taskId": "mosaico",
+          "output": "public/media/lab/detetives/derivados/MM202614-mosaico.webp",
+          "width": 360,
+          "height": 107,
+          "crop": [
+            0.44786,
+            0.71765,
+            0.93162,
+            0.90186
+          ]
+        },
+        {
+          "taskId": "porta",
+          "output": "public/media/lab/detetives/derivados/MM202614-porta.webp",
+          "width": 236,
+          "height": 275,
+          "crop": [
+            0.39274,
+            0.12281,
+            0.49359,
+            0.27357
+          ]
+        }
+      ]
+    }
+  ]
+}

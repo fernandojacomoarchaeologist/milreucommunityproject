@@ -4,25 +4,27 @@
  * Consultar RIGHTS.md.
  *
  * Detetives da Memória — interface (laboratório, versão de teste; NÃO publicada em produção).
- * Missões com FOTOGRAFIAS REAIS do Museu de Memórias (imagem, crédito e data vêm da ficha canónica).
- * Ecrãs: entrada → fotografias → investigação → álbum. Descobertas em camadas (observação,
- * investigação opcional, história) e colecção (selo + página do álbum). Recompensas imediatas e
- * discretas, sem sorte, sem contagens decrescentes, sem penalização e sem mensagens de fracasso.
- * O palco mantém a proporção da imagem: as pistas usam coordenadas normalizadas e continuam alinhadas
- * com zoom, deslocação e qualquer ecrã. Alternativas ao toque: teclado (cursor-lupa) e zonas descritas.
+ * v0.3 «mesa de investigação»: a fotografia real é a protagonista (derivado de apresentação sem as
+ * margens do scan), as pistas são INVISÍVEIS até serem descobertas, a lupa amplia de verdade, os
+ * objectivos são cartões com o recorte do objecto, um guia comenta sem interromper e o Caderno de
+ * Campo é um objecto pousado na mesa. Sem sorte, sem contagens decrescentes, sem penalização.
+ * As pistas usam coordenadas normalizadas e continuam alinhadas com zoom, deslocação, lupa e ecrã.
+ * Alternativas ao toque: teclado (cursor-lupa) e «Explorar por descrição».
  */
 import {
   validateMission, registerTap, answerQuestion, applyHint, markStep, isComplete, pendingTutorialSteps, createRun,
   touchTolerance, shapeCenter, levelFor, unlockedMissions, maxScore, tasksOf, requiredTasks, remainingTasks,
-  TUTORIAL_STEPS, POINTS_BY_HINT, LAYERS
+  POINTS_BY_HINT, LAYERS
 } from "./engine.js";
 import { loadProgress, saveProgress, clearProgress, recordCompletion, bumpMetric } from "./storage.js";
 import { ICONS } from "./icons.js";
+import { LOUPE_FRAME, TOOL, NOTEBOOK, stampSvg, TAPE, GUIDE_BADGE } from "./art.js";
 
 const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
 const now = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
 const CERTAINTY_LABEL = { confirmed: "Confirmado", probable: "Provável", hypothesis: "Hipótese" };
-const LAYER_ORDER = ["observacao", "investigacao", "historia"];
+const LOUPE_ZOOM = 2.6;
+const IDLE_MS = 20000;
 
 const OPENING = [
   "Há fotografias que guardam muito mais do que imagens.",
@@ -30,6 +32,14 @@ const OPENING = [
   "Em Milreu, cada fotografia é uma oportunidade para descobrir algo novo.",
   "Prepara a tua lupa. A próxima descoberta pode estar mesmo à tua frente!"
 ];
+
+// Mensagens do guia (avatar futuro). Curtas, nunca bloqueiam o jogo.
+export const GUIDE = Object.freeze({
+  start: "Há algo curioso nesta fotografia... Consegues encontrar?",
+  idle: "Experimenta usar a lupa!",
+  found: "Boa descoberta! Queres saber mais?",
+  done: "Excelente investigação! Vou guardar esta memória no teu caderno."
+});
 
 export function createDetetivesGame({ root, missions: resolved = [], blocked = [], assetUrl, lang = "pt-PT", query = {}, storage }) {
   const valid = [], invalid = [];
@@ -41,13 +51,13 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
 
   const S = {
     screen: "intro", progress: loadProgress(storage), mission: null, run: null, runDone: false,
-    zoom: { s: 1, x: 0, y: 0 }, cursor: { x: 0.5, y: 0.5 }, selected: null, dialog: null,
+    zoom: { s: 1, x: 0, y: 0 }, cursor: { x: 0.5, y: 0.5 }, selected: null, dialog: null, briefing: false,
     question: null, questionNote: "", completion: null, error: null, confirmClear: false, notice: "",
-    albumPage: 0, startedAt: 0, firstFound: false
+    albumPage: 0, startedAt: 0, firstFound: false, loupe: false, lastFound: null, objectivesOpen: false
   };
   const timers = new Set();
   const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, ms); timers.add(id); return id; };
-  let audio = null, resizeObserver = null;
+  let audio = null, resizeObserver = null, idleTimer = null, guideTimer = null;
 
   const missionById = id => valid.find(m => m.missionId === id) || null;
   const completedIds = () => Object.keys(S.progress.completed).filter(id => missionById(id));
@@ -55,6 +65,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   const save = () => saveProgress(S.progress, storage);
   const metric = (key, value) => { S.progress = bumpMetric(S.progress, key, value); save(); };
   const calm = () => S.progress.prefs.calm === true || (typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const finePointer = () => typeof matchMedia === "function" && matchMedia("(hover: hover) and (pointer: fine)").matches;
   const taskById = id => tasksOf(S.mission).find(t => t.id === id);
   const certaintyText = c => (c ? CERTAINTY_LABEL[c] || c : "Não aplicável");
 
@@ -92,6 +103,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   const langNotice = lang !== "pt-PT" ? `<p class="dm-note">Este jogo está disponível apenas em português nesta versão de teste.</p>` : "";
   const img = (src, alt = "", cls = "") => `<img src="${assetUrl(src)}" alt="${esc(alt)}" ${cls ? `class="${cls}"` : ""} loading="lazy" decoding="async">`;
   const museumLink = (id, label = "Ver a ficha no Museu") => `<a class="dm-link" href="#/museu/memorias/${esc(id)}">${ICONS.voltar(16)} ${esc(label)} (${esc(id)})</a>`;
+  const objPic = task => (task.cardImage ? `<img src="${assetUrl(task.cardImage)}" alt="" decoding="async">` : `<span class="dm-obj__icon">${task.type === "question" ? "?" : ICONS.lupa(22)}</span>`);
 
   function introHtml() {
     const current = S.progress.current && missionById(S.progress.current.missionId);
@@ -110,7 +122,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         <div class="dm-actions">
           <button type="button" class="dm-btn dm-btn--primary" data-act="start">${ICONS.lupa(22)} ${primary}</button>
           <button type="button" class="dm-btn" data-act="howto">Como jogar</button>
-          ${completedIds().length ? `<button type="button" class="dm-btn" data-act="album">${ICONS.caderno(20)} O meu álbum</button>` : ""}
+          ${completedIds().length ? `<button type="button" class="dm-btn" data-act="album">${ICONS.caderno(20)} O meu caderno</button>` : ""}
         </div>
         <a class="dm-link" href="#/museu">${ICONS.voltar(18)} Voltar ao Museu de Memórias</a>
       </div>
@@ -121,14 +133,14 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   function howtoHtml() {
     return dialogHtml("dm-howto", "Como jogar", `
       <ol class="dm-steps">
-        <li><strong>Observa</strong> a fotografia com calma. Não há tempo limite e errar não tira pontos.</li>
-        <li><strong>Toca ou clica</strong> no sítio da fotografia que corresponde a cada pista. Algumas descobertas são perguntas: comparar fotografias, ampliar um pormenor ou ler um testemunho.</li>
-        <li><strong>Amplia</strong> com + e −, com a roda do rato ou com dois dedos. Arrasta para te deslocares.</li>
-        <li><strong>Teclado:</strong> no quadro da fotografia, as setas mexem a lupa, Enter investiga, + e − ampliam, 0 repõe.</li>
+        <li><strong>Procura</strong> na fotografia os objectos dos cartões. Não há tempo limite e errar não tira pontos.</li>
+        <li><strong>Clica ou toca</strong> no objecto quando o encontrares. As pistas estão escondidas: só aparecem quando as descobres.</li>
+        <li><strong>Lupa:</strong> liga-a na barra de ferramentas e passa-a sobre a fotografia para ver os pormenores. Clica para investigar.</li>
+        <li><strong>Ampliar:</strong> roda do rato, dois dedos ou os botões + e −. Arrasta para te deslocares.</li>
+        <li><strong>Teclado:</strong> na fotografia, as setas mexem a lupa, Enter investiga, + e − ampliam, 0 repõe.</li>
         <li><strong>Sem ver bem a imagem?</strong> Usa «Explorar por descrição».</li>
-        <li><strong>Camadas:</strong> Observação e História concluem a missão; as descobertas de Investigação são extra, para quem quiser ir mais longe.</li>
-        <li><strong>Ajuda:</strong> «Preciso de uma pista» dá uma dica e depois mostra uma zona. Cada descoberta vale 100 pontos, ou 75 e 50 com ajuda.</li>
-        <li>O teu álbum fica guardado <strong>só neste browser</strong>. Podes apagá-lo quando quiseres.</li>
+        <li><strong>Pista:</strong> dá uma dica e depois mostra uma zona. Cada descoberta vale 100 pontos, ou 75 e 50 com ajuda.</li>
+        <li>O teu Caderno de Campo fica guardado <strong>só neste browser</strong>. Podes apagá-lo quando quiseres.</li>
       </ol>`, `<button type="button" class="dm-btn dm-btn--primary" data-act="close-dialog">Percebi</button>`);
   }
 
@@ -139,12 +151,12 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       const isDone = done.includes(m.missionId), isOpen = open.includes(m.missionId);
       const current = S.progress.current?.missionId === m.missionId ? S.progress.current : null;
       const best = S.progress.completed[m.missionId]?.bestScore;
-      const status = isDone ? `${ICONS.selo(18)} No álbum · ${best}/${maxScore(m)} pontos` : current ? `Em curso · ${current.found.length}/${tasksOf(m).length} descobertas` : isOpen ? `${tasksOf(m).length} descobertas por fazer` : `${ICONS.cadeado(18)} Abre depois da fotografia anterior`;
+      const status = isDone ? `${ICONS.selo(18)} No caderno · ${best}/${maxScore(m)} pontos` : current ? `Em curso · ${current.found.length}/${tasksOf(m).length} descobertas` : isOpen ? `${tasksOf(m).length} descobertas por fazer` : `${ICONS.cadeado(18)} Abre depois da fotografia anterior`;
       const action = !isOpen ? "" : `<button type="button" class="dm-btn ${isDone ? "" : "dm-btn--primary"}" data-act="play" data-mission="${m.missionId}">${current ? "Continuar" : isDone ? "Investigar de novo" : "Investigar"}</button>`;
       return `<article class="dm-mission ${isOpen ? "" : "is-locked"} ${isDone ? "is-done" : ""}">
         <div class="dm-mission__media">${img(m.image.src)}<span class="dm-mission__id">${esc(m.image.memoryRef)}</span></div>
         <div class="dm-mission__body">
-          <p class="dm-eyebrow">Fotografia ${m.order} · ${esc(m.difficulty)}${m.kind === "tutorial" ? " · com treino" : ""}</p>
+          <p class="dm-eyebrow">Fotografia ${m.order} · ${esc(m.difficulty)}</p>
           <h2>${esc(m.title)}</h2>
           <p class="dm-mission__doc">«${esc(m.image.documentTitle)}» · ${esc(m.image.date || "data por determinar")}</p>
           <p>${esc(m.description)}</p>
@@ -158,7 +170,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         <div>${labNotice}<h1 id="dm-board-title">Escolhe uma fotografia</h1>
         <p>Nível: <strong>${esc(level.current.name)}</strong>${level.next && !level.next.future ? ` · faltam ${level.next.minMissions - done.length} fotografias para <strong>${esc(level.next.name)}</strong>` : ""}</p></div>
         <div class="dm-actions">
-          <button type="button" class="dm-btn" data-act="album">${ICONS.caderno(20)} O meu álbum</button>
+          <button type="button" class="dm-btn" data-act="album">${ICONS.caderno(20)} O meu caderno</button>
           <button type="button" class="dm-btn" data-act="intro">${ICONS.voltar(18)} Início</button>
         </div>
       </div>
@@ -169,86 +181,101 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     </section>`;
   }
 
-  function progressHtml() {
-    const segs = tasksOf(S.mission).map(task => `<span class="dm-seg ${S.run.found.includes(task.id) ? "is-done" : ""} ${task.optional ? "is-optional" : ""}" title="${esc(LAYERS[task.layer].label)}${task.optional ? " (extra)" : ""}"></span>`).join("");
-    const req = requiredTasks(S.mission), reqDone = req.filter(t => S.run.found.includes(t.id)).length;
-    return `<div class="dm-bar__progress" role="img" aria-label="${S.run.found.length} de ${tasksOf(S.mission).length} descobertas; ${reqDone} de ${req.length} para concluir" data-dm-progress><span class="dm-segs">${segs}</span><span class="dm-bar__count"><b>${reqDone}/${req.length}</b> para concluir</span></div>`;
+  // ───────────────────────── mesa de investigação ─────────────────────────
+  // Cartão de objectivo: recorte do objecto (ou ícone, nas perguntas), título curto e estado.
+  function objectiveHtml(task) {
+    const r = S.run, found = r.found.includes(task.id), hint = r.hints[task.id] || 0;
+    const label = found ? task.title : task.clue;
+    const state = found ? `+${r.points[task.id] ?? 0}` : task.optional ? "extra" : task.type === "question" ? "responder" : "";
+    const act = task.type === "question" && !found ? "ask" : "select-clue";
+    const aria = `${label}${found ? " — descoberto, ver mais" : task.optional ? " — extra, por descobrir" : " — por descobrir"}${!found && hint ? ` — ajuda ${hint} de 2` : ""}`;
+    return `<li class="dm-obj ${found ? "is-found" : ""} ${task.optional ? "is-optional" : ""} ${S.selected === task.id ? "is-selected" : ""} ${S.lastFound === task.id ? "is-new" : ""}" data-obj="${task.id}">
+      <button type="button" class="dm-obj__btn" data-act="${act}" data-clue="${task.id}" data-task="${task.id}" ${found ? "" : `aria-pressed="${S.selected === task.id}"`} aria-label="${esc(aria)}">
+        <span class="dm-obj__pic">${objPic(task)}${found ? `<span class="dm-obj__tick">${TOOL.certo}</span>` : ""}</span>
+        <span class="dm-obj__txt">${esc(label)}</span>
+        ${state ? `<span class="dm-obj__state">${esc(state)}</span>` : ""}
+      </button>
+      ${!found && hint >= 1 ? `<p class="dm-obj__hint">${esc(task.hint)}</p>` : ""}
+    </li>`;
   }
 
-  function tasksHtml() {
-    const m = S.mission, r = S.run;
-    return LAYER_ORDER.map(layerId => {
-      const group = tasksOf(m).filter(t => t.layer === layerId);
-      if (!group.length) return "";
-      const items = group.map(task => {
-        const found = r.found.includes(task.id), hint = r.hints[task.id] || 0, n = tasksOf(m).indexOf(task) + 1;
-        const icon = found ? ICONS.marca(20) : task.type === "question" ? "?" : n;
-        const label = { compare: "Comparar fotografias", zoom: "Ampliar e responder", caption: "Ler e responder" }[task.kind] || "Responder";
-        const action = task.type === "question" && !found ? `<button type="button" class="dm-btn dm-btn--small" data-act="ask" data-task="${task.id}">${label}</button>` : "";
-        return `<li class="dm-clue ${found ? "is-found" : ""} ${S.selected === task.id ? "is-selected" : ""}">
-          <button type="button" class="dm-clue__btn" data-act="select-clue" data-clue="${task.id}" aria-pressed="${S.selected === task.id}" ${found ? "disabled" : ""}>
-            <span class="dm-clue__n">${icon}</span>
-            <span><strong>${found ? esc(task.title) : esc(task.clue)}</strong>
-            <span class="dm-clue__state">${found ? `Descoberta · +${r.points[task.id] ?? 0}` : task.optional ? "Extra · por descobrir" : "Por descobrir"}${!found && hint ? ` · ajuda ${hint}/2` : ""}</span>
-            ${!found && hint >= 1 ? `<span class="dm-clue__hint">${ICONS.pista(16)} ${esc(task.hint)}</span>` : ""}</span>
-          </button>${action}</li>`;
-      }).join("");
-      return `<section class="dm-layer dm-layer--${layerId}"><h3>${esc(LAYERS[layerId].label)}${layerId === "investigacao" ? " <small>(extra)</small>" : ""}</h3><ol class="dm-clues">${items}</ol></section>`;
-    }).join("");
+  function objectivesHtml() {
+    const req = requiredTasks(S.mission), done = req.filter(t => S.run.found.includes(t.id)).length;
+    const pips = req.map(t => `<i class="${S.run.found.includes(t.id) ? "is-on" : ""}"></i>`).join("");
+    return `<aside class="dm-objectives ${S.objectivesOpen ? "is-open" : ""}" aria-label="Objectivos da investigação" data-dm-objectives>
+      <button type="button" class="dm-objectives__head" data-act="objectives" aria-expanded="${S.objectivesOpen}">
+        <span>Procura</span><span class="dm-pips" role="img" aria-label="${done} de ${req.length} encontrados">${pips}</span><b data-dm-progress>${done}/${req.length}</b>
+      </button>
+      <ol class="dm-objectives__list">${tasksOf(S.mission).map(objectiveHtml).join("")}</ol>
+    </aside>`;
   }
 
-  function sideHtml() {
-    const m = S.mission, r = S.run;
-    const steps = m.kind === "tutorial" ? `<section class="dm-coach" aria-labelledby="dm-coach-title"><h2 id="dm-coach-title">Treino</h2><ol>${TUTORIAL_STEPS.map(step => {
-      const ok = r.steps.includes(step.id);
-      return `<li class="${ok ? "is-done" : ""}"><span aria-hidden="true">${ok ? "✓" : "○"}</span> ${esc(step.label)} <span class="dm-sr">${ok ? "— feito" : "— por fazer"}</span></li>`;
-    }).join("")}</ol></section>` : "";
-    const zones = findZones(m).map(z => `<li><button type="button" class="dm-zone" data-act="zone" data-zone="${z.id}">${esc(z.label)}</button></li>`).join("");
-    return `<aside class="dm-side" aria-label="Descobertas e ferramentas" data-dm-side>
-          <p class="dm-opening">${esc(m.opening)}</p>
-          ${steps}
-          ${tasksHtml()}
-          <div class="dm-tools">
-            <button type="button" class="dm-btn dm-btn--primary" data-act="hint">${ICONS.pista(20)} Preciso de uma pista</button>
-            <button type="button" class="dm-btn" data-act="album-overlay">${ICONS.caderno(20)} O meu álbum</button>
-          </div>
-          <details class="dm-describe"><summary>Explorar por descrição (alternativa ao toque)</summary>
-            <p>Escolhe uma zona da fotografia para a investigar.</p><ul>${zones}</ul></details>
-        </aside>`;
+  function notebookObjHtml() {
+    const n = completedIds().length;
+    return `<button type="button" class="dm-notebook-obj" data-act="notebook" aria-label="Abrir o Caderno de Campo (${n} ${n === 1 ? "selo" : "selos"})" data-dm-notebook>
+      ${NOTEBOOK}<span class="dm-notebook-obj__label">Caderno</span>${n ? `<span class="dm-notebook-obj__count">${n}</span>` : ""}
+    </button>`;
+  }
+
+  function toolsHtml() {
+    const sound = S.progress.prefs.sound;
+    return `<div class="dm-tools" role="toolbar" aria-label="Ferramentas" data-dm-tools>
+      <button type="button" class="dm-tool dm-tool--lupa" data-act="loupe" aria-pressed="${S.loupe}" title="Lupa">${TOOL.lupa}<span>Lupa</span></button>
+      <button type="button" class="dm-tool" data-act="hint" title="Pista">${TOOL.pista}<span>Pista</span></button>
+      <span class="dm-tools__sep" aria-hidden="true"></span>
+      <button type="button" class="dm-tool" data-act="zoom-in" title="Ampliar">${TOOL.mais}<span class="dm-sr">Ampliar</span></button>
+      <button type="button" class="dm-tool" data-act="zoom-out" title="Reduzir">${TOOL.menos}<span class="dm-sr">Reduzir</span></button>
+      <button type="button" class="dm-tool" data-act="zoom-reset" title="Ver a fotografia inteira">${TOOL.ajustar}<span class="dm-sr">Ver a fotografia inteira</span></button>
+      <button type="button" class="dm-tool" data-act="describe" title="Explorar por descrição">${TOOL.lista}<span class="dm-sr">Explorar por descrição (alternativa ao toque)</span></button>
+      <button type="button" class="dm-tool" data-act="sound" aria-pressed="${sound}" title="Sons">${sound ? TOOL.som : TOOL.semSom}<span class="dm-sr">Sons ${sound ? "ligados" : "desligados"}</span></button>
+    </div>`;
   }
 
   function playHtml() {
     const m = S.mission, r = S.run;
     return `<section class="dm-play" aria-labelledby="dm-play-title">
-      <header class="dm-bar">
-        <button type="button" class="dm-icon-btn" data-act="board" aria-label="Sair para as fotografias (o progresso fica guardado)">${ICONS.voltar(22)}</button>
-        <div class="dm-bar__title"><p class="dm-eyebrow">${esc(m.image.memoryRef)} · ${m.kind === "tutorial" ? "com treino" : `fotografia ${m.order}`}</p><h1 id="dm-play-title">${esc(m.title)}</h1></div>
-        ${progressHtml()}
-        <p class="dm-bar__stat dm-bar__score" data-dm-score><span data-dm-score-value>${r.score}</span> pontos</p>
-        <button type="button" class="dm-icon-btn" data-act="sound" aria-pressed="${S.progress.prefs.sound}" aria-label="Sons ${S.progress.prefs.sound ? "ligados" : "desligados"}">${S.progress.prefs.sound ? ICONS.som(22) : ICONS.semSom(22)}</button>
-        <button type="button" class="dm-icon-btn" data-act="pause" aria-label="Pausa e definições">${ICONS.pausa(22)}</button>
+      <header class="dm-hud">
+        <button type="button" class="dm-tool" data-act="board" title="Sair (o progresso fica guardado)">${TOOL.voltar}<span class="dm-sr">Sair para as fotografias (o progresso fica guardado)</span></button>
+        <div class="dm-hud__title"><p class="dm-eyebrow">${esc(m.image.memoryRef)} · fotografia ${m.order}</p><h1 id="dm-play-title">${esc(m.title)}</h1></div>
+        <p class="dm-hud__score" data-dm-score><span data-dm-score-value>${r.score}</span> <small>pontos</small></p>
+        <button type="button" class="dm-tool" data-act="pause" title="Pausa e definições">${TOOL.pausa}<span class="dm-sr">Pausa e definições</span></button>
       </header>
-      <div class="dm-play__body">
-        <div class="dm-stagewrap">
-          <div class="dm-stage" data-dm-stage tabindex="0" role="group" aria-roledescription="fotografia para investigar" aria-label="${esc(m.image.alt)} Usa as setas para mexer a lupa e Enter para investigar." aria-describedby="dm-stage-help">
-            <div class="dm-canvas" data-dm-canvas>
-              <img src="${assetUrl(m.image.src)}" alt="" draggable="false" data-dm-image>
-              <div class="dm-marks" data-dm-marks></div>
-              <div class="dm-hintzone" data-dm-hintzone hidden></div>
-              <div class="dm-cursor" data-dm-cursor aria-hidden="true">${ICONS.lupa(30)}</div>
-            </div>
-            <div class="dm-zoom" role="group" aria-label="Ampliação">
-              <button type="button" class="dm-icon-btn" data-act="zoom-in" aria-label="Ampliar">${ICONS.mais(22)}</button>
-              <button type="button" class="dm-icon-btn" data-act="zoom-out" aria-label="Reduzir">${ICONS.menos(22)}</button>
-              <button type="button" class="dm-icon-btn" data-act="zoom-reset" aria-label="Repor tamanho">${ICONS.repor(22)}</button>
-            </div>
-            <div class="dm-found-card" data-dm-found-card role="status" hidden></div>
+      <div class="dm-table" data-dm-table>
+        <div class="dm-stage ${S.loupe ? "is-loupe" : ""}" data-dm-stage tabindex="0" role="group" aria-roledescription="fotografia para investigar" aria-label="${esc(m.image.alt)} Usa as setas para mexer a lupa e Enter para investigar." aria-describedby="dm-credit">
+          <div class="dm-canvas" data-dm-canvas>
+            <img src="${assetUrl(m.image.src)}" alt="" draggable="false" data-dm-image>
+            <span class="dm-tape-slot dm-tape-slot--l">${TAPE}</span><span class="dm-tape-slot dm-tape-slot--r">${TAPE}</span>
+            <svg class="dm-outlines" data-dm-outlines viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <div class="dm-hintzone" data-dm-hintzone hidden></div>
+            <div class="dm-cursor" data-dm-cursor aria-hidden="true">${TOOL.lupa}</div>
           </div>
-          <p id="dm-stage-help" class="dm-caption"><strong>«${esc(m.image.documentTitle)}»</strong> · ${esc(m.image.date || "")} · ${esc(m.image.credit)} · <a href="#/museu/memorias/${esc(m.image.memoryRef)}">${esc(m.image.memoryRef)}</a></p>
+          <div class="dm-loupe" data-dm-loupe aria-hidden="true" hidden><div class="dm-loupe__lens"><img src="${assetUrl(m.image.src)}" alt="" draggable="false" data-dm-loupe-img></div>${LOUPE_FRAME}</div>
         </div>
-        ${sideHtml()}
+        <p id="dm-credit" class="dm-credit">«${esc(m.image.documentTitle)}»${m.image.date ? ` · ${esc(m.image.date)}` : ""} · ${esc(m.image.credit)} · <a href="#/museu/memorias/${esc(m.image.memoryRef)}">${esc(m.image.memoryRef)}</a></p>
+        ${objectivesHtml()}
+        ${notebookObjHtml()}
+        ${toolsHtml()}
+        <div class="dm-guide" data-dm-guide data-mood="neutral" hidden>
+          <span class="dm-guide__avatar" aria-hidden="true">${GUIDE_BADGE}</span>
+          <div class="dm-guide__bubble" role="status"><p data-dm-guide-text></p><div class="dm-guide__actions" data-dm-guide-actions></div></div>
+        </div>
+        <div class="dm-discovery" data-dm-discovery hidden></div>
+        <div class="dm-describe" data-dm-describe hidden></div>
+        ${S.briefing ? briefingHtml() : ""}
       </div>
     </section>`;
+  }
+
+  // Ecrã inicial da missão: o que procurar, sem textos longos.
+  function briefingHtml() {
+    const m = S.mission, finds = tasksOf(m).filter(t => !t.optional);
+    return `<div class="dm-brief" data-dm-brief role="dialog" aria-modal="false" aria-labelledby="dm-brief-t">
+      <p class="dm-eyebrow">Missão ${m.order} · ${esc(m.image.memoryRef)}</p>
+      <h2 id="dm-brief-t">${esc(m.title)}</h2>
+      <p class="dm-brief__lead">${esc(m.description)}</p>
+      <ul class="dm-brief__objs">${finds.map(t => `<li><span class="dm-obj__pic">${objPic(t)}</span><span>${esc(t.clue)}</span></li>`).join("")}</ul>
+      <button type="button" class="dm-btn dm-btn--primary" data-act="begin">${TOOL.lupa} Começar a investigar</button>
+    </div>`;
   }
 
   // Zonas descritas: as pistas (descrição visual confirmada) + dois pontos neutros (distractores).
@@ -284,10 +311,11 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         <label class="dm-toggle"><input type="checkbox" id="dm-pref-calm" data-pref="calm" ${S.progress.prefs.calm ? "checked" : ""}> Modo calmo (sem animações extra)</label>
       </div>`,
       `<button type="button" class="dm-btn dm-btn--primary" data-act="resume">Retomar</button>
-       <button type="button" class="dm-btn" data-act="album">${ICONS.caderno(20)} O meu álbum</button>
+       <button type="button" class="dm-btn" data-act="howto">Como jogar</button>
        <button type="button" class="dm-btn" data-act="board">Sair para as fotografias</button>`);
   }
 
+  // Conclusão: selo no caderno + próxima fotografia relacionada, à escolha do jogador (nunca automática).
   function completedHtml() {
     const { mission: m, run: r, before, after } = S.completion;
     const done = completedIds(), open = unlocked();
@@ -298,20 +326,22 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const related = (m.related || []).map(rel => `<a class="dm-related" href="#/museu/memorias/${esc(rel.id)}">${img(rel.src)}<span><strong>«${esc(rel.title)}»</strong> ${esc(rel.id)}</span></a>`).join("");
     return dialogHtml("dm-done", "Caso resolvido!", `
       <div class="dm-reward">
-        <div class="dm-stamp" aria-hidden="true">${ICONS.selo(56)}<span>${esc(m.reward?.label || "Selo")}</span></div>
-        <div><p class="dm-eyebrow">Nova página no teu álbum</p><p class="dm-reward__page">«${esc(m.reward?.page || m.title)}»</p>
+        <div class="dm-reward__stamp" aria-hidden="true">${stampSvg(m.reward?.label || "Investigação concluída")}</div>
+        <div><p class="dm-eyebrow">Selo guardado no Caderno de Campo</p><p class="dm-reward__page">«${esc(m.reward?.page || m.title)}»</p>
         <p class="dm-score-final">${r.score} <span>/ ${maxScore(m)} pontos</span></p></div>
       </div>
       <p class="dm-reward__message">${esc(m.reward?.message || "")}</p>
+      ${m.reward?.story ? `<p class="dm-reward__story">${esc(m.reward.story)}</p>` : ""}
       ${levelUp ? `<p class="dm-levelup">${ICONS.selo(22)} Subiste de nível: <strong>${esc(after.current.name)}</strong>!</p>` : ""}
       ${related ? `<div class="dm-surprise"><p class="dm-eyebrow">Ligação a outra memória</p>${related}</div>` : ""}
       ${next ? `<div class="dm-next"><p class="dm-eyebrow">A próxima memória</p><div class="dm-next__card">${img(next.image.src, "", "dm-next__img")}<div><strong>${esc(next.title)}</strong><span>«${esc(next.image.documentTitle)}» · ${esc(next.image.memoryRef)}</span><span>${esc(next.description)}</span></div></div></div>` : `<p class="dm-note">Investigaste todas as fotografias disponíveis nesta versão.</p>`}
-      <p class="dm-small">${museumLink(m.image.memoryRef, "Ver a ficha desta fotografia no Museu")}${optionalLeft ? ` <button type="button" class="dm-linkbtn" data-act="close-dialog">Continuar a explorar esta fotografia (${optionalLeft} extra)</button>` : ""}</p>`,
-      `${next ? `<button type="button" class="dm-btn dm-btn--primary dm-btn--even" data-act="play" data-mission="${next.missionId}">Descobrir a próxima memória</button>` : ""}
-       <button type="button" class="dm-btn ${next ? "" : "dm-btn--primary"} dm-btn--even" data-act="album" data-page="${valid.indexOf(m)}">${ICONS.caderno(20)} Voltar ao meu álbum</button>`, "dm-dialog__card--done");
+      <p class="dm-small">${museumLink(m.image.memoryRef, "Ver a ficha desta fotografia no Museu")}</p>`,
+      `${next ? `<button type="button" class="dm-btn dm-btn--primary dm-btn--even" data-act="play" data-mission="${next.missionId}">Investigar a próxima</button>` : ""}
+       <button type="button" class="dm-btn ${next ? "" : "dm-btn--primary"} dm-btn--even" data-act="notebook" data-page="${valid.indexOf(m)}">${ICONS.caderno(20)} Abrir o caderno</button>
+       <button type="button" class="dm-btn dm-btn--even" data-act="close-dialog">${optionalLeft ? `Continuar a explorar (${optionalLeft} extra)` : "Ficar nesta fotografia"}</button>`, "dm-dialog__card--done");
   }
 
-  // ───────────────────────── álbum vivo ─────────────────────────
+  // ───────────────────────── Caderno de Campo ─────────────────────────
   function albumPageHtml(index) {
     const m = valid[index]; if (!m) return "";
     const entry = S.progress.completed[m.missionId];
@@ -320,12 +350,12 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     return `<article class="dm-page">
       <p class="dm-eyebrow">Página ${index + 1} de ${valid.length} · ${esc(m.reward?.page || m.title)}</p>
       <div class="dm-page__grid">
-        <figure class="dm-page__photo">${img(m.image.src, m.image.alt)}<span class="dm-page__stamp">${ICONS.selo(40)}<small>${esc(m.reward?.label || "")}</small></span>
+        <figure class="dm-page__photo">${img(m.image.src, m.image.alt)}<span class="dm-page__stamp">${stampSvg(m.reward?.label || "Investigação concluída")}</span>
           <figcaption>«${esc(m.image.documentTitle)}» · ${esc(m.image.date || "")}<br>${esc(m.image.credit)}</figcaption></figure>
         <div class="dm-page__text">
           <h2>${esc(m.title)}</h2>
           <p class="dm-reward__message">${esc(m.reward?.message || "")}</p>
-          <ul class="dm-page__finds">${found.map(t => `<li><strong>${esc(t.title)}</strong> <span class="dm-cert dm-cert--${t.discovery.certainty}">${certaintyText(t.discovery.certainty)}</span><br>${esc(t.discovery.text)}</li>`).join("")}</ul>
+          <ul class="dm-page__finds">${found.map(t => `<li><span class="dm-obj__pic">${objPic(t)}</span><div><strong>${esc(t.title)}</strong> <span class="dm-cert dm-cert--${t.discovery.certainty}">${certaintyText(t.discovery.certainty)}</span><br>${esc(t.discovery.text)}</div></li>`).join("")}</ul>
           <p class="dm-small">${found.length} de ${tasksOf(m).length} descobertas · melhor pontuação ${entry.bestScore}/${maxScore(m)}</p>
           <div class="dm-page__links">${museumLink(m.image.memoryRef)}${(m.related || []).map(rel => museumLink(rel.id, `Ligação: ${rel.title}`)).join("")}</div>
           <button type="button" class="dm-btn" data-act="play" data-mission="${m.missionId}">Investigar de novo</button>
@@ -342,9 +372,9 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const tabs = valid.map((m, i) => `<button type="button" class="dm-tab ${i === page ? "is-current" : ""} ${S.progress.completed[m.missionId] ? "is-done" : ""}" data-act="album-page" data-page="${i}" aria-current="${i === page}">${S.progress.completed[m.missionId] ? img(m.image.src) : `<span>${ICONS.lupa(20)}</span>`}<small>${esc(m.title)}</small></button>`).join("");
     const mt = S.progress.metrics || {};
     const avg = (list, div, digits) => (list && list.length ? (list.reduce((a, b) => a + b, 0) / list.length / div).toFixed(digits) : "—");
-    return `<div class="dm-level"><p>Nível: <strong>${esc(level.current.name)}</strong> · ${done.length} de ${valid.length} página(s) preenchida(s)</p>
+    return `<div class="dm-level"><p>Nível: <strong>${esc(level.current.name)}</strong> · ${done.length} de ${valid.length} selo(s)</p>
       ${nextGoal ? `<div class="dm-level__bar" role="progressbar" aria-valuemin="0" aria-valuemax="${nextGoal.minMissions}" aria-valuenow="${done.length}" aria-label="Progresso para ${esc(nextGoal.name)}"><span data-dm-pct="${pct}"></span></div>` : ""}</div>
-      <nav class="dm-album__tabs" aria-label="Páginas do álbum">${tabs}</nav>
+      <nav class="dm-album__tabs" aria-label="Páginas do caderno">${tabs}</nav>
       <div class="dm-album__book" data-dm-page>${albumPageHtml(page)}</div>
       <div class="dm-album__nav">
         <button type="button" class="dm-btn" data-act="album-page" data-page="${page - 1}" ${page <= 0 ? "disabled" : ""}>${ICONS.voltar(18)} Página anterior</button>
@@ -357,13 +387,25 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         <dt>Toques sem pista / respostas a rever</dt><dd>${mt.misses || 0} / ${mt.wrongAnswers || 0}</dd>
         <dt>Tempo médio até à 1.ª descoberta</dt><dd>${avg(mt.firstDiscoveryMs, 1000, 1)} s</dd><dt>Resposta do interface ao toque</dt><dd>${avg(mt.feedbackMs, 1, 0)} ms</dd></dl></details>
       <div class="dm-clear">${S.confirmClear
-        ? `<p>Apagar o álbum e o progresso guardados neste browser?</p><button type="button" class="dm-btn dm-btn--danger" data-act="clear-confirm">Sim, apagar</button> <button type="button" class="dm-btn" data-act="clear-cancel">Cancelar</button>`
-        : `<button type="button" class="dm-btn dm-btn--quiet" data-act="clear">Apagar o meu álbum</button>`}</div>`;
+        ? `<p>Apagar o caderno e o progresso guardados neste browser?</p><button type="button" class="dm-btn dm-btn--danger" data-act="clear-confirm">Sim, apagar</button> <button type="button" class="dm-btn" data-act="clear-cancel">Cancelar</button>`
+        : `<button type="button" class="dm-btn dm-btn--quiet" data-act="clear">Apagar o meu caderno</button>`}</div>`;
+  }
+
+  // Caderno aberto por cima da mesa: abre como um livro (animação curta) e fecha de imediato.
+  function notebookHtml() {
+    return `<div class="dm-dialog dm-dialog--book" data-dm-dialog><div class="dm-book" role="dialog" aria-modal="true" aria-labelledby="dm-book-t">
+      <div class="dm-book__cover" aria-hidden="true"></div>
+      <div class="dm-book__paper">
+        <div class="dm-book__head"><h2 id="dm-book-t">${ICONS.caderno(26)} Caderno de Campo</h2>
+          <button type="button" class="dm-tool" data-act="close-dialog" title="Fechar e voltar ao jogo">${TOOL.fechar}<span class="dm-sr">Fechar e voltar ao jogo</span></button></div>
+        ${albumBody()}
+      </div>
+    </div></div>`;
   }
 
   function albumHtml() {
     return `<section class="dm-album" aria-labelledby="dm-al-title">
-      <div class="dm-board__head"><div>${labNotice}<h1 id="dm-al-title">${ICONS.caderno(30)} O meu álbum</h1><p>Uma página por fotografia investigada, com as tuas descobertas.</p></div>
+      <div class="dm-board__head"><div>${labNotice}<h1 id="dm-al-title">${ICONS.caderno(30)} Caderno de Campo</h1><p>Uma página por fotografia investigada, com as tuas descobertas.</p></div>
       <div class="dm-actions"><button type="button" class="dm-btn dm-btn--primary" data-act="board">Fotografias</button><button type="button" class="dm-btn" data-act="intro">${ICONS.voltar(18)} Início</button></div></div>
       ${albumBody()}
     </section>`;
@@ -377,8 +419,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   // ───────────────────────── render ─────────────────────────
   function render() {
     const screens = { intro: introHtml, board: boardHtml, play: playHtml, album: albumHtml, error: errorHtml };
-    const dialogs = { howto: howtoHtml, question: questionHtml, paused: pausedHtml, completed: completedHtml, album: () => dialogHtml("dm-alo", `${ICONS.caderno(26)} O meu álbum`, albumBody(), `<button type="button" class="dm-btn dm-btn--primary" data-act="close-dialog">Voltar à fotografia</button>`, "dm-dialog__card--wide") };
-    root.dataset.dmState = S.dialog === "paused" ? "paused" : S.dialog === "completed" ? "completed" : S.screen === "play" ? (S.mission?.kind === "tutorial" ? "tutorial" : "mission") : S.screen;
+    const dialogs = { howto: howtoHtml, question: questionHtml, paused: pausedHtml, completed: completedHtml, notebook: notebookHtml };
+    root.dataset.dmState = S.dialog === "paused" ? "paused" : S.dialog === "completed" ? "completed" : S.dialog === "notebook" ? "notebook" : S.screen === "play" ? "mission" : S.screen;
     root.classList.toggle("dm--playing", S.screen === "play");
     root.classList.toggle("dm--calm", calm());
     root.innerHTML = `<div class="dm-live dm-sr" data-dm-live aria-live="polite"></div>${screens[S.screen]()}${S.dialog ? dialogs[S.dialog]() : ""}`;
@@ -387,11 +429,11 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     if (S.dialog === "question") placeZoomPreview();
     if (S.dialog) {
       root.querySelector(".dm-play")?.setAttribute("inert", "");
-      // Diálogos longos (conclusão, álbum): o foco vai para o título, para a leitura começar no topo.
-      const heading = ["completed", "album"].includes(S.dialog) ? root.querySelector("[data-dm-dialog] h2") : null;
-      if (heading) { heading.setAttribute("tabindex", "-1"); heading.focus({ preventScroll: true }); root.querySelector(".dm-dialog__card").scrollTop = 0; }
+      // Diálogos longos (conclusão, caderno): o foco vai para o título, para a leitura começar no topo.
+      const heading = ["completed", "notebook"].includes(S.dialog) ? root.querySelector("[data-dm-dialog] h2") : null;
+      if (heading) { heading.setAttribute("tabindex", "-1"); heading.focus({ preventScroll: true }); }
       else (root.querySelector("[data-dm-dialog] .dm-option") || root.querySelector("[data-dm-dialog] .dm-btn--primary") || root.querySelector("[data-dm-dialog] button"))?.focus();
-    }
+    } else if (S.screen === "play" && S.briefing) root.querySelector("[data-dm-brief] .dm-btn")?.focus({ preventScroll: true });
   }
 
   // Pré-visualização ampliada (caixa 16:9): centra o ponto (cx, cy) da fotografia com a escala pedida.
@@ -404,13 +446,14 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     box.style.top = `${(0.5 - cy * scale * ratio * (16 / 9)) * 100}%`;
   }
 
-  // ───────────────────────── palco: proporção, zoom, deslocação, toque ─────────────────────────
-  let stage, canvas, base = { w: 0, h: 0, left: 0, top: 0 };
+  // ───────────────────────── palco: proporção, zoom, deslocação, toque, lupa ─────────────────────────
+  let stage, canvas, loupe, loupeImg, base = { w: 0, h: 0, left: 0, top: 0 }, loupeFrame = 0, loupeAt = null;
   function setupStage() {
     stage = root.querySelector("[data-dm-stage]"); canvas = root.querySelector("[data-dm-canvas]");
+    loupe = root.querySelector("[data-dm-loupe]"); loupeImg = root.querySelector("[data-dm-loupe-img]");
     const image = root.querySelector("[data-dm-image]");
     image.addEventListener("error", () => { S.error = { message: "A fotografia desta missão não carregou. Verifica a ligação e tenta de novo.", retry: true }; S.screen = "error"; render(); }, { once: true });
-    fit(); drawMarks(); drawCursor();
+    fit(); drawOutlines(); drawCursor();
     resizeObserver?.disconnect();
     if (typeof ResizeObserver === "function") { resizeObserver = new ResizeObserver(() => { fit(); }); resizeObserver.observe(stage); }
     bindStage();
@@ -419,12 +462,12 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   function fit() {
     if (!stage) return;
     const { image } = S.mission;
-    // Ecrãs estreitos: o palco toma a proporção da fotografia (sem faixas vazias); o painel fica com o resto.
-    const narrow = typeof matchMedia === "function" && matchMedia("(max-width: 60rem)").matches;
-    stage.style.aspectRatio = narrow ? `${image.width} / ${image.height}` : "";
-    const sw = stage.clientWidth, sh = stage.clientHeight, aspect = image.width / image.height;
+    stage.style.setProperty("--dm-ar", `${image.width} / ${image.height}`);
+    // A moldura de papel fica dentro do palco: a fotografia ocupa o resto, inteira e sem cortes.
+    const pad = stage.clientWidth < 520 ? 8 : 18;
+    const sw = stage.clientWidth - pad * 2, sh = stage.clientHeight - pad * 2, aspect = image.width / image.height;
     const w = sw / sh > aspect ? sh * aspect : sw, h = w / aspect;
-    base = { w, h, left: (sw - w) / 2, top: (sh - h) / 2 };
+    base = { w, h, left: pad + (sw - w) / 2, top: pad + (sh - h) / 2 };
     canvas.style.width = `${w}px`; canvas.style.height = `${h}px`; canvas.style.left = `${base.left}px`; canvas.style.top = `${base.top}px`;
     clampPan(); applyTransform();
   }
@@ -435,13 +478,17 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     z.y = Math.min(0, Math.max(base.h - base.h * z.s, z.y));
     if (z.s === 1) { z.x = 0; z.y = 0; }
   }
-  function applyTransform() { if (canvas) canvas.style.transform = `translate(${S.zoom.x}px, ${S.zoom.y}px) scale(${S.zoom.s})`; }
+  function applyTransform() {
+    if (!canvas) return;
+    canvas.style.transform = `translate(${S.zoom.x}px, ${S.zoom.y}px) scale(${S.zoom.s})`;
+    canvas.classList.toggle("is-zoomed", S.zoom.s > 1);
+  }
 
   function zoomAt(factor, px = base.w / 2, py = base.h / 2) {
     const z = S.zoom, s = Math.min(5, Math.max(1, z.s * factor));
     const wx = (px - z.x) / z.s, wy = (py - z.y) / z.s;
     z.x = px - wx * s; z.y = py - wy * s; z.s = s;
-    clampPan(); applyTransform();
+    clampPan(); applyTransform(); hideLoupe();
     if (s > 1) step("zoom");
   }
 
@@ -450,17 +497,43 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     return { x: (clientX - rect.left) / rect.width, y: (clientY - rect.top) / rect.height };
   }
 
+  // Lupa real: lente circular com a MESMA fotografia ampliada LOUPE_ZOOM vezes em relação ao que se vê
+  // (funciona também com zoom). Só transforms, uma actualização por frame.
+  function moveLoupe(clientX, clientY, touch = false) {
+    if (!S.loupe || !loupe) return;
+    loupeAt = { clientX, clientY, touch };
+    if (loupeFrame) return;
+    loupeFrame = requestAnimationFrame(() => {
+      loupeFrame = 0; if (!loupeAt || !S.loupe) return;
+      const rect = canvas.getBoundingClientRect(), srect = stage.getBoundingClientRect();
+      const lift = loupeAt.touch ? loupe.offsetWidth * 0.75 : 0;
+      const cx = loupeAt.clientX, cy = loupeAt.clientY - lift;
+      const p = { x: (cx - rect.left) / rect.width, y: (cy - rect.top) / rect.height };
+      if (p.x < 0 || p.y < 0 || p.x > 1 || p.y > 1) { loupe.hidden = true; return; }
+      loupe.hidden = false;
+      const d = loupe.offsetWidth;
+      loupe.style.transform = `translate3d(${cx - srect.left - d / 2}px, ${cy - srect.top - d / 2}px, 0)`;
+      const W = rect.width * LOUPE_ZOOM, H = rect.height * LOUPE_ZOOM;
+      loupeImg.style.width = `${W}px`; loupeImg.style.height = `${H}px`;
+      loupeImg.style.transform = `translate3d(${d / 2 - p.x * W}px, ${d / 2 - p.y * H}px, 0)`;
+    });
+  }
+  function hideLoupe() { if (loupe) loupe.hidden = true; loupeAt = null; }
+
   function bindStage() {
     const pointers = new Map();
     let gesture = null;
     stage.addEventListener("pointerdown", event => {
-      if (event.target.closest(".dm-zoom,.dm-found-card")) return;
       stage.setPointerCapture?.(event.pointerId);
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-      if (pointers.size === 1) gesture = { type: "tap", startX: event.clientX, startY: event.clientY, x0: S.zoom.x, y0: S.zoom.y, t: Date.now() };
-      if (pointers.size === 2) { const [a, b] = [...pointers.values()]; gesture = { type: "pinch", d0: Math.hypot(a.x - b.x, a.y - b.y), s0: S.zoom.s }; }
+      const touch = event.pointerType !== "mouse";
+      if (pointers.size === 1) gesture = { type: S.loupe && touch ? "lens" : "tap", startX: event.clientX, startY: event.clientY, x0: S.zoom.x, y0: S.zoom.y, t: Date.now() };
+      if (pointers.size === 2) { const [a, b] = [...pointers.values()]; gesture = { type: "pinch", d0: Math.hypot(a.x - b.x, a.y - b.y), s0: S.zoom.s }; hideLoupe(); }
+      if (gesture?.type === "lens") moveLoupe(event.clientX, event.clientY, true);
+      poke();
     });
     stage.addEventListener("pointermove", event => {
+      if (event.pointerType === "mouse") moveLoupe(event.clientX, event.clientY);
       if (!pointers.has(event.pointerId) || !gesture) return;
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
       if (gesture.type === "pinch" && pointers.size === 2) {
@@ -469,6 +542,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
         zoomAt((gesture.s0 * Math.hypot(a.x - b.x, a.y - b.y) / gesture.d0) / S.zoom.s, mid.x, mid.y);
         return;
       }
+      if (gesture.type === "lens") { moveLoupe(event.clientX, event.clientY, true); return; }
       const dx = event.clientX - gesture.startX, dy = event.clientY - gesture.startY;
       if (gesture.type === "tap" && Math.hypot(dx, dy) > 8) gesture.type = "pan";
       if (gesture.type === "pan" && S.zoom.s > 1) { S.zoom.x = gesture.x0 + dx; S.zoom.y = gesture.y0 + dy; clampPan(); applyTransform(); }
@@ -476,18 +550,25 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const end = event => {
       if (!pointers.has(event.pointerId)) return;
       pointers.delete(event.pointerId);
-      if (gesture?.type === "tap" && pointers.size === 0 && Date.now() - gesture.t < 800) investigate(toNormalized(event.clientX, event.clientY), "pointer");
+      // Lupa no toque: investiga-se o ponto no CENTRO da lente (acima do dedo), ao levantar.
+      if (gesture?.type === "lens" && pointers.size === 0) {
+        const lift = loupe.offsetWidth * 0.75; hideLoupe();
+        investigate(toNormalized(event.clientX, event.clientY - lift), "pointer");
+      } else if (gesture?.type === "tap" && pointers.size === 0 && Date.now() - gesture.t < 800) investigate(toNormalized(event.clientX, event.clientY), "pointer");
       if (pointers.size === 0) gesture = null;
     };
     stage.addEventListener("pointerup", end);
-    stage.addEventListener("pointercancel", event => { pointers.delete(event.pointerId); gesture = null; });
+    stage.addEventListener("pointercancel", event => { pointers.delete(event.pointerId); gesture = null; hideLoupe(); });
+    stage.addEventListener("pointerleave", event => { if (event.pointerType === "mouse") hideLoupe(); });
     stage.addEventListener("wheel", event => {
       event.preventDefault();
       const rect = stage.getBoundingClientRect();
       zoomAt(event.deltaY < 0 ? 1.15 : 1 / 1.15, event.clientX - rect.left - base.left, event.clientY - rect.top - base.top);
+      moveLoupe(event.clientX, event.clientY);
     }, { passive: false });
     stage.addEventListener("keydown", event => {
       if (event.target !== stage) return;
+      poke();
       const big = event.shiftKey ? 0.01 : 0.03, c = S.cursor;
       const moves = { ArrowLeft: [-big, 0], ArrowRight: [big, 0], ArrowUp: [0, -big], ArrowDown: [0, big] };
       if (moves[event.key]) {
@@ -516,25 +597,28 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     if (el) { el.style.left = `${S.cursor.x * 100}%`; el.style.top = `${S.cursor.y * 100}%`; }
   }
 
-  // Marca de descoberta: aparece no PONTO TOCADO (resposta imediata) ou no centro da pista (retoma).
-  function drawMarks(newId, at) {
-    const layer = root.querySelector("[data-dm-marks]"); if (!layer) return;
-    layer.innerHTML = tasksOf(S.mission).filter(t => t.type === "find" && S.run.found.includes(t.id)).map(spot => {
-      const index = tasksOf(S.mission).indexOf(spot) + 1;
-      return `<span class="dm-mark ${spot.id === newId ? "is-new" : ""}" data-mark="${spot.id}" title="${esc(spot.title)}"><span>${index}</span>${spot.id === newId && !calm() ? `<i class="dm-burst" aria-hidden="true">${"<b></b>".repeat(8)}</i>` : ""}</span>`;
-    }).join("");
-    layer.querySelectorAll("[data-mark]").forEach(el => {
-      const spot = taskById(el.dataset.mark);
-      const c = el.dataset.mark === newId && at ? at : shapeCenter(spot.shape);
-      el.style.left = `${c.x * 100}%`; el.style.top = `${c.y * 100}%`;
-    });
+  // Contorno da descoberta: desenhado sobre a forma REAL da pista, só depois de encontrada.
+  // viewBox 0..1 + traço sem escala: fica alinhado com qualquer zoom e ecrã.
+  function outlineSvg(shape, aspect) {
+    if (shape.type === "multi") return shape.shapes.map(part => outlineSvg(part, aspect)).join("");
+    if (shape.type === "circle") return `<ellipse cx="${shape.cx}" cy="${shape.cy}" rx="${shape.r}" ry="${shape.r * aspect}" pathLength="1"/>`;
+    const xs = shape.points.map(p => p[0]), ys = shape.points.map(p => p[1]);
+    const box = shape.points.length === 4 && shape.points.every(([x, y]) => (x === Math.min(...xs) || x === Math.max(...xs)) && (y === Math.min(...ys) || y === Math.max(...ys)));
+    if (box) return `<rect x="${Math.min(...xs)}" y="${Math.min(...ys)}" width="${Math.max(...xs) - Math.min(...xs)}" height="${Math.max(...ys) - Math.min(...ys)}" rx="0.008" ry="${0.008 * aspect}" pathLength="1"/>`;
+    return `<polygon points="${shape.points.map(p => p.join(",")).join(" ")}" pathLength="1"/>`;
+  }
+  function drawOutlines(newId) {
+    const layer = root.querySelector("[data-dm-outlines]"); if (!layer) return;
+    const aspect = S.mission.image.width / S.mission.image.height;
+    layer.innerHTML = tasksOf(S.mission).filter(t => t.type === "find" && S.run.found.includes(t.id))
+      .map(t => `<g class="dm-outline ${t.id === newId ? "is-new" : ""}" data-outline="${t.id}">${outlineSvg(t.shape, aspect)}</g>`).join("");
   }
 
   function ripple(point) {
-    const layer = root.querySelector("[data-dm-marks]"); if (!layer || calm()) return;
+    const host = root.querySelector("[data-dm-canvas]"); if (!host || calm()) return;
     const el = document.createElement("span");
     el.className = "dm-ripple"; el.style.left = `${point.x * 100}%`; el.style.top = `${point.y * 100}%`;
-    layer.appendChild(el); later(() => el.remove(), 700);
+    host.appendChild(el); later(() => el.remove(), 700);
   }
 
   function showHintZone(spot) {
@@ -543,37 +627,64 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     el.style.left = `${(a.cx - a.r) * 100}%`; el.style.top = `${(a.cy - a.r * aspect) * 100}%`;
     el.style.width = `${a.r * 2 * 100}%`; el.style.height = `${a.r * 2 * aspect * 100}%`;
     el.hidden = false; el.classList.remove("is-on"); void el.offsetWidth; el.classList.add("is-on");
-    later(() => { el.hidden = true; }, 6000);
+    later(() => { el.hidden = true; }, 7000);
+  }
+
+  // ───────────────────────── guia (avatar futuro) ─────────────────────────
+  // guide(mood, texto, acções, ms) — mood: neutral | curious | discovery | celebrate. Nunca rouba o foco.
+  function guide(mood, text, buttons = [], ms = 9000) {
+    const el = root.querySelector("[data-dm-guide]"); if (!el) return;
+    clearTimeout(guideTimer);
+    el.dataset.mood = mood;
+    el.querySelector("[data-dm-guide-text]").textContent = text;
+    el.querySelector("[data-dm-guide-actions]").innerHTML = buttons.map(b => `<button type="button" class="dm-btn dm-btn--small ${b.primary ? "dm-btn--primary" : ""}" data-act="${b.act}" ${b.task ? `data-task="${b.task}"` : ""}>${esc(b.label)}</button>`).join("");
+    el.hidden = false; el.classList.remove("is-in"); void el.offsetWidth; el.classList.add("is-in");
+    if (ms) guideTimer = later(() => { el.hidden = true; }, ms);
+  }
+  function hideGuide() { const el = root.querySelector("[data-dm-guide]"); if (el) el.hidden = true; }
+
+  // Inactividade: uma sugestão curta, sem insistência.
+  function poke() {
+    clearTimeout(idleTimer);
+    if (S.screen !== "play" || S.runDone || S.run?.completedOnce) return;
+    idleTimer = later(() => {
+      if (S.dialog || S.briefing || S.screen !== "play") return;
+      if (!S.loupe) guide("curious", GUIDE.idle, [{ act: "loupe", label: "Usar a lupa", primary: true }], 12000);
+      else guide("curious", "Experimenta pedir uma pista!", [{ act: "hint", label: "Pista", primary: true }], 12000);
+    }, IDLE_MS);
   }
 
   // ───────────────────────── jogo ─────────────────────────
   function step(id) {
     if (!S.run || S.runDone || S.mission?.kind !== "tutorial" || S.run.steps.includes(id)) return;
     S.run = markStep(S.run, id); persistRun();
-    if (S.screen === "play" && !S.dialog) refreshSide();
     maybeComplete();
   }
 
-  // Missão em curso: guardada até ser concluída; depois, os extra entram directamente no álbum.
+  // Missão em curso: guardada até ser concluída; depois, os extra entram directamente no caderno.
   function persistRun() {
     if (!S.run || S.runDone || S.run.completedOnce) return;
     S.progress = { ...S.progress, current: { ...S.run } }; save();
   }
 
-  // Recompensas em três tempos: imediata (marca no ponto tocado, brilho, som), breve (pontos e
-  // progresso animados) e educativa (cartão de descoberta que NÃO bloqueia a próxima acção).
-  function rewardDiscovery(task, points, at) {
+  // Recompensas em três tempos: imediata (contorno do objecto, som), breve (cartão do objectivo e pontos)
+  // e educativa (o guia oferece «saber mais», sem bloquear a próxima acção).
+  function rewardDiscovery(task, points) {
     const t0 = now();
-    if (task.type === "find") drawMarks(task.id, at);
+    S.lastFound = task.id;
+    if (task.type === "find") drawOutlines(task.id);
+    const zone = root.querySelector("[data-dm-hintzone]"); if (zone) zone.hidden = true;
+    refreshObjectives();
     sound("found");
     S.progress = bumpMetric(S.progress, "feedbackMs", now() - t0);
     if (!S.firstFound) { S.firstFound = true; S.progress = bumpMetric(S.progress, "firstDiscoveryMs", Date.now() - S.startedAt); }
     S.progress = bumpMetric(S.progress, "discoveries"); if (task.optional) S.progress = bumpMetric(S.progress, "optionalDiscoveries");
     save();
     animateScore(points);
-    refreshSide();
-    showFoundCard(task, points);
+    hideDiscovery();
+    guide("discovery", `${GUIDE.found} ${task.discovery.short || task.title}`, [{ act: "more", task: task.id, label: "Saber mais", primary: true }], 10000);
     announce(`Descoberta: ${task.title}. Mais ${points} pontos.`);
+    poke();
     if (S.run.completedOnce) { S.progress = recordCompletion(S.progress, S.run, new Date(), { keepCurrent: true }); save(); }
   }
 
@@ -588,21 +699,24 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     requestAnimationFrame(tick);
   }
 
-  function showFoundCard(task, points) {
-    const card = root.querySelector("[data-dm-found-card]"); if (!card) return;
+  // «Saber mais»: cartão breve com o texto completo, certeza e fonte. Fecha-se e o jogo continua.
+  function showDiscovery(task) {
+    const card = root.querySelector("[data-dm-discovery]"); if (!card || !task) return;
     const memory = task.compare?.id || S.mission.image.memoryRef;
-    card.innerHTML = `<p class="dm-eyebrow">${esc(LAYERS[task.layer].label)} · +${points} pontos</p>
+    card.innerHTML = `<span class="dm-obj__pic">${objPic(task)}</span>
+      <div><p class="dm-eyebrow">${esc(LAYERS[task.layer].label)} · +${S.run.points[task.id] ?? 0} pontos</p>
       <h3>${esc(task.title)}</h3>
       <p>${esc(task.discovery.text)}</p>
-      <p class="dm-found-card__meta"><span class="dm-cert dm-cert--${task.discovery.certainty}">${certaintyText(task.discovery.certainty)}</span> Fonte: ${esc(task.discovery.source)} · <a href="#/museu/memorias/${esc(memory)}">${esc(memory)}</a></p>
-      <p class="dm-found-card__album">${ICONS.caderno(16)} Guardado no teu álbum</p>
-      <button type="button" class="dm-btn dm-btn--small dm-btn--primary" data-act="ack">Continuar a investigação</button>`;
+      <p class="dm-discovery__meta"><span class="dm-cert dm-cert--${task.discovery.certainty}">${certaintyText(task.discovery.certainty)}</span> Fonte: ${esc(task.discovery.source)} · <a href="#/museu/memorias/${esc(memory)}">${esc(memory)}</a></p>
+      <button type="button" class="dm-btn dm-btn--small dm-btn--primary" data-act="ack">Continuar a investigar</button></div>`;
     card.hidden = false; card.classList.remove("is-in"); void card.offsetWidth; card.classList.add("is-in");
-    sound("paper");
+    hideGuide(); sound("paper"); step("read");
+    card.querySelector(".dm-btn")?.focus({ preventScroll: true });
   }
+  function hideDiscovery() { const card = root.querySelector("[data-dm-discovery]"); if (card) card.hidden = true; }
 
   function investigate(point, via) {
-    if (S.dialog || !S.run || S.runDone) return;
+    if (S.dialog || S.briefing || !S.run || S.runDone) return;
     const rect = canvas.getBoundingClientRect();
     const tol = via === "pointer" ? touchTolerance(S.mission.image, rect.width) : touchTolerance(S.mission.image, rect.width, 6);
     const outcome = registerTap(S.run, S.mission, point, tol);
@@ -610,20 +724,20 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     if (outcome.result === "found") {
       if (S.mission.kind === "tutorial") S.run = markStep(S.run, "tap");
       S.selected = null; persistRun();
-      rewardDiscovery(outcome.hotspot, outcome.points, via === "pointer" ? point : null);
+      rewardDiscovery(outcome.hotspot, outcome.points);
       if (!pendingRequired()) maybeCompleteSoon();
     } else if (outcome.result === "already") {
       announce(`Já encontraste: ${outcome.hotspot.title}.`);
     } else {
       ripple(point); persistRun(); metric("misses");
-      if (outcome.suggestHelp) toast("Nem todas as pistas são fáceis de encontrar! Experimenta ampliar a fotografia ou observar outra parte da imagem.");
+      if (outcome.suggestHelp) guide("curious", "Nem todas as pistas são fáceis de encontrar! Experimenta a lupa ou observa outra parte da fotografia.", [{ act: "hint", label: "Dá-me uma pista" }], 9000);
       else announce("Aqui ainda não há pista. Continua a observar.");
     }
   }
 
   const pendingRequired = () => requiredTasks(S.mission).some(t => !S.run.found.includes(t.id));
-  // A celebração espera pelo cartão (~1,4 s ou ao carregar em «Continuar»): nunca corta a leitura.
-  function maybeCompleteSoon() { later(() => { if (!S.dialog && !maybeComplete()) pendingHelp(); }, calm() ? 400 : 1400); }
+  // A celebração dá tempo para ver o contorno e o cartão (~1,3 s); nunca começa outra missão sozinha.
+  function maybeCompleteSoon() { later(() => { if (!S.dialog && !maybeComplete()) pendingHelp(); }, calm() ? 400 : 1300); }
 
   function answer(optionId) {
     const res = answerQuestion(S.run, S.mission, S.question, optionId);
@@ -639,25 +753,30 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     S.dialog = null; S.question = null; S.questionNote = ""; persistRun();
     render();
     if (S.mission.kind === "tutorial") S.run = markStep(S.run, "tap");
-    rewardDiscovery(res.task, res.points, null);
+    rewardDiscovery(res.task, res.points);
     if (!pendingRequired()) maybeCompleteSoon();
   }
 
-  function toast(message) {
-    root.querySelector(".dm-toast")?.remove();
-    const el = document.createElement("p");
-    el.className = "dm-toast"; el.setAttribute("role", "status"); el.textContent = message;
-    root.querySelector(".dm-play")?.appendChild(el);
-    later(() => el.remove(), 6000);
+  function refreshObjectives() {
+    const current = root.querySelector("[data-dm-objectives]"); if (!current) return;
+    const tmp = document.createElement("div"); tmp.innerHTML = objectivesHtml();
+    const scroll = current.querySelector("ol")?.scrollTop || 0;
+    current.replaceWith(tmp.firstElementChild);
+    const list = root.querySelector("[data-dm-objectives] ol"); if (list) list.scrollTop = scroll;
   }
 
-  function refreshSide() {
-    const current = root.querySelector("[data-dm-side]"); if (!current) return;
-    const tmp = document.createElement("div"); tmp.innerHTML = sideHtml();
-    const fresh = tmp.firstElementChild, openDetails = current.querySelector("details")?.open, scroll = current.scrollTop;
-    current.replaceWith(fresh); if (openDetails) fresh.querySelector("details").open = true; fresh.scrollTop = scroll;
-    const prog = root.querySelector("[data-dm-progress]"); const tmp2 = document.createElement("div"); tmp2.innerHTML = progressHtml();
-    if (prog) prog.replaceWith(tmp2.firstElementChild);
+  // Selo: carimba-se sobre a fotografia e voa até ao Caderno pousado na mesa.
+  function stampToNotebook(label, done) {
+    const table = root.querySelector("[data-dm-table]"), book = root.querySelector("[data-dm-notebook]");
+    if (!table || !book || calm()) { done(); return; }
+    const el = document.createElement("div");
+    el.className = "dm-flystamp"; el.innerHTML = stampSvg(label);
+    table.appendChild(el);
+    const s = el.getBoundingClientRect(), b = book.getBoundingClientRect();
+    el.style.setProperty("--dx", `${Math.round(b.left + b.width / 2 - (s.left + s.width / 2))}px`);
+    el.style.setProperty("--dy", `${Math.round(b.top + b.height / 2 - (s.top + s.height / 2))}px`);
+    el.classList.add("is-on");
+    later(() => { el.remove(); done(); }, 1500);
   }
 
   function maybeComplete() {
@@ -668,9 +787,15 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     S.progress = bumpMetric(S.progress, "missionsCompleted"); save();
     const after = levelFor(completedIds().length);
     S.completion = { mission: S.mission, run: S.run, before, after };
+    clearTimeout(idleTimer); hideDiscovery();
     sound("complete");
+    guide("celebrate", GUIDE.done, [], 0);
     root.querySelector("[data-dm-canvas]")?.classList.add("is-solved");
-    later(() => { S.dialog = "completed"; render(); }, calm() ? 0 : 500);
+    later(() => stampToNotebook(S.mission.reward?.label || "Investigação concluída", () => {
+      const book = root.querySelector("[data-dm-notebook]");
+      if (book) { const tmp = document.createElement("div"); tmp.innerHTML = notebookObjHtml(); const fresh = tmp.firstElementChild; book.replaceWith(fresh); fresh.classList.add("is-bump"); }
+      later(() => { S.dialog = "completed"; render(); }, calm() ? 0 : 400);
+    }), calm() ? 0 : 500);
     return true;
   }
 
@@ -678,14 +803,24 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const m = missionById(id);
     if (!m) { S.error = { message: `A missão «${id}» não existe ou não está disponível.` }; S.screen = "error"; S.dialog = null; render(); return; }
     if (!unlocked().includes(id)) { S.notice = `«${m.title}» abre depois de concluíres a fotografia anterior.`; S.screen = "board"; S.dialog = null; render(); return; }
-    S.mission = m; S.notice = ""; S.completion = null;
+    S.mission = m; S.notice = ""; S.completion = null; S.lastFound = null; S.objectivesOpen = false;
     const saved = S.progress.current?.missionId === id ? S.progress.current : null;
     S.run = saved ? { ...createRun(m), ...saved, status: "mission" } : createRun(m);
     S.runDone = false; S.firstFound = S.run.found.length > 0; S.startedAt = Date.now();
     S.zoom = { s: 1, x: 0, y: 0 }; S.cursor = { x: 0.5, y: 0.5 }; S.selected = null; S.dialog = null; S.screen = "play";
+    S.briefing = S.run.found.length === 0;
     if (!saved) S.progress = bumpMetric(S.progress, "missionsStarted");
     persistRun(); render();
-    announce(`${m.title}. ${requiredTasks(m).length} descobertas para concluir.`);
+    announce(`${m.title}. ${requiredTasks(m).length} objectos para encontrar.`);
+    if (!S.briefing) { guide("curious", `Continuamos: faltam ${requiredTasks(m).filter(t => !S.run.found.includes(t.id)).length} objectos.`, [], 5000); poke(); }
+  }
+
+  function begin() {
+    S.briefing = false; S.startedAt = Date.now();
+    root.querySelector("[data-dm-brief]")?.remove();
+    root.querySelector("[data-dm-stage]")?.focus({ preventScroll: true });
+    guide("curious", S.mission.opening || GUIDE.start, [], 7000);
+    poke();
   }
 
   function goStart() {
@@ -699,27 +834,47 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     const was = S.dialog;
     S.dialog = null; S.question = null; S.questionNote = ""; render();
     if (S.screen === "play") {
-      if (was === "album") step("notebook");
+      if (was === "notebook") step("notebook");
       root.querySelector("[data-dm-stage]")?.focus({ preventScroll: true });
-      pendingHelp();
+      pendingHelp(); poke();
     }
   }
 
   function pendingHelp() {
     if (S.mission?.kind !== "tutorial" || !S.run || S.run.completedOnce) return;
     const pending = pendingTutorialSteps(S.run);
-    if (!pendingRequired() && pending.length) toast(`Fizeste todas as descobertas! Para terminar o treino falta: ${pending.map(step => step.label.toLowerCase()).join("; ")}.`);
+    if (!pendingRequired() && pending.length) guide("curious", `Fizeste todas as descobertas! Para terminar o treino falta: ${pending.map(item => item.label.toLowerCase()).join("; ")}.`, [], 10000);
+  }
+
+  function describePanel() {
+    const panel = root.querySelector("[data-dm-describe]"); if (!panel) return;
+    if (!panel.hidden) { panel.hidden = true; return; }
+    panel.innerHTML = `<p class="dm-eyebrow">Explorar por descrição</p><p>Escolhe uma zona da fotografia para a investigar.</p>
+      <ul>${findZones(S.mission).map(z => `<li><button type="button" class="dm-zone" data-act="zone" data-zone="${z.id}">${esc(z.label)}</button></li>`).join("")}</ul>
+      <button type="button" class="dm-btn dm-btn--small" data-act="describe">Fechar</button>`;
+    panel.hidden = false; panel.querySelector(".dm-zone")?.focus();
+  }
+
+  function refreshTools() {
+    const current = root.querySelector("[data-dm-tools]"); if (!current) return;
+    const tmp = document.createElement("div"); tmp.innerHTML = toolsHtml();
+    current.replaceWith(tmp.firstElementChild);
   }
 
   // ───────────────────────── acções ─────────────────────────
   const actions = {
     start: goStart,
+    begin,
     howto: () => { S.dialog = "howto"; render(); },
     "close-dialog": () => closeDialog(),
     intro: () => { S.screen = "intro"; S.dialog = null; render(); },
     board: () => { persistRun(); S.screen = "board"; S.dialog = null; render(); },
     album: el => { persistRun(); if (el?.dataset.page) S.albumPage = Number(el.dataset.page); S.screen = "album"; S.dialog = null; S.confirmClear = false; render(); },
-    "album-overlay": () => { S.dialog = "album"; S.confirmClear = false; render(); },
+    notebook: el => {
+      persistRun(); if (el?.dataset.page) S.albumPage = Number(el.dataset.page); S.confirmClear = false; sound("paper");
+      if (S.screen === "play") S.dialog = "notebook"; else { S.screen = "album"; S.dialog = null; }
+      render();
+    },
     "album-page": el => {
       const page = Number(el.dataset.page); if (!(page >= 0 && page < valid.length)) return;
       S.albumPage = page;
@@ -734,24 +889,40 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     play: el => startMission(el.dataset.mission),
     pause: () => { S.dialog = "paused"; render(); },
     resume: () => closeDialog(),
-    ack: () => { root.querySelector("[data-dm-found-card]")?.setAttribute("hidden", ""); step("read"); if (!pendingRequired()) maybeComplete(); root.querySelector("[data-dm-stage]")?.focus({ preventScroll: true }); },
+    more: el => showDiscovery(taskById(el.dataset.task)),
+    ack: () => { hideDiscovery(); if (!pendingRequired()) maybeComplete(); root.querySelector("[data-dm-stage]")?.focus({ preventScroll: true }); },
     ask: el => { S.question = el.dataset.task; S.questionNote = ""; S.dialog = "question"; render(); sound("paper"); },
     answer: el => answer(el.dataset.option),
     retry: () => (S.mission ? startMission(S.mission.missionId) : goStart()),
-    sound: () => { S.progress = { ...S.progress, prefs: { ...S.progress.prefs, sound: !S.progress.prefs.sound } }; save(); refreshBarSound(); sound("found"); },
+    sound: () => { S.progress = { ...S.progress, prefs: { ...S.progress.prefs, sound: !S.progress.prefs.sound } }; save(); refreshTools(); sound("found"); },
+    loupe: () => {
+      S.loupe = !S.loupe; hideLoupe(); refreshTools();
+      root.querySelector("[data-dm-stage]")?.classList.toggle("is-loupe", S.loupe);
+      if (S.loupe) guide("neutral", finePointer() ? "Passa a lupa sobre a fotografia e clica quando encontrares." : "Arrasta o dedo: a lupa mostra o pormenor acima dele. Levanta para investigar.", [], 5000);
+      else hideGuide();
+      step("zoom"); poke();
+    },
+    objectives: () => { S.objectivesOpen = !S.objectivesOpen; refreshObjectives(); },
+    describe: describePanel,
     "zoom-in": () => zoomAt(1.4),
     "zoom-out": () => zoomAt(1 / 1.4),
     "zoom-reset": () => { S.zoom = { s: 1, x: 0, y: 0 }; applyTransform(); },
-    "select-clue": el => { S.selected = S.selected === el.dataset.clue ? null : el.dataset.clue; refreshSide(); root.querySelector(`[data-clue="${el.dataset.clue}"]`)?.focus(); },
+    "select-clue": el => {
+      const id = el.dataset.clue;
+      if (S.run?.found.includes(id)) { showDiscovery(taskById(id)); return; }
+      S.selected = S.selected === id ? null : id; refreshObjectives();
+      root.querySelector(`[data-obj="${id}"] button`)?.focus();
+    },
     hint: () => {
       if (!S.run || S.runDone) return;
       const { run, task, level } = applyHint(S.run, S.mission, S.selected);
       if (!task) return;
       S.run = run; persistRun(); metric("hintsUsed"); step("hint");
-      S.selected = task.id; refreshSide();
-      if (level >= 2 && task.type === "find") { showHintZone(task); toast(`Ajuda visual: «${task.clue}» está na zona destacada. Agora toca no sítio exacto.`); }
-      else if (level >= 2) toast(`Ajuda: ${task.hint} Abre a pergunta para responderes.`);
-      else toast(`Dica: ${task.hint}`);
+      S.selected = task.id; refreshObjectives();
+      if (level >= 2 && task.type === "find") { showHintZone(task); guide("curious", `Está nesta zona: «${task.clue}». Agora encontra o sítio exacto.`, [], 8000); }
+      else if (level >= 2) guide("curious", `${task.hint} Abre o cartão para responderes.`, [{ act: "ask", task: task.id, label: "Responder", primary: true }], 10000);
+      else guide("curious", task.hint, [{ act: "hint", label: "Mostra-me a zona" }], 10000);
+      poke();
     },
     zone: el => {
       const zone = findZones(S.mission).find(z => z.id === el.dataset.zone);
@@ -759,15 +930,8 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
     },
     clear: () => { S.confirmClear = true; render(); root.querySelector("[data-act='clear-cancel']")?.focus(); },
     "clear-cancel": () => { S.confirmClear = false; render(); },
-    "clear-confirm": () => { S.progress = clearProgress(storage); S.run = null; S.confirmClear = false; S.screen = "intro"; S.dialog = null; render(); announce("Álbum apagado."); }
+    "clear-confirm": () => { S.progress = clearProgress(storage); S.run = null; S.confirmClear = false; S.screen = "intro"; S.dialog = null; render(); announce("Caderno apagado."); }
   };
-
-  function refreshBarSound() {
-    const btn = root.querySelector("[data-act='sound']"); if (!btn) return;
-    btn.setAttribute("aria-pressed", String(S.progress.prefs.sound));
-    btn.setAttribute("aria-label", `Sons ${S.progress.prefs.sound ? "ligados" : "desligados"}`);
-    btn.innerHTML = S.progress.prefs.sound ? ICONS.som(22) : ICONS.semSom(22);
-  }
 
   const onClick = event => {
     const el = event.target.closest("[data-act]");
@@ -782,10 +946,17 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
   };
   const onKey = event => {
     const dialog = root.querySelector("[data-dm-dialog]");
-    if (!dialog) return;
+    if (!dialog) {
+      if (event.key === "Escape" && S.screen === "play") {
+        hideDiscovery(); hideGuide();
+        const panel = root.querySelector("[data-dm-describe]"); if (panel) panel.hidden = true;
+        if (S.loupe) actions.loupe();
+      }
+      return;
+    }
     if (event.key === "Escape") { event.preventDefault(); closeDialog(); return; }
     if (event.key !== "Tab") return;
-    const items = [...dialog.querySelectorAll("button:not([disabled]),a[href],input")];
+    const items = [...dialog.querySelectorAll("button:not([disabled]),a[href],input,summary")];
     if (!items.length) return;
     const first = items[0], last = items[items.length - 1];
     if (!dialog.contains(document.activeElement)) { event.preventDefault(); first.focus(); }
@@ -807,6 +978,7 @@ export function createDetetivesGame({ root, missions: resolved = [], blocked = [
       root.removeEventListener("change", onChange);
       document.removeEventListener("keydown", onKey);
       resizeObserver?.disconnect();
+      if (loupeFrame) cancelAnimationFrame(loupeFrame);
       timers.forEach(clearTimeout); timers.clear();
       try { audio?.close(); } catch { /* */ }
       persistRun();

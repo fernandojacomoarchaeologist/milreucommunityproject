@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "lab-only",
   "notice": "Catálogo de TESTE (HML) do jogo Detetives da Memória com fotografias reais do Museu de Memórias. Imagens, títulos, créditos e direitos vêm sempre da ficha canónica (public/data/memories.json + media-manifest.json); este ficheiro só guarda a jogabilidade. Planeamento e verificação visual: docs/website/DETETIVES_PLANEAMENTO_MISSOES.md.",
   "certaintyLabels": {
@@ -12,160 +12,199 @@
     {
       "missionId": "a-hora-da-pausa",
       "order": 1,
-      "kind": "tutorial",
+      "kind": "mission",
       "memoryRef": "MM202615",
       "variant": "immersive",
       "title": "A Hora da Pausa",
       "documentTitle": "Os escavadores ao almoço",
       "difficulty": "fácil",
       "locale": "pt-PT",
-      "description": "Uma refeição durante as campanhas arqueológicas. Esta missão ensina também a usar as ferramentas.",
-      "opening": "Nem tudo numa escavação acontece entre pedras e ferramentas. Também há momentos de pausa, refeições e conversas. Vamos descobrir o que esta fotografia nos conta sobre as pessoas que trabalharam em Milreu?",
+      "description": "Uma refeição durante as campanhas arqueológicas. Quatro pormenores escondidos à volta da mesa.",
+      "opening": "Há algo curioso nesta fotografia... Consegues encontrar?",
       "tasks": [
         {
-          "id": "mesa",
+          "id": "bolsa",
           "type": "find",
           "layer": "observacao",
           "optional": false,
-          "title": "A mesa da refeição",
-          "clue": "Encontra o sítio onde a refeição está servida.",
-          "hint": "Procura no centro da fotografia, à volta do qual as pessoas estão sentadas.",
+          "title": "A bolsa azul",
+          "clue": "A bolsa azul suspensa",
+          "hint": "Olha para cima, à esquerda: está pendurada numa árvore.",
           "shape": {
             "type": "polygon",
             "points": [
               [
-                0.315,
-                0.385
+                0.232,
+                0.18
               ],
               [
-                0.66,
-                0.37
+                0.29,
+                0.18
               ],
               [
-                0.725,
-                0.43
+                0.29,
+                0.292
               ],
               [
-                0.72,
-                0.5
-              ],
-              [
-                0.33,
-                0.47
+                0.232,
+                0.292
               ]
             ]
           },
           "hintArea": {
-            "cx": 0.52,
-            "cy": 0.43,
-            "r": 0.14
+            "cx": 0.26,
+            "cy": 0.24,
+            "r": 0.07
           },
-          "visualCheck": "Toalha aos quadrados e toalha branca, pratos, copos, garrafas e latas; estrutura de cavaletes visível por baixo.",
+          "visualCheck": "Saco de plástico azul pendurado num ramo do tronco escuro, à esquerda, acima das cabeças.",
           "discovery": {
-            "text": "Uma mesa coberta com toalhas, pratos, copos e garrafas, montada sobre cavaletes de madeira. As campanhas arqueológicas também eram momentos de convívio e partilha entre trabalhadores locais e equipas de investigação.",
-            "source": "Ficha do Museu de Memórias MM202615 (descrição e contexto comunitário) + observação directa da fotografia.",
-            "certainty": "confirmed"
-          }
-        },
-        {
-          "id": "contagem",
-          "type": "question",
-          "kind": "count",
-          "layer": "observacao",
-          "optional": false,
-          "title": "O grupo",
-          "clue": "Observa o grupo de pessoas.",
-          "prompt": "Quantas pessoas estão nesta fotografia? Conta com calma, também as que estão de pé.",
-          "options": [
-            {
-              "id": "a",
-              "text": "Cerca de quatro"
-            },
-            {
-              "id": "b",
-              "text": "Cerca de dez"
-            },
-            {
-              "id": "c",
-              "text": "Mais de trinta"
-            }
-          ],
-          "answer": "b",
-          "hint": "Começa pela pessoa de pé, à esquerda, e segue a mesa até à direita.",
-          "discovery": {
-            "text": "A ficha regista dez pessoas. Não estão identificadas com segurança: os nomes de quem aparece numa fotografia só entram no Museu quando há confirmação.",
-            "source": "Ficha do Museu de Memórias MM202615: «A fotografia apresenta dez indivíduos, não identificados com segurança.»",
+            "short": "Uma bolsa de plástico azul pendurada num ramo, longe do chão e do sol.",
+            "text": "Uma bolsa de plástico azul pendurada num ramo da árvore. Pendurar as coisas era uma forma simples de as proteger do chão, dos animais e do calor. Não sabemos o que guardava.",
+            "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
             "certainty": "confirmed"
           }
         },
         {
           "id": "flores",
           "type": "find",
-          "layer": "investigacao",
-          "optional": true,
+          "layer": "observacao",
+          "optional": false,
           "title": "As flores na mesa",
-          "clue": "Um pormenor delicado no meio da refeição…",
-          "hint": "Olha para o centro da mesa, entre as garrafas.",
+          "clue": "As flores sobre a mesa",
+          "hint": "Procura no centro da mesa, entre as garrafas.",
           "shape": {
-            "type": "circle",
-            "cx": 0.49,
-            "cy": 0.342,
-            "r": 0.035
+            "type": "polygon",
+            "points": [
+              [
+                0.457,
+                0.322
+              ],
+              [
+                0.523,
+                0.322
+              ],
+              [
+                0.523,
+                0.365
+              ],
+              [
+                0.457,
+                0.365
+              ]
+            ]
           },
           "hintArea": {
             "cx": 0.49,
-            "cy": 0.35,
-            "r": 0.08
+            "cy": 0.345,
+            "r": 0.07
           },
           "visualCheck": "Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas.",
           "discovery": {
-            "text": "Um copo com flores cor-de-rosa em cima da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos.",
-            "source": "Observação directa da fotografia MM202615. A interpretação do gesto é nossa.",
+            "short": "Um copo com flores cor-de-rosa no meio da refeição.",
+            "text": "Um copo com flores cor-de-rosa no meio da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos. A interpretação do gesto é nossa.",
+            "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
             "certainty": "hypothesis"
           }
         },
         {
-          "id": "cozinha",
-          "type": "question",
-          "kind": "compare",
-          "layer": "historia",
+          "id": "recipiente",
+          "type": "find",
+          "layer": "observacao",
           "optional": false,
-          "title": "Quem preparava a comida?",
-          "clue": "Descobre a ligação com outra memória.",
-          "prompt": "Outra fotografia do mesmo conjunto mostra o que acontecia antes da refeição. O que vês nela?",
-          "options": [
-            {
-              "id": "a",
-              "text": "Duas trabalhadoras a cozinhar com panelas grandes"
-            },
-            {
-              "id": "b",
-              "text": "Uma equipa a medir um mosaico"
-            },
-            {
-              "id": "c",
-              "text": "Visitantes numa excursão"
-            }
-          ],
-          "answer": "a",
-          "hint": "Repara nas panelas de metal junto ao chão.",
-          "discovery": {
-            "text": "A fotografia MM202622 mostra trabalhadoras das ruínas a cozinhar. As duas imagens foram cedidas pelas mesmas pessoas e mostram o trabalho de apoio às campanhas. Não sabemos se foram tiradas no mesmo dia.",
-            "source": "Ficha do Museu de Memórias MM202622 («Trabalhadoras das ruínas a cozinhar») e MM202615; mesma proveniência (Celeste Pimenta e Branca Pimenta).",
-            "certainty": "probable"
+          "title": "O recipiente branco",
+          "clue": "O recipiente branco em primeiro plano",
+          "hint": "Está no chão, à frente da mesa, do lado esquerdo.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.302,
+                0.642
+              ],
+              [
+                0.4,
+                0.642
+              ],
+              [
+                0.4,
+                0.885
+              ],
+              [
+                0.302,
+                0.885
+              ]
+            ]
           },
-          "compareMemory": "MM202622"
+          "hintArea": {
+            "cx": 0.35,
+            "cy": 0.76,
+            "r": 0.08
+          },
+          "visualCheck": "Bidão de plástico branco com asa metálica, no chão, em primeiro plano à esquerda.",
+          "discovery": {
+            "short": "Um grande recipiente de plástico branco, com asa, pousado no chão.",
+            "text": "Um grande recipiente de plástico branco, com asa, pousado junto ao banco. Recipientes destes serviam muitas vezes para guardar água num sítio sem torneira, mas a fotografia não mostra o que continha.",
+            "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
+            "certainty": "hypothesis"
+          }
+        },
+        {
+          "id": "latas",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "As latas vermelhas",
+          "clue": "Duas latas vermelhas no meio das garrafas",
+          "hint": "Olha para a mesa: há duas latas lado a lado, em frente às flores.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.452,
+                0.382
+              ],
+              [
+                0.506,
+                0.382
+              ],
+              [
+                0.506,
+                0.43
+              ],
+              [
+                0.452,
+                0.43
+              ]
+            ]
+          },
+          "hintArea": {
+            "cx": 0.48,
+            "cy": 0.405,
+            "r": 0.07
+          },
+          "visualCheck": "Duas latas vermelhas com rótulo branco, em pé sobre a toalha aos quadrados, à frente das flores.",
+          "discovery": {
+            "short": "Duas latas de refrigerante, ao lado das garrafas e dos pratos.",
+            "text": "Duas latas de refrigerante vermelhas. Embalagens, rótulos e objectos do quotidiano mudam com os anos e ajudam a situar uma fotografia no tempo. A ficha data esta imagem de cerca dos anos 1970-1980.",
+            "source": "Ficha do Museu de Memórias MM202615 + observação directa da fotografia.",
+            "certainty": "confirmed"
+          }
         }
       ],
       "reward": {
         "stamp": "mesa",
         "label": "Selo do quotidiano",
         "page": "O quotidiano das equipas",
-        "message": "Descobriste que a história de uma escavação também se constrói à volta da mesa."
+        "message": "Descobriste que a história de uma escavação também se constrói à volta da mesa.",
+        "story": "Esta fotografia faz parte de um conjunto cedido por Celeste Pimenta e Branca Pimenta. Noutra fotografia do mesmo conjunto (MM202622), trabalhadoras das ruínas cozinham em grandes panelas. Não sabemos se foram tiradas no mesmo dia."
       },
       "related": [
         "MM202622"
-      ]
+      ],
+      "onboarding": true,
+      "presentation": {
+        "variant": "apresentacao"
+      }
     },
     {
       "missionId": "lavando-os-cacos",
@@ -431,7 +470,10 @@
       "related": [
         "MM202615",
         "MM202622"
-      ]
+      ],
+      "presentation": {
+        "variant": "apresentacao"
+      }
     },
     {
       "missionId": "a-equipa-de-milreu",
@@ -643,7 +685,10 @@
       },
       "related": [
         "MM202613"
-      ]
+      ],
+      "presentation": {
+        "variant": "apresentacao"
+      }
     }
   ]
 }

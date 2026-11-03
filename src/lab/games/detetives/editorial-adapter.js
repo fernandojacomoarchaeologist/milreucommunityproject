@@ -34,7 +34,22 @@ const pt = value => (value && typeof value === "object" ? value["pt-PT"] ?? null
  * Missões cuja memória não é elegível ficam em «blocked», com os motivos. Perguntas de comparação
  * com uma memória não elegível são retiradas.
  */
-export function resolveMissions(catalog, records = [], manifest = { items: [] }, authorisations = []) {
+// Converte coordenadas normalizadas da variante canónica para o recorte de apresentação [x0,y0,x1,y1].
+export function toCrop(shape, crop) {
+  const [x0, y0, x1, y1] = crop, sx = x1 - x0, sy = y1 - y0;
+  // As zonas desenhadas com folga sobre a margem branca do scan ficam presas à borda do derivado (a margem não se vê).
+  const clamp = v => Math.min(1, Math.max(0, v));
+  const X = x => +clamp((x - x0) / sx).toFixed(5), Y = y => +clamp((y - y0) / sy).toFixed(5);
+  if (!shape) return shape;
+  if (shape.type === "multi") return { ...shape, shapes: shape.shapes.map(part => toCrop(part, crop)) };
+  if (shape.type === "circle") return { ...shape, cx: X(shape.cx), cy: Y(shape.cy), r: +(shape.r / sx).toFixed(5) };
+  if (shape.type === "polygon") return { ...shape, points: shape.points.map(([x, y]) => [X(x), Y(y)]) };
+  if ("cx" in shape && "cy" in shape) return { ...shape, cx: X(shape.cx), cy: Y(shape.cy), ...(shape.r ? { r: +(shape.r / sx).toFixed(5) } : {}) };
+  return shape;
+}
+
+export function resolveMissions(catalog, records = [], manifest = { items: [] }, authorisations = [], derivatives = { items: [] }) {
+  const derived = new Map((derivatives.items || []).map(item => [item.memoryId, item]));
   const byId = new Map(records.map(record => [record.id, record]));
   const media = new Map((manifest.items || []).map(item => [item.id, item]));
   const missions = [], blocked = [];
@@ -55,13 +70,24 @@ export function resolveMissions(catalog, records = [], manifest = { items: [] },
     }
     const related = (mission.related || []).map(id => byId.get(id)).filter(other => memoryGameEligibility(other, authorisations).eligible)
       .map(other => ({ id: other.id, title: pt(other.title), src: media.get(other.id)?.variants?.card?.path || other.media?.variants?.card }));
+    // Derivado de apresentação (sem margens do scanner): só se existir e tiver sido gerado da mesma variante.
+    const pres = mission.presentation && derived.get(record.id);
+    const usePres = pres && pres.source === variant.path;
+    const shownTasks = usePres ? tasks.map(task => ({
+      ...task,
+      ...(task.shape ? { shape: toCrop(task.shape, pres.crop) } : {}),
+      ...(task.hintArea ? { hintArea: toCrop(task.hintArea, pres.crop) } : {}),
+      ...(task.zoomArea ? { zoomArea: { ...toCrop(task.zoomArea, pres.crop), scale: task.zoomArea.scale } } : {}),
+      cardImage: pres.tasks?.find(t => t.taskId === task.id)?.output || null
+    })) : tasks;
     missions.push({
-      ...mission, tasks, related,
+      ...mission, tasks: shownTasks, related,
       image: {
-        src: variant.path, width: variant.width, height: variant.height, memoryRef: record.id,
+        src: usePres ? pres.output : variant.path, width: usePres ? pres.width : variant.width, height: usePres ? pres.height : variant.height,
+        canonicalSrc: variant.path, presentationCrop: usePres ? pres.crop : null, memoryRef: record.id,
         alt: `${pt(record.title)}. ${pt(record.description?.short) || ""}`.trim(),
         documentTitle: pt(record.title), date: pt(record.date?.display), credit: pt(record.media?.credit),
-        provenance: `Fotografia do acervo do Museu de Memórias de Milreu (${record.id}). Uso no jogo só em ambiente de teste.`,
+        provenance: `Fotografia do acervo do Museu de Memórias de Milreu (${record.id}).${usePres ? " Apresentada sem as margens brancas da digitalização (derivado de apresentação; original intacto)." : ""} Uso no jogo só em ambiente de teste.`,
         rightsStatus: record.rights?.status, gameDecision: check.decision
       }
     });

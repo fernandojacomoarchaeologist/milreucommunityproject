@@ -12,7 +12,7 @@
 import { ICONS } from "./games/detetives/icons.js";
 
 const GAMES = [
-  { id: "detetives-da-memoria", title: "Detetives da Memória", tagline: "Cada fotografia guarda uma história. Consegues descobri-la?", route: "/laboratorio/jogos/detetives-da-memoria", status: "Protótipo · 3 fotografias do acervo" }
+  { id: "detetives-da-memoria", title: "Detetives da Memória", tagline: "Cada fotografia guarda uma história. Consegues descobri-la?", route: "/laboratorio/jogos/detetives-da-memoria", status: "Jogo de procurar · 3 fotografias do acervo" }
 ];
 const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
 
@@ -37,7 +37,8 @@ export function installLab({ setLabMenuRenderer, assetUrl, config }) {
   // Jogabilidade (laboratório) + FONTE CANÓNICA do Museu (fichas e manifesto de imagens) + autorizações.
   const loadData = () => (dataPromise ||= Promise.all([
     getJson("public/data/lab/detetives-missions.json"), getJson("public/data/memories.json"),
-    getJson("public/data/media-manifest.json"), getJson("public/data/lab/detetives-authorisations.json")
+    getJson("public/data/media-manifest.json"), getJson("public/data/lab/detetives-authorisations.json"),
+    getJson("public/data/lab/detetives-derivados.json")
   ]));
 
   function menuHtml() {
@@ -87,11 +88,11 @@ export function installLab({ setLabMenuRenderer, assetUrl, config }) {
     unmount();
     if (route.name !== "lab-detetives") return;
     const root = app.querySelector("[data-dm-root]");
-    const [{ createDetetivesGame }, { resolveMissions }, [catalog, memories, manifest, auth]] = await Promise.all([
+    const [{ createDetetivesGame }, { resolveMissions }, [catalog, memories, manifest, auth, derivados]] = await Promise.all([
       import("./games/detetives/game.js"), import("./games/detetives/editorial-adapter.js"), loadData()
     ]);
     if (!root.isConnected) return;
-    const { missions, blocked } = resolveMissions(catalog, memories?.records || [], manifest || { items: [] }, auth?.authorisations || []);
+    const { missions, blocked } = resolveMissions(catalog, memories?.records || [], manifest || { items: [] }, auth?.authorisations || [], derivados || { items: [] });
     game = createDetetivesGame({ root, missions, blocked, assetUrl, lang: document.documentElement.lang || "pt-PT", query: route.query || {} });
   }
 

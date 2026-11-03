@@ -16,7 +16,8 @@ import {
   MISSES_BEFORE_SUGGESTION, MIN_TASKS, MAX_TASKS
 } from "../src/lab/games/detetives/engine.js";
 import { loadProgress, saveProgress, clearProgress, recordCompletion, migrate, bumpMetric, STORAGE_KEY, STORAGE_VERSION } from "../src/lab/games/detetives/storage.js";
-import { memoryGameEligibility, resolveMissions } from "../src/lab/games/detetives/editorial-adapter.js";
+import { memoryGameEligibility, resolveMissions, toCrop } from "../src/lab/games/detetives/editorial-adapter.js";
+import { createHash } from "node:crypto";
 
 const read = path => JSON.parse(readFileSync(path, "utf8"));
 const catalog = read("public/data/lab/detetives-missions.json");
@@ -40,7 +41,10 @@ test("catálogo: só fotografias reais do acervo, prioridades MM202615, MM202621
   assert.equal(missions.length, 3);
   const raw = JSON.stringify(catalog);
   assert.doesNotMatch(raw, /MM202617|\.svg|ilustração demonstrativa/i);
-  assert.equal(existsSync("public/media/lab"), false, "ilustrações demonstrativas removidas");
+  // public/media/lab só guarda os derivados de APRESENTAÇÃO (recortes .webp das fotografias reais), nunca ilustrações.
+  const derivados = read("public/data/lab/detetives-derivados.json");
+  const listed = derivados.items.flatMap(item => [item.output, ...item.tasks.map(t => t.output)]);
+  assert.ok(listed.every(path => path.startsWith("public/media/lab/detetives/derivados/") && path.endsWith(".webp")));
   for (const mission of missions) {
     assert.deepEqual(validateMission(mission), { ok: true, errors: [] }, mission.missionId);
     const n = tasksOf(mission).length;
@@ -127,12 +131,49 @@ test("camadas: conclui com as obrigatórias; as de investigação são extra; po
   }
 });
 
-test("missão 1 com treino: só termina com as descobertas obrigatórias e as 5 acções", () => {
-  assert.equal(m1.kind, "tutorial");
-  let run = finish(createRun(m1), m1);
-  assert.equal(isComplete(run, m1), false);
+test("missão 1 (MM202615): quatro objectos concretos, sem objectivos vagos; o treino continua suportado pelo motor", () => {
+  assert.equal(m1.memoryRef ?? m1.image.memoryRef, "MM202615");
+  assert.equal(m1.kind, "mission");
+  assert.deepEqual(requiredTasks(m1).map(t => t.id), ["bolsa", "flores", "recipiente", "latas"]);
+  assert.ok(requiredTasks(m1).every(t => t.type === "find" && t.discovery.short));
+  assert.doesNotMatch(JSON.stringify(m1.tasks), /encontra o grupo|encontra a mesa/i);
+  assert.equal(m1.opening, "Há algo curioso nesta fotografia... Consegues encontrar?");
+  const tut = { ...m1, kind: "tutorial" };
+  let run = finish(createRun(tut), tut);
+  assert.equal(isComplete(run, tut), false);
   for (const step of TUTORIAL_STEPS) run = markStep(run, step.id);
-  assert.equal(isComplete(run, m1), true);
+  assert.equal(isComplete(run, tut), true);
+});
+
+test("derivado de apresentação: sem margens do scan, master intacto e pistas realinhadas pelo recorte", () => {
+  const derivados = read("public/data/lab/detetives-derivados.json");
+  const sha = path => createHash("sha256").update(readFileSync(path)).digest("hex");
+  const resolved = resolveMissions(catalog, records, manifest, authorisations, derivados).missions;
+  for (const item of derivados.items) {
+    assert.equal(sha(item.source), item.sourceSha256, `${item.memoryId}: variante de origem alterada`);
+    assert.equal(sha(item.output), item.sha256, `${item.memoryId}: derivado alterado`);
+    assert.ok(item.crop[0] > 0 && item.crop[2] < 1 && item.crop[1] > 0 && item.crop[3] < 1, "o recorte só tira margens");
+    for (const t of item.tasks) assert.ok(existsSync(t.output), t.output);
+  }
+  for (const [i, canonical] of missions.entries()) {
+    const shown = resolved[i], item = derivados.items.find(d => d.memoryId === canonical.image.memoryRef);
+    assert.equal(shown.image.src, item.output);
+    assert.equal(shown.image.canonicalSrc, canonical.image.src);
+    assert.deepEqual(shown.image.presentationCrop, item.crop);
+    assert.deepEqual(validateMission(shown), { ok: true, errors: [] }, `${shown.missionId} com derivado`);
+    const [x0, y0, x1, y1] = item.crop;
+    for (const task of finds(canonical)) {
+      const a = shapeCenter(task.shape), b = shapeCenter(tasksOf(shown).find(t => t.id === task.id).shape);
+      // centro realinhado (as zonas cortadas na margem do scan deslocam o centro no máximo 1 %)
+      assert.ok(Math.abs(x0 + b.x * (x1 - x0) - a.x) < 0.01 && Math.abs(y0 + b.y * (y1 - y0) - a.y) < 0.01, task.id);
+      assert.ok(b.x > 0 && b.x < 1 && b.y > 0 && b.y < 1, `${task.id} fica dentro do derivado`);
+    }
+  }
+  const crop = [0.1, 0.2, 0.9, 0.8];
+  assert.deepEqual(toCrop({ type: "circle", cx: 0.5, cy: 0.5, r: 0.08 }, crop), { type: "circle", cx: 0.5, cy: 0.5, r: 0.1 });
+  const multi = toCrop({ type: "multi", shapes: [{ type: "polygon", points: [[0.1, 0.2], [0.9, 0.8], [0.5, 0.5]] }] }, crop);
+  assert.deepEqual(multi.shapes[0].points.map(p => p.map(v => Math.round(v * 1e6) / 1e6)), [[0, 0], [1, 1], [0.5, 0.5]]);
+  assert.deepEqual(toCrop({ type: "polygon", points: [[0.05, 0.1], [0.5, 0.5], [0.95, 0.9]] }, crop).points, [[0, 0], [0.5, 0.5], [1, 1]]);
 });
 
 test("sugestão de ajuda após toques falhados (sem penalização)", () => {
@@ -199,10 +240,29 @@ test("isolamento: produção não carrega nem empacota o laboratório", () => {
 });
 
 test("sem estilos inline, sem rede externa, sem mecânicas de sorte ou pressão", () => {
-  for (const file of ["src/lab/games/detetives/game.js", "src/lab/lab-boot.js"]) {
+  for (const file of ["src/lab/games/detetives/game.js", "src/lab/games/detetives/art.js", "src/lab/lab-boot.js"]) {
     const src = readFileSync(file, "utf8");
     assert.doesNotMatch(src, / style="/, file);
     assert.doesNotMatch(src, /https?:\/\//, file);
     assert.doesNotMatch(src, /Math\.random\(\)\s*[<>]|lootbox|countdown|setInterval/i, file);
   }
+});
+
+test("revisão visual: pistas invisíveis, guia com as quatro mensagens, peças SVG só com tokens", async () => {
+  const game = readFileSync("src/lab/games/detetives/game.js", "utf8");
+  const art = readFileSync("src/lab/games/detetives/art.js", "utf8");
+  const css = readFileSync("src/lab/lab.css", "utf8");
+  const { GUIDE } = await import("../src/lab/games/detetives/game.js");
+  assert.deepEqual(GUIDE, {
+    start: "Há algo curioso nesta fotografia... Consegues encontrar?",
+    idle: "Experimenta usar a lupa!",
+    found: "Boa descoberta! Queres saber mais?",
+    done: "Excelente investigação! Vou guardar esta memória no teu caderno."
+  });
+  // os contornos só se desenham para pistas ENCONTRADAS
+  assert.match(game, /filter\(t => t\.type === "find" && S\.run\.found\.includes\(t\.id\)\)/);
+  for (const src of [art, css]) assert.doesNotMatch(src, /#[0-9a-f]{3,8}\b|gradient\(/i);
+  assert.doesNotMatch(game + css, /confetti|coin|moeda/i);
+  // a missão seguinte só começa por escolha do jogador
+  assert.doesNotMatch(game, /later\(\(\) => startMission/);
 });
