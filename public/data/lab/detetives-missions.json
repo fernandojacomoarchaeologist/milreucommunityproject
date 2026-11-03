@@ -1,625 +1,649 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "lab-only",
-  "isExample": true,
-  "notice": "Catálogo de TESTE do laboratório de jogos. Missões com ilustrações demonstrativas próprias; nenhuma fotografia do acervo.",
-  "generatedBy": "scripts/lab/build_detetives_assets.py",
+  "notice": "Catálogo de TESTE (HML) do jogo Detetives da Memória com fotografias reais do Museu de Memórias. Imagens, títulos, créditos e direitos vêm sempre da ficha canónica (public/data/memories.json + media-manifest.json); este ficheiro só guarda a jogabilidade. Planeamento e verificação visual: docs/website/DETETIVES_PLANEAMENTO_MISSOES.md.",
+  "certaintyLabels": {
+    "confirmed": "Confirmado",
+    "probable": "Provável",
+    "hypothesis": "Hipótese"
+  },
   "missions": [
     {
-      "missionId": "aprende-a-investigar",
-      "order": 0,
-      "kind": "tutorial",
-      "title": "Aprende a Investigar",
-      "description": "Treino guiado: aprende a usar a lupa, as ajudas e o Caderno de Campo.",
-      "difficulty": "muito fácil",
-      "locale": "pt-PT",
-      "opening": "Bem-vindo à equipa de investigação! Observa a imagem com atenção. Encontrámos algumas pistas importantes, mas precisamos da tua ajuda para as descobrir. Toca numa pista para a investigar. Podes ampliar a imagem sempre que precisares.",
-      "image": {
-        "src": "public/media/lab/detetives/00-mesa-do-investigador.svg",
-        "width": 1600,
-        "height": 1000,
-        "alt": "Ilustração de uma mesa de madeira vista de cima, com um caderno aberto, uma chávena, fotografias soltas, uma bússola, uma planta, um envelope, um lápis e outros objectos.",
-        "memoryRef": null,
-        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
-        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
-        "demo": true
-      },
-      "editorial": {
-        "publicationStatus": "lab-only",
-        "rightsReview": "not-applicable-own-illustration",
-        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
-        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
-        "digitalInterventions": []
-      },
-      "hotspots": [
-        {
-          "id": "lupa",
-          "shape": {
-            "type": "circle",
-            "cx": 0.6813,
-            "cy": 0.36,
-            "r": 0.0813
-          },
-          "title": "A lupa",
-          "clue": "Um instrumento que torna os pormenores maiores.",
-          "hint": "Procura na mesa, à direita do caderno, perto do topo.",
-          "hintArea": {
-            "cx": 0.6813,
-            "cy": 0.36,
-            "r": 0.13
-          },
-          "discovery": {
-            "text": "Uma lupa aumenta os pormenores sem tocar no objecto. Serve para ler assinaturas, datas ou carimbos escritos em letra pequena em fotografias e documentos. Neste jogo, a tua lupa é o botão de ampliar: usa-o sempre que algo parecer pequeno demais.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        },
-        {
-          "id": "selo",
-          "shape": {
-            "type": "polygon",
-            "points": [
-              [
-                0.8146,
-                0.5947
-              ],
-              [
-                0.8545,
-                0.6003
-              ],
-              [
-                0.8502,
-                0.678
-              ],
-              [
-                0.8104,
-                0.6724
-              ]
-            ]
-          },
-          "title": "O selo",
-          "clue": "Uma pequena marca colada num envelope.",
-          "hint": "Há um envelope em baixo, à direita. Olha para o canto de cima.",
-          "hintArea": {
-            "cx": 0.775,
-            "cy": 0.66,
-            "r": 0.12
-          },
-          "discovery": {
-            "text": "Selos, carimbos e marcas de correio podem ajudar a perceber de onde veio um documento e em que época circulou. Numa investigação a sério, uma pista destas só conta quando é confirmada por outra fonte.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        },
-        {
-          "id": "lapis",
-          "shape": {
-            "type": "polygon",
-            "points": [
-              [
-                0.1594,
-                0.8485
-              ],
-              [
-                0.4101,
-                0.7921
-              ],
-              [
-                0.4393,
-                0.8007
-              ],
-              [
-                0.4127,
-                0.8218
-              ],
-              [
-                0.162,
-                0.8782
-              ]
-            ]
-          },
-          "title": "O lápis",
-          "clue": "Um objecto para tomar notas que se pode apagar.",
-          "hint": "Está pousado na mesa, em baixo, debaixo do caderno.",
-          "hintArea": {
-            "cx": 0.3,
-            "cy": 0.83,
-            "r": 0.14
-          },
-          "discovery": {
-            "text": "Quem investiga toma notas a lápis: pode corrigir e não estraga papéis antigos. Anotar o que vês, onde e quando, é o primeiro passo para não confundir uma observação com uma suposição.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        }
-      ],
-      "zones": [
-        {
-          "id": "z-chavena",
-          "label": "Canto superior esquerdo",
-          "description": "Uma chávena de café num pires.",
-          "x": 0.1062,
-          "y": 0.19
-        },
-        {
-          "id": "z-regua",
-          "label": "Topo, ao centro",
-          "description": "Uma régua de madeira.",
-          "x": 0.4375,
-          "y": 0.07
-        },
-        {
-          "id": "z-caderno",
-          "label": "Centro-esquerda",
-          "description": "Um caderno aberto com notas e o desenho de um arco.",
-          "x": 0.3156,
-          "y": 0.52
-        },
-        {
-          "id": "z-fotos",
-          "label": "Topo, à direita do centro",
-          "description": "Duas fotografias soltas de uma paisagem.",
-          "x": 0.625,
-          "y": 0.19
-        },
-        {
-          "id": "z-lupa",
-          "label": "À direita do caderno, em cima",
-          "description": "Um objecto redondo com cabo.",
-          "x": 0.6813,
-          "y": 0.36
-        },
-        {
-          "id": "z-planta",
-          "label": "Canto superior direito",
-          "description": "Um vaso com uma planta.",
-          "x": 0.9187,
-          "y": 0.17
-        },
-        {
-          "id": "z-bussola",
-          "label": "Direita, ao meio",
-          "description": "Uma bússola.",
-          "x": 0.9,
-          "y": 0.46
-        },
-        {
-          "id": "z-envelope",
-          "label": "Em baixo, à direita",
-          "description": "Um envelope com algo vermelho no canto.",
-          "x": 0.83,
-          "y": 0.625
-        },
-        {
-          "id": "z-lapis",
-          "label": "Em baixo, à esquerda",
-          "description": "Um objecto comprido e vermelho com ponta afiada.",
-          "x": 0.3,
-          "y": 0.832
-        },
-        {
-          "id": "z-clipes",
-          "label": "Em baixo, ao centro",
-          "description": "Um clipe de papel.",
-          "x": 0.5687,
-          "y": 0.85
-        }
-      ],
-      "reward": {
-        "stamp": "lupa",
-        "label": "Selo da primeira investigação"
-      },
-      "completion": {
-        "requires": "all-hotspots-and-steps"
-      }
-    },
-    {
-      "missionId": "o-olhar-do-investigador",
+      "missionId": "a-hora-da-pausa",
       "order": 1,
-      "kind": "mission",
-      "title": "O Olhar do Investigador",
-      "description": "Num largo imaginário escondem-se três pormenores. Nem tudo o que parece importante é uma pista.",
+      "kind": "tutorial",
+      "memoryRef": "MM202615",
+      "variant": "immersive",
+      "title": "A Hora da Pausa",
+      "documentTitle": "Os escavadores ao almoço",
       "difficulty": "fácil",
       "locale": "pt-PT",
-      "opening": "Um bom investigador olha para tudo: o céu, as janelas, o chão. Observa este largo imaginário e encontra três pormenores que contam como se vive ali.",
-      "image": {
-        "src": "public/media/lab/detetives/01-o-olhar-do-investigador.svg",
-        "width": 1600,
-        "height": 1000,
-        "alt": "Ilustração de um largo imaginário com uma torre com relógio, casas brancas de telhados vermelhos, uma fonte, oliveiras, um cão, um banco, um candeeiro e uma bicicleta.",
-        "memoryRef": null,
-        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
-        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
-        "demo": true
-      },
-      "editorial": {
-        "publicationStatus": "lab-only",
-        "rightsReview": "not-applicable-own-illustration",
-        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
-        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
-        "digitalInterventions": []
-      },
-      "hotspots": [
+      "description": "Uma refeição durante as campanhas arqueológicas. Esta missão ensina também a usar as ferramentas.",
+      "opening": "Nem tudo numa escavação acontece entre pedras e ferramentas. Também há momentos de pausa, refeições e conversas. Vamos descobrir o que esta fotografia nos conta sobre as pessoas que trabalharam em Milreu?",
+      "tasks": [
         {
-          "id": "relogio",
-          "shape": {
-            "type": "circle",
-            "cx": 0.1437,
-            "cy": 0.3,
-            "r": 0.0387
-          },
-          "title": "O relógio da torre",
-          "clue": "Algo que diz as horas a toda a gente do largo.",
-          "hint": "Olha para cima, para a construção mais alta à esquerda.",
-          "hintArea": {
-            "cx": 0.1437,
-            "cy": 0.3,
-            "r": 0.1
-          },
-          "discovery": {
-            "text": "Numa fotografia, um relógio visível pode indicar a hora a que a imagem foi feita, e as sombras podem confirmar ou contradizer essa hora. Comparar duas pistas é sempre mais seguro do que confiar só numa.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        },
-        {
-          "id": "gato",
-          "shape": {
-            "type": "circle",
-            "cx": 0.5656,
-            "cy": 0.48,
-            "r": 0.0437
-          },
-          "title": "O gato à janela",
-          "clue": "Alguém está a espreitar de uma janela…",
-          "hint": "Repara nas janelas da casa do meio, no primeiro andar.",
-          "hintArea": {
-            "cx": 0.5625,
-            "cy": 0.47,
-            "r": 0.12
-          },
-          "discovery": {
-            "text": "Os pormenores escondidos nas margens de uma imagem mostram a vida do dia-a-dia que nem sempre era o assunto principal da fotografia. Janelas, portas e cantos revelam muitas vezes as pistas mais inesperadas.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        },
-        {
-          "id": "bicicleta",
+          "id": "mesa",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "A mesa da refeição",
+          "clue": "Encontra o sítio onde a refeição está servida.",
+          "hint": "Procura no centro da fotografia, à volta do qual as pessoas estão sentadas.",
           "shape": {
             "type": "polygon",
             "points": [
               [
-                0.7025,
-                0.67
+                0.315,
+                0.385
               ],
               [
-                0.8538,
-                0.67
+                0.66,
+                0.37
               ],
               [
-                0.8538,
-                0.826
+                0.725,
+                0.43
               ],
               [
-                0.7025,
-                0.826
+                0.72,
+                0.5
+              ],
+              [
+                0.33,
+                0.47
               ]
             ]
           },
-          "title": "A bicicleta",
-          "clue": "Um meio de transporte que não precisa de motor.",
-          "hint": "Procura junto à casa da direita, ao nível do chão.",
           "hintArea": {
-            "cx": 0.7812,
-            "cy": 0.75,
-            "r": 0.12
+            "cx": 0.52,
+            "cy": 0.43,
+            "r": 0.14
           },
+          "visualCheck": "Toalha aos quadrados e toalha branca, pratos, copos, garrafas e latas; estrutura de cavaletes visível por baixo.",
           "discovery": {
-            "text": "Os meios de transporte que aparecem numa fotografia ajudam a situá-la no tempo, porque mudam de forma ao longo dos anos. Mas atenção: um objecto antigo também pode aparecer numa fotografia recente.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
+            "text": "Uma mesa coberta com toalhas, pratos, copos e garrafas, montada sobre cavaletes de madeira. As campanhas arqueológicas também eram momentos de convívio e partilha entre trabalhadores locais e equipas de investigação.",
+            "source": "Ficha do Museu de Memórias MM202615 (descrição e contexto comunitário) + observação directa da fotografia.",
+            "certainty": "confirmed"
           }
-        }
-      ],
-      "zones": [
-        {
-          "id": "z-torre",
-          "label": "Esquerda, em cima",
-          "description": "Uma torre alta com telhado vermelho e um mostrador redondo.",
-          "x": 0.1437,
-          "y": 0.3
         },
         {
-          "id": "z-sol",
-          "label": "Céu, à direita",
-          "description": "O sol.",
-          "x": 0.8625,
-          "y": 0.13
+          "id": "contagem",
+          "type": "question",
+          "kind": "count",
+          "layer": "observacao",
+          "optional": false,
+          "title": "O grupo",
+          "clue": "Observa o grupo de pessoas.",
+          "prompt": "Quantas pessoas estão nesta fotografia? Conta com calma, também as que estão de pé.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerca de quatro"
+            },
+            {
+              "id": "b",
+              "text": "Cerca de dez"
+            },
+            {
+              "id": "c",
+              "text": "Mais de trinta"
+            }
+          ],
+          "answer": "b",
+          "hint": "Começa pela pessoa de pé, à esquerda, e segue a mesa até à direita.",
+          "discovery": {
+            "text": "A ficha regista dez pessoas. Não estão identificadas com segurança: os nomes de quem aparece numa fotografia só entram no Museu quando há confirmação.",
+            "source": "Ficha do Museu de Memórias MM202615: «A fotografia apresenta dez indivíduos, não identificados com segurança.»",
+            "certainty": "confirmed"
+          }
         },
         {
-          "id": "z-aves",
-          "label": "Céu, ao centro",
-          "description": "Aves a voar.",
-          "x": 0.35,
-          "y": 0.165
+          "id": "flores",
+          "type": "find",
+          "layer": "investigacao",
+          "optional": true,
+          "title": "As flores na mesa",
+          "clue": "Um pormenor delicado no meio da refeição…",
+          "hint": "Olha para o centro da mesa, entre as garrafas.",
+          "shape": {
+            "type": "circle",
+            "cx": 0.49,
+            "cy": 0.342,
+            "r": 0.035
+          },
+          "hintArea": {
+            "cx": 0.49,
+            "cy": 0.35,
+            "r": 0.08
+          },
+          "visualCheck": "Flores cor-de-rosa num copo de vidro, ao centro da mesa, entre garrafas.",
+          "discovery": {
+            "text": "Um copo com flores cor-de-rosa em cima da mesa. Um pequeno gesto de cuidado que mostra que esta pausa era também um momento de estar juntos.",
+            "source": "Observação directa da fotografia MM202615. A interpretação do gesto é nossa.",
+            "certainty": "hypothesis"
+          }
         },
         {
-          "id": "z-casa1",
-          "label": "Casa da esquerda",
-          "description": "Uma casa branca com duas janelas e uma porta verde.",
-          "x": 0.3375,
-          "y": 0.56
-        },
-        {
-          "id": "z-janela",
-          "label": "Casa do meio, primeiro andar",
-          "description": "Uma janela com portadas vermelhas e algo escuro lá dentro.",
-          "x": 0.5656,
-          "y": 0.48
-        },
-        {
-          "id": "z-vasos",
-          "label": "Casa do meio, varandas",
-          "description": "Vasos com flores nas janelas.",
-          "x": 0.5031,
-          "y": 0.51
-        },
-        {
-          "id": "z-fonte",
-          "label": "Centro do largo",
-          "description": "Uma fonte com água.",
-          "x": 0.5,
-          "y": 0.78
-        },
-        {
-          "id": "z-cao",
-          "label": "Chão, à direita da fonte",
-          "description": "Um cão deitado.",
-          "x": 0.6375,
-          "y": 0.855
-        },
-        {
-          "id": "z-banco",
-          "label": "Chão, à esquerda",
-          "description": "Um banco de madeira.",
-          "x": 0.3219,
-          "y": 0.81
-        },
-        {
-          "id": "z-bicicleta",
-          "label": "Junto à casa da direita",
-          "description": "Duas rodas e uma armação vermelha.",
-          "x": 0.7781,
-          "y": 0.75
-        },
-        {
-          "id": "z-candeeiro",
-          "label": "Extremo direito",
-          "description": "Um candeeiro de rua.",
-          "x": 0.9531,
-          "y": 0.6
+          "id": "cozinha",
+          "type": "question",
+          "kind": "compare",
+          "layer": "historia",
+          "optional": false,
+          "title": "Quem preparava a comida?",
+          "clue": "Descobre a ligação com outra memória.",
+          "prompt": "Outra fotografia do mesmo conjunto mostra o que acontecia antes da refeição. O que vês nela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Duas trabalhadoras a cozinhar com panelas grandes"
+            },
+            {
+              "id": "b",
+              "text": "Uma equipa a medir um mosaico"
+            },
+            {
+              "id": "c",
+              "text": "Visitantes numa excursão"
+            }
+          ],
+          "answer": "a",
+          "hint": "Repara nas panelas de metal junto ao chão.",
+          "discovery": {
+            "text": "A fotografia MM202622 mostra trabalhadoras das ruínas a cozinhar. As duas imagens foram cedidas pelas mesmas pessoas e mostram o trabalho de apoio às campanhas. Não sabemos se foram tiradas no mesmo dia.",
+            "source": "Ficha do Museu de Memórias MM202622 («Trabalhadoras das ruínas a cozinhar») e MM202615; mesma proveniência (Celeste Pimenta e Branca Pimenta).",
+            "certainty": "probable"
+          },
+          "compareMemory": "MM202622"
         }
       ],
       "reward": {
-        "stamp": "olho",
-        "label": "Selo do olhar atento"
+        "stamp": "mesa",
+        "label": "Selo do quotidiano",
+        "page": "O quotidiano das equipas",
+        "message": "Descobriste que a história de uma escavação também se constrói à volta da mesa."
       },
-      "completion": {
-        "requires": "all-hotspots"
-      }
+      "related": [
+        "MM202622"
+      ]
     },
     {
-      "missionId": "o-arquivo-das-memorias",
+      "missionId": "lavando-os-cacos",
       "order": 2,
       "kind": "mission",
-      "title": "O Arquivo das Memórias",
-      "description": "Num arquivo cheio de caixas e papéis, três objectos contam como se guardam as memórias.",
-      "difficulty": "média",
+      "memoryRef": "MM202621",
+      "variant": "immersive",
+      "title": "Lavando os Cacos",
+      "documentTitle": "Lavando cacos",
+      "difficulty": "fácil",
       "locale": "pt-PT",
-      "opening": "Os arquivos guardam papéis, fotografias e objectos que ajudam a lembrar. Procura os três objectos que nos dizem como as memórias foram registadas e conservadas.",
-      "image": {
-        "src": "public/media/lab/detetives/02-o-arquivo-das-memorias.svg",
-        "width": 1600,
-        "height": 1000,
-        "alt": "Ilustração de uma sala de arquivo com uma janela, uma estante com caixas e livros, uma mesa com um álbum e uma máquina de escrever, um mapa na parede e uma câmara num tripé.",
-        "memoryRef": null,
-        "credit": "Desenho: Projeto Comunitário de Milreu (laboratório de jogos)",
-        "provenance": "Ilustração demonstrativa — não pertence ao acervo histórico de Milreu.",
-        "demo": true
-      },
-      "editorial": {
-        "publicationStatus": "lab-only",
-        "rightsReview": "not-applicable-own-illustration",
-        "authorisedScope": "teste interno do laboratório de jogos (HML); não publicar em produção",
-        "decisionRef": "Pedido do responsável, 2026-11-03 — brief «Detetives da Memória» v0.1",
-        "digitalInterventions": []
-      },
-      "hotspots": [
+      "description": "Depois da escavação, o trabalho continua: limpar, observar e estudar cada fragmento.",
+      "opening": "Depois de encontrar vestígios numa escavação, o trabalho continua. É preciso cuidar, limpar, observar e estudar cada fragmento. Descobre o que está a acontecer nesta fotografia.",
+      "tasks": [
         {
-          "id": "mapa",
+          "id": "pessoas",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "Mãos ao trabalho",
+          "clue": "Localiza quem está a tratar dos materiais.",
+          "hint": "Olha para a parte de cima da fotografia, à esquerda e ao centro.",
           "shape": {
-            "type": "polygon",
-            "points": [
-              [
-                0.3096,
-                0.1164
-              ],
-              [
-                0.5345,
-                0.1038
-              ],
-              [
-                0.5404,
-                0.3736
-              ],
-              [
-                0.3155,
-                0.3862
-              ]
+            "type": "multi",
+            "shapes": [
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0.13,
+                    0.15
+                  ],
+                  [
+                    0.3,
+                    0.15
+                  ],
+                  [
+                    0.31,
+                    0.33
+                  ],
+                  [
+                    0.21,
+                    0.37
+                  ],
+                  [
+                    0.13,
+                    0.38
+                  ]
+                ]
+              },
+              {
+                "type": "polygon",
+                "points": [
+                  [
+                    0.36,
+                    0.15
+                  ],
+                  [
+                    0.61,
+                    0.15
+                  ],
+                  [
+                    0.6,
+                    0.33
+                  ],
+                  [
+                    0.43,
+                    0.35
+                  ],
+                  [
+                    0.37,
+                    0.3
+                  ]
+                ]
+              }
             ]
           },
-          "title": "O mapa desenhado à mão",
-          "clue": "Um desenho que mostra caminhos e ribeiras.",
-          "hint": "Está preso na parede, ao lado da janela.",
           "hintArea": {
-            "cx": 0.425,
-            "cy": 0.245,
+            "cx": 0.38,
+            "cy": 0.27,
             "r": 0.15
           },
+          "visualCheck": "Duas pessoas inclinadas, de mãos estendidas para o monte de fragmentos; uma de camisola cor-de-rosa e óculos.",
           "discovery": {
-            "text": "Os mapas guardam nomes de lugares, caminhos e ribeiras que às vezes já mudaram. Comparar um mapa antigo com o terreno actual é uma das formas de perceber como os lugares se transformaram.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
+            "text": "Duas pessoas debruçadas sobre os fragmentos, a separá-los com as mãos. A investigação arqueológica envolve muitas tarefas além de escavar.",
+            "source": "Ficha do Museu de Memórias MM202621 + observação directa. As pessoas não estão identificadas com segurança.",
+            "certainty": "confirmed"
           }
         },
         {
-          "id": "moldura",
-          "shape": {
-            "type": "circle",
-            "cx": 0.6312,
-            "cy": 0.54,
-            "r": 0.04
-          },
-          "title": "A fotografia na moldura oval",
-          "clue": "Uma fotografia guardada numa moldura que não é rectangular.",
-          "hint": "Procura em cima da mesa, perto da extremidade direita.",
-          "hintArea": {
-            "cx": 0.625,
-            "cy": 0.56,
-            "r": 0.1
-          },
-          "discovery": {
-            "text": "As molduras e o formato das provas fotográficas podem dar pistas sobre a época e sobre o valor que a família dava a uma imagem. O verso de uma fotografia também pode guardar nomes e datas.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
-          }
-        },
-        {
-          "id": "camara",
+          "id": "fragmentos",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "Os fragmentos",
+          "clue": "Encontra os pedaços que estão a ser tratados.",
+          "hint": "Estão espalhados no chão, por baixo das mãos.",
           "shape": {
             "type": "polygon",
             "points": [
               [
-                0.0737,
-                0.446
+                0.18,
+                0.37
               ],
               [
-                0.2562,
-                0.446
+                0.47,
+                0.36
               ],
               [
-                0.2562,
-                0.58
+                0.48,
+                0.47
               ],
               [
-                0.0737,
+                0.39,
+                0.45
+              ],
+              [
+                0.27,
+                0.45
+              ],
+              [
+                0.2,
+                0.5
+              ]
+            ]
+          },
+          "hintArea": {
+            "cx": 0.33,
+            "cy": 0.42,
+            "r": 0.13
+          },
+          "visualCheck": "Monte de peças claras, achatadas e irregulares, no chão; outras dentro do carrinho de mão.",
+          "discovery": {
+            "text": "Um monte de fragmentos claros e achatados. A legenda chama-lhes «cacos»: pedaços partidos que, depois de limpos, podem ser estudados um a um.",
+            "source": "Ficha do Museu de Memórias MM202621 (título «Lavando cacos», recolhido da página Partilha Alternativa) + observação directa.",
+            "certainty": "probable"
+          }
+        },
+        {
+          "id": "carrinho",
+          "type": "find",
+          "layer": "investigacao",
+          "optional": true,
+          "title": "O carrinho de mão",
+          "clue": "Como se levavam os fragmentos de um lado para o outro?",
+          "hint": "Procura à direita, com uma roda.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.4,
+                0.4
+              ],
+              [
+                0.83,
+                0.42
+              ],
+              [
+                0.83,
+                0.57
+              ],
+              [
+                0.53,
+                0.65
+              ],
+              [
+                0.4,
                 0.58
               ]
             ]
           },
-          "title": "A câmara de fole",
-          "clue": "O instrumento com que se faziam as fotografias.",
-          "hint": "Está à esquerda, montado num tripé de madeira.",
           "hintArea": {
-            "cx": 0.1562,
-            "cy": 0.56,
-            "r": 0.13
+            "cx": 0.62,
+            "cy": 0.52,
+            "r": 0.15
           },
+          "visualCheck": "Carrinho de mão com roda vermelha e caixa metálica carregada de fragmentos.",
           "discovery": {
-            "text": "Repara na parte dobrada como um acordeão: o fole servia para focar a imagem. Saber como uma fotografia foi feita ajuda a perceber o que ela mostra e o que ficou de fora do enquadramento.",
-            "source": "Conteúdo de demonstração — sem valor documental.",
-            "certainty": null
+            "text": "Um carrinho de mão cheio de fragmentos. A ficha descreve-o como uma «carriola». Transportar e organizar materiais também fazia parte do trabalho diário.",
+            "source": "Ficha do Museu de Memórias MM202621 («junto a uma carriola e um balde») + observação directa.",
+            "certainty": "confirmed"
           }
-        }
-      ],
-      "zones": [
-        {
-          "id": "z-janela",
-          "label": "Parede, à esquerda",
-          "description": "Uma janela com vista para uma colina.",
-          "x": 0.1625,
-          "y": 0.235
         },
         {
-          "id": "z-mapa",
-          "label": "Parede, ao centro",
-          "description": "Uma folha presa com alfinetes vermelhos, com linhas e uma cruz.",
-          "x": 0.425,
-          "y": 0.245
+          "id": "balde",
+          "type": "find",
+          "layer": "investigacao",
+          "optional": true,
+          "title": "O balde",
+          "clue": "Há um recipiente no meio dos fragmentos…",
+          "hint": "Olha para baixo do monte de fragmentos, à esquerda do carrinho.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.27,
+                0.45
+              ],
+              [
+                0.36,
+                0.45
+              ],
+              [
+                0.36,
+                0.63
+              ],
+              [
+                0.27,
+                0.63
+              ]
+            ]
+          },
+          "hintArea": {
+            "cx": 0.32,
+            "cy": 0.54,
+            "r": 0.08
+          },
+          "visualCheck": "Balde escuro com aro claro, pousado entre fragmentos; conteúdo não visível.",
+          "discovery": {
+            "text": "Um balde escuro entre os fragmentos. Pela legenda «Lavando cacos», pode ter servido para a água da lavagem, mas a fotografia não mostra o seu conteúdo.",
+            "source": "Ficha do Museu de Memórias MM202621 (menciona o balde) + observação directa. O uso é uma hipótese.",
+            "certainty": "hypothesis"
+          }
         },
         {
-          "id": "z-relogio",
-          "label": "Parede, à direita do centro",
-          "description": "Um relógio de parede.",
-          "x": 0.6312,
-          "y": 0.17
-        },
-        {
-          "id": "z-quadro",
-          "label": "Parede, por baixo do relógio",
-          "description": "Um quadro rectangular com uma paisagem.",
-          "x": 0.6281,
-          "y": 0.345
-        },
-        {
-          "id": "z-estante",
-          "label": "Direita",
-          "description": "Uma estante com caixas de arquivo, livros e um globo.",
-          "x": 0.85,
-          "y": 0.38
-        },
-        {
-          "id": "z-album",
-          "label": "Mesa, à esquerda",
-          "description": "Um álbum de fotografias aberto.",
-          "x": 0.3875,
-          "y": 0.585
-        },
-        {
-          "id": "z-maquina",
-          "label": "Mesa, ao centro",
-          "description": "Uma máquina de escrever.",
-          "x": 0.5406,
-          "y": 0.575
-        },
-        {
-          "id": "z-moldura",
-          "label": "Mesa, à direita",
-          "description": "Um objecto oval de pé, com um retrato.",
-          "x": 0.6312,
-          "y": 0.54
-        },
-        {
-          "id": "z-candeeiro",
-          "label": "Mesa, extremo esquerdo",
-          "description": "Um candeeiro de mesa.",
-          "x": 0.3,
-          "y": 0.54
-        },
-        {
-          "id": "z-cadeira",
-          "label": "Chão, à direita",
-          "description": "Uma cadeira de madeira.",
-          "x": 0.7312,
-          "y": 0.8
-        },
-        {
-          "id": "z-tripe",
-          "label": "Esquerda, sobre o tripé",
-          "description": "Uma caixa escura com uma parte em acordeão e uma lente.",
-          "x": 0.1562,
-          "y": 0.517
+          "id": "revelacao",
+          "type": "question",
+          "kind": "caption",
+          "layer": "historia",
+          "optional": false,
+          "title": "O verso da fotografia",
+          "clue": "Descobre o que diz o verso da fotografia.",
+          "prompt": "O verso desta fotografia guarda uma pista sobre quando foi revelada. Qual é?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Um carimbo da Kodak de dezembro de 1984"
+            },
+            {
+              "id": "b",
+              "text": "Uma assinatura de 1950"
+            },
+            {
+              "id": "c",
+              "text": "Não tem nada escrito"
+            }
+          ],
+          "answer": "a",
+          "hint": "As fotografias de papel eram muitas vezes reveladas em laboratórios com carimbo próprio.",
+          "discovery": {
+            "text": "Segundo um carimbo apagado no verso, a fotografia foi revelada pela Kodak em dezembro de 1984. O momento fotografado pode ser anterior: revelação e fotografia nem sempre acontecem no mesmo mês.",
+            "source": "Ficha do Museu de Memórias MM202621: «revelada pela Kodak em dezembro de 1984, segundo carimbo apagado no verso».",
+            "certainty": "probable"
+          }
         }
       ],
       "reward": {
-        "stamp": "arquivo",
-        "label": "Selo do arquivista"
+        "stamp": "caco",
+        "label": "Selo do cuidado com os materiais",
+        "page": "O tratamento dos materiais",
+        "message": "Cada fragmento tem uma história. E cada pessoa que cuidou dele faz parte dessa história."
       },
-      "completion": {
-        "requires": "all-hotspots"
-      }
+      "related": [
+        "MM202615",
+        "MM202622"
+      ]
+    },
+    {
+      "missionId": "a-equipa-de-milreu",
+      "order": 3,
+      "kind": "mission",
+      "memoryRef": "MM202614",
+      "variant": "immersive",
+      "title": "A Equipa de Milreu",
+      "documentTitle": "Equipa de escavadores em Milreu sobre os mosaicos",
+      "difficulty": "média",
+      "locale": "pt-PT",
+      "description": "Uma grande fotografia de grupo, sobre os mosaicos. Há pistas nas pessoas e no próprio lugar.",
+      "opening": "Uma escavação nunca é obra de uma única pessoa. Nesta fotografia estão representadas muitas das pessoas que fizeram parte da história das investigações de Milreu. Mas há também pistas escondidas no próprio lugar onde foram fotografadas.",
+      "tasks": [
+        {
+          "id": "mosaico",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "O chão de mosaico",
+          "clue": "Onde estão a pisar?",
+          "hint": "Olha para o chão, em baixo e à direita, entre os pés.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.46,
+                0.8
+              ],
+              [
+                0.62,
+                0.8
+              ],
+              [
+                0.66,
+                0.76
+              ],
+              [
+                0.92,
+                0.73
+              ],
+              [
+                0.92,
+                0.89
+              ],
+              [
+                0.46,
+                0.89
+              ]
+            ]
+          },
+          "hintArea": {
+            "cx": 0.7,
+            "cy": 0.82,
+            "r": 0.14
+          },
+          "visualCheck": "Pavimento de tesselas claras e escuras com padrão geométrico, visível entre os pés e à frente do grupo.",
+          "discovery": {
+            "text": "Um chão de mosaico com desenhos geométricos, feito de pequenas pedras. A ficha situa a fotografia na zona dos mosaicos, perto do ponto central, do lado oeste da Casa Rural.",
+            "source": "Ficha do Museu de Memórias MM202614 («aparenta ser a zona dos mosaicos») + observação directa.",
+            "certainty": "probable"
+          }
+        },
+        {
+          "id": "porta",
+          "type": "find",
+          "layer": "observacao",
+          "optional": false,
+          "title": "A porta ao fundo",
+          "clue": "Procura uma abertura no edifício atrás do grupo.",
+          "hint": "Olha para cima, ao centro: há duas pessoas lá dentro.",
+          "shape": {
+            "type": "polygon",
+            "points": [
+              [
+                0.405,
+                0.135
+              ],
+              [
+                0.482,
+                0.135
+              ],
+              [
+                0.482,
+                0.262
+              ],
+              [
+                0.405,
+                0.262
+              ]
+            ]
+          },
+          "hintArea": {
+            "cx": 0.445,
+            "cy": 0.21,
+            "r": 0.07
+          },
+          "visualCheck": "Vão de porta rectangular com moldura clara, ao centro e em cima; duas pessoas de pé no interior escuro.",
+          "discovery": {
+            "text": "Uma porta aberta na parede antiga, com duas pessoas à entrada. As paredes descascadas mostram as várias camadas de um edifício que foi mudando ao longo do tempo.",
+            "source": "Observação directa da fotografia MM202614. A ficha associa o local ao lado oeste da Casa Rural.",
+            "certainty": "confirmed"
+          }
+        },
+        {
+          "id": "contagem",
+          "type": "question",
+          "kind": "count",
+          "layer": "observacao",
+          "optional": false,
+          "title": "Quantas pessoas?",
+          "clue": "Conta a equipa.",
+          "prompt": "Quantas pessoas aparecem nesta fotografia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerca de dez"
+            },
+            {
+              "id": "b",
+              "text": "Cerca de trinta"
+            },
+            {
+              "id": "c",
+              "text": "Mais de cem"
+            }
+          ],
+          "answer": "b",
+          "hint": "Conta por filas: de pé, à frente e agachadas.",
+          "discovery": {
+            "text": "A ficha regista 31 pessoas: equipas técnicas e trabalhadores locais. Uma escavação dependia de muitas mãos e muitos saberes.",
+            "source": "Ficha do Museu de Memórias MM202614: «A imagem mostra 31 indivíduos».",
+            "certainty": "confirmed"
+          }
+        },
+        {
+          "id": "luvas",
+          "type": "question",
+          "kind": "zoom",
+          "layer": "investigacao",
+          "optional": true,
+          "title": "Um pormenor nas mãos",
+          "clue": "Amplia um pormenor que passa despercebido.",
+          "prompt": "Repara na pessoa agachada ao centro, em baixo. O que tem nas mãos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Luvas brancas"
+            },
+            {
+              "id": "b",
+              "text": "Uma colher de pedreiro"
+            },
+            {
+              "id": "c",
+              "text": "Uma máquina fotográfica"
+            }
+          ],
+          "answer": "a",
+          "hint": "A ampliação mostra as mãos pousadas sobre o mosaico.",
+          "discovery": {
+            "text": "Luvas brancas, pousadas sobre o mosaico. A ficha não explica porquê. Se souber o motivo, este é o tipo de memória que pode partilhar com o projecto.",
+            "source": "Observação directa da fotografia MM202614 (pormenor ampliado). O motivo não está documentado.",
+            "certainty": "confirmed"
+          },
+          "zoomArea": {
+            "cx": 0.55,
+            "cy": 0.81,
+            "scale": 6
+          }
+        },
+        {
+          "id": "testemunho",
+          "type": "question",
+          "kind": "caption",
+          "layer": "historia",
+          "optional": false,
+          "title": "Quem estava nesta equipa?",
+          "clue": "Descobre o que contou uma testemunha.",
+          "prompt": "Cristina Farias, que aparece nesta fotografia, contou ao projecto quem fazia parte destas equipas. O que indicou?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desenhadores do Instituto Arqueológico Alemão, um arquitecto e trabalhadores contratados"
+            },
+            {
+              "id": "b",
+              "text": "Apenas turistas de passagem"
+            },
+            {
+              "id": "c",
+              "text": "Só arqueólogos estrangeiros"
+            }
+          ],
+          "answer": "a",
+          "hint": "As campanhas juntavam técnicos e pessoas da comunidade.",
+          "discovery": {
+            "text": "Segundo o testemunho de Cristina Farias, estavam presentes desenhadores do Instituto Arqueológico Alemão, o arquitecto Pedro Fialho de Sousa e trabalhadores contratados. A ficha indica 1981 como data provável.",
+            "source": "Ficha do Museu de Memórias MM202614 (testemunho de Cristina Farias; data «provavelmente 1981»).",
+            "certainty": "probable"
+          }
+        }
+      ],
+      "reward": {
+        "stamp": "equipa",
+        "label": "Selo da equipa",
+        "page": "As pessoas da investigação",
+        "message": "Uma descoberta importante: a história de Milreu também pertence às pessoas que trabalharam aqui."
+      },
+      "related": [
+        "MM202613"
+      ]
     }
   ]
 }

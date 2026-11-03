@@ -52,7 +52,7 @@
     "test": "node --test tests/*.test.mjs",
     "build": "node scripts/collab/build-runtime-config.mjs && node scripts/build.mjs",
     "build:hml": "MILREU_LAB_ENABLED=true MILREU_LAB_ENVIRONMENT=hml npm run build",
-    "lab:assets": "python3 scripts/lab/build_detetives_assets.py",
+    "lab:overlay": "python3 scripts/lab/overlay_detetives_hotspots.py docs/website/capturas/detetives-v0.2",
     "preview": "node scripts/dev-server.mjs --root dist --port 4173",
     "smoke": "node scripts/smoke.mjs",
     "media:generate": "python3 scripts/media/generate_variants.py",

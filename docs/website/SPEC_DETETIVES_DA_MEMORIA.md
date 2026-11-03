@@ -2,7 +2,7 @@
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu.
 
-**Estado:** `PROTÓTIPO EXPERIMENTAL — SÓ EM TESTE (HML) — POR HOMOLOGAR`. Não está aprovado nem publicado.
+**Estado:** `PROTÓTIPO EXPERIMENTAL v0.2 — FOTOGRAFIAS REAIS — SÓ EM TESTE (HML) — POR HOMOLOGAR`. Não está aprovado nem publicado.
 **Origem:** brief do responsável «Detetives da Memória — roteiro de jogo e especificação para protótipo funcional», v0.1, 2026-11-03.
 **Âmbito (scope-check):** `IN_SCOPE_NEEDS_SPEC`, satisfeito por este documento. Iniciativa principal `INIT-LEARNING` (circuitos e recursos educativos); relacionada `INIT-MUSEUM`.
 
@@ -55,3 +55,27 @@
 3. Revisão das pistas e textos para essa fotografia (fonte e grau de certeza).
 4. Eventual entrada pública (rota `#/jogos/detetives-da-memoria`, menu do Museu), que é um pacote próprio.
 5. Revisão do registo de componentes `DS-L001`–`DS-L004` (estado `proposed`).
+
+## 5. v0.2 — fotografias reais do acervo e experiência acolhedora (2026-11-03)
+**Correcção prioritária do responsável:** as ilustrações demonstrativas foram **removidas**. O jogo usa só fotografias reais do Museu de Memórias: **MM202615**, **MM202621** e **MM202614**.
+- **Fonte canónica:** imagem, dimensões, título, data, crédito e direitos vêm sempre de `memories.json` e `media-manifest.json`, através de `resolveMissions`. O catálogo do jogo guarda só a jogabilidade, sem arquivo paralelo.
+- **Motor:**
+  - 2 a 5 descobertas por missão;
+  - tipos: encontrar na fotografia (círculo, polígono ou várias zonas) e perguntas (`count`, `compare`, `zoom`, `caption`/testemunho);
+  - camadas: Observação e História concluem a missão; Investigação é extra;
+  - colecção: selo e página do álbum.
+- **Recompensas:**
+  - marca imediata no ponto tocado (~15 ms medidos) com brilho discreto e som opcional;
+  - pontos e progresso por segmentos animados;
+  - cartão de descoberta que **não bloqueia** a acção seguinte;
+  - celebração curta com a página do álbum, a ligação a outra memória e a próxima fotografia;
+  - dois botões iguais, «Descobrir a próxima memória» e «Voltar ao meu álbum»; a missão seguinte nunca começa sozinha.
+- **Álbum vivo:** uma página por fotografia, para folhear, com selo, descobertas, grau de certeza e ligações à ficha do Museu.
+- **Conforto:**
+  - modo calmo, ou `prefers-reduced-motion`;
+  - sons de papel e sinos, desligados por omissão;
+  - sem tempo limite, sem penalização, sem mensagens de fracasso;
+  - sem sorte, moedas, sequências diárias nem rankings.
+- **Medição local:** missões iniciadas e concluídas, descobertas, ajudas, erros de interacção, tempo até à 1.ª descoberta e tempo de resposta. Só no browser, nunca enviada.
+- **Planeamento, verificação visual, fontes e bloqueios:** `docs/website/DETETIVES_PLANEAMENTO_MISSOES.md`.
+- **MM202618:** bloqueada por intervenção substantiva de IA declarada. **MM202617:** excluída.

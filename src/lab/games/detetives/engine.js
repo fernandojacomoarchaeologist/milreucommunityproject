@@ -4,8 +4,9 @@
  * Consultar RIGHTS.md.
  *
  * Detetives da Memória — motor do jogo (laboratório, versão de teste).
- * Funções puras: validação de missões, geometria das pistas (coordenadas normalizadas à imagem
- * original), pontuação, ajudas, conclusão e níveis. Sem DOM, sem rede, sem armazenamento.
+ * Funções puras: validação de missões (2 a 5 descobertas: encontrar na fotografia ou responder a
+ * perguntas de comparação, ampliação, legenda ou testemunho), geometria das pistas (coordenadas
+ * normalizadas à imagem), pontuação, ajudas, conclusão e níveis. Sem DOM, sem rede, sem armazenamento.
  */
 
 export const GAME_STATES = Object.freeze(["intro", "board", "tutorial", "mission", "paused", "discovery", "completed", "notebook", "error"]);
@@ -25,7 +26,7 @@ export const LEVELS = Object.freeze([
 ]);
 
 export const TUTORIAL_STEPS = Object.freeze([
-  { id: "tap", label: "Toca numa pista na imagem" },
+  { id: "tap", label: "Toca num elemento da fotografia" },
   { id: "zoom", label: "Amplia a imagem (botão +, roda do rato ou dois dedos)" },
   { id: "read", label: "Lê uma descoberta e carrega em «Continuar a investigação»" },
   { id: "notebook", label: "Abre o Caderno de Campo" },
@@ -35,6 +36,21 @@ export const TUTORIAL_STEPS = Object.freeze([
 const isNum = value => typeof value === "number" && Number.isFinite(value);
 const inUnit = value => isNum(value) && value >= 0 && value <= 1;
 
+// Camadas de descoberta: observação → investigação (opcional) → história; a colecção é o selo/página do álbum.
+export const LAYERS = Object.freeze({
+  observacao: { id: "observacao", label: "Observação" },
+  investigacao: { id: "investigacao", label: "Investigação" },
+  historia: { id: "historia", label: "História" }
+});
+export const CERTAINTY = Object.freeze(["confirmed", "probable", "hypothesis"]);
+export const MIN_TASKS = 2;
+export const MAX_TASKS = 5;
+
+export const tasksOf = mission => (Array.isArray(mission?.tasks) ? mission.tasks : []);
+export const findTasks = mission => tasksOf(mission).filter(task => task.type === "find");
+export const requiredTasks = mission => tasksOf(mission).filter(task => !task.optional);
+
+// Valida uma missão JÁ resolvida pelo adaptador editorial (imagem vinda da ficha do Museu).
 export function validateMission(mission) {
   const errors = [];
   if (!mission || typeof mission !== "object") return { ok: false, errors: ["missão inexistente"] };
@@ -45,21 +61,32 @@ export function validateMission(mission) {
   if (!(isNum(image.width) && image.width > 0 && isNum(image.height) && image.height > 0)) errors.push("dimensões da imagem inválidas");
   if (!image.alt) errors.push("texto alternativo em falta");
   if (!image.credit) errors.push("crédito em falta");
-  const hotspots = Array.isArray(mission.hotspots) ? mission.hotspots : [];
-  if (!hotspots.length) errors.push("sem pistas");
+  const tasks = tasksOf(mission);
+  if (tasks.length < MIN_TASKS || tasks.length > MAX_TASKS) errors.push(`a missão deve ter entre ${MIN_TASKS} e ${MAX_TASKS} descobertas`);
+  if (!requiredTasks(mission).length) errors.push("sem descobertas obrigatórias");
   const ids = new Set();
-  for (const spot of hotspots) {
-    if (!spot.id || ids.has(spot.id)) errors.push(`pista com id inválido ou repetido: ${spot.id}`);
-    ids.add(spot.id);
-    if (!spot.title || !spot.clue || !spot.hint || !spot.discovery?.text) errors.push(`pista ${spot.id}: textos em falta`);
-    if (!validShape(spot.shape)) errors.push(`pista ${spot.id}: geometria inválida`);
-    if (spot.hintArea && !(inUnit(spot.hintArea.cx) && inUnit(spot.hintArea.cy) && isNum(spot.hintArea.r) && spot.hintArea.r > 0)) errors.push(`pista ${spot.id}: área de ajuda inválida`);
+  for (const task of tasks) {
+    if (!task.id || ids.has(task.id)) errors.push(`descoberta com id inválido ou repetido: ${task.id}`);
+    ids.add(task.id);
+    if (!LAYERS[task.layer]) errors.push(`${task.id}: camada inválida`);
+    if (!task.title || !task.clue || !task.hint || !task.discovery?.text || !task.discovery?.source) errors.push(`${task.id}: textos ou fonte em falta`);
+    if (task.discovery && !CERTAINTY.includes(task.discovery.certainty)) errors.push(`${task.id}: grau de certeza inválido`);
+    if (task.type === "find") {
+      if (!validShape(task.shape)) errors.push(`${task.id}: geometria inválida`);
+      if (task.hintArea && !(inUnit(task.hintArea.cx) && inUnit(task.hintArea.cy) && isNum(task.hintArea.r) && task.hintArea.r > 0)) errors.push(`${task.id}: área de ajuda inválida`);
+    } else if (task.type === "question") {
+      const options = Array.isArray(task.options) ? task.options : [];
+      if (!task.prompt || options.length < 2 || !options.some(o => o.id === task.answer)) errors.push(`${task.id}: pergunta inválida`);
+      if (task.zoomArea && !(inUnit(task.zoomArea.cx) && inUnit(task.zoomArea.cy) && task.zoomArea.scale > 1)) errors.push(`${task.id}: ampliação inválida`);
+    } else errors.push(`${task.id}: tipo desconhecido`);
   }
   return { ok: errors.length === 0, errors };
 }
 
 function validShape(shape) {
   if (!shape) return false;
+  // Várias zonas para o mesmo elemento (ex.: duas pessoas na mesma tarefa).
+  if (shape.type === "multi") return Array.isArray(shape.shapes) && shape.shapes.length >= 1 && shape.shapes.every(part => part.type !== "multi" && validShape(part));
   if (shape.type === "circle") return inUnit(shape.cx) && inUnit(shape.cy) && isNum(shape.r) && shape.r > 0 && shape.r < 0.5;
   if (shape.type === "polygon") return Array.isArray(shape.points) && shape.points.length >= 3 && shape.points.every(p => Array.isArray(p) && inUnit(p[0]) && inUnit(p[1]));
   return false;
@@ -67,6 +94,7 @@ function validShape(shape) {
 
 // Centro de uma forma (normalizado), útil para marcas de descoberta e alternativa por teclado.
 export function shapeCenter(shape) {
+  if (shape.type === "multi") return shapeCenter(shape.shapes[0]);
   if (shape.type === "circle") return { x: shape.cx, y: shape.cy };
   const n = shape.points.length;
   return { x: shape.points.reduce((s, p) => s + p[0], 0) / n, y: shape.points.reduce((s, p) => s + p[1], 0) / n };
@@ -79,6 +107,7 @@ export function shapeCenter(shape) {
  */
 export function hitTest(shape, point, image, tolerancePx = 0) {
   if (!point || !inUnit(point.x) || !inUnit(point.y)) return false;
+  if (shape.type === "multi") return shape.shapes.some(part => hitTest(part, point, image, tolerancePx));
   const W = image.width, H = image.height;
   const px = point.x * W, py = point.y * H;
   if (shape.type === "circle") {
@@ -117,43 +146,68 @@ export function touchTolerance(image, renderedWidth, screenPx = 16) {
 }
 
 export function createRun(mission) {
-  return { missionId: mission.missionId, found: [], hints: {}, points: {}, score: 0, misses: 0, steps: [], status: "mission" };
+  return { missionId: mission.missionId, found: [], hints: {}, points: {}, attempts: {}, score: 0, misses: 0, steps: [], status: "mission", completedOnce: false };
 }
 
 export function remainingHotspots(run, mission) {
-  return mission.hotspots.filter(spot => !run.found.includes(spot.id));
+  return findTasks(mission).filter(spot => !run.found.includes(spot.id));
 }
 
+export function remainingTasks(run, mission) {
+  return tasksOf(mission).filter(task => !run.found.includes(task.id));
+}
+
+function pointsFor(level) { return POINTS_BY_HINT[Math.min(Math.max(level, 0), MAX_HINT_LEVEL)]; }
+
+function award(run, mission, task, level) {
+  const points = pointsFor(level);
+  const found = [...run.found, task.id];
+  const next = { ...run, found, points: { ...run.points, [task.id]: points }, score: run.score + points, misses: 0 };
+  next.status = requiredTasks(mission).every(t => found.includes(t.id)) ? "completed" : "mission";
+  return { run: next, points };
+}
+
+// Toque na imagem: acerta primeiro numa pista ainda por encontrar; só depois avisa «já encontrada».
 export function registerTap(run, mission, point, tolerancePx = 0) {
-  const hit = mission.hotspots.find(spot => hitTest(spot.shape, point, mission.image, tolerancePx));
-  if (hit && run.found.includes(hit.id)) return { run, result: "already", hotspot: hit, points: 0 };
+  const spots = findTasks(mission).filter(spot => hitTest(spot.shape, point, mission.image, tolerancePx));
+  const hit = spots.find(spot => !run.found.includes(spot.id));
   if (hit) {
-    const level = Math.min(run.hints[hit.id] || 0, MAX_HINT_LEVEL);
-    const points = POINTS_BY_HINT[level];
-    const found = [...run.found, hit.id];
-    const next = { ...run, found, points: { ...run.points, [hit.id]: points }, score: run.score + points, misses: 0 };
-    next.status = found.length === mission.hotspots.length ? "completed" : "mission";
+    const { run: next, points } = award(run, mission, hit, run.hints[hit.id] || 0);
     return { run: next, result: "found", hotspot: hit, points };
   }
+  if (spots.length) return { run, result: "already", hotspot: spots[0], points: 0 };
   const misses = run.misses + 1;
   return { run: { ...run, misses }, result: "miss", hotspot: null, points: 0, suggestHelp: misses % MISSES_BEFORE_SUGGESTION === 0 };
 }
 
-// Ajuda: sobe um nível na pista indicada (ou na primeira por encontrar). Nunca desce, nunca passa de 2.
-export function applyHint(run, mission, hotspotId) {
-  const target = mission.hotspots.find(spot => spot.id === hotspotId && !run.found.includes(spot.id)) || remainingHotspots(run, mission)[0];
-  if (!target) return { run, hotspot: null, level: 0 };
+// Resposta a uma pergunta: sem penalização; cada tentativa falhada conta como um nível de ajuda.
+export function answerQuestion(run, mission, questionId, optionId) {
+  const task = tasksOf(mission).find(t => t.id === questionId && t.type === "question");
+  if (!task || run.found.includes(task.id)) return { run, result: "ignored", task: task || null, points: 0 };
+  if (optionId !== task.answer) {
+    return { run: { ...run, attempts: { ...run.attempts, [task.id]: (run.attempts[task.id] || 0) + 1 } }, result: "retry", task, points: 0 };
+  }
+  const level = Math.max(run.hints[task.id] || 0, run.attempts[task.id] || 0);
+  const { run: next, points } = award(run, mission, task, level);
+  return { run: next, result: "found", task, points };
+}
+
+// Ajuda: sobe um nível na descoberta indicada (ou na primeira obrigatória por fazer). Nunca passa de 2.
+export function applyHint(run, mission, taskId) {
+  const pending = remainingTasks(run, mission);
+  const target = pending.find(t => t.id === taskId) || pending.find(t => !t.optional) || pending[0];
+  if (!target) return { run, hotspot: null, task: null, level: 0 };
   const level = Math.min((run.hints[target.id] || 0) + 1, MAX_HINT_LEVEL);
-  return { run: { ...run, hints: { ...run.hints, [target.id]: level } }, hotspot: target, level };
+  return { run: { ...run, hints: { ...run.hints, [target.id]: level } }, hotspot: target, task: target, level };
 }
 
 export function markStep(run, stepId) {
   return run.steps.includes(stepId) ? run : { ...run, steps: [...run.steps, stepId] };
 }
 
+// Concluída quando todas as descobertas OBRIGATÓRIAS estão feitas (as de investigação são opcionais).
 export function isComplete(run, mission) {
-  const allFound = mission.hotspots.every(spot => run.found.includes(spot.id));
-  if (!allFound) return false;
+  if (!requiredTasks(mission).every(task => run.found.includes(task.id))) return false;
   if (mission.kind === "tutorial") return TUTORIAL_STEPS.every(step => run.steps.includes(step.id));
   return true;
 }
@@ -163,7 +217,7 @@ export function pendingTutorialSteps(run) {
 }
 
 export function maxScore(mission) {
-  return mission.hotspots.length * POINTS_BY_HINT[0];
+  return tasksOf(mission).length * POINTS_BY_HINT[0];
 }
 
 export function levelFor(completedCount) {

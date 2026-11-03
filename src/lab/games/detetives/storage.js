@@ -12,7 +12,26 @@ export const STORAGE_KEY = "milreu-lab-detetives";
 export const STORAGE_VERSION = 1;
 
 export function emptyProgress() {
-  return { version: STORAGE_VERSION, completed: {}, current: null, prefs: { sound: false } };
+  return { version: STORAGE_VERSION, completed: {}, current: null, prefs: { sound: false, calm: false }, metrics: emptyMetrics() };
+}
+
+// Medição LOCAL de qualidade (só neste browser; nunca enviada): conclusão, ajudas, descobertas,
+// erros de interacção e tempo de resposta. Sem dados pessoais nem tempo total de permanência.
+export function emptyMetrics() {
+  return { missionsStarted: 0, missionsCompleted: 0, hintsUsed: 0, discoveries: 0, optionalDiscoveries: 0, misses: 0, wrongAnswers: 0, firstDiscoveryMs: [], feedbackMs: [] };
+}
+function migrateMetrics(raw) {
+  const m = emptyMetrics();
+  if (!raw || typeof raw !== "object") return m;
+  for (const key of ["missionsStarted", "missionsCompleted", "hintsUsed", "discoveries", "optionalDiscoveries", "misses", "wrongAnswers"]) m[key] = num(raw[key]);
+  for (const key of ["firstDiscoveryMs", "feedbackMs"]) m[key] = (Array.isArray(raw[key]) ? raw[key] : []).map(num).slice(-20);
+  return m;
+}
+export function bumpMetric(progress, key, value) {
+  const metrics = { ...(progress.metrics || emptyMetrics()) };
+  if (Array.isArray(metrics[key])) metrics[key] = [...metrics[key], Math.round(value)].slice(-20);
+  else metrics[key] = (metrics[key] || 0) + (value ?? 1);
+  return { ...progress, metrics };
 }
 
 const arr = value => (Array.isArray(value) ? value.filter(item => typeof item === "string") : []);
@@ -31,9 +50,13 @@ export function migrate(raw) {
     const hints = {}, points = {};
     for (const [k, v] of Object.entries(c.hints || {})) hints[k] = Math.min(2, num(v));
     for (const [k, v] of Object.entries(c.points || {})) points[k] = num(v);
-    out.current = { missionId: c.missionId, found: arr(c.found), hints, points, score: num(c.score), misses: num(c.misses), steps: arr(c.steps), status: "mission" };
+    const attempts = {};
+    for (const [k, v] of Object.entries(c.attempts || {})) attempts[k] = num(v);
+    out.current = { missionId: c.missionId, found: arr(c.found), hints, points, attempts, score: num(c.score), misses: num(c.misses), steps: arr(c.steps), status: "mission", completedOnce: c.completedOnce === true };
   }
   out.prefs.sound = raw.prefs?.sound === true;
+  out.prefs.calm = raw.prefs?.calm === true;
+  out.metrics = migrateMetrics(raw.metrics);
   return out;
 }
 
@@ -60,19 +83,19 @@ export function clearProgress(storage) {
   return emptyProgress();
 }
 
-export function recordCompletion(progress, run, now = new Date()) {
+export function recordCompletion(progress, run, now = new Date(), { keepCurrent = false } = {}) {
   const previous = progress.completed[run.missionId];
   return {
     ...progress,
-    current: null,
+    current: keepCurrent ? progress.current : null,
     completed: {
       ...progress.completed,
       [run.missionId]: {
         bestScore: Math.max(previous?.bestScore || 0, run.score),
         lastScore: run.score,
-        found: [...run.found],
-        completedAt: now.toISOString(),
-        plays: (previous?.plays || 0) + 1
+        found: [...new Set([...(previous?.found || []), ...run.found])],
+        completedAt: previous?.completedAt && keepCurrent ? previous.completedAt : now.toISOString(),
+        plays: (previous?.plays || 0) + (keepCurrent ? 0 : 1)
       }
     }
   };
