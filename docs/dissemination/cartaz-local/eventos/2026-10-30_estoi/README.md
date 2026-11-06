@@ -1,4 +1,4 @@
-# Item 8 — Cartaz de evento · Junta de Freguesia de Estoi (30-10 → 27-11-2026, prorrogada)
+# Item 8 — Cartaz de evento · Junta de Freguesia de Estoi (30-10 → 03-12-2026, prorrogada)
 
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 > **Estado: FINAL ART (2026-10-13, pedido do responsável) — PRODUCTION GATE PENDENTE** (teste físico do QR · ICC da gráfica, se diferente do genérico · autorização da Junta).
@@ -9,8 +9,8 @@ Primeira paragem real. **Os dados vivem só em `evento.json`**; as 3 peças can�
 | Campo | Valor |
 |---|---|
 | Local | Junta de Freguesia de Estoi · Estoi · Faro |
-| Datas | 30 de Outubro — 27 de Novembro de 2026 (prorrogada em 2026-11-02; antes até 6 de Novembro) |
-| Destaque | Exposição prorrogada · até sexta-feira, 27 de Novembro (a inauguração de 30-10, 21h00, já decorreu) |
+| Datas | 30 de Outubro — 3 de Dezembro de 2026 (prorrogada em 2026-11-02 até 27 de Novembro e em 2026-11-06 até 3 de Dezembro; inicialmente até 6 de Novembro) |
+| Destaque | Exposição prorrogada · até quinta-feira, 3 de Dezembro (a inauguração de 30-10, 21h00, já decorreu) |
 | Horário | Segunda a sexta · 9h00 – 12h00 e 14h00 – 18h00 · encerrado ao fim-de-semana |
 | Morada | Largo Ossónoba · 8005-454 Estoi |
 | Entrada | Entrada livre |
@@ -57,3 +57,4 @@ Primeira paragem real. **Os dados vivem só em `evento.json`**; as 3 peças can�
 - 2026-10-13 · PENDENTE · Vídeo animado v2 (e restantes peças do cartaz Estoi) **enviados para validação externa — STAND BY** até retorno. · responsável
 - 2026-10-14 · DECISÃO · **3 tipos canónicos** por paragem (cartaz geral · animação · post social); dados só em `evento.json`; geradores movidos para `../../canonico/`; versão «online» (réplica do cartaz com QR) **retirada**, substituída pelo **post social** informativo sem QR (1080×1350 · 1080×1080 · 1080×1920). Cartaz impresso regenerado pelo pipeline novo = pixel-idêntico ao aprovado. · responsável
 - 2026-11-02 · ALTERADO · **Prorrogação até 27-11-2026** (decisão do responsável): `evento.json` (fim 2026-11-27; destaque «Exposição prorrogada · até sexta-feira, 27 de Novembro», já que a inauguração decorreu); 3 tipos regenerados (impressão A3/A4 + CMYK, animação, posts). Agenda do site actualizada no mesmo PR (`ends_on`, cartaz 4:5, alt); deploy por fazer. · responsável
+- 2026-11-06 · ALTERADO · **Prorrogação até 03-12-2026** (decisão do responsável; antes até 27-11): `evento.json` (fim 2026-12-03; destaque «Exposição prorrogada · até quinta-feira, 3 de Dezembro»); 3 tipos regenerados (impressão A3/A4 + CMYK, animação, posts). Agenda do site actualizada no mesmo PR (`ends_on`, cartaz 4:5, alt, segunda adenda); deploy por fazer. · responsável

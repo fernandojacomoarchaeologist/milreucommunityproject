@@ -38,3 +38,7 @@ O carrossel da Home passa de 3 para 4 destaques (o 4.º é o evento de 10-10-202
 ## Adenda — 2026-11-02
 
 - Paragem da Junta de Freguesia de Estoi **prorrogada até 27-11-2026** (decisão do responsável). `ends_on` actualizado na agenda; cartaz da agenda substituído pelo post 4:5 com a nova data (Item 8, `eventos/2026-10-30_estoi/`).
+
+## Adenda — 2026-11-06
+
+- Paragem da Junta de Freguesia de Estoi **prorrogada novamente, até 03-12-2026** (decisão do responsável). `ends_on` actualizado na agenda; cartaz da agenda substituído pelo post 4:5 com a nova data (Item 8, `eventos/2026-10-30_estoi/`).

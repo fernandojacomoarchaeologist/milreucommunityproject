@@ -1,6 +1,6 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu.",
-  "_nota": "Dados do evento (únicos campos que mudam entre paragens). Confirmados pelo responsável em 2026-10-12/13; prorrogação até 27-11-2026 decidida pelo responsável em 2026-11-02. Ver ../../canonico/README.md.",
+  "_nota": "Dados do evento (únicos campos que mudam entre paragens). Confirmados pelo responsável em 2026-10-12/13; prorrogação até 27-11-2026 decidida pelo responsável em 2026-11-02 e nova prorrogação até 03-12-2026 em 2026-11-06. Ver ../../canonico/README.md.",
   "id": "2026-10-30_estoi",
   "prefixo_ficheiros": "ITEM8_Estoi",
   "local": {
@@ -11,14 +11,14 @@
   },
   "datas": {
     "inicio": "2026-10-30",
-    "fim": "2026-11-27",
+    "fim": "2026-12-03",
     "inicio_texto": "30 de Outubro",
-    "fim_texto": "27 de Novembro",
+    "fim_texto": "3 de Dezembro",
     "ano": "2026"
   },
   "destaque": {
     "rotulo": "Exposição prorrogada",
-    "dia": "até sexta-feira, 27 de Novembro"
+    "dia": "até quinta-feira, 3 de Dezembro"
   },
   "horario": [
     "Segunda a sexta · 9h00 – 12h00 e 14h00 – 18h00",
