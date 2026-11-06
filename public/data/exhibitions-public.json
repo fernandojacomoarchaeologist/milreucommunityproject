@@ -1,7 +1,7 @@
 {
   "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
   "version": "0.17.0",
-  "generatedAt": "2026-11-02",
+  "generatedAt": "2026-11-06",
   "source": "human-approved-static",
   "isExample": false,
   "approval": {
@@ -13,6 +13,11 @@
         "on": "2026-11-02",
         "by": "responsável do projeto",
         "what": "Paragem de Estoi prorrogada até 27-11-2026"
+      },
+      {
+        "on": "2026-11-06",
+        "by": "responsável do projeto",
+        "what": "Paragem de Estoi prorrogada até 03-12-2026"
       }
     ]
   },
@@ -21,7 +26,7 @@
     {
       "id": "2026-10-30-estoi-junta-de-freguesia",
       "starts_on": "2026-10-30",
-      "ends_on": "2026-11-27",
+      "ends_on": "2026-12-03",
       "venue_name": "Junta de Freguesia de Estoi",
       "parish": "Estoi",
       "locality": "Estoi",
@@ -41,7 +46,7 @@
           "thumb": "public/media/events/2026-10-30-estoi-junta-de-freguesia/cartaz-640.jpg",
           "thumbWidth": 512,
           "thumbHeight": 640,
-          "alt": "Cartaz da exposição «Entre Ruínas e Memórias» na Junta de Freguesia de Estoi, de 30 de outubro a 27 de novembro de 2026 (exposição prorrogada)",
+          "alt": "Cartaz da exposição «Entre Ruínas e Memórias» na Junta de Freguesia de Estoi, de 30 de outubro a 3 de dezembro de 2026 (exposição prorrogada)",
           "credit": "Cartaz: Projeto Comunitário de Milreu"
         }
       ]
