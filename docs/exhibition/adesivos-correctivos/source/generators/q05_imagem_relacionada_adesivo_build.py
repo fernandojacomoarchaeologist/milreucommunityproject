@@ -10,9 +10,12 @@ O gerador:
 - lê o raster CMYK do PDF do painel enviado à gráfica;
 - mede a moldura da fotografia (maior bloco de tinta em largura total na faixa de
   pesquisa) e as linhas de legenda logo abaixo;
-- gera um adesivo que cobre moldura + legenda com 2 mm de folga em cada lado, no
-  papel do painel (cor amostrada), com a nova fotografia na posição exacta da antiga
-  e a nova legenda nas mesmas cotas, cores e altura de letra das linhas antigas;
+- gera DOIS adesivos (decisão do responsável, 2026-11-16):
+  1. FOTOGRAFIA — só imagem até ao corte, 2 mm maior que a moldura antiga de cada
+     lado (sem orla cor de papel, onde uma diferença de tom se notaria mais);
+  2. LEGENDA — tira cor de papel (cor amostrada) sobre as duas linhas antigas, com a
+     nova legenda na mesma linha de base, tipografia calibrada e cor das letras;
+  o papel entre a fotografia e a legenda fica o original do painel;
 - converte a fotografia sRGB -> «Generic CMYK Profile», como nos painéis;
 - não altera tons, não usa IA, não grava EXIF.
 
@@ -41,6 +44,7 @@ PANEL_TRIM_MM = (841.0, 1800.0)
 PANEL_BLEED_MM = 20.0
 OVERLAP_MM = 2.0      # folga do adesivo para lá da moldura/legenda antigas
 BLEED_MM = 3.0        # sangria de impressão do adesivo
+CAP_MARGIN_MM = 3.0   # margem da tira da legenda à volta das letras (antigas e novas)
 OUT_PPI = 300         # texto nítido; a fotografia-fonte tem ~85 ppi à largura da moldura
 
 # Fotografia nova: MM202608, sem a margem branca e o fio da digitalização (medidos)
@@ -147,27 +151,23 @@ def build(pdf_path, out_dir, proof_dir, panel_id="Q05", search_mm=(1000, 1720), 
     mm = lambda px: px / ppm
     fx, fy = mm(L) - PANEL_BLEED_MM, mm(T) - PANEL_BLEED_MM
     fw, fh = mm(R - L + 1), mm(B - T + 1)
-    cap_bot = mm(caps[-1]["bot"] + 1) - PANEL_BLEED_MM
-    cap_right = max(mm(c["x1"] + 1) - PANEL_BLEED_MM for c in caps)
-    free_below = mm(next_ink - caps[-1]["bot"] - 1)
-    # Adesivo (corte): da moldura à última linha de legenda, com folga
-    cx, cy = fx - OVERLAP_MM, fy - OVERLAP_MM
-    cw = max(fw, cap_right - fx) + 2 * OVERLAP_MM
-    ch = (cap_bot - fy) + 2 * OVERLAP_MM
-    assert free_below > OVERLAP_MM + 1, f"pouco espaço livre abaixo da legenda ({free_below:.1f} mm)"
-    dw, dh = cw + 2 * BLEED_MM, ch + 2 * BLEED_MM
+    paper = tuple(int(v) for v in bg)
 
     def px(v_mm):
         return int(round(v_mm / 25.4 * OUT_PPI))
 
-    W, H = px(dw), px(dh)
-    paper = tuple(int(v) for v in bg)
-    sticker = Image.new("CMYK", (W, H), paper)
-    ox, oy = px(BLEED_MM + OVERLAP_MM), px(BLEED_MM + OVERLAP_MM)   # origem da moldura antiga no adesivo
+    out_dir, proof_dir = Path(out_dir), Path(proof_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    proof_dir.mkdir(parents=True, exist_ok=True)
+    tag = "" if panel_id == "Q05" else f"_ENSAIO_{panel_id}"
 
-    # Fotografia, recortada à proporção exacta da moldura antiga
+    # ---- Peça 1: FOTOGRAFIA. Só imagem, até ao corte; 2 mm maior que a moldura antiga
+    # de cada lado (cobre o filete antigo); a sangria também é fotografia.
+    i_cx, i_cy = fx - OVERLAP_MM, fy - OVERLAP_MM
+    i_cw, i_ch = fw + 2 * OVERLAP_MM, fh + 2 * OVERLAP_MM
+    i_dw, i_dh = i_cw + 2 * BLEED_MM, i_ch + 2 * BLEED_MM
     src = Image.open(PHOTO).convert("RGB").crop(PHOTO_INNER)
-    ratio = fw / fh
+    ratio = i_dw / i_dh
     sw, sh = src.size
     if sw / sh > ratio:
         nw = round(sh * ratio)
@@ -177,40 +177,95 @@ def build(pdf_path, out_dir, proof_dir, panel_id="Q05", search_mm=(1000, 1720), 
         nh = round(sw / ratio)
         y0 = round((sh - nh) * PHOTO_FOCUS_Y)
         src = src.crop((0, y0, sw, y0 + nh))
-    eff_ppi = src.width / (fw / 25.4)
-    fwp, fhp = px(fw), px(fh)
-    photo = src.resize((fwp, fhp), Image.LANCZOS)
+    eff_ppi = src.width / (i_dw / 25.4)
     tr = ImageCms.buildTransform(ImageCms.createProfile("sRGB"), ImageCms.getOpenProfile(CMYK_ICC),
                                  "RGB", "CMYK", ImageCms.Intent.PERCEPTUAL)
-    sticker.paste(ImageCms.applyTransform(photo, tr), (ox, oy))
+    img_piece = ImageCms.applyTransform(src.resize((px(i_dw), px(i_dh)), Image.LANCZOS), tr)
+    i_base = f"ADESIVO_Q05_1_FOTOGRAFIA{tag}_{i_cw:.1f}x{i_ch:.1f}mm_corte_sangria3mm_CMYK"
+    write_print_pdf(img_piece, i_dw, i_dh, out_dir / f"{i_base}.pdf")
+    img_piece.convert("RGB").save(out_dir / f"{i_base}_preview_RGB.png", dpi=(OUT_PPI, OUT_PPI))
 
-    # Legenda: mesma linha de base, mesma tipografia calibrada, cor do núcleo das letras antigas
-    d = ImageDraw.Draw(sticker)
-    rep_caps = []
-    for text, c, pt in zip(CAPTION, caps, CAP_PT):
-        size = round(pt / 72 * OUT_PPI)
-        f = ImageFont.truetype(str(FONT), size)
+    # ---- Peça 2: LEGENDA. Tira cor de papel sobre as duas linhas antigas, com a nova
+    # legenda na mesma linha de base, tipografia calibrada e cor do núcleo das letras.
+    fonts = []
+    for pt in CAP_PT:
+        f = ImageFont.truetype(str(FONT), round(pt / 72 * OUT_PPI))
         f.set_variation_by_axes(FONT_AXES)
-        tx = ox + px(mm(c["x0"] - L))
-        ty = oy + px(mm(c["base"] + 1 - T))
+        fonts.append(f)
+    # extensão da tinta nova (mm, coordenadas do corte do painel)
+    new_ext = []
+    for text, c, f in zip(CAPTION, caps, fonts):
+        bb = f.getbbox(text, anchor="ls")
+        x0m = mm(c["x0"]) - PANEL_BLEED_MM
+        basem = mm(c["base"] + 1) - PANEL_BLEED_MM
+        new_ext.append((x0m + bb[0] / OUT_PPI * 25.4, basem + bb[1] / OUT_PPI * 25.4,
+                        x0m + bb[2] / OUT_PPI * 25.4, basem + bb[3] / OUT_PPI * 25.4))
+    old_ext = [(mm(c["x0"]) - PANEL_BLEED_MM, mm(c["top"]) - PANEL_BLEED_MM,
+                mm(c["x1"] + 1) - PANEL_BLEED_MM, mm(c["bot"] + 1) - PANEL_BLEED_MM) for c in caps]
+    ext = old_ext + new_ext
+    l_cx = min(e[0] for e in ext) - CAP_MARGIN_MM
+    l_cy = min(e[1] for e in ext) - CAP_MARGIN_MM
+    l_cr = max(e[2] for e in ext) + CAP_MARGIN_MM
+    l_cb = max(e[3] for e in ext) + CAP_MARGIN_MM
+    l_cw, l_ch = l_cr - l_cx, l_cb - l_cy
+    assert l_cy >= i_cy + i_ch + 1.0, f"tira da legenda colide com a fotografia ({l_cy:.1f} < {i_cy + i_ch + 1:.1f} mm)"
+    assert l_cr <= PANEL_TRIM_MM[0] - 5, "tira da legenda sai do painel"
+    free_below = mm(next_ink) - PANEL_BLEED_MM - l_cb
+    assert free_below > 1.0, f"tira da legenda encosta ao elemento seguinte ({free_below:.1f} mm)"
+    l_dw, l_dh = l_cw + 2 * BLEED_MM, l_ch + 2 * BLEED_MM
+    cap_piece = Image.new("CMYK", (px(l_dw), px(l_dh)), paper)
+    d = ImageDraw.Draw(cap_piece)
+    rep_caps = []
+    for text, c, f, pt in zip(CAPTION, caps, fonts, CAP_PT):
+        tx = px(BLEED_MM + mm(c["x0"]) - PANEL_BLEED_MM - l_cx)
+        ty = px(BLEED_MM + mm(c["base"] + 1) - PANEL_BLEED_MM - l_cy)
         d.text((tx, ty), text, font=f, fill=c["cmyk"], anchor="ls")
         tw = f.getlength(text) / OUT_PPI * 25.4
-        assert mm(c["x0"]) - PANEL_BLEED_MM - fx + tw <= cw - 2 * OVERLAP_MM + 0.5, f"legenda larga demais: {text}"
-        # controlo: altura de maiúscula medida no painel vs. da fonte ao tamanho calibrado
         cap_h_font = (f.getbbox("H", anchor="ls")[3] - f.getbbox("H", anchor="ls")[1]) / OUT_PPI * 25.4
-        cap_h_old = mm(c["base"] - c["top"] + 1)
-        rep_caps.append(f"  «{text}»: Archivo {FONT_AXES[0]} {pt} pt ({size}px @ {OUT_PPI} ppi); largura {tw:.1f} mm; "
-                        f"CMYK {c['cmyk']}; topo-base antigo {cap_h_old:.2f} mm vs. H da fonte {cap_h_font:.2f} mm")
+        rep_caps.append(f"  «{text}»: Archivo {FONT_AXES[0]} {pt} pt; largura {tw:.1f} mm; CMYK {c['cmyk']}; "
+                        f"topo-base antigo {mm(c['base'] - c['top'] + 1):.2f} mm vs. H da fonte {cap_h_font:.2f} mm")
+    l_base = f"ADESIVO_Q05_2_LEGENDA{tag}_{l_cw:.1f}x{l_ch:.1f}mm_corte_sangria3mm_CMYK"
+    write_print_pdf(cap_piece, l_dw, l_dh, out_dir / f"{l_base}.pdf")
+    cap_piece.convert("RGB").save(out_dir / f"{l_base}_preview_RGB.png", dpi=(OUT_PPI, OUT_PPI))
 
-    out_dir, proof_dir = Path(out_dir), Path(proof_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    proof_dir.mkdir(parents=True, exist_ok=True)
-    tag = "" if panel_id == "Q05" else f"_ENSAIO_{panel_id}"
-    base = f"ADESIVO_Q05_IMAGEM_RELACIONADA{tag}_{cw:.1f}x{ch:.1f}mm_corte_sangria3mm_CMYK"
+    # ---- Provas: as duas peças (só corte) pousadas no painel, à escala do raster
+    mock = panel.copy()
+    for piece, cx, cy, cw, ch in ((img_piece, i_cx, i_cy, i_cw, i_ch), (cap_piece, l_cx, l_cy, l_cw, l_ch)):
+        W, H = piece.size
+        cut = piece.crop((px(BLEED_MM), px(BLEED_MM), W - px(BLEED_MM), H - px(BLEED_MM)))
+        mock.paste(cut.resize((round(cw * ppm), round(ch * ppm)), Image.LANCZOS),
+                   (round((cx + PANEL_BLEED_MM) * ppm), round((cy + PANEL_BLEED_MM) * ppm)))
+    zoom = (max(0, L - 120), max(0, T - 160), min(w, R + 120), min(h, next_ink + 120))
+    mock.convert("RGB").resize((w // 2, h // 2), Image.LANCZOS).save(proof_dir / f"{panel_id}_com_adesivos_MONTAGEM.png")
+    mock.convert("RGB").crop(zoom).save(proof_dir / f"{panel_id}_com_adesivos_ZOOM.png")
+    panel.convert("RGB").crop(zoom).save(proof_dir / f"{panel_id}_imagem_ANTES_ZOOM.png")
 
-    # PDF de impressão: página = corte + sangria; TrimBox = corte; CMYK JPEG invertido (Adobe)
+    rep = f"""painel {panel_id}: {Path(pdf_path).name}  sha256 {psha}
+raster do painel: {w}x{h} px ({ppm * 25.4:.1f} ppi); Decode invertido: {inverted}; papel CMYK 0-255 {paper}
+moldura antiga: {fw:.1f} x {fh:.1f} mm; canto sup-esq a {fx:.1f} mm da esquerda e {fy:.1f} mm do topo do corte do painel
+
+ADESIVO 1 — FOTOGRAFIA ({i_base}.pdf)
+  corte: {i_cw:.1f} x {i_ch:.1f} mm (moldura antiga + {OVERLAP_MM} mm por lado); com sangria {BLEED_MM} mm: {i_dw:.1f} x {i_dh:.1f} mm
+  colocação: canto sup-esq a {i_cx:.1f} mm da esquerda e {i_cy:.1f} mm do topo do painel
+             (= {OVERLAP_MM} mm para fora da moldura antiga em cada lado)
+  fotografia: {PHOTO.name} sha256 {sha(PHOTO)}; recorte {src.width}x{src.height} px; ~{eff_ppi:.0f} ppi efectivos
+
+ADESIVO 2 — LEGENDA ({l_base}.pdf)
+  corte: {l_cw:.1f} x {l_ch:.1f} mm (linhas antigas e novas + {CAP_MARGIN_MM} mm); com sangria: {l_dw:.1f} x {l_dh:.1f} mm
+  colocação: canto sup-esq a {l_cx:.1f} mm da esquerda e {l_cy:.1f} mm do topo do painel
+  distância à fotografia (adesivo 1): {l_cy - (i_cy + i_ch):.1f} mm; ao elemento seguinte: {free_below:.1f} mm
+  legenda nova:
+""" + "\n".join(rep_caps) + "\n"
+    (out_dir / f"ADESIVOS_Q05{tag}_MEDIDAS.txt").write_text(rep)
+    print(rep)
+    return rep
+
+
+def write_print_pdf(piece, dw, dh, path):
+    """PDF de impressão: página = corte + sangria; TrimBox = corte; CMYK JPEG (Adobe, /Decode invertido)."""
+    W, H = piece.size
     buf = io.BytesIO()
-    sticker.save(buf, "JPEG", quality=95, dpi=(OUT_PPI, OUT_PPI))
+    piece.save(buf, "JPEG", quality=95, dpi=(OUT_PPI, OUT_PPI))
     pdf = pikepdf.new()
     pw, ph = dw / 25.4 * 72, dh / 25.4 * 72
     b = BLEED_MM / 25.4 * 72
@@ -230,32 +285,7 @@ def build(pdf_path, out_dir, proof_dir, panel_id="Q05", search_mm=(1000, 1720), 
         Contents=content,
     )
     pdf.pages.append(pikepdf.Page(page))
-    pdf.save(out_dir / f"{base}.pdf")
-    sticker.convert("RGB").save(out_dir / f"{base}_preview_RGB.png", dpi=(OUT_PPI, OUT_PPI))
-
-    # Provas: adesivo (só corte) pousado no painel, à escala do raster do painel
-    cut = sticker.crop((px(BLEED_MM), px(BLEED_MM), W - px(BLEED_MM), H - px(BLEED_MM)))
-    cut_p = cut.resize((round(cw * ppm), round(ch * ppm)), Image.LANCZOS)
-    mock = panel.copy()
-    mock.paste(cut_p, (round(L - OVERLAP_MM * ppm), round(T - OVERLAP_MM * ppm)))
-    zoom = (max(0, L - 120), max(0, T - 160), min(w, R + 120), min(h, next_ink + 120))
-    mock.convert("RGB").resize((w // 2, h // 2), Image.LANCZOS).save(proof_dir / f"{panel_id}_com_adesivo_imagem_MONTAGEM.png")
-    mock.convert("RGB").crop(zoom).save(proof_dir / f"{panel_id}_com_adesivo_imagem_ZOOM.png")
-    panel.convert("RGB").crop(zoom).save(proof_dir / f"{panel_id}_imagem_ANTES_ZOOM.png")
-
-    rep = f"""painel {panel_id}: {Path(pdf_path).name}  sha256 {psha}
-raster do painel: {w}x{h} px ({ppm * 25.4:.1f} ppi); Decode invertido: {inverted}; papel CMYK 0-255 {paper}
-moldura antiga: {fw:.1f} x {fh:.1f} mm; canto sup-esq a {fx:.1f} mm da esquerda e {fy:.1f} mm do topo do corte do painel
-legenda antiga: {len(caps)} linhas; termina a {cap_bot:.1f} mm do topo; espaço livre até ao elemento seguinte {free_below:.1f} mm
-adesivo (CORTE): {cw:.1f} x {ch:.1f} mm  (folga {OVERLAP_MM} mm/lado)
-adesivo (com sangria {BLEED_MM} mm): {dw:.1f} x {dh:.1f} mm -> {W} x {H} px @ {OUT_PPI} ppi
-colocação: canto sup-esq do adesivo a {cx:.1f} mm da esquerda e {cy:.1f} mm do topo do painel
-fotografia: {PHOTO.name} sha256 {sha(PHOTO)}; recorte {src.width}x{src.height} px; ~{eff_ppi:.0f} ppi efectivos
-legenda nova:
-""" + "\n".join(rep_caps) + "\n"
-    (out_dir / f"{base}_MEDIDAS.txt").write_text(rep)
-    print(rep)
-    return rep
+    pdf.save(path)
 
 
 if __name__ == "__main__":
