@@ -1,0 +1,63 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "version": "0.2.0",
+  "status": "test-only",
+  "notice": "Decisões de uso INTERACTIVO (jogo) de memórias do Museu. As entradas abaixo valem SÓ para o ambiente de teste (HML). A publicação exige validação editorial e de direitos por fonte (status «approved»).",
+  "authorisations": [
+    {
+      "memoryId": "MM202615",
+      "scope": "interactive-game",
+      "status": "approved-for-testing",
+      "environments": [
+        "hml"
+      ],
+      "decidedOn": "2026-11-03",
+      "decisionRef": "Pedido do responsável, 2026-11-03 — «Correcção prioritária — Detetives da Memória»",
+      "pendingForProduction": "validação editorial e de direitos por fonte (condições de Celeste Pimenta, Branca Pimenta e coleção de Maria de Lurdes Mendes Martins)"
+    },
+    {
+      "memoryId": "MM202622",
+      "scope": "interactive-game",
+      "status": "approved-for-testing",
+      "environments": [
+        "hml"
+      ],
+      "decidedOn": "2026-11-03",
+      "decisionRef": "Pedido do responsável, 2026-11-03 — «Correcção prioritária — Detetives da Memória»",
+      "pendingForProduction": "validação editorial e de direitos por fonte (condições de Celeste Pimenta, Branca Pimenta e coleção de Maria de Lurdes Mendes Martins)"
+    },
+    {
+      "memoryId": "MM202621",
+      "scope": "interactive-game",
+      "status": "approved-for-testing",
+      "environments": [
+        "hml"
+      ],
+      "decidedOn": "2026-11-03",
+      "decisionRef": "Pedido do responsável, 2026-11-03 — «Correcção prioritária — Detetives da Memória»",
+      "pendingForProduction": "validação editorial e de direitos por fonte (condições de Celeste Pimenta, Branca Pimenta e coleção de Maria de Lurdes Mendes Martins)"
+    },
+    {
+      "memoryId": "MM202614",
+      "scope": "interactive-game",
+      "status": "approved-for-testing",
+      "environments": [
+        "hml"
+      ],
+      "decidedOn": "2026-11-03",
+      "decisionRef": "Pedido do responsável, 2026-11-03 — «Correcção prioritária — Detetives da Memória»",
+      "pendingForProduction": "validação editorial e de direitos por fonte (condições de Celeste Pimenta, Branca Pimenta e coleção de Maria de Lurdes Mendes Martins)"
+    },
+    {
+      "memoryId": "MM202613",
+      "scope": "interactive-game",
+      "status": "approved-for-testing",
+      "environments": [
+        "hml"
+      ],
+      "decidedOn": "2026-11-03",
+      "decisionRef": "Pedido do responsável, 2026-11-03 — «Correcção prioritária — Detetives da Memória»",
+      "pendingForProduction": "validação editorial e de direitos por fonte (condições de Celeste Pimenta, Branca Pimenta e coleção de Maria de Lurdes Mendes Martins)"
+    }
+  ]
+}

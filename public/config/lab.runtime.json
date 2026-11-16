@@ -1,0 +1,6 @@
+{
+  "_copyright": "© 2026 Fernando Rodrigues de Jácomo — Projeto Comunitário de Milreu",
+  "enabled": false,
+  "environment": "production",
+  "note": "Laboratório de jogos desligado. Só o build de teste (npm run build:hml) o liga; o build de produção remove os ficheiros do laboratório."
+}

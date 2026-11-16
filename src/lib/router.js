@@ -127,6 +127,9 @@ export function getRoute() {
   const collabExhibition = path.match(/^\/area-colaborativa\/gestao\/exposicoes\/([^/]+)$/);
   if (collabExhibition) return { name:"collab-exhibition-detail", exhibitionId:decodeURIComponent(collabExhibition[1]) };
 
+  // Laboratório de jogos (só activo em teste/HML; em produção a rota mostra «página não encontrada»).
+  if (path === "/laboratorio/jogos") return { name:"lab-games" };
+  if (path === "/laboratorio/jogos/detetives-da-memoria") return { name:"lab-detetives", query };
   if (path === "/laboratorio/canais") return { name:"channel-lab" };
   const totemPreview = path.match(/^\/laboratorio\/totem\/(MM\d{6})$/);
   if (totemPreview) return { name:"totem-preview", id:totemPreview[1] };

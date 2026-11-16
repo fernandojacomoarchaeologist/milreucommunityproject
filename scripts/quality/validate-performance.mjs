@@ -20,7 +20,8 @@ const walk = (dir,extension) => {
   let total = 0;
   for (const entry of readdirSync(dir,{withFileTypes:true})) {
     const path = join(dir,entry.name);
-    if (entry.isDirectory()) total += walk(path,extension);
+    // src/lab (laboratório de jogos) não é publicado em produção: o build remove-o do dist.
+    if (entry.isDirectory()) { if (path !== join("src","lab")) total += walk(path,extension); }
     else if (entry.name.endsWith(extension)) total += statSync(path).size;
   }
   return total;

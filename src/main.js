@@ -8,7 +8,7 @@ import {
   findMemory, findInitiative, findCollection, loadChannelConfig, loadChannelRecords, findChannelRecord, loadHomeCarousel, loadPublicExhibitions, loadServerClock, loadPublicContentEffects, loadPublicOpportunities, loadProteusOverview, loadProteusCatalog, loadProteusKnowledge, loadMediaAssets, loadBrandAssets, assetUrl
 } from "./lib/data.js";
 import { getRoute, go } from "./lib/router.js";
-import { bindCommon } from "./components/layout.js";
+import { bindCommon, setLabMenuRenderer, portalHeader, footer } from "./components/layout.js";
 import {
   homeView, projectView, methodologyView, initiativesView, initiativeDetailView,
   knowledgeView, participateView, aboutView, notFoundView
@@ -1782,11 +1782,19 @@ function render(scroll=true) {
       setMetadata(record?.title?.[state.lang] || record?.title?.["pt-PT"] || route.id);
       break;
     }
+    case "lab-games":
+    case "lab-detetives":
+      // Laboratório de jogos: só existe quando state.lab foi carregado (teste/HML). Em produção, 404.
+      if (state.lab) { html = state.lab.shellHtml(route, portalHeader(state.lang), footer(state.lang)); setMetadata(route.name === "lab-games" ? "Jogos e Descobertas (laboratório)" : "Detetives da Memória (laboratório)"); }
+      else { html = notFoundView(state.lang); setMetadata(text(state.lang,"notFound")); }
+      break;
     default: html = notFoundView(state.lang); setMetadata(text(state.lang,"notFound"));
   }
 
+  state.lab?.unmount();
   app.innerHTML = html;
   bindPage();
+  if (state.lab) { state.lab.bindMenu(app); if (state.lab.isLabRoute(route)) state.lab.mount(app, route); }
   if (scroll) window.scrollTo(0,0);
   syncAgendaDrawer(route);
 }
@@ -1854,7 +1862,24 @@ async function loadProteusApiIndex() {
 // Modo escuro: quando o dispositivo muda e não há escolha guardada, o botão do cabeçalho acompanha.
 window.addEventListener("milreu-theme-change",() => render(false));
 
+// Laboratório de jogos (Detetives da Memória): carregado SÓ se public/config/lab.runtime.json o
+// activar e o domínio não for o de produção. O build de produção nem inclui os ficheiros.
+const PRODUCTION_HOSTS = new Set(["projectomilreu.pt","www.projectomilreu.pt"]);
+async function loadLab() {
+  try {
+    if (PRODUCTION_HOSTS.has(location.hostname)) return null;
+    const response = await fetch(assetUrl("public/config/lab.runtime.json"));
+    const config = response.ok ? await response.json() : null;
+    if (config?.enabled !== true) return null;
+    const { installLab } = await import("./lab/lab-boot.js");
+    return installLab({ setLabMenuRenderer, assetUrl, config });
+  } catch {
+    return null;
+  }
+}
+
 async function start() {
+  state.lab = await loadLab();
   try {
     [state.records,state.portal,state.homeCarousel,state.publicExhibitions,state.publicContentEffects,state.collections,state.museumIndex,state.audit,state.channelConfig,state.channelRecords,state.publicOpportunities,state.publicProteusOverview,state.publicProteusCatalog,state.publicProteusKnowledge,state.publicProteusApi,state.mediaAssets,state.brandAssets] = await Promise.all([
       loadMemories(),loadPortalContent(),loadHomeCarousel(),loadPublicExhibitions(),loadPublicContentEffects(),loadMuseumCollections(),loadMuseumIndex(),loadMuseumAudit(),loadChannelConfig(),loadChannelRecords(),loadPublicOpportunities(),loadProteusOverview(),loadProteusCatalog(),loadProteusKnowledge(),loadProteusApiIndex(),loadMediaAssets(),loadBrandAssets()

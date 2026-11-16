@@ -352,6 +352,40 @@
         "serverClock"
       ],
       "mvp": false
+    },
+    {
+      "id": "SPEC-PAGE-021-LAB-GAMES",
+      "product": "laboratorio",
+      "path": "/laboratorio/jogos",
+      "objective": "Laboratório de jogos (só teste/HML): lista de jogos experimentais",
+      "components": [
+        "ProjectHeader",
+        "LabGamesMenu",
+        "StandardFooter"
+      ],
+      "sources": [
+        "labRuntimeConfig"
+      ],
+      "mvp": false
+    },
+    {
+      "id": "SPEC-PAGE-022-LAB-DETETIVES",
+      "product": "laboratorio",
+      "path": "/laboratorio/jogos/detetives-da-memoria",
+      "objective": "Detetives da Memória (só teste/HML): investigação visual com pistas, ajudas, pontuação e Caderno de Campo",
+      "components": [
+        "ProjectHeader",
+        "LabGamesMenu",
+        "InvestigationStage",
+        "DiscoveryCard",
+        "FieldNotebook"
+      ],
+      "sources": [
+        "labMissionCatalog",
+        "labAuthorisations",
+        "localProgress"
+      ],
+      "mvp": false
     }
   ]
 }

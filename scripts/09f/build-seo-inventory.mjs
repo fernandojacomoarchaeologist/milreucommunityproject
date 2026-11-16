@@ -33,7 +33,7 @@ const PUBLIC_INDEX = new Set([
   "public-transparency", "museum-home", "gallery", "timeline", "collections", "collection", "memory",
   "media-press", "visual-identity", "rights",
 ]);
-const NOINDEX = new Set(["immersive", "channel-lab", "totem-preview", "panel-preview", "not-found"]);
+const NOINDEX = new Set(["immersive", "channel-lab", "totem-preview", "panel-preview", "not-found", "lab-games", "lab-detetives"]);
 // Formulários públicos com dados pessoais → fora da indexação (privacidade).
 const BLOCKED_PUBLIC = new Set(["public-contribution-new", "public-contribution-track", "public-contribution-withdrawal"]);
 
