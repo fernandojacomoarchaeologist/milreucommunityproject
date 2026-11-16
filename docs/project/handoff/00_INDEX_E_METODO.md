@@ -28,6 +28,7 @@
 | 12 | [`HANDOFF_ITEM_12_poster2.md`](HANDOFF_ITEM_12_poster2.md) | Poster de Congresso 2 (adaptação legada) | CONTENT PASS · falta correcção PSD (externo) |
 | 14 | [`HANDOFF_ITEM_14_banner.md`](HANDOFF_ITEM_14_banner.md) | Banner institucional (lona 850×2000) | v0.6b FINAL ART READY · PREPRESS PENDING |
 | 15 | [`HANDOFF_ITEM_15_adesivo.md`](HANDOFF_ITEM_15_adesivo.md) | Adesivo do logótipo (Ø50 mm) | Item novo — print + CMYK + prova (APROVADO) |
+| 18 | [`HANDOFF_ITEM_18_template_apresentacao.md`](HANDOFF_ITEM_18_template_apresentacao.md) | Template de apresentação + derivações (III ENEP, V CAAP) | DRAFT · HUMAN GATE |
 
 **Estados da sessão 2026-10-08→12 (Itens 13, 14, 5-reconc, 2B):** tudo em **HUMAN GATE — sem commit, sem PR** (árvore untracked). Itens 1–12 (exceto reconc. do 5) já estão em `main`.
 
