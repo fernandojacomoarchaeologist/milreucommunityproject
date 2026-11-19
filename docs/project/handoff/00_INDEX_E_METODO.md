@@ -14,8 +14,8 @@
 | # | Ficheiro | Item | Estado resumido (2026-10-12) |
 |---|---|---|---|
 | 1 | [`HANDOFF_ITEM_01_paineis.md`](HANDOFF_ITEM_01_paineis.md) | Painéis da exposição «Entre Ruínas e Memórias» | PRODUCTION LOCKED / IN PRINT (edição 2026 fechada) — **reabertura só do último painel Q12 por decisão humana** · **1.º uso público 10-10-2026** (QA físico formal pendente) · **gráfica imprimiu só Q01–Q06; Q12 FINAL aprovado/gerado (ficha técnica + CCDR) — falta substituir no Drive** |
-| 2 | [`HANDOFF_ITEM_02_website.md`](HANDOFF_ITEM_02_website.md) | Website `projectomilreu.pt` | LIVE · `noindex` · gate editorial humano |
-| 2B | [`HANDOFF_ITEM_02B_seguranca.md`](HANDOFF_ITEM_02B_seguranca.md) | Segurança do sistema | **P0 AUDIT COMPLETE / NO PATCHES APPLIED** · **L1 PHASE 1 APPLIED / ADMINISTRATIVE VERIFIED** (L1-01…06b) · **L2 em desenvolvimento** (branch, sem push/PR) — aguarda revisão |
+| 2 | [`HANDOFF_ITEM_02_website.md`](HANDOFF_ITEM_02_website.md) | Website `projectomilreu.pt` | LIVE · `noindex` · gate editorial humano · PRs #142 gaveta, #143 modo escuro, #144 estatística (desligada) abertos |
+| 2B | [`HANDOFF_ITEM_02B_seguranca.md`](HANDOFF_ITEM_02B_seguranca.md) | Segurança do sistema | **P0 AUDIT COMPLETE** · **L1 aplicado** (L1-01…06b + **L1-07 required checks: APPLIED / ADMINISTRATIVE VERIFIED / BEHAVIORAL VALIDATION PENDING**) · **L2 integrado e validado em produção** (deploy `04de24c`; SEC-P0-001/007/008/009/010/012 corrigidos) · pendentes: migração de secrets, Pillow, L3–L7 |
 | 3 | [`HANDOFF_ITEM_03_orcamento3d.md`](HANDOFF_ITEM_03_orcamento3d.md) | Orçamento impressora 3D (consulta de mercado) | VERSÃO FINAL · falta adjudicação (humana) |
 | 4 | [`HANDOFF_ITEM_04_poster.md`](HANDOFF_ITEM_04_poster.md) | Poster de congresso A0 (académico) | EDITORIAL FROZEN / HUMAN DESIGN PASS · gate prepress |
 | 5 | [`HANDOFF_ITEM_05_flyer_marcador.md`](HANDOFF_ITEM_05_flyer_marcador.md) | Flyer + Marcador (+ reconciliação A5) | FINAL (v6.4) + reconciliação A5 em HUMAN GATE · gate CMYK |
@@ -26,8 +26,14 @@
 | 10 | [`HANDOFF_ITEM_10_folha_sala.md`](HANDOFF_ITEM_10_folha_sala.md) | Folha de Sala / Guia breve A4 | FINAL ART READY · gate prepress (ICC) |
 | 11 | [`HANDOFF_ITEM_11_manual_expositor.md`](HANDOFF_ITEM_11_manual_expositor.md) | Manual do Expositor | CONTENT/DESIGN PASS · bloqueado por validação física |
 | 12 | [`HANDOFF_ITEM_12_poster2.md`](HANDOFF_ITEM_12_poster2.md) | Poster de Congresso 2 (adaptação legada) | CONTENT PASS · falta correcção PSD (externo) |
-| 14 | [`HANDOFF_ITEM_14_banner.md`](HANDOFF_ITEM_14_banner.md) | Banner institucional (lona 850×2000) | v0.6b FINAL ART READY · PREPRESS PENDING |
+| 13 | [`HANDOFF_ITEM_13_relatorio_ccdr.md`](HANDOFF_ITEM_13_relatorio_ccdr.md) | Relatório de Execução CCDR 2026 | **v1.5 FECHADO PARA ENTREGA** (datado de 2026-10-21; todas as despesas pagas) · pacote de entrega em `_private/entrega/` · placeholder Ossónoba 20261056 · Anexo IV oficial preenchido · fatura VEVOR + Folha de Sala reconciliadas; faltam 465,36 € |
+| 14 | [`HANDOFF_ITEM_14_banner.md`](HANDOFF_ITEM_14_banner.md) | Banner institucional (lona 850×2000) | v0.6b FINAL ART READY · PREPRESS PENDING · formato = roll-up 2,00×0,85 m (orçamento Ossónoba 20261056) |
 | 15 | [`HANDOFF_ITEM_15_adesivo.md`](HANDOFF_ITEM_15_adesivo.md) | Adesivo do logótipo (Ø50 mm) | Item novo — print + CMYK + prova (APROVADO) |
+| 16 | [`HANDOFF_ITEM_16_relatorio_apoio.md`](HANDOFF_ITEM_16_relatorio_apoio.md) | Relatório de Apoio Institucional e Evidências (Ciclo 2026) | Gerador no Git (PR #147 MERGED); PDFs só em `_private/` |
+| 17 | [`HANDOFF_ITEM_17_modelagem_3d.md`](HANDOFF_ITEM_17_modelagem_3d.md) | Modelagem e impressão 3D — Cabeça feminina MNA 994.6.3 | Modelo interpretativo por IA, 29 cm em 2 partes (PR #148 MERGED) · aguarda filamento/impressão |
+| 18 | [`HANDOFF_ITEM_18_template_apresentacao.md`](HANDOFF_ITEM_18_template_apresentacao.md) | Template de apresentação do Projecto (PowerPoint) | DRAFT v0.1 · HUMAN GATE · sem commit |
+| 19 | [`HANDOFF_ITEM_19_candidatura_mediacao_cultural.md`](HANDOFF_ITEM_19_candidatura_mediacao_cultural.md) | Candidatura de mediação cultural (Município de Faro) | Em preparação · prazo 08-12-2026 |
+| CE001 | [`HANDOFF_CE001_pedido_suporte.md`](HANDOFF_CE001_pedido_suporte.md) | Circuito Educativo — Pedido de suporte (numeração CE própria) | ANÁLISE E PLANEAMENTO (2026-11-18) · escrita não iniciada · sem commit |
 
 **Estados da sessão 2026-10-08→12 (Itens 13, 14, 5-reconc, 2B):** tudo em **HUMAN GATE — sem commit, sem PR** (árvore untracked). Itens 1–12 (exceto reconc. do 5) já estão em `main`.
 
@@ -36,6 +42,7 @@
 ## Método comum (dossiê transversal — vale para todos os itens)
 
 ### Regras de ouro (não negociáveis)
+0. **Envolvimento da AAMLF (recomendação da AAMLF, 2026-10-26):** convites e todos os documentos emitidos referem a AAMLF, o seu principal parceiro e o nome da candidatura «Projecto Comunitário de Milreu / Museu sem fronteiras». A Rede de Museus do Algarve **não** organiza os Encontros de Amigos de Museus do Algarve (iniciativa exclusiva dos 3 grupos de amigos).
 1. **Nunca inventar** nomes, datas, locais, memórias, direitos, consentimentos, fontes, identificadores ou relações. Em falta → marcar lacuna, manter vazio/`null`/pendente e **perguntar ao responsável**. (CLAUDE.md §2; regras `content-integrity`, `museum-data-integrity`.)
 2. **HUMAN GATE.** Não fazer `commit` nem abrir PR sem pedido explícito do responsável (Fernando Rodrigues de Jácomo). «Deployment técnico ≠ aprovação editorial» (`public-release-gated`).
 3. **Grafia pré-AO90** nos materiais da exposição e no corpo/rodapé/copyright: **«Projecto Comunitário de Milreu»** (com c). O **logótipo** é um asset oficial e diz «PROJETO» (pós-AO90) — **preservar o asset tal como está**, não o «corrigir». EN e citações literais ficam intactos.
