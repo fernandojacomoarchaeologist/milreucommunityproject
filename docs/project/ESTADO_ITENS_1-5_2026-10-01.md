@@ -783,3 +783,4 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 - 2026-11-19 · DECISÃO · CE001: 2 tablets, no mínimo; bustos para uso académico e liberados; cronograma autofinanciado de 2 meses por acção (sem moedas, cadernos e oficina de montar). Ver handoff CE001. · responsável
 - 2026-11-19 · CORRIGIDO · CE001: a estrutura de escavação de 1 × 1 m mantém-se (madeira, ferragens e verniz voltam ao pedido) e guarda-se em sacos ou na lona do fundo; as caixas de plástico são de arrumação. Todo o circuito entra nos dois cenários de cronograma. Ver handoff CE001. · responsável
 - 2026-11-19 · DECISÃO · CE001: enchimento até 20–30 kg por caixa de escavação. · responsável
+- 2026-11-19 · CORRIGIDO · CE001: o limite de 20–30 kg é por volume transportado; o enchimento reparte-se por contentores. · responsável

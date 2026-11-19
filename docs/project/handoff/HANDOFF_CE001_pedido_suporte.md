@@ -76,3 +76,4 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   · responsável
 - 2026-11-19 · CORRIGIDO · Nas entradas de hoje, a estrutura de escavação aparecia como «montável»; a descrição certa é **dobrável, de 4 tábuas com dobradiças**, e guarda-se dobrada em saco ou na lona do fundo (guia §18.1, CE-BP-02a). · responsável
 - 2026-11-19 · DECISÃO · Enchimento limitado a 20–30 kg por caixa (a estimativa de 35–100 kg fica rejeitada); com a densidade estimada, isso dá cerca de 3–9 cm em 1 m², ou uma mistura mais leve. · responsável
+- 2026-11-19 · CORRIGIDO · O limite de 20–30 kg é **por volume transportado**, e não por caixa. O enchimento reparte-se por contentores (cerca de 2–5 por caixa); se um ficar pesado, usa-se um menor. · responsável
