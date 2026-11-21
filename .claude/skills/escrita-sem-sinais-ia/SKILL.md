@@ -49,6 +49,22 @@ rights: "Consultar RIGHTS.md"
 | Negrito em todo o lado, listas com rótulo a negrito, separadores (116, 121, 123) | Negrito só em termos definidos e totais; listas só quando há enumeração real |
 | Fórmulas de e-mail: «venho por este meio», «agradeço antecipadamente», «não hesite» (168) | Directo e cortês: quem é, o que pede, até quando, como responder |
 
+### 3.1 Registo e coesão: o erro oposto também é um sinal
+
+Cortar adjectivos e conectivos **não** é escrever em frases soltas. Texto picado, com frases curtas justapostas, enumerações telegráficas e parágrafos sem princípio, meio e fim, é tão mau como o texto inflacionado: lê-se como notas e não como argumento (sinais 40, 47, 52, 56). Correcção do responsável a 21-11-2026: um texto «MUITO informal», «frases sem início, meio e fim».
+
+- **Registo académico** em candidaturas, relatórios e textos institucionais: frases completas, com sujeito e verbo, períodos que subordinam e explicam («porque», «o que permite», «uma vez que», «de modo a»), terminologia estável.
+- **Cada parágrafo tem uma ideia**: abre com a afirmação, desenvolve-a com o facto, a fonte ou o mecanismo, e fecha ligando ao objectivo ou ao parágrafo seguinte.
+- **Conectivos com função lógica são obrigatórios** quando a relação existe (causa, consequência, finalidade, contraste, ordem). O que se evita é o conectivo decorativo, não a coesão.
+- **Listas** só quando o destino as suporta e a enumeração é real. Em campos de formulário (texto simples, copiar e colar), escrever em prosa contínua; numeração «Primeiro… Segundo…» ou «1.» dentro do parágrafo é aceitável. Pontuação completa em todas as frases.
+- **Justificar, não só afirmar:** cada objectivo, opção ou pedido traz o porquê, ligado ao diagnóstico ou à fonte.
+
+### 3.2 Contexto antes de escrever
+
+Antes de redigir em nome do projecto, ler o contexto do **projecto inteiro** e não só a pasta do item: `docs/project/PROJECT.md`, `PANORAMA_DO_PROJECTO_E_ACOES.md`, `PRINCIPLES.md`, `docs/initiatives/INITIATIVE_REGISTRY.md`, `public/data/portal-content.json` (objectivo público, pilares Comunicação, Mutualidade e Pertinência Social e Política, metodologia), `docs/research/HISTORIA_DA_VILLA_DE_MILREU.md`, as actas e publicações do responsável, os relatórios de execução e os handoffs. Os objectivos de uma iniciativa derivam dos objectivos do projecto e do diagnóstico de 2024, e isso diz-se no texto.
+
+**Apresentar o responsável pelo percurso completo**, nunca reduzido ao estatuto académico: vinte anos de gestão de projectos, orçamentos, fornecedores e equipas; docência; gestão associativa com financiamento público; mestrado e doutoramento em Arqueologia na UAlg; publicação nas actas do V Congresso da AAP; execução de 2026. Fonte: o CV do responsável e os registos do projecto. Parceiros de apoio (AAMLF, Museu) não precisam de currículo no mesmo campo.
+
 **Texto persuasivo (candidaturas, pedidos).** Vender bem é mostrar o que existe e o que muda, com números e nomes verificáveis, e dizer os limites antes que o avaliador os encontre. O elogio próprio não convence um júri; um facto concreto convence. Usar a voz activa e a primeira pessoa do plural quando o candidato fala de si («o Museu acolhe», «a equipa montará»).
 
 ## 4. Procedimento (sete passagens do guia §12)

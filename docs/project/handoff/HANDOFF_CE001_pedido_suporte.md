@@ -102,3 +102,10 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   - Absorvido confirmado: impressora 3D e licenças de software.
   - Corrigido na revisão: impressora e filamento de 2026 «apresentados no relatório CCDR, a CCDR aprecia a elegibilidade», e não «já apoiados».
   · responsável + esta sessão + agentes
+- 2026-11-21 · NOVO · Guias do Circuito, v0.1:
+  - **Guia Operacional:** 15 capítulos, cerca de 41 700 palavras. Cada actividade tem os 9 pontos pedidos, com os pontos 1 e 2 sempre acima de 500 palavras, e há 11 esquemas gerados.
+  - **Guia Técnico:** 19 capítulos com contexto, cerca de 25 500 palavras, 111 riscos mapeados e anexos de materiais, EPI e matriz de riscos.
+  - Ficheiros: fontes em `docs/circuito-educativo/guias/operacional|tecnico/`, geradores em `guias/source/`, DOCX em `guias/_private/`.
+  - Revistos pela sessão principal: nome da candidatura CCDR, Hauschild 2008 pp. 17–31, referências completas de Solbiati e de Naldinho et al., capítulo de contexto copiado para o técnico, e papéis da AAMLF, da equipa de Milreu e do Museu.
+  · responsável + agentes + esta sessão
+- 2026-11-21 · ALTERADO · Os Guias Operacional e Técnico seguem o design system, a pedido do responsável. Novo módulo `guias/source/estilo_ds.py`, com os tokens v0.2: ink-950, ink-600 e red-700 só nos títulos de capítulo; tabelas com cabeçalho paper-150 e bordas ink-200; Fraunces nos títulos, Spectral no corpo e Archivo em tabelas e legendas; logótipo original do Projecto na capa. Não se distribuem ficheiros de fontes. Os dois geradores chamam `aplicar_ds` antes de gravar. · responsável
