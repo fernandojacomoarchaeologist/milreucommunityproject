@@ -81,3 +81,6 @@ Foi testado em 2026-11-18. O `python-docx` instala-se com `pip --target` no scra
 - as fontes do Design System (Fraunces, Spectral, Archivo) não se distribuem e só estão no Mac do responsável, por isso o DOCX deve indicar fontes de substituição ou usar fontes de sistema;
 - os índices automáticos e a numeração de figuras e tabelas exigem campos que o Word actualiza ao abrir, o que tem de ser avisado na entrega;
 - revisões futuras ficam como versões numeradas (`CE001_v0.1.docx`, …) com «Registo de alterações» no próprio documento. As alterações controladas do Word ficam para a revisão pelo museu.
+
+## Registo
+- 2026-11-21 · NOVO · Criada a skill canónica `.claude/skills/escrita-sem-sinais-ia/` (SKILL.md + `scripts/verificar_texto.py`), que implementa o §5 deste ficheiro e passa a reger toda a escrita do projecto. Este ficheiro mantém-se como contrato específico do CE001. · responsável + esta sessão

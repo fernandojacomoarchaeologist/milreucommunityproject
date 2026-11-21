@@ -95,3 +95,10 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   - passaporte em aberto com o museu;
   - Guardado e Corsaro citados de forma geral.
   · responsável
+- 2026-11-21 · NOVO · Passos pedidos pelo responsável.
+  - **Passo 0:** skill canónica `.claude/skills/escrita-sem-sinais-ia/` (SKILL.md + `scripts/verificar_texto.py`).
+  - **Passo 2:** 18 pedidos de orçamento por tipo de fornecedor, em nome do Município de Faro / Museu Municipal de Faro, só com o que não está absorvido. Estão em `_private/orcamentos/pedidos/`, por enviar, com o placeholder `[CONTACTO DE RESPOSTA]`.
+  - **Passo 4:** Word v0.1. Rascunhos em `redaccao/` (14 capítulos e anexos A–E), gerador `source/build_ce001_docx.py`, DOCX em `_private/CE001_v0.1.docx` (cerca de 23 400 palavras, 22 lacunas a amarelo, listadas em `redaccao/00_LACUNAS_DO_RASCUNHO.md`).
+  - Absorvido confirmado: impressora 3D e licenças de software.
+  - Corrigido na revisão: impressora e filamento de 2026 «apresentados no relatório CCDR, a CCDR aprecia a elegibilidade», e não «já apoiados».
+  · responsável + esta sessão + agentes

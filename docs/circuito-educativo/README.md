@@ -25,3 +25,5 @@ O CE001 está ligado ao **Item 19**, a candidatura de mediação cultural do Mun
 4. Já houve **apoios pontuais em espécie e em dinheiro** no Museu de Memórias. A **Gráfica Ossónoba** forneceu gratuitamente, de forma pontual, materiais impressos. Houve também um **auxílio pontual de 50 €** na construção do Museu de Memórias. Ver `CE001_pedido_suporte/LACUNAS_E_PERGUNTAS.md` §B: falta confirmar quais materiais, quando e quem deu os 50 €.
 5. Os **bens reutilizáveis fabricados** destinam-se ao museu, mediante inventário e aceitação. A impressora 3D do investigador e os materiais oferecidos aos participantes, como os mosaicos individuais, ficam fora. Esta regra **colide com a candidatura do Item 19**, em que os bens ficariam do Município, e tem de ser decidida antes de submeter.
 6. Os materiais serão **montados também em oficinas com voluntários**.
+
+- 2026-11-21 · CORRIGIDO · Apoio da Gráfica: não houve impressos gratuitos à parte. Os 50 € são o **desconto** negociado nos painéis (Item 1) e nos adesivos, já reflectido na factura (LACUNAS B2, 18-11). · responsável

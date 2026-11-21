@@ -27,3 +27,9 @@
 - 2026-11-17 · NOVO · Reunião com o Museu Municipal de Faro: decide-se tentar a candidatura, com o Município como candidato. O responsável preenche os dados técnicos e pede os orçamentos; o museu identifica o formulário; a AAMLF dá apoio pontual. Resumo, transcrição e análise guardados em `_private/`. · responsável
 - 2026-11-17 · PENDENTE · Formulário e aviso; protocolo de uso e autoria dos materiais; confirmar nomes das escolas da itinerância; orçamentos (Leroy Merlin, transportadora, filamentos); rascunho para revisão antes de 08-12. · esta sessão
 - 2026-11-18 · NOVO · Criado o CE001 (Pedido de suporte ao museu), que partilha dados técnicos e orçamentos com este item; risco de duplo financiamento e destino dos bens registados em `docs/circuito-educativo/CE001_pedido_suporte/LACUNAS_E_PERGUNTAS.md` (A1–A4). · esta sessão
+- 2026-11-21 · NOVO · Formulário identificado: **PAME** (Programa de Apoio à Mediação Educativa nos Museus e Monumentos, MMP). Até 30 000 €, programação de 2027, prazo 08-12-2026; o aviso oficial não está online. Produzido em `_private/`:
+  - revisão crítica dos objectivos (vocação do museu; critério D, capacitação, reforçado);
+  - rascunho com limites de caracteres, todos cumpridos;
+  - DOCX v0.1 sobre o formulário original, com os campos a preencher pelo museu a amarelo;
+  - estimativa de orçamento incompleta.
+  Projecto: «Circuito Educativo – Ruínas Romanas de Milreu», 10 meses (Fev.–Nov. 2027). · responsável + esta sessão + agente
