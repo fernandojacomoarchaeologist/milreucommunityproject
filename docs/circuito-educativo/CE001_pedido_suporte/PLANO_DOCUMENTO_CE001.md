@@ -111,3 +111,9 @@ Materiais de enchimento: **areia de gato biodegradável, de certificação ecol�
   - menos área enchida.
   Até lá, o pedido de orçamento e os capítulos 7 e 9 usam o tecto de 20–30 kg e não a estimativa anterior. · responsável
 - 2026-11-19 · CORRIGIDO · **CORRECÇÃO do limite de peso:** os **20–30 kg aplicam-se a cada volume transportado**, não ao enchimento total da caixa de 1 m². O enchimento de uma caixa reparte-se por vários contentores, e se um contentor ficar pesado demais **usa-se um mais pequeno para esses materiais**. Com a estimativa de A2 (35–100 kg por caixa a 10–15 cm) são cerca de **2 a 5 contentores por caixa**, ou cerca de 10–25 para 5 caixas. Exemplo: a caixa organizadora de 45 L, cheia com a densidade estimada (0,35–0,65 kg/L), dá cerca de 16–29 kg, dentro do limite; com mistura mais densa enche-se só em parte ou usa-se uma caixa menor. Quantidade e tamanho dos contentores por definir com a mistura medida. A moldura de 1 m² **nunca se transporta cheia** (não tem fundo rígido). · responsável
+- 2026-11-21 · ALTERADO · Brief de 21-11:
+  - a ficha-tipo do cap. 7 passa a ter quatro blocos fixos (componente funcional, embasamento teórico, estratégia de aplicação, limitações de idade, funcionais e físicas) e passa de 9 para 14 fichas (A livro, B passaporte, C quebra-cabeças, D adolescentes, E acessibilidade);
+  - cap. 4 e Anexo C com A4;
+  - cap. 9 com A6, organizado por componente e por tipo de fornecedor;
+  - cap. 13 com os riscos de menores, autorizações, tutelas e prazos longos.
+  Ver A5 §«Impacto nos capítulos». · responsável

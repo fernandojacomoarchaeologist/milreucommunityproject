@@ -77,3 +77,10 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
 - 2026-11-19 · CORRIGIDO · Nas entradas de hoje, a estrutura de escavação aparecia como «montável»; a descrição certa é **dobrável, de 4 tábuas com dobradiças**, e guarda-se dobrada em saco ou na lona do fundo (guia §18.1, CE-BP-02a). · responsável
 - 2026-11-19 · DECISÃO · Enchimento limitado a 20–30 kg por caixa (a estimativa de 35–100 kg fica rejeitada); com a densidade estimada, isso dá cerca de 3–9 cm em 1 m², ou uma mistura mais leve. · responsável
 - 2026-11-19 · CORRIGIDO · O limite de 20–30 kg é **por volume transportado**, e não por caixa. O enchimento reparte-se por contentores (cerca de 2–5 por caixa); se um ficar pesado, usa-se um menor. · responsável
+- 2026-11-21 · NOVO · Brief de novas componentes arquivado (`fontes/2026-11-21_ideias/`).
+  - **A4** bibliografia: Brito et al., ARQUEOLAB e Blue Voices em grau A; Prout B+; Corsaro parcial; Darian-Smith C; Guardado N, sem pertinência; jogos digitais B/C.
+  - **A5** fichas funcionais: 14 componentes, com os 4 blocos.
+  - **A6** materiais: 224 linhas, 27 tipos de fornecedor; candidatos em `_private/`.
+  - Locais do passaporte (5 tutelas) e ICArEHB verificados.
+  - Perguntas F1–F9 em LACUNAS, com destaque para a política de menores e para o cronograma autofinanciado de cerca de 12 meses em sequência.
+  · esta sessão + agentes

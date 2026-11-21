@@ -162,3 +162,33 @@
   - menos área enchida.
   Até lá, o pedido de orçamento e os capítulos 7 e 9 usam o tecto de 20–30 kg e não a estimativa anterior. · responsável + cálculo
 - 2026-11-19 · C3 · **CORRECÇÃO do limite de peso:** os **20–30 kg aplicam-se a cada volume transportado**, não ao enchimento total da caixa de 1 m². O enchimento de uma caixa reparte-se por vários contentores, e se um contentor ficar pesado demais **usa-se um mais pequeno para esses materiais**. Com a estimativa de A2 (35–100 kg por caixa a 10–15 cm) são cerca de **2 a 5 contentores por caixa**, ou cerca de 10–25 para 5 caixas. Exemplo: a caixa organizadora de 45 L, cheia com a densidade estimada (0,35–0,65 kg/L), dá cerca de 16–29 kg, dentro do limite; com mistura mais densa enche-se só em parte ou usa-se uma caixa menor. Quantidade e tamanho dos contentores por definir com a mistura medida. A moldura de 1 m² **nunca se transporta cheia** (não tem fundo rígido). · responsável + cálculo
+- 2026-11-21 · (adolescentes) · **Visita ao ICArEHB é exequível:** o projecto é de doutoramento da UAlg, e o ICArEHB é um centro de investigação da UAlg (FCHS) com laboratórios de arqueologia. Faltam data, grupo, condições de visita e responsável do lado do centro. · responsável + verificação web
+
+## F. Novas componentes (brief de 21-11) — abertas
+
+Análises: `analise/A4_BIBLIOGRAFIA_INFANCIA_PATRIMONIO_E_JOGOS.md`, `analise/A5_FICHAS_FUNCIONAIS_POR_COMPONENTE.md`, `analise/A6_COMPOSICAO_MATERIAIS_POR_COMPONENTE_E_FORNECEDOR.md`.
+
+- **F1.** Política de menores: adoptar como base o que Brito et al. fizeram (p. 1854: consentimento informado dos encarregados de educação, assentimento das crianças, confidencialidade), acrescentando o que lá falta:
+  - RGPD;
+  - autorização das escolas;
+  - direitos e licença dos desenhos;
+  - nomes reais ou pseudónimos;
+  - parecer ético (UAlg?).
+  Bloqueia A e B.
+- **F2.** Livro (A): publicar as palavras de cada criança sobre o seu desenho, com a adaptação do investigador assinalada à parte (sugestão de A4), ou só a adaptação? Falta também a tiragem física.
+- **F3.** Os «500 livretos de 20 páginas tamanho passaporte» são o passaporte (B)?
+- **F4.** Quebra-cabeças (C): os «10 jogos» são 10 desenhos diferentes ou 10 cópias? As peças do A0 têm 10–15 cm de lado (cerca de 40–96 peças) ou 10–15 cm² de área?
+- **F5.** Braille: é para deficiência visual? O brief diz «restrição de mobilidade».
+- **F6.** Adolescentes: os «3 checkpoints em 2026» são em 2027? O que querem dizer «muitos perfis» e «inspetores de alunos» (professores ou vigilantes)?
+- **F7.** Cronograma autofinanciado: com 2 meses por acção **em sequência**, seis acções levam cerca de 12 meses e passam de Outubro de 2027 (A5). Aceitar, ou permitir acções em paralelo?
+- **F8.** Passaporte (B): os 6 locais pertencem a 5 tutelas diferentes:
+  - Câmara Municipal de Faro;
+  - Património Cultural, I.P.;
+  - Ciência Viva / UAlg;
+  - AmbiFaro;
+  - Marinha.
+  Faltam 4 locais para os 10 (sugestão: Museu do Lyceu de Faro). O prémio de entrada gratuita só pode valer nos museus municipais, por decisão da Câmara.
+- **F9.** Retirar Guardado (é sobre «heritage language», a língua de herança de famílias migrantes, não sobre património cultural)? O Corsaro recebido não tem capítulos: só se pode citar de forma geral.
+
+## Registo de respostas (continuação, append-only)
+- 2026-11-21 · NOVO · Brief das novas componentes (A livro, B passaporte, C quebra-cabeças, D adolescentes, E acessibilidade) analisado por três agentes (A4 bibliografia, A5 fichas funcionais, A6 materiais e fornecedores). Locais do passaporte e ICArEHB verificados na web. Perguntas F1–F9 abertas. · responsável + esta sessão

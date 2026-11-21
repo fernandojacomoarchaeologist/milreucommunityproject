@@ -42,3 +42,9 @@
 | `MILREU_CIRCUITO_EDUCATIVO_ADAPTACOES_ETARIAS_ACESSIBILIDADE_E_MATERIAIS_v1.0.md` | `2026-11-19_adaptacoes/` | 1.0 (19-11-2026) | `7b5c4870d2d9b6ee4f6010b13018893ec904d4884e40b5e809b592ea8e5043af` |
 
 Mesmo tratamento: uma linha de copyright no topo, resto inalterado. Não editar.
+
+## Recebido em 2026-11-21
+
+| Ficheiro | Pasta | Nota |
+|---|---|---|
+| `BRIEF_RESPONSAVEL_NOVAS_COMPONENTES_2026-11-21.md` | `2026-11-21_ideias/` | Transcrição fiel da mensagem do responsável; os anexos (actas do V Congresso AAP, Corsaro, programa) **não** são versionados, por terem direitos de terceiros. Os SHA-256 estão no próprio ficheiro. |
