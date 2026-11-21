@@ -192,3 +192,26 @@ Análises: `analise/A4_BIBLIOGRAFIA_INFANCIA_PATRIMONIO_E_JOGOS.md`, `analise/A5
 
 ## Registo de respostas (continuação, append-only)
 - 2026-11-21 · NOVO · Brief das novas componentes (A livro, B passaporte, C quebra-cabeças, D adolescentes, E acessibilidade) analisado por três agentes (A4 bibliografia, A5 fichas funcionais, A6 materiais e fornecedores). Locais do passaporte e ICArEHB verificados na web. Perguntas F1–F9 abertas. · responsável + esta sessão
+- 2026-11-21 · F1 · **Política de menores: aprovada a base.** Parte-se do que Brito et al. fizeram (p. 1854): consentimento informado dos encarregados de educação, assentimento das crianças, confidencialidade. Acrescenta-se:
+  - conformidade com o RGPD;
+  - autorização das escolas;
+  - direitos e licença de uso dos desenhos;
+  - decisão sobre nomes reais ou pseudónimos;
+  - parecer ético (instância a definir, por exemplo na UAlg).
+  O texto da política e os formulários ficam por redigir. · responsável
+- 2026-11-21 · F2 · **Livro (A):** as crianças são autoras dos desenhos. **A adaptação do investigador abrange o texto e as legendas dos desenhos**, e o livro identifica-a como dele. A sugestão de A4 de publicar também as palavras das crianças fica como opção editorial, não decidida. · responsável
+- 2026-11-21 · F3 · **Os 500 livretos de 20 páginas tamanho passaporte são o passaporte (B).** **Livro infantil:** 50 páginas, «igual tiragem» (leitura: 500 exemplares, como o passaporte; confirmar na revisão). · responsável
+- 2026-11-21 · F4 · **Quebra-cabeças: 10 desenhos diferentes.** **A0:** peças de «10 a 15 cm quadrados», como expectativa. A leitura registada é a de peças quadradas com 10–15 cm de lado, cerca de 40–96 peças no A0, coerente com «peças maiores». A medida final fecha-se com o fornecedor. · responsável
+- 2026-11-21 · F5 · **Braille: é para deficiência visual.** Fica corrigido «restrição de mobilidade» no brief. · responsável
+- 2026-11-21 · F6 · **Adolescentes:**
+  - os 3 checkpoints com uma escola são em **2027**;
+  - «muitos perfis» fica **desconsiderado**;
+  - «inspetores de alunos»: em Portugal o equivalente na escola é o pessoal não docente que vigia os alunos (**assistentes operacionais**), com os **professores acompanhantes**. No CE001 escreve-se «presença de professores e assistentes operacionais da escola», a confirmar com a escola. A inspecção (IGEC) é outra coisa e não está nas escolas.
+  · responsável + esta sessão
+- 2026-11-21 · F7 · **Cenário sem financiamento:**
+  - das novas componentes só entram a **mediação** e o **livro em formato digital** (sem edição física), em paralelo com as estações;
+  - **ficam fora o passaporte e os quebra-cabeças**;
+  - as estações mantêm 2 meses por acção, o que pode passar de Outubro de 2027 (cerca de 12 meses em sequência, A5). Isto fica declarado nos cap. 8 e 13.
+  No cenário com apoio entram todas as componentes, e o livro sai também em papel. · responsável
+- 2026-11-21 · F8 · **Passaporte: em aberto**, a definir com o Museu Arqueológico de Faro: os locais (faltam 4 para 10; sugestão do Museu do Lyceu de Faro), as tutelas, os carimbos e o prémio. · responsável
+- 2026-11-21 · F9 · **Referências:** Guardado e Corsaro **mantêm-se, citados de forma geral**. Nota de rigor: Guardado trata de *heritage language* (língua de herança), por isso cita-se só como contexto de socialização e discurso, sem o apresentar como estudo sobre património cultural. · responsável

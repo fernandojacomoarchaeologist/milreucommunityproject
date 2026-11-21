@@ -785,3 +785,4 @@ Narrativa de imagens: Lugar (MM202608) → Comunidade (MM202602 + MM202604 recor
 - 2026-11-19 · DECISÃO · CE001: enchimento até 20–30 kg por caixa de escavação. · responsável
 - 2026-11-19 · CORRIGIDO · CE001: o limite de 20–30 kg é por volume transportado; o enchimento reparte-se por contentores. · responsável
 - 2026-11-21 · NOVO · CE001: novas componentes (livro com as crianças, passaporte cultural, quebra-cabeças, adolescentes, acessibilidade) analisadas: bibliografia A4, fichas A5, materiais A6. Perguntas F1–F9 abertas. Ver handoff CE001. · responsável + esta sessão
+- 2026-11-21 · DECISÃO · CE001: perguntas F1–F9 respondidas (menores, livro de 50 pp. e 500 ex., passaporte de 500 × 20 pp., 10 quebra-cabeças, braille, adolescentes em 2027, cenário sem financiamento reduzido). Ver handoff CE001. · responsável

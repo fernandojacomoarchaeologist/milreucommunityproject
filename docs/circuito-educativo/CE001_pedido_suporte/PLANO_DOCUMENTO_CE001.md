@@ -117,3 +117,14 @@ Materiais de enchimento: **areia de gato biodegradável, de certificação ecol�
   - cap. 9 com A6, organizado por componente e por tipo de fornecedor;
   - cap. 13 com os riscos de menores, autorizações, tutelas e prazos longos.
   Ver A5 §«Impacto nos capítulos». · responsável
+- 2026-11-21 · DECISÃO · F1–F9 respondidas:
+  - política de menores com a base de Brito et al. e os acrescentos aprovados;
+  - livro de 50 pp., 500 ex.: desenhos das crianças, texto e legendas adaptados pelo investigador;
+  - passaporte de 500 livretos de 20 pp.;
+  - 10 quebra-cabeças diferentes; A0 com peças de 10–15 cm (expectativa);
+  - braille para deficiência visual;
+  - checkpoints com adolescentes em 2027;
+  - no cenário sem financiamento, só a mediação e o livro digital, sem passaporte nem quebra-cabeças;
+  - passaporte a definir com o museu;
+  - Guardado e Corsaro citados de forma geral.
+  · responsável

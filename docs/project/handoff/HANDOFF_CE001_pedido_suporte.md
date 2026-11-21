@@ -84,3 +84,14 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   - Locais do passaporte (5 tutelas) e ICArEHB verificados.
   - Perguntas F1–F9 em LACUNAS, com destaque para a política de menores e para o cronograma autofinanciado de cerca de 12 meses em sequência.
   · esta sessão + agentes
+- 2026-11-21 · DECISÃO · F1–F9 fechadas (ver LACUNAS):
+  - política de menores aprovada como base;
+  - livro: 50 pp., 500 ex., adaptação de texto e legendas pelo investigador;
+  - passaporte: 500 × 20 pp.;
+  - 10 quebra-cabeças diferentes; A0 com peças de 10–15 cm (expectativa);
+  - braille para deficiência visual;
+  - checkpoints com adolescentes em 2027, com professores e assistentes operacionais presentes;
+  - sem financiamento: só a mediação e o livro digital;
+  - passaporte em aberto com o museu;
+  - Guardado e Corsaro citados de forma geral.
+  · responsável
