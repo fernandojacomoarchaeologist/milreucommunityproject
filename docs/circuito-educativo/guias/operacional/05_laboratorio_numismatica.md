@@ -80,10 +80,5 @@ A avaliação não tem fundamentação verificada. Os critérios de observação
 
 ## 9. Bibliografia de referência
 
-BERNARDES, João Pedro (2011). A cidade de Ossónoba e o seu território. *Anais do Município de Faro.* 2011, pp. 11–26.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
-
-CORSARO, William A. (2015). *The sociology of childhood.* 4.ª ed. Thousand Oaks, CA: SAGE Publications. ISBN 978-1-4522-0544-1. DOI: 10.4135/9781483399027.
-
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.

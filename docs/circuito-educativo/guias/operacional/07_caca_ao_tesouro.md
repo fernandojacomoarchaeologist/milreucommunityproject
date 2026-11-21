@@ -80,12 +80,5 @@ A dinâmica de fotografia, validação e cartas coleccionáveis não tem, portan
 
 ## 9. Bibliografia de referência
 
-HAMARI, Juho; KOIVISTO, Jonna; SARSA, Harri (2014). Does gamification work? A literature review of empirical studies on gamification. In *2014 47th Hawaii International Conference on System Sciences.* [s.l.]: IEEE, pp. 3025–3034. DOI: 10.1109/HICSS.2014.377.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-MALEGIANNAKI, Irini; DARADOUMIS, Thanasis (2017). Analyzing the educational design, use and effect of spatial games for cultural heritage: a literature review. *Computers & Education.* 108, pp. 1–10. DOI: 10.1016/j.compedu.2017.01.007.
-
-TULLY, Gemma (2007). Community archaeology: general methods and standards of practice. *Public Archaeology.* 6:3, pp. 155–187. DOI: 10.1179/175355307X243645.
-
-WIELEWSKI, Kalinca (2022). *Anteprojeto de Arquitetura Paisagista do Percurso de Visita Acessível para as Ruínas da Villa Romana de Milreu, Estoi (Faro).* Faro: Universidade do Algarve. Dissertação de mestrado em Arquitetura Paisagista.

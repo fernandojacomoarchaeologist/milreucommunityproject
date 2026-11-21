@@ -76,10 +76,5 @@ Nenhuma das fontes lidas avalia um passaporte cultural com vários lugares e pr�
 
 ## 9. Bibliografia de referência
 
-HAMARI, Juho; KOIVISTO, Jonna; SARSA, Harri (2014). Does gamification work? A literature review of empirical studies on gamification. In *2014 47th Hawaii International Conference on System Sciences.* [s.l.]: IEEE, pp. 3025–3034. DOI: 10.1109/HICSS.2014.377.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-MALEGIANNAKI, Irini; DARADOUMIS, Thanasis (2017). Analyzing the educational design, use and effect of spatial games for cultural heritage: a literature review. *Computers & Education.* 108, pp. 1–10. DOI: 10.1016/j.compedu.2017.01.007.
-
-NALDINHO, Sandra; VIEIRA, Alexandra; SERRA, Miguel; FONSECA, Sofia (2026). ArqueoLoci: da fragmentação à governança colaborativa no turismo arqueológico em Portugal. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Departamento de História do Instituto de Ciências Sociais da Universidade do Minho, pp. 1837–1848.
-
-VALE, Ana; AREZES, Andreia; GUEDES, César; NUNES, Susana (2026). ARQUEOLAB: no rasto das migrações: comunicar e aprender através do jogo em Arqueologia. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1861–1872.

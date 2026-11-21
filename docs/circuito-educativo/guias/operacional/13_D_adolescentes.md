@@ -74,10 +74,5 @@ As soluções propostas na componente, a roda de conversa com representantes de 
 
 ## 9. Bibliografia de referência
 
-CORSARO, William A. (2015). *The sociology of childhood.* 4.ª ed. Thousand Oaks, CA: SAGE Publications. ISBN 978-1-4522-0544-1. DOI: 10.4135/9781483399027.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-LOPES, Gonçalo C.; BAÇO, Joana (2026). Projecto Blue Voices: divulgar o Património Cultural Subaquático nas escolas através de actividades didácticas. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1941–1953.
-
-MOSER, Stephanie; GLAZIER, Darren; PHILLIPS, James Edward; EL NEMR, Lamya Nasser; MOUSA, Mohammed Saleh; AIESH, Rascha Nasr; RICHARDSON, Susan; CONNER, Andrew; SEYMOUR, Michael (2002). Transforming archaeology through practice: strategies for collaborative archaeology and the Community Archaeology Project at Quseir, Egypt. *World Archaeology.* 34:2, pp. 220–248. DOI: 10.1080/0043824022000007071.
-
-VALE, Ana; AREZES, Andreia; GUEDES, César; NUNES, Susana (2026). ARQUEOLAB: no rasto das migrações: comunicar e aprender através do jogo em Arqueologia. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1861–1872.

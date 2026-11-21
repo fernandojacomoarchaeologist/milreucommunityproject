@@ -452,6 +452,9 @@ def main():
             indice(doc)
     destino = A.out or os.path.join(PRIVADO, "CE001_%s.docx" % A.versao)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'guias', 'source'))
+    from estilo_ds import indice_estatico
+    indice_estatico(doc)
     doc.save(destino)
     print(destino)
 

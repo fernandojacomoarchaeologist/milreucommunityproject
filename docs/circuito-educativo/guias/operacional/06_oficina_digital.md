@@ -78,16 +78,5 @@ Estas obras servem para situar a estação num campo de investigação e para le
 
 ## 9. Bibliografia de referência
 
-BELLOTTI, Francesco; KAPRALOS, Bill; LEE, Kiju; MORENO-GER, Pablo; BERTA, Riccardo (2013). Assessment in and of serious games: an overview. *Advances in Human-Computer Interaction.* 2013, artigo 136864. DOI: 10.1155/2013/136864.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BOYLE, Elizabeth A.; HAINEY, Thomas; CONNOLLY, Thomas M.; GRAY, Grant; EARP, Jeffrey; OTT, Michela; LIM, Theodore; NINAUS, Manuel; RIBEIRO, Claudia; PEREIRA, João (2016). An update to the systematic literature review of empirical evidence of the impacts and outcomes of computer games and serious games. *Computers & Education.* 94, pp. 178–192. DOI: 10.1016/j.compedu.2015.11.003.
-
-ĆOSOVIĆ, Marijana; BRKIĆ, Belma Ramić (2020). Game-based learning in museums: cultural heritage applications. *Information.* 11:1, artigo 22. DOI: 10.3390/info11010022.
-
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-MALEGIANNAKI, Irini; DARADOUMIS, Thanasis (2017). Analyzing the educational design, use and effect of spatial games for cultural heritage: a literature review. *Computers & Education.* 108, pp. 1–10. DOI: 10.1016/j.compedu.2017.01.007.
-
-MORTARA, Michela; CATALANO, Chiara Eva; BELLOTTI, Francesco; FIUCCI, Giusy; HOURY-PANCHETTI, Minica; PETRIDIS, Panagiotis (2014). Learning cultural heritage by serious games. *Journal of Cultural Heritage.* 15:3, pp. 318–325. DOI: 10.1016/j.culher.2013.04.004.
-
-TEICHNER, Felix; PEÑA CERVANTES, Yolanda (2010/2011). Archäologisches zur Herstellung von Olivenöl und Wein im römischen Hispanien. *Bonner Jahrbücher.* 210/211 (secção sobre Milreu: pp. 449–454).

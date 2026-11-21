@@ -78,10 +78,5 @@ A lacuna é a seguinte: nenhuma fonte verificada trata a mediação editorial pa
 
 ## 9. Bibliografia de referência
 
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-LOPES, Gonçalo C.; BAÇO, Joana (2026). Projecto Blue Voices: divulgar o Património Cultural Subaquático nas escolas através de actividades didácticas. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1941–1953.
-
-SOLBIATI, Giuliana (2026). Análise de género da Pré-História nos manuais escolares. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Departamento de História do Instituto de Ciências Sociais da Universidade do Minho, pp. 2043–2048.
-
-TORRES, I.; MAGALHÃES, F. (2026). Do objeto ao público: mediação cultural e acesso digital ao património arqueológico. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1791–1800.

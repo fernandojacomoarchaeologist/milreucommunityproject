@@ -76,16 +76,5 @@ Nenhuma fonte verificada trata o desenho de quizzes por idades nem valida os tr�
 
 ## 9. Bibliografia de referência
 
-BELLOTTI, Francesco; KAPRALOS, Bill; LEE, Kiju; MORENO-GER, Pablo; BERTA, Riccardo (2013). Assessment in and of serious games: an overview. *Advances in Human-Computer Interaction.* 2013, artigo 136864. DOI: 10.1155/2013/136864.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BOYLE, Elizabeth A.; HAINEY, Thomas; CONNOLLY, Thomas M.; GRAY, Grant; EARP, Jeffrey; OTT, Michela; LIM, Theodore; NINAUS, Manuel; RIBEIRO, Claudia; PEREIRA, João (2016). An update to the systematic literature review of empirical evidence of the impacts and outcomes of computer games and serious games. *Computers & Education.* 94, pp. 178–192. DOI: 10.1016/j.compedu.2015.11.003.
-
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
-
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-JÁCOMO, Fernando Rodrigues de (2025). Avaliação preliminar para aplicação de medidas de engajamento comunitário em Milreu, Estoi. *Anais do Município de Faro.* 2025, pp. 255–290.
-
-MORTARA, Michela; CATALANO, Chiara Eva; BELLOTTI, Francesco; FIUCCI, Giusy; HOURY-PANCHETTI, Minica; PETRIDIS, Panagiotis (2014). Learning cultural heritage by serious games. *Journal of Cultural Heritage.* 15:3, pp. 318–325. DOI: 10.1016/j.culher.2013.04.004.
-
-TEICHNER, Felix; PEÑA CERVANTES, Yolanda (2010/2011). Archäologisches zur Herstellung von Olivenöl und Wein im römischen Hispanien. *Bonner Jahrbücher.* 210/211 (secção sobre Milreu: pp. 449–454).

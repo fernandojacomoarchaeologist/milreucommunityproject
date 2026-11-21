@@ -69,14 +69,5 @@ A mesma política aplica-se à componente para adolescentes (autorizações para
 
 ## 7. Bibliografia de referência
 
-BELLOTTI, Francesco; KAPRALOS, Bill; LEE, Kiju; MORENO-GER, Pablo; BERTA, Riccardo (2013). Assessment in and of serious games: an overview. *Advances in Human-Computer Interaction.* 2013, artigo 136864. DOI: 10.1155/2013/136864.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BODÉN, Linnea (2021). On, to, with, for, by: ethics and children in research. *Children's Geographies.* Publicação em linha, pp. 1–16. DOI: 10.1080/14733285.2021.1891405.
-
-BOYLE, Elizabeth A.; HAINEY, Thomas; CONNOLLY, Thomas M.; GRAY, Grant; EARP, Jeffrey; OTT, Michela; LIM, Theodore; NINAUS, Manuel; RIBEIRO, Claudia; PEREIRA, João (2016). An update to the systematic literature review of empirical evidence of the impacts and outcomes of computer games and serious games. *Computers & Education.* 94, pp. 178–192. DOI: 10.1016/j.compedu.2015.11.003.
-
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
-
-RIPANTI, Francesco (2022). *Unforgettable encounters: understanding participation in Italian community archaeology.* Oxford: Archaeopress Publishing. Access Archaeology.
-
-VALE, Ana; AREZES, Andreia; GUEDES, César; NUNES, Susana (2026). ARQUEOLAB: no rasto das migrações: comunicar e aprender através do jogo em Arqueologia. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1861–1872.

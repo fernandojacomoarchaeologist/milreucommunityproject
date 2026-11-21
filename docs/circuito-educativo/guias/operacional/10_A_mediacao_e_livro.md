@@ -74,16 +74,5 @@ O conceito de «fabulação infantil», referido no pedido do investigador, não
 
 ## 9. Bibliografia de referência
 
-BODÉN, Linnea (2021). On, to, with, for, by: ethics and children in research. *Children's Geographies.* Publicação em linha, pp. 1–16. DOI: 10.1080/14733285.2021.1891405.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BRITO, Dhemy (2026). Cultura material e a construção da imagem da infância: entre a interpretação arqueológica e a autoria das crianças. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1639–1646.
-
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
-
-CORSARO, William A. (2015). *The sociology of childhood.* 4.ª ed. Thousand Oaks, CA: SAGE Publications. ISBN 978-1-4522-0544-1. DOI: 10.4135/9781483399027.
-
-DARIAN-SMITH, Kate; PASCOE, Carla, ed. (2013). *Children, childhood and cultural heritage.* Abingdon; New York: Routledge. Key Issues in Cultural Heritage. DOI: 10.4324/9780203080641.
-
-GUARDADO, Martin (2018). *Discourse, ideology and heritage language socialization: micro and macro perspectives.* Boston; Berlin: De Gruyter Mouton. Contributions to the Sociology of Language, 104. DOI: 10.1515/9781614513841.
-
-PROUT, Alan (2010). Reconsiderando a nova sociologia da infância. Trad. Fátima Murad. *Cadernos de Pesquisa.* São Paulo: Fundação Carlos Chagas. 40:141, pp. 729–750. DOI: 10.1590/S0100-15742010000300004.

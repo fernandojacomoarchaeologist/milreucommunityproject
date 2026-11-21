@@ -82,20 +82,5 @@ Para avaliar a oficina, sobretudo com crianças, há um instrumento já experime
 
 ## 9. Bibliografia de referência
 
-BERNARDES, João Pedro (2011). A cidade de Ossónoba e o seu território. *Anais do Município de Faro.* 2011, pp. 11–26.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
-
-DEKAYIR, Abdelilah et al. (2004). Structure et caractérisation des matériaux utilisés dans la construction d'une mosaïque romaine de la cité de Volubilis (Maroc). *Comptes Rendus Geoscience.* 336:12, pp. 1061–1070. DOI: 10.1016/j.crte.2004.03.007.
-
-DURAN KREMER, Maria de Jesus (2021). The mosaic decoration of peristylia in Roman villae and domus of western Lusitania (Portugal): the interrelationship between domestic space planning and the chosen peristyle flooring. *Journal of Mosaic Research.* 14, pp. 139–167. DOI: 10.26658/jmr.1012085.
-
-HAUSCHILD, Theodor (2008). A arquitectura e os mosaicos do «edifício de culto» ou «aula» da villa romana de Milreu. *Revista de História da Arte.* 6, pp. 17–31.
-
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-LOPES, Gonçalo C.; BAÇO, Joana (2026). Projecto Blue Voices: divulgar o Património Cultural Subaquático nas escolas através de actividades didácticas. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1941–1953.
-
-OLIVEIRA, Cristina de (2006). Mosaicos romanos: balanço de uma década de investigação em Portugal (1995–2005). *Conimbriga.* 45, pp. 275–299. DOI: 10.14195/1647-8657_45_15.
-
-WRENCH, Licínia Nunes Correia (2014). Some geometrical patterns and decorative motifs occurring in Roman Portuguese mosaics: a comparative approach with eastern and western mosaics. *Journal of Mosaic Research.* 7, pp. 49–59. DOI: 10.26658/jmr.306307.

@@ -115,9 +115,92 @@ def _logo(doc):
     primeiro.addprevious(p._p)
 
 
+def indice_estatico(doc, niveis=("Heading 1", "Heading 2")):
+    """Substitui o campo TOC (que o Word mostra vazio até ser actualizado) por um índice escrito, com ligações.
+
+    Cada título recebe um marcador; cada entrada do índice é uma hiperligação interna para esse marcador.
+    O índice fica sempre legível, mesmo sem actualizar campos, e não depende do Word para existir.
+    """
+    corpo = doc.element.body
+    alvo = None
+    for p in doc.paragraphs:
+        if any("TOC" in (it.text or "") for it in p._p.iter(qn("w:instrText"))):
+            alvo = p
+            break
+    if alvo is None:
+        return doc
+    titulos = []
+    passou = False
+    for p in doc.paragraphs:
+        if p._p is alvo._p:
+            passou = True
+            continue
+        if passou and p.style is not None and p.style.name in niveis and p.text.strip():
+            titulos.append(p)
+    for n, h in enumerate(titulos, 1):
+        nome = f"_ind{n:03d}"
+        ini = OxmlElement("w:bookmarkStart")
+        ini.set(qn("w:id"), str(900 + n))
+        ini.set(qn("w:name"), nome)
+        fim = OxmlElement("w:bookmarkEnd")
+        fim.set(qn("w:id"), str(900 + n))
+        h._p.insert(1 if h._p.pPr is not None else 0, ini)
+        h._p.append(fim)
+        h._ind_nome = nome
+    anterior = alvo._p
+    for h in titulos:
+        nivel1 = h.style.name == niveis[0]
+        np_ = OxmlElement("w:p")
+        ppr = OxmlElement("w:pPr")
+        sp = OxmlElement("w:spacing")
+        sp.set(qn("w:before"), "120" if nivel1 else "0")
+        sp.set(qn("w:after"), "40")
+        ppr.append(sp)
+        if not nivel1:
+            ind = OxmlElement("w:ind")
+            ind.set(qn("w:left"), "425")
+            ppr.append(ind)
+        np_.append(ppr)
+        hl = OxmlElement("w:hyperlink")
+        hl.set(qn("w:anchor"), h._ind_nome)
+        hl.set(qn("w:history"), "1")
+        r = OxmlElement("w:r")
+        rpr = OxmlElement("w:rPr")
+        rf = OxmlElement("w:rFonts")
+        fonte = TITULOS if nivel1 else CORPO
+        for a in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):
+            rf.set(qn(a), fonte)
+        rpr.append(rf)
+        if nivel1:
+            rpr.append(OxmlElement("w:b"))
+        cor = OxmlElement("w:color")
+        cor.set(qn("w:val"), "1E1A17" if nivel1 else "453D36")
+        rpr.append(cor)
+        sz = OxmlElement("w:sz")
+        sz.set(qn("w:val"), "22" if nivel1 else "20")
+        rpr.append(sz)
+        r.append(rpr)
+        tx = OxmlElement("w:t")
+        tx.set(qn("xml:space"), "preserve")
+        tx.text = h.text.strip()
+        r.append(tx)
+        hl.append(r)
+        np_.append(hl)
+        anterior.addnext(np_)
+        anterior = np_
+    # remover o parágrafo do campo, mantendo uma eventual quebra de secção nele
+    if alvo._p.pPr is not None and alvo._p.pPr.find(qn("w:sectPr")) is not None:
+        for r in list(alvo._p.findall(qn("w:r"))):
+            alvo._p.remove(r)
+    else:
+        corpo.remove(alvo._p)
+    return doc
+
+
 def aplicar_ds(doc, logo=True):
     """Aplica estilos, fontes, cores e tabelas do design system; insere o logótipo na capa."""
     _estilos(doc)
+    indice_estatico(doc)
     for p in doc.paragraphs:
         _runs_paragrafo(p, False)
     for t in doc.tables:

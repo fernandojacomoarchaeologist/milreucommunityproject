@@ -16,6 +16,8 @@ A espessura das tábuas indicada no guia de materiais é de 18 a 22 mm, em madei
 
 <!-- figura: figuras/GT-02_moldura_escavacao.png | Figura GT-02 — Moldura de escavação: planta, alçado com o enchimento em duas camadas e sequência de dobragem. Esquema técnico elaborado para este guia a partir de LAC C3 (19-11) e GUI §18.1, medidas indicativas. -->
 
+<!-- figura: figuras/GT-02b_tres_modelos_escavacao.png | Figura GT-02b — Os três modelos de uso da escavação: padrão (moldura de 1 m × 1 m com lona e duas camadas), simplificado (quadriculagem com barbantes, eventos menores) e integrado no solo (até 10 cm, só com autorização, material biodegradável). Esquema elaborado para este guia, não à escala. -->
+
 <!-- figura: ../../imagens/blueprints/CE-BP-02a_escavacao_estrutura_dobragem_armazenamento.png | CE-BP-02a — Estrutura de escavação: moldura com dobradiças sobre lona, moldura dobrada e saco de guarda. Ilustração conceptual, não à escala; origem e ferramenta por registar. -->
 
 ### Enchimento

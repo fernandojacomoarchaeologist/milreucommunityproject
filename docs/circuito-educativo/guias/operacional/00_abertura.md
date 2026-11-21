@@ -146,16 +146,5 @@ Se não houver financiamento, o investigador assume o risco de financiar o Circu
 
 ## 12. Bibliografia de referência
 
-BERNARDES, João Pedro (2011). A cidade de Ossónoba e o seu território. *Anais do Município de Faro.* 2011, pp. 11–26.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-JÁCOMO, Fernando Rodrigues de (2024). *Patrimônio e comunidade: Ruínas Romanas de Milreu, Estoi (Faro).* Faro: Universidade do Algarve, Faculdade de Ciências Humanas e Sociais. Dissertação de mestrado em Arqueologia.
-
-JÁCOMO, Fernando Rodrigues de (2025). Avaliação preliminar para aplicação de medidas de engajamento comunitário em Milreu, Estoi. *Anais do Município de Faro.* 2025, pp. 255–290.
-
-JÁCOMO, Fernando Rodrigues de (2026). Desafios da integração comunitária: o caso das Ruínas Romanas de Milreu (Estoi, Faro). In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1917–1928. ISBN 978-989-36906-3-5.
-
-TEICHNER, Felix (2001). Uma nova interpretação da área 21, a partir da planta elaborada por Sebastião Philippes Martins Estácio da Veiga, sobre a villa romana de Milreu (Estoi, Algarve): notícia preliminar. *O Arqueólogo Português.* Lisboa. Série IV. 19, pp. 187–198.
-
-TEICHNER, Felix; PEÑA CERVANTES, Yolanda (2010/2011). Archäologisches zur Herstellung von Olivenöl und Wein im römischen Hispanien. *Bonner Jahrbücher.* 210/211 (secção sobre Milreu: pp. 449–454).

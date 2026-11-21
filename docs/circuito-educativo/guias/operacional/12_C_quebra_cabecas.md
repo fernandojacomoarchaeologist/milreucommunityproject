@@ -81,6 +81,5 @@ Para o quebra-cabeças de grupo, a sociologia da infância oferece um enquadrame
 
 ## 9. Bibliografia de referência
 
-CORSARO, William A. (2015). *The sociology of childhood.* 4.ª ed. Thousand Oaks, CA: SAGE Publications. ISBN 978-1-4522-0544-1. DOI: 10.4135/9781483399027.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-LOPES, Gonçalo C.; BAÇO, Joana (2026). Projecto Blue Voices: divulgar o Património Cultural Subaquático nas escolas através de actividades didácticas. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1941–1953.

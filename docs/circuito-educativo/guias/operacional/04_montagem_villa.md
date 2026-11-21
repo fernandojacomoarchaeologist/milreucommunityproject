@@ -78,16 +78,5 @@ A avaliação também não tem fundamentação verificada. Os critérios de obse
 
 ## 9. Bibliografia de referência
 
-BERNARDES, João Pedro (2006). O peristilo da villa romana de Milreu: novas interpretações. *Promontoria.* Faro: Universidade do Algarve. 4, pp. 127–160.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-CORSARO, William A. (2015). *The sociology of childhood.* 4.ª ed. Thousand Oaks, CA: SAGE Publications. ISBN 978-1-4522-0544-1. DOI: 10.4135/9781483399027.
-
-HAUSCHILD, Theodor (2008). A arquitectura e os mosaicos do «edifício de culto» ou «aula» da villa romana de Milreu. *Revista de História da Arte.* 6, pp. 17–31.
-
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-TEICHNER, Felix (2001). Uma nova interpretação da área 21, a partir da planta elaborada por Sebastião Philippes Martins Estácio da Veiga, sobre a villa romana de Milreu (Estoi, Algarve): notícia preliminar. *O Arqueólogo Português.* Lisboa. Série IV. 19, pp. 187–198.
-
-TEICHNER, Felix; PEÑA CERVANTES, Yolanda (2010/2011). Archäologisches zur Herstellung von Olivenöl und Wein im römischen Hispanien. *Bonner Jahrbücher.* 210/211 (secção sobre Milreu: pp. 449–454).
-
-WIELEWSKI, Kalinca (2022). *Anteprojeto de Arquitetura Paisagista do Percurso de Visita Acessível para as Ruínas da Villa Romana de Milreu, Estoi (Faro).* Faro: Universidade do Algarve. Dissertação de mestrado em Arquitetura Paisagista.

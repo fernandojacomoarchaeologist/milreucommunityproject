@@ -78,12 +78,5 @@ O procedimento didáctico e a avaliação da oficina não têm, portanto, fundam
 
 ## 9. Bibliografia de referência
 
-DEKAYIR, Abdelilah et al. (2004). Structure et caractérisation des matériaux utilisés dans la construction d'une mosaïque romaine de la cité de Volubilis (Maroc). *Comptes Rendus Geoscience.* 336:12, pp. 1061–1070. DOI: 10.1016/j.crte.2004.03.007.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-HENDERSON, A. Gwynn; LEVSTIK, Linda S. (2016). Reading objects: children interpreting material culture. *Advances in Archaeological Practice.* 4:4, pp. 503–516. DOI: 10.7183/2326-3768.4.4.503.
-
-LOPES, Gonçalo C.; BAÇO, Joana (2026). Projecto Blue Voices: divulgar o Património Cultural Subaquático nas escolas através de actividades didácticas. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1941–1953.
-
-WIELEWSKI, Kalinca (2022). *Anteprojeto de Arquitetura Paisagista do Percurso de Visita Acessível para as Ruínas da Villa Romana de Milreu, Estoi (Faro).* Faro: Universidade do Algarve. Dissertação de mestrado em Arquitetura Paisagista.

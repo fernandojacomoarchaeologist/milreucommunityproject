@@ -54,6 +54,8 @@ Quanto ao número de pessoas, a referência de trabalho é a seguinte. Cada mold
 
 A estação tem três modelos de uso. O modelo padrão usa a moldura com duas camadas de enchimento, réplicas distribuídas pelas camadas e a lona por baixo, e é o que serve as turmas. O modelo simplificado marca uma quadrícula com barbantes numa só área, eventualmente sobre uma mesa, e serve eventos menores e espaços pequenos; cada sector delimitado pode ser estudado e comparado com os vizinhos. O modelo integrado no solo coloca a moldura sobre terreno natural e permite escavar até 10 cm, para ensinar técnicas como manter o corte aprumado ou decapar por camadas. Este terceiro modelo só se usa onde a intervenção no solo estiver expressamente autorizada e nunca em contexto arqueológico; exige uma zona separada para o material retirado, um plano de reposição do solo e o uso exclusivo de material que possa voltar à terra. A cortiça e os materiais sintéticos não se misturam com a terra a devolver, e as réplicas em plástico são todas recuperadas, porque o filamento não se degrada no solo. A biodegradabilidade e a inocuidade de cada material terão de ser verificadas antes de qualquer acção deste tipo.
 
+![Figura 1.4. Os três modelos de uso da escavação simulada: padrão, com moldura de 1 m × 1 m, lona e duas camadas de enchimento; simplificado, com quadriculagem de barbantes para eventos menores; integrado no solo, até 10 cm de profundidade e só onde houver autorização. Esquema elaborado para este guia, não à escala.](figuras/ESQ-01b_tres_modelos_escavacao.png)
+
 Há outras variantes previstas. Uma liga a escavação à oficina de mosaicos: um grupo actua como equipa de descoberta e outro usa as tesselas recuperadas para reconstruir parte de uma composição, de forma colaborativa ou como competição leve, com regras explícitas. Outra é a versão para adolescentes, com papéis definidos (escavar, registar, fotografar, interpretar) e enchimento com mais camadas, descrita no capítulo da componente D. Uma terceira é a montagem das molduras por voluntários, em sessões organizadas, que o cronograma prevê para março de 2027 e que faz da preparação material uma forma de participação.
 
 Os bustos desmontáveis têm também uso próprio, fora da escavação: podem ser apresentados para manipulação e remontagem numa mesa, como demonstração, antes de serem integrados nas molduras. O cronograma prevê testar a sua resistência e a facilidade de montagem em separado, em fevereiro e março de 2027, precisamente para não introduzir na escavação peças que se partam ou que as crianças não consigam remontar.
@@ -94,12 +96,5 @@ Na linguagem do parecer crítico adoptado pelo investigador, o conteúdo tem fon
 
 ## 9. Bibliografia de referência
 
-BRITO, Dhemy; MAGALHÃES, Fernanda; CAMPOS, Carlos; ANDRADE, José Gabriel (2026). Para além da transmissão: escuta, participação e co-construção de conhecimento com crianças em projetos de educação patrimonial. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1849–1860.
+As obras citadas neste capítulo constam da bibliografia de referência, no final do guia.
 
-HAUSCHILD, Theodor; TEICHNER, Felix (2002). *Milreu: ruínas.* Lisboa: Instituto Português do Património Arquitectónico. Roteiros da Arqueologia Portuguesa, 9.
-
-HENDERSON, A. Gwynn; LEVSTIK, Linda S. (2016). Reading objects: children interpreting material culture. *Advances in Archaeological Practice.* 4:4, pp. 503–516. DOI: 10.7183/2326-3768.4.4.503.
-
-MOSER, Stephanie; GLAZIER, Darren; PHILLIPS, James Edward; EL NEMR, Lamya Nasser; MOUSA, Mohammed Saleh; AIESH, Rascha Nasr; RICHARDSON, Susan; CONNER, Andrew; SEYMOUR, Michael (2002). Transforming archaeology through practice: strategies for collaborative archaeology and the Community Archaeology Project at Quseir, Egypt. *World Archaeology.* 34:2, pp. 220–248. DOI: 10.1080/0043824022000007071.
-
-VALE, Ana; AREZES, Andreia; GUEDES, César; NUNES, Susana (2026). ARQUEOLAB: no rasto das migrações: comunicar e aprender através do jogo em Arqueologia. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1861–1872.
