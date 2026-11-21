@@ -66,8 +66,6 @@ TEICHNER, Felix; PEÑA CERVANTES, Yolanda (2010/2011). Archäologisches zur Hers
 
 TORRES, I.; MAGALHÃES, F. (2026). Do objeto ao público: mediação cultural e acesso digital ao património arqueológico. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1791–1800.
 
-TULLY, Gemma (2007). Community archaeology: general methods and standards of practice. *Public Archaeology.* 6:3, pp. 155–187. DOI: 10.1179/175355307X243645.
-
 VALE, Ana; AREZES, Andreia; GUEDES, César; NUNES, Susana (2026). ARQUEOLAB: no rasto das migrações: comunicar e aprender através do jogo em Arqueologia. In ARNAUD, José Morais; NEVES, César; JORDÃO, Patrícia; MAGALHÃES, Fernanda, coord. – *Arqueologia em Portugal: 2026 – Estado da Questão.* Lisboa: Associação dos Arqueólogos Portugueses; Universidade do Minho, pp. 1861–1872.
 
 WIELEWSKI, Kalinca (2022). *Anteprojeto de Arquitetura Paisagista do Percurso de Visita Acessível para as Ruínas da Villa Romana de Milreu, Estoi (Faro).* Faro: Universidade do Algarve. Dissertação de mestrado em Arquitetura Paisagista.

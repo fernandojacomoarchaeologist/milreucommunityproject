@@ -6,7 +6,7 @@ Este capítulo dá a ordem de construção do Circuito, sem datas. As datas e os
 
 ## 5.1 Princípio
 
-O Circuito constrói-se por entregas graduais. Cada actividade é preparada, testada e corrigida antes de passar à seguinte, e pode ser apresentada sozinha sem esperar pelo conjunto. A sequência segue a ordem pedagógica definida no cronograma de 2027: primeiro os mosaicos e os bustos, depois a escavação, a estratigrafia, a villa, as moedas, o digital e, por fim, as três actividades complementares.
+O Circuito constrói-se por entregas graduais. Cada actividade é preparada, testada e corrigida antes de passar à seguinte, e pode ser apresentada sozinha sem esperar pelo conjunto. A sequência segue a ordem pedagógica definida no cronograma de 2027: primeiro os mosaicos e os bustos, depois a escavação, a estratigrafia, a villa, o jogo digital de mosaicos e, por fim, as duas actividades complementares.
 
 ## 5.2 As fases
 
@@ -14,8 +14,8 @@ O Circuito constrói-se por entregas graduais. Cada actividade é preparada, tes
 |---|---|---|---|
 | 0. Primeira entrega | Museu de Memórias de Milreu: exposição itinerante, portal, sessões com a comunidade. Aquisição da impressora 3D e de um primeiro lote de filamento para o Circuito | A relação com a comunidade de Estoi e com os museus do Algarve; o meio de produção das réplicas | Realizada em 2026 |
 | 1. Preparação inicial | Produção, com recursos próprios, das tesselas demonstrativas e dos primeiros bustos desmontáveis; preparação das autorizações para trabalhar com menores | O primeiro teste dos mosaicos | Por fazer; depende de recursos próprios |
-| 2. Estações principais | Para cada uma das seis estações: preparação, teste com público, correcção | A disponibilidade de cada estação para entregas pontuais | Planeada |
-| 3. Actividades complementares | Caça ao tesouro, caderno e quiz, preparados e testados em paralelo | O conjunto completo de nove actividades | Planeada |
+| 2. Estações principais | Para cada uma das cinco estações: preparação, teste com público, correcção | A disponibilidade de cada estação para entregas pontuais | Planeada |
+| 3. Actividades complementares | Caderno e quiz, preparados e testados em paralelo | O conjunto completo de sete actividades | Planeada |
 | 4. Integração | Ensaio de circulação entre estações, formação de voluntários, primeiro circuito integrado; passaporte cultural | A apresentação conjunta e o uso do passaporte | Planeada; depende de local, mediadores e estações testadas |
 | 5. Publicação | Edição do livro feito com as crianças | A devolução às escolas e famílias do concelho | Planeada para depois do ano de aplicação |
 

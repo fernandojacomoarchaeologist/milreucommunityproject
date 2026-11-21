@@ -4,6 +4,8 @@
 
 ## C.1 Matriz por actividade
 
+As estações 5 (Laboratório de Numismática) e 7 (caça ao tesouro) e o jogo de construção da villa saíram do escopo actual em 21 de novembro de 2026 e não constam da matriz; a obra citada só na ficha da caça ao tesouro (Matsuda 2004) saiu da bibliografia.
+
 Graus: A, texto integral lido e passagem localizada; B, resumo ou leitura parcial; C, só existência verificada; N, não sustenta o uso. «Via fichamento» indica passagem localizada no fichamento do projecto sobre a história de Milreu, não reconferida no original para este documento.
 
 | Actividade | Conteúdo | Procedimento didáctico | Avaliação | Situação |
@@ -12,9 +14,7 @@ Graus: A, texto integral lido e passagem localizada; B, resumo ou leitura parcia
 | 2 Mosaicos | Hauschild e Teichner 2002; Hauschild 2008 (A, via fichamento); Wrench 2014, Oliveira 2006, Duran Kremer 2021, Dekayir et al. 2004 (B, sem Milreu) | Sem fundamentação verificada | Brito et al. 2026 (A, técnica qualitativa possível) | Conteúdo forte; método próprio a testar |
 | 3 Estratigrafia | Teichner e Peña Cervantes 2010/2011; Wielewski 2022 (fases, em segunda mão) | Sem fundamentação verificada; Henderson e Levstik 2016 (B, cautela com metáforas) | Sem fundamentação verificada | Lacuna crítica dupla; Lopes e Baço 2026 como exemplo a evitar |
 | 4 Montagem da villa | Hauschild e Teichner 2002 (A, via fichamento); Bernardes 2006, Teichner 2001 (B) | Sem fundamentação verificada; Corsaro 2015 (geral) | Sem fundamentação verificada | Depende da planta redesenhada e da revisão das fases |
-| 5 Numismática | Hauschild e Teichner 2002, pp. 8, 43; Bernardes 2011, p. 12 (A, via fichamento) | Brito et al. 2026 (A, precedente fraco) | Sem fundamentação verificada | Lacuna crítica; preços do jogo são convencionais |
-| 6 Oficina digital | Fichas 2 e 4 | Mortara et al. 2014; Malegiannaki e Daradoumis 2017; Ćosović e Brkić 2020 (B) | Boyle et al. 2016; Bellotti et al. 2013 (B) | Mecânicas de jogo são hipótese a testar |
-| 7 Caça ao tesouro | Hauschild e Teichner 2002 | Malegiannaki e Daradoumis 2017 (B); Hamari et al. 2014 (C) | Malegiannaki e Daradoumis 2017 (B) | Depende de autorização do sítio |
+| 6 Oficina digital (jogo de mosaicos) | Ficha 2 | Mortara et al. 2014; Malegiannaki e Daradoumis 2017; Ćosović e Brkić 2020 (B) | Boyle et al. 2016; Bellotti et al. 2013 (B) | Mecânicas de jogo são hipótese a testar |
 | 8 Caderno | Hauschild e Teichner 2002; estudos de mosaicos | Torres e Magalhães 2026; Solbiati 2026 (B); Brodie et al. 2011 (N para este uso) | Sem fundamentação verificada | Teste com 6–10 anos pendente |
 | 9 Quiz | Fontes sobre Milreu | Mortara et al. 2014 (B) | Bellotti et al. 2013; Boyle et al. 2016 (B) | Sem fonte sobre quizzes por idade |
 | A Mediação e livro | Fichas 2 e 4 | Brito et al. 2026 (A); Brito 2026 (A, ensaio); Prout 2010 (B); Corsaro 2015 (geral) | Brito et al. 2026 (A, análise temática) | Livro com autoria infantil sem precedente avaliado |
@@ -62,8 +62,6 @@ WRENCH, Licínia Nunes Correia (2014). Some geometrical patterns and decorative 
 ### Arqueologia pública e participação
 
 BRODIE, Ellie; HUGHES, Tim; JOCHUM, Véronique; MILLER, Sarah; OCKENDEN, Nick; WARBURTON, Diane (2011). Pathways through participation: what creates and sustains active citizenship? Final report. London: National Council for Voluntary Organisations; Institute for Volunteering Research; Involve. [N para o caderno infantil; serve, quando muito, para o voluntariado]
-
-MATSUDA, Akira (2004). The concept of «the public» and the aims of public archaeology. Papers from the Institute of Archaeology. 15:1, pp. 90–97. DOI: 10.5334/pia.224. [B; paginação divergente entre a página editorial e o PDF]
 
 MOSER, Stephanie; GLAZIER, Darren; PHILLIPS, James Edward; EL NEMR, Lamya Nasser; MOUSA, Mohammed Saleh; AIESH, Rascha Nasr; RICHARDSON, Susan; CONNER, Andrew; SEYMOUR, Michael (2002). Transforming archaeology through practice: strategies for collaborative archaeology and the Community Archaeology Project at Quseir, Egypt. World Archaeology. 34:2, pp. 220–248. DOI: 10.1080/0043824022000007071. [B]
 

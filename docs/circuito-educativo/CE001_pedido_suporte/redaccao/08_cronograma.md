@@ -2,7 +2,7 @@
 
 # 8. Cronograma por actividade
 
-O Circuito começa na primeira semana de Fevereiro de 2027, pela oficina de mosaicos. O calendário tem dois cenários, que se distinguem pelo ritmo e pelo que entra de novo, não pelas estações: todas as nove actividades entram nos dois.
+O Circuito começa na primeira semana de Fevereiro de 2027, pela oficina de mosaicos. O calendário tem dois cenários, que se distinguem pelo ritmo e pelo que entra de novo, não pelas estações: as sete actividades que ficaram depois da redução de escopo de 21 de novembro de 2026 entram nos dois.
 
 [LACUNA: decidir se o documento final usa meses de 2027 fixos ou meses contados a partir da decisão de apoio]
 
@@ -19,9 +19,7 @@ Legenda: P, preparação e produção; T, teste com público e revisão; C, disp
 | 1 Escavação simulada | – | P | T | C | C | C | C | C | I |
 | 3 Estratigrafia | – | – | P | T | C | C | C | C | I |
 | 4 Montagem da villa | – | – | – | P | T | C | C | C | I |
-| 5 Numismática | – | – | – | – | P | T | C | C | I |
 | 6 Oficina digital | – | – | – | – | – | P | T | C | I |
-| 7 Caça ao tesouro | – | – | – | – | – | – | P | T | I |
 | 8 Caderno | – | – | – | – | – | – | P | T | I |
 | 9 Quiz | – | – | – | – | – | – | P | T | I |
 | Voluntários e mediação | P | C | C | C | C | C | P | T | I |
@@ -40,8 +38,8 @@ A oficina de mosaicos é testada em Fevereiro sem mês de preparação no calend
 Sem apoio, o investigador assume o risco de financiar o Circuito com recursos pessoais. As regras são estas:
 
 - cada acção leva dois meses;
-- a oficina de moedas, o caderno e a montagem da villa não seguem a regra dos dois meses e têm duração própria, a definir;
-- os jogos digitais e o quiz só correm onde o local tiver computador;
+- o caderno e a montagem da villa não seguem a regra dos dois meses e têm duração própria, a definir;
+- o jogo digital de mosaicos e o quiz só correm onde o local tiver computador;
 - das componentes novas entram apenas a mediação e o livro em formato digital, em paralelo com as estações; ficam fora o passaporte, os quebra-cabeças e a componente para adolescentes; dos requisitos de acessibilidade ficam os já decididos, e o braille e a língua gestual ficam fora;
 - pode ficar de fora material, mão-de-obra ou equipamento concreto, sempre identificado.
 
@@ -53,13 +51,11 @@ Ordem das acções, a partir da primeira semana de Fevereiro de 2027:
 | 2 | Escavação simulada | 2 meses |
 | 3 | Estratigrafia | 2 meses |
 | 4 | Montagem da villa | própria |
-| 5 | Numismática | própria |
-| 6 | Oficina digital | 2 meses |
-| 7 | Caça ao tesouro | 2 meses |
-| 8 | Caderno | própria |
-| 9 | Quiz | 2 meses |
+| 5 | Oficina digital (jogo de mosaicos) | 2 meses |
+| 6 | Caderno | própria |
+| 7 | Quiz | 2 meses |
 
-Seis acções seguem a regra dos dois meses. Feitas em sequência, levam cerca de doze meses, mais o tempo das três com duração própria, e passam de Outubro de 2027. Esta consequência fica aceite e declarada.
+Cinco acções seguem a regra dos dois meses. Feitas em sequência, levam cerca de dez meses, mais o tempo das duas com duração própria, e passam de Outubro de 2027. Esta consequência fica aceite e declarada.
 
 [LACUNA: decidir se, no cenário sem apoio, as acções de dois meses podem sobrepor-se]
 
@@ -68,6 +64,6 @@ Seis acções seguem a regra dos dois meses. Feitas em sequência, levam cerca d
 Em qualquer cenário, o calendário depende de:
 
 - autorização das escolas e dos encarregados de educação para os testes com menores e para a recolha de desenhos;
-- autorização da entidade que gere as ruínas para a caça ao tesouro e para testes no sítio;
+- autorização da entidade que gere as ruínas para testes no sítio;
 - voluntários formados em número suficiente; com poucos voluntários, abrem-se menos estações;
 - calendário escolar: a interrupção da Páscoa em Abril e as férias de Julho e Agosto pedem públicos alternativos, como actividades de tempos livres, para os testes desses meses.

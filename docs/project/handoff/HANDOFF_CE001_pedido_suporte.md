@@ -114,3 +114,9 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   - **Bibliografia do Guia Operacional:** passa a ser uma lista única no fim, o capítulo 15 com 35 referências ISO 690, ordenadas e sem repetições. Cada capítulo mantém o ponto «Bibliografia de referência» com remissão para a lista final.
   - **Estação 1:** novo esquema dos **três modelos de escavação** (padrão, simplificado com barbantes, integrado no solo até 10 cm). Ficheiros: `guias/source/esquema_tres_modelos.py`, `operacional/figuras/ESQ-01b…` (Figura 1.4) e `tecnico/figuras/GT-02b…`.
   · responsável
+- 2026-11-21 · ALTERADO · Redução de escopo aplicada aos guias e ao CE001:
+  - capítulos de numismática e de caça ao tesouro movidos para `guias/fora_de_escopo/`;
+  - oficina digital reescrita só com o jogo de mosaicos;
+  - CE001 com 7 actividades e 12 fichas; anexo D com 207 linhas, 107 delas no pedido;
+  - sem financiamento, cerca de 10 meses em sequência.
+  A sessão principal retirou do quiz a menção a um «futuro jogo de construção», que contrariava a decisão. · responsável + agente + esta sessão

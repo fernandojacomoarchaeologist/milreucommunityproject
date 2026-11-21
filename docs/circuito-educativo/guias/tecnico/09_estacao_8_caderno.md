@@ -1,8 +1,8 @@
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-# 9. Estação 8 — Caderno de Actividades de Milreu
+# 7. Estação 8 — Caderno de Actividades de Milreu
 
-## 9.1 Descrição da actividade
+## 7.1 Descrição da actividade
 
 O Caderno de Actividades de Milreu é uma brochura única de 20 a 30 páginas para crianças dos 6 aos 10 anos, com tarefas de complexidade progressiva: pintar e criar mosaicos, relacionar bustos com personagens quando houver fonte, descobrir informação sobre Milreu, desenhar a villa e resolver passatempos lógicos (FUN §10; ADA §1.3, §10). Não há duas edições por idade. Usa-se na estação de mosaicos e na montagem da villa, como alternativa em dia de chuva, como posto paralelo durante as rotações ou em casa, e não tem de ser acabado numa só visita (FUN §10, §12.3). O caderno é oferecido ao participante.
 
@@ -10,7 +10,7 @@ Cada actividade do caderno tem instrução escrita curta e pictograma, letra leg
 
 A paginação final tem de ser múltiplo de quatro para a brochura agrafada (20, 24 ou 28 páginas; A2 §1.18); o pedido à gráfica inclui as três variantes (GUI §19.4).
 
-## 9.2 Descrição do espaço
+## 7.2 Descrição do espaço
 
 | Condição | Solução preferencial | Alternativa | Responsável |
 |---|---|---|---|
@@ -20,7 +20,7 @@ A paginação final tem de ser múltiplo de quatro para a brochura agrafada (20,
 | Energia | Não precisa | — | — |
 | Luz | Boa luz para ler e pintar | — | anfitrião |
 
-## 9.3 Descrição dos materiais
+## 7.3 Descrição dos materiais
 
 | Material | Quantidade | Especificação | Natureza |
 |---|---|---|---|
@@ -31,15 +31,15 @@ A paginação final tem de ser múltiplo de quatro para a brochura agrafada (20,
 
 O cenário de 396 exemplares não se repete por local: é o total ilustrativo do ano (GUI §19.4).
 
-## 9.4 Descrição dos EPI
+## 7.4 Descrição dos EPI
 
 A actividade não exige EPI.
 
-## 9.5 Limite de pessoas
+## 7.5 Limite de pessoas
 
 O trabalho é individual, um caderno por pessoa. O número simultâneo depende dos lugares sentados disponíveis; um mediador acompanha o grupo e lê as instruções a quem precise (A2 §2). Não há lotação fixada nas fontes (FUN §10).
 
-## 9.6 Riscos mapeados
+## 7.6 Riscos mapeados
 
 | ID | Risco | Prob. | Grav. | Prevenção | Resposta |
 |---|---|---|---|---|---|
@@ -49,7 +49,7 @@ O trabalho é individual, um caderno por pessoa. O número simultâneo depende d
 | E8-R04 | Recolha de nomes ou dados no caderno | Baixa | Moderada | O caderno não pede nome completo nem dados pessoais | — |
 | E8-R05 | Tiragem desajustada (falta ou sobra) | Média | Ligeira | Tiragens escalonadas; impressão por lotes | Reimpressão ou redistribuição |
 
-## 9.7 Composição material
+## 7.7 Composição material
 
 | Código | Componente | Nat. | Qtd. | Unid. | Tipo de fornecedor | Situação |
 |---|---|---|---|---|---|---|

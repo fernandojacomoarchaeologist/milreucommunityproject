@@ -6,7 +6,7 @@
 
 Este guia serve quem tem de preparar, instalar, pôr a funcionar e voltar a guardar cada actividade do Circuito Educativo – Ruínas Romanas de Milreu. Os leitores previstos são três: o técnico do museu que recebe ou empresta os materiais, o local anfitrião que cede o espaço e as mesas, e a pessoa responsável pela segurança desse local. O Guia Operacional, preparado em separado, trata da mediação com o público; este guia trata do objecto, do espaço, das pessoas que o espaço comporta e dos riscos.
 
-O Circuito tem nove actividades (seis estações e três complementos) e quatro componentes acrescentadas a 21-11-2026: mediação cultural e livro (A), passaporte cultural (B), quebra-cabeças (C) e componente para adolescentes (D). A acessibilidade não tem capítulo próprio, porque é uma regra transversal: cada capítulo diz o que se aplica à sua actividade.
+O Circuito tem sete actividades (cinco estações e dois complementos), que conservam a numeração dos documentos de concepção: estações 1, 2, 3, 4 e 6, caderno (8) e quiz (9). Por decisão do responsável de 21-11-2026, ficaram fora do escopo actual a estação 5 (Laboratório de Numismática), a estação 7 (caça ao tesouro nas ruínas) e o jogo de construção da villa da estação 6, que fica só com o jogo de mosaicos; os seus materiais (códigos E5 e E7 e a linha do jogo da villa) aparecem nos anexos como «fora». Juntam-se quatro componentes acrescentadas a 21-11-2026: mediação cultural e livro (A), passaporte cultural (B), quebra-cabeças (C) e componente para adolescentes (D). A acessibilidade não tem capítulo próprio, porque é uma regra transversal: cada capítulo diz o que se aplica à sua actividade.
 
 ## 1.2 Estado do Circuito à data deste guia
 
@@ -49,7 +49,7 @@ Na composição material usam-se os códigos de A6 (por exemplo, E1-14), para qu
 
 O filamento das réplicas é «pedido», mas a impressão e o trabalho são «absorvidos», porque a impressora 3D (Flashforge Adventurer 5M) é do investigador e fica fora do pedido (LAC A4, 19-11; B1, 21-11). Às quantidades de filamento desconta-se o lote já apoiado pela CCDR em 2026.
 
-Há dois cenários de execução. No cenário com apoio entram todas as estações e componentes. No cenário sem financiamento todas as estações se mantêm, cada acção leva cerca de dois meses (a numismática, o caderno e a montagem da villa têm duração própria), as versões digitais só correm onde o local tenha computador, o livro sai só em formato digital e ficam de fora o passaporte e os quebra-cabeças (LAC B6, 19-11; F7, 21-11).
+Há dois cenários de execução. No cenário com apoio entram todas as estações e componentes. No cenário sem financiamento todas as estações se mantêm, cada acção leva cerca de dois meses (o caderno e a montagem da villa têm duração própria), as versões digitais só correm onde o local tenha computador, o livro sai só em formato digital e ficam de fora o passaporte e os quebra-cabeças (LAC B6, 19-11; F7, 21-11).
 
 ## 1.4 Escala usada nas tabelas de risco
 
@@ -70,10 +70,10 @@ As regras seguintes aplicam-se a todas as estações e componentes e não se rep
 
 1. Cada estação tem um guia curto, plastificado, com o objectivo, a sequência de acções, o critério de conclusão e os avisos de segurança, em texto e pictogramas. As instruções nunca dependem só da explicação oral nem só do áudio (ADA §1.5, §12.3; decisão de 19-11).
 2. Quando uma categoria se identifica pela cor (metal, cerâmica, camadas, fases), a mesma categoria tem também uma forma, um símbolo, uma letra ou uma textura (ADA §13.2).
-3. Réplicas, tesselas, moedas e peças de montagem contam-se à saída do armazém, no início e no fim de cada sessão e à entrada no armazém, contra o inventário do conjunto. A diferença regista-se na ficha de carga.
+3. Réplicas, tesselas e peças de montagem contam-se à saída do armazém, no início e no fim de cada sessão e à entrada no armazém, contra o inventário do conjunto. A diferença regista-se na ficha de carga.
 4. Todas as réplicas impressas são modelos interpretativos; as que foram geradas com apoio de IA levam essa menção no objecto, na ficha e em qualquer exibição (regra `digital-intervention-disclosure`; H17).
-5. Os mosaicos e as peças das estações não são oferecidos aos participantes; existe só uma reserva de tesselas e de peças para reposição (LAC C4, 18-11 e 19-11). Os impressos entregues (caderno, cartas colecionáveis, passaporte) são a excepção, porque são consumíveis previstos.
-6. Tesselas, moedas, fragmentos e peças de montagem cabem no cilindro de peças pequenas das normas de segurança de brinquedos (EN 71-1, diâmetro interior de 31,7 mm). Em eventos abertos a famílias, as mesas com peças soltas ficam fora do alcance de crianças com menos de 3 anos e o aviso escrito está à vista.
+5. Os mosaicos e as peças das estações não são oferecidos aos participantes; existe só uma reserva de tesselas e de peças para reposição (LAC C4, 18-11 e 19-11). Os impressos entregues (caderno, passaporte) são a excepção, porque são consumíveis previstos.
+6. Tesselas, fragmentos e peças de montagem cabem no cilindro de peças pequenas das normas de segurança de brinquedos (EN 71-1, diâmetro interior de 31,7 mm). Em eventos abertos a famílias, as mesas com peças soltas ficam fora do alcance de crianças com menos de 3 anos e o aviso escrito está à vista.
 7. O formulário de inscrição pergunta por alergias (enchimento vegetal, látex, outros), necessidades de adaptação e autorizações de imagem, sem pedir diagnóstico (TA-15; ADA §12.5).
 8. Usam-se os cinco grupos operacionais (6–8, 9–10, 11–14, 15–17 e adultos) e os três níveis de participação (descoberta, investigação, interpretação), que são independentes da idade (ADA §1–2).
 9. As mesas acessíveis e as cadeiras são do local anfitrião e confirmam-se antes de cada acção; não entram no pedido (ADA §1.4, §12.1).
@@ -146,7 +146,6 @@ Nenhum seguro e nenhuma autorização estão contratados à data deste guia. A t
 | Seguro de participantes em acções escolares | a confirmar com cada escola | Escola ou agrupamento |
 | Seguro de visitas de estudo (componente D) | a decidir (AD-15) | Escola ou seguradora |
 | Utilização do espaço e instalação temporária | por acção | Local anfitrião |
-| Percurso, fotografia e balcão nas ruínas (estação 7) | a decidir (E7-06) | Entidade que gere as ruínas |
 | Intervenção no solo (modelo 3 de escavação) | a decidir, por local (E1-51) | Proprietário do terreno, com verificação patrimonial e ambiental |
 | Reprodução de peças de colecção (bustos) | a decidir: falta citar a fonte da liberação de cada busto (LAC C8, 19-11) | Entidade detentora de cada peça |
 | Manuseio de material arqueológico real (componente D) | a decidir (AD-11) | Entidade detentora do acervo |
@@ -158,7 +157,7 @@ A Lei n.º 71/98, de 3 de Novembro, e o Decreto-Lei n.º 389/99 enquadram o volu
 
 A base da política de menores está aprovada (LAC F1, 21-11): consentimento informado dos encarregados de educação, assentimento das crianças, confidencialidade, conformidade com o Regulamento (UE) 2016/679 (RGPD) e com a Lei n.º 58/2019, autorização das escolas, direitos e licença de uso dos desenhos, decisão sobre nomes reais ou pseudónimos e parecer ético de uma instância a definir. O texto da política e os formulários ainda estão por redigir. Enquanto não existirem, nenhuma actividade recolhe desenhos para publicação, palavras de crianças, fotografias identificáveis ou dados nominais além do formulário de inscrição.
 
-Nas estações, a regra é a recolha mínima: as fichas de registo dos participantes não levam nome completo, as fotografias da caça ao tesouro validam-se no dispositivo do participante sem as recolher (GUI §8), os jogos digitais não criam contas e os voluntários não têm acesso a bases de dados de participantes (GUI §16).
+Nas estações, a regra é a recolha mínima: as fichas de registo dos participantes não levam nome completo, o jogo digital e o quiz não criam contas e os voluntários não têm acesso a bases de dados de participantes (GUI §16).
 
 ## 1.12 Destino dos bens
 

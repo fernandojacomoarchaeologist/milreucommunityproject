@@ -16,7 +16,7 @@ O Circuito parte das entrevistas feitas em 2024 para a dissertação de mestrado
 
 Depois da dissertação, o Projecto Comunitário de Milreu nasceu no âmbito da investigação de doutoramento do mesmo investigador. Em 2026 o projecto ouviu de novo a comunidade, em duas rodas de conversa em Estoi (7 de fevereiro e 11 de abril) e numa sessão no Dia Internacional dos Monumentos e Sítios (18 de abril), e devolveu o que recolheu sob a forma do Museu de Memórias (capítulo 6).
 
-O Circuito foi desenhado a partir destes três problemas; se os atenua, só os testes e a avaliação o dirão. Ao primeiro, com actividades que podem ir às escolas do concelho e às próprias ruínas. Ao segundo, com procedimentos da arqueologia ensinados com as mãos: escavar e registar, ler camadas, identificar moedas. Ao terceiro, com conteúdo tirado das publicações científicas sobre Milreu, com página citada, e com a regra de separar sempre o que está documentado, o que é interpretação e o que é invenção do jogo.
+O Circuito foi desenhado a partir destes três problemas; se os atenua, só os testes e a avaliação o dirão. Ao primeiro, com actividades que podem ir às escolas do concelho e às próprias ruínas. Ao segundo, com procedimentos da arqueologia ensinados com as mãos: escavar e registar, ler camadas, compor um mosaico. Ao terceiro, com conteúdo tirado das publicações científicas sobre Milreu, com página citada, e com a regra de separar sempre o que está documentado, o que é interpretação e o que é invenção do jogo.
 
 ## 3.3 A preparação do pedido
 

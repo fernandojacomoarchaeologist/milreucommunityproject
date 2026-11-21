@@ -4,7 +4,7 @@
 
 ## 1. A actividade
 
-A componente C é uma medida alternativa e opcional do Circuito: um conjunto de dez quebra-cabeças diferentes, de 30 peças cada, para crianças dos 6 aos 12 anos, com imagens de mosaicos, de estratigrafia, de construções e da planta de Milreu, e, como alternativa, um quebra-cabeças grande, em formato A0, montado em grupo. Depois de montadas, as imagens dos quebra-cabeças servem de pistas para a caça ao tesouro nas ruínas e de ponto de partida para outras conversas de mediação.
+A componente C é uma medida alternativa e opcional do Circuito: um conjunto de dez quebra-cabeças diferentes, de 30 peças cada, para crianças dos 6 aos 12 anos, com imagens de mosaicos, de estratigrafia, de construções e da planta de Milreu, e, como alternativa, um quebra-cabeças grande, em formato A0, montado em grupo. Depois de montadas, as imagens dos quebra-cabeças servem de ponto de partida para conversas de mediação sobre o que mostram.
 
 Os dez quebra-cabeças têm dez desenhos diferentes, por decisão do investigador, e não dez cópias do mesmo. A distribuição dos dez pelos quatro temas ainda não está feita. Cada quebra-cabeças terá a sua caixa ou bolsa, identificada pelo tema, e peças de reserva. O material e o fabrico (cartão rígido ou madeira, com as regras de segurança de brinquedo aplicáveis) serão definidos na produção.
 
@@ -22,17 +22,17 @@ O conjunto ocupa pouco peso, mas algum volume, sobretudo o A0, que se transporta
 
 ## 2. Dinâmica geral e objectivos da actividade
 
-Os quebra-cabeças têm três objectivos. O primeiro é fazer as crianças olhar com atenção para uma imagem de Milreu, porque montar um quebra-cabeças obriga a observar cores, linhas, formas e pormenores que passariam despercebidos numa olhadela. O segundo é rever, de forma lúdica, os temas das estações (mosaicos, estratigrafia, edifícios, planta). O terceiro é ligar a imagem ao sítio real, através da caça ao tesouro.
+Os quebra-cabeças têm três objectivos. O primeiro é fazer as crianças olhar com atenção para uma imagem de Milreu, porque montar um quebra-cabeças obriga a observar cores, linhas, formas e pormenores que passariam despercebidos numa olhadela. O segundo é rever, de forma lúdica, os temas das estações (mosaicos, estratigrafia, edifícios, planta). O terceiro é ligar a imagem ao sítio real, pela conversa com o mediador sobre o vestígio que ela representa e sobre a fonte da informação.
 
 A dinâmica com os dez quebra-cabeças é a de uma mesa de trabalho em pequenos grupos. Cada criança, ou cada par ou trio, recebe um quebra-cabeças, monta-o e, no fim, conversa com o mediador sobre o que a imagem mostra: que tipo de mosaico é, onde fica aquele edifício na planta, que camada está em cima. A montagem pode ser o início de uma visita, para preparar o olhar, ou o fim, para rever. Numa turma, os dez quebra-cabeças podem ser montados em paralelo e trocados entre grupos.
 
 O quebra-cabeças A0 é uma actividade colectiva. Um grupo de crianças monta-o em conjunto, numa mesa grande ou no chão, distribuindo as peças e negociando entre si onde vai cada uma. O gabarito fica ao lado, ou por baixo, e o mediador decide com o grupo quando usá-lo. A dinâmica valoriza a cooperação: a imagem completa é de todos, e o mediador pede no fim que o grupo explique o que montou.
 
-A ligação à caça ao tesouro é a extensão mais interessante da componente. Uma criança que montou um quebra-cabeças com um pormenor de um mosaico, de uma coluna ou de um edifício sai depois à procura desse pormenor nas ruínas, nas zonas visitáveis e com as regras da caça ao tesouro. A imagem passa assim de jogo de mesa a pista de observação de um vestígio real. Esta ligação só funciona nas Ruínas Romanas de Milreu e com a autorização da entidade gestora.
+Os documentos de concepção previam que as imagens montadas servissem de pistas a uma caça ao tesouro nas ruínas. Essa caça ao tesouro saiu do escopo actual do Circuito na redução decidida pelo investigador em 21 de novembro de 2026, e as imagens deixaram de ter essa função. A ligação ao sítio faz-se agora pela mediação: com a ficha da caixa, o mediador diz o que a imagem mostra e de onde vem a informação, e, quando a sessão antecede ou segue uma visita às ruínas, pode indicar em que parte do sítio se encontra o vestígio representado, sem transformar essa indicação num percurso de procura.
 
 O formato único de 30 peças para crianças dos 6 aos 12 anos junta crianças com destrezas muito diferentes. O mediador ajusta a dificuldade com o que tem à mão: para as mais novas, mostra a imagem completa e deixa montar em grupo; para as mais velhas, retira a imagem de referência ou propõe montar contra o tempo, sem que o tempo seja uma regra obrigatória. Se o teste mostrar que 30 peças são poucas ou demasiadas para algum grupo, a produção pode incluir variantes de dificuldade.
 
-Os objectivos propostos, a verificar quando os quebra-cabeças forem usados com crianças, são: montar a imagem em pequeno grupo; dizer o que ela mostra; e, quando houver visita às ruínas, encontrar o pormenor correspondente.
+Os objectivos propostos, a verificar quando os quebra-cabeças forem usados com crianças, são: montar a imagem em pequeno grupo; dizer o que ela mostra; e relacioná-la com o tema da estação de onde vem.
 
 Em dia de chuva, os quebra-cabeças são uma das actividades de interior mais fáceis de organizar, porque não precisam de energia, de rede nem de materiais soltos, e podem receber de uma vez um grupo grande. Também servem de tarefa para quem espera numa rotação, desde que o mediador garanta que a montagem não fica a meio quando o grupo muda de estação.
 
@@ -44,7 +44,7 @@ O mediador regista, nas primeiras utilizações, quanto tempo cada grupo demora 
 |---|---|---|---|
 | 6–8 | Montagem em grupo, com a imagem de referência à vista; A0 com gabarito | 2–3 | a medir |
 | 9–10 | Montagem em par ou individual; conversa sobre o tema | 1–2 | a medir |
-| 11–12 | Montagem individual, sem imagem de referência; ligação à caça ao tesouro | 1–2 | a medir |
+| 11–12 | Montagem individual, sem imagem de referência; conversa sobre o vestígio representado e a fonte | 1–2 | a medir |
 | A0 de grupo | Montagem colectiva por várias crianças, com gabarito | um grupo, de tamanho a fixar no teste | a medir |
 
 Não há dados de duração para estes quebra-cabeças. O precedente regional descrito no embasamento observou que quebra-cabeças de 20 peças foram montados depressa por crianças dos 6 aos 10 anos, o que sugere que 30 peças serão uma tarefa curta para muitas crianças, mas a duração real será medida no primeiro uso.
@@ -55,7 +55,7 @@ Os dez quebra-cabeças servem, em simultâneo, entre dez e trinta crianças, o q
 
 O A0 é a alternativa principal aos dez quebra-cabeças, e os dois podem coexistir: os pequenos para a actividade de mesa, o grande como momento colectivo de fecho. Se o A0 se fizer no chão, uma variante em mesa grande deve estar sempre disponível.
 
-Os quebra-cabeças ligam-se a várias partes do Circuito. Os temas vêm das estações 2, 3 e 4; as imagens servem a estação 7; e a montagem pode valer um carimbo do passaporte, se o museu o acordar. As mesmas imagens podem ser usadas, em formato de cartão, no quiz ou no caderno de actividades, desde que os direitos o permitam.
+Os quebra-cabeças ligam-se a várias partes do Circuito. Os temas vêm das estações 2, 3 e 4, e a montagem pode valer um carimbo do passaporte, se o museu o acordar. As mesmas imagens podem ser usadas, em formato de cartão, no quiz ou no caderno de actividades, desde que os direitos o permitam.
 
 Uma proposta adicional é produzir uma versão com contorno ou relevo táctil de um dos quebra-cabeças, como parte do piloto táctil do projecto, para avaliar se o formato pode servir crianças cegas ou com baixa visão.
 

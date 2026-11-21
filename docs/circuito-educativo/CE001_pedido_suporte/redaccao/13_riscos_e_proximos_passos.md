@@ -12,7 +12,7 @@
 | Destino dos bens por decidir | Conflito sobre a propriedade e o uso dos materiais | Protocolo de uso e autoria antes de submeter a candidatura |
 | Falta de política para menores e de autorizações | Bloqueia a recolha de desenhos (A), o passaporte com dados de menores (B) e as acções com adolescentes (D) | Redigir a política e os formulários antes da primeira acção com crianças |
 | Recusa ou demora das tutelas dos locais do passaporte | Passaporte só com os carimbos das estações | O núcleo do passaporte não depende de outros locais; os carimbos externos entram só com acordo escrito |
-| Sem autorização para escavações, materiais reais ou percurso nas ruínas | Partes da componente D e a caça ao tesouro não se realizam | Não as anunciar sem autorização; alternativa da visita ao laboratório |
+| Sem autorização para escavações ou materiais reais | Partes da componente D não se realizam | Não as anunciar sem autorização; alternativa da visita ao laboratório |
 | Adolescentes pouco interessados | Baixa participação na componente D | Começar pela roda de conversa e ajustar |
 | Peças tácteis ou braille que não funcionam | Adaptação sem efeito ou com erros | Piloto com poucas peças; revisão por leitor de braille; teste com pessoas cegas ou com baixa visão |
 | Poucos voluntários | Menos estações abertas por acção | Abrir menos estações com mediação suficiente; formação prévia |
@@ -20,7 +20,7 @@
 | Chuva ou calor em acções no exterior | Suspensão de parte das actividades | Plano de interior ou coberto |
 | Peso e volume no transporte | Volumes difíceis de carregar | Limite de 20 a 30 kg por volume; balança; ficha de carga |
 | Prazos longos de produção (livro, quebra-cabeças, braille) | Produtos fora do ano de 2027 | O livro está previsto para 2028; o braille faz-se depois do texto final |
-| Sobrecarga do investigador com componentes em paralelo | Atrasos em todas as frentes | Prioridade às seis estações principais; componentes paralelas só com parceiros |
+| Sobrecarga do investigador com componentes em paralelo | Atrasos em todas as frentes | Redução de escopo de 21 de novembro de 2026 (saem as estações 5 e 7 e o jogo de construção da villa); prioridade às cinco estações principais; componentes paralelas só com parceiros |
 
 ## 13.2 O que se pede ao museu agora
 

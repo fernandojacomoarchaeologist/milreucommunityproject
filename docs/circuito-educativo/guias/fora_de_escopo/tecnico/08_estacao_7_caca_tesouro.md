@@ -2,6 +2,8 @@
 
 # 8. Estação 7 — Caça ao tesouro nas ruínas
 
+> Fora do escopo actual do Circuito, por decisão do responsável de 21-11-2026 (redução de escopo registada em `CE001_pedido_suporte/LACUNAS_E_PERGUNTAS.md`). O capítulo fica arquivado e não entra nos guias.
+
 ## 8.1 Descrição da actividade
 
 O participante recebe uma carta de desafio com uma pista sobre um elemento das ruínas, por exemplo um mosaico ou o pormenor de uma coluna, percorre as zonas visitáveis autorizadas, encontra o elemento e fotografa-o. Apresenta a fotografia no ponto de validação e, confirmada a correspondência, recebe uma carta colecionável com informação sobre esse elemento (FUN §9; REG §9). Estão previstos 10 a 15 modelos de cartas (GUI §8). As imagens dos quebra-cabeças (componente C) podem servir de pistas (BRF C).

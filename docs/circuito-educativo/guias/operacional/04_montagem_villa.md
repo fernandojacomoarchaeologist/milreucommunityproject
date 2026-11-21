@@ -48,7 +48,7 @@ A capacidade total não está fixada e depende do espaço em torno da planta. Co
 
 A versão por sectores divide a planta em partes que se montam em mesas separadas, para espaços pequenos ou para quem tem alcance limitado. A inclusão do centro interpretativo actual permite comparar a Milreu de hoje com a das fases antigas e falar de quem gere e visita o sítio. Para os grupos mais velhos, a montagem pode fazer-se em duas ou três passagens, uma por fase, retirando e acrescentando edifícios, de modo a mostrar que a villa mudou.
 
-A estação liga-se ao jogo de construção da villa, na oficina digital, que trata os mesmos edifícios do ponto de vista da economia e do tempo; ao caderno de actividades, que tem páginas sobre a villa e os seus edifícios; e aos quebra-cabeças da componente C, um dos quais terá como tema a planta de Milreu. Antes ou depois de uma visita às ruínas, a montagem ajuda a orientar o percurso, e a caça ao tesouro pode partir de elementos dos edifícios montados.
+A estação liga-se ao caderno de actividades, que tem páginas sobre a villa e os seus edifícios; e aos quebra-cabeças da componente C, um dos quais terá como tema a planta de Milreu. Antes ou depois de uma visita às ruínas, a montagem ajuda a orientar o percurso.
 
 Outra proposta, útil para mostrar como o conhecimento muda, é contar a história das plantas de Milreu: Estácio da Veiga escavou e desenhou a primeira em 1876 e 1877, seguiram-se outras em 1898 e em 1950, e Felix Teichner reinterpretou uma área do sítio, a área 21, a partir da planta de Estácio da Veiga (Teichner 2001). Uma planta não é um retrato fixo do sítio, mas o resultado de várias campanhas e leituras.
 

@@ -1,8 +1,8 @@
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-# 14. Componente D — Adolescentes
+# 12. Componente D — Adolescentes
 
-## 14.1 Descrição da actividade
+## 12.1 Descrição da actividade
 
 A componente procura perceber o que afasta os adolescentes do património e responde com actividades próprias para os grupos de 11–14 e 15–17 anos (BRF, adaptação especial). As fontes registam o problema: o ensino secundário é o público mais difícil de envolver (A5, ficha D). As actividades são cinco:
 
@@ -14,7 +14,7 @@ A componente procura perceber o que afasta os adolescentes do património e resp
 
 A componente organiza-se em três momentos com uma escola do concelho em 2027 (LAC F6), a começar pela roda de conversa, que não precisa de material próprio. Visitas e manuseio de material real não cabem em eventos abertos (A5, ficha D). Os objectos reais pertencem à entidade detentora; o projecto não os empresta nem os transporta, e as regras de conservação são as dessa entidade.
 
-## 14.2 Descrição do espaço
+## 12.2 Descrição do espaço
 
 | Actividade | Espaço | Alternativa | Responsável |
 |---|---|---|---|
@@ -24,7 +24,7 @@ A componente organiza-se em três momentos com uma escola do concelho em 2027 (L
 | Roda de conversa | Sala da escola com cadeiras em círculo | Biblioteca escolar | escola (AD-09) |
 | Manuseio de material real | Sala com mesas estáveis cobertas por tabuleiros forrados ou espuma, sem passagem, sem comida nem bebida | Apresentação sem manuseio | entidade detentora e escola |
 
-## 14.3 Descrição dos materiais
+## 12.3 Descrição dos materiais
 
 | Material | Quantidade | Especificação | Natureza |
 |---|---|---|---|
@@ -36,7 +36,7 @@ A componente organiza-se em três momentos com uma escola do concelho em 2027 (L
 | Tabuleiros forrados ou espuma | a definir com a entidade detentora | — | REU |
 | Transporte de passageiros | 1 por visita | quem paga está por decidir (escola, Município ou pedido) | SRV |
 
-## 14.4 Descrição dos EPI
+## 12.4 Descrição dos EPI
 
 | Quem | EPI | Quando | Estatuto | Notas |
 |---|---|---|---|---|
@@ -45,7 +45,7 @@ A componente organiza-se em três momentos com uma escola do concelho em 2027 (L
 | Adolescentes | O da estação 1 | Escavação com papéis | Ver capítulo 2.4 | — |
 | Visitantes do centro | O que o centro exigir | Visita a laboratório | Obrigatório segundo o centro | — |
 
-## 14.5 Limite de pessoas
+## 12.5 Limite de pessoas
 
 | Actividade | Participantes | Adultos | Derivação |
 |---|---|---|---|
@@ -54,7 +54,7 @@ A componente organiza-se em três momentos com uma escola do concelho em 2027 (L
 | Manuseio de material real | número fixado pela entidade detentora, por mesa | professores e assistentes operacionais da escola presentes, mais o responsável da entidade detentora | LAC F6 |
 | Visitas | o grupo que o sítio ou o centro aceitar | professores acompanhantes segundo as regras de visitas de estudo da escola | AD-06, AD-08 |
 
-## 14.6 Riscos mapeados
+## 12.6 Riscos mapeados
 
 | ID | Risco | Prob. | Grav. | Prevenção | Resposta |
 |---|---|---|---|---|---|
@@ -68,7 +68,7 @@ A componente organiza-se em três momentos com uma escola do concelho em 2027 (L
 | D-R08 | Acesso impraticável à escavação para participante com mobilidade reduzida | Média | Moderada | Alternativa no laboratório; aviso antes da inscrição | Oferecer a alternativa |
 | D-R09 | Riscos da escavação simulada | — | — | Os da estação 1 (E1-R01 a E1-R17) | Os da estação 1 |
 
-## 14.7 Composição material
+## 12.7 Composição material
 
 | Código | Componente | Nat. | Qtd. | Unid. | Tipo de fornecedor | Situação |
 |---|---|---|---|---|---|---|

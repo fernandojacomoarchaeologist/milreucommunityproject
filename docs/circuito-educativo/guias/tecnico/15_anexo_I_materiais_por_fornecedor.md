@@ -2,7 +2,7 @@
 
 # Anexo I — Lista mestra de materiais por tipo de fornecedor
 
-Este anexo reorganiza a composição material dos capítulos 2 a 14 por tipo de fornecedor, segundo A6 §2, com as decisões posteriores a A6: a desconsideração de «muitos perfis» na componente D (LAC F6), a entrada do passaporte, dos quebra-cabeças e do livro no cenário com apoio (LAC F3, F4, F7) e a impressão do livro em 2027 (decisão do investigador de 21-11-2026). Junta também as linhas transversais que não pertencem a uma só actividade: acessibilidade (AC), oficinas de voluntários (OV) e transporte, armazenamento e recursos comuns (TA). Os tipos de fornecedor são categorias comerciais, não empresas; os candidatos concretos estão nos ficheiros privados de orçamento.
+Este anexo reorganiza a composição material dos capítulos 2 a 12 por tipo de fornecedor, segundo A6 §2, com as decisões posteriores a A6: a redução de escopo de 21-11-2026, que retira as estações 5 e 7 e o jogo de construção da villa, a desconsideração de «muitos perfis» na componente D (LAC F6), a entrada do passaporte, dos quebra-cabeças e do livro no cenário com apoio (LAC F3, F4, F7) e a impressão do livro em 2027 (decisão do investigador de 21-11-2026). Junta também as linhas transversais que não pertencem a uma só actividade: acessibilidade (AC), oficinas de voluntários (OV) e transporte, armazenamento e recursos comuns (TA). Os tipos de fornecedor são categorias comerciais, não empresas; os candidatos concretos estão nos ficheiros privados de orçamento.
 
 ## I.1 Resumo por tipo de fornecedor
 
@@ -12,20 +12,20 @@ Este anexo reorganiza a composição material dos capítulos 2 a 14 por tipo de 
 | Loja de bricolage e construção | E1-03 a E1-11, E1-17, E1-25 a E1-35, E1-39, E1-42, E1-43, E1-45, E1-47 a E1-50; E2-10; E3-05, E3-09, E3-10; E4-04; E6-03; AD-13; OV-03 a OV-08; TA-01, TA-03 a TA-05 | 1, 2, 3, 4, 6, D, OV, TA |
 | Ferramenta arqueológica especializada | E1-25, só se a loja de bricolage não tiver colherim adequado | 1 |
 | Casa de acrílicos e plásticos técnicos | E3-01 a E3-04 | 3 |
-| Filamento e consumíveis 3D | E1-19, E1-20, E1-23; E2-03, E2-04, E2-09; E3-06, E3-14; E4-02, E4-07; E5-02, E5-08; AC-06, AC-07; TA-18 a TA-20 | 1–5, AC, TA |
-| Gráfica (digital ou offset, plastificação) | E1-13, E1-21, E1-38, E1-44; E2-07, E2-08; E3-12; E4-06; E5-04, E5-05; E7-01 a E7-03; E8-01, E8-02; A-06, A-13, A-14; B-01; C-06; AC-01, AC-05, AC-08; AD-03, AD-04; OV-17, OV-19; TA-06, TA-14 a TA-16 | 1–5, 7, 8, A, B, C, AC, D, OV, TA |
+| Filamento e consumíveis 3D | E1-19, E1-20, E1-23; E2-03, E2-04, E2-09; E3-06, E3-14; E4-02, E4-07; AC-06, AC-07; TA-18 a TA-20 | 1–4, AC, TA |
+| Gráfica (digital ou offset, plastificação) | E1-13, E1-21, E1-38, E1-44; E2-07, E2-08; E3-12; E4-06; E8-01, E8-02; A-06, A-13, A-14; B-01; AC-01, AC-05, AC-08; AD-03, AD-04; OV-17, OV-19; TA-06, TA-14 a TA-16 | 1–4, 8, A, B, AC, D, OV, TA |
 | Gráfica de grande formato com corte | E4-03; C-07, C-08; alternativa a C-02 | 4, C |
 | Fabricante de puzzles personalizados | C-02, C-03, C-04; alternativa a C-07 | C |
 | Fabricante de carimbos personalizados | B-03 a B-06 | B |
 | Transcrição e impressão braille | AC-03, AC-05; A-17; B-10 | AC, A, B |
 | Associação da área da deficiência visual (validação, em espécie) | AC-04 | AC |
-| Papelaria, belas-artes, material didáctico | E1-36, E1-38; E3-07, E3-08; E5-07; E7-04; E8-04; A-02, A-03, A-05; AD-04, AD-10 | 1, 3, 5, 7, 8, A, D |
-| Retrosaria e têxtil | E1-10 (se algodão), E1-11, E1-12, E1-37; E2-06; E5-03; OV-10, OV-11; C-03 (se bolsa) | 1, 2, 5, C, OV |
+| Papelaria, belas-artes, material didáctico | E1-36, E1-38; E3-07, E3-08; E8-04; A-02, A-03, A-05; AD-04, AD-10 | 1, 3, 8, A, D |
+| Retrosaria e têxtil | E1-10 (se algodão), E1-11, E1-12, E1-37; E2-06; OV-10, OV-11; C-03 (se bolsa) | 1, 2, C, OV |
 | Estampagem têxtil | OV-18 a OV-20 (OV-19 só se não for da gráfica) | OV |
 | Informática e electrónica | E6-01 a E6-04 | 6 e 9 |
 | Loja de animais e grande distribuição | E1-14; E3-11; TA-12, TA-13; OV-22 | 1, 3, TA, OV |
 | Fornecedor de cortiça | E1-15 | 1 |
-| Embalagem e arrumação | E1-16, E1-22; E2-05; E3-13; E4-05; E5-06; AC-09; C-03, C-09; AD-13; TA-01 a TA-03 | 1–5, AC, C, D, TA |
+| Embalagem e arrumação | E1-16, E1-22; E2-05; E3-13; E4-05; AC-09; C-03, C-09; AD-13; TA-01 a TA-03 | 1–4, AC, C, D, TA |
 | EPI e higiene | E1-39 a E1-41; AD-12; OV-05, OV-06, OV-08, OV-09, OV-21 | 1, D, OV |
 | Aluguer de viaturas de carga ou transportadora | TA-07, TA-08 | TA |
 | Transporte de passageiros | AD-05, AD-07 | D |
@@ -34,21 +34,21 @@ Este anexo reorganiza a composição material dos capítulos 2 a 14 por tipo de 
 | Catering e apoio a eventos | OV-14, se não for o anfitrião | OV |
 | Operador de telecomunicações | E6-07 | 6 |
 | Registo editorial (ISBN e depósito legal) | A-11, A-12 | A |
-| Em espécie: parceiros, anfitriões, entidades detentoras | E1-24, E1-46, E1-51; E6-09; E7-05, E7-06; A-01, A-16; B-06 a B-08; AC-04, AC-10; AD-06, AD-08, AD-09, AD-11, AD-14; OV-01, OV-12; TA-09 | 1, 6, 7, A, B, AC, D, OV, TA |
-| Investigador (absorvido) | E1-18; E2-02; E4-01; E5-01; E6-05, E6-06; E8-03; E9-02, E9-03; A-08, A-15; B-02; C-01; AC-02; AD-16; OV-16; TA-21, TA-22 | todas |
+| Em espécie: parceiros, anfitriões, entidades detentoras | E1-24, E1-46, E1-51; E6-09; A-01, A-16; B-06 a B-08; AC-04, AC-10; AD-06, AD-08, AD-09, AD-11, AD-14; OV-01, OV-12; TA-09 | 1, 6, A, B, AC, D, OV, TA |
+| Investigador (absorvido) | E1-18; E2-02; E4-01; E6-05, E6-06 (só o jogo de mosaicos); E8-03; E9-02, E9-03; A-08, A-15; B-02; C-01; AC-02; AD-16; OV-16; TA-21, TA-22 | todas |
 
-Em relação a A6, saem do resumo AD-01 e AD-02, que ficaram fora pela decisão F6. A-14 (impressão do livro) passa a pedido, B-01, C-02, C-07 e C-08 entram no cenário com apoio. O kit de mosaico para levar para casa (E2-11), os mediadores em língua gestual portuguesa (AC-11) e a impressora 3D (TA-17) continuam fora.
+Em relação a A6, saem do resumo, por ficarem fora do escopo (decisão de 21-11-2026), todas as linhas da estação 5 (E5-01 a E5-09) e da estação 7 (E7-01 a E7-07), as cartas da caça ao tesouro da componente C (C-06) e o jogo de construção da villa, que deixa de contar em E6-06 (de dois jogos para um). Saem também AD-01 e AD-02, que ficaram fora pela decisão F6. A-14 (impressão do livro) passa a pedido, B-01, C-02, C-07 e C-08 entram no cenário com apoio. O kit de mosaico para levar para casa (E2-11), os mediadores em língua gestual portuguesa (AC-11) e a impressora 3D (TA-17) continuam fora.
 
 ## I.2 Acessibilidade transversal
 
 | Código | Componente | Nat. | Qtd. | Unid. | Tipo de fornecedor | Situação |
 |---|---|---|---|---|---|---|
-| AC-01 | Guias curtos com texto e pictogramas, plastificados | REU | 9 + reservas | un | gráfica | pedido |
+| AC-01 | Guias curtos com texto e pictogramas, plastificados | REU | 7 + reservas (eram 9 em A6) | un | gráfica | pedido |
 | AC-02 | Pictogramas (desenho próprio ou conjunto com licença compatível) | SRV | 1 conjunto | — | investigador | absorvido; licença a decidir |
 | AC-03 | Indicações em braille nos impressos (âmbito a avaliar) | SRV | a definir | un | transcrição e impressão braille | a decidir |
 | AC-04 | Validação com pessoas cegas ou com baixa visão | ESP | por piloto | sessão | associação da área | a decidir |
 | AC-05 | Etiquetas em braille ou relevo nas caixas das peças tácteis | CON | a definir | un | braille / gráfica | a decidir |
-| AC-06 | Lote piloto de peças tácteis (mosaicos, estratigrafia, moedas, bustos) | CON | poucas peças | kg de filamento | filamento | pedido |
+| AC-06 | Lote piloto de peças tácteis (mosaicos, estratigrafia, bustos) | CON | poucas peças | kg de filamento | filamento | pedido |
 | AC-07 | Peças ampliadas pontuais, registadas por finalidade | CON | a definir | kg de filamento | filamento | pedido |
 | AC-08 | Fichas ampliadas para baixa visão | CON | a definir | folha | gráfica | a decidir |
 | AC-09 | Arrumação separada (série regular, reposição, tácteis) | REU | a definir | un | embalagem e arrumação | pedido |

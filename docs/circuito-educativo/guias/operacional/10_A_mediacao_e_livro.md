@@ -46,7 +46,7 @@ A unidade de trabalho é a turma, com o desenho individual e a conversa em pares
 
 A opção editorial ainda aberta é a de publicar, ao lado do texto adaptado, as palavras de cada criança sobre o seu desenho, transcritas e separadas do texto do investigador; a análise bibliográfica do projecto sugere-a, porque mantém visível a voz da criança, e a decisão cabe ao investigador. Outra opção é deixar que cada criança reveja a versão final da sua página antes da impressão.
 
-A mediação pode também ser feita depois de outras estações, e não só da oficina de mosaicos, porque as experiências de escavação, de montagem da villa ou de caça ao tesouro dão matéria para desenhar. O livro pode ser um dos prémios do passaporte, entregue no museu a quem o completar, se o museu o acordar. Por fim, a versão digital pode ser acompanhada de uma leitura em voz alta ou de uma versão ampliada, a estudar.
+A mediação pode também ser feita depois de outras estações, e não só da oficina de mosaicos, porque as experiências de escavação, de estratigrafia ou de montagem da villa dão matéria para desenhar. O livro pode ser um dos prémios do passaporte, entregue no museu a quem o completar, se o museu o acordar. Por fim, a versão digital pode ser acompanhada de uma leitura em voz alta ou de uma versão ampliada, a estudar.
 
 ## 5. Resultados esperados
 

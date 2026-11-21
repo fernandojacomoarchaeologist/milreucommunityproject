@@ -2,6 +2,8 @@
 
 # Estação 5. Laboratório de Numismática
 
+> Fora do escopo actual do Circuito, por decisão do responsável de 21-11-2026 (redução de escopo registada em `CE001_pedido_suporte/LACUNAS_E_PERGUNTAS.md`). O capítulo fica arquivado e não entra nos guias.
+
 ## 1. A actividade
 
 O Laboratório de Numismática trata as moedas de duas maneiras: como fontes de informação histórica, que se observam, comparam e datam, e como instrumentos de troca, que obrigam a pensar em valor, em período e em economia. A estação tem dois momentos. No primeiro, cada grupo tira de uma caixa de descobertas um saco com réplicas de moedas, observa-as, procura indícios da sua época e do seu valor numa ficha com pistas progressivas e coloca cada moeda no lugar que lhe corresponde num tabuleiro de classificação. No segundo, o grupo recebe cartas com bens de diferentes contextos históricos e tem de decidir em que época seria adequado situar cada bem e que moedas usaria para o «comprar», num formato próximo de um jogo de tabuleiro. No fim, as moedas voltam aos sacos de forma aleatória, para que o grupo seguinte tenha de novo uma experiência de descoberta.

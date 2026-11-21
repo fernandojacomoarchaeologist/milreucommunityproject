@@ -114,3 +114,10 @@
   - a secção «Fornecedores» (nome do fornecedor por tipo, associado às despesas).
   Acrescentados também, nos 4 parceiros, «Equipamento da lista MMP e RPM: não aplicável» e a página na internet. Todos os campos do formulário estão presentes; as 17 despesas têm tipo, fornecedor, valor sem IVA, taxa e valor com IVA. · esta sessão
 - 2026-11-21 · DECISÃO · Dados indicados pelo responsável: presidente da Junta de Freguesia de Estoi eleito em 2025, Luís Barriga; e-mail das Ruínas de Milreu, milreu@patrimoniocultural.gov.pt; a AAMLF e o Museu do Lyceu não têm telefone. Os blocos dos parceiros ficam completos e só faltam valores e fornecedores. · responsável
+- 2026-11-21 · ALTERADO · **Redução de escopo** (decisão do responsável). Saem a Estação 5, Numismática; o jogo de construção da villa; e a Estação 7, Caça ao tesouro. Na candidatura PAME e no anexo:
+  - passam a ser **cinco estações**: escavação, mosaicos, estratigrafia, montagem da villa e jogo digital de mosaicos;
+  - complementos: caderno, quiz, passaporte e quebra-cabeças;
+  - plano e cronograma revistos, com o jogo digital em Junho e Julho;
+  - critérios B e F actualizados; a equipa de Milreu deixa de definir a caça ao tesouro;
+  - despesas 4, 5, 7, 9, 10, 12 e 16 sem moedas, sem cartas da caça e sem o jogo da villa.
+  Nos 18 pedidos de orçamento privados saíram as linhas E5 e E7 e as menções às moedas, com uma nota no índice. Os guias e o CE001 estão a ser revistos por um agente. · responsável + esta sessão

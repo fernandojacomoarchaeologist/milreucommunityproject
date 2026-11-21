@@ -15,6 +15,8 @@ Regras comuns a todas as actividades, decididas pelo investigador:
 - as réplicas, cenários e regras de jogo dizem sempre que não são achados originais nem reconstruções comprovadas;
 - os voluntários não se apresentam como especialistas em acessibilidade.
 
+As fichas conservam a numeração das actividades. Não há fichas 5 e 7: o Laboratório de Numismática e a caça ao tesouro nas ruínas saíram do escopo actual por decisão do investigador de 21 de novembro de 2026, tal como o jogo de construção da villa da oficina digital, porque as actividades previstas eram demasiadas para uma só pessoa preparar e conduzir.
+
 As durações são estimativas, não medições. Em 21 de novembro de 2026 nenhuma actividade foi testada com público. As ilustrações das estações (Anexo B) são conceptuais e não estão à escala.
 
 <!-- quebra -->
@@ -140,7 +142,7 @@ Funcional: a transparência do acrílico não dá acesso táctil; os limites das
 | Espaço | Superfície ampla com circulação à volta; versão por sectores para alcance limitado |
 | Materiais | Ver capítulo 9 e Anexo D (D.4) |
 | Ilustração | Figura B.5 (Anexo B) |
-| Ligações | Jogo de construção da villa; caderno; quebra-cabeças (planta); passaporte |
+| Ligações | Caderno; quebra-cabeças (planta); passaporte |
 | Estado | Concebida |
 
 Os participantes abrem uma caixa de descobertas, reconhecem estruturas (casa rural, lagar, parte residencial com peristilo, edifício de culto, termas, parte agrícola), montam-nas por encaixe simples e colocam-nas na planta. A planta-base é um redesenho próprio da planta documentada de Milreu, com citação; a ilustração do Anexo B é genérica e não é a planta arqueológica.
@@ -159,65 +161,32 @@ Idade: poucas estruturas e imagens de apoio para 6–8 anos; peças decorativas 
 
 <!-- quebra -->
 
-## 7.6 Ficha 5 – Laboratório de Numismática
+## 7.6 Ficha 6 – Oficina digital (jogo de mosaicos)
 
 | Campo | Descrição |
 |---|---|
-| Objectivo | Identificar e ordenar moedas romanas e distinguir a data de cunhagem, a circulação e o lugar do achado |
-| Por idade | 6–8: agrupar por imagem; 9–10: ordenar; 11–14: símbolos e valores convencionais; 15–17: circulação; 18+: cunhagem, uso e deposição |
-| Níveis | Descoberta, investigação, interpretação |
-| Modalidades | Turma: 5 a 6 grupos de 5 |
-| Lotação activa | 25 a 30 em grupos (estimativa) |
-| Mediadores | 1 a 2 (estimativa) |
-| Duração | 15–30 min; no cenário sem apoio tem duração própria |
-| Espaço | Mesa; interior ou exterior abrigado |
-| Materiais | Ver capítulo 9 e Anexo D (D.5) |
-| Ilustração | Nenhuma |
-| Ligações | Estação 1 (moedas como achados); jogo de construção; passaporte |
-| Estado | Concebida; falta a identificação científica das moedas a reproduzir |
-
-Cada grupo tira um saco com cerca de 20 réplicas (100 a 120 no total) e identifica e posiciona as moedas com pistas progressivas. Segue-se um jogo de compras por época, como jogo de tabuleiro. Os preços do jogo são regras do jogo, não preços romanos, e o mediador di-lo no início. No fim, as moedas voltam aos sacos ao acaso.
-
-### Embasamento teórico
-
-O corpus não tem obra numismática. Há dados pontuais de Milreu: moedas de Severo Alexandre e de Quintilo (Hauschild e Teichner 2002, p. 8) e a moeda do início do século IV na argamassa de reparação de um mosaico (p. 43). Ossonoba cunhou moeda (Bernardes 2011, p. 12). Brito et al. (2026, pp. 1852–1853) referem jogos de procura e identificação de moedas romanas com crianças, sem os descrever. As mesmas autoras mostram uma criança que desenhou uma moeda romana como uma moeda digital (pp. 1853–1855): as crianças traduzem a moeda para o seu mundo, e um jogo de compras pode reforçar esse anacronismo se as regras não forem ditas como convencionais.
-
-### Estratégia de aplicação
-
-Descoberta do saco, identificação com pistas, posicionamento, compras com regras declaradas e devolução aleatória. Conta-se as moedas antes e depois.
-
-### Limitações
-
-Idade: moedas pequenas são risco de ingestão. Funcional: as inscrições são pequenas; algumas moedas são ampliadas e com relevo mais marcado, com aviso de que não estão à escala; o mediador lê as cartas a quem precise; os símbolos inventados distinguem-se das marcas históricas. Física: mesa e manipulação fina; o material é leve.
-
-<!-- quebra -->
-
-## 7.7 Ficha 6 – Oficina digital
-
-| Campo | Descrição |
-|---|---|
-| Objectivo | Aplicar no ecrã as regras dos mosaicos e a sequência produtiva da villa |
+| Objectivo | Aplicar no ecrã as regras de composição dos mosaicos e distinguir o motivo documentado da parte completada |
 | Por idade | Níveis por grupo, com escolha livre; modo sem tempo para 6–10 anos |
 | Níveis | Descoberta, investigação, interpretação |
 | Modalidades | Posto em interior; uma pessoa por dispositivo |
 | Lotação activa | Com 2 tablets, uma turma só por rotação longa |
 | Mediadores | 1 (estimativa) |
-| Duração | 5–10 min por jogo |
+| Duração | 5–10 min por partida |
 | Espaço | Interior, com electricidade; conteúdo pré-carregado para não depender de rede |
 | Materiais | Ver capítulo 9 e Anexo D (D.6) |
 | Ilustração | Nenhuma |
-| Ligações | Estações 2 e 4; quiz (partilha os dispositivos); passaporte |
+| Ligações | Estação 2; caderno (páginas de mosaicos); quiz (partilha os dispositivos); passaporte |
 | Estado | Concebida; nenhum código produzido |
 
-Dois jogos: completar um mosaico de Milreu com tesselas que surgem ao acaso, com três níveis, modo descoberta sem tempo e modo desafio; e um jogo curto de construção (azeitonas, lagar, peristilo, moedas, trabalhadores). Pedem-se 2 tablets, no mínimo. No cenário sem apoio, os jogos só correm onde o local tiver computador.
+Um jogo: completar um mosaico com tesselas que surgem ao acaso, observando cada peça numa zona de análise antes de a colocar, com três níveis, modo descoberta sem tempo e modo desafio. Os motivos partem do repertório de Milreu e dizem se são documentados, completados ou inspirados. O jogo de construção da villa previsto nas fontes saiu do escopo em 21 de novembro de 2026. Pedem-se 2 tablets, no mínimo, partilhados com o quiz. No cenário sem apoio, o jogo só corre onde o local tiver computador.
 
 ### Embasamento teórico
 
-O conteúdo é o das fichas 2 e 4. Para o procedimento e a avaliação há revisões gerais de jogos sérios (Mortara et al. 2014; Malegiannaki e Daradoumis 2017; Ćosović e Brkić 2020; Boyle et al. 2016; Bellotti et al. 2013), todas de grau B. Nenhuma valida o tempo, os pontos ou os três níveis. A representação de pessoas escravizadas ou de trabalhadores pagos no jogo de construção é uma decisão pedagógica em aberto; se o jogo usar uma substituição lúdica, diz-se que é um anacronismo.
+O conteúdo é o da ficha 2 (Hauschild e Teichner 2002, pp. 20–22, 43–44). Para o procedimento e a avaliação há revisões gerais de jogos sérios (Mortara et al. 2014; Malegiannaki e Daradoumis 2017; Ćosović e Brkić 2020; Boyle et al. 2016; Bellotti et al. 2013), todas de grau B. Nenhuma valida o tempo, os pontos ou os três níveis.
 
 ### Estratégia de aplicação
 
-Modo descoberta para os mais novos; modo desafio opcional. O posto pode funcionar como alternativa em dia de chuva.
+Modo descoberta para os mais novos; modo desafio opcional. No fim de cada partida, o mediador pergunta que regra ajudou a colocar as peças. O posto pode funcionar como alternativa em dia de chuva.
 
 ### Limitações
 
@@ -225,40 +194,7 @@ Funcional: instruções sem depender de áudio; a acessibilidade digital não se
 
 <!-- quebra -->
 
-## 7.8 Ficha 7 – Caça ao tesouro nas ruínas
-
-| Campo | Descrição |
-|---|---|
-| Objectivo | Observar elementos reais das ruínas de Milreu e relacioná-los com o que se aprendeu nas estações |
-| Por idade | Todas, com graus de dificuldade; 6–8 acompanhados |
-| Níveis | Descoberta, investigação, interpretação |
-| Modalidades | Só nas Ruínas Romanas de Milreu, em zonas visitáveis |
-| Lotação activa | Depende da circulação no sítio e da rapidez do ponto de validação |
-| Mediadores | 1 no ponto de validação e acompanhamento no percurso (estimativa) |
-| Duração | 20–45 min |
-| Espaço | Percurso efectivamente acessível; calor, chuva e piso escorregadio |
-| Materiais | Ver capítulo 9 e Anexo D (D.7) |
-| Ilustração | Nenhuma |
-| Ligações | Quebra-cabeças (as imagens servem de cartas de desafio); passaporte (as ruínas são estação e local de carimbo) |
-| Estado | Concebida; entra nos dois cenários; depende de autorização |
-
-Cada participante recebe uma carta de desafio, encontra o elemento nas ruínas, fotografa-o e valida-o num ponto de validação, onde recebe uma carta coleccionável (10 a 15 cartas diferentes). Quem não fotografa valida por descrição ou por escolha de imagem.
-
-### Embasamento teórico
-
-Conteúdo: os elementos do sítio descritos no roteiro (Hauschild e Teichner 2002). Procedimento: Malegiannaki e Daradoumis (2017, grau B) reviram jogos ligados a lugares culturais; Hamari et al. (2014) só existência verificada. A arqueologia pública (Tully 2007; Matsuda 2004; Ripanti 2022; Moshenska 2017) trata a relação com o património, não esta dinâmica. A dinâmica de fotografia e cartas não tem fundamentação verificada.
-
-### Estratégia de aplicação
-
-Só em zonas visitáveis e com as regras de fotografia do sítio. Wielewski (2022), que estudou um percurso de visita acessível para Milreu, é a fonte local a ler antes de escolher os pontos. As cartas não premeiam a rapidez nem penalizam quem fica para trás.
-
-### Limitações
-
-Física: desníveis e pavimentos irregulares; não se promete acesso autónomo a todas as ruínas. Funcional: pistas orais e escritas. Institucional: precisa de autorização da entidade que gere as ruínas para o percurso, a fotografia e o ponto de validação. Se não houver autorização em Outubro de 2027, a caça ao tesouro não se apresenta como realizável no sítio.
-
-<!-- quebra -->
-
-## 7.9 Ficha 8 – Caderno de actividades
+## 7.7 Ficha 8 – Caderno de actividades
 
 | Campo | Descrição |
 |---|---|
@@ -291,7 +227,7 @@ Idade: grandes diferenças de leitura entre os 6 e os 10 anos. Funcional: pictog
 
 <!-- quebra -->
 
-## 7.10 Ficha 9 – Quiz
+## 7.8 Ficha 9 – Quiz
 
 | Campo | Descrição |
 |---|---|
@@ -324,7 +260,7 @@ Funcional: o áudio nunca é o único meio; leitores de ecrã por verificar. Fí
 
 <!-- quebra -->
 
-## 7.11 Ficha A – Mediação cultural e livro com as crianças
+## 7.9 Ficha A – Mediação cultural e livro com as crianças
 
 | Campo | Descrição |
 |---|---|
@@ -363,7 +299,7 @@ Idade: aos 6 e 7 anos as crianças desenham mais do que escrevem. Funcional: ace
 
 <!-- quebra -->
 
-## 7.12 Ficha B – Passaporte cultural
+## 7.10 Ficha B – Passaporte cultural
 
 | Campo | Descrição |
 |---|---|
@@ -400,11 +336,11 @@ Idade: as crianças pequenas precisam de um adulto para visitar dez lugares, e o
 
 <!-- quebra -->
 
-## 7.13 Ficha C – Quebra-cabeças
+## 7.11 Ficha C – Quebra-cabeças
 
 | Campo | Descrição |
 |---|---|
-| Objectivo | Rever imagens de mosaicos, estratigrafia, construções e da planta de Milreu e usá-las como pistas |
+| Objectivo | Rever imagens de mosaicos, estratigrafia, construções e da planta de Milreu e usá-las na mediação |
 | Por idade | 6–12 anos |
 | Níveis | — |
 | Modalidades | Turma: dez quebra-cabeças em paralelo e o A0 como actividade colectiva; evento: posto de entrada livre |
@@ -414,10 +350,10 @@ Idade: as crianças pequenas precisam de um adulto para visitar dez lugares, e o
 | Espaço | Mesa; o A0 precisa de cerca de 1 m² livre e circulação |
 | Materiais | Ver capítulo 9 e Anexo D (D.12) |
 | Ilustração | Nenhuma |
-| Ligações | Caça ao tesouro; estações 2, 3 e 4 (temas); passaporte |
+| Ligações | Estações 2, 3 e 4 (temas); passaporte |
 | Estado | Concebida; opcional; só no cenário com apoio |
 
-Dez quebra-cabeças diferentes de 30 peças. Depois de montados, as imagens servem para a caça ao tesouro e para mediações. Em alternativa, um quebra-cabeças grande em A0, com peças quadradas de 10 a 15 cm de lado (cerca de 40 a 96 peças, medida a fechar com o fornecedor), montado em grupo, com um gabarito para apoiar crianças com dificuldades.
+Dez quebra-cabeças diferentes de 30 peças. Depois de montados, as imagens servem para a mediação; deixaram de servir de pistas a uma caça ao tesouro, que saiu do escopo em 21 de novembro de 2026. Em alternativa, um quebra-cabeças grande em A0, com peças quadradas de 10 a 15 cm de lado (cerca de 40 a 96 peças, medida a fechar com o fornecedor), montado em grupo, com um gabarito para apoiar crianças com dificuldades.
 
 ### Embasamento teórico
 
@@ -425,7 +361,7 @@ Lopes e Baço (2026, pp. 1945–1947, grau A) usaram quebra-cabeças de 20, 40 e
 
 ### Estratégia de aplicação
 
-Montagem em pequeno grupo, pista para a caça ao tesouro, mediação sobre o que a imagem mostra. As imagens são fotografias próprias autorizadas ou desenhos novos; não se reproduzem figuras de livros sem autorização. As reconstruções marcam-se como interpretação.
+Montagem em pequeno grupo e mediação sobre o que a imagem mostra e de onde vem a informação. As imagens são fotografias próprias autorizadas ou desenhos novos; não se reproduzem figuras de livros sem autorização. As reconstruções marcam-se como interpretação.
 
 ### Limitações
 
@@ -433,7 +369,7 @@ Idade: 30 peças pode ser fácil aos 10–12 e difícil aos 6. Funcional: sem co
 
 <!-- quebra -->
 
-## 7.14 Ficha D – Adolescentes
+## 7.12 Ficha D – Adolescentes
 
 | Campo | Descrição |
 |---|---|
@@ -470,7 +406,7 @@ Funcional: a roda de conversa exige ouvir e falar; há texto de apoio e interven
 
 <!-- quebra -->
 
-## 7.15 Ficha E – Acessibilidade
+## 7.13 Ficha E – Acessibilidade
 
 | Campo | Descrição |
 |---|---|

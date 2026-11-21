@@ -19,7 +19,7 @@ O ciclo de 2026 teve o apoio da CCDR Algarve, I.P., no Programa de Apoio a Inici
 
 ## 2.3 O Circuito Educativo
 
-O Circuito leva a quem participa alguns procedimentos da arqueologia e alguns conteúdos sobre Milreu, por meio de objectos que se tocam e montam. Tem nove actividades:
+O Circuito leva a quem participa alguns procedimentos da arqueologia e alguns conteúdos sobre Milreu, por meio de objectos que se tocam e montam. Tem sete actividades, que conservam a numeração dos documentos de concepção:
 
 | N.º | Actividade | O que se faz |
 |---|---|---|
@@ -27,13 +27,11 @@ O Circuito leva a quem participa alguns procedimentos da arqueologia e alguns co
 | 2 | Oficina de mosaicos | Completar, reproduzir ou criar uma composição com tesselas |
 | 3 | Oficina de estratigrafia | Montar um perfil de camadas e discutir a ordem e a datação |
 | 4 | Montagem da villa | Montar estruturas da villa sobre uma planta |
-| 5 | Laboratório de Numismática | Identificar réplicas de moedas e jogar um jogo de compras com regras convencionais |
-| 6 | Oficina digital | Um jogo de mosaicos e um jogo curto de construção da villa |
-| 7 | Caça ao tesouro | Encontrar elementos nas ruínas a partir de cartas de desafio |
+| 6 | Oficina digital | Um jogo de mosaicos em tablet ou computador |
 | 8 | Caderno de actividades | Brochura de exercícios para crianças dos 6 aos 10 anos |
 | 9 | Quiz | Perguntas sobre Milreu em vários níveis |
 
-A estas juntam-se cinco componentes acrescentadas em 21 de novembro de 2026: A, mediação cultural e livro com desenhos de crianças; B, passaporte cultural; C, quebra-cabeças; D, componente para adolescentes; E, acessibilidade. O capítulo 7 descreve cada uma.
+Os números 5 e 7 ficaram sem actividade porque, em 21 de novembro de 2026, o investigador reduziu o escopo do Circuito: eram actividades demais para uma só pessoa preparar e conduzir. Saíram do escopo actual o Laboratório de Numismática (5), a caça ao tesouro nas ruínas (7) e o jogo de construção da villa da oficina digital. A estas actividades juntam-se cinco componentes acrescentadas em 21 de novembro de 2026: A, mediação cultural e livro com desenhos de crianças; B, passaporte cultural; C, quebra-cabeças; D, componente para adolescentes; E, acessibilidade. O capítulo 7 descreve cada uma.
 
 ## 2.4 Para quem
 
@@ -45,4 +43,4 @@ Os adolescentes têm uma componente própria (D), porque as fontes consultadas e
 
 O Circuito usa dois formatos. Na entrega pontual, uma actividade já testada vai a uma escola, a um evento, a uma instituição parceira ou, com autorização, às ruínas. Na entrega integrada, várias actividades juntam-se num percurso, com rotação de participantes. A primeira entrega integrada está prevista para Outubro de 2027, se as actividades estiverem testadas e houver mediadores e local (capítulo 8).
 
-As estações físicas são transportáveis. Nenhum volume transportado pode passar de 20 a 30 kg, e a estrutura de escavação dobra-se para guardar. A caça ao tesouro depende das ruínas e não é itinerante.
+As estações físicas são transportáveis. Nenhum volume transportado pode passar de 20 a 30 kg, e a estrutura de escavação dobra-se para guardar.

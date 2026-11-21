@@ -4,7 +4,7 @@
 
 ## 4.1 Posição geral
 
-O Circuito Educativo de Milreu dispõe de bibliografia arqueológica e de arqueologia pública relevante para o conteúdo histórico das actividades e para a orientação participativa do projecto. Nem todas as dinâmicas educativas propostas têm, porém, correspondência metodológica directa na bibliografia existente. Ficam lacunas na escavação simulada, no ensino da estratigrafia, no Laboratório de Numismática, no público infantil, na acessibilidade e no desenho e avaliação de jogos sérios. Estas componentes são apresentadas como intervenções pedagógicas propostas, sujeitas a documentação complementar e a testes-piloto. A existência de uma publicação não se confunde com a demonstração da eficácia da actividade que a cita.
+O Circuito Educativo de Milreu dispõe de bibliografia arqueológica e de arqueologia pública relevante para o conteúdo histórico das actividades e para a orientação participativa do projecto. Nem todas as dinâmicas educativas propostas têm, porém, correspondência metodológica directa na bibliografia existente. Ficam lacunas na escavação simulada, no ensino da estratigrafia, no público infantil, na acessibilidade e no desenho e avaliação de jogos sérios. Estas componentes são apresentadas como intervenções pedagógicas propostas, sujeitas a documentação complementar e a testes-piloto. A existência de uma publicação não se confunde com a demonstração da eficácia da actividade que a cita.
 
 Esta posição segue o parecer crítico sobre a bibliografia do Circuito, de 18 de novembro de 2026, que o investigador adoptou. Para cada actividade separam-se três fundamentos: o conteúdo (o que se ensina sobre Milreu e sobre arqueologia), o procedimento didáctico (como se faz com o público) e a avaliação (como se sabe se funcionou). Uma obra pode sustentar um destes fundamentos e não os outros. Cada referência tem um grau que mede o apoio que dá à afirmação feita, não a qualidade da obra: A, texto integral lido e passagem localizada; B, resumo ou leitura parcial; C, só existência verificada; N, não sustenta o uso pretendido.
 
@@ -17,7 +17,7 @@ O conteúdo das actividades vem das publicações científicas sobre o sítio, f
 - a planta de referência do sítio, com 22 pontos numerados (Hauschild e Teichner 2002, p. 17, fig. 13), que serve de base à montagem da villa, depois de redesenhada, porque a reprodução de figuras do roteiro não está autorizada;
 - os mosaicos mais antigos, do século II, com linhas negras em meandro na área do peristilo (Hauschild e Teichner 2002, p. 43), e os temas marinhos do século IV (Hauschild e Teichner 2002, pp. 21–22, 43–44; Hauschild 2008);
 - a produção de azeite e de vinho, com o lagar de cinco prensas (Hauschild e Teichner 2002, pp. 33–37; Teichner e Peña Cervantes 2010/2011, p. 449);
-- moedas de Severo Alexandre e de Quintilo encontradas no sítio (Hauschild e Teichner 2002, p. 8) e uma moeda do início do século IV na argamassa de reparação de um mosaico, que mostra a diferença entre a data em que uma moeda foi cunhada e a data em que ficou enterrada (Hauschild e Teichner 2002, p. 43);
+- uma moeda do início do século IV na argamassa de reparação de um mosaico, que a oficina de estratigrafia usa para datar a reparação e para mostrar a diferença entre a data em que uma moeda foi cunhada e a data em que ficou enterrada (Hauschild e Teichner 2002, p. 43);
 - os bustos de Agripina Menor, Adriano e Galieno e uma cabeça feminina, hoje em museus de Faro, Lagos e Lisboa (Hauschild e Teichner 2002, pp. 45–47).
 
 As fases de ocupação segundo Teichner só são conhecidas pelo projecto em segunda mão (Wielewski 2022, pp. 34–36); a montagem da villa não as apresenta como certas. Os estudos sobre mosaicos de Wrench (2014), Oliveira (2006) e Duran Kremer (2021) servem para motivos e técnica, mas não tratam Milreu.
@@ -44,11 +44,10 @@ Os pilotos de 2027 vão registar, para cada actividade, a faixa etária e o nív
 Ficam declaradas, sem as preencher com autores não verificados:
 
 1. não há no corpus uma obra técnica sobre estratigrafia nem um estudo sobre o seu ensino com caixas ou puzzles;
-2. não há obra numismática; preços e equivalências do jogo de compras são regras de jogo, não preços romanos;
-3. não há estudo da escavação simulada com crianças que demonstre aprendizagem;
-4. não há fonte sobre desenvolvimento infantil que valide a divisão por idades, que é organizativa;
-5. não há fonte sobre braille, língua gestual ou materiais tácteis em actividades de arqueologia para crianças;
-6. não há avaliação publicada de passaportes culturais com vários locais nem de livros infantis com autoria de crianças;
-7. o problema dos adolescentes está documentado (Lopes e Baço 2026, p. 1947; Vale et al. 2026, p. 1866), mas as soluções da componente D não têm precedente avaliado.
+2. não há estudo da escavação simulada com crianças que demonstre aprendizagem;
+3. não há fonte sobre desenvolvimento infantil que valide a divisão por idades, que é organizativa;
+4. não há fonte sobre braille, língua gestual ou materiais tácteis em actividades de arqueologia para crianças;
+5. não há avaliação publicada de passaportes culturais com vários locais nem de livros infantis com autoria de crianças;
+6. o problema dos adolescentes está documentado (Lopes e Baço 2026, p. 1947; Vale et al. 2026, p. 1866), mas as soluções da componente D não têm precedente avaliado.
 
 A matriz de três fundamentos por actividade e o protocolo de revalidação de cada obra ficam como trabalho em curso da tese, fora deste pedido.

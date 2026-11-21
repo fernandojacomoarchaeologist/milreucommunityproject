@@ -10,14 +10,14 @@ O mesmo pedido do capítulo 10, agrupado por tipo de despesa. Serve para compara
 |---|---|---|---|
 | Madeira e ferragens | Tábuas, corte, dobradiças, fechos, parafusos, cantoneiras, base da villa | 1, 4 | a apurar com orçamento (Anexo A) |
 | Acrílico | Chapa, corte e união (só se for escolhida a caixa transparente) | 3 | a apurar com orçamento (Anexo A) |
-| Filamento e consumíveis 3D | Filamento de bustos, tesselas, estruturas, moedas, peças tácteis e ampliadas; cola; ferramentas de acabamento | 1 a 5, E | a apurar com orçamento (Anexo A) |
+| Filamento e consumíveis 3D | Filamento de bustos, tesselas, estruturas, peças tácteis e ampliadas; cola; ferramentas de acabamento | 1 a 4, E | a apurar com orçamento (Anexo A) |
 | Tintas e acabamentos | Verniz para madeira, tintas acrílicas, primário, verniz protector, pincéis, lixas | 1, 3 | a apurar com orçamento (Anexo A) |
-| Têxteis e sacos | Lona, tecido de algodão, linha, fitas, sacos de achados, bolsas de moedas e de tesselas | 1, 2, 5, oficinas | a apurar com orçamento (Anexo A) |
+| Têxteis e sacos | Lona, tecido de algodão, linha, fitas, sacos de achados, bolsas de tesselas | 1, 2, oficinas | a apurar com orçamento (Anexo A) |
 | Armazenamento e embalagem | Caixas organizadoras de 45 L, contentores do enchimento, divisórias, plástico bolha, cintas | todas | a apurar com orçamento (Anexo A) |
 | Enchimento | Areia de gato vegetal e granulado de cortiça, consumíveis | 1, D | a apurar com orçamento (Anexo A) |
 | Ferramentas arqueológicas | Colherins, pás, espátulas, pincéis, peneiras, baldes, bandejas, trenas, cordel | 1 | a apurar com orçamento (Anexo A) |
 | Equipamento de protecção e higiene | Luvas, máscaras, joelheiras, óculos, protecção auditiva, primeiros socorros, kit de limpeza | 1, D, oficinas | a apurar com orçamento (Anexo A) |
-| Gráfica | Fichas, etiquetas, cartas, caderno, guias com pictogramas, sinalética, formulários | 1 a 8, D, E | a apurar com orçamento (Anexo A) |
+| Gráfica | Fichas, etiquetas, caderno, guias com pictogramas, sinalética, formulários | 1 a 4, 8, D, E | a apurar com orçamento (Anexo A) |
 | Edição | Impressão do livro, provas; ISBN e depósito legal a decidir | A | a apurar com orçamento (Anexo A) |
 | Passaporte e carimbos | 500 livretos, carimbos personalizados, almofadas e tinta | B | a apurar com orçamento (Anexo A) |
 | Quebra-cabeças | 10 quebra-cabeças de 30 peças; A0 e gabarito a decidir | C | a apurar com orçamento (Anexo A) |

@@ -1,8 +1,8 @@
 > © 2026 Fernando Rodrigues de Jácomo. Produzido no âmbito do Projecto Comunitário de Milreu. Consultar `RIGHTS.md`.
 
-# 11. Componente A — Mediação cultural e livro
+# 9. Componente A — Mediação cultural e livro
 
-## 11.1 Descrição da actividade
+## 9.1 Descrição da actividade
 
 Depois das oficinas de mosaicos, as crianças do 1.º e 2.º ciclos participam numa mediação em que dizem o que sentiram e numa mediação sobre a história de Milreu, que pode ser feita com a equipa das ruínas se houver acordo (BRF A; A6, A-01). Em seguida desenham mosaicos e as partes da história que mais lhes chamaram a atenção. Os desenhos dão origem a um livro didáctico sobre Milreu e os seus mosaicos em que as crianças do concelho são autoras dos desenhos; o investigador adapta o texto e as legendas e o livro identifica essa adaptação como dele (LAC F2, 21-11). Publicar também as palavras das crianças é uma opção editorial não decidida.
 
@@ -18,7 +18,7 @@ A componente depende da política de menores (LAC F1, 21-11). Enquanto o texto d
 4. Recolha dos originais, com a autorização correspondente, para a pasta da turma, sem dobrar.
 5. Digitalização, devolução dos originais segundo a regra que vier a ser decidida (A-07) e devolução dos resultados às crianças e às famílias antes da divulgação pública (A5, ficha A).
 
-## 11.2 Descrição do espaço
+## 9.2 Descrição do espaço
 
 | Condição | Solução preferencial | Alternativa | Responsável |
 |---|---|---|---|
@@ -28,7 +28,7 @@ A componente depende da política de menores (LAC F1, 21-11). Enquanto o texto d
 | Energia | Não precisa | — | — |
 | Arrumação | Superfície plana para as pastas dos originais | — | coordenação |
 
-## 11.3 Descrição dos materiais
+## 9.3 Descrição dos materiais
 
 | Material | Quantidade | Especificação | Natureza |
 |---|---|---|---|
@@ -40,11 +40,11 @@ A componente depende da política de menores (LAC F1, 21-11). Enquanto o texto d
 | Livro | 500 exemplares | 50 páginas; formato, papel e encadernação a fixar com a gráfica | CON (distribuído) |
 | Versão digital do livro | 1 | PDF acessível, alojado no sítio do projecto | SRV |
 
-## 11.4 Descrição dos EPI
+## 9.4 Descrição dos EPI
 
 A actividade não exige EPI.
 
-## 11.5 Limite de pessoas
+## 9.5 Limite de pessoas
 
 | Configuração | Participantes | Mediadores | Derivação |
 |---|---|---|---|
@@ -53,7 +53,7 @@ A actividade não exige EPI.
 
 O número de escolas e de sessões fica por definir com o Museu (R1, S-03); a leitura «todo o concelho» do brief não tem calendário associado no cronograma (A5 §5).
 
-## 11.6 Riscos mapeados
+## 9.6 Riscos mapeados
 
 | ID | Risco | Prob. | Grav. | Prevenção | Resposta |
 |---|---|---|---|---|---|
@@ -66,7 +66,7 @@ O número de escolas e de sessões fica por definir com o Museu (R1, S-03); a le
 | A-R07 | Exclusão de crianças com deficiência visual ou motora fina | Média | Moderada | Aceitar expressão oral, colagem ou modelação (A5, ficha A) | Adaptar a forma de participação |
 | A-R08 | Marcadores ou ceras inadequados para crianças | Baixa | Ligeira | Material com indicação EN 71-3 | Substituir |
 
-## 11.7 Composição material
+## 9.7 Composição material
 
 | Código | Componente | Nat. | Qtd. | Unid. | Tipo de fornecedor | Situação |
 |---|---|---|---|---|---|---|

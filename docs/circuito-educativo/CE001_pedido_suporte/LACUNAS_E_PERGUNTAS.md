@@ -220,3 +220,8 @@ Análises: `analise/A4_BIBLIOGRAFIA_INFANCIA_PATRIMONIO_E_JOGOS.md`, `analise/A5
 - 2026-11-21 · (parceiros) · **Estoi é de novo freguesia autónoma** desde a Lei n.º 25-A/2025, de 13 de março, que desagregou a União das Freguesias de Conceição e Estoi. O parceiro é a Junta de Freguesia de Estoi (Largo Ossónoba, 8005-454 Estoi). O NIF da freguesia reposta ainda não foi encontrado em fonte pública. · verificação web
 - 2026-11-21 · F2/F3 · **O livro com os desenhos das crianças passa para Dezembro de 2027**, e não para o 1.º trimestre de 2028. São 50 pp. e 500 exemplares, em papel e em versão digital. A impressão entra no pedido do PAME (Despesa 17). · responsável
 - 2026-11-21 · (financiamento) · **«Outros financiamentos públicos: Não» confirmado.** O apoio CCDR 2026 foi fundamental para arrancar o projecto (2026–2028); sem financiamento, o projecto avança mais devagar. O anexo técnico explica a relação com a CCDR 2026. **O protocolo de uso e autoria com o Município** vai passar por revisão. · responsável
+- 2026-11-21 · DECISÃO · **Redução de escopo**, porque há actividades demais para uma só pessoa. Saem do Circuito:
+  - a **Estação 5, Laboratório de Numismática**;
+  - o **jogo de construção da villa** da Estação 6, que fica só com o jogo digital de mosaicos;
+  - a **Estação 7, Caça ao tesouro nas ruínas**.
+  Ficam as estações de escavação simulada, mosaicos, estratigrafia, montagem da villa e oficina digital (jogo de mosaicos), mais o caderno, o quiz, o passaporte, os quebra-cabeças, a componente para adolescentes e o livro. As imagens dos quebra-cabeças deixam de servir de pistas a uma caça ao tesouro. Os materiais, as despesas, os pedidos de orçamento, os guias e a candidatura têm de ser revistos em conformidade. · responsável

@@ -30,6 +30,8 @@ TECNICO = os.path.join(GUIAS, "tecnico")
 FIGURAS = os.path.join(TECNICO, "figuras")
 PRIVADO = os.path.join(GUIAS, "_private")
 
+# As estações 5 (numismática) e 7 (caça ao tesouro) ficaram fora do escopo actual (decisão de 21-11-2026);
+# os capítulos estão arquivados em ../fora_de_escopo/tecnico/ e não entram no guia.
 ORDEM = [
     "00_ficha_tecnica.md",
     "00b_contexto.md",
@@ -38,9 +40,7 @@ ORDEM = [
     "03_estacao_2_mosaicos.md",
     "04_estacao_3_estratigrafia.md",
     "05_estacao_4_villa.md",
-    "06_estacao_5_numismatica.md",
     "07_estacao_6_digital.md",
-    "08_estacao_7_caca_tesouro.md",
     "09_estacao_8_caderno.md",
     "10_estacao_9_quiz.md",
     "11_componente_A_mediacao_livro.md",
@@ -407,7 +407,7 @@ P = {"Baixa": 1, "Média": 2, "Alta": 3}
 G = {"Ligeira": 1, "Moderada": 2, "Grave": 3}
 ACTIVIDADE = {
     "E1": "1 Escavação", "E2": "2 Mosaicos", "E3": "3 Estratigrafia", "E4": "4 Villa",
-    "E5": "5 Numismática", "E6": "6 Digital", "E7": "7 Caça ao tesouro", "E8": "8 Caderno",
+    "E6": "6 Digital", "E8": "8 Caderno",
     "E9": "9 Quiz", "A": "A Mediação e livro", "B": "B Passaporte", "C": "C Quebra-cabeças",
     "D": "D Adolescentes",
 }
@@ -442,7 +442,7 @@ def gerar_anexo_iii():
     riscos = recolher_riscos()
     linhas = [COPYRIGHT_MD, "", "# Anexo III — Matriz de riscos", ""]
     linhas.append(
-        "A matriz junta os %d riscos mapeados nos capítulos 2 a 14. Cada risco tem a probabilidade e a gravidade "
+        "A matriz junta os %d riscos mapeados nos capítulos 2 a 12. Cada risco tem a probabilidade e a gravidade "
         "atribuídas no seu capítulo, segundo a escala da secção 1.4. O nível resulta do produto das duas escalas "
         "(1 a 3 cada): Baixo até 2, Médio de 3 a 4, Alto de 6 a 9. As remissões para riscos de outra actividade "
         "(por exemplo, os riscos dos dispositivos no quiz) não se contam duas vezes. A matriz é uma apreciação "

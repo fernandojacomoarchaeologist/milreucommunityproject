@@ -110,23 +110,22 @@ def legenda(s, x, y, items):
 def circuito_integrado():
     s = Svg(900)
     s.text(W / 2, 60, "Circuito integrado: ordem pedagógica sugerida (nenhuma estação depende de outra)", 32, INK, weight="bold")
-    xs = [60, 370, 680, 990, 1300]
+    xs = [100, 480, 860, 1240]
     nomes = [("1 Escavação", ["simulada"]), ("2 Mosaicos", ["ou 3 Estratigrafia"]), ("3 Estratigrafia", ["ou 2 Mosaicos"]),
-             ("4 Montagem", ["da villa"]), ("5 Laboratório", ["de Numismática"])]
+             ("4 Montagem", ["da villa"])]
     for x, (t, b) in zip(xs, nomes):
-        s.box(x, 140, 240, 170, t, b, fill=FILL)
-    for i in range(4):
-        s.arrow(xs[i] + 240, 225, xs[i + 1] - 8, 225)
+        s.box(x, 140, 260, 170, t, b, fill=FILL)
+    for i in range(3):
+        s.arrow(xs[i] + 260, 225, xs[i + 1] - 8, 225)
     s.text(W / 2, 390, "Complementos, em qualquer momento da visita", 30, RED, weight="bold")
-    comp = [("6 Oficina digital", ["jogo de mosaicos", "jogo da villa"]), ("7 Caça ao tesouro", ["só nas ruínas"]),
-            ("8 Caderno", ["6–10 anos"]), ("9 Quiz", ["três níveis"])]
-    xs2 = [100, 470, 840, 1210]
+    comp = [("6 Oficina digital", ["jogo de mosaicos"]), ("8 Caderno", ["6–10 anos"]), ("9 Quiz", ["três níveis"])]
+    xs2 = [210, 655, 1100]
     for x, (t, b) in zip(xs2, comp):
         s.box(x, 430, 290, 180, t, b, fill=FILL2)
     s.rect(100, 660, 1400, 150, fill=PAPER, stroke=RED, dash="14 10")
     s.lines(W / 2, 715, ["Transversais: passaporte (um carimbo por estação), texto e pictogramas em todos os postos,",
-                         "mediação e desenhos para o livro, quebra-cabeças em dia de chuva ou como pista da caça ao tesouro"], 26)
-    s.rodape("Esquema de organização elaborado para este guia, a partir das fontes do Circuito. Não está à escala.")
+                         "mediação e desenhos para o livro, quebra-cabeças em dia de chuva ou como apoio à mediação"], 26)
+    s.rodape("Esquema de organização elaborado para este guia. As estações 5 e 7 estão fora do escopo actual (21-11-2026).")
     s.guardar("ESQ-00_circuito_integrado")
 
 
@@ -178,7 +177,7 @@ def digital():
     s = Svg(820)
     s.text(W / 2, 56, "Oficina digital e quiz: dois postos partilhados", 32, INK, weight="bold")
     s.rect(120, 110, 820, 330, fill=FILL2)
-    for i, (t, b) in enumerate([("Tablet 1", ["jogo de mosaicos", "ou quiz"]), ("Tablet 2", ["jogo da villa", "ou quiz"])]):
+    for i, (t, b) in enumerate([("Tablet 1", ["jogo de mosaicos", "ou quiz"]), ("Tablet 2", ["jogo de mosaicos", "ou quiz"])]):
         s.box(170 + i * 390, 150, 330, 200, t, b, fill=PAPER)
         s.pessoa(335 + i * 390, 395)
     s.mediador(530, 470)
@@ -278,11 +277,11 @@ def passaporte():
     s.text(W / 2, 56, "Passaporte do Circuito: organização das páginas", 32, INK, weight="bold")
     s.rect(100, 110, 660, 600, fill=FILL2)
     s.text(430, 160, "Estações do Circuito", 30, INK, weight="bold")
-    for i in range(9):
+    for i, n in enumerate([1, 2, 3, 4, 6, 8, 9]):
         x = 150 + (i % 3) * 200
         y = 200 + (i // 3) * 160
         s.rect(x, y, 160, 130, fill=PAPER, stroke=GREY, dash="8 6")
-        s.text(x + 80, y + 75, f"carimbo {i + 1}", 24, GREY)
+        s.text(x + 80, y + 75, f"estação {n}", 24, GREY)
     s.rect(840, 110, 660, 600, fill=FILL)
     s.text(1170, 160, "Lugares parceiros (a acordar)", 30, INK, weight="bold")
     for i in range(10):
@@ -319,7 +318,7 @@ def puzzles():
         s.pessoa(990 + k * 110, 740)
     s.text(1160, 800, "circulação à volta do A0", 24, GREY)
     s.text(470, 680, "1 a 3 crianças por quebra-cabeças", 26)
-    s.text(470, 720, "imagens montadas tornam-se pistas", 26)
+    s.text(470, 720, "imagens montadas servem a mediação", 26)
     s.rodape()
     s.guardar("ESQ-C_puzzles_espaco")
 
@@ -349,6 +348,7 @@ def adolescentes():
 if __name__ == "__main__":
     os.makedirs(SVG_DIR, exist_ok=True)
     os.makedirs(PNG_DIR, exist_ok=True)
-    for f in (circuito_integrado, escavacao_turma, numismatica, digital, caca, caderno, quiz, livro,
+    # numismatica() e caca() ficaram fora do escopo actual (decisão de 21-11-2026) e já não se geram.
+    for f in (circuito_integrado, escavacao_turma, digital, caderno, quiz, livro,
               passaporte, puzzles, adolescentes):
         f()

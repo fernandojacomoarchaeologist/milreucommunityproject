@@ -17,7 +17,7 @@ Neste guia, «obrigatório» quer dizer que a tarefa não se faz sem aquele equi
 | Luvas de nitrilo | — | Voluntários | Pintura e envernizamento de peças | Recomendado | Adulto | OV-21 |
 | Luvas de nitrilo sem pó | — | Adolescentes | Manuseio de material arqueológico real | Obrigatório neste guia, salvo regra diferente da entidade detentora | Juvenil, adulto | AD-12 |
 | Chapéu ou boné | — | Voluntários | Actividades no exterior | Recomendado | Adulto | OV-20 |
-| Chapéu, protecção solar, calçado fechado | — | Participantes | Exterior, caça ao tesouro, visita a escavação | Recomendado; obrigatório se o sítio exigir | Próprios | — |
+| Chapéu, protecção solar, calçado fechado | — | Participantes | Exterior, visita a escavação | Recomendado; obrigatório se o sítio exigir | Próprios | — |
 | EPI do sítio ou do laboratório visitado | O que o sítio ou centro indicar | Adolescentes e acompanhantes | Visitas da componente D | Obrigatório segundo o sítio | — | — |
 
 As luvas de trabalho para madeira não se presumem seguras junto de lâminas em movimento; com serras usam-se as protecções da própria ferramenta, a fixação da peça e os óculos, segundo as instruções do fabricante (GUI §18.7). O equipamento de montagem reutilizável em bom estado pode ser cedido ao museu depois das oficinas, com inventário e termo de entrega, se o destino dos bens o previr (GUI §18.7; secção 1.12).

@@ -2,6 +2,8 @@
 
 # Estação 7. Caça ao tesouro nas ruínas
 
+> Fora do escopo actual do Circuito, por decisão do responsável de 21-11-2026 (redução de escopo registada em `CE001_pedido_suporte/LACUNAS_E_PERGUNTAS.md`). O capítulo fica arquivado e não entra nos guias.
+
 ## 1. A actividade
 
 A caça ao tesouro transforma a visita às Ruínas Romanas de Milreu numa observação activa do sítio. Cada participante recebe uma carta de desafio com a identificação ou uma pista de um elemento das ruínas, por exemplo um pormenor de mosaico ou de coluna, percorre as zonas visitáveis para o encontrar, fotografa-o e apresenta a fotografia num ponto de validação. Confirmada a correspondência, recebe uma carta coleccionável sobre aquele elemento, com informação patrimonial que pode levar consigo. A recompensa reforça a memória da visita, mas não substitui a aprendizagem: o centro da actividade é olhar com atenção para um vestígio real e saber o que ele é.

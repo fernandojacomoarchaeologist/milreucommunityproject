@@ -10,7 +10,7 @@ Situação: Pedido, entra no pedido ao Município; Absorvido, suportado pelo inv
 
 O filamento das peças impressas em 3D entra no pedido; a impressão e o trabalho de produção são suportados pelo investigador, e a impressora fica fora. Ao filamento desconta-se o lote já adquirido em 2026 no âmbito do apoio da CCDR Algarve.
 
-Contagem: 224 linhas, das quais 117 no pedido, 19 suportadas pelo investigador, 4 do anfitrião, 3 fora, 77 a decidir e 4 remissões.
+Contagem: 207 linhas, das quais 107 no pedido, 18 suportadas pelo investigador, 3 do anfitrião, 3 fora, 73 a decidir e 3 remissões. Não se contam as 17 linhas que saíram com a redução de escopo de 21 de novembro de 2026: as das estações 5 e 7 (secções D.5 e D.7) e a das cartas da caça ao tesouro da componente C (C-06).
 
 ### D.1 Estação 1 – Escavação simulada
 
@@ -115,19 +115,10 @@ Contagem: 224 linhas, das quais 117 no pedido, 19 suportadas pelo investigador, 
 | E4-06 | Inventários de peças | – | 5–6 | un | REU | gráfica | Pedido |
 | E4-07 | Amostra táctil de estruturas (piloto) | – | ver AC-06 | – | CON | fornecedor de filamento | Pedido |
 
-### D.5 Estação 5 – Laboratório de Numismática
+### D.5 Estação 5 – Laboratório de Numismática (fora do escopo)
 
-| N.º | Item | Especificação | Quantidade | Unidade | Natureza | Tipo de fornecedor | Situação |
-|---|---|---|---|---|---|---|---|
-| E5-01 | Réplicas de moedas (impressão) | Ø 25–30 mm (estimativa) | 100–120 | un | REU | produção própria | Absorvido (impressão) |
-| E5-02 | Filamento das moedas | – | ≈ 0,2–0,4 (estimativa a confirmar) | kg | CON | fornecedor de filamento | Pedido |
-| E5-03 | Bolsas de pano para moedas | – | 7 | un | REU | retrosaria/têxtil + confecção | Pedido |
-| E5-04 | Tabuleiros/fichas de classificação | – | 5–6 | conjunto | REU | gráfica | Pedido |
-| E5-05 | Cartas de bens/compra | baralho reutilizável | ≥ 1 baralho-mestre + exemplares por grupo | baralho | REU | gráfica | Pedido |
-| E5-06 | Caixa de descobertas, embalagens compartimentadas | caixa organizadora (ver TA-01) | a definir | un | REU | fornecedor de embalagem e arrumação | Pedido |
-| E5-07 | Ampliadores manuais (lupas) (opcional) | – | a definir | un | REU | papelaria / material didáctico | A decidir |
-| E5-08 | Moedas com relevo mais nítido ou ampliadas (pontual) | – | ver AC-06, AC-07 | – | CON | fornecedor de filamento | Pedido |
-| E5-09 | Identificação científica das moedas reproduzidas | – | por modelo | – | SRV | investigador / parceiro científico | A decidir |
+Fora do escopo actual por decisão do investigador de 21 de novembro de 2026 (redução de escopo). As nove linhas E5-01 a E5-09 de A6 (réplicas e filamento das moedas, bolsas, tabuleiros, cartas de compra, caixa, lupas, peças ampliadas e identificação científica) saíram desta lista e não se pedem.
+
 
 ### D.6 Estação 6 – Digital
 
@@ -138,22 +129,15 @@ Contagem: 224 linhas, das quais 117 no pedido, 19 suportadas pelo investigador, 
 | E6-03 | Carregadores, extensões, passa-cabos | conformidade eléctrica para uso público | por n.º de postos | un | REU | loja de informática / bricolage | Pedido |
 | E6-04 | Auscultadores (opcional) | áudio nunca exclusivo | a definir | un | REU | loja de informática | A decidir |
 | E6-05 | Licenças, alojamento, domínio, IA, repositório | – | por subscrição | licença | SRV | prestadores digitais | Absorvido |
-| E6-06 | Desenvolvimento dos jogos | – | 2 jogos | – | SRV | investigador | Absorvido |
+| E6-06 | Desenvolvimento do jogo de mosaicos | o jogo de construção da villa saiu do escopo em 21-11-2026 | 1 jogo | – | SRV | investigador | Absorvido |
 | E6-07 | Internet/hotspot | só se a aplicação não funcionar sem rede | por acção | serviço | SRV | operador de telecomunicações | A decidir |
 | E6-08 | Testes de dispositivos e acessibilidade (opcional) | – | por ciclo | serviço | SRV | investigador / parceiro | A decidir |
 | E6-09 | Computador do local (cenário sem financiamento) | – | 1 por acção | un | ESP | anfitrião | Anfitrião |
 
-### D.7 Estação 7 – Caça ao tesouro
+### D.7 Estação 7 – Caça ao tesouro (fora do escopo)
 
-| N.º | Item | Especificação | Quantidade | Unidade | Natureza | Tipo de fornecedor | Situação |
-|---|---|---|---|---|---|---|---|
-| E7-01 | Cartas coleccionáveis | gramagem, laminação, corte | 10–15 modelos; tiragem a definir | modelo / un | CON (ofertadas) | gráfica | Pedido |
-| E7-02 | Cartas de desafio e critérios de validação | versões em texto e pictograma | a definir | un | REU | gráfica | Pedido |
-| E7-03 | Cartões de validação sem telemóvel | – | a definir | un | CON | gráfica | Pedido |
-| E7-04 | Pastas/caixas de transporte dos cartões | – | a definir | un | REU | papelaria | Pedido |
-| E7-05 | Balcão/ponto de validação | – | 1 | un | ESP | anfitrião | Anfitrião |
-| E7-06 | Autorização de percurso, circulação e fotografia nas ruínas | – | por acção ou anual | autorização | ESP | entidade gestora das ruínas | A decidir |
-| E7-07 | Cartas com imagens dos quebra-cabeças | ligação à componente C | ver C-06 | – | – | – | ver C-06 |
+Fora do escopo actual por decisão do investigador de 21 de novembro de 2026 (redução de escopo). As sete linhas E7-01 a E7-07 de A6 (cartas coleccionáveis, cartas de desafio, cartões de validação, pastas, balcão de validação, autorização de percurso nas ruínas e cartas com as imagens dos quebra-cabeças) saíram desta lista e não se pedem.
+
 
 ### D.8 Estação 8 – Caderno de Actividades
 
@@ -219,7 +203,6 @@ Contagem: 224 linhas, das quais 117 no pedido, 19 suportadas pelo investigador, 
 | C-03 | Caixas ou bolsas por jogo | identificar o jogo e o tema | 10 | un | REU | fabricante de puzzles (caixa incluída) ou embalagem/retrosaria | A decidir |
 | C-04 | Peças de reserva / reimpressão | – | a definir | – | REU | fabricante de puzzles | A decidir |
 | C-05 | Versão com relevo/contorno táctil | ver AC | a definir | – | – | – | A decidir |
-| C-06 | Cartas da caça ao tesouro com imagens dos quebra-cabeças | podem integrar-se nas cartas de E7-01 | a definir | un | CON | gráfica | A decidir |
 | C-07 | Quebra-cabeças A0 de grupo (alternativa 1) | 841 × 1189 mm; placa rígida e corte; peças quadradas com 10–15 cm de lado (expectativa), cerca de 40–96 peças | 1 | un | REU | gráfica de grande formato com corte ou fabricante de puzzles | A decidir (alternativa) |
 | C-08 | Gabarito do A0 | base 1:1 com contornos e/ou imagem-guia; avaliar relevo | 1 | un | REU | gráfica de grande formato | A decidir |
 | C-09 | Acondicionamento do A0 | caixa plana, tubo ou saco | 1 | un | REU | fornecedor de embalagem | A decidir |
@@ -229,12 +212,12 @@ Contagem: 224 linhas, das quais 117 no pedido, 19 suportadas pelo investigador, 
 
 | N.º | Item | Especificação | Quantidade | Unidade | Natureza | Tipo de fornecedor | Situação |
 |---|---|---|---|---|---|---|---|
-| AC-01 | Guias curtos com texto e pictogramas | um por estação; plastificados; objectivo, sequência, conclusão, avisos | 9 + reservas | un | REU | gráfica | Pedido |
+| AC-01 | Guias curtos com texto e pictogramas | um por estação; plastificados; objectivo, sequência, conclusão, avisos | 7 + reservas | un | REU | gráfica | Pedido |
 | AC-02 | Pictogramas | desenho próprio ou conjunto de terceiros com licença compatível | 1 conjunto | – | SRV | investigador | Absorvido · A decidir (licença) |
 | AC-03 | Indicações em braille nos impressos (deficiência visual) | âmbito a avaliar (guias, passaporte, capa do livro, etiquetas); transcrição revista por leitor de braille | a definir | un | SRV | serviço de transcrição e impressão braille | A decidir |
 | AC-04 | Validação com pessoas cegas ou com baixa visão | parceria; não inferir acessibilidade | por piloto | sessão | ESP | associação da área da deficiência visual | A decidir |
 | AC-05 | Etiquetas em braille ou relevo nas caixas das peças tácteis | – | a definir | un | CON | serviço braille / gráfica | A decidir |
-| AC-06 | Lote piloto de peças tácteis | mosaicos, estratigrafia, moedas, bustos; poucas peças | a definir – «poucas peças» | kg de filamento | CON | fornecedor de filamento | Pedido |
+| AC-06 | Lote piloto de peças tácteis | mosaicos, estratigrafia, bustos; poucas peças | a definir – «poucas peças» | kg de filamento | CON | fornecedor de filamento | Pedido |
 | AC-07 | Peças ampliadas pontuais | registadas por finalidade | a definir | kg de filamento | CON | fornecedor de filamento | Pedido |
 | AC-08 | Fichas ampliadas para baixa visão | – | a definir | folha | CON | gráfica | A decidir |
 | AC-09 | Arrumação separada (série regular, reposição, tácteis) | divisórias ou caixas extra | a definir | un | REU | fornecedor de embalagem e arrumação | Pedido |
