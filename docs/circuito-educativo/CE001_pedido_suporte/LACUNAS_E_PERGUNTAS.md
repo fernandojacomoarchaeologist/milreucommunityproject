@@ -225,3 +225,9 @@ Análises: `analise/A4_BIBLIOGRAFIA_INFANCIA_PATRIMONIO_E_JOGOS.md`, `analise/A5
   - o **jogo de construção da villa** da Estação 6, que fica só com o jogo digital de mosaicos;
   - a **Estação 7, Caça ao tesouro nas ruínas**.
   Ficam as estações de escavação simulada, mosaicos, estratigrafia, montagem da villa e oficina digital (jogo de mosaicos), mais o caderno, o quiz, o passaporte, os quebra-cabeças, a componente para adolescentes e o livro. As imagens dos quebra-cabeças deixam de servir de pistas a uma caça ao tesouro. Os materiais, as despesas, os pedidos de orçamento, os guias e a candidatura têm de ser revistos em conformidade. · responsável
+- 2026-11-21 · (orçamentos) · Confirmado pelo responsável:
+  - **o PAME exige apenas 1 orçamento por despesa**;
+  - a sinalética fica com **7 conjuntos**, um por estação e complemento;
+  - os resíduos ficam pedidos à FAGAR, mas primeiro pergunta-se ao museu se o Município trata disso directamente.
+  · responsável
+- 2026-11-21 · DECISÃO · Prazo de resposta aos pedidos de orçamento: **26-11-2026**, e não 01-12. Actualizado nos 12 pedidos por empresa (MD e DOCX), nos 18 pedidos por tipo e no guia de envio. · responsável

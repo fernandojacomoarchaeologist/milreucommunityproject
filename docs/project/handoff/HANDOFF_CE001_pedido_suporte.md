@@ -120,3 +120,18 @@ a. Pedidos de orçamento por empresa, em nome do museu · b. Soma dos custos, ab
   - CE001 com 7 actividades e 12 fichas; anexo D com 207 linhas, 107 delas no pedido;
   - sem financiamento, cerca de 10 meses em sequência.
   A sessão principal retirou do quiz a menção a um «futuro jogo de construção», que contrariava a decisão. · responsável + agente + esta sessão
+- 2026-11-21 · NOVO · **12 pedidos de orçamento, um por empresa** (MD + DOCX), em `_private/orcamentos/por_empresa/`:
+  - Leroy Merlin Loulé (tipos 01, 05 e 06) e Gráfica Ossónoba (tipos 02, 03, 09 e 11), cada uma num só pedido;
+  - uma empresa por cada um dos restantes tipos: LojaPM, Amorim, Rosa Pomar, Totenart, Trefl (EN), ACAPO, Worten, Vidrossonoba, Auto Rent Cargo e FAGAR;
+  - transporte de passageiros sem empresa (a perguntar ao Município e à escola);
+  - 108 linhas PEDIDO cobertas, sem falhas nem duplicações;
+  - resposta para a78190@ualg.pt, até 01-12-2026.
+  Leroy, Amorim, Rosa Pomar e Totenart só têm formulário; na Worten o pedido é feito na loja. Nada foi enviado. · responsável + agente
+- 2026-11-21 · NOVO · `_private/orcamentos/por_empresa/COMO_ENVIAR.md` com o caminho de envio e uma alternativa para cada empresa sem e-mail directo:
+  - Leroy Merlin: na loja ou balcão PRO; em alternativa, Maxmat, Rajapack e Continente;
+  - Amorim: formulário e +351 22 747 5300; em alternativa, o sítio da Amorim Cork Insulation;
+  - Rosa Pomar: retrosaria@rosapomar.com; em alternativa, Bispos Tecidos;
+  - Totenart: empresa espanhola, formulário; em alternativa, uma papelaria indicada pelo museu;
+  - Worten: formulário Worten Business, com NIF do Município; em alternativa, a loja ou a PcComponentes.
+  Decisões registadas: 1 orçamento por despesa; sinalética com 7 conjuntos; perguntar ao museu sobre os resíduos. · responsável + esta sessão
+- 2026-11-21 · NOVO · Guias em **PDF** com o design system: Operacional com 81 páginas, Técnico com 76. Cada um tem capa com logótipo, índice com ligações, rodapé com o título e o número de página, e figuras com legenda. Gerador `guias/source/build_guias_pdf.py` (Markdown → HTML com os tokens v0.2 → Chrome headless), porque o Pages não exporta por automação. Os PDF ficam em `guias/_private/`. Prazo dos orçamentos alterado para 26-11-2026. · responsável + esta sessão
